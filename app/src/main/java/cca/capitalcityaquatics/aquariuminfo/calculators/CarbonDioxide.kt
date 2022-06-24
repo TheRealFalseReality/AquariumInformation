@@ -30,6 +30,7 @@ import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.pow
 import cca.capitalcityaquatics.aquariuminfo.R
+import cca.capitalcityaquatics.aquariuminfo.common.DataOutputLines3Inputs2
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
 @Composable
@@ -91,40 +92,18 @@ fun CarbonDioxideScreen (
                             .padding(top = 20.dp, bottom = 20.dp)
                     )
                 }
-                EditNumberField2Vert(
-                    label1 = R.string.field_label_ph,
-                    label2 = R.string.button_label_dkh,
+
+                DataOutputLines3Inputs2(
                     value1 = inputPH,
-                    value2 = inputDKH,
+                    label1 = R.string.field_label_ph,
                     onValueChange1 = { inputPH = it },
-                    onValueChange2 = { inputDKH = it }
-                )
-                Text(
-                    text = (stringResource(R.string.text_amount_ph_dkh, inputPH, inputDKH)),
-                    modifier = Modifier
-                        .align(Alignment.CenterHorizontally),
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold,
-                )
-                Spacer(
-                    modifier = Modifier
-                        .height(16.dp)
-                )
-                Text(
-                    text = stringResource(R.string.text_equal_to),
-                    modifier = Modifier
-                        .align(Alignment.CenterHorizontally),
-                )
-                Spacer(
-                    modifier = Modifier
-                        .height(16.dp)
-                )
-                Text(
-                    text = stringResource(id = R.string.text_amount_co2, co2),
-                    modifier = Modifier
-                        .align(Alignment.CenterHorizontally),
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold,
+                    value2 = inputDKH,
+                    label2 = R.string.button_label_dkh,
+                    onValueChange2 = { inputDKH = it },
+                    inputText = R.string.text_amount_ph_dkh,
+                    equalsText = R.string.text_equal_to,
+                    outputTextA = R.string.text_amount_co2,
+                    valueA = co2
                 )
             }
         }
