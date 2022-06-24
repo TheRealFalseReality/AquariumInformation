@@ -1,0 +1,94 @@
+<resources>
+    <string name="app_name">AquariumInfo</string>
+    <string name="text_title_welcome">Welcome to the Aquarium Information App!!</string>
+    <string name="text_body_welcome">This App is more than just a simple Unit Converter. It\'s tailored more towards Aquarists or anyone interested in water chemistry. Not only is there a simple Temperature Converter, but also a Salinity and Alkalinity (KH) converter. There’s also a CO₂ calculator for planted aquariums. Also included are Tank Volume Calculators, which will calculate a tank’s volume in gallons or liters and include its water weight. If you like this app, please rate it! There will be more to come including specific aquarium parameters, maintenance plans and more</string>
+    <string name="text_footer_welcome">Use the Bottom Bar to select your desired calculator</string>
+    <string name="text_title_info">Information</string>
+    <string name="text_email">AppInfo@CapitalCityAquatics.com</string>
+    <string name="text_website">CapitalCityAquatics.com</string>
+    <string name="text_label_email">Email:</string>
+    <string name="text_label_web">On the Web:</string>
+    <string name="text_info_body_errors">Please, inform me of ANY errors. I tried my best to build this app, but I am new to app programming.</string>
+    <string name="text_body_info">This app was created by Nicholas White from North Florida. I am not a programmer, but an enthusiastic aquarist. I went to school for biology and have been in the hobby for over 10 years. I got tired of having to search for converters every time I wanted to convert something like meq/L or salinity ppt, and wanted something all in one place. I wanted to solve the problem of not knowing the units that European products use and have quick access to other Aquarium related information in one place.</string>
+    <string name="text_empty" />
+    <string name="text_subtitle_salinity">ppt : SG : g/L : mS/cm</string>
+    <string name="text_header_salinity">Salinity Converter</string>
+    <string name="button_label_ppt">Parts Per Trillion (ppt)</string>
+    <string name="button_label_sg">Specific Gravity (SG)</string>
+    <string name="field_label_ppt">Enter Salinity (ppt)</string>
+    <string name="field_label_sg">Enter Specific Gravity (SG)</string>
+    <string name="text_equiv">is approximately equivalent to</string>
+    <string name="text_amount_ppt">%s ppt</string>
+    <string name="text_amount_sg">%s SG</string>
+    <string name="text_amount_density">%s g/L</string>
+    <string name="text_density">Density:</string>
+    <string name="text_temp_set">Testing Water Temp is set to 77 °F or 25 °C. Ability to set custom Testing Water Temp is coming!</string>
+    <string name="button_label_cel">Celsius</string>
+    <string name="button_label_fah">Fahrenheit</string>
+    <string name="text_title_temp">Temperature Converter</string>
+    <string name="field_label_fah">Enter Fahrenheit</string>
+    <string name="text_amount_celsius">%s °C</string>
+    <string name="text_equal_to">is equal to</string>
+    <string name="text_amount_fah">%s °F</string>
+    <string name="text_amount_kelvin">%s K</string>
+    <string name="text_subtitle_temp">°C : °F : K</string>
+    <string name="field_label_cel">Enter Celsius</string>
+    <string name="text_formula_celsius">C = (F - 32) * (5/9)</string>
+    <string name="text_formula_fahrenheit">F = (C * (9/5)) + 32</string>
+    <string name="text_formula_kelvin">K  =  C + 273.15</string>
+    <string name="text_title_co2">Carbon Dioxide Calculator</string>
+    <string name="text_subtitle_co2">pH + kH (dKH) = CO₂ (ppm)</string>
+    <string name="field_label_ph">Enter pH</string>
+    <string name="field_label_dkh">Enter dKH</string>
+    <string name="text_amount_co2">%s ppm CO₂</string>
+    <string name="text_co2_units">degrees of Alkalinity (dKH) and pH</string>
+    <string name="text_amount_ph_dkh">%s pH and %s dKH</string>
+    <string name="text_water_hardness_chart">Water Hardness Chart</string>
+    <string name="text_formula_alk">2.8 dKH = 50 ppm CaCO3 = 1 meq/L</string>
+    <string name="text_title_alk">Alkalinity (KH)</string>
+    <string name="text_subtitle_alk">dKH : ppm : meq/L</string>
+    <string name="formula_kelvin">K = C + 273.15</string>
+    <string name="button_label_dkh">dKH</string>
+    <string name="button_label_ppm">ppm</string>
+    <string name="button_label_meq">meq/L</string>
+    <string name="field_label_ppm">Enter PPM</string>
+    <string name="field_label_meq">Enter meq/L</string>
+    <string name="text_amount_dkh">%s dKH</string>
+    <string name="text_amount_ppm">%s ppm CaCO3</string>
+    <string name="text_amount_meq">%s meq/L</string>
+    <string name="text_title_rectangle">Rectangle</string>
+    <string name="text_subtitle_tank_vol">gal : L</string>
+    <string name="button_label_inches">Inches</string>
+    <string name="button_label_feet">Feet</string>
+    <string name="field_label_inches">Enter Inches</string>
+    <string name="field_label_feet">Enter Feet</string>
+    <string name="text_amount_height">H: %s</string>
+    <string name="text_amount_full_height">Height: %s</string>
+    <string name="text_amount_length">L: %s</string>
+    <string name="text_amount_width">W: %s</string>
+    <string name="text_amount_gallon">%s US gallons</string>
+    <string name="text_amount_liters">%s Liters</string>
+    <string name="text_amount_water_weight_lbs">%s lbs</string>
+    <string name="field_label_length">Enter Length</string>
+    <string name="Field_label_height">Enter Height</string>
+    <string name="Field_label_width">Enter Width</string>
+    <string name="text_water_weight">Water Weight:</string>
+    <string name="text_formula_vol_rec">V = LWH</string>
+    <string name="text_formula_vol_cylinder">V = πr²h</string>
+    <string name="text_formula_vol_cube">V = LLL</string>
+    <string name="text_label_version">"App Version: "</string>
+    <string name="text_title_cube">Cube</string>
+    <string name="text_amount_full_length">Length: %s</string>
+    <string name="field_label_side">Enter Length of Side</string>
+    <string name="text_title_cyl">Cylinder</string>
+    <string name="field_label_diameter">Enter Diameter</string>
+    <string name="text_amount_diameter">D: %s</string>
+    <string name="text_amount_full_diameter">Diameter: %s</string>
+    <string name="text_title_hex">Hexagonal</string>
+    <string name="text_formula_soon">Formula Coming Soon!</string>
+    <string name="text_amount_edge">Edge: %s</string>
+    <string name="field_label_edge">Enter Edge</string>
+    <string name="text_title_bow_front">Bow-Front</string>
+    <string name="field_label_full_width">Enter Full Width</string>
+    <string name="text_amount_full_width">FW: %s</string>
+</resources>
