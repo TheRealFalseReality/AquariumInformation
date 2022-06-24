@@ -116,87 +116,30 @@ fun TempScreen (
                     
                     when (selected){
                         R.string.button_label_cel -> {
-                            EditNumberFieldSingle(
-                                label = R.string.field_label_cel,
+                            DataOutputLines4(
                                 value = inputTemp,
-                                onValueChange = { inputTemp = it }
-                            )
-                            Text(
-                                text = (stringResource(R.string.text_amount_celsius, inputTemp)),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(R.string.text_equal_to),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(id = R.string.text_amount_fah, fahrenheit),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Text(
-                                text = stringResource(id = R.string.text_amount_kelvin, kelvinCel),
-                                modifier = Modifier
-                                    .padding(bottom = 16.dp)
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
+                                label = R.string.field_label_cel,
+                                onValueChange = { inputTemp = it },
+                                inputText = R.string.text_amount_celsius,
+                                equalsText = R.string.text_equal_to,
+                                outputTextA = R.string.text_amount_fah,
+                                valueA = fahrenheit,
+                                outputTextB =  R.string.text_amount_kelvin,
+                                valueB =  kelvinCel
                             )
                         }
                         R.string.button_label_fah -> {
-                            EditNumberFieldSingle(
-                                label = R.string.field_label_fah,
+
+                            DataOutputLines4(
                                 value = inputTemp,
-                                onValueChange = { inputTemp = it }
-                            )
-                            Text(
-                                text = (stringResource(R.string.text_amount_fah, inputTemp)),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(R.string.text_equal_to),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(id = R.string.text_amount_celsius, celsius),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Text(
-                                text = stringResource(id = R.string.text_amount_kelvin, kelvinFah),
-                                modifier = Modifier
-                                    .padding(bottom = 16.dp)
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
+                                label = R.string.field_label_fah,
+                                onValueChange = { inputTemp = it },
+                                inputText = R.string.text_amount_fah,
+                                equalsText = R.string.text_equal_to,
+                                outputTextA = R.string.text_amount_celsius,
+                                valueA = celsius,
+                                outputTextB = R.string.text_amount_kelvin,
+                                valueB = kelvinFah
                             )
                         }
                     }
@@ -211,11 +154,11 @@ fun TempScreen (
 @Composable
 fun FormulaFieldTemp (){
 
-    FormulaField(text = R.string.text_formula_fahrenheit)
+    FormulaString(text = R.string.text_formula_fahrenheit)
 
-    FormulaField(text = R.string.text_formula_celsius)
+    FormulaString(text = R.string.text_formula_celsius)
 
-    FormulaField(text = R.string.text_formula_kelvin)
+    FormulaString(text = R.string.text_formula_kelvin)
 
 }
 

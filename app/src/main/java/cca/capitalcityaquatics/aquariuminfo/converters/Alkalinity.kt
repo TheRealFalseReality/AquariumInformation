@@ -22,10 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.common.EditNumberFieldSingle
-import cca.capitalcityaquatics.aquariuminfo.common.GeneralComposeHeader
-import cca.capitalcityaquatics.aquariuminfo.common.GeneralComposeSubHeader
-import cca.capitalcityaquatics.aquariuminfo.common.RadioButtonText
+import cca.capitalcityaquatics.aquariuminfo.common.*
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -135,181 +132,64 @@ fun AlkalinityScreen(
 
                     when (selected) {
                         R.string.button_label_dkh -> {
-                            EditNumberFieldSingle(
-                                label = R.string.field_label_dkh,
+                            DataOutputLines4(
                                 value = inputAlk,
-                                onValueChange = { inputAlk = it }
-                            )
-                            Text(
-                                text = (stringResource(R.string.text_amount_dkh, inputAlk)),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(R.string.text_equal_to),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(id = R.string.text_amount_ppm, ppmDKH),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(id = R.string.text_amount_meq, meqDKH),
-                                modifier = Modifier
-                                    .padding(bottom = 16.dp)
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
+                                label = R.string.field_label_dkh,
+                                onValueChange = { inputAlk = it },
+                                inputText = R.string.text_amount_dkh,
+                                equalsText = R.string.text_equal_to,
+                                outputTextA = R.string.text_amount_ppm,
+                                valueA = ppmDKH,
+                                outputTextB = R.string.text_amount_meq,
+                                valueB = meqDKH
                             )
                         }
                         R.string.button_label_ppm -> {
-                            EditNumberFieldSingle(
-                                label = R.string.field_label_ppm,
+                            DataOutputLines4(
                                 value = inputAlk,
-                                onValueChange = { inputAlk = it }
-                            )
-                            Text(
-                                text = (stringResource(R.string.text_amount_ppm, inputAlk)),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(R.string.text_equal_to),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(id = R.string.text_amount_dkh, dkhPPM),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(id = R.string.text_amount_meq, meqPPM),
-                                modifier = Modifier
-                                    .padding(bottom = 16.dp)
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
+                                label = R.string.field_label_ppm,
+                                onValueChange = { inputAlk = it },
+                                inputText = R.string.text_amount_ppm,
+                                equalsText = R.string.text_equal_to,
+                                outputTextA = R.string.text_amount_dkh,
+                                valueA = dkhPPM,
+                                outputTextB = R.string.text_amount_meq,
+                                valueB = meqPPM
                             )
                         }
                         R.string.button_label_meq -> {
-                            EditNumberFieldSingle(
-                                label = R.string.field_label_meq,
+                            DataOutputLines4(
                                 value = inputAlk,
-                                onValueChange = { inputAlk = it }
-                            )
-                            Text(
-                                text = (stringResource(R.string.text_amount_meq, inputAlk)),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(R.string.text_equal_to),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(id = R.string.text_amount_dkh, dkhMEQ),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(id = R.string.text_amount_ppm, ppmMEQ),
-                                modifier = Modifier
-                                    .padding(bottom = 16.dp)
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
+                                label = R.string.field_label_meq,
+                                onValueChange = { inputAlk = it },
+                                inputText = R.string.text_amount_meq,
+                                equalsText = R.string.text_equal_to,
+                                outputTextA = R.string.text_amount_dkh,
+                                valueA = dkhMEQ,
+                                outputTextB =  R.string.text_amount_ppm,
+                                valueB = ppmMEQ
                             )
                         }
                     }
 
-                AlkalinityFormula()
+                FormulaString(text = R.string.text_formula_alk)
 
-                WaterHardnessChart()
+                Spacer(
+                    modifier = Modifier.height(16.dp)
+                )
 
-                }
+                ImageGeneral(
+                    image = R.drawable.screenshot_20220618_122436,
+                    contDesc = R.string.text_water_hardness_chart
+                )
+
+                Spacer(
+                    modifier = Modifier.height(16.dp)
+                )
+
             }
         }
     }
-
-
-@Composable
-fun AlkalinityFormula (){
-    Spacer(
-        modifier = Modifier.height(16.dp)
-    )
-    Text(
-        text = stringResource(R.string.text_formula_alk),
-        modifier = Modifier
-            .padding(bottom = 16.dp)
-            .fillMaxWidth()
-            .wrapContentWidth()
-    )
-}
-
-@Composable
-fun WaterHardnessChart (){
-    Spacer(
-        modifier = Modifier.height(16.dp)
-    )
-    Image(
-        painter = painterResource(id = R.drawable.screenshot_20220618_122436),
-        contentDescription = stringResource(
-            R.string.text_water_hardness_chart)
-    )
-    Spacer(
-        modifier = Modifier.height(16.dp)
-    )
 }
 
 @VisibleForTesting

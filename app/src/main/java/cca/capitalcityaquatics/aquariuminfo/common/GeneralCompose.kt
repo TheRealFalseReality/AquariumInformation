@@ -84,24 +84,6 @@ fun GeneralComposeFooter(
 }
 
 @Composable
-fun FormulaField (
-    modifier: Modifier = Modifier,
-    @StringRes text: Int,
-){
-    Spacer(
-        modifier = modifier.height(15.dp)
-    )
-    Text(
-        text = stringResource(id = text),
-        modifier = Modifier
-            .padding(bottom = 16.dp)
-            .fillMaxWidth()
-            .wrapContentWidth(),
-        fontSize = 16.sp,
-    )
-}
-
-@Composable
 fun FormulaString (
     modifier: Modifier = Modifier,
     @StringRes text: Int,
