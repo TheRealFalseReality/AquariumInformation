@@ -5,12 +5,24 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
+import cca.capitalcityaquatics.aquariuminfo.appscreens.HomeScreen
+import cca.capitalcityaquatics.aquariuminfo.appscreens.InfoScreen
+import cca.capitalcityaquatics.aquariuminfo.common.AdvertView
+import cca.capitalcityaquatics.aquariuminfo.converters.AlkalinityScreen
+import cca.capitalcityaquatics.aquariuminfo.converters.SalScreen
+import cca.capitalcityaquatics.aquariuminfo.navigation.BottomNavigationBar
+import cca.capitalcityaquatics.aquariuminfo.navigation.ConvertNavScreen
+import cca.capitalcityaquatics.aquariuminfo.navigation.TankVolumeNavScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +34,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    MainScreen()
                 }
             }
         }
@@ -30,14 +42,55 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun NavigationMain(
+    navController: NavHostController
+) {
+    NavHost(
+        navController = navController,
+        startDestination = NavigationItem.Home.route
+    ){
+        composable(NavigationItem.Home.route) {
+            HomeScreen()
+        }
+        composable(NavigationItem.Info.route){
+            InfoScreen()
+        }
+        composable(NavigationItem.Sal.route){
+            SalScreen()
+        }
+        composable(NavigationItem.Converts.route){
+            ConvertNavScreen()
+        }
+        composable(NavigationItem.TankVol.route){
+            TankVolumeNavScreen()
+        }
+        composable(NavigationItem.Alk.route){
+            AlkalinityScreen()
+        }
+    }
+}
+
+@Composable
+fun MainScreen(){
+    val navController = rememberNavController()
+    Scaffold(
+        topBar = {
+            AdvertView(navController)
+        },
+        bottomBar = {
+            BottomNavigationBar(navController)
+        }
+    ) {
+        NavigationMain(
+            navController = navController,
+        )
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     AquariumInfoTheme {
-        Greeting("Android")
+        MainScreen()
     }
 }
