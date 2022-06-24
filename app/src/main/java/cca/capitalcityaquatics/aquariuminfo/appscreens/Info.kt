@@ -63,7 +63,7 @@ fun InfoScreen(
                     textAlign = TextAlign.Center
                 )
 
-                Spacer(modifier = Modifier.height(66.dp))
+                Spacer(modifier = Modifier.height(26.dp))
                 
                 GeneralComposeFooter(
                     modifier = Modifier
