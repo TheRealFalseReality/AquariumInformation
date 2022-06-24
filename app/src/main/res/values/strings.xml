@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AquariumInfo</string>
+    <string name="app_name">Aquarium Information</string>
     <string name="text_title_welcome">Welcome to the Aquarium Information App!!</string>
     <string name="text_body_welcome">This App is more than just a simple Unit Converter. It\'s tailored more towards Aquarists or anyone interested in water chemistry. Not only is there a simple Temperature Converter, but also a Salinity and Alkalinity (KH) converter. There’s also a CO₂ calculator for planted aquariums. Also included are Tank Volume Calculators, which will calculate a tank’s volume in gallons or liters and include its water weight. If you like this app, please rate it! There will be more to come including specific aquarium parameters, maintenance plans and more</string>
     <string name="text_footer_welcome">Use the Bottom Bar to select your desired calculator</string>

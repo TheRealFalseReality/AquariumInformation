@@ -1,16 +1,14 @@
 package cca.capitalcityaquatics.aquariuminfo.appscreens
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -28,6 +26,8 @@ import cca.capitalcityaquatics.aquariuminfo.R
 fun InfoScreen(
     modifier: Modifier = Modifier,
 ){
+    val uriHandler = LocalUriHandler.current
+
     Column(
         modifier = modifier
             .padding(start = 24.dp, end = 24.dp, top = 24.dp),
@@ -76,7 +76,10 @@ fun InfoScreen(
                 
                 GeneralComposeFooter(
                     modifier = Modifier
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .clickable {
+                            uriHandler.openUri("mailto:AppInfo@CapitalCityAquatics.com")
+                                   },
                     textFooter = R.string.text_email,
                     textAlign = TextAlign.Center,
                     style = TextStyle(textDecoration = TextDecoration.Underline),
@@ -96,7 +99,10 @@ fun InfoScreen(
 
                 GeneralComposeFooter(
                     modifier = Modifier
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .clickable {
+                            uriHandler.openUri("https://www.capitalcityaquatics.com/")
+                                   },
                     textFooter = R.string.text_website,
                     textAlign = TextAlign.Center,
                     style = TextStyle(textDecoration = TextDecoration.Underline),
