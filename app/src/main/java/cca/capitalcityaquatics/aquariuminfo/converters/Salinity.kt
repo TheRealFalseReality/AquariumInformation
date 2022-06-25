@@ -68,7 +68,8 @@ fun SalScreen (
             ) {
                 Column(
                     modifier = Modifier
-                        .padding(14.dp)
+                        .padding(14.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
 
                     GeneralComposeHeader(textHeader = R.string.text_header_salinity)

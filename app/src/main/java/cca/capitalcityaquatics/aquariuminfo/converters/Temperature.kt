@@ -62,7 +62,8 @@ fun TempScreen (
         ) {
             Column(
                 modifier = Modifier
-                    .padding(14.dp)
+                    .padding(14.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 
                 GeneralComposeHeader(textHeader = R.string.text_title_temp)
