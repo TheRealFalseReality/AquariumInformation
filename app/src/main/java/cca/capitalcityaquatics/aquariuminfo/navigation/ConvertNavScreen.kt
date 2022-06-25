@@ -73,8 +73,8 @@ fun ConvertBottomNavBar(
                         painterResource(id = item.icon),
                         contentDescription = item.title,
                         modifier = Modifier
-                            .padding(1.dp)
-                            .height(26.dp)
+                            .padding(1.dp, bottom = 2.dp)
+                            .height(25.dp)
                             .width(86.dp),
                     )
                 },

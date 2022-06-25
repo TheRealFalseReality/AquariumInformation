@@ -111,9 +111,7 @@ internal fun calculateCarbonDioxide (
     pH: Double,
     dKH: Double
 ): String {
-    val base = 10
-    val exponent = (6.37 - pH)
-    val phSolution = base.toDouble().pow(exponent)
+    val phSolution = 10.toDouble().pow(6.37 - pH)
     val carbonDioxide = (12.839 * dKH) * phSolution
 
     val df = DecimalFormat("#.##")

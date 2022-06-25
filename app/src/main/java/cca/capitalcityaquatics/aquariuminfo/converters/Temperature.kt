@@ -64,92 +64,56 @@ fun TempScreen (
                     .padding(14.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                
+
                 GeneralComposeHeader(textHeader = R.string.text_title_temp)
-                
+
                 GeneralComposeSubHeader(textHeader = R.string.text_subtitle_temp)
 
-                Card(
-                    modifier = Modifier
-                        .padding(16.dp)
-                        .fillMaxWidth()
-                        .border(
-                            BorderStroke(3.dp, MaterialTheme.colors.primaryVariant),
-                            shape = RoundedCornerShape(2.dp)
+                    RadioButtonCard2(
+                        text1 = R.string.button_label_cel,
+                        text2 = R.string.button_label_fah,
+                        onClick1 = { selected = R.string.button_label_cel },
+                        onClick2 = { selected = R.string.button_label_fah },
+                        selected = selected,
+                    )
+
+                when (selected) {
+                    R.string.button_label_cel -> {
+                        DataOutputLines4(
+                            value = inputTemp,
+                            label = R.string.field_label_cel,
+                            onValueChange = { inputTemp = it },
+                            inputText = R.string.text_amount_celsius,
+                            equalsText = R.string.text_equal_to,
+                            outputTextA = R.string.text_amount_fah,
+                            valueA = fahrenheit,
+                            outputTextB = R.string.text_amount_kelvin,
+                            valueB = kelvinCel
                         )
-                        .heightIn(50.dp),
-                    backgroundColor = MaterialTheme.colors.background,
-                ) {
-                    //Radio Group
-                    Row (
-                        modifier = Modifier
-                            .fillMaxWidth()
-                    ){
-                        RadioButton(
-                            selected = selected == R.string.button_label_cel,
-                            onClick = { selected = R.string.button_label_cel }
-                        )
-                        RadioButtonText(
-                            text = R.string.button_label_cel,
-                            modifier = Modifier
-                                .weight(1f)
-                                .padding(top = 10.dp)
-                                .clickable(
-                                    onClick = { selected = R.string.button_label_cel }
-                                )
-                        )
-                        RadioButton(
-                            selected = selected == R.string.button_label_fah,
-                            onClick = { selected = R.string.button_label_fah }
-                        )
-                        RadioButtonText(
-                            text = R.string.button_label_fah,
-                            modifier = Modifier
-                                .weight(1f)
-                                .padding(top = 10.dp)
-                                .clickable(
-                                    onClick = { selected = R.string.button_label_fah }
-                                )
+                    }
+                    R.string.button_label_fah -> {
+
+                        DataOutputLines4(
+                            value = inputTemp,
+                            label = R.string.field_label_fah,
+                            onValueChange = { inputTemp = it },
+                            inputText = R.string.text_amount_fah,
+                            equalsText = R.string.text_equal_to,
+                            outputTextA = R.string.text_amount_celsius,
+                            valueA = celsius,
+                            outputTextB = R.string.text_amount_kelvin,
+                            valueB = kelvinFah
                         )
                     }
                 }
-                    
-                    when (selected){
-                        R.string.button_label_cel -> {
-                            DataOutputLines4(
-                                value = inputTemp,
-                                label = R.string.field_label_cel,
-                                onValueChange = { inputTemp = it },
-                                inputText = R.string.text_amount_celsius,
-                                equalsText = R.string.text_equal_to,
-                                outputTextA = R.string.text_amount_fah,
-                                valueA = fahrenheit,
-                                outputTextB =  R.string.text_amount_kelvin,
-                                valueB =  kelvinCel
-                            )
-                        }
-                        R.string.button_label_fah -> {
-
-                            DataOutputLines4(
-                                value = inputTemp,
-                                label = R.string.field_label_fah,
-                                onValueChange = { inputTemp = it },
-                                inputText = R.string.text_amount_fah,
-                                equalsText = R.string.text_equal_to,
-                                outputTextA = R.string.text_amount_celsius,
-                                valueA = celsius,
-                                outputTextB = R.string.text_amount_kelvin,
-                                valueB = kelvinFah
-                            )
-                        }
-                    }
 
                 FormulaFieldTemp()
 
-                }
             }
         }
     }
+}
+
 
 @Composable
 fun FormulaFieldTemp (){
