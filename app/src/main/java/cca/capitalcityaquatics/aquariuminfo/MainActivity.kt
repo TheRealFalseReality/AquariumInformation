@@ -14,7 +14,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 import cca.capitalcityaquatics.aquariuminfo.appscreens.HomeScreen
 import cca.capitalcityaquatics.aquariuminfo.appscreens.InfoScreen
 import cca.capitalcityaquatics.aquariuminfo.common.AdvertView
@@ -23,6 +22,7 @@ import cca.capitalcityaquatics.aquariuminfo.converters.SalScreen
 import cca.capitalcityaquatics.aquariuminfo.navigation.BottomNavigationBar
 import cca.capitalcityaquatics.aquariuminfo.navigation.ConvertNavScreen
 import cca.capitalcityaquatics.aquariuminfo.navigation.TankVolumeNavScreen
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

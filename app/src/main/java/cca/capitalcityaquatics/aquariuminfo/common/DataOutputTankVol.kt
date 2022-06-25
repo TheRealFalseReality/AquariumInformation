@@ -18,14 +18,14 @@ import cca.capitalcityaquatics.aquariuminfo.tankVolume.TankVolBFScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
 @Composable
-fun DataOutputTankVol (
+fun DataOutputTankVol(
     valueA: String,
     valueB: String,
     valueC: String,
 ) {
-    Column (
+    Column(
         horizontalAlignment = Alignment.CenterHorizontally
-            ){
+    ) {
         Text(
             text = (stringResource(id = R.string.text_amount_gallon, valueA)),
             modifier = Modifier
@@ -67,7 +67,7 @@ fun DataOutputTankVol (
 @Preview(showBackground = true)
 @Composable
 fun BFPreview3() {
-    AquariumInfoTheme  {
+    AquariumInfoTheme {
         TankVolBFScreen()
     }
 }
