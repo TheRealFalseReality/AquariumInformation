@@ -9,10 +9,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cca.capitalcityaquatics.aquariuminfo.BuildConfig
 import cca.capitalcityaquatics.aquariuminfo.R
+import cca.capitalcityaquatics.aquariuminfo.converters.SalScreen
+import cca.capitalcityaquatics.aquariuminfo.converters.TempScreen
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
 @Composable
 fun GeneralComposeHeader (
@@ -23,13 +27,12 @@ fun GeneralComposeHeader (
     Text(
         text = stringResource(id = textHeader),
         modifier = modifier
-            .fillMaxWidth()
-            .padding(top = 4.dp, bottom = 4.dp),
+            .fillMaxWidth(),
         textAlign = TextAlign.Center,
         fontWeight = FontWeight.ExtraBold,
         fontSize = 26.sp,
     )
-    Spacer(modifier = Modifier.height(12.dp))
+    Spacer(modifier = Modifier.height(4.dp))
 }
 
 @Composable
@@ -41,13 +44,12 @@ fun GeneralComposeSubHeader (
     Text(
         text = stringResource(id = textHeader),
         modifier = modifier
-            .fillMaxWidth()
-            .padding(top = 4.dp, bottom = 12.dp),
+            .fillMaxWidth(),
         textAlign = TextAlign.Center,
         fontWeight = FontWeight.Bold,
         fontSize = 20.sp,
     )
-    Spacer(modifier = Modifier.height(12.dp))
+    Spacer(modifier = Modifier.height(4.dp))
 }
 
 @Composable
@@ -84,21 +86,43 @@ fun GeneralComposeFooter(
 }
 
 @Composable
+fun FormulaStringNT (
+    modifier: Modifier = Modifier,
+    @StringRes text: Int,
+){
+    Spacer(
+        modifier = Modifier.height(10.dp)
+    )
+    Text(
+        text = stringResource(id = text),
+        modifier = modifier
+            .fillMaxWidth()
+            .wrapContentWidth(),
+        fontSize = 16.sp,
+    )
+}
+
+@Composable
 fun FormulaString (
     modifier: Modifier = Modifier,
     @StringRes text: Int,
 ){
     Spacer(
-        modifier = Modifier.height(6.dp)
+        modifier = Modifier.height(10.dp)
     )
+    Text(
+        text = stringResource(R.string.text_formula),
+        fontSize = 14.sp,
+    )
+    Spacer(modifier = Modifier.height(2.dp))
     Text(
         text = stringResource(id = text),
         modifier = modifier
-            .padding(top = 8.dp, bottom = 16.dp)
             .fillMaxWidth()
             .wrapContentWidth(),
         fontSize = 16.sp,
     )
+
 }
 
 @Composable
@@ -115,5 +139,13 @@ fun AppInfo (
         Text(
             text = version,
         )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SalPreview23() {
+    AquariumInfoTheme  {
+        TempScreen()
     }
 }

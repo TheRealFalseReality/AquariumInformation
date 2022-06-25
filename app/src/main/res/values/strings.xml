@@ -91,4 +91,6 @@
     <string name="text_title_bow_front">Bow-Front</string>
     <string name="field_label_full_width">Enter Full Width</string>
     <string name="text_amount_full_width">FW: %s</string>
+    <string name="text_formula">Formula:</string>
+    <string name="text_formulas">Formulas:</string>
 </resources>
