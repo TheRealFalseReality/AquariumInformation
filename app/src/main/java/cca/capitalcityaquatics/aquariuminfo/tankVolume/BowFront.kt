@@ -64,7 +64,7 @@ fun TankVolBFScreen (
     Column(
         modifier = modifier
             .padding(start = 24.dp, end = 24.dp, top = 24.dp),
-        verticalArrangement = Arrangement.Top
+        verticalArrangement = Arrangement.Top,
     ) {
         Card(
             backgroundColor = MaterialTheme.colors.primary,
@@ -80,7 +80,8 @@ fun TankVolBFScreen (
         ) {
             Column(
                 modifier = Modifier
-                    .padding(14.dp)
+                    .padding(14.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
 
                 GeneralComposeHeader(textHeader = R.string.text_title_bow_front)
@@ -147,135 +148,35 @@ fun TankVolBFScreen (
                     onValueChange4 = { inputFullWidth = it }
                 )
 
-                Row {
-                    Text(
-                        text = (stringResource(R.string.text_amount_length, length)),
-                        modifier = Modifier
-                            .padding(start = 2.dp, top = 4.dp)
-                            .weight(1f),
-                        fontSize = 20.sp,
-                        textAlign = TextAlign.Center,
-                        fontWeight = FontWeight.Bold,
-                    )
-                    Text(
-                        text = (stringResource(R.string.text_amount_width, width)),
-                        modifier = Modifier
-                            .padding(end = 2.dp, top = 4.dp)
-                            .weight(1f),
-                        textAlign = TextAlign.Center,
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold,
-                    )
-                }
-                Row {
-                    Text(
-                        text = (stringResource(R.string.text_amount_height, height)),
-                        modifier = Modifier
-                            .padding(start = 2.dp, top = 4.dp)
-                            .weight(1f),
-                        fontSize = 20.sp,
-                        textAlign = TextAlign.Center,
-                        fontWeight = FontWeight.Bold,
-                    )
-                    Text(
-                        text = (stringResource(R.string.text_amount_full_width, fullWidth)),
-                        modifier = Modifier
-                            .padding(end = 2.dp, top = 4.dp)
-                            .weight(1f),
-                        textAlign = TextAlign.Center,
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold,
-                    )
-                }
-                Spacer(
-                    modifier = Modifier
-                        .height(16.dp)
+                InputUnitsDisplay4(
+                    textA = R.string.text_amount_length,
+                    textB = R.string.text_amount_width,
+                    textC = R.string.text_amount_height,
+                    textD = R.string.text_amount_full_width,
+                    valueA = length,
+                    valueB = width,
+                    valueC = height,
+                    valueD =fullWidth,
                 )
-                Text(
-                    text = stringResource(R.string.text_equal_to),
-                    modifier = Modifier
-                        .align(Alignment.CenterHorizontally),
-                )
-                Spacer(
-                    modifier = Modifier
-                        .height(16.dp)
-                )
+
                     when (selected){
                         R.string.button_label_inches -> {
-                            Text(
-                                text = stringResource(R.string.text_amount_gallon, volGallon ),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(R.string.text_amount_liters, volLiter ),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(R.string.text_water_weight),
-                                modifier = Modifier
-                                    .padding(2.dp)
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 15.sp,
-                            )
-                            Text(
-                                text = stringResource(R.string.text_amount_water_weight_lbs, waterWeight ),
-                                modifier = Modifier
-                                    .padding(bottom = 6.dp)
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 15.sp,
+
+                            DataOutputTankVol(
+                                valueA = volGallon,
+                                valueB = volLiter,
+                                valueC = waterWeight
                             )
                         }
+
                         R.string.button_label_feet -> {
-                            Text(
-                                text = stringResource(R.string.text_amount_gallon, volGallonFT ),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
+
+                            DataOutputTankVol(
+                                valueA = volGallonFT,
+                                valueB = volLiterFT,
+                                valueC = waterWeightFT
                             )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(R.string.text_amount_liters, volLiterFT ),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(R.string.text_water_weight),
-                                modifier = Modifier
-                                    .padding(2.dp)
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 15.sp,
-                            )
-                            Text(
-                                text = stringResource(R.string.text_amount_water_weight_lbs, waterWeightFT ),
-                                modifier = Modifier
-                                    .padding(bottom = 6.dp)
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 15.sp,
-                            )
+
                         }
                     }
 
