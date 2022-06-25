@@ -122,109 +122,31 @@ fun SalScreen (
 
                     when (selected) {
                         R.string.button_label_ppt -> {
-                            EditNumberFieldSingle(
+
+                            DataOutputLines4Salinity(
+                                value = inputSal,
                                 label = R.string.field_label_ppt,
-                                value = inputSal,
-                                onValueChange = { inputSal = it }
-                            )
-                            Text(
-                                text = (stringResource(R.string.text_amount_ppt, inputSal)),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(R.string.text_equiv),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(id = R.string.text_amount_sg, sg),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                        }
-                        R.string.button_label_sg -> {
-                            EditNumberFieldSingle(
-                                label = R.string.field_label_sg,
-                                value = inputSal,
                                 onValueChange = { inputSal = it },
-                            )
-                            Text(
-                                text = (stringResource(R.string.text_amount_sg, inputSal)),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(R.string.text_equiv),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                            )
-                            Spacer(
-                                modifier = Modifier
-                                    .height(16.dp)
-                            )
-                            Text(
-                                text = stringResource(id = R.string.text_amount_ppt, ppt),
-                                modifier = Modifier
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 20.sp,
-                                fontWeight = FontWeight.Bold,
-                            )
-                        }
-                    }
-
-                    Spacer(
-                        modifier = Modifier
-                            .height(16.dp)
-                    )
-                    Text(
-                        text = stringResource(R.string.text_density),
-                        modifier = Modifier
-                            .align(Alignment.CenterHorizontally),
-                        fontSize = 15.sp,
-                    )
-
-                    when (selected) {
-                        R.string.button_label_ppt -> {
-                            Text(
-                                text = stringResource(
-                                    id = R.string.text_amount_density,
-                                    salDensityPPT
-                                ),
-                                modifier = Modifier
-                                    .padding(bottom = 4.dp)
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 15.sp,
+                                inputText = R.string.text_amount_ppt,
+                                equalsText = R.string.text_equiv,
+                                outputTextA = R.string.text_amount_sg,
+                                valueA = sg,
+                                outputTextB = R.string.text_amount_density,
+                                valueB = salDensityPPT
                             )
                         }
                         R.string.button_label_sg -> {
-                            Text(
-                                text = stringResource(
-                                    id = R.string.text_amount_density,
-                                    salDensitySG
-                                ),
-                                modifier = Modifier
-                                    .padding(bottom = 4.dp)
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 15.sp,
+
+                            DataOutputLines4Salinity(
+                                value = inputSal,
+                                label = R.string.field_label_sg,
+                                onValueChange = { inputSal = it },
+                                inputText = R.string.text_amount_sg,
+                                equalsText = R.string.text_equiv,
+                                outputTextA = R.string.text_amount_ppt,
+                                valueA = ppt,
+                                outputTextB = R.string.text_amount_density,
+                                valueB = salDensitySG
                             )
                         }
                     }

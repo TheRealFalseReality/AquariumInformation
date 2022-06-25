@@ -14,11 +14,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.calculators.CarbonDioxideScreen
+import cca.capitalcityaquatics.aquariuminfo.converters.SalScreen
 import cca.capitalcityaquatics.aquariuminfo.converters.TempScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
-//Alkalinity
 @Composable
 fun DataOutputLines4 (
     value: String,
@@ -129,7 +130,70 @@ fun DataOutputLines3Inputs2 (
         )
     }
 }
-
+@Composable
+fun DataOutputLines4Salinity(
+    value: String,
+    @StringRes label: Int,
+    onValueChange: (String) -> Unit,
+    @StringRes inputText: Int,
+    @StringRes equalsText: Int,
+    @StringRes outputTextA: Int,
+    valueA: String,
+    @StringRes outputTextB: Int,
+    valueB: String
+){
+    Column {
+        EditNumberFieldSingle(
+            label = label,
+            value = value,
+            onValueChange = onValueChange
+        )
+        Text(
+            text = (stringResource(id =  inputText, value)),
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally),
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold,
+        )
+        Spacer(
+            modifier = Modifier
+                .height(16.dp)
+        )
+        Text(
+            text = stringResource(id = equalsText),
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally),
+        )
+        Spacer(
+            modifier = Modifier
+                .height(16.dp)
+        )
+        Text(
+            text = stringResource(id = outputTextA, valueA),
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally),
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold,
+        )
+        Spacer(
+            modifier = Modifier
+                .height(16.dp)
+        )
+        Text(
+            text = stringResource(R.string.text_density),
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally),
+            fontSize = 15.sp,
+        )
+        Text(
+            text = stringResource(id = outputTextB, valueB),
+            modifier = Modifier
+                .padding(bottom = 16.dp)
+                .align(Alignment.CenterHorizontally),
+            fontSize = 18.sp,
+        )
+    }
+}
 @Preview(showBackground = true)
 @Composable
 fun CO2Preview2() {
@@ -143,5 +207,13 @@ fun CO2Preview2() {
 fun TempPreview3() {
     AquariumInfoTheme   {
         TempScreen()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SalPreview2() {
+    AquariumInfoTheme  {
+        SalScreen()
     }
 }
