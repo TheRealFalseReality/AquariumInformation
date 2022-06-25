@@ -66,7 +66,7 @@ class TankVolCubeCalculatorTest{
         assertEquals(expectedWW, actualWW)
     }
     @Test
-    fun calculate_3_in (){
+    fun calculate_3_ft (){
         val l = 3.0
 
         val expectedGAL = "201.97"

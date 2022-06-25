@@ -69,7 +69,7 @@ fun TempScreen (
 
                 GeneralComposeSubHeader(textHeader = R.string.text_subtitle_temp)
 
-                    RadioButtonCard2(
+                    RadioButtonCardTemp(
                         text1 = R.string.button_label_cel,
                         text2 = R.string.button_label_fah,
                         onClick1 = { selected = R.string.button_label_cel },

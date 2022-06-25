@@ -76,50 +76,11 @@ fun TankVolCylScreen (
 
                 GeneralComposeSubHeader(textHeader = R.string.text_subtitle_tank_vol)
 
-                Card(
-                    modifier = Modifier
-                        .padding(16.dp)
-                        .fillMaxWidth()
-                        .border(
-                            BorderStroke(3.dp, MaterialTheme.colors.primaryVariant),
-                            shape = RoundedCornerShape(2.dp)
-                        )
-                        .heightIn(50.dp),
-                    backgroundColor = MaterialTheme.colors.background,
-                ) {
-                    //Radio Group
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                    ) {
-                        RadioButton(
-                            selected = selected == R.string.button_label_inches,
-                            onClick = { selected = R.string.button_label_inches }
-                        )
-                        RadioButtonText(
-                            text = R.string.button_label_inches,
-                            modifier = Modifier
-                                .weight(1f)
-                                .padding(top = 10.dp)
-                                .clickable(
-                                    onClick = { selected = R.string.button_label_inches }
-                                )
-                        )
-                        RadioButton(
-                            selected = selected == R.string.button_label_feet,
-                            onClick = { selected = R.string.button_label_feet }
-                        )
-                        RadioButtonText(
-                            text = R.string.button_label_feet,
-                            modifier = Modifier
-                                .weight(1f)
-                                .padding(top = 10.dp)
-                                .clickable(
-                                    onClick = { selected = R.string.button_label_feet }
-                                )
-                        )
-                    }
-                }
+                RadioButtonCardTankVol(
+                    onClick1 = { selected = R.string.button_label_inches },
+                    onClick2 = { selected = R.string.button_label_feet },
+                    selected = selected
+                )
 
                 EditNumberField2Hor(
                     label1 = R.string.field_label_diameter,

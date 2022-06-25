@@ -31,17 +31,18 @@ fun GeneralComposeHeader (
     modifier: Modifier = Modifier,
     @StringRes textHeader: Int,
 ) {
-                Spacer(modifier = Modifier.height(4.dp))
-                Text(
-                    text = stringResource(id = textHeader),
-                    modifier = modifier
-                        .fillMaxWidth(),
-                    textAlign = TextAlign.Center,
-                    fontWeight = FontWeight.ExtraBold,
-                    fontSize = 26.sp,
-                )
-                Spacer(modifier = Modifier.height(4.dp))
-            }
+    Spacer(modifier = Modifier.height(4.dp))
+    Text(
+        text = stringResource(id = textHeader),
+        modifier = modifier
+            .fillMaxWidth(),
+        textAlign = TextAlign.Center,
+        fontWeight = FontWeight.ExtraBold,
+        fontSize = 26.sp,
+    )
+    Spacer(modifier = Modifier.height(4.dp))
+}
+
 
 @Composable
 fun GeneralComposeSubHeader (

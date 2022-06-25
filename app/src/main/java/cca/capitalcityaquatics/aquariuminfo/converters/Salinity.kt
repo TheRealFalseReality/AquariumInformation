@@ -72,50 +72,13 @@ fun SalScreen (
 
                     GeneralComposeSubHeader(textHeader = R.string.text_subtitle_salinity)
 
-                    Card(
-                        modifier = Modifier
-                            .padding(16.dp)
-                            .fillMaxWidth()
-                            .border(
-                                BorderStroke(3.dp, MaterialTheme.colors.primaryVariant),
-                                shape = RoundedCornerShape(2.dp)
-                            )
-                            .heightIn(50.dp),
-                        backgroundColor = MaterialTheme.colors.background,
-                    ) {
-                        //Radio Group
-                        Row (
-                            modifier = Modifier
-                                .fillMaxWidth()
-                        ){
-                            RadioButton(
-                                selected = selected == R.string.button_label_ppt,
-                                onClick = { selected = R.string.button_label_ppt }
-                            )
-                            RadioButtonText(
-                                text = R.string.button_label_ppt,
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .padding(top = 1.dp)
-                                    .clickable(
-                                        onClick = { selected = R.string.button_label_ppt }
-                                    )
-                            )
-                            RadioButton(
-                                selected = selected == R.string.button_label_sg,
-                                onClick = { selected = R.string.button_label_sg }
-                            )
-                            RadioButtonText(
-                                text = R.string.button_label_sg,
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .padding(top = 1.dp)
-                                    .clickable(
-                                        onClick = { selected = R.string.button_label_sg }
-                                    )
-                            )
-                        }
-                    }
+                    RadioButtonCardSal(
+                        text1 = R.string.button_label_ppt,
+                        text2 = R.string.button_label_sg,
+                        onClick1 = { selected = R.string.button_label_ppt },
+                        onClick2 = { selected = R.string.button_label_sg },
+                        selected = selected
+                    )
 
                     when (selected) {
                         R.string.button_label_ppt -> {

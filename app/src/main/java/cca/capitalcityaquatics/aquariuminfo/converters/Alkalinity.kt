@@ -68,63 +68,15 @@ fun AlkalinityScreen(
 
                 GeneralComposeSubHeader(textHeader = R.string.text_subtitle_alk)
 
-                Card(
-                    modifier = Modifier
-                        .padding(16.dp)
-                        .fillMaxWidth()
-                        .border(
-                            BorderStroke(3.dp, MaterialTheme.colors.primaryVariant),
-                            shape = RoundedCornerShape(2.dp)
-                        )
-                        .heightIn(50.dp),
-                    backgroundColor = MaterialTheme.colors.background,
-                ) {
-                    //Radio Group
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                    ) {
-                        RadioButton(
-                            selected = selected == R.string.button_label_dkh,
-                            onClick = { selected = R.string.button_label_dkh }
-                        )
-                        RadioButtonText(
-                            text = R.string.button_label_dkh,
-                            modifier = Modifier
-                                .weight(1f)
-                                .padding(top = 10.dp)
-                                .clickable(
-                                    onClick = { selected = R.string.button_label_dkh }
-                                )
-                        )
-                        RadioButton(
-                            selected = selected == R.string.button_label_ppm,
-                            onClick = { selected = R.string.button_label_ppm }
-                        )
-                        RadioButtonText(
-                            text = R.string.button_label_ppm,
-                            modifier = Modifier
-                                .weight(1f)
-                                .padding(top = 10.dp)
-                                .clickable(
-                                    onClick = { selected = R.string.button_label_ppm }
-                                )
-                        )
-                        RadioButton(
-                            selected = selected == R.string.button_label_meq,
-                            onClick = { selected = R.string.button_label_meq }
-                        )
-                        RadioButtonText(
-                            text = R.string.button_label_meq,
-                            modifier = Modifier
-                                .weight(1f)
-                                .padding(top = 10.dp)
-                                .clickable(
-                                    onClick = { selected = R.string.button_label_meq }
-                                )
-                        )
-                    }
-                }
+                RadioButtonCard3(
+                    text1 = R.string.button_label_dkh,
+                    text2 = R.string.button_label_ppm,
+                    text3 = R.string.button_label_meq,
+                    onClick1 = { selected = R.string.button_label_dkh },
+                    onClick2 = { selected = R.string.button_label_ppm },
+                    onClick3 = { selected = R.string.button_label_meq },
+                    selected = selected
+                )
 
                     when (selected) {
                         R.string.button_label_dkh -> {
