@@ -97,4 +97,6 @@
     <string name="text_show_less">Show less</string>
     <string name="text_more_info">Click for More Information</string>
     <string name="text_test_temp">Testing Temperature</string>
+    <string name="text_units_ft">ft.</string>
+    <string name="text_units_inches">in.</string>
 </resources>

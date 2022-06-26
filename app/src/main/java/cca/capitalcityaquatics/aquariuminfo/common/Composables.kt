@@ -15,9 +15,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import cca.capitalcityaquatics.aquariuminfo.converters.SalScreen
 import cca.capitalcityaquatics.aquariuminfo.R
+import cca.capitalcityaquatics.aquariuminfo.converters.SalScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
+
+@Composable
+fun InfoCard (){
+
+}
 
 @Composable
 fun InfoCardContentSubTitle(
@@ -165,8 +170,6 @@ fun InfoCardContent3(
                     text = stringResource(id =title),
                     style = MaterialTheme.typography.body2.copy(
                         fontWeight = FontWeight.ExtraBold),
-                    modifier = Modifier
-                        .clickable { expanded = !expanded }
                 )
                 if (expanded){
                     Spacer(modifier = Modifier.height(10.dp))
