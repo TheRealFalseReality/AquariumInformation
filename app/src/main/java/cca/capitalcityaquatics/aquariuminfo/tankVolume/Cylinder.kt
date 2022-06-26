@@ -1,21 +1,21 @@
 package cca.capitalcityaquatics.aquariuminfo.tankVolume
 
+import androidx.annotation.StringRes
 import androidx.annotation.VisibleForTesting
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.material.*
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
@@ -41,15 +41,22 @@ fun TankVolCylScreen (
         mutableStateOf(R.string.button_label_inches)
     }
 
+    var halfCyl by remember {
+        mutableStateOf(false)
+    }
+    var quartCyl by remember {
+        mutableStateOf(false)
+    }
+
     val diameter = inputDiameter.toDoubleOrNull() ?: 0.0
     val height = inputHeight.toDoubleOrNull() ?: 0.0
 
-    val volGallon = calculateVolGallonCyl(diameter,height)
-    val volLiter = calculateVolLiterCyl(diameter,height)
-    val waterWeight = calculateWaterWeightCyl(diameter,height)
-    val volGallonFT = calculateVolGallonFTCyl(diameter,height)
-    val volLiterFT = calculateVolLiterFTCyl(diameter,height)
-    val waterWeightFT = calculateWaterWeightFTCyl(diameter,height)
+    val volGallon = calculateVolGallonCyl(diameter,height, halfCyl, quartCyl)
+    val volLiter = calculateVolLiterCyl(diameter,height, halfCyl, quartCyl)
+    val waterWeight = calculateWaterWeightCyl(diameter,height, halfCyl, quartCyl)
+    val volGallonFT = calculateVolGallonFTCyl(diameter,height, halfCyl, quartCyl)
+    val volLiterFT = calculateVolLiterFTCyl(diameter,height, halfCyl, quartCyl)
+    val waterWeightFT = calculateWaterWeightFTCyl(diameter,height, halfCyl, quartCyl)
 
     Column(
         modifier = modifier
@@ -83,6 +90,15 @@ fun TankVolCylScreen (
                     onClick2 = { selected = R.string.button_label_feet },
                     selected = selected
                 )
+                
+                InfoCardContentSwitch2(
+                    halfCyl = halfCyl,
+                    quartCyl = quartCyl,
+                    onHalfChanged = { halfCyl = it },
+                    onQuartChanged = { quartCyl = it }
+                )
+                
+                Spacer(modifier = Modifier.height(16.dp))
 
                 EditNumberField2Hor(
                     label1 = R.string.field_label_diameter,
@@ -94,7 +110,7 @@ fun TankVolCylScreen (
                 )
 
                 InputUnitsDisplay2(
-                    textA = R.string.text_amount_length,
+                    textA = R.string.text_amount_diameter,
                     textB = R.string.text_amount_height,
                     valueA = diameter,
                     valueB = height
@@ -127,7 +143,7 @@ fun TankVolCylScreen (
                     modifier = Modifier
                         .padding(start = 46.dp)
                 )
-                
+
                 FormulaString(text =R.string.text_formula_vol_cylinder )
                 
                 }
@@ -135,13 +151,115 @@ fun TankVolCylScreen (
         }
     }
 
+
+@Composable
+fun InfoCardContentSwitch2(
+    halfCyl: Boolean,
+    quartCyl: Boolean,
+    onHalfChanged: (Boolean) -> Unit,
+    onQuartChanged: (Boolean) -> Unit
+) {
+    var expanded by remember {
+        mutableStateOf(false)
+    }
+
+    Card(
+        backgroundColor = MaterialTheme.colors.primaryVariant,
+        modifier = Modifier
+            .padding(vertical = 4.dp, horizontal = 8.dp)
+    ){
+        Row (
+            modifier = Modifier
+                .clickable { expanded = !expanded }
+                .animateContentSize(
+                    animationSpec = spring(
+                        dampingRatio = Spring.DampingRatioMediumBouncy,
+                        stiffness = Spring.StiffnessLow
+                    ),
+                )
+        ){
+            Column (
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(12.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ){
+                Text(
+                    text = stringResource(id =R.string.text_options),
+                    style = MaterialTheme.typography.body2.copy(
+                        fontWeight = FontWeight.ExtraBold),
+                )
+                if (expanded){
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    Text(
+                        text = stringResource(id =R.string.text_choose_one),
+                        style = MaterialTheme.typography.body2
+                    )
+
+                    Row (
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                            ){
+                        Text(
+                            text = stringResource(id = R.string.text_cyl_half)
+                        )
+                        Switch(
+                            checked = halfCyl,
+                            onCheckedChange = onHalfChanged,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                        )
+                    }
+                    Row (
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically
+                            ){
+                        Text(
+                            text = stringResource(id = R.string.text_cyl_quart)
+                        )
+                        Switch(
+                            checked = quartCyl,
+                            onCheckedChange = onQuartChanged,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                        )
+                    }
+                }
+            }
+            IconButton(
+                onClick = { expanded = !expanded },
+            ) {
+                Icon(
+                    painter = if (expanded)
+                        painterResource(id = R.drawable.ic_baseline_expand_less_24)
+                    else  painterResource(id = R.drawable.ic_baseline_expand_more_24),
+                    contentDescription =if (expanded) {
+                        stringResource(R.string.text_show_less)
+                    } else {
+                        stringResource(R.string.text_show_more)
+                    },
+                )
+            }
+        }
+    }
+}
+
 @VisibleForTesting
 internal fun calculateVolGallonCyl(
     diameter: Double,
-    height: Double
+    height: Double,
+    halfCyl: Boolean,
+    quartCyl: Boolean,
 ): String {
     val radius = 0.5 * diameter
-    val volGallons = (PI * radius.pow(2) * height) / 231.0
+    var volGallons = (PI * radius.pow(2) * height) / 231.0
+    if (halfCyl)
+        volGallons = ((PI * radius.pow(2) * height) / 2) / 231.0
+    if (quartCyl)
+        volGallons = ((PI * radius.pow(2) * height) / 4) / 231.0
 
     val df = DecimalFormat("#.##")
     df.roundingMode = RoundingMode.HALF_UP
@@ -152,10 +270,16 @@ internal fun calculateVolGallonCyl(
 @VisibleForTesting
 internal fun calculateVolLiterCyl(
     diameter: Double,
-    height: Double
+    height: Double,
+    halfCyl: Boolean,
+    quartCyl: Boolean,
 ): String {
     val radius = 0.5 * diameter
-    val volLiters = (PI * radius.pow(2) * height) / 61.0237
+    var volLiters = (PI * radius.pow(2) * height) / 61.0237
+    if (halfCyl)
+        volLiters = ((PI * radius.pow(2) * height) / 2) / 61.0237
+    if (quartCyl)
+        volLiters = ((PI * radius.pow(2) * height) / 4) / 61.0237
 
     val df = DecimalFormat("#.##")
     df.roundingMode = RoundingMode.HALF_UP
@@ -166,10 +290,16 @@ internal fun calculateVolLiterCyl(
 @VisibleForTesting
 internal fun calculateWaterWeightCyl(
     diameter: Double,
-    height: Double
+    height: Double,
+    halfCyl: Boolean,
+    quartCyl: Boolean,
 ): String {
     val radius = 0.5 * diameter
-    val waterWeight = ((PI * radius.pow(2) * height) / 231.0) * 8.33
+    var waterWeight = ((PI * radius.pow(2) * height) / 231.0) * 8.33
+    if (halfCyl)
+        waterWeight = (((PI * radius.pow(2) * height) / 2) / 231.0) * 8.33
+    if (quartCyl)
+        waterWeight = (((PI * radius.pow(2) * height) / 4) / 231.0) * 8.33
 
     val df = DecimalFormat("#.##")
     df.roundingMode = RoundingMode.HALF_UP
@@ -180,10 +310,16 @@ internal fun calculateWaterWeightCyl(
 @VisibleForTesting
 internal fun calculateVolGallonFTCyl(
     diameter: Double,
-    height: Double
+    height: Double,
+    halfCyl: Boolean,
+    quartCyl: Boolean,
 ): String {
     val radius = 0.5 * diameter
-    val volGallons = (PI * radius.pow(2) * height) / 0.133681
+    var volGallons = (PI * radius.pow(2) * height) / 0.133681
+    if (halfCyl)
+        volGallons = ((PI * radius.pow(2) * height) / 2) / 0.133681
+    if (quartCyl)
+        volGallons = ((PI * radius.pow(2) * height) / 4) / 0.133681
 
     val df = DecimalFormat("#.##")
     df.roundingMode = RoundingMode.HALF_UP
@@ -194,10 +330,16 @@ internal fun calculateVolGallonFTCyl(
 @VisibleForTesting
 internal fun calculateVolLiterFTCyl(
     diameter: Double,
-    height: Double
+    height: Double,
+    halfCyl: Boolean,
+    quartCyl: Boolean,
 ): String {
     val radius = 0.5 * diameter
-    val volLiters = (PI * radius.pow(2) * height) / 0.0353147
+    var volLiters = (PI * radius.pow(2) * height) / 0.0353147
+    if (halfCyl)
+        volLiters = ((PI * radius.pow(2) * height) / 2) / 0.0353147
+    if (quartCyl)
+        volLiters = ((PI * radius.pow(2) * height) / 4) / 0.0353147
 
     val df = DecimalFormat("#.##")
     df.roundingMode = RoundingMode.HALF_UP
@@ -208,10 +350,16 @@ internal fun calculateVolLiterFTCyl(
 @VisibleForTesting
 internal fun calculateWaterWeightFTCyl(
     diameter: Double,
-    height: Double
+    height: Double,
+    halfCyl: Boolean,
+    quartCyl: Boolean,
 ): String {
     val radius = 0.5 * diameter
-    val waterWeight = ((PI * radius.pow(2) * height) / 0.133681) * 8.33
+    var waterWeight = ((PI * radius.pow(2) * height) / 0.133681) * 8.33
+    if (halfCyl)
+        waterWeight = (((PI * radius.pow(2) * height) / 2) / 0.133681) * 8.33
+    if (quartCyl)
+        waterWeight = (((PI * radius.pow(2) * height) / 4) / 0.133681) * 8.33
 
     val df = DecimalFormat("#.##")
     df.roundingMode = RoundingMode.HALF_UP

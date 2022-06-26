@@ -147,15 +147,18 @@ fun InputUnitsDisplay1 (
     valueA: Double,
 ) {
     Column {
-        Text(
-            text = (stringResource(textA, valueA)),
-            modifier = Modifier
-                .padding(start = 2.dp, top = 4.dp)
-                .weight(1f),
-            fontSize = 20.sp,
-            textAlign = TextAlign.Center,
-            fontWeight = FontWeight.Bold,
-        )
+        Row() {
+            Text(
+                text = (stringResource(textA, valueA)),
+                modifier = Modifier
+                    .padding(start = 2.dp, top = 4.dp)
+                    .weight(1f),
+                fontSize = 20.sp,
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Bold,
+            )
+        }
+
         Spacer(
             modifier = Modifier
                 .height(16.dp)

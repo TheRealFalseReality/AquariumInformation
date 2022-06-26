@@ -65,6 +65,7 @@
     <string name="text_amount_height">H: %s</string>
     <string name="text_amount_full_height">Height: %s</string>
     <string name="text_amount_length">L: %s</string>
+    <string name="text_amount_length_side">Length of Side: %s</string>
     <string name="text_amount_width">W: %s</string>
     <string name="text_amount_gallon">%s US gallons</string>
     <string name="text_amount_liters">%s Liters</string>
@@ -105,4 +106,8 @@
     <string name="text_cond_text">The Conductivity calculation is performed through the solution for iterative methods of the reverse equation adopted by UNESCO/ICES/SCOR/IAPSO.</string>
     <string name="text_sal_values">Salinity values are expressed in \"Practical Salinity.</string>
     <string name="text_sal_calc">Thanks to OceanLife for providing the source code for the calculations.</string>
+    <string name="text_options">Click for Options</string>
+    <string name="text_cyl_half">Half Cylinder</string>
+    <string name="text_cyl_quart">Corner Cylinder</string>
+    <string name="text_choose_one">Please Choose only 1</string>
 </resources>

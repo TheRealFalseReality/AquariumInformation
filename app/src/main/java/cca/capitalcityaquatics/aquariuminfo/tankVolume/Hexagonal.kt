@@ -83,7 +83,7 @@ fun TankVolHexScreen (
                 )
 
                 EditNumberField2Hor(
-                    label1 = R.string.field_label_diameter,
+                    label1 = R.string.field_label_edge,
                     label2 = R.string.Field_label_height,
                     value1 = inputEdge,
                     value2 = inputHeight,

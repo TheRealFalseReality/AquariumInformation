@@ -85,8 +85,9 @@ fun TankVolCubeScreen (
                 )
 
                 InputUnitsDisplay1(
-                    textA = R.string.text_amount_length,
-                    valueA = side
+                    textA = R.string.text_amount_length_side,
+                    valueA = side,
+
                 )
 
                 when (selected) {
