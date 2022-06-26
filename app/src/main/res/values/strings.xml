@@ -99,4 +99,10 @@
     <string name="text_test_temp">Testing Temperature</string>
     <string name="text_units_ft">ft.</string>
     <string name="text_units_inches">in.</string>
+    <string name="text_sal_den">The direct calculation from Salinity (‰ - ppt) to Density (g/l or kg/m3) / Specific Gravity is based on the equation adopted by UNESCO - The One Atmosphere International Equation of the State of Seawater (Millero and Poisson, 1981).</string>
+    <string name="text_sg_sal">The inverse calculation, from Specific Density / Gravity to Salinity, is performed by the solution for iterative methods of the reverse equation of Millero and Poisson.</string>
+    <string name="text_cond_sal">The calculation from Conductivity to Salinity / Density / Gravity Specification is performed according to the complex polynomial equation adopted by UNESCO/ICES/SCOR/IAPSO. In this case, the values are reliable for the resulting salinity between 2 and 42 and a temperature between -2 °C and 35 °C.</string>
+    <string name="text_cond_text">The Conductivity calculation is performed through the solution for iterative methods of the reverse equation adopted by UNESCO/ICES/SCOR/IAPSO.</string>
+    <string name="text_sal_values">Salinity values are expressed in \"Practical Salinity.</string>
+    <string name="text_sal_calc">Thanks to OceanLife for providing the source code for the calculations.</string>
 </resources>

@@ -72,6 +72,20 @@ fun GeneralComposeBody (
 }
 
 @Composable
+fun GeneralComposeTitleCard (
+    modifier: Modifier = Modifier,
+    @StringRes textBody: Int,
+) {
+    Text(
+        text = stringResource(id = textBody),
+        modifier = modifier,
+        style = MaterialTheme.typography.body2.copy(
+            fontWeight = FontWeight.ExtraBold),
+    )
+
+}
+
+@Composable
 fun GeneralComposeFooter(
     modifier: Modifier = Modifier,
     @StringRes textFooter: Int,

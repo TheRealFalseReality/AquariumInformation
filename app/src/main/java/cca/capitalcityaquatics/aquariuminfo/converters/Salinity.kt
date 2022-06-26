@@ -114,9 +114,15 @@ fun SalScreen (
                     
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    InfoCardContent(
+                    InfoCardContent6(
                         title = R.string.text_more_info,
-                        textBody = R.string.text_temp_set
+                        textBody1 = R.string.text_temp_set,
+                        textBody2 = R.string.text_sal_den,
+                        textBody3 = R.string.text_sg_sal,
+                        textBody4 = R.string.text_cond_sal,
+                        textBody5 = R.string.text_cond_text,
+                        textBody6 = R.string.text_sal_values,
+                        textBody7 = R.string.text_sal_calc
                     )
 
                 }

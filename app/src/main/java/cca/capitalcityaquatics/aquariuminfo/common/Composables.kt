@@ -19,64 +19,6 @@ import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.converters.SalScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
-@Composable
-fun InfoCard (){
-
-}
-
-@Composable
-fun InfoCardContentSubTitle(
-    @StringRes title: Int,
-    @StringRes subTitle: Int,
-    @StringRes textBody: Int,
-) {
-    var expanded by remember { mutableStateOf(false) }
-
-    Row (
-        modifier = Modifier
-            .padding(12.dp)
-            .animateContentSize(
-                animationSpec = spring(
-                    dampingRatio = Spring.DampingRatioMediumBouncy,
-                    stiffness = Spring.StiffnessLow
-                )
-            )
-            ){
-        Column (
-            modifier = Modifier
-                .weight(1f)
-                .padding(12.dp)
-                ){
-            Text(
-                text = stringResource(id = title)
-            )
-            Text(
-                text = stringResource(id =subTitle),
-                style = MaterialTheme.typography.body2.copy(
-                    fontWeight = FontWeight.ExtraBold)
-                )
-            if (expanded){
-                Text(
-                    text = stringResource(id = textBody)
-                )
-            }
-        }
-        IconButton(
-            onClick = { expanded = !expanded }
-        ) {
-            Icon(
-                painter = if (expanded)
-                    painterResource(id = R.drawable.ic_baseline_expand_less_24)
-                else  painterResource(id = R.drawable.ic_baseline_expand_more_24),
-                contentDescription =if (expanded) {
-                    stringResource(R.string.text_show_less)
-                } else {
-                    stringResource(R.string.text_show_more)
-                },
-            )
-        }
-    }
-}
 
 @Composable
 fun InfoCardContent(
@@ -183,6 +125,94 @@ fun InfoCardContent3(
                     Spacer(modifier = Modifier.height(10.dp))
                     Text(
                         text = stringResource(id = textBody3)
+                    )
+                }
+            }
+            IconButton(
+                onClick = { expanded = !expanded },
+            ) {
+                Icon(
+                    painter = if (expanded)
+                        painterResource(id = R.drawable.ic_baseline_expand_less_24)
+                    else  painterResource(id = R.drawable.ic_baseline_expand_more_24),
+                    contentDescription =if (expanded) {
+                        stringResource(R.string.text_show_less)
+                    } else {
+                        stringResource(R.string.text_show_more)
+                    },
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun InfoCardContent6(
+    @StringRes title: Int,
+    @StringRes textBody1: Int,
+    @StringRes textBody2: Int,
+    @StringRes textBody3: Int,
+    @StringRes textBody4: Int,
+    @StringRes textBody5: Int,
+    @StringRes textBody6: Int,
+    @StringRes textBody7: Int,
+) {
+    var expanded by remember { mutableStateOf(false) }
+
+    Card(
+        backgroundColor = MaterialTheme.colors.secondary,
+        modifier = Modifier
+            .padding(vertical = 4.dp, horizontal = 8.dp)
+    ){
+        Row (
+            modifier = Modifier
+                .clickable { expanded = !expanded }
+                .animateContentSize(
+                    animationSpec = spring(
+                        dampingRatio = Spring.DampingRatioMediumBouncy,
+                        stiffness = Spring.StiffnessLow
+                    ),
+                )
+        ){
+            Column (
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(12.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ){
+                Text(
+                    text = stringResource(id =title),
+                    style = MaterialTheme.typography.body2.copy(
+                        fontWeight = FontWeight.ExtraBold),
+                )
+                if (expanded){
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Text(
+                        text = stringResource(id = textBody1)
+                    )
+                    Spacer(modifier = Modifier.height(5.dp))
+                    Text(
+                        text = stringResource(id = textBody2)
+                    )
+                    Spacer(modifier = Modifier.height(5.dp))
+                    Text(
+                        text = stringResource(id = textBody3)
+                    )
+                    Spacer(modifier = Modifier.height(5.dp))
+                    Text(
+                        text = stringResource(id = textBody4)
+                    )
+                    Spacer(modifier = Modifier.height(5.dp))
+                    Text(
+                        text = stringResource(id = textBody5)
+                    )
+                    Spacer(modifier = Modifier.height(5.dp))
+                    Text(
+                        text = stringResource(id = textBody6)
+                    )
+                    Spacer(modifier = Modifier.height(5.dp))
+                    Text(
+                        text = stringResource(id = textBody7)
                     )
                 }
             }
