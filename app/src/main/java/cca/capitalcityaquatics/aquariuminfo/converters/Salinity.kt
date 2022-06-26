@@ -1,12 +1,14 @@
 package cca.capitalcityaquatics.aquariuminfo.converters
 
 import androidx.annotation.VisibleForTesting
-import androidx.compose.foundation.*
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.RadioButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -111,11 +113,11 @@ fun SalScreen (
                         }
                     }
                     
-                    Spacer(modifier = Modifier.height(36.dp))
+                    Spacer(modifier = Modifier.height(16.dp))
 
-                    GeneralComposeBody(
-                        textBody = R.string.text_temp_set,
-                        textAlign = TextAlign.Center
+                    InfoCardContent(
+                        title = R.string.text_more_info,
+                        textBody = R.string.text_temp_set
                     )
 
                 }

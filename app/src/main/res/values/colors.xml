@@ -13,4 +13,9 @@
     <color name="gold">#E19F20</color>
     <color name="red_dk">#75344E</color>
     <color name="blue_lt_2">#BED5E0</color>
+    <color name="blue_lt_primary">#437BAA</color>
+    <color name="blue_lt_primary_var">#76AADC</color>
+    <color name="pink_sec">#A6607A</color>
+    <color name="blue_dk_var">#075280</color>
+    <color name="green_sec" />
 </resources>

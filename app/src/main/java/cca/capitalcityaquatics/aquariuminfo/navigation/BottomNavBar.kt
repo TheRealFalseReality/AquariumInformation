@@ -13,7 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import cca.capitalcityaquatics.aquariuminfo.MainScreen
+import androidx.navigation.compose.rememberNavController
 import cca.capitalcityaquatics.aquariuminfo.NavigationItem
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
@@ -69,6 +69,6 @@ fun BottomNavigationBar(
 @Composable
 fun DefaultPreview4() {
     AquariumInfoTheme {
-        MainScreen()
+        BottomNavigationBar(navController = rememberNavController())
     }
 }

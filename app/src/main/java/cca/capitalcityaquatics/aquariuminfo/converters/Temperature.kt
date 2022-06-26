@@ -1,12 +1,15 @@
 package cca.capitalcityaquatics.aquariuminfo.converters
 
+import androidx.annotation.StringRes
 import androidx.annotation.VisibleForTesting
-import androidx.compose.foundation.*
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.RadioButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -107,7 +110,7 @@ fun TempScreen (
                     }
                 }
 
-                FormulaFieldTemp()
+                FormulaStringTemp()
 
             }
         }
@@ -116,21 +119,17 @@ fun TempScreen (
 
 
 @Composable
-fun FormulaFieldTemp (){
-
-    Text(
-        text = stringResource(R.string.text_formulas),
-        fontSize = 14.sp,
+fun FormulaStringTemp (
+){
+    Spacer(
+        modifier = Modifier.height(10.dp)
     )
-
-    Spacer(modifier = Modifier.height(2.dp))
-
-    FormulaStringNT(text = R.string.text_formula_fahrenheit)
-
-    FormulaStringNT(text = R.string.text_formula_celsius)
-
-    FormulaStringNT(text = R.string.text_formula_kelvin)
-
+    InfoCardContent3(
+        title = R.string.text_formulas,
+        textBody1 = R.string.text_formula_celsius,
+        textBody2 = R.string.text_formula_fahrenheit,
+        textBody3 = R.string.formula_kelvin
+    )
 }
 
 @VisibleForTesting

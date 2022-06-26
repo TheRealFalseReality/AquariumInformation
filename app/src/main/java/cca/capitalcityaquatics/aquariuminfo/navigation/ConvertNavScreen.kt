@@ -62,7 +62,7 @@ fun ConvertBottomNavBar(
         NavigationItem.CO2,
     )
     BottomNavigation (
-        backgroundColor = MaterialTheme.colors.primaryVariant,
+        backgroundColor = MaterialTheme.colors.secondary,
     ){
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route

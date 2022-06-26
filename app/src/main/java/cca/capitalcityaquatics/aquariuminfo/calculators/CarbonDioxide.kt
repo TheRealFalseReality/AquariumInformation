@@ -94,7 +94,7 @@ fun CarbonDioxideScreen (
                     label1 = R.string.field_label_ph,
                     onValueChange1 = { inputPH = it },
                     value2 = inputDKH,
-                    label2 = R.string.button_label_dkh,
+                    label2 = R.string.field_label_dkh,
                     onValueChange2 = { inputDKH = it },
                     inputText = R.string.text_amount_ph_dkh,
                     equalsText = R.string.text_equal_to,

@@ -53,10 +53,14 @@ fun InfoScreen(
                 
                 GeneralComposeHeader(textHeader = R.string.text_title_info)
 
+                Spacer(modifier = Modifier.height(50.dp))
+
                 GeneralComposeBody(
                     textBody = R.string.text_body_info,
                     textAlign = TextAlign.Center
                 )
+
+                Spacer(modifier = Modifier.height(25.dp))
 
                 GeneralComposeBody(
                     textBody = R.string.text_info_body_errors,
@@ -79,7 +83,7 @@ fun InfoScreen(
                         .fillMaxWidth()
                         .clickable {
                             uriHandler.openUri("mailto:AppInfo@CapitalCityAquatics.com")
-                                   },
+                        },
                     textFooter = R.string.text_email,
                     textAlign = TextAlign.Center,
                     style = TextStyle(textDecoration = TextDecoration.Underline),
@@ -102,7 +106,7 @@ fun InfoScreen(
                         .fillMaxWidth()
                         .clickable {
                             uriHandler.openUri("https://www.capitalcityaquatics.com/")
-                                   },
+                        },
                     textFooter = R.string.text_website,
                     textAlign = TextAlign.Center,
                     style = TextStyle(textDecoration = TextDecoration.Underline),

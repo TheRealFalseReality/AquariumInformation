@@ -1,17 +1,10 @@
 package cca.capitalcityaquatics.aquariuminfo.common
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -22,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cca.capitalcityaquatics.aquariuminfo.BuildConfig
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.converters.SalScreen
+import cca.capitalcityaquatics.aquariuminfo.appscreens.HomeScreen
 import cca.capitalcityaquatics.aquariuminfo.converters.TempScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
@@ -37,12 +30,13 @@ fun GeneralComposeHeader (
         modifier = modifier
             .fillMaxWidth(),
         textAlign = TextAlign.Center,
-        fontWeight = FontWeight.ExtraBold,
-        fontSize = 26.sp,
+
+        style = MaterialTheme.typography.h4.copy(
+            fontWeight = FontWeight.ExtraBold
+        )
     )
     Spacer(modifier = Modifier.height(4.dp))
 }
-
 
 @Composable
 fun GeneralComposeSubHeader (
@@ -55,8 +49,9 @@ fun GeneralComposeSubHeader (
         modifier = modifier
             .fillMaxWidth(),
         textAlign = TextAlign.Center,
-        fontWeight = FontWeight.Bold,
-        fontSize = 20.sp,
+        style = MaterialTheme.typography.h5.copy(
+            fontWeight = FontWeight.Bold
+        )
     )
     Spacer(modifier = Modifier.height(4.dp))
 }
@@ -70,8 +65,8 @@ fun GeneralComposeBody (
     Text(
         text = stringResource(id = textBody),
         modifier = modifier,
-        fontSize = 18.sp,
         textAlign = textAlign,
+        style = MaterialTheme.typography.body1
     )
     Spacer(modifier = Modifier.height(12.dp))
 }
@@ -95,42 +90,18 @@ fun GeneralComposeFooter(
 }
 
 @Composable
-fun FormulaStringNT (
-    modifier: Modifier = Modifier,
-    @StringRes text: Int,
-){
-    Spacer(
-        modifier = Modifier.height(10.dp)
-    )
-    Text(
-        text = stringResource(id = text),
-        modifier = modifier
-            .fillMaxWidth()
-            .wrapContentWidth(),
-        fontSize = 16.sp,
-    )
-}
-
-@Composable
 fun FormulaString (
-    modifier: Modifier = Modifier,
     @StringRes text: Int,
 ){
     Spacer(
         modifier = Modifier.height(10.dp)
     )
-    Text(
-        text = stringResource(R.string.text_formula),
-        fontSize = 14.sp,
+    InfoCardContent(
+        title = R.string.text_formula,
+        textBody = text
     )
+
     Spacer(modifier = Modifier.height(2.dp))
-    Text(
-        text = stringResource(id = text),
-        modifier = modifier
-            .fillMaxWidth()
-            .wrapContentWidth(),
-        fontSize = 16.sp,
-    )
 
 }
 
@@ -143,10 +114,7 @@ fun AppInfo (
         horizontalArrangement = Arrangement.Center,
             ){
         Text(
-            text = stringResource(id = R.string.text_label_version),
-        )
-        Text(
-            text = version,
+            text = stringResource(id = R.string.text_label_version, version),
         )
     }
 }
@@ -156,5 +124,13 @@ fun AppInfo (
 fun SalPreview23() {
     AquariumInfoTheme  {
         TempScreen()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun HomePreview6() {
+    AquariumInfoTheme {
+        HomeScreen()
     }
 }

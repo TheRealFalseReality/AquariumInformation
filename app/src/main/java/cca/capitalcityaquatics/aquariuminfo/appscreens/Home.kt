@@ -49,7 +49,7 @@ fun HomeScreen (
             ) {
                 GeneralComposeHeader(textHeader =R.string.text_title_welcome )
 
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(36.dp))
 
                 GeneralComposeBody(
                     textBody = R.string.text_body_welcome, textAlign = TextAlign.Center)

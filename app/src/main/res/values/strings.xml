@@ -76,7 +76,7 @@
     <string name="text_formula_vol_rec">V = LWH</string>
     <string name="text_formula_vol_cylinder">V = πr²h</string>
     <string name="text_formula_vol_cube">V = LLL</string>
-    <string name="text_label_version">"App Version: "</string>
+    <string name="text_label_version">"App Version: %s"</string>
     <string name="text_title_cube">Cube</string>
     <string name="text_amount_full_length">Length: %s</string>
     <string name="field_label_side">Enter Length of Side</string>
@@ -91,6 +91,10 @@
     <string name="text_title_bow_front">Bow-Front</string>
     <string name="field_label_full_width">Enter Full Width</string>
     <string name="text_amount_full_width">FW: %s</string>
-    <string name="text_formula">Formula:</string>
-    <string name="text_formulas">Formulas:</string>
+    <string name="text_formula">Click for Formula</string>
+    <string name="text_formulas">Click for Formulas</string>
+    <string name="text_show_more">Show more</string>
+    <string name="text_show_less">Show less</string>
+    <string name="text_more_info">Click for More Information</string>
+    <string name="text_test_temp">Testing Temperature</string>
 </resources>
