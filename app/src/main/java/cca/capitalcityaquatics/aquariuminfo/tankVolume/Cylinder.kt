@@ -1,6 +1,5 @@
 package cca.capitalcityaquatics.aquariuminfo.tankVolume
 
-import androidx.annotation.StringRes
 import androidx.annotation.VisibleForTesting
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring

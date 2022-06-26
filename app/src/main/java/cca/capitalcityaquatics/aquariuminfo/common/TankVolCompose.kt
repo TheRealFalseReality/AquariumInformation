@@ -147,7 +147,7 @@ fun InputUnitsDisplay1 (
     valueA: Double,
 ) {
     Column {
-        Row() {
+        Row {
             Text(
                 text = (stringResource(textA, valueA)),
                 modifier = Modifier
