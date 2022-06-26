@@ -110,4 +110,7 @@
     <string name="text_cyl_half">Half Cylinder</string>
     <string name="text_cyl_quart">Corner Cylinder</string>
     <string name="text_choose_one">Please Choose only 1</string>
+    <string name="text_title_changelog">Click for Changelog</string>
+    <string name="text_version_7">0.4</string>
+    <string name="text_version_7_body">Added Cylinder</string>
 </resources>

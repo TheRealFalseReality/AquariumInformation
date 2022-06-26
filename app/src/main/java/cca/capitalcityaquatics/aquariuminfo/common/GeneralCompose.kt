@@ -56,6 +56,8 @@ fun GeneralComposeSubHeader (
     Spacer(modifier = Modifier.height(4.dp))
 }
 
+
+
 @Composable
 fun GeneralComposeBody (
     modifier: Modifier = Modifier,
@@ -69,6 +71,34 @@ fun GeneralComposeBody (
         style = MaterialTheme.typography.body1
     )
     Spacer(modifier = Modifier.height(12.dp))
+}
+
+@Composable
+fun GeneralComposeBody2 (
+    modifier: Modifier = Modifier,
+    @StringRes textBody: Int,
+) {
+    Text(
+        text = stringResource(id = textBody),
+        modifier = modifier,
+    )
+    Spacer(modifier = Modifier.height(12.dp))
+}
+
+@Composable
+fun GeneralComposeHeader2 (
+    modifier: Modifier = Modifier,
+    @StringRes textHeader: Int,
+) {
+
+    Text(
+        text = stringResource(id = textHeader),
+        modifier = modifier,
+        style = MaterialTheme.typography.h6.copy(
+            fontWeight = FontWeight.Bold
+        )
+    )
+    Spacer(modifier = Modifier.height(4.dp))
 }
 
 @Composable
