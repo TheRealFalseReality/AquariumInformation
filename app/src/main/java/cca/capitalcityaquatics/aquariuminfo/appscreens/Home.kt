@@ -102,7 +102,7 @@ fun ChangelogCardContent(
                 .clickable { expanded = !expanded }
                 .animateContentSize(
                     animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioMediumBouncy,
+                        dampingRatio = Spring.DampingRatioLowBouncy,
                         stiffness = Spring.StiffnessLow
                     ),
                 )

@@ -169,7 +169,7 @@ fun InfoCardContent6(
                 .clickable { expanded = !expanded }
                 .animateContentSize(
                     animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioMediumBouncy,
+                        dampingRatio = Spring.DampingRatioLowBouncy,
                         stiffness = Spring.StiffnessLow
                     ),
                 )

@@ -69,7 +69,7 @@ fun TopBar(
                 }
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.white_fish),
+                    painter = painterResource(id = R.drawable.vectorstock_12351698__converted_),
                     contentDescription = "stringResource(R.string.text_home)",
                     modifier = Modifier
                         .padding(4.dp)

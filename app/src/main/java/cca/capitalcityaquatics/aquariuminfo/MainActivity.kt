@@ -28,7 +28,7 @@ import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
 
         super.onCreate(savedInstanceState)
         setContent {
