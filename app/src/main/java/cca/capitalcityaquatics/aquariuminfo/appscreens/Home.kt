@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.common.*
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
+import java.io.InputStream
 
 @Composable
 fun HomeScreen (
@@ -59,14 +60,28 @@ fun HomeScreen (
                 
                 ChangelogCardContent()
 
-                Spacer(modifier = Modifier.height(56.dp))
+                Spacer(modifier = Modifier.height(26.dp))
 
-                GeneralComposeFooter(
-                    textFooter = R.string.text_footer_welcome,
-                    textAlign = TextAlign.Center,
-                    style = TextStyle(textDecoration = TextDecoration.None),
-                    fontWeight = FontWeight.Bold
-                )
+                Column(
+                    modifier = Modifier
+                        .padding(6.dp)
+                        .fillMaxHeight()
+                        .fillMaxWidth()
+                        .border(
+                            BorderStroke(2.dp, MaterialTheme.colors.primaryVariant),
+                            shape = RoundedCornerShape(4.dp)
+                        ),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    Spacer(modifier = Modifier.height(20.dp))
+                    GeneralComposeFooter(
+                        textFooter = R.string.text_footer_welcome,
+                        textAlign = TextAlign.Center,
+                        style = TextStyle(textDecoration = TextDecoration.None),
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.height(20.dp))
+                }
             }
         }
     }

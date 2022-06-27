@@ -68,54 +68,70 @@ fun InfoScreen(
                 )
 
                 Spacer(modifier = Modifier.height(26.dp))
-                
-                GeneralComposeFooter(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    textFooter = R.string.text_label_email,
-                    textAlign = TextAlign.Center,
-                    style = TextStyle(textDecoration = TextDecoration.None),
-                    fontWeight = FontWeight.Bold
-                )
-                
-                GeneralComposeFooter(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable {
-                            uriHandler.openUri("mailto:AppInfo@CapitalCityAquatics.com")
-                        },
-                    textFooter = R.string.text_email,
-                    textAlign = TextAlign.Center,
-                    style = TextStyle(textDecoration = TextDecoration.Underline),
-                    fontWeight = FontWeight.Bold
-                )
-                
-                Spacer(modifier = Modifier.height(16.dp))
 
-                GeneralComposeFooter(
+                Column(
                     modifier = Modifier
-                        .fillMaxWidth(),
-                    textFooter = R.string.text_label_web,
-                    textAlign = TextAlign.Center,
-                    style = TextStyle(textDecoration = TextDecoration.None),
-                    fontWeight = FontWeight.Bold
+                        .padding(6.dp)
+                        .fillMaxHeight()
+                        .fillMaxWidth()
+                        .border(
+                            BorderStroke(2.dp, MaterialTheme.colors.primaryVariant),
+                            shape = RoundedCornerShape(4.dp)
+                        ),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    Spacer(modifier = Modifier.height(20.dp))
+                    GeneralComposeFooter(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        textFooter = R.string.text_label_email,
+                        textAlign = TextAlign.Center,
+                        style = TextStyle(textDecoration = TextDecoration.None),
+                        fontWeight = FontWeight.Bold
                     )
 
-                GeneralComposeFooter(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable {
-                            uriHandler.openUri("https://www.capitalcityaquatics.com/")
-                        },
-                    textFooter = R.string.text_website,
-                    textAlign = TextAlign.Center,
-                    style = TextStyle(textDecoration = TextDecoration.Underline),
-                    fontWeight = FontWeight.Bold
-                )
+                    GeneralComposeFooter(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                uriHandler.openUri("mailto:AppInfo@CapitalCityAquatics.com")
+                            },
+                        textFooter = R.string.text_email,
+                        textAlign = TextAlign.Center,
+                        style = TextStyle(textDecoration = TextDecoration.Underline),
+                        fontWeight = FontWeight.Bold
+                    )
 
-                Spacer(modifier = Modifier.height(24.dp))
+                    Spacer(modifier = Modifier.height(16.dp))
 
-                AppInfo()
+                    GeneralComposeFooter(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        textFooter = R.string.text_label_web,
+                        textAlign = TextAlign.Center,
+                        style = TextStyle(textDecoration = TextDecoration.None),
+                        fontWeight = FontWeight.Bold
+                    )
+
+                    GeneralComposeFooter(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                uriHandler.openUri("https://www.capitalcityaquatics.com/")
+                            },
+                        textFooter = R.string.text_website,
+                        textAlign = TextAlign.Center,
+                        style = TextStyle(textDecoration = TextDecoration.Underline),
+                        fontWeight = FontWeight.Bold
+                    )
+
+                    Spacer(modifier = Modifier.height(24.dp))
+
+                    AppInfo()
+                    Spacer(modifier = Modifier.height(20.dp))
+                }
+
+
 
             }
         }
