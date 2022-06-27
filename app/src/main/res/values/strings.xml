@@ -11,7 +11,7 @@
     <string name="text_info_body_errors">Please, inform me of ANY errors. I tried my best to build this app, but I am new to app programming.</string>
     <string name="text_body_info">This app was created by Nicholas White from North Florida. I am not a programmer, but an enthusiastic aquarist. I went to school for biology and have been in the hobby for over 10 years. I got tired of having to search for converters every time I wanted to convert something like meq/L or salinity ppt, and wanted something all in one place. I wanted to solve the problem of not knowing the units that European products use and have quick access to other Aquarium related information in one place.</string>
     <string name="text_empty" />
-    <string name="text_subtitle_salinity">ppt : SG : g/L : mS/cm</string>
+    <string name="text_subtitle_salinity">ppt : SG : g/L</string>
     <string name="text_header_salinity">Salinity Converter</string>
     <string name="button_label_ppt">ppt</string>
     <string name="button_label_sg">SG</string>
@@ -110,7 +110,15 @@
     <string name="text_cyl_half">Half Cylinder</string>
     <string name="text_cyl_quart">Corner Cylinder</string>
     <string name="text_choose_one">Please Choose only 1</string>
-    <string name="text_title_changelog">Click for Changelog</string>
-    <string name="text_version_7">0.4</string>
-    <string name="text_version_7_body">Added Cylinder</string>
+    <string name="text_title_changelog">#Changelog</string>
+    <string name="text_version_7">##[0.4] - 2022–6–26</string>
+    <string name="text_added_body_7">Tank Volume Calculators\n-Half Cylinder\n-Corner Cylinder</string>
+    <string name="text_unreleased">##[Unreleased]</string>
+    <string name="text_subtitle_changelog">All notable changes to this project will be documented here</string>
+    <string name="text_added">###Added</string>
+    <string name="text_changed">###Changed</string>
+    <string name="text_removed">###Removed</string>
+    <string name="text_fixed">###Fixed</string>
+    <string name="text_unreleased_body">Converters\n-Aquarium Specific Volume Converters\nTank Volume Calculators\n-Corner Pentagon\n-Flat Back Hex\n-Octagon\n\nWater Hardness Output</string>
+    <string name="text_fixed_body_7">General code re-write\nGeneral UI fixes</string>
 </resources>

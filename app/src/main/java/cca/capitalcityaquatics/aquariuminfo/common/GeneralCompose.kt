@@ -82,7 +82,6 @@ fun GeneralComposeBody2 (
         text = stringResource(id = textBody),
         modifier = modifier,
     )
-    Spacer(modifier = Modifier.height(12.dp))
 }
 
 @Composable

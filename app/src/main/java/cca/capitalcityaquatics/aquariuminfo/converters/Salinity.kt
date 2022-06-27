@@ -122,7 +122,7 @@ fun SalScreen (
                         textBody4 = R.string.text_cond_sal,
                         textBody5 = R.string.text_cond_text,
                         textBody6 = R.string.text_sal_values,
-                        textBody7 = R.string.text_sal_calc
+                        textBody7 = R.string.text_sal_calc,
                     )
 
                 }

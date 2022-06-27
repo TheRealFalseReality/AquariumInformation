@@ -121,12 +121,58 @@ fun ChangelogCardContent(
                 Spacer(modifier = Modifier.height(10.dp))
                 if (expanded){
 
-                    GeneralComposeHeader2(
-                        textHeader = R.string.text_version_7,
+                    GeneralComposeBody2(
+                        textBody = R.string.text_subtitle_changelog,
+                        modifier = Modifier
+                            .align(Alignment.Start)
+                    )
+
+                    Spacer(modifier = Modifier.height(20.dp))
+
+                    GeneralComposeBody2(
+                        textBody = R.string.text_unreleased,
+                        modifier = Modifier
+                            .align(Alignment.Start)
                     )
 
                     GeneralComposeBody2(
-                        textBody = R.string.text_version_7_body,
+                        textBody = R.string.text_unreleased_body,
+                        modifier = Modifier
+                            .align(Alignment.Start)
+                    )
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    GeneralComposeHeader2(
+                        textHeader = R.string.text_version_7,
+                        modifier = Modifier
+                            .align(Alignment.Start)
+                    )
+
+                    GeneralComposeBody2(
+                        textBody = R.string.text_added,
+                        modifier = Modifier
+                            .align(Alignment.Start)
+                    )
+
+                    GeneralComposeBody2(
+                        textBody = R.string.text_added_body_7,
+                        modifier = Modifier
+                            .align(Alignment.Start)
+                    )
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    GeneralComposeBody2(
+                        textBody = R.string.text_fixed,
+                        modifier = Modifier
+                            .align(Alignment.Start)
+                    )
+
+                    GeneralComposeBody2(
+                        textBody = R.string.text_fixed_body_7,
+                        modifier = Modifier
+                            .align(Alignment.Start)
                     )
                 }
             }
@@ -147,6 +193,8 @@ fun ChangelogCardContent(
         }
     }
 }
+
+
 
 @Preview(showBackground = true)
 @Composable

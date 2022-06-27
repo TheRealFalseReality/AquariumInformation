@@ -2,8 +2,8 @@
 
 App Purpose:
 To create calculators and converters tailored for Aquarists all in one place and easy to use.
-This app includues Temperature & Salinity converters as well as Tank Volume calculators for various tank sizes.
-More uncommom tank sizes will be added along with water weight and substrate amount.
+This app includes Temperature & Salinity converters as well as Tank Volume calculators for various tank sizes.
+More uncommon tank sizes will be added along with water weight and substrate amount.
 More aquarium specific information will be added along with affiliate links to products used.
 This app features a top Google AdMob Advert Banner with the ability to remove it for a small in-app purchase in the future.
 This app is built with the Kotlin language using Android SDK.

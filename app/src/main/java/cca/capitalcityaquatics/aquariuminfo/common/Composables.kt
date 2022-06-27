@@ -162,7 +162,7 @@ fun InfoCardContent6(
     Card(
         backgroundColor = MaterialTheme.colors.secondary,
         modifier = Modifier
-            .padding(vertical = 4.dp, horizontal = 8.dp)
+            .padding(vertical = 4.dp, )
     ){
         Row (
             modifier = Modifier
@@ -212,7 +212,7 @@ fun InfoCardContent6(
                     )
                     Spacer(modifier = Modifier.height(5.dp))
                     Text(
-                        text = stringResource(id = textBody7)
+                        text = stringResource(id = textBody7),
                     )
                 }
             }
