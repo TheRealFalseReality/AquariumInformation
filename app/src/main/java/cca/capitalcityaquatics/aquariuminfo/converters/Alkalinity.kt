@@ -1,12 +1,9 @@
 package cca.capitalcityaquatics.aquariuminfo.converters
 
 import androidx.annotation.VisibleForTesting
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -17,6 +14,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -167,21 +165,45 @@ fun WaterHardnessDKH(
     when (ppmDKH) {
         in 0.0..70.0 -> {
             Text(text = stringResource(R.string.text_hardness_label, vSoft))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.ic_vsoftdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_very_soft)
+            )
         }
         in 70.1..140.0 -> {
             Text(text = stringResource(R.string.text_hardness_label, soft))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.softdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_soft)
+            )
         }
         in 140.1..210.0 -> {
             Text(text = stringResource(R.string.text_hardness_label, modHard))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.mhardtdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_mod_hard)
+            )
         }
         in 210.1..320.0 -> {
             Text(text = stringResource(R.string.text_hardness_label, hard))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.hardtdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_hard)
+            )
         }
         in 320.1..530.0 -> {
             Text(text = stringResource(R.string.text_hardness_label, veryHard))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.vhardtdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_very_hard)
+            )
         }
         else -> {
             Text(text = stringResource(id = R.string.text_hardness_label, outBounds))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.outdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_very_hard)
+            )
         }
     }
 }
@@ -200,21 +222,45 @@ fun WaterHardnessPPM(
     when (dkhPPM) {
         in 0.0..4.0 -> {
             Text(text = stringResource(R.string.text_hardness_label, vSoft))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.ic_vsoftdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_very_soft)
+            )
         }
         in 4.1..8.0 -> {
             Text(text = stringResource(R.string.text_hardness_label, soft))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.softdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_soft)
+            )
         }
         in 8.1..12.0 -> {
             Text(text = stringResource(R.string.text_hardness_label, modHard))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.mhardtdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_mod_hard)
+            )
         }
         in 12.1..18.0 -> {
             Text(text = stringResource(R.string.text_hardness_label, hard))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.hardtdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_hard)
+            )
         }
         in 18.1..30.0 -> {
             Text(text = stringResource(R.string.text_hardness_label, veryHard))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.vhardtdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_very_hard)
+            )
         }
         else -> {
             Text(text = stringResource(id = R.string.text_hardness_label, outBounds))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.outdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_very_hard)
+            )
         }
     }
 }
@@ -233,21 +279,45 @@ fun WaterHardnessMEQ(
     when (ppmMEQ) {
         in 0.0..70.0 -> {
             Text(text = stringResource(R.string.text_hardness_label, vSoft))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.ic_vsoftdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_very_soft)
+            )
         }
         in 70.1..140.0 -> {
             Text(text = stringResource(R.string.text_hardness_label, soft))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.softdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_soft)
+            )
         }
         in 140.1..210.0 -> {
             Text(text = stringResource(R.string.text_hardness_label, modHard))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.mhardtdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_mod_hard)
+            )
         }
         in 210.1..320.0 -> {
             Text(text = stringResource(R.string.text_hardness_label, hard))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.hardtdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_hard)
+            )
         }
         in 320.1..530.0 -> {
             Text(text = stringResource(R.string.text_hardness_label, veryHard))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.vhardtdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_very_hard)
+            )
         }
         else -> {
             Text(text = stringResource(id = R.string.text_hardness_label, outBounds))
+            Spacer(modifier = Modifier.height(10.dp))
+            Image(painter = painterResource(id = R.drawable.outdkh),
+                contentDescription = stringResource(id = R.string.text_hardness_very_hard)
+            )
         }
     }
 }

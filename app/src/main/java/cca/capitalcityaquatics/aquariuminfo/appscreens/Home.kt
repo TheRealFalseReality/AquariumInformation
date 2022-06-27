@@ -1,6 +1,5 @@
 package cca.capitalcityaquatics.aquariuminfo.appscreens
 
-import androidx.annotation.StringRes
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
@@ -22,7 +21,6 @@ import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.common.*
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
-import java.io.InputStream
 
 @Composable
 fun HomeScreen (
