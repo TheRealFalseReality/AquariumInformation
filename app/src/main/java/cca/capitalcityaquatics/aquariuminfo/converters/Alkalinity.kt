@@ -95,6 +95,9 @@ fun AlkalinityScreen(
                                 outputTextB = R.string.text_amount_meq,
                                 valueB = meqDKH
                             )
+                            
+                            WaterHardnessDKH(ppmDKH)
+
                         }
                         R.string.button_label_ppm -> {
                             DataOutputLines4(
@@ -108,6 +111,9 @@ fun AlkalinityScreen(
                                 outputTextB = R.string.text_amount_meq,
                                 valueB = meqPPM
                             )
+                            
+                            WaterHardnessPPM(dkhPPM)
+                            
                         }
                         R.string.button_label_meq -> {
                             DataOutputLines4(
@@ -121,15 +127,12 @@ fun AlkalinityScreen(
                                 outputTextB =  R.string.text_amount_ppm,
                                 valueB = ppmMEQ
                             )
+
+                            WaterHardnessMEQ(ppmMEQ)
+
                         }
                     }
                 
-                Row {
-                    Text(text = stringResource(id = R.string.text_hardness_label))
-
-                    WaterHardness(ppmDKH = ppmDKH)
-                }
-
                 FormulaString(text = R.string.text_formula_alk)
 
                 Spacer(
@@ -151,13 +154,101 @@ fun AlkalinityScreen(
 }
 
 @Composable
-fun WaterHardness(
-    ppmDKH: Double
-){
-    if ( ppmDKH <= 70.0) {
-        Text(text = stringResource(R.string.text_hardness_very_soft))
-    }else {
-        Text(text = "")
+fun WaterHardnessDKH(
+    ppmDKH: Double,
+) {
+    val vSoft = stringResource(id = R.string.text_hardness_very_soft)
+    val soft = stringResource(id = R.string.text_hardness_soft)
+    val modHard = stringResource(id = R.string.text_hardness_mod_hard)
+    val hard = stringResource(id = R.string.text_hardness_hard)
+    val veryHard = stringResource(id = R.string.text_hardness_very_hard)
+    val outBounds = stringResource(id = R.string.text_hardness_else)
+
+    when (ppmDKH) {
+        in 0.0..70.0 -> {
+            Text(text = stringResource(R.string.text_hardness_label, vSoft))
+        }
+        in 70.1..140.0 -> {
+            Text(text = stringResource(R.string.text_hardness_label, soft))
+        }
+        in 140.1..210.0 -> {
+            Text(text = stringResource(R.string.text_hardness_label, modHard))
+        }
+        in 210.1..320.0 -> {
+            Text(text = stringResource(R.string.text_hardness_label, hard))
+        }
+        in 320.1..530.0 -> {
+            Text(text = stringResource(R.string.text_hardness_label, veryHard))
+        }
+        else -> {
+            Text(text = stringResource(id = R.string.text_hardness_label, outBounds))
+        }
+    }
+}
+
+@Composable
+fun WaterHardnessPPM(
+    dkhPPM: Double,
+) {
+    val vSoft = stringResource(id = R.string.text_hardness_very_soft)
+    val soft = stringResource(id = R.string.text_hardness_soft)
+    val modHard = stringResource(id = R.string.text_hardness_mod_hard)
+    val hard = stringResource(id = R.string.text_hardness_hard)
+    val veryHard = stringResource(id = R.string.text_hardness_very_hard)
+    val outBounds = stringResource(id = R.string.text_hardness_else)
+
+    when (dkhPPM) {
+        in 0.0..4.0 -> {
+            Text(text = stringResource(R.string.text_hardness_label, vSoft))
+        }
+        in 4.1..8.0 -> {
+            Text(text = stringResource(R.string.text_hardness_label, soft))
+        }
+        in 8.1..12.0 -> {
+            Text(text = stringResource(R.string.text_hardness_label, modHard))
+        }
+        in 12.1..18.0 -> {
+            Text(text = stringResource(R.string.text_hardness_label, hard))
+        }
+        in 18.1..30.0 -> {
+            Text(text = stringResource(R.string.text_hardness_label, veryHard))
+        }
+        else -> {
+            Text(text = stringResource(id = R.string.text_hardness_label, outBounds))
+        }
+    }
+}
+
+@Composable
+fun WaterHardnessMEQ(
+    ppmMEQ: Double,
+) {
+    val vSoft = stringResource(id = R.string.text_hardness_very_soft)
+    val soft = stringResource(id = R.string.text_hardness_soft)
+    val modHard = stringResource(id = R.string.text_hardness_mod_hard)
+    val hard = stringResource(id = R.string.text_hardness_hard)
+    val veryHard = stringResource(id = R.string.text_hardness_very_hard)
+    val outBounds = stringResource(id = R.string.text_hardness_else)
+
+    when (ppmMEQ) {
+        in 0.0..70.0 -> {
+            Text(text = stringResource(R.string.text_hardness_label, vSoft))
+        }
+        in 70.1..140.0 -> {
+            Text(text = stringResource(R.string.text_hardness_label, soft))
+        }
+        in 140.1..210.0 -> {
+            Text(text = stringResource(R.string.text_hardness_label, modHard))
+        }
+        in 210.1..320.0 -> {
+            Text(text = stringResource(R.string.text_hardness_label, hard))
+        }
+        in 320.1..530.0 -> {
+            Text(text = stringResource(R.string.text_hardness_label, veryHard))
+        }
+        else -> {
+            Text(text = stringResource(id = R.string.text_hardness_label, outBounds))
+        }
     }
 }
 

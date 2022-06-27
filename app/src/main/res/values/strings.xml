@@ -121,10 +121,11 @@
     <string name="text_fixed">###Fixed</string>
     <string name="text_unreleased_body">Converters\n-Aquarium Specific Volume Converters\nTank Volume Calculators\n-Corner Pentagon\n-Flat Back Hex\n-Octagon\n\nWater Hardness Output</string>
     <string name="text_fixed_body_7">General code re-write\nGeneral UI fixes</string>
-    <string name="text_hardness_very_soft"> Very Soft</string>
-    <string name="text_hardness_soft"> Soft</string>
-    <string name="text_hardness_mod_hard"> oderately Hard</string>
-    <string name="text_hardness_hard"> Hard</string>
-    <string name="text_hardness_very_hard"> Very Hard</string>
-    <string name="text_hardness_label">Water Hardness:</string>
+    <string name="text_hardness_very_soft">Very Soft</string>
+    <string name="text_hardness_soft">Soft</string>
+    <string name="text_hardness_mod_hard">Moderately Hard</string>
+    <string name="text_hardness_hard">Hard</string>
+    <string name="text_hardness_very_hard">Very Hard</string>
+    <string name="text_hardness_label">Water Hardness: %s</string>
+    <string name="text_hardness_else">Out-of-Bounds</string>
 </resources>
