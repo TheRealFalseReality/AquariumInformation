@@ -30,7 +30,7 @@ fun SalScreen (
     modifier: Modifier = Modifier,
 ) {
     var inputSal by rememberSaveable {
-        mutableStateOf("")
+        mutableStateOf("36")
     }
     var selected by rememberSaveable {
         mutableStateOf(R.string.button_label_ppt)
@@ -41,10 +41,10 @@ fun SalScreen (
 
     val sal = inputSal.toDoubleOrNull() ?: 0.0
 
-    val ppt = calculateSalinity(sal, tempTestWater)
-    val sg = calculateSpecificGravity(sal, tempPureWater, tempTestWater)
-    val salDensityPPT = calculateDensityPPT(sal, tempTestWater)
-    val salDensitySG = calculateDensitySG(sal, tempPureWater)
+    val ppt = calculateSalinity(sal, tempTestWater).toDoubleOrNull() ?: 0.0
+    val sg = calculateSpecificGravity(sal, tempPureWater, tempTestWater).toDoubleOrNull() ?: 0.0
+    val salDensityPPT = calculateDensityPPT(sal, tempTestWater).toDoubleOrNull() ?: 0.0
+    val salDensitySG = calculateDensitySG(sal, tempPureWater).toDoubleOrNull() ?: 0.0
 
         Column(
             modifier = modifier

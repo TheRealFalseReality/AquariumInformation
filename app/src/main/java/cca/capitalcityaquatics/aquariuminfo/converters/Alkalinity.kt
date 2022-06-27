@@ -9,6 +9,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -16,6 +17,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
@@ -29,19 +31,19 @@ fun AlkalinityScreen(
     modifier: Modifier = Modifier,
 ) {
     var inputAlk by rememberSaveable {
-        mutableStateOf("")
+        mutableStateOf("14")
     }
     var selected by rememberSaveable {
         mutableStateOf(R.string.button_label_dkh)
     }
 
     val alk = inputAlk.toDoubleOrNull() ?: 0.0
-    val ppmDKH = calculatePpmDkh(alk)
-    val dkhPPM = calculateDkhPpm(alk)
-    val meqDKH = calculateMeqDkh(alk)
-    val meqPPM = calculateMeqPpm(alk)
-    val ppmMEQ = calculatePpmMeq(alk)
-    val dkhMEQ = calculateDkhMeq(alk)
+    val ppmDKH = calculatePpmDkh(alk).toDoubleOrNull() ?: 0.0
+    val dkhPPM = calculateDkhPpm(alk).toDoubleOrNull() ?: 0.0
+    val meqDKH = calculateMeqDkh(alk).toDoubleOrNull() ?: 0.0
+    val meqPPM = calculateMeqPpm(alk).toDoubleOrNull() ?: 0.0
+    val ppmMEQ = calculatePpmMeq(alk).toDoubleOrNull() ?: 0.0
+    val dkhMEQ = calculateDkhMeq(alk).toDoubleOrNull() ?: 0.0
 
     Column(
         modifier = modifier
@@ -121,6 +123,12 @@ fun AlkalinityScreen(
                             )
                         }
                     }
+                
+                Row {
+                    Text(text = stringResource(id = R.string.text_hardness_label))
+
+                    WaterHardness(ppmDKH = ppmDKH)
+                }
 
                 FormulaString(text = R.string.text_formula_alk)
 
@@ -139,6 +147,17 @@ fun AlkalinityScreen(
 
             }
         }
+    }
+}
+
+@Composable
+fun WaterHardness(
+    ppmDKH: Double
+){
+    if ( ppmDKH <= 70.0) {
+        Text(text = stringResource(R.string.text_hardness_very_soft))
+    }else {
+        Text(text = "")
     }
 }
 

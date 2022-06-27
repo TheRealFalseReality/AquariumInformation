@@ -30,7 +30,7 @@ fun InfoCardContent(
     Card(
         backgroundColor = MaterialTheme.colors.secondary,
         modifier = Modifier
-            .padding(vertical = 4.dp, horizontal = 8.dp)
+            .padding(vertical = 4.dp)
     ){
         Row (
             modifier = Modifier
@@ -45,7 +45,7 @@ fun InfoCardContent(
             Column (
                 modifier = Modifier
                     .weight(1f)
-                    .padding(12.dp),
+                    .padding(top = 12.dp, bottom =  12.dp, start = 12.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ){
                 Text(
@@ -90,7 +90,7 @@ fun InfoCardContent3(
     Card(
         backgroundColor = MaterialTheme.colors.secondary,
         modifier = Modifier
-            .padding(vertical = 4.dp, horizontal = 8.dp)
+            .padding(vertical = 4.dp)
     ){
         Row (
             modifier = Modifier
@@ -105,7 +105,7 @@ fun InfoCardContent3(
             Column (
                 modifier = Modifier
                     .weight(1f)
-                    .padding(12.dp),
+                    .padding(top = 12.dp, bottom =  12.dp, start = 12.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ){
                 Text(
@@ -162,7 +162,7 @@ fun InfoCardContent6(
     Card(
         backgroundColor = MaterialTheme.colors.secondary,
         modifier = Modifier
-            .padding(vertical = 4.dp, )
+            .padding(vertical = 4.dp)
     ){
         Row (
             modifier = Modifier
@@ -177,7 +177,7 @@ fun InfoCardContent6(
             Column (
                 modifier = Modifier
                     .weight(1f)
-                    .padding(12.dp),
+                    .padding(top = 12.dp, bottom =  12.dp, start = 12.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ){
                 Text(

@@ -29,17 +29,17 @@ fun TempScreen (
     modifier: Modifier = Modifier,
 ) {
     var inputTemp by rememberSaveable {
-        mutableStateOf("")
+        mutableStateOf("0")
     }
     var selected by rememberSaveable {
         mutableStateOf(R.string.button_label_cel)
     }
 
     val temp = inputTemp.toDoubleOrNull() ?: 0.0
-    val celsius = calculateCelsius(temp)
-    val kelvinCel = calculateKelvinCel(temp)
-    val kelvinFah = calculateKelvinFah(temp)
-    val fahrenheit = calculateFahrenheit(temp)
+    val celsius = calculateCelsius(temp).toDoubleOrNull() ?: 0.0
+    val kelvinCel = calculateKelvinCel(temp).toDoubleOrNull() ?: 0.0
+    val kelvinFah = calculateKelvinFah(temp).toDoubleOrNull() ?: 0.0
+    val fahrenheit = calculateFahrenheit(temp).toDoubleOrNull() ?: 0.0
 
     Column(
         modifier = modifier

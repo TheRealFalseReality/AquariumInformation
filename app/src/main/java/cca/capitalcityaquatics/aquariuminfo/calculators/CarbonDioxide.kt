@@ -42,7 +42,7 @@ fun CarbonDioxideScreen (
 
     val ph = inputPH.toDoubleOrNull() ?: 0.0
     val dkh = inputDKH.toDoubleOrNull() ?: 0.0
-    val co2 = calculateCarbonDioxide(ph , dkh)
+    val co2 = calculateCarbonDioxide(ph , dkh).toDoubleOrNull() ?: 0.0
 
     Column(
         modifier = modifier

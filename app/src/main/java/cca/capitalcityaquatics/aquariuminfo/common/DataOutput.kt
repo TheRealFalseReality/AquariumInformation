@@ -28,9 +28,9 @@ fun DataOutputLines4 (
     @StringRes inputText: Int,
     @StringRes equalsText: Int,
     @StringRes outputTextA: Int,
-    valueA: String,
+    valueA: Double,
     @StringRes outputTextB: Int,
-    valueB: String
+    valueB: Double
 ){
     Column {
         EditNumberFieldSingle(
@@ -90,7 +90,7 @@ fun DataOutputLines3Inputs2 (
     @StringRes inputText: Int,
     @StringRes equalsText: Int,
     @StringRes outputTextA: Int,
-    valueA: String,
+    valueA: Double,
 ) {
     Column {
         EditNumberField2Vert(
@@ -139,9 +139,9 @@ fun DataOutputLines4Salinity(
     @StringRes inputText: Int,
     @StringRes equalsText: Int,
     @StringRes outputTextA: Int,
-    valueA: String,
+    valueA: Double,
     @StringRes outputTextB: Int,
-    valueB: String
+    valueB: Double
 ){
     Column {
         EditNumberFieldSingle(
