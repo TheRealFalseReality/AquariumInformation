@@ -10,7 +10,7 @@ Tank Volume Calculators
   -Flat Back Hex
   -Octagon
   
-Water Hardness Output
+Water Hardness Chart
 Locale specific decimal values
 Add CLEAR buttons where useful
 Dedicated Water Weight Calculator
@@ -18,6 +18,12 @@ Adjust how images are displayed
 Add formulas where needed
 Add surface area
 Add substrate calculator
+Add icon as vector
+
+##[0.5] - 
+###Added
+Alkalinity Converter
+  -Water Hardness text
 
 ## [0.4] - 2022-6-26
 ###Added 
