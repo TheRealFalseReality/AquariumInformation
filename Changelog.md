@@ -18,6 +18,7 @@ Adjust how images are displayed
 Add formulas where needed
 Add surface area
 Add substrate calculator
+Add icon as vector
 
 ##[0.5] - 
 ###Added
