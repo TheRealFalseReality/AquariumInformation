@@ -15,9 +15,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import cca.capitalcityaquatics.aquariuminfo.common.LoadFile
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.common.AppInfo
-import cca.capitalcityaquatics.aquariuminfo.common.GeneralComposeBody
 import cca.capitalcityaquatics.aquariuminfo.common.GeneralComposeFooter
 import cca.capitalcityaquatics.aquariuminfo.common.GeneralComposeHeader
 
@@ -53,17 +53,10 @@ fun InfoScreen(
                 
                 GeneralComposeHeader(textHeader = R.string.text_title_info)
 
-                Spacer(modifier = Modifier.height(50.dp))
+                Spacer(modifier = Modifier.height(30.dp))
 
-                GeneralComposeBody(
-                    textBody = R.string.text_body_info,
-                    textAlign = TextAlign.Center
-                )
-
-                Spacer(modifier = Modifier.height(25.dp))
-
-                GeneralComposeBody(
-                    textBody = R.string.text_info_body_errors,
+                LoadFile(
+                    file = "Info.txt",
                     textAlign = TextAlign.Center
                 )
 

@@ -12,16 +12,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import cca.capitalcityaquatics.aquariuminfo.LoadFile
+import cca.capitalcityaquatics.aquariuminfo.common.LoadFile
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.common.GeneralComposeBody
-import cca.capitalcityaquatics.aquariuminfo.common.GeneralComposeFooter
 import cca.capitalcityaquatics.aquariuminfo.common.GeneralComposeHeader
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
@@ -32,7 +28,8 @@ fun HomeScreen (
     Column(
         modifier = modifier
             .padding(start = 24.dp, end = 24.dp, top = 24.dp),
-        verticalArrangement = Arrangement.Top
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Card(
             backgroundColor = MaterialTheme.colors.primary,
@@ -53,36 +50,18 @@ fun HomeScreen (
                 GeneralComposeHeader(textHeader =R.string.text_title_welcome )
 
                 Spacer(modifier = Modifier.height(36.dp))
-
-                GeneralComposeBody(
-                    textBody = R.string.text_body_welcome, textAlign = TextAlign.Center)
+                
+                LoadFile(
+                    file = "Welcome.txt",
+                    textAlign = TextAlign.Center
+                )
 
                 Spacer(modifier = Modifier.height(26.dp))
                 
                 ChangelogCardContent()
 
-                Spacer(modifier = Modifier.height(26.dp))
+                Spacer(modifier = Modifier.height(6.dp))
 
-                Column(
-                    modifier = Modifier
-                        .padding(6.dp)
-                        .fillMaxHeight()
-                        .fillMaxWidth()
-                        .border(
-                            BorderStroke(2.dp, MaterialTheme.colors.primaryVariant),
-                            shape = RoundedCornerShape(4.dp)
-                        ),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Spacer(modifier = Modifier.height(20.dp))
-                    GeneralComposeFooter(
-                        textFooter = R.string.text_footer_welcome,
-                        textAlign = TextAlign.Center,
-                        style = TextStyle(textDecoration = TextDecoration.None),
-                        fontWeight = FontWeight.Bold
-                    )
-                    Spacer(modifier = Modifier.height(20.dp))
-                }
             }
         }
     }
@@ -122,7 +101,10 @@ fun ChangelogCardContent(
                 Spacer(modifier = Modifier.height(10.dp))
                 if (expanded){
 
-                    LoadFile(file = "Changelog.md")
+                    LoadFile(
+                        file = "Changelog.md",
+                        textAlign = TextAlign.Start
+                    )
 
                 }
             }
@@ -143,8 +125,6 @@ fun ChangelogCardContent(
         }
     }
 }
-
-
 
 @Preview(showBackground = true)
 @Composable
