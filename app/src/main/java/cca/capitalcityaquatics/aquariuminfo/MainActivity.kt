@@ -82,7 +82,7 @@ fun MainScreen(){
     Scaffold(
         topBar = {
             Column{
-                AdvertView(navController)
+                AdvertView()
                 TopBar(navController = navController)
             }
         },
