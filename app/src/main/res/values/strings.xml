@@ -110,7 +110,7 @@
     <string name="text_cyl_half">Half Cylinder</string>
     <string name="text_cyl_quart">Corner Cylinder</string>
     <string name="text_choose_one">Please Choose only 1</string>
-    <string name="text_title_changelog">#Changelog</string>
+    <string name="text_title_changelog">Click for Changelog</string>
     <string name="text_version_7">##[0.4] - 2022–6–26</string>
     <string name="text_added_body_7">Tank Volume Calculators\n-Half Cylinder\n-Corner Cylinder</string>
     <string name="text_unreleased">##[Unreleased]</string>
@@ -128,4 +128,5 @@
     <string name="text_hardness_very_hard">Very Hard</string>
     <string name="text_hardness_label">Water Hardness: %s</string>
     <string name="text_hardness_else">Out-of-Bounds</string>
+    <string name="text_error">Error</string>
 </resources>

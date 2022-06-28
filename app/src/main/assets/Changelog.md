@@ -14,6 +14,10 @@ All notable changes to this project will be documented in this file.
 -Add surface area
 -Add substrate calculator
 
+## [0.5.5] - 2022-6
+##Added
+-Changelog.md created and linked in Home
+
 ## [0.5] - 2022-6-27
 ###Added
 -Water Hardness text
