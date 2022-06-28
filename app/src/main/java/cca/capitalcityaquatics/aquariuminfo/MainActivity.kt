@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
@@ -23,6 +24,7 @@ import cca.capitalcityaquatics.aquariuminfo.converters.SalScreen
 import cca.capitalcityaquatics.aquariuminfo.navigation.BottomNavigationBar
 import cca.capitalcityaquatics.aquariuminfo.navigation.ConvertNavScreen
 import cca.capitalcityaquatics.aquariuminfo.navigation.TankVolumeNavScreen
+import cca.capitalcityaquatics.aquariuminfo.navigation.TopBar
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
 class MainActivity : ComponentActivity() {
@@ -79,7 +81,10 @@ fun MainScreen(){
     val navController = rememberNavController()
     Scaffold(
         topBar = {
-            AdvertView(navController)
+            Column{
+                AdvertView(navController)
+                TopBar(navController = navController)
+            }
         },
         bottomBar = {
             BottomNavigationBar(navController)

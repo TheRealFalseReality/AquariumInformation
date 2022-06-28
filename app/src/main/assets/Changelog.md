@@ -6,17 +6,26 @@ All notable changes to this project will be documented in this file.
 -Corner Pentagon
 -Flat Back Hex
 -Octagon
--Locale specific decimal values
+-Fix Subscripts
+-Make Tank Shape Landing Screen
+-Add more Units to select from
+-Ability to remove ADs with in-app billing
 -Add CLEAR buttons where useful
 -Dedicated Water Weight Calculator
 -Adjust how images are displayed
 -Add formulas where needed
--Add surface area
+-Add surface area to volume calculator
 -Add substrate calculator
 
 ## [0.5.5] - 2022-6
-##Added
--Changelog.md created and linked in Home
+###Added
+-Changelog.md created and linked in HomeScreen
+
+###Changed
+-Display More Information for Salinity Converter
+
+###Fixed
+-General Code re-write
 
 ## [0.5] - 2022-6-27
 ###Added

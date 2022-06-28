@@ -50,7 +50,6 @@ fun AdvertView(
                 }
             )
         }
-        TopBar(navController = navController)
     }
 }
 

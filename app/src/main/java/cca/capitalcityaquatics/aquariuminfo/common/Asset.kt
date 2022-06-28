@@ -11,14 +11,18 @@ import java.io.InputStream
 fun LoadFile(
     file: String,
 ) {
+
     var dataText by remember {
         mutableStateOf("")
     }
+
     Column {
         Text(dataText)
     }
+
     val context = LocalContext.current
     val error = stringResource(id = R.string.text_error)
+
     LaunchedEffect(true) {
         kotlin.runCatching {
             val inputStream: InputStream = context.assets.open(file)
