@@ -76,9 +76,9 @@ fun TopBar(
         actions = {
             IconButton(
                 onClick = {
-                    navController.navigate(NavigationItem.Info.route){
+                    navController.navigate(NavigationItem.Info.route) {
                         navController.graph.startDestinationRoute?.let { route ->
-                            popUpTo(route){
+                            popUpTo(route) {
                                 saveState = true
                             }
                         }

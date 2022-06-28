@@ -199,7 +199,10 @@ fun WaterHardnessDKH(
             )
         }
         else -> {
-            Text(text = stringResource(id = R.string.text_hardness_label, outBounds))
+            Text(
+                text = stringResource(id = R.string.text_hardness_label, outBounds),
+                style = MaterialTheme.typography.h6
+            )
             Spacer(modifier = Modifier.height(10.dp))
             Image(painter = painterResource(id = R.drawable.outdkh),
                 contentDescription = stringResource(id = R.string.text_hardness_very_hard)

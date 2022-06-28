@@ -18,6 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import cca.capitalcityaquatics.aquariuminfo.LoadFile
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.common.*
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
@@ -119,59 +120,8 @@ fun ChangelogCardContent(
                 Spacer(modifier = Modifier.height(10.dp))
                 if (expanded){
 
-                    GeneralComposeBody2(
-                        textBody = R.string.text_subtitle_changelog,
-                        modifier = Modifier
-                            .align(Alignment.Start)
-                    )
+                    LoadFile(file = "Changelog.md")
 
-                    Spacer(modifier = Modifier.height(20.dp))
-
-                    GeneralComposeBody2(
-                        textBody = R.string.text_unreleased,
-                        modifier = Modifier
-                            .align(Alignment.Start)
-                    )
-
-                    GeneralComposeBody2(
-                        textBody = R.string.text_unreleased_body,
-                        modifier = Modifier
-                            .align(Alignment.Start)
-                    )
-
-                    Spacer(modifier = Modifier.height(10.dp))
-
-                    GeneralComposeHeader2(
-                        textHeader = R.string.text_version_7,
-                        modifier = Modifier
-                            .align(Alignment.Start)
-                    )
-
-                    GeneralComposeBody2(
-                        textBody = R.string.text_added,
-                        modifier = Modifier
-                            .align(Alignment.Start)
-                    )
-
-                    GeneralComposeBody2(
-                        textBody = R.string.text_added_body_7,
-                        modifier = Modifier
-                            .align(Alignment.Start)
-                    )
-
-                    Spacer(modifier = Modifier.height(10.dp))
-
-                    GeneralComposeBody2(
-                        textBody = R.string.text_fixed,
-                        modifier = Modifier
-                            .align(Alignment.Start)
-                    )
-
-                    GeneralComposeBody2(
-                        textBody = R.string.text_fixed_body_7,
-                        modifier = Modifier
-                            .align(Alignment.Start)
-                    )
                 }
             }
             IconButton(
