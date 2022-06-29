@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
@@ -25,9 +26,11 @@ import cca.capitalcityaquatics.aquariuminfo.navigation.BottomNavigationBar
 import cca.capitalcityaquatics.aquariuminfo.navigation.ConvertNavScreen
 import cca.capitalcityaquatics.aquariuminfo.navigation.TankVolumeNavScreen
 import cca.capitalcityaquatics.aquariuminfo.navigation.TopBar
+import cca.capitalcityaquatics.aquariuminfo.ui.MainViewModel
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
 class MainActivity : ComponentActivity() {
+    private val viewModel by viewModels<MainViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
 
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)

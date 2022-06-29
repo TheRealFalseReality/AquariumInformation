@@ -60,6 +60,7 @@ fun ConvertBottomNavBar(
     val items = listOf(
         NavigationItem.Temp,
         NavigationItem.CO2,
+        NavigationItem.Billing
     )
     BottomNavigation (
         backgroundColor = MaterialTheme.colors.secondary,
