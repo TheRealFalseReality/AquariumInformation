@@ -1,4 +1,4 @@
-# AquariumInformation
+# Aquarium Information
 
 App Purpose:
 To create calculators and converters tailored for Aquarists all in one place and easy to use.
