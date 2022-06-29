@@ -1,4 +1,4 @@
-package cca.capitalcityaquatics.aquariuminfo.ui
+package cca.capitalcityaquatics.aquariuminfo.billing
 
 import android.app.Activity
 import android.app.Application
@@ -7,7 +7,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import cca.capitalcityaquatics.aquariuminfo.billing.BillingClientWrapper
 import cca.capitalcityaquatics.aquariuminfo.repository.PremiumDataRepo
 import com.android.billingclient.api.BillingFlowParams
 import com.android.billingclient.api.ProductDetails
@@ -16,19 +15,9 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 
-
-/**
- * The [AndroidViewModel] implementation combines all flows from the repo into a single one
- * that is collected in the Composable.
- *
- * It, also, has helper methods that are used to launch the Google Play Billing purchase flow.
- *
- */
-class MainViewModel(application: Application) :
-    AndroidViewModel(application) {
-    var billingClient: BillingClientWrapper = BillingClientWrapper(application)
-    private var repo: PremiumDataRepo =
-        PremiumDataRepo(billingClientWrapper = billingClient)
+class BillingViewModel (application: Application) : AndroidViewModel(application) {
+    private var billingClient: BillingClientWrapper = BillingClientWrapper(application)
+    private var repo: PremiumDataRepo = PremiumDataRepo(billingClientWrapper = billingClient)
     private val _billingConnectionState = MutableLiveData(false)
     val billingConnectionState: LiveData<Boolean> = _billingConnectionState
 
@@ -44,8 +33,7 @@ class MainViewModel(application: Application) :
     val productsForSaleFlows = combine(
         repo.basicProductDetails,
         repo.premiumProductDetails
-    ){
-        basicProductDetails,
+    ) { basicProductDetails,
         premiumProductDetails
         ->
         MainState(
@@ -78,11 +66,11 @@ class MainViewModel(application: Application) :
                 when {
                     collectedSubscriptions.hasBasic == true &&
                             collectedSubscriptions.hasPremium == false -> {
-                        _destinationScreen.postValue(DestinationScreen.BASIC_PROFILE)
+                                _destinationScreen.postValue(DestinationScreen.BASIC_PROFILE)
                             }
                     collectedSubscriptions.hasPremium == true &&
                             collectedSubscriptions.hasBasic == false -> {
-                        _destinationScreen.postValue(DestinationScreen.PREMIUM_PROFILE)
+                                _destinationScreen.postValue(DestinationScreen.PREMIUM_PROFILE)
                             }
                     else -> {
                         _destinationScreen.postValue(DestinationScreen.SUBSCRIPTIONS_OPTIONS_SCREEN)
@@ -91,7 +79,6 @@ class MainViewModel(application: Application) :
             }
         }
     }
-
 
     /**
      * Retrieves all eligible base plans and offers using tags from ProductDetails.
@@ -102,7 +89,6 @@ class MainViewModel(application: Application) :
      * @return the eligible offers and base plans in a list.
      *
      */
-
     private fun retrieveEligibleOffers(
         offerDetails: MutableList<ProductDetails.SubscriptionOfferDetails>,
         tag: String
@@ -127,7 +113,6 @@ class MainViewModel(application: Application) :
      *
      * @return the offer id token of the lowest priced offer.
      */
-
     private fun leastPricedOfferToken(
         offerDetails: List<ProductDetails.SubscriptionOfferDetails>
     ): String {
@@ -159,7 +144,6 @@ class MainViewModel(application: Application) :
      *
      * @return [BillingFlowParams] builder.
      */
-
     private fun upDowngradeBillingFlowParamsBuilder(
         productDetails: ProductDetails,
         offerToken: String,
@@ -191,7 +175,6 @@ class MainViewModel(application: Application) :
      *
      * @return [BillingFlowParams] builder.
      */
-
     private fun billingFlowParamsBuilder(
         productDetails: ProductDetails,
         offerToken: String
@@ -215,7 +198,6 @@ class MainViewModel(application: Application) :
      * @param activity [Activity] instance.
      * @param tag String representing tags associated with offers and base plans.
      */
-
     fun buy(
         productDetails: ProductDetails,
         currentPurchases: List<Purchase>?,
@@ -287,13 +269,10 @@ class MainViewModel(application: Application) :
         billingClient.terminateBillingConnection()
     }
 
-    /**
-     * Enum representing the various screens a user can be redirected to.
-     */
-    enum class DestinationScreen {
+    enum class DestinationScreen{
         SUBSCRIPTIONS_OPTIONS_SCREEN,
-        BASIC_PROFILE_SCREEN,
         BASIC_PROFILE,
+        BASIC_PROFILE_SCREEN,
         PREMIUM_PROFILE_SCREEN,
         PREMIUM_PROFILE;
     }
@@ -303,4 +282,5 @@ class MainViewModel(application: Application) :
 
         private const val MAX_CURRENT_PURCHASES_ALLOWED = 1
     }
+
 }

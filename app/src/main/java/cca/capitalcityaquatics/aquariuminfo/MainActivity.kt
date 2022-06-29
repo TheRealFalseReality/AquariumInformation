@@ -19,6 +19,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import cca.capitalcityaquatics.aquariuminfo.appscreens.HomeScreen
 import cca.capitalcityaquatics.aquariuminfo.appscreens.InfoScreen
+import cca.capitalcityaquatics.aquariuminfo.billing.BillingViewModel
 import cca.capitalcityaquatics.aquariuminfo.common.AdvertView
 import cca.capitalcityaquatics.aquariuminfo.converters.AlkalinityScreen
 import cca.capitalcityaquatics.aquariuminfo.converters.SalScreen
@@ -26,11 +27,10 @@ import cca.capitalcityaquatics.aquariuminfo.navigation.BottomNavigationBar
 import cca.capitalcityaquatics.aquariuminfo.navigation.ConvertNavScreen
 import cca.capitalcityaquatics.aquariuminfo.navigation.TankVolumeNavScreen
 import cca.capitalcityaquatics.aquariuminfo.navigation.TopBar
-import cca.capitalcityaquatics.aquariuminfo.ui.MainViewModel
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
 class MainActivity : ComponentActivity() {
-    private val viewModel by viewModels<MainViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)

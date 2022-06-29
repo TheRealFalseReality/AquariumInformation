@@ -14,8 +14,15 @@
  * limitations under the License.
  */
 
-package cca.capitalcityaquatics.aquariuminfo.ui
+package cca.capitalcityaquatics.aquariuminfo.billing
 
-import androidx.annotation.StringRes
+import com.android.billingclient.api.ProductDetails
+import com.android.billingclient.api.Purchase
 
-data class ButtonModel(@StringRes val stringResource : Int, val onClick: () -> Unit)
+data class MainState(
+    val hasBasic: Boolean? = false,
+    val hasPremium: Boolean? = false,
+    val basicProductDetails: ProductDetails? = null,
+    val premiumProductDetails: ProductDetails? = null,
+    val purchases: List<Purchase>? = null,
+)

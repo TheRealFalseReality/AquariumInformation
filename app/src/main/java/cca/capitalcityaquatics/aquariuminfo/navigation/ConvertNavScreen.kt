@@ -11,13 +11,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import cca.capitalcityaquatics.aquariuminfo.MainActivity
 import cca.capitalcityaquatics.aquariuminfo.NavigationItem
+import cca.capitalcityaquatics.aquariuminfo.billing.BillingNavHost
+import cca.capitalcityaquatics.aquariuminfo.billing.BillingScreen
 import cca.capitalcityaquatics.aquariuminfo.calculators.CarbonDioxideScreen
 import cca.capitalcityaquatics.aquariuminfo.converters.TempScreen
 
@@ -49,6 +53,9 @@ fun NavigationConvert(
         }
         composable(NavigationItem.CO2.route){
             CarbonDioxideScreen()
+        }
+        composable(NavigationItem.Billing.route){
+            BillingScreen()
         }
     }
 }

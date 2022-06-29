@@ -1,4 +1,4 @@
-package cca.capitalcityaquatics.aquariuminfo.ui.composable
+package cca.capitalcityaquatics.aquariuminfo.billing
 
 import android.app.Activity
 import android.content.Context
@@ -19,27 +19,44 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import cca.capitalcityaquatics.aquariuminfo.Constants
 import cca.capitalcityaquatics.aquariuminfo.Constants.BASIC_BASE_PLANS_ROUTE
-import cca.capitalcityaquatics.aquariuminfo.Constants.MONTHLY_BASIC_PLANS_TAG
-import cca.capitalcityaquatics.aquariuminfo.Constants.MONTHLY_PREMIUM_PLANS_TAG
+import cca.capitalcityaquatics.aquariuminfo.Constants.BASIC_PLANS_TAG
 import cca.capitalcityaquatics.aquariuminfo.Constants.PREMIUM_BASE_PLANS_ROUTE
-import cca.capitalcityaquatics.aquariuminfo.Constants.PREPAID_BASIC_PLANS_TAG
-import cca.capitalcityaquatics.aquariuminfo.Constants.PREPAID_PREMIUM_PLANS_TAG
+import cca.capitalcityaquatics.aquariuminfo.Constants.PREMIUM_PLANS_TAG
 import cca.capitalcityaquatics.aquariuminfo.Constants.SUBSCRIPTION_ROUTE
-import cca.capitalcityaquatics.aquariuminfo.Constants.YEARLY_BASIC_PLANS_TAG
-import cca.capitalcityaquatics.aquariuminfo.Constants.YEARLY_PREMIUM_PLANS_TAG
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.ui.ButtonModel
-import cca.capitalcityaquatics.aquariuminfo.ui.MainState
-import cca.capitalcityaquatics.aquariuminfo.ui.MainViewModel
-import java.util.concurrent.Flow
+
+@Composable
+fun LoadingScreen() {
+    CenteredSurfaceColumn {
+        Text(
+            text = stringResource(id = R.string.loading_message),
+            style = MaterialTheme.typography.h1,
+            textAlign = TextAlign.Center
+        )
+    }
+}
+
+@Composable
+fun CenteredSurfaceColumn(
+    content: @Composable ColumnScope.() -> Unit
+) {
+    Surface {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            content()
+        }
+    }
+}
 
 @Composable
 fun SubscriptionNavigationComponent(
     productsForSale: MainState,
     navController: NavHostController,
-    viewModel: MainViewModel
+    viewModel: BillingViewModel
 ) {
     NavHost(
         navController = navController,
@@ -65,7 +82,6 @@ fun SubscriptionNavigationComponent(
     }
 }
 
-// TODO Uncomment the below compose function.
 @Composable
 private fun Subscription(
     navController: NavHostController,
@@ -85,11 +101,10 @@ private fun Subscription(
     }
 }
 
-// TODO Uncomment the below compose function.
 @Composable
 private fun BasicBasePlans(
     productsForSale: MainState,
-    viewModel: MainViewModel,
+    viewModel: BillingViewModel,
 ) {
     val context = LocalContext.current
     val activity = context.findActivity()
@@ -101,27 +116,7 @@ private fun BasicBasePlans(
                         viewModel.buy(
                             productDetails = it,
                             currentPurchases = null,
-                            tag = MONTHLY_BASIC_PLANS_TAG,
-                            activity = activity
-                        )
-                    }
-                },
-                ButtonModel(R.string.yearly_sub_text) {
-                    productsForSale.basicProductDetails?.let {
-                        viewModel.buy(
-                            productDetails = it,
-                            currentPurchases = null,
-                            tag = YEARLY_BASIC_PLANS_TAG,
-                            activity = activity
-                        )
-                    }
-                },
-                ButtonModel(R.string.prepaid_basic_sub_text) {
-                    productsForSale.basicProductDetails?.let {
-                        viewModel.buy(
-                            productDetails = it,
-                            currentPurchases = null,
-                            tag = Constants.PREPAID_BASIC_PLANS_TAG,
+                            tag = BASIC_PLANS_TAG,
                             activity = activity
                         )
                     }
@@ -132,11 +127,10 @@ private fun BasicBasePlans(
     }
 }
 
-// TODO Uncomment the below compose function.
 @Composable
 private fun PremiumBasePlans(
     productsForSale: MainState,
-    viewModel: MainViewModel,
+    viewModel: BillingViewModel,
 ) {
     val context = LocalContext.current
     val activity = context.findActivity()
@@ -148,27 +142,7 @@ private fun PremiumBasePlans(
                         viewModel.buy(
                             productDetails = it,
                             currentPurchases = null,
-                            tag = MONTHLY_PREMIUM_PLANS_TAG,
-                            activity = activity
-                        )
-                    }
-                },
-                ButtonModel(R.string.yearly_premium_sub_text) {
-                    productsForSale.premiumProductDetails?.let {
-                        viewModel.buy(
-                            productDetails = it,
-                            currentPurchases = null,
-                            tag = YEARLY_PREMIUM_PLANS_TAG,
-                            activity = activity
-                        )
-                    }
-                },
-                ButtonModel(R.string.prepaid_premium_sub_text) {
-                    productsForSale.premiumProductDetails?.let {
-                        viewModel.buy(
-                            productDetails = it,
-                            currentPurchases = null,
-                            tag = PREPAID_PREMIUM_PLANS_TAG,
+                            tag = PREMIUM_PLANS_TAG,
                             activity = activity
                         )
                     }
@@ -197,10 +171,10 @@ fun UserProfile(
         } else {
             CenteredSurfaceColumn {
                 when (tag) {
-                    PREPAID_BASIC_PLANS_TAG -> ProfileText(
+                    BASIC_PLANS_TAG -> ProfileText(
                         text = stringResource(id = R.string.basic_prepaid_sub_message)
                     )
-                    PREPAID_PREMIUM_PLANS_TAG -> ProfileText(
+                    PREMIUM_PLANS_TAG -> ProfileText(
                         text = stringResource(id = R.string.premium_prepaid_sub_message)
                     )
                 }
@@ -232,38 +206,12 @@ private fun ButtonGroup(
 }
 
 @Composable
-fun LoadingScreen() {
-    CenteredSurfaceColumn {
-        Text(
-            text = stringResource(id = R.string.loading_message),
-            style = MaterialTheme.typography.h1,
-            textAlign = TextAlign.Center
-        )
-    }
-}
-
-@Composable
 private fun ProfileText(text: String) {
     Text(
         text = text,
         style = MaterialTheme.typography.h3,
         textAlign = TextAlign.Center
     )
-}
-
-@Composable
-fun CenteredSurfaceColumn(
-    content: @Composable ColumnScope.() -> Unit
-) {
-    Surface {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            content()
-        }
-    }
 }
 
 /**
