@@ -9,12 +9,6 @@ import androidx.navigation.compose.rememberNavController
 import cca.capitalcityaquatics.aquariuminfo.MainActivity
 import cca.capitalcityaquatics.aquariuminfo.R
 
-
-@Composable
-fun BillingScreen(){
-    BillingNavHost(viewModel = viewModel(), activity = MainActivity())
-}
-
 @Composable
 fun BillingNavHost(viewModel: BillingViewModel, activity:MainActivity) {
     // State variable passed into Billing connection call and set to true when

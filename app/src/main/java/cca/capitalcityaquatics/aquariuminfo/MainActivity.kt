@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
@@ -19,7 +18,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import cca.capitalcityaquatics.aquariuminfo.appscreens.HomeScreen
 import cca.capitalcityaquatics.aquariuminfo.appscreens.InfoScreen
-import cca.capitalcityaquatics.aquariuminfo.billing.BillingViewModel
 import cca.capitalcityaquatics.aquariuminfo.common.AdvertView
 import cca.capitalcityaquatics.aquariuminfo.converters.AlkalinityScreen
 import cca.capitalcityaquatics.aquariuminfo.converters.SalScreen
@@ -30,7 +28,6 @@ import cca.capitalcityaquatics.aquariuminfo.navigation.TopBar
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
 class MainActivity : ComponentActivity() {
-    private val viewModel by viewModels<BillingViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

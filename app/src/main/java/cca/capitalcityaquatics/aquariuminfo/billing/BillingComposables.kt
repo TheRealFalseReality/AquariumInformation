@@ -3,28 +3,68 @@ package cca.capitalcityaquatics.aquariuminfo.billing
 import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import cca.capitalcityaquatics.aquariuminfo.MainActivity
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.billing.Constants.BASIC_BASE_PLANS_ROUTE
 import cca.capitalcityaquatics.aquariuminfo.billing.Constants.BASIC_PLANS_TAG
 import cca.capitalcityaquatics.aquariuminfo.billing.Constants.PREMIUM_BASE_PLANS_ROUTE
 import cca.capitalcityaquatics.aquariuminfo.billing.Constants.PREMIUM_PLANS_TAG
 import cca.capitalcityaquatics.aquariuminfo.billing.Constants.SUBSCRIPTION_ROUTE
+
+@Composable
+fun BillingScreen(
+    modifier: Modifier = Modifier,
+){
+    Column(
+        modifier = modifier
+            .padding(start = 24.dp, end = 24.dp, top = 24.dp),
+        verticalArrangement = Arrangement.Top
+    ) {
+        Card(
+            backgroundColor = MaterialTheme.colors.primary,
+            modifier = Modifier
+                .padding(bottom = 86.dp)
+                .fillMaxHeight()
+                .fillMaxWidth()
+                .border(
+                    BorderStroke(2.dp, MaterialTheme.colors.primaryVariant),
+                    shape = RoundedCornerShape(4.dp)
+                )
+                .verticalScroll(rememberScrollState())
+        ) {
+            Column(
+                modifier = Modifier
+                    .padding(14.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+
+                BillingNavHost(viewModel = viewModel(), activity = MainActivity())
+
+            }
+        }
+    }
+}
 
 @Composable
 fun LoadingScreen() {
@@ -214,6 +254,9 @@ private fun ProfileText(text: String) {
     )
 }
 
+/**
+ * Find the closest Activity in a given Context.
+ */
 /**
  * Find the closest Activity in a given Context.
  */
