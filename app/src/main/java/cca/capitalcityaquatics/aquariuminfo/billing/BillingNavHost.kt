@@ -6,10 +6,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
-import cca.capitalcityaquatics.aquariuminfo.Constants.BASIC_PLANS_TAG
-import cca.capitalcityaquatics.aquariuminfo.Constants.PREMIUM_PLANS_TAG
 import cca.capitalcityaquatics.aquariuminfo.MainActivity
 import cca.capitalcityaquatics.aquariuminfo.R
+
 
 @Composable
 fun BillingScreen(){
@@ -55,14 +54,14 @@ fun BillingNavHost(viewModel: BillingViewModel, activity:MainActivity) {
                             productsForSale.basicProductDetails?.let {
                                 viewModel.buy(
                                     productDetails = it,
-                                    currentPurchases = null,
-                                    tag = BASIC_PLANS_TAG,
+                                    currentPurchases = currentPurchases,
+                                    tag = Constants.BASIC_PLANS_TAG,
                                     activity = activity
                                 )
                             }
                         },
                     ),
-                    tag = BASIC_PLANS_TAG,
+                    tag = Constants.BASIC_PLANS_TAG,
                     profileTextStringResource = null
                 )
             }
@@ -75,14 +74,14 @@ fun BillingNavHost(viewModel: BillingViewModel, activity:MainActivity) {
                             productsForSale.basicProductDetails?.let {
                                 viewModel.buy(
                                     productDetails = it,
-                                    currentPurchases = null,
-                                    tag = PREMIUM_PLANS_TAG,
+                                    currentPurchases = currentPurchases,
+                                    tag = Constants.PREMIUM_PLANS_TAG,
                                     activity = activity
                                 )
                             }
                         },
                     ),
-                    tag = PREMIUM_PLANS_TAG,
+                    tag = Constants.PREMIUM_PLANS_TAG,
                     profileTextStringResource = null
                 )
             }

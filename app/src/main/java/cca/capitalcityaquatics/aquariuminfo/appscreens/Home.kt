@@ -16,9 +16,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import cca.capitalcityaquatics.aquariuminfo.common.LoadFile
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.common.GeneralComposeHeader
+import cca.capitalcityaquatics.aquariuminfo.common.LoadFile
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
 @Composable

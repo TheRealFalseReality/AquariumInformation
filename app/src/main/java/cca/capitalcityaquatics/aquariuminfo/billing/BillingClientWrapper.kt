@@ -34,7 +34,7 @@ class BillingClientWrapper(
     val isNewPurchaseAcknowledged = _isNewPurchaseAcknowledged.asStateFlow()
 
     // Initialize the BillingClient.
-    private val billingClient = BillingClient.newBuilder(context)
+    private var billingClient = BillingClient.newBuilder(context)
         .setListener(this)
         .enablePendingPurchases()
         .build()
@@ -70,11 +70,12 @@ class BillingClientWrapper(
         }
         // Query for existing products that have been purchased.
         billingClient.queryPurchasesAsync(
-            QueryPurchasesParams.newBuilder().setProductType(BillingClient.ProductType.INAPP).build()
+            QueryPurchasesParams.newBuilder().setProductType(BillingClient.ProductType.SUBS).build()
         ){
+            //Originally isNullOrEmpty()
             billingResult, purchaseList ->
             if (billingResult.responseCode == BillingClient.BillingResponseCode.OK){
-                if (!purchaseList.isNullOrEmpty()){
+                if (purchaseList.isNullOrEmpty()){
                     _purchases.value = purchaseList
                 }
             } else {
@@ -92,7 +93,7 @@ class BillingClientWrapper(
             productList.add(
                 QueryProductDetailsParams.Product.newBuilder()
                     .setProductId(product)
-                    .setProductType(BillingClient.ProductType.INAPP)
+                    .setProductType(BillingClient.ProductType.SUBS)
                     .build()
             )
 
@@ -113,6 +114,7 @@ class BillingClientWrapper(
         val responseCode = billingResult.responseCode
         val debugMessage = billingResult.debugMessage
 
+        //Originally isNullOrEmpty()
         when (responseCode){
             BillingClient.BillingResponseCode.OK -> {
                 var newMap = emptyMap<String, ProductDetails>()
@@ -199,8 +201,8 @@ class BillingClientWrapper(
         private const val TAG = "BillingClient"
 
         // List of subscription product offerings
-        private const val BASIC = "removeads"
-        private const val PREMIUM = "removeads_premium"
+        private const val BASIC = "up_basic_sub"
+        private const val PREMIUM = "up_premium_sub"
 
         private val LIST_OF_PRODUCTS = listOf(BASIC, PREMIUM)
     }

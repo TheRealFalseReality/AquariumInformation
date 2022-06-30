@@ -15,14 +15,14 @@ import kotlinx.coroutines.flow.map
 class PremiumDataRepo (
     billingClientWrapper: BillingClientWrapper
 ){
-    // Set to true when a returned purchase is Premium.
+    // Set to true when a returned purchase is Basic.
     val hasBasic: Flow<Boolean> = billingClientWrapper.purchases.map { purchaseList ->
             purchaseList.any { purchase ->
                 purchase.products.contains(BASIC) && purchase.isAcknowledged
             }
     }
 
-    // Set to true when a returned purchase is Basic.
+    // Set to true when a returned purchase is Premium.
     val hasPremium: Flow<Boolean> = billingClientWrapper.purchases.map { purchaseList ->
         purchaseList.any { purchase ->
             purchase.products.contains(PREMIUM) && purchase.isAcknowledged
@@ -53,7 +53,7 @@ class PremiumDataRepo (
 
     companion object {
         // List of subscription product offerings
-        private const val BASIC = "removeads"
-        private const val PREMIUM = "removeads_premium"
+        private const val BASIC = "up_basic_sub"
+        private const val PREMIUM = "up_premium_sub"
     }
 }

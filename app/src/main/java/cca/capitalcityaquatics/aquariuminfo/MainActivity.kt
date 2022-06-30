@@ -30,6 +30,7 @@ import cca.capitalcityaquatics.aquariuminfo.navigation.TopBar
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
 class MainActivity : ComponentActivity() {
+    private val viewModel by viewModels<BillingViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

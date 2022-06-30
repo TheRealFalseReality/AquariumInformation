@@ -19,12 +19,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import cca.capitalcityaquatics.aquariuminfo.Constants.BASIC_BASE_PLANS_ROUTE
-import cca.capitalcityaquatics.aquariuminfo.Constants.BASIC_PLANS_TAG
-import cca.capitalcityaquatics.aquariuminfo.Constants.PREMIUM_BASE_PLANS_ROUTE
-import cca.capitalcityaquatics.aquariuminfo.Constants.PREMIUM_PLANS_TAG
-import cca.capitalcityaquatics.aquariuminfo.Constants.SUBSCRIPTION_ROUTE
 import cca.capitalcityaquatics.aquariuminfo.R
+import cca.capitalcityaquatics.aquariuminfo.billing.Constants.BASIC_BASE_PLANS_ROUTE
+import cca.capitalcityaquatics.aquariuminfo.billing.Constants.BASIC_PLANS_TAG
+import cca.capitalcityaquatics.aquariuminfo.billing.Constants.PREMIUM_BASE_PLANS_ROUTE
+import cca.capitalcityaquatics.aquariuminfo.billing.Constants.PREMIUM_PLANS_TAG
+import cca.capitalcityaquatics.aquariuminfo.billing.Constants.SUBSCRIPTION_ROUTE
 
 @Composable
 fun LoadingScreen() {
