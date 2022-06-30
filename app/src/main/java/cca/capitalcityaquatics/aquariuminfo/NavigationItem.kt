@@ -20,4 +20,6 @@ sealed class NavigationItem (
     object VolHex : NavigationItem("volHex", R.drawable.hexagonal_prismicon, "Hex.")
     object VolBFront : NavigationItem("volBFront", R.drawable.bowfront_calcicon, "B.Front")
     object Billing : NavigationItem("billing", R.drawable.squarewh, "Billing")
+    object Premium : NavigationItem("premium", R.drawable.squarewh, "Premium")
+    object Basic : NavigationItem("premium", R.drawable.squarewh, "Basic")
 }

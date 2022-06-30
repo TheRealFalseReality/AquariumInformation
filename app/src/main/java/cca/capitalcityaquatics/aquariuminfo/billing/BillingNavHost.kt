@@ -10,7 +10,9 @@ import cca.capitalcityaquatics.aquariuminfo.MainActivity
 import cca.capitalcityaquatics.aquariuminfo.R
 
 @Composable
-fun BillingNavHost(viewModel: BillingViewModel, activity:MainActivity) {
+fun BillingNavHost(
+    viewModel: BillingViewModel
+) {
     // State variable passed into Billing connection call and set to true when
     // connections is established.
     val isBillingConnected by viewModel.billingConnectionState.observeAsState()
@@ -39,50 +41,22 @@ fun BillingNavHost(viewModel: BillingViewModel, activity:MainActivity) {
 
         // Load UI based on user's current subscription.
         when (screen) {
-            // User has a Basic the corresponding profile is loaded.
+            // User has Premium, the corresponding profile is loaded.
             BillingViewModel.DestinationScreen.BASIC_PROFILE_SCREEN -> {
-                UserProfile(
-                    buttonModels =
-                    listOf(
-                        ButtonModel(R.string.topup_message) {
-                            productsForSale.basicProductDetails?.let {
-                                viewModel.buy(
-                                    productDetails = it,
-                                    currentPurchases = currentPurchases,
-                                    tag = Constants.BASIC_PLANS_TAG,
-                                    activity = activity
-                                )
-                            }
-                        },
-                    ),
-                    tag = Constants.BASIC_PLANS_TAG,
-                    profileTextStringResource = null
-                )
+                //TODO Add Donation
             }
 
+            // User has Premium, the corresponding profile is loaded.
             BillingViewModel.DestinationScreen.PREMIUM_PROFILE_SCREEN -> {
-                UserProfile(
-                    buttonModels =
-                    listOf(
-                        ButtonModel(R.string.topup_message) {
-                            productsForSale.basicProductDetails?.let {
-                                viewModel.buy(
-                                    productDetails = it,
-                                    currentPurchases = currentPurchases,
-                                    tag = Constants.PREMIUM_PLANS_TAG,
-                                    activity = activity
-                                )
-                            }
-                        },
-                    ),
-                    tag = Constants.PREMIUM_PLANS_TAG,
-                    profileTextStringResource = null
-                )
+                //TODO Add Donation
             }
 
-            // User has no current subscription - the subscription composable
-            // is loaded.
+            // User does not have Premium, the subscription composable is loaded.
             BillingViewModel.DestinationScreen.SUBSCRIPTIONS_OPTIONS_SCREEN -> {
+//                PremiumBasePlans(
+//                    productsForSale = productsForSale,
+//                    viewModel = viewModel
+//                )
                 SubscriptionNavigationComponent(
                     productsForSale = productsForSale,
                     navController = navController,

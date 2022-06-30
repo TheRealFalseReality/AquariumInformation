@@ -27,10 +27,9 @@ import androidx.navigation.compose.composable
 import cca.capitalcityaquatics.aquariuminfo.MainActivity
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.billing.Constants.BASIC_BASE_PLANS_ROUTE
-import cca.capitalcityaquatics.aquariuminfo.billing.Constants.BASIC_PLANS_TAG
 import cca.capitalcityaquatics.aquariuminfo.billing.Constants.PREMIUM_BASE_PLANS_ROUTE
-import cca.capitalcityaquatics.aquariuminfo.billing.Constants.PREMIUM_PLANS_TAG
 import cca.capitalcityaquatics.aquariuminfo.billing.Constants.SUBSCRIPTION_ROUTE
+
 
 @Composable
 fun BillingScreen(
@@ -59,7 +58,7 @@ fun BillingScreen(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
 
-                BillingNavHost(viewModel = viewModel(), activity = MainActivity())
+                BillingNavHost(viewModel = viewModel())
 
             }
         }
@@ -122,6 +121,8 @@ fun SubscriptionNavigationComponent(
     }
 }
 
+
+
 @Composable
 private fun Subscription(
     navController: NavHostController,
@@ -129,11 +130,11 @@ private fun Subscription(
     CenteredSurfaceColumn {
         val buttonModels = remember(navController) {
             listOf(
-                ButtonModel(R.string.basic_sub_text) {
-                    navController.navigate(route = BASIC_BASE_PLANS_ROUTE)
-                },
                 ButtonModel(R.string.premium_sub_text) {
                     navController.navigate(route = PREMIUM_BASE_PLANS_ROUTE)
+                },
+                ButtonModel(R.string.basic_sub_text) {
+                    navController.navigate(route = BASIC_BASE_PLANS_ROUTE)
                 }
             )
         }
@@ -155,8 +156,6 @@ private fun BasicBasePlans(
                     productsForSale.basicProductDetails?.let {
                         viewModel.buy(
                             productDetails = it,
-                            currentPurchases = null,
-                            tag = BASIC_PLANS_TAG,
                             activity = activity
                         )
                     }
@@ -168,7 +167,7 @@ private fun BasicBasePlans(
 }
 
 @Composable
-private fun PremiumBasePlans(
+fun PremiumBasePlans(
     productsForSale: MainState,
     viewModel: BillingViewModel,
 ) {
@@ -181,8 +180,6 @@ private fun PremiumBasePlans(
                     productsForSale.premiumProductDetails?.let {
                         viewModel.buy(
                             productDetails = it,
-                            currentPurchases = null,
-                            tag = PREMIUM_PLANS_TAG,
                             activity = activity
                         )
                     }
@@ -210,14 +207,6 @@ fun UserProfile(
             }
         } else {
             CenteredSurfaceColumn {
-                when (tag) {
-                    BASIC_PLANS_TAG -> ProfileText(
-                        text = stringResource(id = R.string.basic_prepaid_sub_message)
-                    )
-                    PREMIUM_PLANS_TAG -> ProfileText(
-                        text = stringResource(id = R.string.premium_prepaid_sub_message)
-                    )
-                }
                 Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.spacer_height)))
                 ButtonGroup(buttonModels = buttonModels)
             }

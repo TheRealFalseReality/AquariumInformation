@@ -6,8 +6,8 @@ package cca.capitalcityaquatics.aquariuminfo.billing
 object Constants {
 
     //Billing Client ProductDetails Offer Tags
-    const val BASIC_PLANS_TAG = "monthlybasic"
-    const val PREMIUM_PLANS_TAG = "monthlypremium"
+//    const val BASIC_PLANS_TAG = "monthlybasic"
+//    const val PREMIUM_PLANS_TAG = "monthlypremium"
 //    const val MONTHLY_BASIC_PLANS_TAG = "monthlyBasic"
 //    const val MONTHLY_PREMIUM_PLANS_TAG = "monthlyPremium"
 //    const val YEARLY_BASIC_PLANS_TAG = "yearlyBasic"

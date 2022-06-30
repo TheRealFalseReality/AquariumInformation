@@ -70,9 +70,8 @@ class BillingClientWrapper(
         }
         // Query for existing products that have been purchased.
         billingClient.queryPurchasesAsync(
-            QueryPurchasesParams.newBuilder().setProductType(BillingClient.ProductType.SUBS).build()
+            QueryPurchasesParams.newBuilder().setProductType(BillingClient.ProductType.INAPP).build()
         ){
-            //Originally isNullOrEmpty()
             billingResult, purchaseList ->
             if (billingResult.responseCode == BillingClient.BillingResponseCode.OK){
                 if (purchaseList.isNullOrEmpty()){
@@ -93,7 +92,7 @@ class BillingClientWrapper(
             productList.add(
                 QueryProductDetailsParams.Product.newBuilder()
                     .setProductId(product)
-                    .setProductType(BillingClient.ProductType.SUBS)
+                    .setProductType(BillingClient.ProductType.INAPP)
                     .build()
             )
 
@@ -114,7 +113,6 @@ class BillingClientWrapper(
         val responseCode = billingResult.responseCode
         val debugMessage = billingResult.debugMessage
 
-        //Originally isNullOrEmpty()
         when (responseCode){
             BillingClient.BillingResponseCode.OK -> {
                 var newMap = emptyMap<String, ProductDetails>()
@@ -201,8 +199,8 @@ class BillingClientWrapper(
         private const val TAG = "BillingClient"
 
         // List of subscription product offerings
-        private const val BASIC = "up_basic_sub"
-        private const val PREMIUM = "up_premium_sub"
+        private const val BASIC = "removeads"
+        private const val PREMIUM = "removeads_premium"
 
         private val LIST_OF_PRODUCTS = listOf(BASIC, PREMIUM)
     }

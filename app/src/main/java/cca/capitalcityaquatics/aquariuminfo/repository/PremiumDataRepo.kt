@@ -52,8 +52,8 @@ class PremiumDataRepo (
     val isNewPurchaseAcknowledged: Flow<Boolean> = billingClientWrapper.isNewPurchaseAcknowledged
 
     companion object {
-        // List of subscription product offerings
-        private const val BASIC = "up_basic_sub"
-        private const val PREMIUM = "up_premium_sub"
+        // List of product offerings
+        private const val BASIC = "removeads"
+        private const val PREMIUM = "removeads_premium"
     }
 }
