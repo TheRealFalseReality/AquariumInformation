@@ -17,9 +17,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import cca.capitalcityaquatics.aquariuminfo.NavigationItem
-import cca.capitalcityaquatics.aquariuminfo.calculators.CarbonDioxideScreen
-import cca.capitalcityaquatics.aquariuminfo.converters.TempScreen
+import cca.capitalcityaquatics.aquariuminfo.ui.calculators.CarbonDioxideScreen
+import cca.capitalcityaquatics.aquariuminfo.ui.converters.TempScreen
 
 @Composable
 fun ConvertNavScreen (){

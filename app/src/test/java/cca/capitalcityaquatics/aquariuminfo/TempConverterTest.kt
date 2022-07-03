@@ -1,9 +1,9 @@
 package cca.capitalcityaquatics.aquariuminfo
 
-import cca.capitalcityaquatics.aquariuminfo.converters.calculateCelsius
-import cca.capitalcityaquatics.aquariuminfo.converters.calculateFahrenheit
-import cca.capitalcityaquatics.aquariuminfo.converters.calculateKelvinCel
-import cca.capitalcityaquatics.aquariuminfo.converters.calculateKelvinFah
+import cca.capitalcityaquatics.aquariuminfo.ui.converters.calculateCelsius
+import cca.capitalcityaquatics.aquariuminfo.ui.converters.calculateFahrenheit
+import cca.capitalcityaquatics.aquariuminfo.ui.converters.calculateKelvinCel
+import cca.capitalcityaquatics.aquariuminfo.ui.converters.calculateKelvinFah
 import junit.framework.Assert.assertEquals
 import org.junit.Test
 

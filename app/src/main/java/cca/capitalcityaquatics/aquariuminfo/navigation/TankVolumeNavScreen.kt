@@ -16,8 +16,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import cca.capitalcityaquatics.aquariuminfo.NavigationItem
-import cca.capitalcityaquatics.aquariuminfo.tankVolume.*
+import cca.capitalcityaquatics.aquariuminfo.ui.tankVolume.*
 
 @Composable
 fun TankVolumeNavScreen (){

@@ -1,6 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo
 
-import cca.capitalcityaquatics.aquariuminfo.converters.*
+import cca.capitalcityaquatics.aquariuminfo.ui.converters.*
 import junit.framework.Assert.assertEquals
 import org.junit.Test
 

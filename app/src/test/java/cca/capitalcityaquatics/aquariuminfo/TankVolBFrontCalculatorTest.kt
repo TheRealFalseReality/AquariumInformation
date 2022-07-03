@@ -1,6 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo
 
-import cca.capitalcityaquatics.aquariuminfo.tankVolume.*
+import cca.capitalcityaquatics.aquariuminfo.ui.tankVolume.*
 import junit.framework.Assert.assertEquals
 import org.junit.Test
 

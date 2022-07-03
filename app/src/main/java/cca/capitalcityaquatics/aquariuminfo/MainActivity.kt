@@ -16,15 +16,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import cca.capitalcityaquatics.aquariuminfo.appscreens.HomeScreen
-import cca.capitalcityaquatics.aquariuminfo.appscreens.InfoScreen
-import cca.capitalcityaquatics.aquariuminfo.common.AdvertView
-import cca.capitalcityaquatics.aquariuminfo.converters.AlkalinityScreen
-import cca.capitalcityaquatics.aquariuminfo.converters.SalScreen
-import cca.capitalcityaquatics.aquariuminfo.navigation.BottomNavigationBar
-import cca.capitalcityaquatics.aquariuminfo.navigation.ConvertNavScreen
-import cca.capitalcityaquatics.aquariuminfo.navigation.TankVolumeNavScreen
-import cca.capitalcityaquatics.aquariuminfo.navigation.TopBar
+import cca.capitalcityaquatics.aquariuminfo.navigation.*
+import cca.capitalcityaquatics.aquariuminfo.ui.advert.AdvertView
+import cca.capitalcityaquatics.aquariuminfo.ui.appscreens.HomeScreen
+import cca.capitalcityaquatics.aquariuminfo.ui.appscreens.InfoScreen
+import cca.capitalcityaquatics.aquariuminfo.ui.converters.AlkalinityScreen
+import cca.capitalcityaquatics.aquariuminfo.ui.converters.SalScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
 class MainActivity : ComponentActivity() {
@@ -82,7 +79,7 @@ fun MainScreen(){
     Scaffold(
         topBar = {
             Column{
-                AdvertView(navController)
+                AdvertView()
                 TopBar(navController = navController)
             }
         },

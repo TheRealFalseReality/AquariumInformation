@@ -1,15 +1,12 @@
 <resources>
     <string name="app_name">Aquarium Information</string>
     <string name="text_title_welcome">Welcome to the Aquarium Information App!!</string>
-    <string name="text_body_welcome">This App is more than just a simple Unit Converter. It\'s tailored more towards Aquarists or anyone interested in water chemistry. Not only is there a simple Temperature Converter, but also a Salinity and Alkalinity (KH) converter. There’s also a CO₂ calculator for planted aquariums. Also included are Tank Volume Calculators, which will calculate a tank’s volume in gallons or liters and include its water weight. If you like this app, please rate it! There will be more to come including specific aquarium parameters, maintenance plans and more</string>
     <string name="text_footer_welcome">Use the Bottom Bar to select your desired calculator</string>
     <string name="text_title_info">Information</string>
     <string name="text_email">AppInfo@CapitalCityAquatics.com</string>
     <string name="text_website">CapitalCityAquatics.com</string>
     <string name="text_label_email">Email:</string>
     <string name="text_label_web">On the Web:</string>
-    <string name="text_info_body_errors">Please, inform me of ANY errors. I tried my best to build this app, but I am new to app programming.</string>
-    <string name="text_body_info">This app was created by Nicholas White from North Florida. I am not a programmer, but an enthusiastic aquarist. I went to school for biology and have been in the hobby for over 10 years. I got tired of having to search for converters every time I wanted to convert something like meq/L or salinity ppt, and wanted something all in one place. I wanted to solve the problem of not knowing the units that European products use and have quick access to other Aquarium related information in one place.</string>
     <string name="text_empty" />
     <string name="text_subtitle_salinity">ppt : SG : g/L</string>
     <string name="text_header_salinity">Salinity Converter</string>
@@ -22,7 +19,6 @@
     <string name="text_amount_sg">%s SG</string>
     <string name="text_amount_density">%s g/L</string>
     <string name="text_density">Density:</string>
-    <string name="text_temp_set">Testing Water Temp is set to 77 °F or 25 °C. Ability to set custom Testing Water Temp is coming!</string>
     <string name="button_label_cel">Celsius</string>
     <string name="button_label_fah">Fahrenheit</string>
     <string name="text_title_temp">Temperature Converter</string>
@@ -105,16 +101,6 @@
     <string name="text_cyl_quart">Corner Cylinder</string>
     <string name="text_choose_one">Please Choose only 1</string>
     <string name="text_title_changelog">Click for Changelog</string>
-    <string name="text_version_7">##[0.4] - 2022–6–26</string>
-    <string name="text_added_body_7">Tank Volume Calculators\n-Half Cylinder\n-Corner Cylinder</string>
-    <string name="text_unreleased">##[Unreleased]</string>
-    <string name="text_subtitle_changelog">All notable changes to this project will be documented here</string>
-    <string name="text_added">###Added</string>
-    <string name="text_changed">###Changed</string>
-    <string name="text_removed">###Removed</string>
-    <string name="text_fixed">###Fixed</string>
-    <string name="text_unreleased_body">Converters\n-Aquarium Specific Volume Converters\nTank Volume Calculators\n-Corner Pentagon\n-Flat Back Hex\n-Octagon\n\nWater Hardness Output</string>
-    <string name="text_fixed_body_7">General code re-write\nGeneral UI fixes</string>
     <string name="text_hardness_very_soft">Very Soft</string>
     <string name="text_hardness_soft">Soft</string>
     <string name="text_hardness_mod_hard">Moderately Hard</string>

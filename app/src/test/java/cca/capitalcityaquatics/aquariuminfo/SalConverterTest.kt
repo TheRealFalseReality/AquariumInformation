@@ -1,9 +1,9 @@
 package cca.capitalcityaquatics.aquariuminfo
 
-import cca.capitalcityaquatics.aquariuminfo.converters.calculateDensityPPT
-import cca.capitalcityaquatics.aquariuminfo.converters.calculateDensitySG
-import cca.capitalcityaquatics.aquariuminfo.converters.calculateSalinity
-import cca.capitalcityaquatics.aquariuminfo.converters.calculateSpecificGravity
+import cca.capitalcityaquatics.aquariuminfo.ui.converters.calculateDensityPPT
+import cca.capitalcityaquatics.aquariuminfo.ui.converters.calculateDensitySG
+import cca.capitalcityaquatics.aquariuminfo.ui.converters.calculateSalinity
+import cca.capitalcityaquatics.aquariuminfo.ui.converters.calculateSpecificGravity
 import junit.framework.Assert.assertEquals
 import org.junit.Test
 

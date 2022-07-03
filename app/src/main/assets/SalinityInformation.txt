@@ -1,19 +1,10 @@
 -Testing Water Temp is set to 77 °F or 25 °C. Ability to set custom Testing Water Temp is coming!
 
--The direct calculation from Salinity (‰ - ppt) to Density (g/l or kg/m3) / Specific Gravity is
-based on the equation adopted by UNESCO - The One Atmosphere International Equation of the State of
-Seawater (Millero and Poisson, 1981).
+-The direct calculation from Salinity (‰ - ppt) to Density (g/l or kg/m3) / Specific Gravity is based on the equation adopted by UNESCO - The One Atmosphere International Equation of the State of Seawater (Millero and Poisson, 1981).
 
--The inverse calculation, from Specific Density / Gravity to Salinity, is performed by the solution
-for iterative methods of the reverse equation of Millero and Poisson.
+-The inverse calculation, from Specific Density / Gravity to Salinity, is performed by the solution for iterative methods of the reverse equation of Millero and Poisson.
 
--The calculation from Conductivity to Salinity / Density / Gravity Specification is performed
-according to the complex polynomial equation adopted by UNESCO/ICES/SCOR/IAPSO. In this case, the
-values are reliable for the resulting salinity between 2 and 42 and a temperature between -2 °C and
-35 °C.
-
--The Conductivity calculation is performed through the solution for iterative methods of the
-reverse equation adopted by UNESCO/ICES/SCOR/IAPSO.
+-The calculation from Conductivity to Salinity / Density / Gravity Specification is performed according to the complex polynomial equation adopted by UNESCO/ICES/SCOR/IAPSO. In this case, the values are reliable for the resulting salinity between 2 and 42 and a temperature between -2 °C and 35 °C.
 
 -Salinity values are expressed in Practical Salinity.
 

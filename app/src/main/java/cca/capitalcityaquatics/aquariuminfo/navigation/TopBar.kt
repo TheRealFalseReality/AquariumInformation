@@ -1,13 +1,9 @@
 package cca.capitalcityaquatics.aquariuminfo.navigation
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -20,7 +16,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import cca.capitalcityaquatics.aquariuminfo.MainScreen
-import cca.capitalcityaquatics.aquariuminfo.NavigationItem
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
@@ -65,8 +60,8 @@ fun TopBar(
                     }
                 }
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.vectorstock_12351698__converted_),
+                Icon(
+                    painter = painterResource(id = R.drawable.mylogo),
                     contentDescription = "stringResource(R.string.text_home)",
                     modifier = Modifier
                         .padding(4.dp)
@@ -88,8 +83,8 @@ fun TopBar(
                 }
             )
             {
-                Image(
-                    painter = painterResource(id = R.drawable.informationwhite),
+                Icon(
+                    painter = painterResource(id = R.drawable.information),
                     contentDescription = null,
                     modifier = Modifier
                         .padding(4.dp)
