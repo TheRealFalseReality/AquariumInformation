@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file.
 -Pop-up to rate App
 -Change to Live ADs
 -Ability to remove ADs with in-app billing
+-Change InputField background color for legibility in light theme
 
 ## [0.6.6] - 2022-7-3
 ###Added

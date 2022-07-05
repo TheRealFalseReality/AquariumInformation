@@ -21,13 +21,13 @@ object Information : Destinations {
 }
 
 object Salinity : Destinations {
-    override val icon = R.drawable.view_comfy_48px
+    override val icon = R.drawable.format_overline_48px
     override val route = "salinity"
     override val title = "Salinity"
 }
 
 object Alkalinity : Destinations {
-    override val icon = R.drawable.leak_add_48px
+    override val icon = R.drawable.linear_scale_48px
     override val route = "alkalinity"
     override val title = "Alkalinity"
 }
@@ -39,13 +39,13 @@ object Temperature : Destinations {
 }
 
 object CarbonDioxide : Destinations {
-    override val icon = R.drawable.co2
+    override val icon = R.drawable.co2_48px
     override val route = "carbon"
     override val title = "Carbon Dioxide"
 }
 
 object Rectangle : Destinations {
-    override val icon = R.drawable.bowfront_calcicon
+    override val icon = R.drawable.box_calcicon
     override val route = "rectangle"
     override val title = "Rectangle"
 }
@@ -71,11 +71,11 @@ object Hexagonal : Destinations {
 object BowFront : Destinations {
     override val icon = R.drawable.bowfront_calcicon
     override val route = "bow_front"
-    override val title = "Bow-Front"
+    override val title = "Bow-Fr."
 }
 
 object Converters : Destinations {
-    override val icon = R.drawable.convert
+    override val icon = R.drawable.conversion_path_48px
     override val route = "converters"
     override val title = "Converters"
 }

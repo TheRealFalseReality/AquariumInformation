@@ -9,6 +9,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
@@ -89,9 +90,12 @@ fun TankVolCubeScreen (
                 .padding(start = 40.dp)
         )
 
-        FormulaString(text = R.string.text_formula_vol_cube)
-
-
+        FormulaString {
+            GeneralComposeBody(
+                text = R.string.text_formula_vol_cube,
+                textAlign = TextAlign.Center
+            )
+        }
     }
 }
 

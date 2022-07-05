@@ -7,13 +7,13 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.selection.selectable
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.material.*
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -31,6 +31,7 @@ fun NavTab(
     selected: Boolean,
     onSelected: () -> Unit,
 ){
+    val colorSelected = MaterialTheme.colors.primaryVariant
     val color = MaterialTheme.colors.onPrimary
     val durationMillis = if (selected) TabFadeInAnimationDuration else TabFadeOutAnimationDuration
     val animSpec = remember {
@@ -41,7 +42,7 @@ fun NavTab(
         )
     }
     val tabTintColor by animateColorAsState(
-        targetValue = if (selected) color else color.copy(alpha = InactiveTabOpacity),
+        targetValue = if (selected) colorSelected else color,
         animationSpec = animSpec
     )
     Row(
@@ -69,6 +70,51 @@ fun NavTab(
         if (selected) {
             Spacer(Modifier.width(12.dp))
             Text(text.uppercase(Locale.getDefault()), color = tabTintColor)
+        }
+    }
+}
+
+@Composable
+fun NavBar (
+    content: @Composable RowScope.() -> Unit,
+    color: Color
+){
+    Surface(
+        Modifier
+            .height(TabHeight)
+            .fillMaxWidth(),
+    ) {
+        Row(
+            Modifier.selectableGroup(),
+        ) {
+            BottomNavigation(
+                backgroundColor = color,
+            ) {
+                content()
+            }
+        }
+    }
+}
+
+@Composable
+fun NavBarCenter (
+    content: @Composable RowScope.() -> Unit,
+    color: Color
+){
+    Surface(
+        Modifier
+            .height(TabHeight)
+            .fillMaxWidth(),
+        color = color,
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Row(
+                Modifier.selectableGroup(),
+            ) {
+                content()
+            }
         }
     }
 }

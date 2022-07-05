@@ -10,6 +10,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
@@ -92,12 +94,24 @@ fun FormulaStringTemp (
     Spacer(
         modifier = Modifier.height(10.dp)
     )
-    InfoCardContent3(
-        title = R.string.text_formulas,
-        textBody1 = R.string.text_formula_celsius,
-        textBody2 = R.string.text_formula_fahrenheit,
-        textBody3 = R.string.formula_kelvin
-    )
+
+    InfoCardContent(
+        icon = painterResource(id = R.drawable.tips_and_updates_48px),
+        title = R.string.text_formulas
+    ) {
+        GeneralComposeBody(
+            text = R.string.text_formula_celsius,
+            textAlign = TextAlign.Center
+        )
+        GeneralComposeBody(
+            text = R.string.text_formula_fahrenheit,
+            textAlign = TextAlign.Center
+        )
+        GeneralComposeBody(
+            text = R.string.formula_kelvin,
+            textAlign = TextAlign.Center
+        )
+    }
 }
 
 @VisibleForTesting

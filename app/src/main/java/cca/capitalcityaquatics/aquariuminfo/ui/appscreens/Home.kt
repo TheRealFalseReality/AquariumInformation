@@ -13,6 +13,7 @@ import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.common.ChangelogCardContent
 import cca.capitalcityaquatics.aquariuminfo.ui.common.GeneralCard
 import cca.capitalcityaquatics.aquariuminfo.ui.common.GeneralComposeHeader
+import cca.capitalcityaquatics.aquariuminfo.ui.common.InfoCardContent
 
 @Preview(showBackground = true)
 @Composable

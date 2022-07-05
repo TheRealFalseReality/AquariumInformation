@@ -6,6 +6,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -91,14 +92,15 @@ fun GeneralComposeFooter(
 
 @Composable
 fun FormulaString (
-    @StringRes text: Int,
+    content: @Composable ColumnScope.() -> Unit,
 ){
     Spacer(
         modifier = Modifier.height(10.dp)
     )
     InfoCardContent(
+        icon = painterResource(id = R.drawable.tips_and_updates_48px),
         title = R.string.text_formula,
-        textBody = text
+        content = content
     )
 
     Spacer(modifier = Modifier.height(2.dp))

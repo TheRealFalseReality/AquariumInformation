@@ -10,9 +10,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import cca.capitalcityaquatics.aquariuminfo.LoadFile
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.common.*
 import java.math.RoundingMode
@@ -82,12 +84,16 @@ fun SalScreen (
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        InfoCardContentFile(
-            title = R.string.text_more_info,
-            file = "SalinityInformation.txt",
-            textAlign = TextAlign.Start
-        )
+        InfoCardContent(
+            icon = painterResource(id = R.drawable.tips_and_updates_48px),
+            title = R.string.text_more_info
+        ) {
+            LoadFile(
+                file = "SalinityInformation.txt",
+                textAlign = TextAlign.Start
+            )
 
+        }
     }
 }
 
