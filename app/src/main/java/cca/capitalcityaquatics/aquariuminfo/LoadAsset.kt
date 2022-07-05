@@ -36,7 +36,6 @@ fun LoadFile(
                 text = "Text File here",
             )
         } else {
-
             var dataText by remember {
                 mutableStateOf("")
             }

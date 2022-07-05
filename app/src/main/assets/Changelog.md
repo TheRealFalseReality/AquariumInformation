@@ -30,6 +30,7 @@ All notable changes to this project will be documented in this file.
 
 ###Fixed
 -General Code re-write
+-Navigation re-worked
 
 ## [0.5] - 2022-6-27
 ###Added

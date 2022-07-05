@@ -28,7 +28,7 @@ fun InfoScreen(
     GeneralCard(verticalArrangement = Arrangement.Top) {
         GeneralComposeHeader(text = R.string.text_title_info)
 
-        Spacer(modifier = Modifier.height(50.dp))
+        Spacer(modifier = Modifier.height(36.dp))
 
         LoadFile(
             file = "Info.txt",

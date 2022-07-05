@@ -13,7 +13,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import cca.capitalcityaquatics.aquariuminfo.MainScreen
+import cca.capitalcityaquatics.aquariuminfo.AquariumApp
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
@@ -55,6 +55,6 @@ fun AdvertView(
 @Composable
 fun DefaultPreview3() {
     AquariumInfoTheme  {
-        MainScreen()
+        AquariumApp()
     }
 }

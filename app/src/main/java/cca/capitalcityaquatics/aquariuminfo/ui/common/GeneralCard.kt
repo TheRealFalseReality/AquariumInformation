@@ -21,13 +21,12 @@ fun GeneralCard (
 ){
     Column(
         modifier = modifier
-            .padding(start = 24.dp, end = 24.dp, top = 24.dp),
+            .padding(24.dp),
         verticalArrangement = verticalArrangement
     ) {
         Card(
             backgroundColor = MaterialTheme.colors.primary,
             modifier = Modifier
-                .padding(bottom = 86.dp)
                 .fillMaxHeight()
                 .fillMaxWidth()
                 .border(
