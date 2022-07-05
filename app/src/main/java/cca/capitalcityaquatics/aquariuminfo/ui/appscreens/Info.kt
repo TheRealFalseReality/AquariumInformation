@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.material.Button
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
@@ -89,6 +91,12 @@ fun InfoScreen(
             Spacer(modifier = Modifier.height(20.dp))
 
         }
+        
+        Button(onClick = {}
+        ) {
+            Text(text = "Test")
+        }
+        
         Spacer(modifier = Modifier.height(16.dp))
 
         ChangelogCardContent()

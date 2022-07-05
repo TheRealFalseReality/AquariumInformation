@@ -1,6 +1,5 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.common
 
-import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring

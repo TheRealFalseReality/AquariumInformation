@@ -21,7 +21,7 @@ import com.google.android.gms.ads.AdView
 
 @Preview(showBackground = true)
 @Composable
-fun AdvertView(
+fun BannerAd(
     modifier: Modifier = Modifier,
 ) {
     val isInEditMode = LocalInspectionMode.current
