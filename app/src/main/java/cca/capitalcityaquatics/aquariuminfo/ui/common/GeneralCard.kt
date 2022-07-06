@@ -52,15 +52,18 @@ fun ContentBorder(
 ){
     Column(
         modifier = Modifier
-            .padding(6.dp)
             .fillMaxHeight()
             .fillMaxWidth()
             .border(
                 BorderStroke(2.dp, MaterialTheme.colors.primaryVariant),
                 shape = RoundedCornerShape(4.dp)
             ),
-        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        content()
+        Column(
+            modifier = Modifier.padding(6.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            content()
+        }
     }
 }

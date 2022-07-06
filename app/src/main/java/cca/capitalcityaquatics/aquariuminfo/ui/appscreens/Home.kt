@@ -10,9 +10,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.LoadFile
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.ui.common.ChangelogCardContent
-import cca.capitalcityaquatics.aquariuminfo.ui.common.GeneralCard
-import cca.capitalcityaquatics.aquariuminfo.ui.common.GeneralComposeHeader
+import cca.capitalcityaquatics.aquariuminfo.ui.common.*
 
 @Preview(showBackground = true)
 @Composable
@@ -31,9 +29,12 @@ fun HomeScreen (
 
         Spacer(modifier = Modifier.height(26.dp))
 
-        ChangelogCardContent()
+        ContentBorder {
+            AppInfo()
 
-        Spacer(modifier = Modifier.height(26.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
+            ChangelogCardContent()
+        }
     }
 }

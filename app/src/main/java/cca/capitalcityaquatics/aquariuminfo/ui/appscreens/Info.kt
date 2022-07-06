@@ -88,19 +88,9 @@ fun InfoScreen(
 
             AppInfo()
 
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
+            ChangelogCardContent()
         }
-        
-        Button(onClick = {}
-        ) {
-            Text(text = "Test")
-        }
-        
-        Spacer(modifier = Modifier.height(16.dp))
-
-        ChangelogCardContent()
-
-        Spacer(modifier = Modifier.height(16.dp))
     }
 }

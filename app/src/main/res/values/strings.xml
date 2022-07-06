@@ -110,4 +110,5 @@
     <string name="text_hardness_else">Out-of-Bounds</string>
     <string name="text_error">Error</string>
     <string name="text_home">Home</string>
+    <string name="text_loading">Loading...</string>
 </resources>
