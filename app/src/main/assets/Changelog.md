@@ -7,7 +7,6 @@ All notable changes to this project will be documented in this file.
     -Flat Back Hex
     -Octagon
 -Aquarium Specific Volume Converters
--Fix Subscripts
 -Make Tank Shape Landing Screen
 -Add more Units to select from
 -Add CLEAR buttons where useful
@@ -20,10 +19,10 @@ All notable changes to this project will be documented in this file.
 -Pop-up to rate App
 -Change to Live ADs
 -Ability to remove ADs with in-app billing
--Change InputField background color for legibility in light theme
 
 ##[Issues]
--None yet!
+-Change InputField background color for legibility in light theme
+-Fix Subscripts
 
 ## [0.6.6] - 2022-7-3
 ###Added

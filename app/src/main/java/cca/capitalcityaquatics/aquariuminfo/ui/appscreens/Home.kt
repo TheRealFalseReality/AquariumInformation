@@ -11,8 +11,8 @@ import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.LoadFile
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.common.*
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
-@Preview(showBackground = true)
 @Composable
 fun HomeScreen (
 ) {
@@ -36,5 +36,13 @@ fun HomeScreen (
 
             ChangelogCardContent()
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun HomePreview() {
+    AquariumInfoTheme {
+        HomeScreen()
     }
 }

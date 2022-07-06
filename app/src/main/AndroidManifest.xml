@@ -15,7 +15,14 @@
         android:theme="@style/Theme.AquariumInfo"
         tools:targetApi="31">
         <activity
+            android:name=".ui.advert.NativeAdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.advert.AdActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
 
         <meta-data
@@ -25,7 +32,6 @@
         <activity
             android:name=".ui.advert.SplashActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

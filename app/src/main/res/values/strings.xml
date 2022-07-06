@@ -113,4 +113,14 @@
     <string name="text_loading">Loading&#8230;</string>
     <string name="text_loaded">Loaded&#8230;</string>
     <string name="text_loading_in">Loading in&#8230; %s</string>
+    <string name="text_native_ad">Native Ad</string>
+    <string name="text_product_title">Product Title</string>
+    <string name="text_the_sample_description">The sample description</string>
+    <string name="text_ad">AD</string>
+    <string name="text_advertiser">Advertiser</string>
+    <string name="text_the_description_of_the_ad">The description of the AD</string>
+    <string name="text_free">FREE</string>
+    <string name="text_google_play">Google Play</string>
+    <string name="text_install">Install</string>
+    <string name="text_native_ad2">Native AD</string>
 </resources>

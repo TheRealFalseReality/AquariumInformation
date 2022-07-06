@@ -13,7 +13,8 @@ import cca.capitalcityaquatics.aquariuminfo.ui.converters.SalScreen
 @Composable
 fun MainNavHost(
     navController: NavHostController,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+
 ) {
     NavHost(
         navController = navController,
