@@ -4,7 +4,7 @@
     package="cca.capitalcityaquatics.aquariuminfo">
 
     <application
-        android:name=".MyApplication"
+        android:name=".ui.advert.MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -23,7 +23,7 @@
             android:value="ca-app-pub-3940256099942544~3347511713" />
 
         <activity
-            android:name=".SplashActivity"
+            android:name=".ui.advert.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light">

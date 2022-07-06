@@ -2,10 +2,11 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+-Add tank volume calculators:
+    -Corner Pentagon
+    -Flat Back Hex
+    -Octagon
 -Aquarium Specific Volume Converters
--Corner Pentagon
--Flat Back Hex
--Octagon
 -Fix Subscripts
 -Make Tank Shape Landing Screen
 -Add more Units to select from
@@ -20,6 +21,9 @@ All notable changes to this project will be documented in this file.
 -Change to Live ADs
 -Ability to remove ADs with in-app billing
 -Change InputField background color for legibility in light theme
+
+##[Issues]
+-None yet!
 
 ## [0.6.6] - 2022-7-3
 ###Added
