@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.LoadFile
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.ui.common.*
+import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
 
 @Preview(showBackground = true)
 @Composable

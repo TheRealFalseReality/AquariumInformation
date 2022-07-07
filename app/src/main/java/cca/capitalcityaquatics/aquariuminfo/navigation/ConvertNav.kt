@@ -1,15 +1,12 @@
 package cca.capitalcityaquatics.aquariuminfo.navigation
 
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 
@@ -57,7 +54,6 @@ fun ConvertBottomNavBar(
                     selected = currentScreen == screen,
                     onSelected = { onTabSelected(screen) },
                 )
-                Spacer(modifier = Modifier.width(50.dp))
             }
         },
         color = MaterialTheme.colors.secondary

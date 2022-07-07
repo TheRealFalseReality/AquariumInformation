@@ -1,4 +1,4 @@
-package cca.capitalcityaquatics.aquariuminfo.ui.common
+package cca.capitalcityaquatics.aquariuminfo.ui.commonComposables
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

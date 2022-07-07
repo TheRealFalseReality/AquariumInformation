@@ -1,4 +1,4 @@
-package cca.capitalcityaquatics.aquariuminfo.ui.common
+package cca.capitalcityaquatics.aquariuminfo.ui.commonComposables
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.*
@@ -98,7 +98,7 @@ fun FormulaString (
         modifier = Modifier.height(10.dp)
     )
     InfoCardContent(
-        icon = painterResource(id = R.drawable.tips_and_updates_48px),
+        icon = painterResource(id = R.drawable.functions_48px),
         title = R.string.text_formula,
         content = content
     )

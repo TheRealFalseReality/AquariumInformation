@@ -13,7 +13,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.ui.common.*
+import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.PI

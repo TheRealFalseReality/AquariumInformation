@@ -37,7 +37,7 @@ fun TopNavBar (
                 }
             ) {
                 Icon(
-                    painter = painterResource(id = R.drawable.mylogo),
+                    painter = painterResource(id = R.drawable.myicon48),
                     contentDescription = stringResource(R.string.text_home),
                     modifier = Modifier
                         .padding(4.dp)

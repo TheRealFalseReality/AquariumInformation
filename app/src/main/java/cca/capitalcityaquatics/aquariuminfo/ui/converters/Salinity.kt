@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.LoadFile
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.ui.common.*
+import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.pow
@@ -85,7 +85,7 @@ fun SalScreen (
         Spacer(modifier = Modifier.height(16.dp))
 
         InfoCardContent(
-            icon = painterResource(id = R.drawable.tips_and_updates_48px),
+            icon = painterResource(id = R.drawable.info_48px),
             title = R.string.text_more_info
         ) {
             LoadFile(
