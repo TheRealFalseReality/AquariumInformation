@@ -53,6 +53,8 @@ fun ConvertBottomNavBar(
                     icon = screen.icon,
                     selected = currentScreen == screen,
                     onSelected = { onTabSelected(screen) },
+                    color = MaterialTheme.colors.onPrimary,
+                    colorSelected = MaterialTheme.colors.primaryVariant
                 )
             }
         },

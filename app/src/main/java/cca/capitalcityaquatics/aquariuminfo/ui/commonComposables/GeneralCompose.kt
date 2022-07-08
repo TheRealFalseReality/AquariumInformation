@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cca.capitalcityaquatics.aquariuminfo.BuildConfig
 import cca.capitalcityaquatics.aquariuminfo.R
+import cca.capitalcityaquatics.aquariuminfo.ui.advert.BannerAd
 import cca.capitalcityaquatics.aquariuminfo.ui.appscreens.HomeScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.converters.TempScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
@@ -25,7 +26,6 @@ fun GeneralComposeHeader (
     modifier: Modifier = Modifier,
     @StringRes text: Int,
 ) {
-    Spacer(modifier = Modifier.height(4.dp))
     Text(
         text = stringResource(id = text),
         modifier = modifier
@@ -44,7 +44,6 @@ fun GeneralComposeSubHeader (
     modifier: Modifier = Modifier,
     @StringRes text: Int,
 ) {
-    Spacer(modifier = Modifier.height(4.dp))
     Text(
         text = stringResource(id = text),
         modifier = modifier
@@ -69,7 +68,7 @@ fun GeneralComposeBody (
         textAlign = textAlign,
         style = MaterialTheme.typography.body1
     )
-    Spacer(modifier = Modifier.height(12.dp))
+    Spacer(modifier = Modifier.height(8.dp))
 }
 
 @Composable
@@ -94,17 +93,13 @@ fun GeneralComposeFooter(
 fun FormulaString (
     content: @Composable ColumnScope.() -> Unit,
 ){
-    Spacer(
-        modifier = Modifier.height(10.dp)
-    )
     InfoCardContent(
         icon = painterResource(id = R.drawable.functions_48px),
         title = R.string.text_formula,
         content = content
     )
-
-    Spacer(modifier = Modifier.height(2.dp))
-
+    Spacer(modifier = Modifier.height(8.dp))
+    BannerAd()
 }
 
 @Composable

@@ -50,7 +50,8 @@ fun EditNumberFieldSingle (
             onDone = { focusManager.clearFocus() }
         ),
         colors = TextFieldDefaults.textFieldColors(
-            backgroundColor = colorResource(id = R.color.blue_lt_2)
+            backgroundColor = colorResource(id = R.color.blue_lt_2),
+            textColor = Color.Black
         ),
     )
 }
@@ -87,7 +88,8 @@ fun EditNumberField2Vert (
                 onNext = { focusManager.moveFocus(FocusDirection.Next) }
             ),
             colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = colorResource(id = R.color.blue_lt_2)
+                backgroundColor = colorResource(id = R.color.blue_lt_2),
+                textColor = Color.Black
             ),
         )
         TextField(
@@ -109,7 +111,8 @@ fun EditNumberField2Vert (
                 onDone = { focusManager.clearFocus() }
             ),
             colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = colorResource(id = R.color.blue_lt_2)
+                backgroundColor = colorResource(id = R.color.blue_lt_2),
+                textColor = Color.Black
             ),
         )
     }
@@ -149,7 +152,8 @@ fun EditNumberField3Hor (
                 onNext = { focusManager.moveFocus(FocusDirection.Next) }
             ),
             colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = colorResource(id = R.color.blue_lt_2)
+                backgroundColor = colorResource(id = R.color.blue_lt_2),
+                textColor = Color.Black
             )
         )
         TextField(
@@ -170,7 +174,8 @@ fun EditNumberField3Hor (
                 onNext = { focusManager.moveFocus(FocusDirection.Next) }
             ),
             colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = colorResource(id = R.color.blue_lt_2)
+                backgroundColor = colorResource(id = R.color.blue_lt_2),
+                textColor = Color.Black
             )
         )
         TextField(
@@ -191,7 +196,8 @@ fun EditNumberField3Hor (
                 onDone = { focusManager.clearFocus() }
             ),
             colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = colorResource(id = R.color.blue_lt_2)
+                backgroundColor = colorResource(id = R.color.blue_lt_2),
+                textColor = Color.Black
             )
         )
     }
@@ -228,7 +234,8 @@ fun EditNumberField2Hor (
                 onNext = { focusManager.moveFocus(FocusDirection.Next) }
             ),
             colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = colorResource(id = R.color.blue_lt_2)
+                backgroundColor = colorResource(id = R.color.blue_lt_2),
+                textColor = Color.Black
             )
         )
         TextField(
@@ -249,7 +256,8 @@ fun EditNumberField2Hor (
                 onDone = { focusManager.clearFocus() }
             ),
             colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = colorResource(id = R.color.blue_lt_2)
+                backgroundColor = colorResource(id = R.color.blue_lt_2),
+                textColor = Color.Black
             )
         )
     }
@@ -292,7 +300,8 @@ fun EditNumberFieldQuad (
                 onNext = { focusManager.moveFocus(FocusDirection.Next) }
             ),
             colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = colorResource(id = R.color.blue_lt_2)
+                backgroundColor = colorResource(id = R.color.blue_lt_2),
+                textColor = Color.Black
             )
         )
         TextField(
@@ -313,7 +322,8 @@ fun EditNumberFieldQuad (
                 onNext = { focusManager.moveFocus(FocusDirection.Next) }
             ),
             colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = colorResource(id = R.color.blue_lt_2)
+                backgroundColor = colorResource(id = R.color.blue_lt_2),
+                textColor = Color.Black
             )
         )
     }
@@ -336,7 +346,8 @@ fun EditNumberFieldQuad (
                 onNext = { focusManager.moveFocus(FocusDirection.Next) }
             ),
             colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = colorResource(id = R.color.blue_lt_2)
+                backgroundColor = colorResource(id = R.color.blue_lt_2),
+                textColor = Color.Black
             )
         )
         TextField(
@@ -357,7 +368,8 @@ fun EditNumberFieldQuad (
                 onDone = { focusManager.clearFocus() }
             ),
             colors = TextFieldDefaults.textFieldColors(
-                backgroundColor = colorResource(id = R.color.blue_lt_2)
+                backgroundColor = colorResource(id = R.color.blue_lt_2),
+                textColor = Color.Black
             )
         )
     }

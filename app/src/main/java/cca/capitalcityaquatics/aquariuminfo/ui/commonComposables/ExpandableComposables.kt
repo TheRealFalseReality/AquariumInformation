@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.LoadFile
 import cca.capitalcityaquatics.aquariuminfo.R
+import cca.capitalcityaquatics.aquariuminfo.ui.advert.BannerAd
 import cca.capitalcityaquatics.aquariuminfo.ui.converters.SalScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
@@ -68,7 +69,7 @@ fun InfoCardContent(
                             fontWeight = FontWeight.ExtraBold),
                     )
                 }
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height(8.dp))
                 if (expanded){
                     content()
                 }

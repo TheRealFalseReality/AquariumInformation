@@ -48,7 +48,7 @@ fun GeneralCard (
 
 @Composable
 fun ContentBorder(
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 ){
     Column(
         modifier = Modifier
@@ -58,6 +58,7 @@ fun ContentBorder(
                 BorderStroke(2.dp, MaterialTheme.colors.primaryVariant),
                 shape = RoundedCornerShape(4.dp)
             ),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Column(
             modifier = Modifier.padding(6.dp),
@@ -65,5 +66,6 @@ fun ContentBorder(
         ) {
             content()
         }
+        Spacer(modifier = Modifier.height(8.dp))
     }
 }

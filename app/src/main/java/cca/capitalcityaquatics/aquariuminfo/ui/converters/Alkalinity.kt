@@ -186,6 +186,7 @@ fun WaterHardnessDKH(
             )
         }
     }
+    Spacer(modifier = Modifier.height(8.dp))
 }
 
 @Composable
@@ -243,6 +244,7 @@ fun WaterHardnessPPM(
             )
         }
     }
+    Spacer(modifier = Modifier.height(8.dp))
 }
 
 @Composable

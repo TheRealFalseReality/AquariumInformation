@@ -143,9 +143,10 @@ fun InfoCardContentSwitch2(
     }
 
     Card(
-        backgroundColor = MaterialTheme.colors.primaryVariant,
+        backgroundColor = MaterialTheme.colors.onPrimary,
         modifier = Modifier
-            .padding(vertical = 4.dp, horizontal = 8.dp)
+            .padding(vertical = 4.dp, horizontal = 8.dp),
+        contentColor = MaterialTheme.colors.background
     ){
         Row (
             modifier = Modifier

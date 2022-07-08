@@ -4,7 +4,6 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -44,33 +43,35 @@ fun DataOutputLines4 (
             modifier = Modifier
                 .height(16.dp)
         )
-        Text(
-            text = stringResource(id =equalsText),
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally),
-        )
-        Spacer(
-            modifier = Modifier
-                .height(16.dp)
-        )
-        Text(
-            text = stringResource(id = outputTextA, valueA),
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally),
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(
-            modifier = Modifier
-                .height(16.dp)
-        )
-        Text(
-            text = stringResource(id = outputTextB, valueB),
-            modifier = Modifier
-                .padding(bottom = 16.dp)
-                .align(Alignment.CenterHorizontally),
-            fontSize = 18.sp,
-        )
+        ContentBorder {
+            Text(
+                text = stringResource(id =equalsText),
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally),
+            )
+            Spacer(
+                modifier = Modifier
+                    .height(16.dp)
+            )
+            Text(
+                text = stringResource(id = outputTextA, valueA),
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally),
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+            )
+            Spacer(
+                modifier = Modifier
+                    .height(16.dp)
+            )
+            Text(
+                text = stringResource(id = outputTextB, valueB),
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally),
+                fontSize = 18.sp,
+            )
+        }
+        Spacer(modifier = Modifier.height(8.dp))
     }
 }
 
@@ -107,22 +108,25 @@ fun DataOutputLines3Inputs2 (
             modifier = Modifier
                 .height(16.dp)
         )
-        Text(
-            text = stringResource(id = equalsText),
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally),
-        )
-        Spacer(
-            modifier = Modifier
-                .height(16.dp)
-        )
-        Text(
-            text = stringResource(id = outputTextA, valueA),
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally),
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Bold,
-        )
+        ContentBorder {
+            Text(
+                text = stringResource(id = equalsText),
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally),
+            )
+            Spacer(
+                modifier = Modifier
+                    .height(16.dp)
+            )
+            Text(
+                text = stringResource(id = outputTextA, valueA),
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally),
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+            )
+        }
+        Spacer(modifier = Modifier.height(8.dp))
     }
 }
 
@@ -147,42 +151,35 @@ fun DataOutputSalinity(
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold,
         )
-        Spacer(
-            modifier = Modifier
-                .height(16.dp)
-        )
-        Text(
-            text = stringResource(id = R.string.text_equiv),
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally),
-        )
-        Spacer(
-            modifier = Modifier
-                .height(16.dp)
-        )
-        Text(
-            text = stringResource(id = R.string.text_amount_sg, salinity),
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally),
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(
-            modifier = Modifier
-                .height(16.dp)
-        )
-        Text(
-            text = stringResource(R.string.text_density),
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally),
-            fontSize = 15.sp,
-        )
-        Text(
-            text = stringResource(id = R.string.text_amount_density, density),
-            modifier = Modifier
-                .padding(bottom = 16.dp)
-                .align(Alignment.CenterHorizontally),
-            fontSize = 18.sp,
-        )
+        Spacer(modifier = Modifier.height(8.dp))
+        ContentBorder {
+            Text(
+                text = stringResource(id = R.string.text_equiv),
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally),
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = stringResource(id = R.string.text_amount_sg, salinity),
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally),
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = stringResource(R.string.text_density),
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally),
+                fontSize = 15.sp,
+            )
+            Text(
+                text = stringResource(id = R.string.text_amount_density, density),
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally),
+                fontSize = 18.sp,
+            )
+        }
+        Spacer(modifier = Modifier.height(8.dp))
     }
 }

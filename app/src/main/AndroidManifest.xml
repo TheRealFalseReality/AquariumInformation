@@ -15,14 +15,7 @@
         android:theme="@style/Theme.AquariumInfo"
         tools:targetApi="31">
         <activity
-            android:name=".ui.advert.NativeAdActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.advert.AdActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait"
+            android:name=".ui.advert.SplashActivity"
             android:exported="false" />
 
         <meta-data
@@ -30,7 +23,8 @@
             android:value="ca-app-pub-3940256099942544~3347511713" />
 
         <activity
-            android:name=".ui.advert.SplashActivity"
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>

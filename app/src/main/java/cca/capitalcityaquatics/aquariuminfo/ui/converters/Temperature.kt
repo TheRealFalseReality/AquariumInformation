@@ -15,6 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
+import cca.capitalcityaquatics.aquariuminfo.ui.advert.BannerAd
 import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -112,6 +113,8 @@ fun FormulaStringTemp (
             textAlign = TextAlign.Center
         )
     }
+    Spacer(modifier = Modifier.height(8.dp))
+    BannerAd()
 }
 
 @VisibleForTesting

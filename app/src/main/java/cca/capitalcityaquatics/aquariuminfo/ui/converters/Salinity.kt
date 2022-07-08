@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.LoadFile
 import cca.capitalcityaquatics.aquariuminfo.R
+import cca.capitalcityaquatics.aquariuminfo.ui.advert.BannerAd
 import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -92,8 +93,9 @@ fun SalScreen (
                 file = "SalinityInformation.txt",
                 textAlign = TextAlign.Start
             )
-
         }
+        Spacer(modifier = Modifier.height(8.dp))
+        BannerAd()
     }
 }
 

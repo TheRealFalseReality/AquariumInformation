@@ -52,7 +52,9 @@ fun TankVolumeBottomNavBar(
                     text = screen.title,
                     icon = screen.icon,
                     onSelected = { onTabSelected(screen) },
-                    selected = currentScreen == screen
+                    selected = currentScreen == screen,
+                    color = MaterialTheme.colors.onPrimary,
+                    colorSelected = MaterialTheme.colors.primaryVariant
                 )
             }
         },

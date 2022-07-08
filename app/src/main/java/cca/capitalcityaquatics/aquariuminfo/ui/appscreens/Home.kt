@@ -20,19 +20,19 @@ fun HomeScreen (
 
         GeneralComposeHeader(text = R.string.text_title_welcome )
 
-        Spacer(modifier = Modifier.height(36.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         LoadFile(
             file = "Welcome.txt",
             textAlign = TextAlign.Center
         )
 
-        Spacer(modifier = Modifier.height(26.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         ContentBorder {
             AppInfo()
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             ChangelogCardContent()
         }

@@ -28,14 +28,14 @@ fun InfoScreen(
     GeneralCard(verticalArrangement = Arrangement.Top) {
         GeneralComposeHeader(text = R.string.text_title_info)
 
-        Spacer(modifier = Modifier.height(36.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         LoadFile(
             file = "Info.txt",
             textAlign = TextAlign.Center
         )
 
-        Spacer(modifier = Modifier.height(26.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         ContentBorder {
             GeneralComposeFooter(
@@ -59,7 +59,7 @@ fun InfoScreen(
                 fontWeight = FontWeight.Bold
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             GeneralComposeFooter(
                 modifier = Modifier
@@ -82,11 +82,11 @@ fun InfoScreen(
                 fontWeight = FontWeight.Bold
             )
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             AppInfo()
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             ChangelogCardContent()
         }

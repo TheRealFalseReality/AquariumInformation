@@ -8,7 +8,10 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
-import androidx.compose.material.*
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material.Icon
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -30,9 +33,11 @@ fun NavTab(
     icon: Int,
     selected: Boolean,
     onSelected: () -> Unit,
+    colorSelected: Color,
+    color: Color
 ){
-    val colorSelected = MaterialTheme.colors.primaryVariant
-    val color = MaterialTheme.colors.onPrimary
+    val colorSelected = colorSelected
+    val color = color
     val durationMillis = if (selected) TabFadeInAnimationDuration else TabFadeOutAnimationDuration
     val animSpec = remember {
         tween<Color>(
