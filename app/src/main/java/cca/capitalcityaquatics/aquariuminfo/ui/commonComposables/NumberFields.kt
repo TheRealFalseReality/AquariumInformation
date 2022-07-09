@@ -3,8 +3,8 @@ package cca.capitalcityaquatics.aquariuminfo.ui.commonComposables
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Text
@@ -37,7 +37,7 @@ fun EditNumberFieldSingle (
                 color = Color.DarkGray
             ) },
         modifier = modifier
-            .fillMaxWidth()
+            .widthIn(max = 500.dp)
             .padding(16.dp),
         value = value,
         singleLine = true,
@@ -75,7 +75,7 @@ fun EditNumberField2Vert (
                     color = Color.DarkGray
                 ) },
             modifier = modifier
-                .fillMaxWidth()
+                .widthIn(max = 500.dp)
                 .padding(16.dp),
             value = value1,
             singleLine = true,
@@ -98,7 +98,7 @@ fun EditNumberField2Vert (
                     color = Color.DarkGray
                 ) },
             modifier = modifier
-                .fillMaxWidth()
+                .widthIn(max = 500.dp)
                 .padding(16.dp),
             value = value2,
             singleLine = true,
@@ -133,7 +133,10 @@ fun EditNumberField3Hor (
 ){
     val focusManager = LocalFocusManager.current
 
-    Row {
+    Row (
+        modifier = modifier
+            .widthIn(max = 500.dp)
+            ){
         TextField(
             label = {
                 Text(stringResource(id = label1),
@@ -215,7 +218,10 @@ fun EditNumberField2Hor (
 ){
     val focusManager = LocalFocusManager.current
 
-    Row {
+    Row (
+        modifier = modifier
+            .widthIn(max = 500.dp)
+    ){
         TextField(
             label = {
                 Text(stringResource(id = label1),
@@ -281,7 +287,10 @@ fun EditNumberFieldQuad (
 ){
     val focusManager = LocalFocusManager.current
 
-    Row {
+    Row (
+        modifier = modifier
+            .widthIn(max = 500.dp)
+    ){
         TextField(
             label = {
                 Text(stringResource(id = label1),
@@ -327,7 +336,10 @@ fun EditNumberFieldQuad (
             )
         )
     }
-    Row {
+    Row (
+        modifier = modifier
+            .widthIn(max = 500.dp)
+    ){
         TextField(
             label = {
                 Text(stringResource(id = label3),

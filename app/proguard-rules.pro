@@ -19,3 +19,5 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 -renamesourcefileattribute SourceFile
+
+-printconfiguration C:/Users/Nick/AndroidStudioProjects/AquariumInformation/app/build/tmp/full-r8-config.txt

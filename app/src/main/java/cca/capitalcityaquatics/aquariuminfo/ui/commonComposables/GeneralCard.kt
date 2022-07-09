@@ -53,7 +53,7 @@ fun ContentBorder(
     Column(
         modifier = Modifier
             .fillMaxHeight()
-            .fillMaxWidth()
+            .widthIn(max = 500.dp, min = 400.dp)
             .border(
                 BorderStroke(2.dp, MaterialTheme.colors.primaryVariant),
                 shape = RoundedCornerShape(4.dp)
