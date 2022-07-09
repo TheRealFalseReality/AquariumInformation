@@ -14,11 +14,11 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
 @Composable
-fun HomeScreen (
+fun HomeScreen(
 ) {
     GeneralCard(verticalArrangement = Arrangement.Top) {
 
-        GeneralComposeHeader(text = R.string.text_title_welcome )
+        GeneralComposeHeader(text = R.string.text_title_welcome)
 
         Spacer(modifier = Modifier.height(16.dp))
 

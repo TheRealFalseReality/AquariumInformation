@@ -24,7 +24,7 @@ import kotlin.math.pow
 
 @Preview(showBackground = true)
 @Composable
-fun SalScreen (
+fun SalScreen(
     modifier: Modifier = Modifier,
 ) {
     var inputSal by rememberSaveable {
@@ -100,11 +100,11 @@ fun SalScreen (
 }
 
 @VisibleForTesting
-internal fun calculateSpecificGravity (
+internal fun calculateSpecificGravity(
     sal: Double,
     tempTestWater: Double,
     tempPureWater: Double,
-): String{
+): String {
     val aA = 8.24493e-1 - 4.0899e-3 * tempTestWater + 7.6438e-5 * tempTestWater * tempTestWater -
             8.2467e-7 * tempTestWater * tempTestWater * tempTestWater + 5.3875e-9 * tempTestWater *
             tempTestWater * tempTestWater * tempTestWater
@@ -118,7 +118,7 @@ internal fun calculateSpecificGravity (
     val rROoTD = 999.842594 + 6.793952e-2 * tempPureWater - 9.095290e-3 * tempPureWater *
             tempPureWater + 1.001685e-4 * tempPureWater * tempPureWater * tempPureWater -
             1.120083e-6 * tempPureWater * tempPureWater * tempPureWater * tempPureWater +
-            6.536332e-9 * tempPureWater * tempPureWater* tempPureWater * tempPureWater*
+            6.536332e-9 * tempPureWater * tempPureWater * tempPureWater * tempPureWater *
             tempPureWater
     val salDensityPPT = rROo + aA * sal + bB * kotlin.math.sqrt(sal.pow(3)) + cC * sal * sal
 
@@ -131,10 +131,10 @@ internal fun calculateSpecificGravity (
 }
 
 @VisibleForTesting
-internal fun calculateSalinity (
-    sal:Double,
+internal fun calculateSalinity(
+    sal: Double,
     tempTestWater: Double,
-): String{
+): String {
     val ppt = sal * 1240.63326 + tempTestWater * -3.26377 + sal * tempTestWater * 3.20800 + sal *
             sal * 4.58072 + tempTestWater * tempTestWater * 0.00719 + -1246.10737
 
@@ -145,17 +145,17 @@ internal fun calculateSalinity (
 }
 
 @VisibleForTesting
-internal fun calculateDensityPPT (
-    sal:Double,
+internal fun calculateDensityPPT(
+    sal: Double,
     tempTestWater: Double,
-): String{
+): String {
     val aB = 8.24493e-1 - 4.0899e-3 * tempTestWater + 7.6438e-5 * tempTestWater * tempTestWater -
             8.2467e-7 * tempTestWater * tempTestWater * tempTestWater + 5.3875e-9 * tempTestWater *
             tempTestWater * tempTestWater * tempTestWater
     val bC = -5.72466e-3 + 1.0227e-4 * tempTestWater - 1.6546e-6 * tempTestWater * tempTestWater
     val cD = 4.8314e-4
     val rOO = 999.842594 + 6.793952e-2 * tempTestWater - 9.095290e-3 * tempTestWater * tempTestWater
-    + 1.001685e-4 * tempTestWater * tempTestWater * tempTestWater - 1.120083e-6 *
+    +1.001685e-4 * tempTestWater * tempTestWater * tempTestWater - 1.120083e-6 *
             tempTestWater * tempTestWater * tempTestWater * tempTestWater + 6.536332e-9 *
             tempTestWater * tempTestWater * tempTestWater * tempTestWater * tempTestWater
     val rO = rOO + aB * sal + bC * kotlin.math.sqrt(sal.pow(3)) + cD * sal * sal
@@ -167,11 +167,11 @@ internal fun calculateDensityPPT (
 }
 
 @VisibleForTesting
-internal fun calculateDensitySG (
-    sal:Double,
+internal fun calculateDensitySG(
+    sal: Double,
     tempPureWater: Double
-): String{
-    val rOoTDc = 999.842594 + 6.793952e-2 * tempPureWater - 9.095290e-3 * tempPureWater*
+): String {
+    val rOoTDc = 999.842594 + 6.793952e-2 * tempPureWater - 9.095290e-3 * tempPureWater *
             tempPureWater + 1.001685e-4 * tempPureWater * tempPureWater * tempPureWater -
             1.120083e-6 * tempPureWater * tempPureWater * tempPureWater * tempPureWater +
             6.536332e-9 * tempPureWater * tempPureWater * tempPureWater * tempPureWater *

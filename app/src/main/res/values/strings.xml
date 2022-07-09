@@ -123,7 +123,7 @@
     <string name="text_google_play">Google Play</string>
     <string name="text_install">Install</string>
     <string name="text_native_ad2">Native AD</string>
-    <string name="id_app_open">ca-app-pub-3940256099942544/3419835294</string>
-    <string name="id_ad_banner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="id_app_open" translatable="false">ca-app-pub-5701077439648731/3561874207</string>
+    <string name="id_ad_banner" translatable="false">ca-app-pub-5701077439648731/8932072220</string>
     />
 </resources>

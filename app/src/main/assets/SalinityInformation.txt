@@ -4,7 +4,7 @@
 
 -The inverse calculation, from Specific Density / Gravity to Salinity, is performed by the solution for iterative methods of the reverse equation of Millero and Poisson.
 
--The calculation from Conductivity to Salinity / Density / Gravity Specification is performed according to the complex polynomial equation adopted by UNESCO/ICES/SCOR/IAPSO. In this case, the values are reliable for the resulting salinity between 2 and 42 and a temperature between -2 °C and 35 °C.
+-The calculation from Conductivity to Salinity / Density / Gravity Specification is performed according to the complex polynomial equation adopted by UNESCO/ICES/SCOR/IAPSO. In this case,the values are reliable for the resulting salinity between 2 and 42 and a temperature between -2 °C and 35 °C.
 
 -Salinity values are expressed in Practical Salinity.
 

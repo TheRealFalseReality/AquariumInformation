@@ -1,5 +1,5 @@
-This app was created by Nicholas White from North Florida. I am not a programmer, but an enthusiastic aquarist. I went to school for biology and have been in the hobby for over 10 years.
+This app was created by Nick White from North Florida. I am not a programmer, but an enthusiastic aquarist. I went to school for biology and have been in the hobby for over 10 years.
 
-I got tired of having to search for converters every time I wanted to convert something like meq/L or salinity ppt, and wanted something all in one place. I wanted to solve the problem of not knowing the units that European products use and have quick access to other Aquarium related information in one place.
+I got tired of having to search for converters every time I wanted to convert meq/L to dKH or determine my new tank’s size. The most commonly used products vary widely in which units are used, and I wanted to create a quick access app to confirm I was dosing the appropriate amount.
 
 Please, inform me of ANY errors. I tried my best to build this app, but I am new to app programming.
