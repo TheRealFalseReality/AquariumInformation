@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -70,5 +71,8 @@ dependencies {
 
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0"
-    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.5.0"
-}
+    implementation "android.arch.lifecycle:common-java8:1.1.1"
+
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:30.2.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'}

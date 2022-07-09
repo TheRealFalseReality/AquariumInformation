@@ -26,7 +26,10 @@ fun InputUnitsDisplay4 (
     valueD: Double,
 ){
     Column {
-        Row {
+        Row (
+            modifier = Modifier
+                .widthIn(max = 500.dp),
+                ){
             Text(
                 text = (stringResource(textA, valueA)),
                 modifier = Modifier
@@ -47,7 +50,10 @@ fun InputUnitsDisplay4 (
             )
         }
 
-        Row {
+        Row (
+            modifier = Modifier
+                .widthIn(max = 500.dp),
+        ){
             Text(
                 text = (stringResource(textC, valueC)),
                 modifier = Modifier
@@ -67,7 +73,7 @@ fun InputUnitsDisplay4 (
                 fontWeight = FontWeight.Bold,
             )
         }
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(16.dp))
     }
 }
 
@@ -81,7 +87,10 @@ fun InputUnitsDisplay3 (
     valueC: Double,
 ){
     Column {
-        Row {
+        Row (
+            modifier = Modifier
+                .widthIn(max = 550.dp),
+        ){
             Text(
                 text = (stringResource(textA, valueA)),
                 modifier = Modifier
@@ -110,7 +119,7 @@ fun InputUnitsDisplay3 (
                 fontWeight = FontWeight.Bold,
             )
         }
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(16.dp))
     }
 }
 
@@ -120,7 +129,10 @@ fun InputUnitsDisplay1 (
     valueA: Double,
 ) {
     Column {
-        Row {
+        Row (
+            modifier = Modifier
+                .widthIn(max = 500.dp),
+        ){
             Text(
                 text = (stringResource(textA, valueA)),
                 modifier = Modifier
@@ -131,7 +143,7 @@ fun InputUnitsDisplay1 (
                 fontWeight = FontWeight.Bold,
             )
         }
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(16.dp))
     }
 }
 
@@ -143,7 +155,10 @@ fun InputUnitsDisplay2 (
     valueB: Double,
 ) {
     Column {
-        Row {
+        Row (
+            modifier = Modifier
+                .widthIn(max = 500.dp),
+        ){
             Text(
                 text = (stringResource(textA, valueA)),
                 modifier = Modifier
@@ -163,7 +178,7 @@ fun InputUnitsDisplay2 (
                 fontWeight = FontWeight.Bold,
             )
         }
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(16.dp))
     }
 }
 

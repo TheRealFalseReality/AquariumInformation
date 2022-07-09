@@ -26,7 +26,9 @@ fun DataOutputLines4 (
     @StringRes outputTextB: Int,
     valueB: Double
 ){
-    Column {
+    Column (
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
         EditNumberFieldSingle(
             label = label,
             value = inputValue,
@@ -88,7 +90,9 @@ fun DataOutputLines3Inputs2 (
     @StringRes outputTextA: Int,
     valueA: Double,
 ) {
-    Column {
+    Column (
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
         EditNumberField2Vert(
             label1 = label1,
             label2 = label2,
@@ -138,7 +142,9 @@ fun DataOutputSalinity(
     salinity: Double,
     density: Double
 ){
-    Column {
+    Column (
+        horizontalAlignment = Alignment.CenterHorizontally
+            ){
         EditNumberFieldSingle(
             label = label,
             value = inputValue,

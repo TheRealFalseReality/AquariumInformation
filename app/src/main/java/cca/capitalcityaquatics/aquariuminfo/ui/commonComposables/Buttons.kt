@@ -32,6 +32,7 @@ fun RadioButtonComp (
         text = stringResource(id = text),
         modifier = Modifier
             .padding(top = 12.dp, end = 25.dp, bottom = 2.dp)
+            .widthIn(max = 600.dp)
             .clickable(
                 onClick = onClick1
             ),
@@ -46,7 +47,6 @@ fun RadioButtonCard (
     Card(
         modifier = Modifier
             .padding(16.dp)
-            .fillMaxWidth()
             .border(
                 BorderStroke(3.dp, MaterialTheme.colors.primaryVariant),
                 shape = RoundedCornerShape(2.dp)
@@ -56,7 +56,8 @@ fun RadioButtonCard (
     ) {
         Row (
             modifier = Modifier
-                .fillMaxWidth(),
+                .padding(start = 25.dp, end = 25.dp)
+                .widthIn(max = 500.dp),
             horizontalArrangement = Arrangement.Center
         ){
             content()
@@ -77,7 +78,6 @@ fun RadioButtonCard3 (
     Card(
         modifier = Modifier
             .padding(16.dp)
-            .fillMaxWidth()
             .border(
                 BorderStroke(3.dp, MaterialTheme.colors.primaryVariant),
                 shape = RoundedCornerShape(2.dp)
@@ -87,7 +87,8 @@ fun RadioButtonCard3 (
     ) {
         Row (
             modifier = Modifier
-                .fillMaxWidth(),
+                .padding(start = 25.dp, end = 25.dp)
+                .widthIn(max = 500.dp),
             horizontalArrangement = Arrangement.Center
         ){
             RadioButton(
@@ -99,7 +100,8 @@ fun RadioButtonCard3 (
             Text(
                 text = stringResource(id = text1),
                 modifier = Modifier
-                    .padding(top = 12.dp, end = 25.dp, bottom = 2.dp)
+                    .padding(top = 12.dp, bottom = 2.dp)
+                    .weight(1f)
                     .clickable(
                         onClick = onClick1
                     ),
@@ -130,7 +132,7 @@ fun RadioButtonCard3 (
             Text(
                 text = stringResource(id = text3),
                 modifier = Modifier
-                    .padding(top = 12.dp, bottom = 2.dp, end = 10.dp)
+                    .padding(top = 12.dp, bottom = 2.dp)
                     .clickable(
                         onClick = onClick3
                     ),
@@ -163,13 +165,11 @@ fun RadioButtonCardTankVol (
         RadioButton(
             selected = selected == R.string.button_label_feet,
             onClick = onClick2,
-            modifier = Modifier
-                .padding(start = 20.dp)
         )
         Text(
             text = stringResource(id = R.string.button_label_feet),
             modifier = Modifier
-                .padding(top = 12.dp, bottom = 2.dp, end = 4.dp)
+                .padding(top = 12.dp, bottom = 2.dp, end = 10.dp)
                 .clickable(
                     onClick = onClick2
                 ),

@@ -9,11 +9,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ProcessLifecycleOwner
+import cca.capitalcityaquatics.aquariuminfo.R
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.appopen.AppOpenAd
 import java.util.*
-
-const val AD_UNIT_ID_APP_OPEN = "ca-app-pub-3940256099942544/3419835294"
 
 class MyApplication: Application (), Application.ActivityLifecycleCallbacks, LifecycleObserver {
 
@@ -49,7 +48,6 @@ class MyApplication: Application (), Application.ActivityLifecycleCallbacks, Lif
     interface OnShowAdCompletedListener {
         fun onShowAdComplete()
     }
-
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     private fun onMoveToForeGround(){
         appOpenAdManager!!.showAdIfAvailable(currentActivity!!)
@@ -108,7 +106,7 @@ class MyApplication: Application (), Application.ActivityLifecycleCallbacks, Lif
             val request = AdRequest.Builder().build()
             AppOpenAd.load(
                 context,
-                AD_UNIT_ID_APP_OPEN,
+                context.getString(R.string.id_app_open),
                 request,
                 AppOpenAd.APP_OPEN_AD_ORIENTATION_PORTRAIT,
                 object  : AppOpenAd.AppOpenAdLoadCallback(){

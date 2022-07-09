@@ -151,6 +151,7 @@ fun InfoCardContentSwitch2(
         Row (
             modifier = Modifier
                 .clickable { expanded = !expanded }
+                .widthIn(max = 400.dp)
                 .animateContentSize(
                     animationSpec = spring(
                         dampingRatio = Spring.DampingRatioMediumBouncy,
