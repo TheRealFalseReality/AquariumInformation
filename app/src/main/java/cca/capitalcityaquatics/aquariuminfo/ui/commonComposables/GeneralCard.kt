@@ -14,19 +14,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun GeneralCard (
-    modifier: Modifier = Modifier,
-    verticalArrangement: Arrangement.Vertical,
-    content: @Composable ColumnScope.() -> Unit,
-){
-    Column(
-        modifier = modifier
-            .padding(24.dp),
-        verticalArrangement = verticalArrangement
-    ) {
-        Card(
-            backgroundColor = MaterialTheme.colors.primary,
-            modifier = Modifier
+fun GeneralCard(
+	modifier: Modifier = Modifier,
+	verticalArrangement: Arrangement.Vertical,
+	content: @Composable ColumnScope.() -> Unit,
+) {
+	Column(
+		modifier = modifier
+			.padding(24.dp),
+		verticalArrangement = verticalArrangement
+	) {
+		Card(
+			backgroundColor = MaterialTheme.colors.primary,
+			modifier = Modifier
                 .fillMaxHeight()
                 .fillMaxWidth()
                 .border(
@@ -34,38 +34,39 @@ fun GeneralCard (
                     shape = RoundedCornerShape(4.dp)
                 )
                 .verticalScroll(rememberScrollState()),
-        ) {
-            Column(
-                modifier = Modifier
-                    .padding(14.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                content()
-            }
-        }
-    }
+		) {
+			Column(
+				modifier = Modifier
+					.padding(14.dp),
+				horizontalAlignment = Alignment.CenterHorizontally,
+			) {
+				content()
+			}
+		}
+	}
 }
 
 @Composable
 fun ContentBorder(
-    content: @Composable ColumnScope.() -> Unit,
-){
-    Column(
-        modifier = Modifier
+	modifier: Modifier = Modifier,
+	content: @Composable ColumnScope.() -> Unit,
+) {
+	Column(
+		modifier = modifier
             .fillMaxHeight()
             .widthIn(max = 500.dp, min = 400.dp)
             .border(
                 BorderStroke(2.dp, MaterialTheme.colors.primaryVariant),
                 shape = RoundedCornerShape(4.dp)
             ),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Column(
-            modifier = Modifier.padding(6.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            content()
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-    }
+		horizontalAlignment = Alignment.CenterHorizontally
+	) {
+		Column(
+			modifier = Modifier.padding(6.dp),
+			horizontalAlignment = Alignment.CenterHorizontally
+		) {
+			content()
+		}
+		Spacer(modifier = Modifier.height(8.dp))
+	}
 }

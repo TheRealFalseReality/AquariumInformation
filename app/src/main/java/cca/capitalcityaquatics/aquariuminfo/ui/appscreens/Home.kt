@@ -16,33 +16,36 @@ import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 @Composable
 fun HomeScreen(
 ) {
-    GeneralCard(verticalArrangement = Arrangement.Top) {
+	GeneralCard(verticalArrangement = Arrangement.Top) {
 
-        GeneralComposeHeader(text = R.string.text_title_welcome)
+		GeneralComposeHeader(text = R.string.text_title_welcome)
 
-        Spacer(modifier = Modifier.height(16.dp))
+		Spacer(modifier = Modifier.height(16.dp))
 
-        LoadFile(
-            file = "Welcome.txt",
-            textAlign = TextAlign.Center
-        )
+		LoadFile(
+			file = "Welcome.txt",
+			textAlign = TextAlign.Center
+		)
+		Spacer(modifier = Modifier.height(16.dp))
 
-        Spacer(modifier = Modifier.height(16.dp))
+		ReviewApp()
 
-        ContentBorder {
-            AppInfo()
+		Spacer(modifier = Modifier.height(16.dp))
 
-            Spacer(modifier = Modifier.height(8.dp))
+		ContentBorder {
+			AppInfo()
 
-            ChangelogCardContent()
-        }
-    }
+			Spacer(modifier = Modifier.height(8.dp))
+
+			ChangelogCardContent()
+		}
+	}
 }
 
 @Preview(showBackground = true)
 @Composable
 fun HomePreview() {
-    AquariumInfoTheme {
-        HomeScreen()
-    }
+	AquariumInfoTheme {
+		HomeScreen()
+	}
 }

@@ -19,66 +19,68 @@ import androidx.navigation.compose.rememberNavController
 import cca.capitalcityaquatics.aquariuminfo.navigation.*
 import cca.capitalcityaquatics.aquariuminfo.ui.advert.BannerAd
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
+import com.google.android.gms.ads.MobileAds
 
 class MainActivity : ComponentActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+	override fun onCreate(savedInstanceState: Bundle?) {
+		window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
 
-        super.onCreate(savedInstanceState)
-        setContent {
-            AquariumInfoTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    AquariumApp()
+		super.onCreate(savedInstanceState)
+		setContent {
+			AquariumInfoTheme {
+				// A surface container using the 'background' color from the theme
+				Surface(
+					modifier = Modifier.fillMaxSize(),
+					color = MaterialTheme.colors.background
+				) {
+					AquariumApp()
 
-                }
-            }
-        }
-    }
+					MobileAds.initialize(this) {}
+				}
+			}
+		}
+	}
 }
 
 @Composable
 fun AquariumApp() {
-    val navController = rememberNavController()
-    val currentBackStack by navController.currentBackStackEntryAsState()
-    val currentDestination = currentBackStack?.destination
-    val currentScreen = bottomNavRow.find {
-        it.route == currentDestination?.route
-    } ?: Home
+	val navController = rememberNavController()
+	val currentBackStack by navController.currentBackStackEntryAsState()
+	val currentDestination = currentBackStack?.destination
+	val currentScreen = bottomNavRow.find {
+		it.route == currentDestination?.route
+	} ?: Home
 
-    Scaffold(
-        topBar = {
-            Column{
-                BannerAd()
-                TopNavBar (navController)
-            }
-        },
-        bottomBar = {
-            BottomNavBar(
-                allScreens = bottomNavRow,
-                onTabSelected = { newScreen ->
-                    navController.navigateSingleTopTo(newScreen.route)
-                },
-                currentScreen = currentScreen
-            )
-        },
-    ) { innerPadding ->
-        MainNavHost(
-            navController = navController,
-            modifier = Modifier
-                .padding(innerPadding)
-        )
-    }
+	Scaffold(
+		topBar = {
+			Column {
+				BannerAd()
+				TopNavBar(navController)
+			}
+		},
+		bottomBar = {
+			BottomNavBar(
+				allScreens = bottomNavRow,
+				onTabSelected = { newScreen ->
+					navController.navigateSingleTopTo(newScreen.route)
+				},
+				currentScreen = currentScreen
+			)
+		},
+	) { innerPadding ->
+		MainNavHost(
+			navController = navController,
+			modifier = Modifier
+				.padding(innerPadding)
+		)
+	}
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    AquariumInfoTheme {
-        AquariumApp()
-    }
+	AquariumInfoTheme {
+		AquariumApp()
+	}
 }

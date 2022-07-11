@@ -17,12 +17,19 @@ All notable changes to this project will be documented in this file.
 * Link to rate App
 * Popup to rate App
 * Ability to remove ADs with in*app billing
-* Maine tank types added to Water Hardness
+* Marine tank types added to Water Hardness
 * Gesture Navigation
+* Fish Compatibility tool
 
 ## [Issues]
 
 * Fix Subscripts
+
+## [1.1] - 2022-7-10
+
+### Added
+
+*Review App Link
 
 ## [1.0] - 2022-7-8
 

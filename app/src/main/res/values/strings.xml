@@ -125,5 +125,12 @@
     <string name="text_native_ad2">Native AD</string>
     <string name="id_app_open" translatable="false">ca-app-pub-5701077439648731/3561874207</string>
     <string name="id_ad_banner" translatable="false">ca-app-pub-5701077439648731/8932072220</string>
+    <string name="text_rate_app">Review this App</string>
+    <string name="url_email">mailto:AppInfo@CapitalCityAquatics.com</string>
+    <string name="url_app"><![CDATA[https://play.google.com/store/apps/details?id=cca.capitalcityaquatics.aquariuminfo&hl=en_US&pli=1]]></string>
+    <string name="url_website">https://www.capitalcityaquatics.com/</string>
+    <string name="text_valuable_review">Your Valuable Review will be GREATLY Appreciated!! Thank you!!</string>
+    <string name="text_thank_you">Thank You!</string>
+    <string name="text_kindly_review">Would you kindly rate this App?</string>
     />
 </resources>
