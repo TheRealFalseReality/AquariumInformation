@@ -20,42 +20,72 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
-@Preview(showBackground = true)
 @Composable
-fun BannerAd(
-    modifier: Modifier = Modifier,
+fun TopBannerAd(
+	modifier: Modifier = Modifier,
 ) {
-    val isInEditMode = LocalInspectionMode.current
-    Column{
-        if (isInEditMode) {
-            Text(
-                modifier = modifier
-                    .fillMaxWidth()
-                    .background(Color.Red)
-                    .padding(horizontal = 2.dp, vertical = 6.dp),
-                textAlign = TextAlign.Center,
-                color = Color.White,
-                text = "Advert Here",
-            )
-        } else {
-            AndroidView(
-                modifier = modifier.fillMaxWidth(),
-                factory = { context ->
-                    AdView(context).apply {
-                        setAdSize(AdSize.BANNER)
-                        adUnitId = context.getString(R.string.id_ad_banner)
-                        loadAd(AdRequest.Builder().build())
-                    }
-                }
-            )
-        }
-    }
+	val isInEditMode = LocalInspectionMode.current
+	Column {
+		if (isInEditMode) {
+			Text(
+				modifier = modifier
+					.fillMaxWidth()
+					.background(Color.Red)
+					.padding(horizontal = 2.dp, vertical = 6.dp),
+				textAlign = TextAlign.Center,
+				color = Color.White,
+				text = "Advert Here",
+			)
+		} else {
+			AndroidView(
+				modifier = modifier.fillMaxWidth(),
+				factory = { context ->
+					AdView(context).apply {
+						setAdSize(AdSize.BANNER)
+						adUnitId = context.getString(R.string.id_ad_banner)
+						loadAd(AdRequest.Builder().build())
+					}
+				}
+			)
+		}
+	}
+}
+
+@Composable
+fun InnerBannerAd(
+	modifier: Modifier = Modifier,
+) {
+	val isInEditMode = LocalInspectionMode.current
+	Column {
+		if (isInEditMode) {
+			Text(
+				modifier = modifier
+					.fillMaxWidth()
+					.background(Color.Red)
+					.padding(horizontal = 2.dp, vertical = 6.dp),
+				textAlign = TextAlign.Center,
+				color = Color.White,
+				text = "Advert Here",
+			)
+		} else {
+			AndroidView(
+				modifier = modifier.fillMaxWidth(),
+				factory = { context ->
+					AdView(context).apply {
+						setAdSize(AdSize.LARGE_BANNER)
+						adUnitId = context.getString(R.string.id_ad_banner_inner)
+						loadAd(AdRequest.Builder().build())
+					}
+				}
+			)
+		}
+	}
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview3() {
-    AquariumInfoTheme  {
-        AquariumApp()
-    }
+	AquariumInfoTheme {
+		AquariumApp()
+	}
 }

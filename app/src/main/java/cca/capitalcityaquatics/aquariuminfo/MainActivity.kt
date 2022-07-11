@@ -17,7 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import cca.capitalcityaquatics.aquariuminfo.navigation.*
-import cca.capitalcityaquatics.aquariuminfo.ui.advert.BannerAd
+import cca.capitalcityaquatics.aquariuminfo.ui.advert.TopBannerAd
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 import com.google.android.gms.ads.MobileAds
 
@@ -37,9 +37,9 @@ class MainActivity : ComponentActivity() {
 					modifier = Modifier.fillMaxSize(),
 					color = MaterialTheme.colors.background
 				) {
-					MobileAds.initialize(this) {}
-
 					AquariumApp()
+
+					MobileAds.initialize(this) {}
 
 //					init()
 				}
@@ -83,7 +83,7 @@ fun AquariumApp() {
 	Scaffold(
 		topBar = {
 			Column {
-				BannerAd()
+				TopBannerAd()
 				TopNavBar(navController)
 			}
 		},

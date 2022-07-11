@@ -15,7 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.ui.advert.BannerAd
+import cca.capitalcityaquatics.aquariuminfo.ui.advert.InnerBannerAd
 import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
 import cca.capitalcityaquatics.aquariuminfo.ui.misc.LoadFile
 import java.math.RoundingMode
@@ -85,6 +85,10 @@ fun SalScreen(
 
 		Spacer(modifier = Modifier.height(16.dp))
 
+		InnerBannerAd()
+
+		Spacer(modifier = Modifier.height(8.dp))
+
 		InfoCardContent(
 			icon = painterResource(id = R.drawable.info_48px),
 			title = R.string.text_more_info
@@ -94,8 +98,8 @@ fun SalScreen(
 				textAlign = TextAlign.Start
 			)
 		}
+
 		Spacer(modifier = Modifier.height(8.dp))
-		BannerAd()
 	}
 }
 

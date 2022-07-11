@@ -13,6 +13,7 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
 import cca.capitalcityaquatics.aquariuminfo.ui.misc.LoadFile
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
+
 @Composable
 fun HomeScreen(
 ) {

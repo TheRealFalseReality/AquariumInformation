@@ -21,7 +21,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cca.capitalcityaquatics.aquariuminfo.BuildConfig
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.ui.advert.BannerAd
 import cca.capitalcityaquatics.aquariuminfo.ui.appscreens.HomeScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.converters.TempScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
@@ -92,19 +91,6 @@ fun GeneralComposeFooter(
 		textAlign = textAlign,
 		style = style
 	)
-}
-
-@Composable
-fun FormulaString(
-	content: @Composable ColumnScope.() -> Unit,
-) {
-	InfoCardContent(
-		icon = painterResource(id = R.drawable.functions_48px),
-		title = R.string.text_formula,
-		content = content
-	)
-	Spacer(modifier = Modifier.height(8.dp))
-	BannerAd()
 }
 
 @Composable
