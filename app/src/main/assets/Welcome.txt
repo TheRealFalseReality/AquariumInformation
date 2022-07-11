@@ -4,4 +4,4 @@ Not only is there a simple Temperature Converter, but also a Salinity and Alkali
 
 There’s also a CO₂ calculator for planted aquariums. Also included are Tank Volume Calculators, which will calculate a tank’s volume in gallons or liters and include its water weight.
 
-If you like this app, please rate it! There will be more to come including specific aquarium parameters, maintenance plans and more!!
+There will be more to come including specific aquarium parameters, maintenance plans and more!! If you like this app, please rate it!

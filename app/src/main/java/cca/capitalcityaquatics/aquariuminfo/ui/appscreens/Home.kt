@@ -8,41 +8,44 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import cca.capitalcityaquatics.aquariuminfo.LoadFile
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
+import cca.capitalcityaquatics.aquariuminfo.ui.misc.LoadFile
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
 @Composable
 fun HomeScreen(
 ) {
-    GeneralCard(verticalArrangement = Arrangement.Top) {
+	GeneralCard(verticalArrangement = Arrangement.Top) {
 
-        GeneralComposeHeader(text = R.string.text_title_welcome)
+		GeneralComposeHeader(text = R.string.text_title_welcome)
 
-        Spacer(modifier = Modifier.height(16.dp))
+		Spacer(modifier = Modifier.height(16.dp))
 
-        LoadFile(
-            file = "Welcome.txt",
-            textAlign = TextAlign.Center
-        )
+		LoadFile(
+			file = "Welcome.txt",
+			textAlign = TextAlign.Center
+		)
+		Spacer(modifier = Modifier.height(16.dp))
 
-        Spacer(modifier = Modifier.height(16.dp))
+		ReviewApp()
 
-        ContentBorder {
-            AppInfo()
+		Spacer(modifier = Modifier.height(16.dp))
 
-            Spacer(modifier = Modifier.height(8.dp))
+		ContentBorder {
+			AppInfo()
 
-            ChangelogCardContent()
-        }
-    }
+			Spacer(modifier = Modifier.height(8.dp))
+
+			ChangelogCardContent()
+		}
+	}
 }
 
 @Preview(showBackground = true)
 @Composable
 fun HomePreview() {
-    AquariumInfoTheme {
-        HomeScreen()
-    }
+	AquariumInfoTheme {
+		HomeScreen()
+	}
 }

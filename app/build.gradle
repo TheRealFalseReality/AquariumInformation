@@ -88,4 +88,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics'
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-perf-ktx'
+
+    //In-App Reviews
+    implementation("com.google.android.play:review:2.0.0")
+    implementation("com.google.android.play:review-ktx:2.0.0")
 }
