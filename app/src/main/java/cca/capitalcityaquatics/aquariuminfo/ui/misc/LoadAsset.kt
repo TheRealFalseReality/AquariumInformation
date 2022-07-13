@@ -28,10 +28,10 @@ fun LoadFile(
 		if (isInEditMode) {
 			Text(
 				modifier = modifier
-                    .fillMaxWidth()
-                    .background(Color.Red)
-                    .padding(horizontal = 2.dp, vertical = 6.dp)
-                    .height(300.dp),
+					.fillMaxWidth()
+					.background(Color.Red)
+					.padding(horizontal = 2.dp, vertical = 6.dp)
+					.height(300.dp),
 				textAlign = TextAlign.Center,
 				color = Color.White,
 				text = "Text File here",

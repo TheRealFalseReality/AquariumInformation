@@ -11,68 +11,69 @@ import cca.capitalcityaquatics.aquariuminfo.R
 
 class SplashActivity : AppCompatActivity() {
 
-    private lateinit var timerTV: TextView
+	private lateinit var timerTV: TextView
 
-    companion object{
-        private const val TAG = "SPLASH_TAG"
+	companion object {
+		private const val TAG = "SPLASH_TAG"
 
-        private  const val COUNTER_TIMER: Long = 5
-    }
+		private const val COUNTER_TIMER: Long = 5
+	}
 
-    private var secondsRemaining: Long = 0
+	private var secondsRemaining: Long = 0
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
+	override fun onCreate(savedInstanceState: Bundle?) {
+		super.onCreate(savedInstanceState)
+		setContentView(R.layout.activity_splash)
 
-        timerTV = findViewById(R.id.timerTV)
+		timerTV = findViewById(R.id.timerTV)
 
-        createTimer(COUNTER_TIMER)
-    }
+		createTimer(COUNTER_TIMER)
+	}
 
-    private fun createTimer(seconds: Long){
-        val countdownTimer: CountDownTimer = object : CountDownTimer(seconds * 1000, 1000){
+	private fun createTimer(seconds: Long) {
+		val countdownTimer: CountDownTimer = object : CountDownTimer(seconds * 1000, 1000) {
 
-            override fun onTick(millisUntilFinished: Long) {
-                Log.d(TAG, "onTick: $millisUntilFinished")
-                secondsRemaining = millisUntilFinished / 1000 + 1
-                timerTV.text = "Loading in... $secondsRemaining"
-            }
+			override fun onTick(millisUntilFinished: Long) {
+				Log.d(TAG, "onTick: $millisUntilFinished")
+				secondsRemaining = millisUntilFinished / 1000 + 1
+				timerTV.text = "Loading in... $secondsRemaining"
+			}
 
-            override fun onFinish() {
-                Log.d(TAG, "onFinish: ")
-                secondsRemaining = 0
-                timerTV.text = getString(R.string.text_loaded)
-                
-                val application = application
-                if (application !is MyApplication){
-                    Log.d(TAG, "onFinish: Failed to cast application to MyApplication")
-                    startMainActivity()
-                    return
-                }
+			override fun onFinish() {
+				Log.d(TAG, "onFinish: ")
+				secondsRemaining = 0
+				timerTV.text = getString(R.string.text_loaded)
 
-                application.showAdIfAvailable(
-                    this@SplashActivity,
-                    object: MyApplication.OnShowAdCompletedListener {
-                        override fun onShowAdComplete() {
-                            Log.d(TAG, "onShowAdComplete: ")
-                            startMainActivity()
-                        }
-                    }
-                )
-            }
-        }
+				val application = application
+				if (application !is MyApplication) {
+					Log.d(TAG, "onFinish: Failed to cast application to MyApplication")
+					startMainActivity()
+					return
+				}
 
-        countdownTimer.start()
+				application.showAdIfAvailable(
+					this@SplashActivity,
+					object : MyApplication.OnShowAdCompletedListener {
+						override fun onShowAdComplete() {
+							Log.d(TAG, "onShowAdComplete: ")
+							startMainActivity()
+						}
+					}
+				)
+			}
+		}
 
-    }
-    private  fun  startMainActivity(){
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finish()
-    }
+		countdownTimer.start()
 
-    override fun onBackPressed(){
-        moveTaskToBack(true)
-    }
+	}
+
+	private fun startMainActivity() {
+		val intent = Intent(this, MainActivity::class.java)
+		startActivity(intent)
+		finish()
+	}
+
+	override fun onBackPressed() {
+		moveTaskToBack(true)
+	}
 }

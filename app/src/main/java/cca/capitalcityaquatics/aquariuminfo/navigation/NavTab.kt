@@ -29,99 +29,99 @@ import java.util.*
 
 @Composable
 fun NavTab(
-    text: String,
-    icon: Int,
-    selected: Boolean,
-    onSelected: () -> Unit,
-    colorSelected: Color,
-    color: Color
-){
-    val colorSelected = colorSelected
-    val color = color
-    val durationMillis = if (selected) TabFadeInAnimationDuration else TabFadeOutAnimationDuration
-    val animSpec = remember {
-        tween<Color>(
-            durationMillis = durationMillis,
-            easing = LinearEasing,
-            delayMillis =  TabFadeInAnimationDelay
-        )
-    }
-    val tabTintColor by animateColorAsState(
-        targetValue = if (selected) colorSelected else color,
-        animationSpec = animSpec
-    )
-    Row(
-        modifier = Modifier
-            .padding(16.dp)
-            .animateContentSize()
-            .height(TabHeight)
-            .selectable(
-                selected = selected,
-                onClick = onSelected,
-                role = Role.Tab,
-                interactionSource = remember {
-                    MutableInteractionSource()
-                },
-                indication = rememberRipple(
-                    bounded = false,
-                    radius = Dp.Unspecified,
-                    color = Color.Unspecified
-                )
-            )
-            .clearAndSetSemantics { contentDescription = text }
-    ) {
+	text: String,
+	icon: Int,
+	selected: Boolean,
+	onSelected: () -> Unit,
+	colorSelected: Color,
+	color: Color
+) {
+	val colorSelected = colorSelected
+	val color = color
+	val durationMillis = if (selected) TabFadeInAnimationDuration else TabFadeOutAnimationDuration
+	val animSpec = remember {
+		tween<Color>(
+			durationMillis = durationMillis,
+			easing = LinearEasing,
+			delayMillis = TabFadeInAnimationDelay
+		)
+	}
+	val tabTintColor by animateColorAsState(
+		targetValue = if (selected) colorSelected else color,
+		animationSpec = animSpec
+	)
+	Row(
+		modifier = Modifier
+			.padding(16.dp)
+			.animateContentSize()
+			.height(TabHeight)
+			.selectable(
+				selected = selected,
+				onClick = onSelected,
+				role = Role.Tab,
+				interactionSource = remember {
+					MutableInteractionSource()
+				},
+				indication = rememberRipple(
+					bounded = false,
+					radius = Dp.Unspecified,
+					color = Color.Unspecified
+				)
+			)
+			.clearAndSetSemantics { contentDescription = text }
+	) {
 
-        Icon(painter = painterResource(id = icon), contentDescription = text,  tint = tabTintColor)
-        if (selected) {
-            Spacer(Modifier.width(12.dp))
-            Text(text.uppercase(Locale.getDefault()), color = tabTintColor)
-        }
-    }
+		Icon(painter = painterResource(id = icon), contentDescription = text, tint = tabTintColor)
+		if (selected) {
+			Spacer(Modifier.width(12.dp))
+			Text(text.uppercase(Locale.getDefault()), color = tabTintColor)
+		}
+	}
 }
 
 @Composable
-fun NavBar (
-    content: @Composable RowScope.() -> Unit,
-    color: Color
-){
-    Surface(
-        Modifier
-            .height(TabHeight)
-            .fillMaxWidth(),
-    ) {
-        Row(
-            Modifier.selectableGroup(),
-        ) {
-            BottomNavigation(
-                backgroundColor = color,
-            ) {
-                content()
-            }
-        }
-    }
+fun NavBar(
+	content: @Composable RowScope.() -> Unit,
+	color: Color
+) {
+	Surface(
+		Modifier
+			.height(TabHeight)
+			.fillMaxWidth(),
+	) {
+		Row(
+			Modifier.selectableGroup(),
+		) {
+			BottomNavigation(
+				backgroundColor = color,
+			) {
+				content()
+			}
+		}
+	}
 }
 
 @Composable
-fun NavBarCenter (
-    content: @Composable RowScope.() -> Unit,
-    color: Color
-){
-    Surface(
-        Modifier
-            .height(TabHeight)
-            .fillMaxWidth(),
-        color = color,
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Row(
-                Modifier.selectableGroup(),
-            ) {
-                content()
-            }
-        }
-    }
+fun NavBarCenter(
+	content: @Composable RowScope.() -> Unit,
+	color: Color
+) {
+	Surface(
+		Modifier
+			.height(TabHeight)
+			.fillMaxWidth(),
+		color = color,
+	) {
+		Column(
+			horizontalAlignment = Alignment.CenterHorizontally
+		) {
+			Row(
+				Modifier.selectableGroup(),
+			) {
+				content()
+			}
+		}
+	}
 }
 
 private val TabHeight = 56.dp

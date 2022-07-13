@@ -5,23 +5,23 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun BottomNavBar(
-    allScreens: List<Destinations>,
-    onTabSelected: (Destinations) -> Unit,
-    currentScreen: Destinations
+	allScreens: List<Destinations>,
+	onTabSelected: (Destinations) -> Unit,
+	currentScreen: Destinations
 ) {
-    NavBar(
-        content = {
-            allScreens.forEach { screen ->
-                NavTab(
-                    text = screen.title,
-                    icon = screen.icon,
-                    onSelected = { onTabSelected(screen) },
-                    selected = currentScreen == screen,
-                    color = MaterialTheme.colors.onPrimary,
-                    colorSelected = MaterialTheme.colors.primaryVariant
-                )
-            }
-        },
-        color = MaterialTheme.colors.primary
-    )
+	NavBar(
+		content = {
+			allScreens.forEach { screen ->
+				NavTab(
+					text = screen.title,
+					icon = screen.icon,
+					onSelected = { onTabSelected(screen) },
+					selected = currentScreen == screen,
+					color = MaterialTheme.colors.onPrimary,
+					colorSelected = MaterialTheme.colors.primaryVariant
+				)
+			}
+		},
+		color = MaterialTheme.colors.primary
+	)
 }

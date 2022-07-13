@@ -40,19 +40,19 @@ fun InfoCardContent(
 	) {
 		Row(
 			modifier = Modifier
-                .clickable { expanded = !expanded }
-                .widthIn(max = 500.dp)
-                .animateContentSize(
-                    animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioLowBouncy,
-                        stiffness = Spring.StiffnessLow
-                    ),
-                )
+				.clickable { expanded = !expanded }
+				.widthIn(max = 500.dp)
+				.animateContentSize(
+					animationSpec = spring(
+						dampingRatio = Spring.DampingRatioLowBouncy,
+						stiffness = Spring.StiffnessLow
+					),
+				)
 		) {
 			Column(
 				modifier = Modifier
-                    .weight(1f)
-                    .padding(top = 12.dp, bottom = 12.dp, start = 12.dp),
+					.weight(1f)
+					.padding(top = 12.dp, bottom = 12.dp, start = 12.dp),
 				horizontalAlignment = Alignment.CenterHorizontally
 			) {
 				Row {

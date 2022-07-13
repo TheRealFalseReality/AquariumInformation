@@ -14,48 +14,51 @@ import androidx.navigation.NavHostController
 import cca.capitalcityaquatics.aquariuminfo.R
 
 @Composable
-fun TopNavBar (
-    navController: NavHostController,
-){
-    TopAppBar(
-        modifier = Modifier
-            .fillMaxWidth(),
-        title = {
-            Text(
-                text = stringResource(R.string.app_name),
-                modifier = Modifier
-                    .clickable { navController.navigateSingleTopTo(Home.route)
-                    },
-                fontSize = 18.sp
-            )
-        },
-        backgroundColor = MaterialTheme.colors.primary,
-        contentColor = MaterialTheme.colors.onPrimary,
-        navigationIcon = {
-            IconButton(
-                onClick = { navController.navigateSingleTopTo(Home.route)
-                }
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.myicon48),
-                    contentDescription = stringResource(R.string.text_home),
-                    modifier = Modifier
-                        .padding(4.dp)
-                )
-            }
-        },
-        actions = {
-            IconButton(
-                onClick = { navController.navigateSingleTopTo(Information.route)
-                }
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.information),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .padding(4.dp)
-                )
-            }
-        }
-    )
+fun TopNavBar(
+	navController: NavHostController,
+) {
+	TopAppBar(
+		modifier = Modifier
+			.fillMaxWidth(),
+		title = {
+			Text(
+				text = stringResource(R.string.app_name),
+				modifier = Modifier
+					.clickable {
+						navController.navigateSingleTopTo(Home.route)
+					},
+				fontSize = 18.sp
+			)
+		},
+		backgroundColor = MaterialTheme.colors.primary,
+		contentColor = MaterialTheme.colors.onPrimary,
+		navigationIcon = {
+			IconButton(
+				onClick = {
+					navController.navigateSingleTopTo(Home.route)
+				}
+			) {
+				Icon(
+					painter = painterResource(id = R.drawable.myicon48),
+					contentDescription = stringResource(R.string.text_home),
+					modifier = Modifier
+						.padding(4.dp)
+				)
+			}
+		},
+		actions = {
+			IconButton(
+				onClick = {
+					navController.navigateSingleTopTo(Information.route)
+				}
+			) {
+				Icon(
+					painter = painterResource(id = R.drawable.information),
+					contentDescription = null,
+					modifier = Modifier
+						.padding(4.dp)
+				)
+			}
+		}
+	)
 }

@@ -12,35 +12,35 @@ import cca.capitalcityaquatics.aquariuminfo.ui.converters.SalScreen
 
 @Composable
 fun MainNavHost(
-    navController: NavHostController,
-    modifier: Modifier = Modifier,
+	navController: NavHostController,
+	modifier: Modifier = Modifier,
 
-) {
-    NavHost(
-        navController = navController,
-        startDestination = Home.route,
-        modifier = modifier
-    ) {
-        composable(Home.route) {
-            HomeScreen()
-        }
-        composable(Information.route) {
-            InfoScreen()
-        }
-        composable(Alkalinity.route){
-            AlkalinityScreen()
-        }
-        composable(Salinity.route){
-            SalScreen()
-        }
-        composable(Converters.route){
-            ConvertNavScreen()
-        }
-        composable(TankVolume.route){
-            TankVolumeNavScreen()
-        }
-    }
+	) {
+	NavHost(
+		navController = navController,
+		startDestination = Home.route,
+		modifier = modifier
+	) {
+		composable(Home.route) {
+			HomeScreen()
+		}
+		composable(Information.route) {
+			InfoScreen()
+		}
+		composable(Alkalinity.route) {
+			AlkalinityScreen()
+		}
+		composable(Salinity.route) {
+			SalScreen()
+		}
+		composable(Converters.route) {
+			ConvertNavScreen()
+		}
+		composable(TankVolume.route) {
+			TankVolumeNavScreen()
+		}
+	}
 }
 
 fun NavHostController.navigateSingleTopTo(route: String) =
-    this.navigate(route) { launchSingleTop = true }
+	this.navigate(route) { launchSingleTop = true }

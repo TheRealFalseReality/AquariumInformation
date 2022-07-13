@@ -17,21 +17,21 @@ All notable changes to this project will be documented in this file.
 * Add formulas where needed
 * Add surface area to volume calculator
 * Add substrate calculator
-* Link to rate App
 * Ability to remove ADs with in*app billing
 * Marine tank types added to Water Hardness
 * Gesture Navigation
 * Fish Compatibility tool
+* Change Top Banner to an Adaptive Banner
 
 ## [Issues]
 
-* Fix Subscripts
+* Fix Subscripts for CaCO3
 
 ## [1.1] - 2022-7-10
 
 ### Added
 
-*Review App Link
+* Review App Link
 
 ## [1.0] - 2022-7-8
 

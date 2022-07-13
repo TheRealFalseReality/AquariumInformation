@@ -19,156 +19,156 @@ import java.text.DecimalFormat
 
 @Preview(showBackground = true)
 @Composable
-fun TankVolCubeScreen (
-    modifier: Modifier = Modifier,
+fun TankVolCubeScreen(
+	modifier: Modifier = Modifier,
 ) {
-    var inputSide by rememberSaveable {
-        mutableStateOf("")
-    }
+	var inputSide by rememberSaveable {
+		mutableStateOf("")
+	}
 
-    var selected by rememberSaveable {
-        mutableStateOf(R.string.button_label_inches)
-    }
+	var selected by rememberSaveable {
+		mutableStateOf(R.string.button_label_inches)
+	}
 
-    val side = inputSide.toDoubleOrNull() ?: 0.0
+	val side = inputSide.toDoubleOrNull() ?: 0.0
 
-    val volGallon = calculateVolGallonCube(side)
-    val volLiter = calculateVolLiterCube(side)
-    val waterWeight = calculateWaterWeightCube(side)
-    val volGallonFT = calculateVolGallonFTCube(side)
-    val volLiterFT = calculateVolLiterFTCube(side)
-    val waterWeightFT = calculateWaterWeightFTCube(side)
+	val volGallon = calculateVolGallonCube(side)
+	val volLiter = calculateVolLiterCube(side)
+	val waterWeight = calculateWaterWeightCube(side)
+	val volGallonFT = calculateVolGallonFTCube(side)
+	val volLiterFT = calculateVolLiterFTCube(side)
+	val waterWeightFT = calculateWaterWeightFTCube(side)
 
-    GeneralCard(verticalArrangement = Arrangement.Top) {
-        GeneralComposeHeader(text = R.string.text_title_cube)
+	GeneralCard(verticalArrangement = Arrangement.Top) {
+		GeneralComposeHeader(text = R.string.text_title_cube)
 
-        GeneralComposeSubHeader(text = R.string.text_subtitle_tank_vol)
+		GeneralComposeSubHeader(text = R.string.text_subtitle_tank_vol)
 
-        RadioButtonCardTankVol(
-            onClick1 = { selected = R.string.button_label_inches },
-            onClick2 = { selected = R.string.button_label_feet },
-            selected = selected
-        )
+		RadioButtonCardTankVol(
+			onClick1 = { selected = R.string.button_label_inches },
+			onClick2 = { selected = R.string.button_label_feet },
+			selected = selected
+		)
 
-        EditNumberFieldSingle(
-            label = R.string.field_label_side,
-            value = inputSide,
-            onValueChange = { inputSide = it }
-        )
+		EditNumberFieldSingle(
+			label = R.string.field_label_side,
+			value = inputSide,
+			onValueChange = { inputSide = it }
+		)
 
-        InputUnitsDisplay1(
-            textA = R.string.text_amount_length_side,
-            valueA = side,
+		InputUnitsDisplay1(
+			textA = R.string.text_amount_length_side,
+			valueA = side,
 
-            )
+			)
 
-        when (selected) {
-            R.string.button_label_inches -> {
+		when (selected) {
+			R.string.button_label_inches -> {
 
-                DataOutputTankVol(
-                    valueA = volGallon,
-                    valueB = volLiter,
-                    valueC = waterWeight
-                )
+				DataOutputTankVol(
+					valueA = volGallon,
+					valueB = volLiter,
+					valueC = waterWeight
+				)
 
-            }
-            R.string.button_label_feet -> {
+			}
+			R.string.button_label_feet -> {
 
-                DataOutputTankVol(
-                    valueA = volGallonFT,
-                    valueB = volLiterFT,
-                    valueC = waterWeightFT
-                )
+				DataOutputTankVol(
+					valueA = volGallonFT,
+					valueB = volLiterFT,
+					valueC = waterWeightFT
+				)
 
-            }
-        }
+			}
+		}
 
-        ImageGeneral(
-            image = R.drawable.cube_calc,
-            contDesc = R.string.text_title_cube,
-            modifier = Modifier
-                .padding(start = 40.dp)
-        )
+		ImageGeneral(
+			image = R.drawable.cube_calc,
+			contDesc = R.string.text_title_cube,
+			modifier = Modifier
+				.padding(start = 40.dp)
+		)
 
-        FormulaString {
-            GeneralComposeBody(
-                text = R.string.text_formula_vol_cube,
-                textAlign = TextAlign.Center
-            )
-        }
-    }
+		FormulaString {
+			GeneralComposeBody(
+				text = R.string.text_formula_vol_cube,
+				textAlign = TextAlign.Center
+			)
+		}
+	}
 }
 
 @VisibleForTesting
 internal fun calculateVolGallonCube(
-    side:Double
+	side: Double
 ): String {
-    val volGallons = (side * side * side) / 231.0
+	val volGallons = (side * side * side) / 231.0
 
-    val df = DecimalFormat("#.##")
-    df.roundingMode = RoundingMode.HALF_UP
+	val df = DecimalFormat("#.##")
+	df.roundingMode = RoundingMode.HALF_UP
 
-    return df.format(volGallons)
+	return df.format(volGallons)
 }
 
 @VisibleForTesting
 internal fun calculateVolLiterCube(
-    side:Double
+	side: Double
 ): String {
-    val volLiters = (side * side * side) / 61.0237
+	val volLiters = (side * side * side) / 61.0237
 
-    val df = DecimalFormat("#.##")
-    df.roundingMode = RoundingMode.HALF_UP
+	val df = DecimalFormat("#.##")
+	df.roundingMode = RoundingMode.HALF_UP
 
-    return df.format(volLiters)
+	return df.format(volLiters)
 }
 
 @VisibleForTesting
 internal fun calculateWaterWeightCube(
-    side:Double
+	side: Double
 ): String {
-    val waterWeight = ((side * side * side) / 231.0) * 8.33
+	val waterWeight = ((side * side * side) / 231.0) * 8.33
 
-    val df = DecimalFormat("#.##")
-    df.roundingMode = RoundingMode.HALF_UP
+	val df = DecimalFormat("#.##")
+	df.roundingMode = RoundingMode.HALF_UP
 
-    return df.format(waterWeight)
+	return df.format(waterWeight)
 }
 
 @VisibleForTesting
 internal fun calculateVolGallonFTCube(
-    side:Double
+	side: Double
 ): String {
-    val volGallons = (side * side * side) / 0.133681
+	val volGallons = (side * side * side) / 0.133681
 
-    val df = DecimalFormat("#.##")
-    df.roundingMode = RoundingMode.HALF_UP
+	val df = DecimalFormat("#.##")
+	df.roundingMode = RoundingMode.HALF_UP
 
-    return df.format(volGallons)
+	return df.format(volGallons)
 }
 
 @VisibleForTesting
 internal fun calculateVolLiterFTCube(
-    side:Double
+	side: Double
 ): String {
-    val volLiters = (side * side * side) / 0.0353147
+	val volLiters = (side * side * side) / 0.0353147
 
-    val df = DecimalFormat("#.##")
-    df.roundingMode = RoundingMode.HALF_UP
+	val df = DecimalFormat("#.##")
+	df.roundingMode = RoundingMode.HALF_UP
 
-    return df.format(volLiters)
+	return df.format(volLiters)
 }
 
 @VisibleForTesting
 internal fun calculateWaterWeightFTCube(
-    side:Double
+	side: Double
 ): String {
-    val waterWeight = ((side * side * side) / 0.133681) * 8.33
+	val waterWeight = ((side * side * side) / 0.133681) * 8.33
 
-    val df = DecimalFormat("#.##")
-    df.roundingMode = RoundingMode.HALF_UP
+	val df = DecimalFormat("#.##")
+	df.roundingMode = RoundingMode.HALF_UP
 
-    return df.format(waterWeight)
+	return df.format(waterWeight)
 }
 
 //@Preview(showBackground = true)

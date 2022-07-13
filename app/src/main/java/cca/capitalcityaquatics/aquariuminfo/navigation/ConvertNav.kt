@@ -12,54 +12,54 @@ import androidx.navigation.compose.rememberNavController
 
 @Preview(showBackground = true)
 @Composable
-fun ConvertNavScreen (){
-    val navController = rememberNavController()
-    val currentBackStack by navController.currentBackStackEntryAsState()
-    val currentDestination = currentBackStack?.destination
-    val currentScreen = convertersNavRow.find {
-        it.route == currentDestination?.route
-    } ?: Temperature
+fun ConvertNavScreen() {
+	val navController = rememberNavController()
+	val currentBackStack by navController.currentBackStackEntryAsState()
+	val currentDestination = currentBackStack?.destination
+	val currentScreen = convertersNavRow.find {
+		it.route == currentDestination?.route
+	} ?: Temperature
 
-    Scaffold(
-        bottomBar = {
-            ConvertBottomNavBar(
-                allScreens = convertersNavRow,
-                currentScreen = currentScreen,
-                onTabSelected = { newScreen ->
-                    navController.navigateSingleTopTo(newScreen.route)
-                },
-            )
-        },
-    ) { innerPadding ->
-        ConvertNavHost(
-            navController = navController,
-            modifier = Modifier
-                .padding(innerPadding)
-        )
-    }
+	Scaffold(
+		bottomBar = {
+			ConvertBottomNavBar(
+				allScreens = convertersNavRow,
+				currentScreen = currentScreen,
+				onTabSelected = { newScreen ->
+					navController.navigateSingleTopTo(newScreen.route)
+				},
+			)
+		},
+	) { innerPadding ->
+		ConvertNavHost(
+			navController = navController,
+			modifier = Modifier
+				.padding(innerPadding)
+		)
+	}
 }
 
 @Composable
 fun ConvertBottomNavBar(
-    allScreens: List<Destinations>,
-    onTabSelected: (Destinations) -> Unit,
-    currentScreen: Destinations
-){
-    NavBarCenter(
-        content = {
-            allScreens.forEach{ screen ->
-                NavTab(
-                    text = screen.title,
-                    icon = screen.icon,
-                    selected = currentScreen == screen,
-                    onSelected = { onTabSelected(screen) },
-                    color = MaterialTheme.colors.onPrimary,
-                    colorSelected = MaterialTheme.colors.primaryVariant
-                )
-            }
-        },
-        color = MaterialTheme.colors.secondary
-    )
+	allScreens: List<Destinations>,
+	onTabSelected: (Destinations) -> Unit,
+	currentScreen: Destinations
+) {
+	NavBarCenter(
+		content = {
+			allScreens.forEach { screen ->
+				NavTab(
+					text = screen.title,
+					icon = screen.icon,
+					selected = currentScreen == screen,
+					onSelected = { onTabSelected(screen) },
+					color = MaterialTheme.colors.onPrimary,
+					colorSelected = MaterialTheme.colors.primaryVariant
+				)
+			}
+		},
+		color = MaterialTheme.colors.secondary
+	)
 }
 
 //@Preview(showBackground = true)

@@ -16,24 +16,24 @@ import cca.capitalcityaquatics.aquariuminfo.ui.converters.AlkalinityScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 
 @Composable
-fun ImageGeneral (
-    modifier: Modifier = Modifier,
-    @DrawableRes image: Int,
-    @StringRes contDesc: Int,
-){
-    Image(
-        painter = painterResource(id = image),
-        contentDescription = stringResource(id = contDesc),
-        modifier = modifier
-            .fillMaxWidth()
-    )
-    Spacer(modifier = Modifier.height(8.dp))
+fun ImageGeneral(
+	modifier: Modifier = Modifier,
+	@DrawableRes image: Int,
+	@StringRes contDesc: Int,
+) {
+	Image(
+		painter = painterResource(id = image),
+		contentDescription = stringResource(id = contDesc),
+		modifier = modifier
+			.fillMaxWidth()
+	)
+	Spacer(modifier = Modifier.height(8.dp))
 }
 
 @Preview(showBackground = true)
 @Composable
 fun Alk3Preview() {
-    AquariumInfoTheme {
-        AlkalinityScreen()
-    }
+	AquariumInfoTheme {
+		AlkalinityScreen()
+	}
 }

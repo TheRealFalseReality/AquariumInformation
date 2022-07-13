@@ -27,13 +27,13 @@ fun GeneralCard(
 		Card(
 			backgroundColor = MaterialTheme.colors.primary,
 			modifier = Modifier
-                .fillMaxHeight()
-                .fillMaxWidth()
-                .border(
-                    BorderStroke(2.dp, MaterialTheme.colors.primaryVariant),
-                    shape = RoundedCornerShape(4.dp)
-                )
-                .verticalScroll(rememberScrollState()),
+				.fillMaxHeight()
+				.fillMaxWidth()
+				.border(
+					BorderStroke(2.dp, MaterialTheme.colors.primaryVariant),
+					shape = RoundedCornerShape(4.dp)
+				)
+				.verticalScroll(rememberScrollState()),
 		) {
 			Column(
 				modifier = Modifier
@@ -53,12 +53,12 @@ fun ContentBorder(
 ) {
 	Column(
 		modifier = modifier
-            .fillMaxHeight()
-            .widthIn(max = 500.dp, min = 400.dp)
-            .border(
-                BorderStroke(2.dp, MaterialTheme.colors.primaryVariant),
-                shape = RoundedCornerShape(4.dp)
-            ),
+			.fillMaxHeight()
+			.widthIn(max = 500.dp, min = 400.dp)
+			.border(
+				BorderStroke(2.dp, MaterialTheme.colors.primaryVariant),
+				shape = RoundedCornerShape(4.dp)
+			),
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
 		Column(

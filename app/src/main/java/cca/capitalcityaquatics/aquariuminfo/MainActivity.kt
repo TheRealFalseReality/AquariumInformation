@@ -20,11 +20,10 @@ import cca.capitalcityaquatics.aquariuminfo.navigation.*
 import cca.capitalcityaquatics.aquariuminfo.ui.advert.TopBannerAd
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
 import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.RequestConfiguration
 
 
 class MainActivity : ComponentActivity() {
-
-//	private lateinit var reviewManager: ReviewManager
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
@@ -41,35 +40,21 @@ class MainActivity : ComponentActivity() {
 
 					MobileAds.initialize(this) {}
 
-//					init()
+					// Set your test devices. Check your logcat output for the hashed device ID to
+					// get test ads on a physical device. e.g.
+					// "Use RequestConfiguration.Builder().setTestDeviceIds(Arrays.asList("6BCF308C3CD7950CD7409B0F17F762F2"))
+					// to get test ads on this device."
+					MobileAds.setRequestConfiguration(
+						RequestConfiguration.Builder()
+							.setTestDeviceIds(listOf("6BCF308C3CD7950CD7409B0F17F762F2"))
+							.build()
+					)
 				}
 			}
 		}
 	}
-
-//	private fun init() {
-//		reviewManager = ReviewManagerFactory.create(this@MainActivity)
-//	}
-//
-//	private fun showRateDialog() {
-//		val request = reviewManager.requestReviewFlow()
-//		request.addOnCompleteListener { request ->
-//			if (request.isSuccessful) {
-//				val reviewInfo = request.result
-//				val flow = reviewManager.launchReviewFlow(this@MainActivity, reviewInfo)
-//				flow.addOnCompleteListener { _ ->
-//					// The flow has finished. The API does not indicate whether the user
-//					// reviewed or not, or even whether the review dialog was shown. Thus, no
-//					// matter the result, we continue our app flow.
-//				}
-//			} else {
-//				// There was some problem, continue regardless of the result.
-//				// you can show your own rate dialog alert and redirect user to your app page
-//				// on play store.
-//			}
-//		}
-//	}
 }
+
 
 @Composable
 fun AquariumApp() {

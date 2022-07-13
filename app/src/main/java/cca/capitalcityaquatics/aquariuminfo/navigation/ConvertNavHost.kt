@@ -10,19 +10,19 @@ import cca.capitalcityaquatics.aquariuminfo.ui.converters.TempScreen
 
 @Composable
 fun ConvertNavHost(
-    navController: NavHostController,
-    modifier: Modifier = Modifier
+	navController: NavHostController,
+	modifier: Modifier = Modifier
 ) {
-    NavHost(
-        navController = navController,
-        startDestination = Temperature.route,
-        modifier = modifier
-    ) {
-        composable(Temperature.route){
-            TempScreen()
-        }
-        composable(CarbonDioxide.route){
-            CarbonDioxideScreen()
-        }
-    }
+	NavHost(
+		navController = navController,
+		startDestination = Temperature.route,
+		modifier = modifier
+	) {
+		composable(Temperature.route) {
+			TempScreen()
+		}
+		composable(CarbonDioxide.route) {
+			CarbonDioxideScreen()
+		}
+	}
 }
