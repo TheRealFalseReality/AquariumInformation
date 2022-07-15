@@ -35,6 +35,11 @@ All notable changes to this project will be documented in this file.
 
 * Review App Link
 
+### Changed
+
+* Material 3 Compatible
+* Theme colors adjusted
+
 ## [1.0] - 2022-7-8
 
 ### Changed

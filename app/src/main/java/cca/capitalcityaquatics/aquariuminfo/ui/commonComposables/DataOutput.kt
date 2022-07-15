@@ -4,6 +4,7 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -34,6 +35,8 @@ fun DataOutputLines4(
 			value = inputValue,
 			onValueChange = onValueChange
 		)
+		Spacer(modifier = Modifier.height(12.dp))
+
 		Text(
 			text = (stringResource(id = inputText, inputValue)),
 			modifier = Modifier
@@ -45,16 +48,20 @@ fun DataOutputLines4(
 			modifier = Modifier
 				.height(16.dp)
 		)
+
+		Text(
+			text = stringResource(id = equalsText),
+			modifier = Modifier
+				.align(Alignment.CenterHorizontally),
+			style = MaterialTheme.typography.bodySmall
+		)
+		Spacer(
+			modifier = Modifier
+				.height(16.dp)
+		)
+
 		ContentBorder {
-			Text(
-				text = stringResource(id = equalsText),
-				modifier = Modifier
-					.align(Alignment.CenterHorizontally),
-			)
-			Spacer(
-				modifier = Modifier
-					.height(16.dp)
-			)
+
 			Text(
 				text = stringResource(id = outputTextA, valueA),
 				modifier = Modifier
@@ -112,16 +119,20 @@ fun DataOutputLines3Inputs2(
 			modifier = Modifier
 				.height(16.dp)
 		)
+
+		Text(
+			text = stringResource(id = equalsText),
+			modifier = Modifier
+				.align(Alignment.CenterHorizontally),
+			style = MaterialTheme.typography.bodySmall
+		)
+		Spacer(
+			modifier = Modifier
+				.height(16.dp)
+		)
+
 		ContentBorder {
-			Text(
-				text = stringResource(id = equalsText),
-				modifier = Modifier
-					.align(Alignment.CenterHorizontally),
-			)
-			Spacer(
-				modifier = Modifier
-					.height(16.dp)
-			)
+
 			Text(
 				text = stringResource(id = outputTextA, valueA),
 				modifier = Modifier
@@ -150,6 +161,9 @@ fun DataOutputSalinity(
 			value = inputValue,
 			onValueChange = onValueChange
 		)
+
+		Spacer(modifier = Modifier.height(12.dp))
+
 		Text(
 			text = (stringResource(id = R.string.text_amount_ppt, inputValue)),
 			modifier = Modifier
@@ -157,14 +171,18 @@ fun DataOutputSalinity(
 			fontSize = 20.sp,
 			fontWeight = FontWeight.Bold,
 		)
-		Spacer(modifier = Modifier.height(8.dp))
+		Spacer(modifier = Modifier.height(12.dp))
+
+		Text(
+			text = stringResource(id = R.string.text_equiv),
+			modifier = Modifier
+				.align(Alignment.CenterHorizontally),
+			style = MaterialTheme.typography.bodySmall
+		)
+		Spacer(modifier = Modifier.height(12.dp))
+
 		ContentBorder {
-			Text(
-				text = stringResource(id = R.string.text_equiv),
-				modifier = Modifier
-					.align(Alignment.CenterHorizontally),
-			)
-			Spacer(modifier = Modifier.height(8.dp))
+
 			Text(
 				text = stringResource(id = R.string.text_amount_sg, salinity),
 				modifier = Modifier

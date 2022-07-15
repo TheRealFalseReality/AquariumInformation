@@ -1,25 +1,29 @@
 package cca.capitalcityaquatics.aquariuminfo
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Scaffold
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.content.ContextCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import cca.capitalcityaquatics.aquariuminfo.navigation.Home
-import cca.capitalcityaquatics.aquariuminfo.navigation.MainNavHost
 import cca.capitalcityaquatics.aquariuminfo.navigation.bottomNavRow
-import cca.capitalcityaquatics.aquariuminfo.navigation.navigateSingleTopTo
 import cca.capitalcityaquatics.aquariuminfo.ui.advert.TopBannerAd
 import cca.capitalcityaquatics.aquariuminfo.ui.navigation.BottomNavBar
+import cca.capitalcityaquatics.aquariuminfo.ui.navigation.MainNavHost
 import cca.capitalcityaquatics.aquariuminfo.ui.navigation.TopNavBar
+import cca.capitalcityaquatics.aquariuminfo.ui.navigation.navigateSingleTopTo
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
@@ -47,12 +51,19 @@ class MainActivity : ComponentActivity() {
 						.setTestDeviceIds(listOf("6BCF308C3CD7950CD7409B0F17F762F2"))
 						.build()
 				)
+				changeStatusBarColor(
+					ContextCompat.getColor(
+						this,
+						R.color.blue_dk
+					), false
+				)
 			}
 		}
 	}
 }
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AquariumApp() {
 	val navController = rememberNavController()
@@ -62,7 +73,6 @@ fun AquariumApp() {
 		it.route == currentDestination?.route
 	} ?: Home
 
-	//TODO Material3
 	Scaffold(
 		topBar = {
 			Column {
@@ -86,6 +96,13 @@ fun AquariumApp() {
 				.padding(innerPadding)
 		)
 	}
+}
+
+fun Activity.changeStatusBarColor(color: Int, isLight: Boolean) {
+	window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+	window.statusBarColor = color
+
+	WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = isLight
 }
 
 @Preview(showBackground = true)

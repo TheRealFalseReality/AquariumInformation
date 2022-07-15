@@ -86,6 +86,26 @@ object TankVolume : Destinations {
 	override val title = "Tank Volume"
 }
 
-val bottomNavRow = listOf(TankVolume, Converters, Alkalinity, Salinity)
+object FishCompat : Destinations {
+	override val icon = R.drawable.phishing_48px
+	override val route = "fish_compat"
+	override val title = "Compatibility"
+}
+
+object FishCompatFresh : Destinations {
+	override val icon = R.drawable.phishing_48px
+	override val route = "fish_compat_fresh"
+	override val title = "Freshwater Fish Compatibility"
+}
+
+object FishCompatMarine : Destinations {
+	override val icon = R.drawable.phishing_48px
+	override val route = "fish_compat_marine"
+	override val title = "Marine Fish Compatibility"
+}
+
+
+val bottomNavRow = listOf(FishCompat, TankVolume, Converters, Alkalinity, Salinity)
 val tankVolumeNavRow = listOf(Rectangle, Cube, Cylinder, Hexagonal, BowFront)
 val convertersNavRow = listOf(Temperature, CarbonDioxide)
+val compatibilityNavRow = listOf(FishCompatFresh, FishCompatMarine)

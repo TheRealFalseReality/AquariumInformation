@@ -1,15 +1,12 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.commonComposables
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.TextField
-import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
@@ -21,8 +18,8 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.Shapes
 
-//TODO Mtaerial 3
 @Composable
 fun EditNumberFieldSingle(
 	modifier: Modifier = Modifier,
@@ -32,8 +29,10 @@ fun EditNumberFieldSingle(
 ) {
 	val focusManager = LocalFocusManager.current
 
+	Spacer(modifier = Modifier.height(12.dp))
+
 	TextField(
-		label = {
+		placeholder = {
 			Text(
 				stringResource(id = label),
 				color = Color.DarkGray
@@ -41,7 +40,7 @@ fun EditNumberFieldSingle(
 		},
 		modifier = modifier
 			.widthIn(max = 500.dp)
-			.padding(16.dp),
+			.padding(start = 16.dp, end = 16.dp),
 		value = value,
 		singleLine = true,
 		keyboardOptions = KeyboardOptions(
@@ -53,9 +52,10 @@ fun EditNumberFieldSingle(
 			onDone = { focusManager.clearFocus() }
 		),
 		colors = TextFieldDefaults.textFieldColors(
-			backgroundColor = colorResource(id = R.color.blue_lt_2),
+			containerColor = colorResource(id = R.color.blue_lt_2),
 			textColor = Color.Black
 		),
+		shape = Shapes.medium
 	)
 }
 
@@ -72,8 +72,11 @@ fun EditNumberField2Vert(
 	val focusManager = LocalFocusManager.current
 
 	Column {
+
+		Spacer(modifier = Modifier.height(12.dp))
+
 		TextField(
-			label = {
+			placeholder = {
 				Text(
 					stringResource(id = label1),
 					color = Color.DarkGray
@@ -81,24 +84,28 @@ fun EditNumberField2Vert(
 			},
 			modifier = modifier
 				.widthIn(max = 500.dp)
-				.padding(16.dp),
+				.padding(start = 16.dp, end = 16.dp),
 			value = value1,
 			singleLine = true,
 			keyboardOptions = KeyboardOptions(
 				keyboardType = KeyboardType.Number,
 				imeAction = ImeAction.Next
 			),
+			shape = Shapes.medium,
 			onValueChange = onValueChange1,
 			keyboardActions = KeyboardActions(
 				onNext = { focusManager.moveFocus(FocusDirection.Next) }
 			),
 			colors = TextFieldDefaults.textFieldColors(
-				backgroundColor = colorResource(id = R.color.blue_lt_2),
+				containerColor = colorResource(id = R.color.blue_lt_2),
 				textColor = Color.Black
 			),
 		)
+
+		Spacer(modifier = Modifier.height(12.dp))
+
 		TextField(
-			label = {
+			placeholder = {
 				Text(
 					stringResource(id = label2),
 					color = Color.DarkGray
@@ -106,22 +113,25 @@ fun EditNumberField2Vert(
 			},
 			modifier = modifier
 				.widthIn(max = 500.dp)
-				.padding(16.dp),
+				.padding(start = 16.dp, end = 16.dp),
 			value = value2,
 			singleLine = true,
 			keyboardOptions = KeyboardOptions(
 				keyboardType = KeyboardType.Number,
 				imeAction = ImeAction.Done
 			),
+			shape = Shapes.medium,
 			onValueChange = onValueChange2,
 			keyboardActions = KeyboardActions(
 				onDone = { focusManager.clearFocus() }
 			),
 			colors = TextFieldDefaults.textFieldColors(
-				backgroundColor = colorResource(id = R.color.blue_lt_2),
+				containerColor = colorResource(id = R.color.blue_lt_2),
 				textColor = Color.Black
 			),
 		)
+
+		Spacer(modifier = Modifier.height(12.dp))
 	}
 }
 
@@ -144,8 +154,11 @@ fun EditNumberField3Hor(
 		modifier = modifier
 			.widthIn(max = 500.dp)
 	) {
+
+		Spacer(modifier = Modifier.height(12.dp))
+
 		TextField(
-			label = {
+			placeholder = {
 				Text(
 					stringResource(id = label1),
 					color = Color.DarkGray
@@ -159,17 +172,21 @@ fun EditNumberField3Hor(
 				keyboardType = KeyboardType.Number,
 				imeAction = ImeAction.Next
 			),
+			shape = Shapes.medium,
 			onValueChange = onValueChange1,
 			keyboardActions = KeyboardActions(
 				onNext = { focusManager.moveFocus(FocusDirection.Next) }
 			),
 			colors = TextFieldDefaults.textFieldColors(
-				backgroundColor = colorResource(id = R.color.blue_lt_2),
+				containerColor = colorResource(id = R.color.blue_lt_2),
 				textColor = Color.Black
 			)
 		)
+
+		Spacer(modifier = Modifier.width(4.dp))
+
 		TextField(
-			label = {
+			placeholder = {
 				Text(
 					stringResource(id = label2),
 					color = Color.DarkGray
@@ -183,17 +200,21 @@ fun EditNumberField3Hor(
 				keyboardType = KeyboardType.Number,
 				imeAction = ImeAction.Next
 			),
+			shape = Shapes.medium,
 			onValueChange = onValueChange2,
 			keyboardActions = KeyboardActions(
 				onNext = { focusManager.moveFocus(FocusDirection.Next) }
 			),
 			colors = TextFieldDefaults.textFieldColors(
-				backgroundColor = colorResource(id = R.color.blue_lt_2),
+				containerColor = colorResource(id = R.color.blue_lt_2),
 				textColor = Color.Black
 			)
 		)
+
+		Spacer(modifier = Modifier.width(4.dp))
+
 		TextField(
-			label = {
+			placeholder = {
 				Text(
 					stringResource(id = label3),
 					color = Color.DarkGray
@@ -207,12 +228,13 @@ fun EditNumberField3Hor(
 				keyboardType = KeyboardType.Number,
 				imeAction = ImeAction.Done
 			),
+			shape = Shapes.medium,
 			onValueChange = onValueChange3,
 			keyboardActions = KeyboardActions(
 				onDone = { focusManager.clearFocus() }
 			),
 			colors = TextFieldDefaults.textFieldColors(
-				backgroundColor = colorResource(id = R.color.blue_lt_2),
+				containerColor = colorResource(id = R.color.blue_lt_2),
 				textColor = Color.Black
 			)
 		)
@@ -235,8 +257,11 @@ fun EditNumberField2Hor(
 		modifier = modifier
 			.widthIn(max = 500.dp)
 	) {
+
+		Spacer(modifier = Modifier.height(12.dp))
+
 		TextField(
-			label = {
+			placeholder = {
 				Text(
 					stringResource(id = label1),
 					color = Color.DarkGray
@@ -250,17 +275,21 @@ fun EditNumberField2Hor(
 				keyboardType = KeyboardType.Number,
 				imeAction = ImeAction.Next
 			),
+			shape = Shapes.medium,
 			onValueChange = onValueChange1,
 			keyboardActions = KeyboardActions(
 				onNext = { focusManager.moveFocus(FocusDirection.Next) }
 			),
 			colors = TextFieldDefaults.textFieldColors(
-				backgroundColor = colorResource(id = R.color.blue_lt_2),
+				containerColor = colorResource(id = R.color.blue_lt_2),
 				textColor = Color.Black
 			)
 		)
+
+		Spacer(modifier = Modifier.width(4.dp))
+
 		TextField(
-			label = {
+			placeholder = {
 				Text(
 					stringResource(id = label2),
 					color = Color.DarkGray
@@ -274,12 +303,13 @@ fun EditNumberField2Hor(
 				keyboardType = KeyboardType.Number,
 				imeAction = ImeAction.Done
 			),
+			shape = Shapes.medium,
 			onValueChange = onValueChange2,
 			keyboardActions = KeyboardActions(
 				onDone = { focusManager.clearFocus() }
 			),
 			colors = TextFieldDefaults.textFieldColors(
-				backgroundColor = colorResource(id = R.color.blue_lt_2),
+				containerColor = colorResource(id = R.color.blue_lt_2),
 				textColor = Color.Black
 			)
 		)
@@ -308,8 +338,11 @@ fun EditNumberFieldQuad(
 		modifier = modifier
 			.widthIn(max = 500.dp)
 	) {
+
+		Spacer(modifier = Modifier.height(12.dp))
+
 		TextField(
-			label = {
+			placeholder = {
 				Text(
 					stringResource(id = label1),
 					color = Color.DarkGray
@@ -323,17 +356,21 @@ fun EditNumberFieldQuad(
 				keyboardType = KeyboardType.Number,
 				imeAction = ImeAction.Next
 			),
+			shape = Shapes.medium,
 			onValueChange = onValueChange1,
 			keyboardActions = KeyboardActions(
 				onNext = { focusManager.moveFocus(FocusDirection.Next) }
 			),
 			colors = TextFieldDefaults.textFieldColors(
-				backgroundColor = colorResource(id = R.color.blue_lt_2),
+				containerColor = colorResource(id = R.color.blue_lt_2),
 				textColor = Color.Black
 			)
 		)
+
+		Spacer(modifier = Modifier.width(4.dp))
+
 		TextField(
-			label = {
+			placeholder = {
 				Text(
 					stringResource(id = label2),
 					color = Color.DarkGray
@@ -347,12 +384,13 @@ fun EditNumberFieldQuad(
 				keyboardType = KeyboardType.Number,
 				imeAction = ImeAction.Next
 			),
+			shape = Shapes.medium,
 			onValueChange = onValueChange2,
 			keyboardActions = KeyboardActions(
 				onNext = { focusManager.moveFocus(FocusDirection.Next) }
 			),
 			colors = TextFieldDefaults.textFieldColors(
-				backgroundColor = colorResource(id = R.color.blue_lt_2),
+				containerColor = colorResource(id = R.color.blue_lt_2),
 				textColor = Color.Black
 			)
 		)
@@ -362,7 +400,7 @@ fun EditNumberFieldQuad(
 			.widthIn(max = 500.dp)
 	) {
 		TextField(
-			label = {
+			placeholder = {
 				Text(
 					stringResource(id = label3),
 					color = Color.DarkGray
@@ -376,17 +414,21 @@ fun EditNumberFieldQuad(
 				keyboardType = KeyboardType.Number,
 				imeAction = ImeAction.Next
 			),
+			shape = Shapes.medium,
 			onValueChange = onValueChange3,
 			keyboardActions = KeyboardActions(
 				onNext = { focusManager.moveFocus(FocusDirection.Next) }
 			),
 			colors = TextFieldDefaults.textFieldColors(
-				backgroundColor = colorResource(id = R.color.blue_lt_2),
+				containerColor = colorResource(id = R.color.blue_lt_2),
 				textColor = Color.Black
 			)
 		)
+
+		Spacer(modifier = Modifier.width(4.dp))
+
 		TextField(
-			label = {
+			placeholder = {
 				Text(
 					stringResource(id = label4),
 					color = Color.DarkGray
@@ -400,12 +442,13 @@ fun EditNumberFieldQuad(
 				keyboardType = KeyboardType.Number,
 				imeAction = ImeAction.Done
 			),
+			shape = Shapes.medium,
 			onValueChange = onValueChange4,
 			keyboardActions = KeyboardActions(
 				onDone = { focusManager.clearFocus() }
 			),
 			colors = TextFieldDefaults.textFieldColors(
-				backgroundColor = colorResource(id = R.color.blue_lt_2),
+				containerColor = colorResource(id = R.color.blue_lt_2),
 				textColor = Color.Black
 			)
 		)

@@ -20,10 +20,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
-@Preview(showBackground = true)
 @Composable
 fun AlkalinityScreen(
 	modifier: Modifier = Modifier,
@@ -57,6 +57,8 @@ fun AlkalinityScreen(
 			onClick3 = { selected = R.string.button_label_meq },
 			selected = selected
 		)
+
+		Spacer(modifier = Modifier.height(12.dp))
 
 		when (selected) {
 			R.string.button_label_dkh -> {
@@ -113,7 +115,7 @@ fun AlkalinityScreen(
 
 
 		Spacer(
-			modifier = Modifier.height(16.dp)
+			modifier = modifier.height(16.dp)
 		)
 
 		ImageGeneral(
@@ -323,7 +325,7 @@ fun WaterHardnessMEQ(
 }
 
 @VisibleForTesting
-internal fun calculatePpmDkh(
+fun calculatePpmDkh(
 	alk: Double,
 ): String {
 	val ppmDKH = alk * 17.857
@@ -334,7 +336,7 @@ internal fun calculatePpmDkh(
 }
 
 @VisibleForTesting
-internal fun calculateMeqDkh(
+fun calculateMeqDkh(
 	alk: Double,
 ): String {
 	val meqDKH = alk * 0.357
@@ -345,7 +347,7 @@ internal fun calculateMeqDkh(
 }
 
 @VisibleForTesting
-internal fun calculateDkhPpm(
+fun calculateDkhPpm(
 	alk: Double,
 ): String {
 	val dkhPPM = alk * 0.056
@@ -356,7 +358,7 @@ internal fun calculateDkhPpm(
 }
 
 @VisibleForTesting
-internal fun calculateMeqPpm(
+fun calculateMeqPpm(
 	alk: Double,
 ): String {
 	val meqPPM = alk * 0.02
@@ -367,7 +369,7 @@ internal fun calculateMeqPpm(
 }
 
 @VisibleForTesting
-internal fun calculatePpmMeq(
+fun calculatePpmMeq(
 	alk: Double,
 ): String {
 	val ppmMEQ = alk * 50
@@ -378,7 +380,7 @@ internal fun calculatePpmMeq(
 }
 
 @VisibleForTesting
-internal fun calculateDkhMeq(
+fun calculateDkhMeq(
 	alk: Double,
 ): String {
 	val dkhMEQ = alk * 2.8
@@ -388,10 +390,10 @@ internal fun calculateDkhMeq(
 	return df.format(dkhMEQ)
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun AlkPreview() {
-//    AquariumInfoTheme {
-//        AlkalinityScreen()
-//    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun AlkPreview() {
+	AppTheme() {
+		AlkalinityScreen()
+	}
+}

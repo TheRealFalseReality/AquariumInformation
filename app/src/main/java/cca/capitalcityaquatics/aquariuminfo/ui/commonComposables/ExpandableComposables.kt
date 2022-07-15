@@ -7,13 +7,7 @@ import androidx.compose.animation.core.spring
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedCard
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -45,12 +39,12 @@ fun InfoCardContent(
 			.padding(vertical = 6.dp),
 		shape = Shapes.medium,
 		colors = CardDefaults.cardColors(
-			MaterialTheme.colorScheme.tertiary,
+			MaterialTheme.colorScheme.secondary,
 			MaterialTheme.colorScheme.primaryContainer
 		),
 		border = BorderStroke(
 			3.dp,
-			MaterialTheme.colorScheme.inversePrimary
+			MaterialTheme.colorScheme.tertiary
 		)
 	) {
 		Row(

@@ -25,7 +25,7 @@ fun GeneralCard(
 	) {
 		Column(
 			modifier = Modifier
-				.padding(10.dp),
+				.padding(6.dp),
 			verticalArrangement = verticalArrangement
 		) {
 			Card(
@@ -33,7 +33,7 @@ fun GeneralCard(
 					.fillMaxSize()
 					.verticalScroll(rememberScrollState()),
 				colors = CardDefaults.cardColors(
-					MaterialTheme.colorScheme.primary,
+					MaterialTheme.colorScheme.surfaceTint,
 					MaterialTheme.colorScheme.primaryContainer
 				),
 				shape = Shapes.medium,
@@ -61,6 +61,7 @@ fun ContentBorder(
 			.fillMaxHeight()
 			.widthIn(max = 500.dp, min = 400.dp),
 		shape = Shapes.small,
+		elevation = CardDefaults.cardElevation(12.dp),
 		colors = CardDefaults.cardColors(
 			MaterialTheme.colorScheme.secondary,
 			MaterialTheme.colorScheme.primaryContainer
@@ -92,10 +93,11 @@ fun ContentBorderClick(
 			.fillMaxHeight()
 			.widthIn(max = 500.dp, min = 400.dp),
 		shape = Shapes.small,
+		elevation = CardDefaults.cardElevation(6.dp),
 		colors = CardDefaults.cardColors(
 			MaterialTheme.colorScheme.secondary,
 			MaterialTheme.colorScheme.primaryContainer
-		)
+		),
 	) {
 		Column(
 			modifier = Modifier.padding(6.dp),

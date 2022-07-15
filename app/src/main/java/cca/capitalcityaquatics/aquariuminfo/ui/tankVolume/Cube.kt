@@ -2,6 +2,8 @@ package cca.capitalcityaquatics.aquariuminfo.ui.tankVolume
 
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -14,10 +16,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
-@Preview(showBackground = true)
 @Composable
 fun TankVolCubeScreen(
 	modifier: Modifier = Modifier,
@@ -55,6 +57,8 @@ fun TankVolCubeScreen(
 			value = inputSide,
 			onValueChange = { inputSide = it }
 		)
+
+		Spacer(modifier = modifier.height(12.dp))
 
 		InputUnitsDisplay1(
 			textA = R.string.text_amount_length_side,
@@ -100,7 +104,7 @@ fun TankVolCubeScreen(
 }
 
 @VisibleForTesting
-internal fun calculateVolGallonCube(
+fun calculateVolGallonCube(
 	side: Double
 ): String {
 	val volGallons = (side * side * side) / 231.0
@@ -112,7 +116,7 @@ internal fun calculateVolGallonCube(
 }
 
 @VisibleForTesting
-internal fun calculateVolLiterCube(
+fun calculateVolLiterCube(
 	side: Double
 ): String {
 	val volLiters = (side * side * side) / 61.0237
@@ -124,7 +128,7 @@ internal fun calculateVolLiterCube(
 }
 
 @VisibleForTesting
-internal fun calculateWaterWeightCube(
+fun calculateWaterWeightCube(
 	side: Double
 ): String {
 	val waterWeight = ((side * side * side) / 231.0) * 8.33
@@ -136,7 +140,7 @@ internal fun calculateWaterWeightCube(
 }
 
 @VisibleForTesting
-internal fun calculateVolGallonFTCube(
+fun calculateVolGallonFTCube(
 	side: Double
 ): String {
 	val volGallons = (side * side * side) / 0.133681
@@ -148,7 +152,7 @@ internal fun calculateVolGallonFTCube(
 }
 
 @VisibleForTesting
-internal fun calculateVolLiterFTCube(
+fun calculateVolLiterFTCube(
 	side: Double
 ): String {
 	val volLiters = (side * side * side) / 0.0353147
@@ -160,7 +164,7 @@ internal fun calculateVolLiterFTCube(
 }
 
 @VisibleForTesting
-internal fun calculateWaterWeightFTCube(
+fun calculateWaterWeightFTCube(
 	side: Double
 ): String {
 	val waterWeight = ((side * side * side) / 0.133681) * 8.33
@@ -171,10 +175,11 @@ internal fun calculateWaterWeightFTCube(
 	return df.format(waterWeight)
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun CubePreview() {
-//    AquariumInfoTheme  {
-//        TankVolCubeScreen()
-//    }
-//}
+
+@Preview(showBackground = true)
+@Composable
+fun CubePreview() {
+	AppTheme() {
+		TankVolCubeScreen()
+	}
+}

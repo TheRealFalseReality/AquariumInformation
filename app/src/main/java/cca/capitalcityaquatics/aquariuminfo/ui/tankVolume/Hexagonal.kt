@@ -14,10 +14,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
-@Preview(showBackground = true)
 @Composable
 fun TankVolHexScreen(
 	modifier: Modifier = Modifier,
@@ -108,7 +108,7 @@ fun TankVolHexScreen(
 }
 
 @VisibleForTesting
-internal fun calculateVolGallonHex(
+fun calculateVolGallonHex(
 	edge: Double,
 	height: Double
 ): String {
@@ -121,7 +121,7 @@ internal fun calculateVolGallonHex(
 }
 
 @VisibleForTesting
-internal fun calculateVolLiterHex(
+fun calculateVolLiterHex(
 	edge: Double,
 	height: Double
 ): String {
@@ -134,7 +134,7 @@ internal fun calculateVolLiterHex(
 }
 
 @VisibleForTesting
-internal fun calculateWaterWeightHex(
+fun calculateWaterWeightHex(
 	edge: Double,
 	height: Double
 ): String {
@@ -147,7 +147,7 @@ internal fun calculateWaterWeightHex(
 }
 
 @VisibleForTesting
-internal fun calculateVolGallonFTHex(
+fun calculateVolGallonFTHex(
 	edge: Double,
 	height: Double
 ): String {
@@ -160,7 +160,7 @@ internal fun calculateVolGallonFTHex(
 }
 
 @VisibleForTesting
-internal fun calculateVolLiterFTHex(
+fun calculateVolLiterFTHex(
 	edge: Double,
 	height: Double
 ): String {
@@ -173,7 +173,7 @@ internal fun calculateVolLiterFTHex(
 }
 
 @VisibleForTesting
-internal fun calculateWaterWeightFTHex(
+fun calculateWaterWeightFTHex(
 	edge: Double,
 	height: Double
 ): String {
@@ -185,10 +185,10 @@ internal fun calculateWaterWeightFTHex(
 	return df.format(waterWeight)
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun HexPreview() {
-//    AquariumInfoTheme  {
-//        TankVolHexScreen()
-//    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun HexPreview() {
+	AppTheme() {
+		TankVolHexScreen()
+	}
+}

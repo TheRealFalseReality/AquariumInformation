@@ -14,11 +14,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.PI
 
-@Preview(showBackground = true)
 @Composable
 fun TankVolBFScreen(
 	modifier: Modifier = Modifier,
@@ -113,7 +113,7 @@ fun TankVolBFScreen(
 		ImageGeneral(
 			image = R.drawable.bowfront_calc,
 			contDesc = R.string.text_title_bow_front,
-			modifier = Modifier
+			modifier = modifier
 				.padding(start = 46.dp)
 		)
 
@@ -127,7 +127,7 @@ fun TankVolBFScreen(
 }
 
 @VisibleForTesting
-internal fun calculateVolGallonBF(
+fun calculateVolGallonBF(
 	length: Double,
 	width: Double,
 	height: Double,
@@ -143,7 +143,7 @@ internal fun calculateVolGallonBF(
 }
 
 @VisibleForTesting
-internal fun calculateVolLiterBF(
+fun calculateVolLiterBF(
 	length: Double,
 	width: Double,
 	height: Double,
@@ -159,7 +159,7 @@ internal fun calculateVolLiterBF(
 }
 
 @VisibleForTesting
-internal fun calculateWaterWeightBF(
+fun calculateWaterWeightBF(
 	length: Double,
 	width: Double,
 	height: Double,
@@ -175,7 +175,7 @@ internal fun calculateWaterWeightBF(
 }
 
 @VisibleForTesting
-internal fun calculateVolGallonFTBF(
+fun calculateVolGallonFTBF(
 	length: Double,
 	width: Double,
 	height: Double,
@@ -191,7 +191,7 @@ internal fun calculateVolGallonFTBF(
 }
 
 @VisibleForTesting
-internal fun calculateVolLiterFTBF(
+fun calculateVolLiterFTBF(
 	length: Double,
 	width: Double,
 	height: Double,
@@ -207,7 +207,7 @@ internal fun calculateVolLiterFTBF(
 }
 
 @VisibleForTesting
-internal fun calculateWaterWeightFTBF(
+fun calculateWaterWeightFTBF(
 	length: Double,
 	width: Double,
 	height: Double,
@@ -222,10 +222,10 @@ internal fun calculateWaterWeightFTBF(
 	return df.format(waterWeight)
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun BFPreview() {
-//    AquariumInfoTheme  {
-//        TankVolBFScreen()
-//    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun BFPreview() {
+	AppTheme() {
+		TankVolBFScreen()
+	}
+}

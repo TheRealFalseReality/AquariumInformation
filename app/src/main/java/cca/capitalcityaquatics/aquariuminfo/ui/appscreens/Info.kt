@@ -11,9 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
-import cca.capitalcityaquatics.aquariuminfo.ui.misc.LoadFile
 
-@Preview(showBackground = true)
 @Composable
 fun InfoScreen(
 	modifier: Modifier = Modifier,
@@ -23,16 +21,17 @@ fun InfoScreen(
 
 		Spacer(modifier = Modifier.height(16.dp))
 
-		LoadFile(
-			file = "Info.txt",
-			textAlign = TextAlign.Center
-		)
+		GeneralComposeBody(text = R.string.text_info_1, textAlign = TextAlign.Center)
+
+		GeneralComposeBody(text = R.string.text_info_2, textAlign = TextAlign.Center)
+
+		GeneralComposeBody(text = R.string.text_app_errors, textAlign = TextAlign.Center)
 
 		Spacer(modifier = Modifier.height(16.dp))
 
 		ReviewApp()
 
-		Spacer(modifier = Modifier.height(16.dp))
+		Spacer(modifier = modifier.height(16.dp))
 
 		ContentBorder {
 
@@ -59,4 +58,10 @@ fun InfoScreen(
 			ChangelogCardContent()
 		}
 	}
+}
+
+@Preview(showBackground = true)
+@Composable
+fun InfoView() {
+	InfoScreen()
 }

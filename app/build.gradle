@@ -40,6 +40,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+        useIR = true
     }
     buildFeatures {
         compose true
@@ -73,7 +74,7 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
 
     //Added
-    implementation 'com.google.android.gms:play-services-ads:21.0.0'
+    implementation 'com.google.android.gms:play-services-ads:21.1.0'
     implementation 'androidx.navigation:navigation-compose:2.5.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
 

@@ -1,10 +1,12 @@
-package cca.capitalcityaquatics.aquariuminfo.navigation
+package cca.capitalcityaquatics.aquariuminfo.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import cca.capitalcityaquatics.aquariuminfo.navigation.CarbonDioxide
+import cca.capitalcityaquatics.aquariuminfo.navigation.Temperature
 import cca.capitalcityaquatics.aquariuminfo.ui.calculators.CarbonDioxideScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.converters.TempScreen
 

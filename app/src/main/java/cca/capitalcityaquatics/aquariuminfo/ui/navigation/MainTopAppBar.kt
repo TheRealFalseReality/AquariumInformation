@@ -3,11 +3,7 @@ package cca.capitalcityaquatics.aquariuminfo.ui.navigation
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -18,13 +14,12 @@ import androidx.navigation.NavHostController
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.navigation.Home
 import cca.capitalcityaquatics.aquariuminfo.navigation.Information
-import cca.capitalcityaquatics.aquariuminfo.navigation.navigateSingleTopTo
 
 @Composable
 fun TopNavBar(
 	navController: NavHostController,
 ) {
-	TopAppBar(
+	CenterAlignedTopAppBar(
 		modifier = Modifier
 			.fillMaxWidth(),
 		title = {
@@ -37,8 +32,12 @@ fun TopNavBar(
 				fontSize = 18.sp
 			)
 		},
-		backgroundColor = MaterialTheme.colorScheme.inverseSurface,
-		contentColor = MaterialTheme.colorScheme.primaryContainer,
+		colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+			containerColor = MaterialTheme.colorScheme.surfaceTint,
+			navigationIconContentColor = MaterialTheme.colorScheme.primaryContainer,
+			actionIconContentColor = MaterialTheme.colorScheme.primaryContainer,
+			titleContentColor = MaterialTheme.colorScheme.primaryContainer,
+		),
 		navigationIcon = {
 			IconButton(
 				onClick = {

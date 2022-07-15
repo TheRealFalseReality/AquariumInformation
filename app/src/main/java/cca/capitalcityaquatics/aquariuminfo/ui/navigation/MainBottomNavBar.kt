@@ -23,6 +23,6 @@ fun BottomNavBar(
 				)
 			}
 		},
-		color = MaterialTheme.colorScheme.inverseSurface
+		color = MaterialTheme.colorScheme.surfaceTint
 	)
 }

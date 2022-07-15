@@ -6,7 +6,7 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -19,12 +19,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.PI
 import kotlin.math.pow
 
-@Preview(showBackground = true)
 @Composable
 fun TankVolCylScreen(
 	modifier: Modifier = Modifier,
@@ -131,6 +131,7 @@ fun TankVolCylScreen(
 	}
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun InfoCardContentSwitch2(
 	halfCyl: Boolean,
@@ -142,11 +143,10 @@ fun InfoCardContentSwitch2(
 		mutableStateOf(false)
 	}
 
-	Card(
-		backgroundColor = MaterialTheme.colors.onPrimary,
+	ElevatedCard(
 		modifier = Modifier
 			.padding(vertical = 4.dp, horizontal = 8.dp),
-		contentColor = MaterialTheme.colors.background
+		colors = CardDefaults.cardColors(MaterialTheme.colorScheme.secondary)
 	) {
 		Row(
 			modifier = Modifier
@@ -167,7 +167,7 @@ fun InfoCardContentSwitch2(
 			) {
 				Text(
 					text = stringResource(id = R.string.text_options),
-					style = MaterialTheme.typography.body2.copy(
+					style = MaterialTheme.typography.bodyMedium.copy(
 						fontWeight = FontWeight.ExtraBold
 					),
 				)
@@ -176,7 +176,7 @@ fun InfoCardContentSwitch2(
 
 					Text(
 						text = stringResource(id = R.string.text_choose_one),
-						style = MaterialTheme.typography.body2
+						style = MaterialTheme.typography.bodyMedium
 					)
 
 					Row(
@@ -230,7 +230,7 @@ fun InfoCardContentSwitch2(
 }
 
 @VisibleForTesting
-internal fun calculateVolGallonCyl(
+fun calculateVolGallonCyl(
 	diameter: Double,
 	height: Double,
 	halfCyl: Boolean,
@@ -250,7 +250,7 @@ internal fun calculateVolGallonCyl(
 }
 
 @VisibleForTesting
-internal fun calculateVolLiterCyl(
+fun calculateVolLiterCyl(
 	diameter: Double,
 	height: Double,
 	halfCyl: Boolean,
@@ -270,7 +270,7 @@ internal fun calculateVolLiterCyl(
 }
 
 @VisibleForTesting
-internal fun calculateWaterWeightCyl(
+fun calculateWaterWeightCyl(
 	diameter: Double,
 	height: Double,
 	halfCyl: Boolean,
@@ -290,7 +290,7 @@ internal fun calculateWaterWeightCyl(
 }
 
 @VisibleForTesting
-internal fun calculateVolGallonFTCyl(
+fun calculateVolGallonFTCyl(
 	diameter: Double,
 	height: Double,
 	halfCyl: Boolean,
@@ -310,7 +310,7 @@ internal fun calculateVolGallonFTCyl(
 }
 
 @VisibleForTesting
-internal fun calculateVolLiterFTCyl(
+fun calculateVolLiterFTCyl(
 	diameter: Double,
 	height: Double,
 	halfCyl: Boolean,
@@ -330,7 +330,7 @@ internal fun calculateVolLiterFTCyl(
 }
 
 @VisibleForTesting
-internal fun calculateWaterWeightFTCyl(
+fun calculateWaterWeightFTCyl(
 	diameter: Double,
 	height: Double,
 	halfCyl: Boolean,
@@ -348,11 +348,11 @@ internal fun calculateWaterWeightFTCyl(
 
 	return df.format(waterWeight)
 }
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun CylPreview() {
-//    AquariumInfoTheme  {
-//        TankVolCylScreen()
-//    }
-//}
+
+@Preview(showBackground = true)
+@Composable
+fun CylPreview() {
+	AppTheme() {
+		TankVolCylScreen()
+	}
+}

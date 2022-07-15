@@ -4,7 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -20,6 +20,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopBannerAd(
 	modifier: Modifier = Modifier,
@@ -37,16 +38,21 @@ fun TopBannerAd(
 				text = "Advert Here",
 			)
 		} else {
-			AndroidView(
-				modifier = modifier.fillMaxWidth(),
-				factory = { context ->
-					AdView(context).apply {
-						setAdSize(AdSize.BANNER)
-						adUnitId = context.getString(R.string.id_ad_banner)
-						loadAd(AdRequest.Builder().build())
+			Card(
+				colors = CardDefaults.cardColors(MaterialTheme.colorScheme.onBackground),
+				shape = Shapes.None
+			) {
+				AndroidView(
+					modifier = modifier.fillMaxWidth(),
+					factory = { context ->
+						AdView(context).apply {
+							setAdSize(AdSize.BANNER)
+							adUnitId = context.getString(R.string.id_ad_banner)
+							loadAd(AdRequest.Builder().build())
+						}
 					}
-				}
-			)
+				)
+			}
 		}
 	}
 }

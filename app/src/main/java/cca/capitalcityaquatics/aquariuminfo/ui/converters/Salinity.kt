@@ -17,12 +17,11 @@ import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.advert.InnerBannerAd
 import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
-import cca.capitalcityaquatics.aquariuminfo.ui.misc.LoadFile
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.pow
 
-@Preview(showBackground = true)
 @Composable
 fun SalScreen(
 	modifier: Modifier = Modifier,
@@ -83,7 +82,7 @@ fun SalScreen(
 			}
 		}
 
-		Spacer(modifier = Modifier.height(16.dp))
+		Spacer(modifier = modifier.height(12.dp))
 
 		InnerBannerAd()
 
@@ -93,10 +92,7 @@ fun SalScreen(
 			icon = painterResource(id = R.drawable.info_48px),
 			title = R.string.text_more_info
 		) {
-			LoadFile(
-				file = "SalinityInformation.txt",
-				textAlign = TextAlign.Start
-			)
+			GeneralComposeBody(text = R.string.text_sal_info, textAlign = TextAlign.Start)
 		}
 
 		Spacer(modifier = Modifier.height(8.dp))
@@ -104,7 +100,7 @@ fun SalScreen(
 }
 
 @VisibleForTesting
-internal fun calculateSpecificGravity(
+fun calculateSpecificGravity(
 	sal: Double,
 	tempTestWater: Double,
 	tempPureWater: Double,
@@ -135,7 +131,7 @@ internal fun calculateSpecificGravity(
 }
 
 @VisibleForTesting
-internal fun calculateSalinity(
+fun calculateSalinity(
 	sal: Double,
 	tempTestWater: Double,
 ): String {
@@ -149,7 +145,7 @@ internal fun calculateSalinity(
 }
 
 @VisibleForTesting
-internal fun calculateDensityPPT(
+fun calculateDensityPPT(
 	sal: Double,
 	tempTestWater: Double,
 ): String {
@@ -171,7 +167,7 @@ internal fun calculateDensityPPT(
 }
 
 @VisibleForTesting
-internal fun calculateDensitySG(
+fun calculateDensitySG(
 	sal: Double,
 	tempPureWater: Double
 ): String {
@@ -188,10 +184,10 @@ internal fun calculateDensitySG(
 	return df.format(rO1)
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun SalPreview() {
-//    AquariumInfoTheme  {
-//        SalScreen()
-//    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun SalPreview() {
+	AppTheme() {
+		SalScreen()
+	}
+}

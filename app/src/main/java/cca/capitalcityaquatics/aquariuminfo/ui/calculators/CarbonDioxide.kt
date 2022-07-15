@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Text
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -19,11 +19,11 @@ import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.advert.InnerBannerAd
 import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.pow
 
-@Preview(showBackground = true)
 @Composable
 fun CarbonDioxideScreen() {
 	var inputPH by rememberSaveable {
@@ -51,8 +51,6 @@ fun CarbonDioxideScreen() {
 			)
 		}
 
-
-
 		DataOutputLines3Inputs2(
 			value1 = inputPH,
 			label1 = R.string.field_label_ph,
@@ -71,7 +69,7 @@ fun CarbonDioxideScreen() {
 }
 
 @VisibleForTesting
-internal fun calculateCarbonDioxide(
+fun calculateCarbonDioxide(
 	pH: Double,
 	dKH: Double
 ): String {
@@ -84,10 +82,10 @@ internal fun calculateCarbonDioxide(
 	return df.format(carbonDioxide)
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun TempPreview() {
-//    AquariumInfoTheme  {
-//        CarbonDioxideScreen()
-//    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun TempPreview() {
+	AppTheme() {
+		CarbonDioxideScreen()
+	}
+}

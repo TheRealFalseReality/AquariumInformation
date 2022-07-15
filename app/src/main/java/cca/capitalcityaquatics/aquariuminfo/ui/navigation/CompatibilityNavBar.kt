@@ -1,30 +1,34 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.navigation
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Scaffold
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import cca.capitalcityaquatics.aquariuminfo.navigation.*
+import cca.capitalcityaquatics.aquariuminfo.navigation.Destinations
+import cca.capitalcityaquatics.aquariuminfo.navigation.FishCompat
+import cca.capitalcityaquatics.aquariuminfo.navigation.compatibilityNavRow
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TankVolumeNavScreen() {
+fun CompatibilityNavScreen() {
 	val navController = rememberNavController()
 	val currentBackStack by navController.currentBackStackEntryAsState()
 	val currentDestination = currentBackStack?.destination
-	val currentScreen = tankVolumeNavRow.find {
+	val currentScreen = compatibilityNavRow.find {
 		it.route == currentDestination?.route
-	} ?: Rectangle
+	} ?: FishCompat
 
 	Scaffold(
 		bottomBar = {
-			TankVolumeBottomNavBar(
-				allScreens = tankVolumeNavRow,
+			CompatibilityBottomNavBar(
+				allScreens = compatibilityNavRow,
 				currentScreen = currentScreen,
 				onTabSelected = { newScreen ->
 					navController.navigateSingleTopTo(newScreen.route)
@@ -32,7 +36,7 @@ fun TankVolumeNavScreen() {
 			)
 		},
 	) { innerPadding ->
-		TankVolumeNavHost(
+		CompatibilityNavHost(
 			navController = navController,
 			modifier = Modifier
 				.padding(innerPadding)
@@ -41,33 +45,32 @@ fun TankVolumeNavScreen() {
 }
 
 @Composable
-fun TankVolumeBottomNavBar(
+fun CompatibilityBottomNavBar(
 	allScreens: List<Destinations>,
 	onTabSelected: (Destinations) -> Unit,
 	currentScreen: Destinations
 ) {
-
-	NavBar(
+	NavBarCenter(
 		content = {
 			allScreens.forEach { screen ->
 				NavTab(
 					text = screen.title,
 					icon = screen.icon,
-					onSelected = { onTabSelected(screen) },
 					selected = currentScreen == screen,
-					color = MaterialTheme.colorScheme.onPrimary,
-					colorSelected = MaterialTheme.colorScheme.secondary
+					onSelected = { onTabSelected(screen) },
+					color = MaterialTheme.colorScheme.onSecondary,
+					colorSelected = MaterialTheme.colorScheme.tertiaryContainer
 				)
 			}
 		},
-		color = MaterialTheme.colorScheme.tertiary
+		color = MaterialTheme.colorScheme.secondary
 	)
 }
 
 @Preview(showBackground = true)
 @Composable
-fun TankVolPreview() {
-	AppTheme() {
-		TankVolumeNavScreen()
+fun CompatibilityPreview() {
+	AppTheme {
+		CompatibilityNavScreen()
 	}
 }

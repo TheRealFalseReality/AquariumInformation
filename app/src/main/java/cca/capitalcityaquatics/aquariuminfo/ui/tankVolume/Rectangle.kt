@@ -14,10 +14,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
-@Preview(showBackground = true)
 @Composable
 fun TankVolRecScreen(
 	modifier: Modifier = Modifier,
@@ -118,7 +118,7 @@ fun TankVolRecScreen(
 }
 
 @VisibleForTesting
-internal fun calculateVolGallon(
+fun calculateVolGallon(
 	length: Double,
 	width: Double,
 	height: Double
@@ -132,7 +132,7 @@ internal fun calculateVolGallon(
 }
 
 @VisibleForTesting
-internal fun calculateVolLiter(
+fun calculateVolLiter(
 	length: Double,
 	width: Double,
 	height: Double,
@@ -146,7 +146,7 @@ internal fun calculateVolLiter(
 }
 
 @VisibleForTesting
-internal fun calculateWaterWeight(
+fun calculateWaterWeight(
 	length: Double,
 	width: Double,
 	height: Double,
@@ -160,7 +160,7 @@ internal fun calculateWaterWeight(
 }
 
 @VisibleForTesting
-internal fun calculateVolGallonFT(
+fun calculateVolGallonFT(
 	length: Double,
 	width: Double,
 	height: Double
@@ -174,7 +174,7 @@ internal fun calculateVolGallonFT(
 }
 
 @VisibleForTesting
-internal fun calculateVolLiterFT(
+fun calculateVolLiterFT(
 	length: Double,
 	width: Double,
 	height: Double,
@@ -188,7 +188,7 @@ internal fun calculateVolLiterFT(
 }
 
 @VisibleForTesting
-internal fun calculateWaterWeightFT(
+fun calculateWaterWeightFT(
 	length: Double,
 	width: Double,
 	height: Double,
@@ -201,10 +201,10 @@ internal fun calculateWaterWeightFT(
 	return df.format(waterWeight)
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun RecPreview() {
-//    AquariumInfoTheme  {
-//        TankVolRecScreen()
-//    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun RecPreview() {
+	AppTheme() {
+		TankVolRecScreen()
+	}
+}

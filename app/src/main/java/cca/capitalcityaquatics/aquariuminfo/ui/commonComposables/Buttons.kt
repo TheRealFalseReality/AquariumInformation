@@ -1,15 +1,9 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.commonComposables
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.RadioButton
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -17,7 +11,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 
-//TODO Material 3
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RadioButtonComp(
 	@StringRes text: Int,
@@ -40,19 +34,17 @@ fun RadioButtonComp(
 	)
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RadioButtonCard(
 	content: @Composable RowScope.() -> Unit
 ) {
-	Card(
+	ElevatedCard(
 		modifier = Modifier
 			.padding(16.dp)
-			.border(
-				BorderStroke(3.dp, MaterialTheme.colors.primaryVariant),
-				shape = RoundedCornerShape(2.dp)
-			)
 			.heightIn(50.dp),
-		backgroundColor = MaterialTheme.colors.background,
+		elevation = CardDefaults.cardElevation(8.dp),
+		colors = CardDefaults.cardColors(MaterialTheme.colorScheme.secondary)
 	) {
 		Row(
 			modifier = Modifier
@@ -65,6 +57,7 @@ fun RadioButtonCard(
 	}
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RadioButtonCard3(
 	@StringRes text1: Int,
@@ -75,15 +68,12 @@ fun RadioButtonCard3(
 	onClick3: () -> Unit,
 	selected: Int
 ) {
-	Card(
+	ElevatedCard(
 		modifier = Modifier
 			.padding(16.dp)
-			.border(
-				BorderStroke(3.dp, MaterialTheme.colors.primaryVariant),
-				shape = RoundedCornerShape(2.dp)
-			)
 			.heightIn(50.dp),
-		backgroundColor = MaterialTheme.colors.background,
+		elevation = CardDefaults.cardElevation(6.dp),
+		colors = CardDefaults.cardColors(MaterialTheme.colorScheme.secondary)
 	) {
 		Row(
 			modifier = Modifier
@@ -142,6 +132,7 @@ fun RadioButtonCard3(
 	}
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RadioButtonCardTankVol(
 	onClick1: () -> Unit,
