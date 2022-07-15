@@ -9,6 +9,8 @@ import cca.capitalcityaquatics.aquariuminfo.ui.appscreens.HomeScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.appscreens.InfoScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.converters.AlkalinityScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.converters.SalScreen
+import cca.capitalcityaquatics.aquariuminfo.ui.navigation.ConvertNavScreen
+import cca.capitalcityaquatics.aquariuminfo.ui.navigation.TankVolumeNavScreen
 
 @Composable
 fun MainNavHost(

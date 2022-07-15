@@ -22,6 +22,8 @@ All notable changes to this project will be documented in this file.
 * Gesture Navigation
 * Fish Compatibility tool
 * Change Top Banner to an Adaptive Banner
+* Change Files to strings
+* Move Math functions from Composables.kt
 
 ## [Issues]
 

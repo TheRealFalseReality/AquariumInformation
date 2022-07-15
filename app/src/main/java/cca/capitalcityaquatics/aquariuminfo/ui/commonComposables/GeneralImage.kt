@@ -13,7 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.ui.converters.AlkalinityScreen
-import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 
 @Composable
 fun ImageGeneral(
@@ -33,7 +33,7 @@ fun ImageGeneral(
 @Preview(showBackground = true)
 @Composable
 fun Alk3Preview() {
-	AquariumInfoTheme {
+	AppTheme {
 		AlkalinityScreen()
 	}
 }

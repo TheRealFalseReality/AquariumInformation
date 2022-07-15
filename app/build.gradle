@@ -92,4 +92,7 @@ dependencies {
     //In-App Reviews
     implementation("com.google.android.play:review:2.0.0")
     implementation("com.google.android.play:review-ktx:2.0.0")
+
+    implementation("androidx.compose.material3:material3:1.0.0-alpha14")
+    implementation("androidx.compose.material3:material3-window-size-class:1.0.0-alpha14")
 }

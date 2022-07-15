@@ -1,65 +1,101 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.commonComposables
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.Shapes
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GeneralCard(
 	modifier: Modifier = Modifier,
 	verticalArrangement: Arrangement.Vertical,
 	content: @Composable ColumnScope.() -> Unit,
 ) {
-	Column(
+	Surface(
 		modifier = modifier
-			.padding(24.dp),
-		verticalArrangement = verticalArrangement
+			.fillMaxSize(),
+		color = MaterialTheme.colorScheme.onBackground
 	) {
-		Card(
-			backgroundColor = MaterialTheme.colors.primary,
+		Column(
 			modifier = Modifier
-				.fillMaxHeight()
-				.fillMaxWidth()
-				.border(
-					BorderStroke(2.dp, MaterialTheme.colors.primaryVariant),
-					shape = RoundedCornerShape(4.dp)
-				)
-				.verticalScroll(rememberScrollState()),
+				.padding(10.dp),
+			verticalArrangement = verticalArrangement
 		) {
-			Column(
+			Card(
 				modifier = Modifier
-					.padding(14.dp),
-				horizontalAlignment = Alignment.CenterHorizontally,
+					.fillMaxSize()
+					.verticalScroll(rememberScrollState()),
+				colors = CardDefaults.cardColors(
+					MaterialTheme.colorScheme.primary,
+					MaterialTheme.colorScheme.primaryContainer
+				),
+				shape = Shapes.medium,
 			) {
-				content()
+				Column(
+					modifier = Modifier
+						.padding(14.dp),
+					horizontalAlignment = Alignment.CenterHorizontally,
+				) {
+					content()
+				}
 			}
 		}
 	}
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ContentBorder(
 	modifier: Modifier = Modifier,
 	content: @Composable ColumnScope.() -> Unit,
 ) {
-	Column(
+	ElevatedCard(
 		modifier = modifier
 			.fillMaxHeight()
-			.widthIn(max = 500.dp, min = 400.dp)
-			.border(
-				BorderStroke(2.dp, MaterialTheme.colors.primaryVariant),
-				shape = RoundedCornerShape(4.dp)
-			),
-		horizontalAlignment = Alignment.CenterHorizontally
+			.widthIn(max = 500.dp, min = 400.dp),
+		shape = Shapes.small,
+		colors = CardDefaults.cardColors(
+			MaterialTheme.colorScheme.secondary,
+			MaterialTheme.colorScheme.primaryContainer
+		)
+	) {
+		Column(
+			modifier = Modifier
+				.padding(12.dp)
+				.fillMaxWidth(),
+			horizontalAlignment = Alignment.CenterHorizontally
+		) {
+			content()
+		}
+	}
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ContentBorderClick(
+	modifier: Modifier = Modifier,
+	content: @Composable ColumnScope.() -> Unit,
+	url: String
+) {
+	val uriHandler = LocalUriHandler.current
+
+	ElevatedCard(
+		onClick = { uriHandler.openUri(url) },
+		modifier = modifier
+			.fillMaxHeight()
+			.widthIn(max = 500.dp, min = 400.dp),
+		shape = Shapes.small,
+		colors = CardDefaults.cardColors(
+			MaterialTheme.colorScheme.secondary,
+			MaterialTheme.colorScheme.primaryContainer
+		)
 	) {
 		Column(
 			modifier = Modifier.padding(6.dp),
@@ -67,6 +103,5 @@ fun ContentBorder(
 		) {
 			content()
 		}
-		Spacer(modifier = Modifier.height(8.dp))
 	}
 }

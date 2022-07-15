@@ -1,4 +1,4 @@
-package cca.capitalcityaquatics.aquariuminfo.navigation
+package cca.capitalcityaquatics.aquariuminfo.ui.navigation
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize

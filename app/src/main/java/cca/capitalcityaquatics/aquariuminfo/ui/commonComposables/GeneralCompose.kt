@@ -3,9 +3,9 @@ package cca.capitalcityaquatics.aquariuminfo.ui.commonComposables
 import androidx.annotation.StringRes
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,7 +23,7 @@ import cca.capitalcityaquatics.aquariuminfo.BuildConfig
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.appscreens.HomeScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.converters.TempScreen
-import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 
 @Composable
 fun GeneralComposeHeader(
@@ -36,7 +36,7 @@ fun GeneralComposeHeader(
 			.fillMaxWidth(),
 		textAlign = TextAlign.Center,
 
-		style = MaterialTheme.typography.h4.copy(
+		style = MaterialTheme.typography.headlineLarge.copy(
 			fontWeight = FontWeight.ExtraBold
 		)
 	)
@@ -53,7 +53,7 @@ fun GeneralComposeSubHeader(
 		modifier = modifier
 			.fillMaxWidth(),
 		textAlign = TextAlign.Center,
-		style = MaterialTheme.typography.h5.copy(
+		style = MaterialTheme.typography.headlineLarge.copy(
 			fontWeight = FontWeight.Bold
 		)
 	)
@@ -70,7 +70,7 @@ fun GeneralComposeBody(
 		text = stringResource(id = text),
 		modifier = modifier,
 		textAlign = textAlign,
-		style = MaterialTheme.typography.body1
+		style = MaterialTheme.typography.bodyMedium
 	)
 	Spacer(modifier = Modifier.height(8.dp))
 }
@@ -153,7 +153,7 @@ fun UrlClickSubHead(
 			}
 			.fillMaxWidth(),
 		textAlign = TextAlign.Center,
-		style = MaterialTheme.typography.h5.copy(
+		style = MaterialTheme.typography.headlineLarge.copy(
 			fontWeight = FontWeight.Bold,
 			textDecoration = TextDecoration.Underline
 		)
@@ -162,60 +162,50 @@ fun UrlClickSubHead(
 
 @Composable
 fun ReviewApp() {
-	ContentBorder(
-		modifier = Modifier
-	) {
-		val uriHandler = LocalUriHandler.current
+	ContentBorderClick(
+		content = {
+			Column(
+				horizontalAlignment = Alignment.CenterHorizontally
+			) {
+				GeneralComposeHeader(text = R.string.text_rate_app)
 
-		Column(
-			modifier = Modifier
-				.clickable {
-					uriHandler.openUri("https://play.google.com/store/apps/details?id=cca.capitalcityaquatics.aquariuminfo&hl=en_US&pli=1")
-				},
-			horizontalAlignment = Alignment.CenterHorizontally
-		) {
+				Spacer(modifier = Modifier.height(8.dp))
 
+				GeneralComposeFooter(
+					text = R.string.text_kindly_review,
+					textAlign = TextAlign.Center,
+					fontWeight = FontWeight.Normal,
+					style = TextStyle.Default
+				)
 
-			UrlClickSubHead(
-				url = stringResource(id = R.string.url_app),
-				urlLabel = R.string.text_rate_app
-			)
+				GeneralComposeFooter(
+					text = R.string.text_valuable_review,
+					textAlign = TextAlign.Center,
+					fontWeight = FontWeight.Normal,
+					style = TextStyle.Default
+				)
+				Spacer(modifier = Modifier.height(8.dp))
 
-			Spacer(modifier = Modifier.height(8.dp))
-
-			GeneralComposeFooter(
-				text = R.string.text_kindly_review,
-				textAlign = TextAlign.Center,
-				fontWeight = FontWeight.Normal,
-				style = TextStyle.Default
-			)
-
-			GeneralComposeFooter(
-				text = R.string.text_valuable_review,
-				textAlign = TextAlign.Center,
-				fontWeight = FontWeight.Normal,
-				style = TextStyle.Default
-			)
-			Spacer(modifier = Modifier.height(8.dp))
-
-			Row {
-				repeat(5) {
-					Icon(
-						painter = painterResource(id = R.drawable.grade_48px),
-						contentDescription = null,
-						Modifier
-							.height(30.dp)
-					)
+				Row {
+					repeat(5) {
+						Icon(
+							painter = painterResource(id = R.drawable.grade_48px),
+							contentDescription = null,
+							Modifier
+								.height(30.dp)
+						)
+					}
 				}
 			}
-		}
-	}
+		},
+		url = stringResource(id = R.string.url_app)
+	)
 }
 
 @Preview(showBackground = true)
 @Composable
 fun SalPreview23() {
-	AquariumInfoTheme {
+	AppTheme {
 		TempScreen()
 	}
 }
@@ -223,7 +213,7 @@ fun SalPreview23() {
 @Preview(showBackground = true)
 @Composable
 fun HomePreview6() {
-	AquariumInfoTheme {
+	AppTheme {
 		HomeScreen()
 	}
 }

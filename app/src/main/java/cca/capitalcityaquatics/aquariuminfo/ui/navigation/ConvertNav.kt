@@ -1,16 +1,17 @@
-package cca.capitalcityaquatics.aquariuminfo.navigation
+package cca.capitalcityaquatics.aquariuminfo.ui.navigation
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import cca.capitalcityaquatics.aquariuminfo.navigation.*
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 
-@Preview(showBackground = true)
 @Composable
 fun ConvertNavScreen() {
 	val navController = rememberNavController()
@@ -53,17 +54,19 @@ fun ConvertBottomNavBar(
 					icon = screen.icon,
 					selected = currentScreen == screen,
 					onSelected = { onTabSelected(screen) },
-					color = MaterialTheme.colors.onPrimary,
-					colorSelected = MaterialTheme.colors.primaryVariant
+					color = MaterialTheme.colorScheme.onSecondary,
+					colorSelected = MaterialTheme.colorScheme.tertiaryContainer
 				)
 			}
 		},
-		color = MaterialTheme.colors.secondary
+		color = MaterialTheme.colorScheme.secondary
 	)
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun ConvertPreview() {
-//    ConvertNavScreen()
-//}
+@Preview(showBackground = true)
+@Composable
+fun ConvertPreview() {
+	AppTheme() {
+		ConvertNavScreen()
+	}
+}

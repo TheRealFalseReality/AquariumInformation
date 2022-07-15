@@ -1,14 +1,16 @@
-package cca.capitalcityaquatics.aquariuminfo.navigation
+package cca.capitalcityaquatics.aquariuminfo.ui.navigation
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import cca.capitalcityaquatics.aquariuminfo.navigation.*
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 
 @Composable
 fun TankVolumeNavScreen() {
@@ -53,17 +55,19 @@ fun TankVolumeBottomNavBar(
 					icon = screen.icon,
 					onSelected = { onTabSelected(screen) },
 					selected = currentScreen == screen,
-					color = MaterialTheme.colors.onPrimary,
-					colorSelected = MaterialTheme.colors.primaryVariant
+					color = MaterialTheme.colorScheme.onPrimary,
+					colorSelected = MaterialTheme.colorScheme.secondary
 				)
 			}
 		},
-		color = MaterialTheme.colors.secondary
+		color = MaterialTheme.colorScheme.tertiary
 	)
 }
 
 @Preview(showBackground = true)
 @Composable
 fun TankVolPreview() {
-	TankVolumeNavScreen()
+	AppTheme() {
+		TankVolumeNavScreen()
+	}
 }

@@ -1,7 +1,8 @@
-package cca.capitalcityaquatics.aquariuminfo.navigation
+package cca.capitalcityaquatics.aquariuminfo.ui.navigation
 
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import cca.capitalcityaquatics.aquariuminfo.navigation.Destinations
 
 @Composable
 fun BottomNavBar(
@@ -17,11 +18,11 @@ fun BottomNavBar(
 					icon = screen.icon,
 					onSelected = { onTabSelected(screen) },
 					selected = currentScreen == screen,
-					color = MaterialTheme.colors.onPrimary,
-					colorSelected = MaterialTheme.colors.primaryVariant
+					color = MaterialTheme.colorScheme.onPrimary,
+					colorSelected = MaterialTheme.colorScheme.tertiaryContainer
 				)
 			}
 		},
-		color = MaterialTheme.colors.primary
+		color = MaterialTheme.colorScheme.inverseSurface
 	)
 }

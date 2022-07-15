@@ -4,13 +4,19 @@ import androidx.annotation.StringRes
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.Text
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -21,9 +27,11 @@ import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.converters.SalScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.misc.LoadFile
-import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.Shapes
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun InfoCardContent(
 	@StringRes title: Int,
@@ -32,11 +40,18 @@ fun InfoCardContent(
 ) {
 	var expanded by remember { mutableStateOf(false) }
 
-	Card(
-		backgroundColor = MaterialTheme.colors.secondary,
+	OutlinedCard(
 		modifier = Modifier
-			.padding(vertical = 4.dp),
-		contentColor = Color.Black
+			.padding(vertical = 6.dp),
+		shape = Shapes.medium,
+		colors = CardDefaults.cardColors(
+			MaterialTheme.colorScheme.tertiary,
+			MaterialTheme.colorScheme.primaryContainer
+		),
+		border = BorderStroke(
+			3.dp,
+			MaterialTheme.colorScheme.inversePrimary
+		)
 	) {
 		Row(
 			modifier = Modifier
@@ -65,7 +80,7 @@ fun InfoCardContent(
 					Spacer(modifier = Modifier.width(20.dp))
 					Text(
 						text = stringResource(id = title),
-						style = MaterialTheme.typography.body2.copy(
+						style = MaterialTheme.typography.bodyMedium.copy(
 							fontWeight = FontWeight.ExtraBold
 						),
 					)
@@ -110,7 +125,7 @@ fun ChangelogCardContent(
 @Preview(showBackground = true)
 @Composable
 fun SalPreview9() {
-	AquariumInfoTheme {
+	AppTheme {
 		SalScreen()
 	}
 }

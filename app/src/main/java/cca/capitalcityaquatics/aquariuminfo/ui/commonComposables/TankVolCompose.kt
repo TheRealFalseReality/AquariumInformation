@@ -2,7 +2,7 @@ package cca.capitalcityaquatics.aquariuminfo.ui.commonComposables
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Text
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cca.capitalcityaquatics.aquariuminfo.ui.tankVolume.TankVolBFScreen
-import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInfoTheme
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 
 @Composable
 fun InputUnitsDisplay4(
@@ -185,7 +185,7 @@ fun InputUnitsDisplay2(
 @Preview(showBackground = true)
 @Composable
 fun BFPreview4() {
-	AquariumInfoTheme {
+	AppTheme {
 		TankVolBFScreen()
 	}
 }
