@@ -10,9 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import cca.capitalcityaquatics.aquariuminfo.navigation.Destinations
-import cca.capitalcityaquatics.aquariuminfo.navigation.FishCompat
-import cca.capitalcityaquatics.aquariuminfo.navigation.compatibilityNavRow
+import cca.capitalcityaquatics.aquariuminfo.navigation.*
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)

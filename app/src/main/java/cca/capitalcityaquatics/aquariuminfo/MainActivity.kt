@@ -18,12 +18,12 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import cca.capitalcityaquatics.aquariuminfo.navigation.Home
+import cca.capitalcityaquatics.aquariuminfo.navigation.MainNavHost
 import cca.capitalcityaquatics.aquariuminfo.navigation.bottomNavRow
+import cca.capitalcityaquatics.aquariuminfo.navigation.navigateSingleTopTo
 import cca.capitalcityaquatics.aquariuminfo.ui.advert.TopBannerAd
 import cca.capitalcityaquatics.aquariuminfo.ui.navigation.BottomNavBar
-import cca.capitalcityaquatics.aquariuminfo.ui.navigation.MainNavHost
 import cca.capitalcityaquatics.aquariuminfo.ui.navigation.TopNavBar
-import cca.capitalcityaquatics.aquariuminfo.ui.navigation.navigateSingleTopTo
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration

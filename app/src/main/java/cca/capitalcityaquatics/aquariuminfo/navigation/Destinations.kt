@@ -95,13 +95,13 @@ object FishCompat : Destinations {
 object FishCompatFresh : Destinations {
 	override val icon = R.drawable.phishing_48px
 	override val route = "fish_compat_fresh"
-	override val title = "Freshwater Fish Compatibility"
+	override val title = "Freshwater Fish"
 }
 
 object FishCompatMarine : Destinations {
 	override val icon = R.drawable.phishing_48px
 	override val route = "fish_compat_marine"
-	override val title = "Marine Fish Compatibility"
+	override val title = "Marine Fish"
 }
 
 

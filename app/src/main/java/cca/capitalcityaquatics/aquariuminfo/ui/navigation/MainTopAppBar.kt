@@ -14,6 +14,7 @@ import androidx.navigation.NavHostController
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.navigation.Home
 import cca.capitalcityaquatics.aquariuminfo.navigation.Information
+import cca.capitalcityaquatics.aquariuminfo.navigation.navigateSingleTopTo
 
 @Composable
 fun TopNavBar(

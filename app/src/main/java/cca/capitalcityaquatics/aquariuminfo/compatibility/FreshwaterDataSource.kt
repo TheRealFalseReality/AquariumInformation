@@ -25,7 +25,7 @@ class FreshwaterDataSource {
 			),
 			//Tanganyikan
 			Freshwater(
-				R.drawable.mbuba_cichlid,
+				R.drawable.tanganyikan,
 				R.string.text_tanganyikan,
 				R.string.text_latin_various,
 				R.string.list_compatible_tanganyikan,
@@ -34,7 +34,7 @@ class FreshwaterDataSource {
 			),
 			// Misc. African
 			Freshwater(
-				R.drawable.mbuba_cichlid,
+				R.drawable.misc_african,
 				R.string.text_african_cichlid,
 				R.string.text_latin_various,
 				R.string.list_compatible_african_cichlid,
@@ -43,7 +43,7 @@ class FreshwaterDataSource {
 			),
 			//American Cichlids
 			Freshwater(
-				R.drawable.mbuba_cichlid,
+				R.drawable.american_cichlid,
 				R.string.text_cichlids_american,
 				R.string.text_latin_various,
 				R.string.list_compatible_cichlids_american,
@@ -70,7 +70,7 @@ class FreshwaterDataSource {
 			),
 			//Betta
 			Freshwater(
-				R.drawable.mbuba_cichlid,
+				R.drawable.betta,
 				R.string.text_betta,
 				R.string.text_latin_betta,
 				R.string.list_compatible_betta,
@@ -79,7 +79,7 @@ class FreshwaterDataSource {
 			),
 			//Cory Cats
 			Freshwater(
-				R.drawable.depositphotos_467737936_stock_photo_armored_catfish_corydoras_aeneus_tropical,
+				R.drawable.cory_cats,
 				R.string.text_cory_cats,
 				R.string.text_latin_cory,
 				R.string.list_compatible_cory,
@@ -88,7 +88,7 @@ class FreshwaterDataSource {
 			),
 			//Danios / Minnows
 			Freshwater(
-				R.drawable.daino_zebrafisch,
+				R.drawable.danios,
 				R.string.text_danios,
 				R.string.text_latin_danio,
 				R.string.list_compatible_danios,
@@ -97,7 +97,7 @@ class FreshwaterDataSource {
 			),
 			//Discus
 			Freshwater(
-				R.drawable.mbuba_cichlid,
+				R.drawable.discus,
 				R.string.text_discus,
 				R.string.text_latin_discus,
 				R.string.list_compatible_discus,
@@ -106,7 +106,7 @@ class FreshwaterDataSource {
 			),
 			//Fancy Goldfish
 			Freshwater(
-				R.drawable.mbuba_cichlid,
+				R.drawable.fancy_goldfish,
 				R.string.text_fancy_goldfish,
 				R.string.text_latin_fancy_goldfish,
 				R.string.list_compatible_fancy_goldfish,
@@ -115,7 +115,7 @@ class FreshwaterDataSource {
 			),
 			//Gouramis
 			Freshwater(
-				R.drawable.gouramis,
+				R.drawable.gourami,
 				R.string.text_gouramis,
 				R.string.text_latin_gourami,
 				R.string.list_compatible_gourami,
@@ -124,7 +124,7 @@ class FreshwaterDataSource {
 			),
 			//Guppy
 			Freshwater(
-				R.drawable.mbuba_cichlid,
+				R.drawable.guppy,
 				R.string.text_guppies,
 				R.string.text_latin_guppy,
 				R.string.list_compatible_guppies,
@@ -133,7 +133,7 @@ class FreshwaterDataSource {
 			),
 			//Hatchets
 			Freshwater(
-				R.drawable.mbuba_cichlid,
+				R.drawable.hatchets,
 				R.string.text_hatchets,
 				R.string.text_latin_hatchet,
 				R.string.list_compatible_hatchets,
@@ -151,7 +151,7 @@ class FreshwaterDataSource {
 			),
 			//Larger Catfish
 			Freshwater(
-				R.drawable.catfish,
+				R.drawable.large_catfish,
 				R.string.text_catfish,
 				R.string.text_latin_larger_catfish,
 				R.string.list_compatible_catfish,
@@ -160,7 +160,7 @@ class FreshwaterDataSource {
 			),
 			//Loach
 			Freshwater(
-				R.drawable.yoyo_loach,
+				R.drawable.loaches,
 				R.string.text_loach,
 				R.string.text_latin_loach,
 				R.string.list_compatible_loach,
@@ -169,7 +169,7 @@ class FreshwaterDataSource {
 			),
 			//Molly
 			Freshwater(
-				R.drawable._75_livebearers_unlimited_the_fancy_molly_pt_2,
+				R.drawable.molly,
 				R.string.text_molly,
 				R.string.text_latin_molly,
 				R.string.list_compatible_molly,
@@ -196,7 +196,7 @@ class FreshwaterDataSource {
 			),
 			//Rainbowfish
 			Freshwater(
-				R.drawable.mbuba_cichlid,
+				R.drawable.rainbowfish,
 				R.string.text_rainbowfish,
 				R.string.text_latin_rainbowfish,
 				R.string.list_compatible_rainbowfish,
@@ -205,7 +205,7 @@ class FreshwaterDataSource {
 			),
 			//Rasboras
 			Freshwater(
-				R.drawable.glowlight_rasbora,
+				R.drawable.rasbora,
 				R.string.text_rasboras,
 				R.string.text_latin_rasbora,
 				R.string.list_compatible_rasboras,
@@ -214,7 +214,7 @@ class FreshwaterDataSource {
 			),
 			//Sharks
 			Freshwater(
-				R.drawable.rainbow_shark,
+				R.drawable.freshwater_shark,
 				R.string.text_shark,
 				R.string.text_latin_shark,
 				R.string.list_compatible_shark,
@@ -223,7 +223,7 @@ class FreshwaterDataSource {
 			),
 			//Suckermouth Catfish
 			Freshwater(
-				R.drawable.mbuba_cichlid,
+				R.drawable.suckermouth_catfish,
 				R.string.text_sucker_catfish,
 				R.string.text_latin_larger_catfish,
 				R.string.list_compatible_suckermouth_catfish,
@@ -232,7 +232,7 @@ class FreshwaterDataSource {
 			),
 			//Swordtails
 			Freshwater(
-				R.drawable.kohaku_swordtail,
+				R.drawable.swordtail,
 				R.string.text_swordtail,
 				R.string.text_latin_swordtail,
 				R.string.list_compatible_swordtail,
@@ -250,7 +250,7 @@ class FreshwaterDataSource {
 			),
 			//Misc. Fish
 			Freshwater(
-				R.drawable.mbuba_cichlid,
+				R.drawable.misc_fish,
 				R.string.text_misc_fish,
 				R.string.text_latin_various,
 				R.string.list_compatible_misc,
@@ -268,7 +268,7 @@ class FreshwaterDataSource {
 			),
 			//Brackish Fish
 			Freshwater(
-				R.drawable.brackish_archer_fish,
+				R.drawable.brackish,
 				R.string.text_brackish,
 				R.string.text_latin_various,
 				R.string.list_compatible_brackish,
@@ -277,7 +277,7 @@ class FreshwaterDataSource {
 			),
 			//Pond Fish
 			Freshwater(
-				R.drawable.mbuba_cichlid,
+				R.drawable.koi,
 				R.string.text_pond,
 				R.string.text_latin_various,
 				R.string.list_compatible_pond,

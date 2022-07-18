@@ -6,8 +6,8 @@
         <type value="RUNNING_DEVICE_TARGET" />
         <deviceKey>
           <Key>
-            <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\Nick\.android\avd\Pixel_C_API_31_1.avd" />
+            <type value="SERIAL_NUMBER" />
+            <value value="1B111JEG501927" />
           </Key>
         </deviceKey>
       </Target>
@@ -19,15 +19,6 @@
           <Key>
             <type value="VIRTUAL_DEVICE_PATH" />
             <value value="C:\Users\Nick\.android\avd\7_WSVGA_Tablet_API_31.avd" />
-          </Key>
-        </deviceKey>
-      </Target>
-      <Target>
-        <type value="QUICK_BOOT_TARGET" />
-        <deviceKey>
-          <Key>
-            <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\Nick\.android\avd\Pixel_C_API_31_1.avd" />
           </Key>
         </deviceKey>
       </Target>
