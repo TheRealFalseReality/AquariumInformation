@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
@@ -87,7 +88,8 @@ fun FishCardsMarine(
 					modifier = Modifier
 						.padding(start = 12.dp, bottom = 12.dp)
 						.align(Alignment.Start),
-					style = MaterialTheme.typography.labelMedium
+					style = MaterialTheme.typography.labelMedium,
+					fontStyle = FontStyle.Italic
 				)
 				if (expanded) {
 					Text(
