@@ -85,7 +85,7 @@ fun calculateCarbonDioxide(
 @Preview(showBackground = true)
 @Composable
 fun TempPreview() {
-	AppTheme() {
+	AppTheme {
 		CarbonDioxideScreen()
 	}
 }

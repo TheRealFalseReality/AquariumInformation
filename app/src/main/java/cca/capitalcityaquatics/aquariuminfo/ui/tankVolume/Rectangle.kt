@@ -204,7 +204,7 @@ fun calculateWaterWeightFT(
 @Preview(showBackground = true)
 @Composable
 fun RecPreview() {
-	AppTheme() {
+	AppTheme {
 		TankVolRecScreen()
 	}
 }

@@ -135,7 +135,7 @@ fun calculateKelvinCel(
 @Preview(showBackground = true)
 @Composable
 fun TempPreview() {
-	AppTheme() {
+	AppTheme {
 		TempScreen()
 	}
 }

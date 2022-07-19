@@ -187,7 +187,7 @@ fun calculateDensitySG(
 @Preview(showBackground = true)
 @Composable
 fun SalPreview() {
-	AppTheme() {
+	AppTheme {
 		SalScreen()
 	}
 }

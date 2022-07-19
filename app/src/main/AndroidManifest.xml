@@ -14,9 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AquariumInfo"
         tools:targetApi="31">
-        <activity
-            android:name=".ui.advert.SplashActivity"
-            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

@@ -188,7 +188,7 @@ fun calculateWaterWeightFTHex(
 @Preview(showBackground = true)
 @Composable
 fun HexPreview() {
-	AppTheme() {
+	AppTheme {
 		TankVolHexScreen()
 	}
 }

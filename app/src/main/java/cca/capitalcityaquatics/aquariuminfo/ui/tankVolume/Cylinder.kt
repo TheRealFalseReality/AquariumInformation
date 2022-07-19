@@ -352,7 +352,7 @@ fun calculateWaterWeightFTCyl(
 @Preview(showBackground = true)
 @Composable
 fun CylPreview() {
-	AppTheme() {
+	AppTheme {
 		TankVolCylScreen()
 	}
 }

@@ -225,7 +225,7 @@ fun calculateWaterWeightFTBF(
 @Preview(showBackground = true)
 @Composable
 fun BFPreview() {
-	AppTheme() {
+	AppTheme {
 		TankVolBFScreen()
 	}
 }

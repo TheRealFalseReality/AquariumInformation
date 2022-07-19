@@ -179,7 +179,7 @@ fun calculateWaterWeightFTCube(
 @Preview(showBackground = true)
 @Composable
 fun CubePreview() {
-	AppTheme() {
+	AppTheme {
 		TankVolCubeScreen()
 	}
 }

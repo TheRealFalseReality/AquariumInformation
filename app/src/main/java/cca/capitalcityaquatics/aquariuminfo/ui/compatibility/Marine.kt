@@ -21,24 +21,24 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.compatibility.Freshwater
-import cca.capitalcityaquatics.aquariuminfo.compatibility.FreshwaterDataSource
+import cca.capitalcityaquatics.aquariuminfo.compatibility.Marine
+import cca.capitalcityaquatics.aquariuminfo.compatibility.MarineDataSource
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.Shapes
 
 @Composable
-fun FreshwaterScreen() {
+fun MarineScreen() {
 	AppTheme {
 		Scaffold {
-			FreshwaterList(FreshwaterDataSource().loadFishCardsFresh())
+			MarineList(MarineDataSource().loadFishCardsMarine())
 		}
 	}
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FishCardsFresh(
-	freshwater: Freshwater,
+fun FishCardsMarine(
+	Marine: Marine,
 	modifier: Modifier = Modifier,
 ) {
 	var expanded by remember { mutableStateOf(false) }
@@ -66,24 +66,24 @@ fun FishCardsFresh(
 				)
 		) {
 			Column {
-				freshwater.image?.let { painterResource(id = it) }?.let {
+				Marine.image?.let { painterResource(id = it) }?.let {
 					Image(
 						painter = it,
-						contentDescription = stringResource(id = freshwater.title),
+						contentDescription = stringResource(id = Marine.title),
 						modifier = Modifier
 							.heightIn(max = 200.dp),
 						contentScale = ContentScale.Crop
 					)
 				}
 				Text(
-					text = stringResource(id = freshwater.title),
+					text = stringResource(id = Marine.title),
 					modifier = Modifier
 						.padding(12.dp)
 						.align(Alignment.Start),
 					style = MaterialTheme.typography.titleLarge
 				)
 				Text(
-					text = stringResource(id = freshwater.latin),
+					text = stringResource(id = Marine.latin),
 					modifier = Modifier
 						.padding(start = 12.dp, bottom = 12.dp)
 						.align(Alignment.Start),
@@ -97,7 +97,7 @@ fun FishCardsFresh(
 					)
 					Spacer(modifier = Modifier.height(6.dp))
 					Text(
-						text = stringResource(id = freshwater.compatible),
+						text = stringResource(id = Marine.compatible),
 						modifier = Modifier.padding(start = 18.dp, end = 12.dp),
 						style = MaterialTheme.typography.bodySmall
 					)
@@ -109,7 +109,7 @@ fun FishCardsFresh(
 					)
 					Spacer(modifier = Modifier.height(6.dp))
 					Text(
-						text = stringResource(id = freshwater.caution),
+						text = stringResource(id = Marine.caution),
 						modifier = Modifier.padding(start = 18.dp, end = 12.dp),
 						style = MaterialTheme.typography.bodySmall
 					)
@@ -121,7 +121,7 @@ fun FishCardsFresh(
 					)
 					Spacer(modifier = Modifier.height(6.dp))
 					Text(
-						text = stringResource(id = freshwater.incompatible),
+						text = stringResource(id = Marine.incompatible),
 						modifier = Modifier.padding(start = 18.dp, end = 12.dp),
 						style = MaterialTheme.typography.bodySmall
 					)
@@ -133,8 +133,8 @@ fun FishCardsFresh(
 }
 
 @Composable
-fun FreshwaterList(
-	freshwaterList: List<Freshwater>,
+fun MarineList(
+	MarineList: List<Marine>,
 	modifier: Modifier = Modifier
 ) {
 	Surface(
@@ -156,8 +156,8 @@ fun FreshwaterList(
 				userScrollEnabled = true,
 				state = LazyGridState(),
 				content = {
-					items(freshwaterList) { freshwater ->
-						FishCardsFresh(freshwater = freshwater)
+					items(MarineList) { Marine ->
+						FishCardsMarine(Marine = Marine)
 					}
 				}
 			)
@@ -167,10 +167,10 @@ fun FreshwaterList(
 
 @Preview(showBackground = true)
 @Composable
-fun FishCardPreview() {
+fun FishCardMarinePreview() {
 	AppTheme {
-		FishCardsFresh(
-			freshwater = Freshwater(
+		FishCardsMarine(
+			Marine = Marine(
 				R.drawable.pleco,
 				R.string.text_pleco,
 				R.string.text_pleco_latin,
@@ -184,6 +184,6 @@ fun FishCardPreview() {
 
 @Preview(showBackground = true)
 @Composable
-fun ListPreview() {
-	FreshwaterScreen()
+fun ListMarinePreview() {
+	MarineScreen()
 }

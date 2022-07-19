@@ -393,7 +393,7 @@ fun calculateDkhMeq(
 @Preview(showBackground = true)
 @Composable
 fun AlkPreview() {
-	AppTheme() {
+	AppTheme {
 		AlkalinityScreen()
 	}
 }
