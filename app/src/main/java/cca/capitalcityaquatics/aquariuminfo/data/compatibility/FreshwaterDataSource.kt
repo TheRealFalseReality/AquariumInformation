@@ -1,4 +1,4 @@
-package cca.capitalcityaquatics.aquariuminfo.compatibility
+package cca.capitalcityaquatics.aquariuminfo.data.compatibility
 
 import cca.capitalcityaquatics.aquariuminfo.R
 
@@ -180,7 +180,7 @@ class FreshwaterDataSource {
 			Freshwater(
 				R.drawable.pleco,
 				R.string.text_pleco,
-				R.string.text_pleco_latin,
+				R.string.text_latin_pleco,
 				R.string.list_compatible_pleco,
 				R.string.list_caution_pleco,
 				R.string.list_incompatible_pleco

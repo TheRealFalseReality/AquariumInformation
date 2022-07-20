@@ -105,6 +105,29 @@ fun AppInfo(
 }
 
 @Composable
+fun UrlClickSmall(
+	url: String,
+	@StringRes urlLabel: Int,
+	modifier: Modifier = Modifier,
+) {
+	val uriHandler = LocalUriHandler.current
+
+	Text(
+		text = stringResource(id = urlLabel),
+		modifier = modifier
+			.clickable {
+				uriHandler.openUri(url)
+			}
+			.fillMaxWidth(),
+		textAlign = TextAlign.Center,
+		style = MaterialTheme.typography.bodySmall.copy(
+			fontWeight = FontWeight.Bold,
+			textDecoration = TextDecoration.Underline
+		)
+	)
+}
+
+@Composable
 fun UrlClickFoot(
 	@StringRes title: Int,
 	@StringRes urlLabel: Int,

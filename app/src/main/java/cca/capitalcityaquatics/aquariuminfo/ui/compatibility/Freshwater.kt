@@ -22,8 +22,8 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.compatibility.Freshwater
-import cca.capitalcityaquatics.aquariuminfo.compatibility.FreshwaterDataSource
+import cca.capitalcityaquatics.aquariuminfo.data.compatibility.Freshwater
+import cca.capitalcityaquatics.aquariuminfo.data.compatibility.FreshwaterDataSource
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.Shapes
 
@@ -175,7 +175,7 @@ fun FishCardPreview() {
 			freshwater = Freshwater(
 				R.drawable.pleco,
 				R.string.text_pleco,
-				R.string.text_pleco_latin,
+				R.string.text_latin_pleco,
 				R.string.text_app_errors,
 				R.string.text_amount_fah,
 				R.string.text_pleco

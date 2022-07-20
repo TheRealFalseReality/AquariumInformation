@@ -27,6 +27,12 @@ fun InfoScreen(
 
 		GeneralComposeBody(text = R.string.text_app_errors, textAlign = TextAlign.Center)
 
+		UrlClickSmall(
+			url = "https://www.capitalcityaquatics.com/photo-attributes",
+			urlLabel = R.string.text_photo_attributes
+		)
+
+
 		Spacer(modifier = Modifier.height(16.dp))
 
 		ReviewApp()

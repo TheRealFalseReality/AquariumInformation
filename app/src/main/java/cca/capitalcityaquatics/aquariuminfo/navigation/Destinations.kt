@@ -87,21 +87,21 @@ object TankVolume : Destinations {
 }
 
 object FishCompat : Destinations {
-	override val icon = R.drawable.phishing_48px
+	override val icon = R.drawable.compaticon
 	override val route = "fish_compat"
 	override val title = "Compatibility"
 }
 
 object FishCompatFresh : Destinations {
-	override val icon = R.drawable.phishing_48px
+	override val icon = R.drawable.combatfresh
 	override val route = "fish_compat_fresh"
-	override val title = "Freshwater Fish"
+	override val title = "Freshwater"
 }
 
 object FishCompatMarine : Destinations {
-	override val icon = R.drawable.phishing_48px
+	override val icon = R.drawable.combatmarine
 	override val route = "fish_compat_marine"
-	override val title = "Marine Fish"
+	override val title = "Marine"
 }
 
 

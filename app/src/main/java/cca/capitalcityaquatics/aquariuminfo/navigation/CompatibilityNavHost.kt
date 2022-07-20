@@ -5,8 +5,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import cca.capitalcityaquatics.aquariuminfo.ui.calculators.CarbonDioxideScreen
 import cca.capitalcityaquatics.aquariuminfo.ui.compatibility.FreshwaterScreen
+import cca.capitalcityaquatics.aquariuminfo.ui.compatibility.MarineScreen
 
 @Composable
 fun CompatibilityNavHost(
@@ -22,7 +22,7 @@ fun CompatibilityNavHost(
 			FreshwaterScreen()
 		}
 		composable(FishCompatMarine.route) {
-			CarbonDioxideScreen()
+			MarineScreen()
 		}
 	}
 }

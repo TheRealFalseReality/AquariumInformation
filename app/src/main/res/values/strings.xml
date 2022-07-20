@@ -141,7 +141,7 @@
     <string name="text_sal_info">-Testing Water Temp is set to 77 °F or 25 °C. Ability to set custom Testing Water Temp is coming!  \n\n-The direct calculation from Salinity (‰ - ppt) to Density (g/l or kg/m3) / Specific Gravity is based on the equation adopted by UNESCO - The One Atmosphere International Equation of the State of Seawater (Millero and Poisson, 1981).  \n\n-The inverse calculation, from Specific Density / Gravity to Salinity, is performed by the solution for iterative methods of the reverse equation of Millero and Poisson.  \n\n-The calculation from Conductivity to Salinity / Density / Gravity Specification is performed according to the complex polynomial equation adopted by UNESCO/ICES/SCOR/IAPSO. In this case,the values are reliable for the resulting salinity between 2 and 42 and a temperature between -2 °C and 35 °C.  \n\n-Salinity values are expressed in Practical Salinity.  \n\n-Thanks to OceanLife.com for providing the source code for the calculations.</string>
     <string name="text_welcome">This App is more than just a simple Unit Converter: It\'s tailored more towards Aquarists or anyone interested in water chemistry. \n\nNot only is there a simple Temperature Converter, but also a Salinity and Alkalinity (KH) converter.  \n\nThere’s also a CO₂ calculator for planted aquariums. Also included are Tank Volume Calculators, which will calculate a tank’s volume in gallons or liters and include its water weight.  \n\nThere will be more to come including specific aquarium parameters, maintenance plans and more!! If you like this app, please rate it!</string>
     <string name="text_pleco">Pleco</string>
-    <string name="text_pleco_latin">Hypostomus plecostomus</string>
+    <string name="text_latin_pleco">Hypostomus plecostomus</string>
     <string name="text_common">Common Names</string>
     <string name="text_compatibility">Compatibility:</string>
     <string name="text_fancy_goldfish">Fancy Goldfish</string>
@@ -474,4 +474,14 @@
     <string name="list_compatible_marine_invertebrates">Anthias, Basslets, Blennies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Gobies, Jawfish, Pseudochromis, Tangs / Surgeons, Live Corals, Invertebrates</string>
     <string name="list_incompatible_marine_invertebrates">Filefish, Parrotfish, Puffers, Sharks / Rays, Triggerfish</string>
     <string name="list_caution_marine_invertebrates">Dwarf Angels, Large Angels, Anglers / Frogs, Batfish, Boxfish, Butterflies, Eels, Foxface / Rabbits, Groupers, Grunts / Sweetlips, Hawkfish, Hogfish, Lions / Scorpions, Seahorse / Pipefish, Squirrelfish, Wrasse - Reef Safe, Wrasse - Fish Only</string>
+    <string name="text_batfish">Batfish</string>
+    <string name="text_latin_dragonets">Callionymidae</string>
+    <string name="list_compatible_dragonets">Dwarf Angels, Large Angels, Anthias, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Foxface / Rabbits, Gobies, Jawfish, Hawkfish, Puffers, Seahorse / Pipefish, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
+    <string name="list_caution_dragonets">Basslets, Batfish, Blennies, Dragonets, Filefish, Grunts / Sweetlips, Hogfish, Parrotfish, Pseudochromis, Squirrelfish, Wrasse - Fish Only</string>
+    <string name="list_incompatible_dragonets">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Sharks / Rays, Triggerfish</string>
+    <string name="list_caution_live_corals">Dwarf Angels, Large Angels, Butterflies, Filefish, Foxface / Rabbits, Puffers, Triggerfish</string>
+    <string name="text_marine_invertebrates">Marine Invertebrates</string>
+    <string name="text_photo_attributes">Photo Attributes</string>
+    <string name="text_welcome_compatibility">Wanting to get new fish but dunno if they will play nicely with what you already have? Just added is a quick reference tool to determine which fish types are compatible with which.\nNOTE:, this feature is in BETA. Mistakes may be present, but I am diligently working on everything!</string>
+    <string name="text_welcome_compatibility_title">NEW! Fish Compatibility Tool!</string>
 </resources>

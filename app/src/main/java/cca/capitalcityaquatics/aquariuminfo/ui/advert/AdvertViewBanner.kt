@@ -8,6 +8,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -25,7 +26,9 @@ import com.google.android.gms.ads.AdView
 fun TopBannerAd(
 	modifier: Modifier = Modifier,
 ) {
+	val deviceCurrentWidth = LocalConfiguration.current.screenWidthDp
 	val isInEditMode = LocalInspectionMode.current
+
 	Column {
 		if (isInEditMode) {
 			Text(
@@ -46,7 +49,10 @@ fun TopBannerAd(
 					modifier = modifier.fillMaxWidth(),
 					factory = { context ->
 						AdView(context).apply {
-							setAdSize(AdSize.BANNER)
+							AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
+								context,
+								deviceCurrentWidth
+							)
 							adUnitId = context.getString(R.string.id_ad_banner)
 							loadAd(AdRequest.Builder().build())
 						}

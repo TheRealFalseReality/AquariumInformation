@@ -1,9 +1,9 @@
-package cca.capitalcityaquatics.aquariuminfo.compatibility
+package cca.capitalcityaquatics.aquariuminfo.data.compatibility
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
-data class Marine(
+data class Freshwater(
 	@DrawableRes val image: Int?,
 	@StringRes val title: Int,
 	@StringRes val latin: Int,
