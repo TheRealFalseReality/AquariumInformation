@@ -5,41 +5,41 @@ import cca.capitalcityaquatics.aquariuminfo.R
 class MarineDataSource {
 	fun loadFishCardsMarine(): List<Marine> {
 		return listOf(
-			//Malawi
+			//Dwarf Angel
 			Marine(
-				R.drawable.mbuba_cichlid,
-				R.string.text_malawi,
-				R.string.text_latin_various,
-				R.string.list_compatible_malawi,
-				R.string.list_caution_malawi,
-				R.string.list_incompatible_malawi
+				R.drawable.dwarf_angel,
+				R.string.text_dwarf_angels,
+				R.string.text_latin_dwarf_angels,
+				R.string.list_compatible_dwarf_angels,
+				R.string.list_caution_dwarf_angels,
+				R.string.list_incompatible_dwarf_angels
 			),
-			//Tanganyikan
+			//Large Angels
 			Marine(
-				R.drawable.tanganyikan,
-				R.string.text_tanganyikan,
-				R.string.text_latin_various,
-				R.string.list_compatible_tanganyikan,
-				R.string.list_caution_tanganyikan,
-				R.string.list_incompatible_tanganyikan
+				R.drawable.large_angels,
+				R.string.text_large_angels,
+				R.string.text_latin_large_angels,
+				R.string.list_compatible_large_angels,
+				R.string.list_caution_large_angels,
+				R.string.list_incompatible_large_angels
 			),
-			// Misc. African
+			// Anglers / Frogs
 			Marine(
-				R.drawable.misc_african,
-				R.string.text_african_cichlid,
-				R.string.text_latin_various,
-				R.string.list_compatible_african_cichlid,
-				R.string.list_caution_african_cichlid,
-				R.string.list_incompatible_african_cichlid
+				R.drawable.angler,
+				R.string.text_anglers_frogs,
+				R.string.text_latin_anglers_frogs,
+				R.string.list_compatible_anglers_frogs,
+				R.string.list_caution_anglers_frogs,
+				R.string.list_incompatible_anglers_frogs
 			),
-			//American Cichlids
+			//Anthias
 			Marine(
-				R.drawable.american_cichlid,
-				R.string.text_cichlids_american,
-				R.string.text_latin_various,
-				R.string.list_compatible_cichlids_american,
-				R.string.list_caution_cichlids_american,
-				R.string.list_incompatible_cichlids_american
+				R.drawable.anthias,
+				R.string.text_anthias,
+				R.string.text_latin_anthias,
+				R.string.list_compatible_anthias,
+				R.string.list_caution_anthias,
+				R.string.list_incompatible_anthias,
 			),
 			//Angelfish
 			Marine(
@@ -50,77 +50,77 @@ class MarineDataSource {
 				R.string.list_caution_angelfish,
 				R.string.list_incompatible_angelfish
 			),
-			//Barb
+			//Basslet
 			Marine(
-				R.drawable.barb,
-				R.string.text_barbs,
-				R.string.text_latin_barb,
-				R.string.list_compatible_barb,
-				R.string.list_caution_barb,
-				R.string.list_incompatible_barb
+				R.drawable.baslets,
+				R.string.text_basslets,
+				R.string.text_latin_basslets,
+				R.string.list_compatible_basslets,
+				R.string.list_caution_basslets,
+				R.string.list_incompatible_basslets
 			),
-			//Betta
+			//Batfish
 			Marine(
-				R.drawable.betta,
-				R.string.text_betta,
-				R.string.text_latin_betta,
+				R.drawable.batfish,
+				R.string.text_batfish,
+				R.string.text_latin_batfish,
 				R.string.list_compatible_betta,
 				R.string.list_caution_betta,
 				R.string.list_incompatible_betta
 			),
-			//Cory Cats
+			//Blennies
 			Marine(
-				R.drawable.cory_cats,
-				R.string.text_cory_cats,
-				R.string.text_latin_cory,
-				R.string.list_compatible_cory,
-				R.string.list_caution_cory,
-				R.string.list_incompatible_cory
+				R.drawable.blennies,
+				R.string.text_blennies,
+				R.string.text_latin_blennies,
+				R.string.list_compatible_blennies,
+				R.string.list_caution_blennies,
+				R.string.list_incompatible_blennies
 			),
-			//Danios / Minnows
+			//Boxfish
 			Marine(
-				R.drawable.danios,
-				R.string.text_danios,
-				R.string.text_latin_danio,
-				R.string.list_compatible_danios,
-				R.string.list_caution_danios,
-				R.string.list_incompatible_danios
+				R.drawable.boxfish,
+				R.string.text_boxfish,
+				R.string.text_latin_boxfish,
+				R.string.list_compatible_boxfish,
+				R.string.list_caution_boxfish,
+				R.string.list_incompatible_boxfish
 			),
-			//Discus
+			//Butterflies
 			Marine(
-				R.drawable.discus,
-				R.string.text_discus,
-				R.string.text_latin_discus,
-				R.string.list_compatible_discus,
-				R.string.list_caution_discus,
-				R.string.list_incompatible_discus
+				R.drawable.butterflies,
+				R.string.text_butterflies,
+				R.string.text_latin_butterflies,
+				R.string.list_compatible_butterflies,
+				R.string.list_caution_butterflies,
+				R.string.list_incompatible_butterflies
 			),
-			//Fancy Goldfish
+			//Cardinals
 			Marine(
-				R.drawable.fancy_goldfish,
-				R.string.text_fancy_goldfish,
-				R.string.text_latin_fancy_goldfish,
-				R.string.list_compatible_fancy_goldfish,
-				R.string.list_caution_fancy_goldfish,
-				R.string.list_incompatible_fancy_goldfish
+				R.drawable.cardinalfish,
+				R.string.text_cardinals,
+				R.string.text_latin_cardinals,
+				R.string.list_compatible_cardinals,
+				R.string.list_caution_cardinals,
+				R.string.list_incompatible_cardinals
 			),
-			//Gouramis
+			//Chromis
 			Marine(
-				R.drawable.gourami,
-				R.string.text_gouramis,
-				R.string.text_latin_gourami,
-				R.string.list_compatible_gourami,
-				R.string.list_caution_gourami,
-				R.string.list_incompatible_gourami
+				R.drawable.chromis,
+				R.string.text_chromis,
+				R.string.text_latin_chromis,
+				R.string.list_compatible_chromis,
+				R.string.list_caution_chromis,
+				R.string.list_incompatible_chromis
 			),
-			//Guppy
+			//Clownfish
 			Marine(
-				R.drawable.guppy,
-				R.string.text_guppies,
-				R.string.text_latin_guppy,
-				R.string.list_compatible_guppies,
-				R.string.list_caution_guppies,
-				R.string.list_incompatible_guppies
+				R.drawable.clownfish,
+				R.string.text_clownfish,
+				R.string.text_latin_clownfish,
+				R.string.list_compatible_clownfish,
+				R.string.list_caution_clownfish,
+				R.string.list_incompatible_clownfish
 			),
 			//Hatchets
 			Marine(

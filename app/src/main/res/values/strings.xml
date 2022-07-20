@@ -474,4 +474,5 @@
     <string name="list_compatible_marine_invertebrates">Anthias, Basslets, Blennies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Gobies, Jawfish, Pseudochromis, Tangs / Surgeons, Live Corals, Invertebrates</string>
     <string name="list_incompatible_marine_invertebrates">Filefish, Parrotfish, Puffers, Sharks / Rays, Triggerfish</string>
     <string name="list_caution_marine_invertebrates">Dwarf Angels, Large Angels, Anglers / Frogs, Batfish, Boxfish, Butterflies, Eels, Foxface / Rabbits, Groupers, Grunts / Sweetlips, Hawkfish, Hogfish, Lions / Scorpions, Seahorse / Pipefish, Squirrelfish, Wrasse - Reef Safe, Wrasse - Fish Only</string>
+    <string name="text_batfish">Batfish</string>
 </resources>
