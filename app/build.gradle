@@ -13,8 +13,8 @@ android {
         applicationId "cca.capitalcityaquatics.aquariuminfo"
         minSdk 29
         targetSdk 32
-        versionCode 18
-        versionName "1.2.1"
+        versionCode 17
+        versionName "1.2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -83,9 +83,8 @@ dependencies {
     implementation "android.arch.lifecycle:common-java8:1.1.1"
 
     //Firebase
-    implementation platform('com.google.firebase:firebase-bom:30.2.0')
+    implementation platform('com.google.firebase:firebase-bom:21.1.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation platform('com.google.firebase:firebase-bom:30.2.0')
     implementation 'com.google.firebase:firebase-crashlytics'
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-perf-ktx'
