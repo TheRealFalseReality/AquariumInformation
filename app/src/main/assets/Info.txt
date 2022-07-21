@@ -1,5 +1,0 @@
-This app was created by Nick White from North Florida. I am not a programmer, but an enthusiastic aquarist. I went to school for biology and have been in the hobby for over 10 years.
-
-I got tired of having to search for converters every time I wanted to convert meq/L to dKH or determine my new tank’s size. The most commonly used products vary widely in which units are used, and I wanted to create a quick access app to confirm I was dosing the appropriate amount.
-
-Please, inform me of ANY errors. I tried my best to build this app, but I am new to app programming.

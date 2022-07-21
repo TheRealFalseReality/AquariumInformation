@@ -20,14 +20,21 @@ All notable changes to this project will be documented in this file.
 * Ability to remove ADs with in*app billing
 * Marine tank types added to Water Hardness
 * Gesture Navigation
-* Fish Compatibility tool
-* Change Top Banner to an Adaptive Banner
-* Change Files to strings
-* Move Math functions from Composables.kt
 
 ## [Issues]
 
 * Fix Subscripts for CaCO3
+
+## [1.2] - 2022-7-21
+
+### Added
+
+* Fish Compatibility Tool
+
+### Changed
+
+* Reduced Top Banner Ad size
+* Material 3 Compatible
 
 ## [1.1] - 2022-7-10
 
@@ -37,7 +44,6 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-* Material 3 Compatible
 * Theme colors adjusted
 
 ## [1.0] - 2022-7-8
