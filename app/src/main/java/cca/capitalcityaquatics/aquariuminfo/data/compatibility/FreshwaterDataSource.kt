@@ -236,7 +236,7 @@ class FreshwaterDataSource {
 				R.string.text_tetra,
 				R.string.text_latin_tetra,
 				R.string.list_compatible_tetra,
-				R.string.list_compatible_tetra,
+				R.string.list_caution_tetra,
 				R.string.list_incompatible_tetra
 			),
 			//Misc. Fish
@@ -272,7 +272,7 @@ class FreshwaterDataSource {
 				R.string.text_pond,
 				R.string.text_latin_various,
 				R.string.list_compatible_pond,
-				R.string.list_compatible_pond,
+				R.string.list_caution_pond,
 				R.string.list_incompatible_pond
 			),
 			//Freshwater Plants

@@ -167,7 +167,7 @@
     <string name="list_caution_tanganyikan">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Barbs, Cory Cats, Larger Catfish, Loaches, Sharks, Suckermouth Catfish, Misc. Fish, Invertebrates, Freshwater Plants</string>
     <string name="text_african_cichlid">Misc. African Cichlids</string>
     <string name="list_compatible_african_cichlid">Misc. African Cichlids, Plecos</string>
-    <string name="list_incompatible_african_cichlid">Angelfish, Bettas, Danios / Minnows, Discus, Fancy, Goldfish, Gouramis, Guppies, Hatchets, Killifish, Mollies, Platies, Rainbowfish, Rasboras, Swordtails, Tetras, Brackish Fish, ,Pond Fish</string>
+    <string name="list_incompatible_african_cichlid">Angelfish, Bettas, Danios / Minnows, Discus, Fancy, Goldfish, Gouramis, Guppies, Hatchets, Killifish, Mollies, Platies, Rainbowfish, Rasboras, Swordtails, Tetras, Brackish Fish, Pond Fish</string>
     <string name="list_caution_african_cichlid">Malawian Cichlids, Tanganyikan Cichlids, New World Cichlids, Barbs, Cory Cats, Larger Catfish, Loaches, Sharks, Suckermouth Catfish, Misc. Fish, Invertebrates, Freshwater Plants</string>
     <string name="text_cichlids_american">New World Cichlids</string>
     <string name="list_compatible_cichlids_american">Plecos</string>
@@ -196,7 +196,7 @@
     <string name="text_discus">Discus</string>
     <string name="list_compatible_discus">Cory Cat, Danios / Minnows, Discus, Guppies, Hatchets, Killifish, Loaches, Mollies, Platies, Rainbowfish, Rasboras, Swordtails, Tetras, Freshwater Plants</string>
     <string name="list_incompatible_discus">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish, Brackish Fish, Pond Fish</string>
-    <string name="list_caution_discus">New World Cichlids, Angelfish, Barbs, Bettas, Gouramis, Larger Catfish ,Plecos, Sharks, Suckermouth, Catfish, Misc. Fish, Invertebrates</string>
+    <string name="list_caution_discus">New World Cichlids, Angelfish, Barbs, Bettas, Gouramis, Larger Catfish, Plecos, Sharks, Suckermouth, Catfish, Misc. Fish, Invertebrates</string>
     <string name="text_gouramis">Gouramis</string>
     <string name="list_compatible_gourami">Angelfish, Barbs, Cory Cats, Danios / Minnows, Gouramis, Guppies, Hatchets, Killifish, Loaches, Mollies, Platies, Plecos, Rainbowfish, Rasboras, Sharks, Suckermouth Catfish, Swordtails, Freshwater Plants</string>
     <string name="list_incompatible_gourami">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish, Brackish Fish, Pond Fish</string>
@@ -438,8 +438,8 @@
     <string name="list_compatible_pipefish">Dragonets, Seahorse / Pipefish, Live Corals</string>
     <string name="list_incompatible_pipefish">Dwarf Angels, Large Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Eels, Filefish, Foxface / Rabbits, Groupers, Grunts / Sweetlips, Hawkfish, Hogfish, Lions / Scorpions, Parrotfish, Pseudochromis, Puffers, Sharks / Rays, Squirrelfish, Tangs / Surgeons, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only</string>
     <string name="list_caution_pipefish">Dartfish, Gobies, Jawfish, Invertebrates</string>
-    <string name="text_sharks">Sharks / Rays</string>
-    <string name="text_latin_sharks">Selachimorpha</string>
+    <string name="text_marine_shark">Sharks / Rays</string>
+    <string name="text_latin_marine_shark">Selachimorpha</string>
     <string name="list_compatible_marine_shark">none</string>
     <string name="list_incompatible_marine_shark">Dwarf Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Gobies, Jawfish, Hawkfish, Pseudochromis, Puffers, Seahorse / Pipefish, Triggerfish, Wrasse - Reef Safe, Invertebrates</string>
     <string name="list_caution_marine_shark">Large Angels, Eels, Foxface / Rabbits, Groupers, Grunts / Sweetlips, Hogfish, Lions / Scorpions, Parrotfish, Sharks / Rays, Squirrelfish, Tangs / Surgeons, Wrasse - Fish Only, Live Corals</string>
@@ -482,6 +482,6 @@
     <string name="list_caution_live_corals">Dwarf Angels, Large Angels, Butterflies, Filefish, Foxface / Rabbits, Puffers, Triggerfish</string>
     <string name="text_marine_invertebrates">Marine Invertebrates</string>
     <string name="text_photo_attributes">Photo Attributes</string>
-    <string name="text_welcome_compatibility">Wanting to get new fish but dunno if they will play nicely with what you already have? Just added is a quick reference tool to determine which fish types are compatible with which.\nNOTE:, this feature is in BETA. Mistakes may be present, but I am diligently working on everything!</string>
+    <string name="text_welcome_compatibility">Wanting to get new fish but do not know if they will play nicely with what you already have? Just added is a quick reference tool to determine which fish types are compatible with which.\nNOTE:, this feature is in BETA and NON-DEFINITIVE. Mistakes may be present, but I am diligently working on everything!</string>
     <string name="text_welcome_compatibility_title">NEW! Fish Compatibility Tool!</string>
 </resources>

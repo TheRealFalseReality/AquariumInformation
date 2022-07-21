@@ -29,6 +29,7 @@ fun TopBannerAd(
 	val deviceCurrentWidth = LocalConfiguration.current.screenWidthDp
 	val isInEditMode = LocalInspectionMode.current
 
+
 	Column {
 		if (isInEditMode) {
 			Text(
@@ -49,9 +50,11 @@ fun TopBannerAd(
 					modifier = modifier.fillMaxWidth(),
 					factory = { context ->
 						AdView(context).apply {
-							AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
-								context,
-								deviceCurrentWidth
+							setAdSize(
+								AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
+									context,
+									deviceCurrentWidth
+								)
 							)
 							adUnitId = context.getString(R.string.id_ad_banner)
 							loadAd(AdRequest.Builder().build())

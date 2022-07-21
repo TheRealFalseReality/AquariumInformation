@@ -55,9 +55,9 @@ class MarineDataSource {
 				R.drawable.batfish,
 				R.string.text_batfish,
 				R.string.text_latin_batfish,
-				R.string.list_compatible_betta,
-				R.string.list_caution_betta,
-				R.string.list_incompatible_betta
+				R.string.list_compatible_batfish,
+				R.string.list_caution_batfish,
+				R.string.list_incompatible_batfish
 			),
 			//Blennies
 			Marine(
@@ -227,7 +227,7 @@ class MarineDataSource {
 				R.string.text_lions,
 				R.string.text_latin_lions,
 				R.string.list_compatible_lions,
-				R.string.list_compatible_lions,
+				R.string.list_caution_lions,
 				R.string.list_incompatible_lions
 			),
 			//Parrotfish
@@ -269,11 +269,11 @@ class MarineDataSource {
 			//Sharks / Rays
 			Marine(
 				R.drawable.rays,
-				R.string.text_shark,
-				R.string.text_latin_shark,
-				R.string.list_compatible_shark,
-				R.string.list_caution_shark,
-				R.string.list_incompatible_shark
+				R.string.text_marine_shark,
+				R.string.text_latin_marine_shark,
+				R.string.list_compatible_marine_shark,
+				R.string.list_caution_marine_shark,
+				R.string.list_incompatible_marine_shark
 			),
 			//Squirrelfish
 			Marine(
