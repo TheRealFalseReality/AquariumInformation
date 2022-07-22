@@ -3,10 +3,11 @@ package cca.capitalcityaquatics.aquariuminfo.ui.converters
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -183,15 +184,18 @@ fun WaterHardnessDKH(
 			)
 		}
 		else -> {
-			Text(
-				text = stringResource(id = R.string.text_hardness_label, outBounds),
-				style = MaterialTheme.typography.h6
-			)
-			Spacer(modifier = Modifier.height(10.dp))
-			Image(
-				painter = painterResource(id = R.drawable.outdkh),
-				contentDescription = stringResource(id = R.string.text_hardness_very_hard)
-			)
+			Column {
+				Text(
+					text = stringResource(id = R.string.text_hardness_label, outBounds),
+					style = MaterialTheme.typography.labelMedium
+				)
+				Spacer(modifier = Modifier.height(10.dp))
+				Image(
+					painter = painterResource(id = R.drawable.outdkh),
+					contentDescription = stringResource(id = R.string.text_hardness_very_hard)
+				)
+			}
+
 		}
 	}
 	Spacer(modifier = Modifier.height(8.dp))

@@ -94,7 +94,7 @@ fun TankVolHexScreen(
 		ImageGeneral(
 			image = R.drawable.hexagonal_prism,
 			contDesc = R.string.text_title_hex,
-			modifier = Modifier
+			modifier = modifier
 				.padding(start = 15.dp)
 		)
 

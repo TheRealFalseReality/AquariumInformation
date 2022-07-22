@@ -5,16 +5,14 @@ import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ProcessLifecycleOwner
 import cca.capitalcityaquatics.aquariuminfo.R
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.appopen.AppOpenAd
 import java.util.*
 
-class MyApplication : Application(), Application.ActivityLifecycleCallbacks, LifecycleObserver {
+class AdvertViewAppOpen : Application(), Application.ActivityLifecycleCallbacks, LifecycleObserver {
 
 	private var appOpenAdManager: AppOpenAdManager? = null
 	private var currentActivity: Activity? = null
@@ -49,10 +47,10 @@ class MyApplication : Application(), Application.ActivityLifecycleCallbacks, Lif
 		fun onShowAdComplete()
 	}
 
-	@OnLifecycleEvent(Lifecycle.Event.ON_START)
-	private fun onMoveToForeGround() {
-		appOpenAdManager!!.showAdIfAvailable(currentActivity!!)
-	}
+//	@OnLifecycleEvent(Lifecycle.Event.ON_START)
+//	private fun onMoveToForeGround() {
+//		appOpenAdManager!!.showAdIfAvailable(currentActivity!!)
+//	}
 
 	override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
 		Log.d(TAG, "onActivityCreated")

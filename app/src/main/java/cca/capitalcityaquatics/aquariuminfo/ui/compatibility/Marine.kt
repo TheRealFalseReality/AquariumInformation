@@ -10,7 +10,6 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.material.Scaffold
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -27,11 +26,14 @@ import cca.capitalcityaquatics.aquariuminfo.data.compatibility.MarineDataSource
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.Shapes
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MarineScreen() {
 	AppTheme {
-		Scaffold {
+		Scaffold { innerPadding ->
 			MarineList(MarineDataSource().loadFishCardsMarine())
+			Modifier
+				.padding(innerPadding)
 		}
 	}
 }

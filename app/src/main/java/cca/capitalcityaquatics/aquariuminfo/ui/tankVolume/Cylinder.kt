@@ -75,7 +75,7 @@ fun TankVolCylScreen(
 			onQuartChanged = { quartCyl = it }
 		)
 
-		Spacer(modifier = Modifier.height(16.dp))
+		Spacer(modifier = modifier.height(16.dp))
 
 		EditNumberField2Hor(
 			label1 = R.string.field_label_diameter,

@@ -103,7 +103,7 @@ fun TankVolRecScreen(
 		ImageGeneral(
 			image = R.drawable.box_calc,
 			contDesc = R.string.text_title_rectangle,
-			modifier = Modifier
+			modifier = modifier
 				.padding(start = 46.dp)
 		)
 
