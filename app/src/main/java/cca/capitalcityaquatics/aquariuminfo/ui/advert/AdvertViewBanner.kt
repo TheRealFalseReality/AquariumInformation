@@ -14,7 +14,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import cca.capitalcityaquatics.aquariuminfo.AquariumApp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 import com.google.android.gms.ads.AdRequest
@@ -44,7 +43,6 @@ fun TopBannerAd(
 		} else {
 			Card(
 				colors = CardDefaults.cardColors(MaterialTheme.colorScheme.onBackground),
-				shape = Shapes.None
 			) {
 				AndroidView(
 					modifier = modifier.fillMaxWidth(),
@@ -101,6 +99,6 @@ fun InnerBannerAd(
 @Composable
 fun DefaultPreview3() {
 	AppTheme {
-		AquariumApp()
+//		AquariumApp()
 	}
 }

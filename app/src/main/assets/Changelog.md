@@ -20,6 +20,7 @@ All notable changes to this project will be documented in this file.
 * Ability to remove ADs with in*app billing
 * Marine tank types added to Water Hardness
 * Gesture Navigation
+* Nav Drawer
 
 ## [Issues]
 

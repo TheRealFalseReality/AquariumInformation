@@ -7,12 +7,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "cca.capitalcityaquatics.aquariuminfo"
         minSdk 29
-        targetSdk 32
+        targetSdk 33
         versionCode 19
         versionName "1.2.1"
 
@@ -61,8 +61,8 @@ dependencies {
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.0'
-    implementation 'androidx.activity:activity-compose:1.5.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
+    implementation 'androidx.activity:activity-compose:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
@@ -75,11 +75,11 @@ dependencies {
 
     //Added
     implementation 'com.google.android.gms:play-services-ads:21.1.0'
-    implementation 'androidx.navigation:navigation-compose:2.5.0'
-    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'androidx.navigation:navigation-compose:2.5.1'
+    implementation 'androidx.appcompat:appcompat:1.5.0'
 
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
     implementation "android.arch.lifecycle:common-java8:1.1.1"
 
     //Firebase

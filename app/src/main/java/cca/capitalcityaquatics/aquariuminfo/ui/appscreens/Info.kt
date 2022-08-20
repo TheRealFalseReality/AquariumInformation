@@ -11,6 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.ui.commonComposables.*
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 
 @Composable
 fun InfoScreen(
@@ -62,6 +63,7 @@ fun InfoScreen(
 			Spacer(modifier = Modifier.height(8.dp))
 
 			ChangelogCardContent()
+
 		}
 	}
 }
@@ -69,5 +71,7 @@ fun InfoScreen(
 @Preview(showBackground = true)
 @Composable
 fun InfoView() {
-	InfoScreen()
+	AppTheme() {
+		InfoScreen()
+	}
 }

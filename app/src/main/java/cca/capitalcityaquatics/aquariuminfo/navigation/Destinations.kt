@@ -104,7 +104,7 @@ object FishCompatMarine : Destinations {
 	override val title = "Marine"
 }
 
-
+val mainNavDrawer = listOf(FishCompat, TankVolume, Converters, Alkalinity, Salinity)
 val bottomNavRow = listOf(FishCompat, TankVolume, Converters, Alkalinity, Salinity)
 val tankVolumeNavRow = listOf(Rectangle, Cube, Cylinder, Hexagonal, BowFront)
 val convertersNavRow = listOf(Temperature, CarbonDioxide)

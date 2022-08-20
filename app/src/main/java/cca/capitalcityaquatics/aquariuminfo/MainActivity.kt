@@ -17,13 +17,11 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import cca.capitalcityaquatics.aquariuminfo.navigation.Home
-import cca.capitalcityaquatics.aquariuminfo.navigation.MainNavHost
-import cca.capitalcityaquatics.aquariuminfo.navigation.bottomNavRow
-import cca.capitalcityaquatics.aquariuminfo.navigation.navigateSingleTopTo
+import cca.capitalcityaquatics.aquariuminfo.navigation.*
 import cca.capitalcityaquatics.aquariuminfo.ui.advert.TopBannerAd
 import cca.capitalcityaquatics.aquariuminfo.ui.navigation.BottomNavBar
-import cca.capitalcityaquatics.aquariuminfo.ui.navigation.TopNavBar
+import cca.capitalcityaquatics.aquariuminfo.ui.navigation.NavDrawer
+import cca.capitalcityaquatics.aquariuminfo.ui.navigation.TopNavBarMenu
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AppTheme
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
@@ -38,7 +36,7 @@ class MainActivity : ComponentActivity() {
 		setContent {
 			AppTheme {
 
-				AquariumApp()
+				NavDrawer(mainNavDrawer)
 
 				MobileAds.initialize(this) {}
 
@@ -62,10 +60,11 @@ class MainActivity : ComponentActivity() {
 	}
 }
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AquariumApp() {
+fun AquariumApp(
+	onClick: () -> Unit
+) {
 	val navController = rememberNavController()
 	val currentBackStack by navController.currentBackStackEntryAsState()
 	val currentDestination = currentBackStack?.destination
@@ -77,7 +76,7 @@ fun AquariumApp() {
 		topBar = {
 			Column {
 				TopBannerAd()
-				TopNavBar(navController)
+				TopNavBarMenu(navController, onClick)
 			}
 		},
 		bottomBar = {
@@ -109,6 +108,6 @@ fun Activity.changeStatusBarColor(color: Int, isLight: Boolean) {
 @Composable
 fun DefaultPreview() {
 	AppTheme {
-		AquariumApp()
+		NavDrawer(mainNavDrawer)
 	}
 }
