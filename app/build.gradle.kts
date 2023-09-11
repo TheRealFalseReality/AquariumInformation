@@ -12,8 +12,8 @@ android {
 		applicationId = "com.example.aquariuminformation"
 		minSdk = 29
 		targetSdk = 34
-		versionCode = 1
-		versionName = "1.0"
+		versionCode = 20
+		versionName = "1.3"
 
 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 		vectorDrawables {
@@ -67,4 +67,5 @@ dependencies {
 	androidTestImplementation(libs.ui.test.junit4)
 	debugImplementation(libs.ui.tooling)
 	debugImplementation(libs.ui.test.manifest)
+
 }
