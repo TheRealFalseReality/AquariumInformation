@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection")
+
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
 	alias(libs.plugins.androidApplication)
@@ -13,7 +15,7 @@ android {
 		minSdk = 29
 		targetSdk = 34
 		versionCode = 20
-		versionName = "1.3"
+		versionName = "2"
 
 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 		vectorDrawables {

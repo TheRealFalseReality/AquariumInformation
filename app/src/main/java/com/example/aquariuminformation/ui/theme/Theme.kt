@@ -1,9 +1,9 @@
-package com.example.compose
+package com.example.aquariuminformation.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
 
@@ -75,7 +75,7 @@ private val DarkColors = darkColorScheme(
 @Composable
 fun AquariumInformationTheme(
   useDarkTheme: Boolean = isSystemInDarkTheme(),
-  content: @Composable() () -> Unit
+  content: @Composable () -> Unit
 ) {
   val colors = if (!useDarkTheme) {
     LightColors
@@ -85,6 +85,8 @@ fun AquariumInformationTheme(
 
   MaterialTheme(
     colorScheme = colors,
-    content = content
+    typography = Typography,
+    shapes = Shapes,
+    content = content,
   )
 }
