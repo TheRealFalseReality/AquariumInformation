@@ -1,6 +1,8 @@
 package com.example.aquariuminformation
 
+import android.app.Activity
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -11,8 +13,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,6 +26,9 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.content.ContextCompat
+import androidx.core.view.WindowInsetsControllerCompat
+import com.example.aquariuminformation.ui.commonui.AquariumAppBar
 import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
 import com.example.aquariuminformation.ui.theme.Shapes
 
@@ -35,33 +42,61 @@ class MainActivity : ComponentActivity() {
 					modifier = Modifier.fillMaxSize(),
 					color = MaterialTheme.colorScheme.background
 				) {
-					Column(modifier = Modifier
-						.fillMaxSize()
-						.padding(dimensionResource(id = R.dimen.padding_small))) {
-						Greeting()
-					}
+					AquariumInfoApp()
+
+					val color = MaterialTheme.colorScheme.background.value
+					changeStatusBarColor(
+						ContextCompat.getColor(
+							this,
+							R.color.status_bar
+						), false
+					)
 				}
 			}
 		}
 	}
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Greeting(
+fun AquariumInfoApp() {
+	Scaffold(
+		topBar = {
+			AquariumAppBar()
+		}
+	) {innerPadding ->
+		Column(
+			modifier = Modifier
+				.padding(innerPadding)
+				.fillMaxWidth()
+				.background(MaterialTheme.colorScheme.background),
+		) {
+			CardTest(
+				modifier = Modifier
+					.align(alignment = Alignment.CenterHorizontally)
+					.padding(dimensionResource(id = R.dimen.padding_small))
+			)
+		}
+	}
+}
+
+@Composable
+fun CardTest(
 	modifier: Modifier = Modifier
 ) {
 	Card(
 		modifier = modifier,
-		shape = Shapes.large
+		shape = Shapes.large,
 	) {
 		Column(
 			modifier = Modifier
-				.background(color = MaterialTheme.colorScheme.primary)
+				.background(color = MaterialTheme.colorScheme.primary),
+//			horizontalAlignment = Alignment.CenterHorizontally
 		) {
 			Row(
 				modifier = Modifier
-					.fillMaxWidth(),
-				verticalAlignment = Alignment.CenterVertically
+					.fillMaxWidth(fraction = 0.8f),
+				verticalAlignment = Alignment.CenterVertically,
 			) {
 				Icon(
 					painter = painterResource(
@@ -82,27 +117,37 @@ fun Greeting(
 	}
 }
 
-@Composable
-fun AquariumInfoApp(){
-	Column(modifier = Modifier
-		.fillMaxSize()
-		.padding(dimensionResource(id = R.dimen.padding_small))) {
-		Greeting()
-	}
-}
-
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
 	AquariumInformationTheme {
-		AquariumInfoApp()
-	}
+		Column(
+			modifier = Modifier
+				.fillMaxSize()
+				.background(color = MaterialTheme.colorScheme.background)
+		) {
+			AquariumInfoApp()
+		}	}
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingDarkPreview() {
 	AquariumInformationTheme(useDarkTheme = true) {
-		AquariumInfoApp()
+		Column(
+			modifier = Modifier
+				.fillMaxSize()
+				.background(color = MaterialTheme.colorScheme.background)
+		) {
+			AquariumInfoApp()
+		}
+
 	}
+}
+
+fun Activity.changeStatusBarColor(color: Int, isLight: Boolean) {
+	window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+	window.statusBarColor = color
+
+	WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = isLight
 }
