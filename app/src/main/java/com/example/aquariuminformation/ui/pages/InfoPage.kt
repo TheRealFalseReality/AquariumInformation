@@ -14,23 +14,25 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.aquariuminformation.R
 import com.example.aquariuminformation.data.Home
+import com.example.aquariuminformation.data.Info
 import com.example.aquariuminformation.data.homeData
+import com.example.aquariuminformation.data.infoData
 import com.example.aquariuminformation.ui.commonui.CardTitle
 import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @Composable
-fun HomePage(){
-	HomeCards()
+fun InfoPage(){
+	InfoCards()
 }
 
 @Composable
-fun HomeCards(
+fun InfoCards(
 	modifier: Modifier = Modifier
 ){
 	Column(modifier = modifier) {
 		LazyColumn(content = {
-			items(homeData) {
-				HomeItem(
+			items(infoData) {
+				InfoItem(
 					dataSource = it,
 					modifier = Modifier.padding(dimensionResource(R.dimen.padding_small)),
 				)
@@ -41,9 +43,9 @@ fun HomeCards(
 
 
 @Composable
-fun HomeItem(
+fun InfoItem(
 	modifier: Modifier = Modifier,
-	dataSource: Home
+	dataSource: Info
 ) {
 	Column(modifier = modifier) {
 		CardTitle(title = dataSource.title, body = dataSource.body)
@@ -53,14 +55,14 @@ fun HomeItem(
 @ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
-fun HomePreview(){
+fun InfoPreview(){
 	AquariumInformationTheme {
 		Column(
 			modifier = Modifier
 				.fillMaxSize()
 				.background(color = MaterialTheme.colorScheme.surface)
 		){
-			HomePage()
+			InfoPage()
 		}
 	}
 }
@@ -68,7 +70,7 @@ fun HomePreview(){
 @ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
-fun HomePreviewDark(
+fun InfoPreviewDark(
 ){
 	AquariumInformationTheme(useDarkTheme = true) {
 		Column(
@@ -76,7 +78,7 @@ fun HomePreviewDark(
 				.fillMaxSize()
 				.background(color = MaterialTheme.colorScheme.surface)
 		){
-			HomePage()
+			InfoPage()
 		}
 	}
 }

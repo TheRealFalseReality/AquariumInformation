@@ -1,5 +1,6 @@
 package com.example.aquariuminformation.ui.commonui
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -23,6 +24,28 @@ import com.example.aquariuminformation.R
 import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
 import com.example.aquariuminformation.ui.theme.Shapes
 
+@Composable
+fun CardTitle(
+	modifier: Modifier = Modifier,
+	@StringRes title: Int,
+	@StringRes body: Int,
+){
+	Column(
+		modifier = modifier
+	) {
+		HeaderTextLarge(
+			text = stringResource(title),
+			color = MaterialTheme.colorScheme.onSurface,
+		)
+		SingleWideCard(
+			content = {
+				CardBodyText(
+					text = stringResource(body)
+				)
+			}
+		)
+	}
+}
 
 @Composable
 fun SingleWideCard(
@@ -157,17 +180,15 @@ fun HeaderTextLarge(
 @ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
-fun SingleCardPreview(){
+fun CardTitlePreview(){
 	AquariumInformationTheme {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		){
-			SingleWideCard (
-				content = {
-					CardHeaderText(text =  stringResource(id = R.string.app_name))
-					CardBodyText(text = stringResource(id = R.string.text_welcome))
-				}
+			CardTitle(
+				title = R.string.app_name,
+				body = R.string.text_welcome
 			)
 		}
 	}
@@ -176,18 +197,16 @@ fun SingleCardPreview(){
 @ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
-fun SingleCardPreviewDark(
+fun CardTitlePreviewDark(
 ){
 	AquariumInformationTheme(useDarkTheme = true) {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		){
-			SingleWideCard (
-				content = {
-					CardHeaderText(text = stringResource(id = R.string.app_name))
-					CardBodyText(text = stringResource(id = R.string.text_welcome))
-				}
+			CardTitle(
+				title = R.string.app_name,
+				body = R.string.text_welcome
 			)
 		}
 	}
