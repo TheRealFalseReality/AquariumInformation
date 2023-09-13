@@ -1,6 +1,5 @@
 package com.example.aquariuminformation.navigation
 
-import android.health.connect.datatypes.units.Temperature
 import com.example.aquariuminformation.R
 
 interface Destinations {

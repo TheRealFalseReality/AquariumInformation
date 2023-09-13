@@ -1,3 +1,5 @@
+@file:Suppress("PrivatePropertyName")
+
 package com.example.aquariuminformation.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
