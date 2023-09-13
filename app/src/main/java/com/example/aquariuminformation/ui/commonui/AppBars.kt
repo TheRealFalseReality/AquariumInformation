@@ -46,10 +46,9 @@ fun AquariumAppBar(
 						navController.navigateSingleTopTo(Home.route)
 					},
 			) {
-				HeaderText(
+				HeaderTextLarge(
 					text = stringResource(id = R.string.app_name),
 					color = MaterialTheme.colorScheme.onSurfaceVariant,
-					style = MaterialTheme.typography.titleLarge,
 				)
 
 			}

@@ -25,7 +25,7 @@ import com.example.aquariuminformation.ui.theme.Shapes
 
 
 @Composable
-fun SingleCard(
+fun SingleWideCard(
 	shape: Shape = Shapes.extraLarge,
 	backgroundCardColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color = MaterialTheme.colorScheme.onBackground,
@@ -44,7 +44,6 @@ fun SingleCard(
 			containerColor = backgroundCardColor,
 			contentColor = contentColor
 		),
-//		border = BorderStroke(1.dp, MaterialTheme.colorScheme.onBackground)
 		elevation = CardDefaults.cardElevation(
 			defaultElevation = dimensionResource(id = R.dimen.elevation_medium)
 		)
@@ -77,7 +76,7 @@ fun CardHeaderText(
 fun CardBodyText(
 	text: String,
 	style: TextStyle = MaterialTheme.typography.bodyMedium,
-	textAlign: TextAlign = TextAlign.Start
+	textAlign: TextAlign = TextAlign.Center
 ){
 	Text(
 		modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small)),
@@ -88,10 +87,10 @@ fun CardBodyText(
 }
 
 @Composable
-fun HeaderText(
+fun HeaderTextLarge(
 	text: String,
 	color: Color = MaterialTheme.colorScheme.onBackground,
-	style: TextStyle = MaterialTheme.typography.titleMedium,
+	style: TextStyle = MaterialTheme.typography.titleLarge,
 	textAlign: TextAlign = TextAlign.Start
 ){
 	Text(
@@ -103,6 +102,23 @@ fun HeaderText(
 		textAlign = textAlign,
 	)
 }
+
+//@Composable
+//fun HeaderText(
+//	text: String,
+//	color: Color = MaterialTheme.colorScheme.onBackground,
+//	style: TextStyle = MaterialTheme.typography.titleMedium,
+//	textAlign: TextAlign = TextAlign.Center
+//){
+//	Text(
+//		modifier = Modifier
+//			.padding(start = dimensionResource(id = R.dimen.padding_small)),
+//		text = text,
+//		color = color,
+//		style = style,
+//		textAlign = textAlign,
+//	)
+//}
 
 //@Composable
 //fun BodyText(
@@ -147,7 +163,7 @@ fun SingleCardPreview(){
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		){
-			SingleCard (
+			SingleWideCard (
 				content = {
 					CardHeaderText(text =  stringResource(id = R.string.app_name))
 					CardBodyText(text = stringResource(id = R.string.text_welcome))
@@ -167,7 +183,7 @@ fun SingleCardPreviewDark(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		){
-			SingleCard (
+			SingleWideCard (
 				content = {
 					CardHeaderText(text = stringResource(id = R.string.app_name))
 					CardBodyText(text = stringResource(id = R.string.text_welcome))

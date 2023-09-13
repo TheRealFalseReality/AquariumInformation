@@ -6,8 +6,8 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.aquariuminformation.ui.pages.HomePage
 import com.example.aquariuminformation.ui.pages.InformationPage
-import com.example.aquariuminformation.ui.pages.WelcomePage
 
 @Composable
 fun AquariumNavHost(
@@ -20,7 +20,7 @@ fun AquariumNavHost(
 		modifier = modifier,
 	){
 		composable(route = Home.route) {
-			WelcomePage()
+			HomePage()
 		}
 		composable(route = Information.route){
 			InformationPage()
