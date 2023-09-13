@@ -39,8 +39,14 @@ import com.example.aquariuminformation.ui.theme.Shapes
 
 @Composable
 fun SingleCard(
-	modifier: Modifier = Modifier,
-	shape: Shape = Shapes.medium,
+	modifier: Modifier = Modifier
+		.padding(
+			top= dimensionResource(id = R.dimen.padding_small),
+			bottom = dimensionResource(id = R.dimen.padding_small),
+			start = dimensionResource(id = R.dimen.padding_medium),
+			end = dimensionResource(id = R.dimen.padding_medium)
+		),
+	shape: Shape = Shapes.extraLarge,
 	backgroundCardColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color = MaterialTheme.colorScheme.onBackground,
 	content: @Composable ColumnScope.() -> Unit,
@@ -69,7 +75,7 @@ fun SingleCard(
 
 @Composable
 fun CardHeaderText(
-	modifier: Modifier = Modifier,
+	modifier: Modifier = Modifier.padding(start = dimensionResource(id = R.dimen.padding_small)),
 	text: String,
 	style: TextStyle = MaterialTheme.typography.titleMedium,
 	textAlign: TextAlign = TextAlign.Start
@@ -84,7 +90,7 @@ fun CardHeaderText(
 
 @Composable
 fun CardBodyText(
-	modifier: Modifier = Modifier,
+	modifier: Modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small)),
 	text: String,
 	style: TextStyle = MaterialTheme.typography.bodyMedium,
 	textAlign: TextAlign = TextAlign.Start
@@ -99,7 +105,7 @@ fun CardBodyText(
 
 @Composable
 fun HeaderText(
-	modifier: Modifier = Modifier,
+	modifier: Modifier = Modifier.padding(start = dimensionResource(id = R.dimen.padding_small)),
 	text: String,
 	color: Color = MaterialTheme.colorScheme.onBackground,
 	style: TextStyle = MaterialTheme.typography.titleMedium,
@@ -107,23 +113,6 @@ fun HeaderText(
 ){
 	Text(
 		modifier = modifier,
-		text = text,
-		color = color,
-		style = style,
-		textAlign = textAlign,
-	)
-}
-
-@Composable
-fun HeaderTextLarge(
-	modifier: Modifier = Modifier,
-	text: String,
-	color: Color = MaterialTheme.colorScheme.onBackground,
-	style: TextStyle = MaterialTheme.typography.titleLarge,
-	textAlign: TextAlign = TextAlign.Start
-){
-	Text(
-		modifier = modifier ,
 		text = text,
 		color = color,
 		style = style,
