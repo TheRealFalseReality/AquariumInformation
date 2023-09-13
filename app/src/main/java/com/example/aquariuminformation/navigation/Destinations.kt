@@ -1,21 +1,24 @@
 package com.example.aquariuminformation.navigation
 
-import com.example.aquariuminformation.R
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.ui.graphics.vector.ImageVector
 
 interface Destinations {
-	val icon: Int
+	val icon: ImageVector
 	val route: String
 	val title: String
 }
 
 object Home : Destinations {
-	override val icon = R.drawable.ic_launcher_foreground
+	override val icon = Icons.Filled.Home
 	override val route = "home"
 	override val title = "Home"
 }
 
 object Information : Destinations {
-	override val icon = R.drawable.ic_launcher_foreground
+	override val icon = Icons.Filled.Info
 	override val route = "info"
 	override val title = "Information"
 }

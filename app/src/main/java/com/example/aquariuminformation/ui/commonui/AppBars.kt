@@ -9,6 +9,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -80,7 +82,11 @@ fun BottomNavBar(
 			NavigationBarItem(
 				selected = currentScreen == screen,
 				onClick = { onTabSelected(screen) },
-				icon = { screen.icon }
+				icon = { Icon(screen.icon, screen.title) },
+				label = { Text(screen.title) },
+				colors = NavigationBarItemDefaults.colors(
+					selectedTextColor = MaterialTheme.colorScheme.onSurface
+				)
 			)
 		}
 	}
