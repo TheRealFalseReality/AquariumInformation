@@ -13,13 +13,13 @@ object Home : Destinations {
 	override val route = "home"
 	override val title = "Home"
 }
-//
-//object Information : Destinations {
-//	override val icon = R.drawable.information
-//	override val route = "info"
-//	override val title = "Information"
-//}
-//
+
+object Information : Destinations {
+	override val icon = R.drawable.ic_launcher_foreground
+	override val route = "info"
+	override val title = "Information"
+}
+
 //object Salinity : Destinations {
 //	override val icon = R.drawable.salinity
 //	override val route = "salinity"
@@ -104,7 +104,7 @@ object Home : Destinations {
 //	override val title = "Marine"
 //}
 
-val bottomNavRow = listOf(Home)
+val bottomNavRow = listOf(Home, Information)
 //val mainNavDrawer = listOf(FishCompat, TankVolume, Converters, Alkalinity, Salinity)
 //val bottomNavRow = listOf(FishCompat, TankVolume, Converters, Alkalinity, Salinity)
 //val tankVolumeNavRow = listOf(Rectangle, Cube, Cylinder, Hexagonal, BowFront)

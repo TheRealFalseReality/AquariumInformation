@@ -77,6 +77,61 @@ fun WelcomePage(
 	}
 }
 
+@Composable
+fun InformationPage(
+	modifier: Modifier = Modifier,
+){
+	Column(
+		modifier = modifier,
+		horizontalAlignment = CenterHorizontally
+	) {
+		HeaderText(
+			text = "Information",
+			style = MaterialTheme.typography.displaySmall,
+			color = MaterialTheme.colorScheme.onSurface,
+		)
+		Column(
+			modifier = Modifier.verticalScroll(rememberScrollState()),
+		) {
+			HeaderText(
+				text = "About",
+				color = MaterialTheme.colorScheme.onSurface,
+				style = MaterialTheme.typography.titleLarge
+			)
+			SingleCard(
+				content = {
+					CardBodyText(
+						text = stringResource(id = R.string.text_welcome),
+						textAlign = TextAlign.Center
+					)
+				}
+			)
+			Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+			HeaderText(
+				text = stringResource(id = R.string.text_title_info),
+				color = MaterialTheme.colorScheme.onSurface,
+				style = MaterialTheme.typography.titleLarge
+			)
+			SingleCard(
+				content = {
+					CardBodyText(
+						text = stringResource(id = R.string.text_info_1),
+						textAlign = TextAlign.Center
+					)
+				}
+			)
+			SingleCard(
+				content = {
+					CardBodyText(
+						text = stringResource(id = R.string.text_welcome),
+						textAlign = TextAlign.Center
+					)
+				}
+			)
+		}
+	}
+}
+
 @ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable

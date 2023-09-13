@@ -7,16 +7,22 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.aquariuminformation.R
+import com.example.aquariuminformation.navigation.Destinations
 import com.example.aquariuminformation.navigation.Home
+import com.example.aquariuminformation.navigation.bottomNavRow
 import com.example.aquariuminformation.navigation.navigateSingleTopTo
 import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
 
@@ -63,6 +69,23 @@ fun AquariumAppBar(
 	)
 }
 
+@Composable
+fun BottomNavBar(
+	allScreens: List<Destinations>,
+	onTabSelected: (Destinations) -> Unit,
+	currentScreen: Destinations,
+){
+	NavigationBar {
+		allScreens.forEach { screen ->
+			NavigationBarItem(
+				selected = currentScreen == screen,
+				onClick = { onTabSelected(screen) },
+				icon = { screen.icon }
+			)
+		}
+	}
+}
+
 @ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
@@ -79,5 +102,46 @@ fun TopAppBarPreviewDark(
 ){
 	AquariumInformationTheme(useDarkTheme = true) {
 		AquariumAppBar(navController = rememberNavController())
+	}
+}
+
+@ExperimentalMaterial3Api
+@Preview(showBackground = true)
+@Composable
+fun BottomNavBarPreview(){
+	AquariumInformationTheme {
+		val navController = rememberNavController()
+		val currentBackStack by navController.currentBackStackEntryAsState()
+		val currentDestination = currentBackStack?.destination
+		BottomNavBar(
+			allScreens = bottomNavRow,
+			onTabSelected = { newScreen ->
+				navController.navigateSingleTopTo(newScreen.route)
+			},
+			currentScreen = bottomNavRow.find {
+				it.route == currentDestination?.route
+			} ?: Home
+		)
+	}
+}
+
+@ExperimentalMaterial3Api
+@Preview(showBackground = true)
+@Composable
+fun BottomNavBarPreviewDark(
+){
+	AquariumInformationTheme(useDarkTheme = true) {
+		val navController = rememberNavController()
+		val currentBackStack by navController.currentBackStackEntryAsState()
+		val currentDestination = currentBackStack?.destination
+		BottomNavBar(
+			allScreens = bottomNavRow,
+			onTabSelected = { newScreen ->
+				navController.navigateSingleTopTo(newScreen.route)
+			},
+			currentScreen = bottomNavRow.find {
+				it.route == currentDestination?.route
+			} ?: Home
+		)
 	}
 }

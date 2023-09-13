@@ -24,7 +24,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.aquariuminformation.navigation.AquariumNavHost
 import com.example.aquariuminformation.navigation.Home
 import com.example.aquariuminformation.navigation.bottomNavRow
+import com.example.aquariuminformation.navigation.navigateSingleTopTo
 import com.example.aquariuminformation.ui.commonui.AquariumAppBar
+import com.example.aquariuminformation.ui.commonui.BottomNavBar
 import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
 
 class MainActivity : ComponentActivity() {
@@ -66,7 +68,15 @@ fun AquariumInfoApp() {
 		topBar = {
 			AquariumAppBar(navController = navController)
 		},
-		bottomBar = {}
+		bottomBar = {
+			BottomNavBar(
+				allScreens = bottomNavRow,
+				onTabSelected = { newScreen ->
+					navController.navigateSingleTopTo(newScreen.route)
+				},
+				currentScreen = currentScreen,
+			)
+		}
 	) { innerPadding ->
 		AquariumNavHost(
 			navController = navController,
