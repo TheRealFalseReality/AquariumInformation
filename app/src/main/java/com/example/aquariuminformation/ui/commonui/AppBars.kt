@@ -2,6 +2,8 @@ package com.example.aquariuminformation.ui.commonui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -24,6 +26,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.aquariuminformation.R
 import com.example.aquariuminformation.navigation.Destinations
 import com.example.aquariuminformation.navigation.Home
+import com.example.aquariuminformation.navigation.Information
 import com.example.aquariuminformation.navigation.bottomNavRow
 import com.example.aquariuminformation.navigation.navigateSingleTopTo
 import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
@@ -46,7 +49,7 @@ fun AquariumAppBar(
 				HeaderText(
 					text = stringResource(id = R.string.app_name),
 					color = MaterialTheme.colorScheme.onSurfaceVariant,
-					style = MaterialTheme.typography.titleLarge
+					style = MaterialTheme.typography.titleLarge,
 				)
 
 			}
@@ -68,6 +71,19 @@ fun AquariumAppBar(
 				)
 			}
 		},
+		actions = {
+			IconButton(
+				onClick = {
+					navController.navigateSingleTopTo(Information.route)
+				},
+			) {
+				Icon(
+					imageVector = Icons.Filled.Info,
+					contentDescription = stringResource(R.string.text_title_info),
+					tint = MaterialTheme.colorScheme.onSurfaceVariant
+				)
+			}
+		}
 	)
 }
 
@@ -85,7 +101,10 @@ fun BottomNavBar(
 				icon = { Icon(screen.icon, screen.title) },
 				label = { Text(screen.title) },
 				colors = NavigationBarItemDefaults.colors(
-					selectedTextColor = MaterialTheme.colorScheme.onSurface
+					selectedTextColor = MaterialTheme.colorScheme.secondary,
+					selectedIconColor = MaterialTheme.colorScheme.secondary,
+					unselectedIconColor = MaterialTheme.colorScheme.onSurface,
+					unselectedTextColor = MaterialTheme.colorScheme.onSurface,
 				)
 			)
 		}

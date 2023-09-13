@@ -10,6 +10,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
@@ -24,10 +25,9 @@ import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @Composable
 fun WelcomePage(
-	modifier: Modifier = Modifier,
 ){
 	Column(
-		modifier = modifier,
+		modifier = Modifier.verticalScroll(rememberScrollState()),
 		horizontalAlignment = CenterHorizontally
 	) {
 		HeaderText(
@@ -36,7 +36,7 @@ fun WelcomePage(
 			color = MaterialTheme.colorScheme.onSurface,
 		)
 		Column(
-			modifier = Modifier.verticalScroll(rememberScrollState()),
+			modifier = Modifier.align(alignment = Alignment.Start),
 		) {
 			HeaderText(
 				text = "About",
@@ -91,7 +91,7 @@ fun InformationPage(
 			color = MaterialTheme.colorScheme.onSurface,
 		)
 		Column(
-			modifier = Modifier.verticalScroll(rememberScrollState()),
+			modifier = Modifier.align(alignment = Alignment.Start)
 		) {
 			HeaderText(
 				text = "About",
