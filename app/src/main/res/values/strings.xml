@@ -482,6 +482,7 @@
     <string name="list_caution_live_corals" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Butterflies, Filefish, Foxface / Rabbits, Puffers, Triggerfish</string>
     <string name="text_marine_invertebrates" tools:ignore="UnusedResources">Marine Invertebrates</string>
     <string name="text_photo_attributes" tools:ignore="UnusedResources">Photo Attributes</string>
+    <string name="text_welcome_compatibility_2" tools:ignore="UnusedResources">Wanting to get new fish but do not know if they will play nicely with what you already have?</string>
     <string name="text_welcome_compatibility" tools:ignore="UnusedResources">Wanting to get new fish but do not know if they will play nicely with what you already have? Just added is a quick reference tool to determine which fish types are compatible with which.\nNOTE:, this feature is in BETA and NON-DEFINITIVE. Mistakes may be present, but I am diligently working on everything!</string>
     <string name="text_welcome_compatibility_title" tools:ignore="UnusedResources">NEW! Fish Compatibility Tool!</string>
     <string name="about">About</string>

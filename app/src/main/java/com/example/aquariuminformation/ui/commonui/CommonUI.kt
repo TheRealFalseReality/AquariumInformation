@@ -2,16 +2,22 @@ package com.example.aquariuminformation.ui.commonui
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
@@ -25,31 +31,72 @@ import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
 import com.example.aquariuminformation.ui.theme.Shapes
 
 @Composable
-fun CardTitle(
+fun TitleWideCard(
 	modifier: Modifier = Modifier,
 	@StringRes title: Int,
 	@StringRes body: Int,
+	contentColor: Color = MaterialTheme.colorScheme.onBackground,
+	backgroundCardColor: Color = MaterialTheme.colorScheme.background
 ){
 	Column(
-		modifier = modifier
+		modifier = modifier,
 	) {
 		HeaderTextLarge(
 			text = stringResource(title),
 			color = MaterialTheme.colorScheme.onSurface,
 		)
-		SingleWideCard(
-			content = {
-				CardBodyText(
-					text = stringResource(body)
-				)
-			}
-		)
+		Column(
+			modifier = Modifier.fillMaxWidth(),
+			horizontalAlignment = Alignment.CenterHorizontally
+		) {
+			SingleWideCard(
+				content = {
+					BodyTextCard(
+						text = stringResource(body)
+					)
+				},
+				backgroundCardColor = backgroundCardColor,
+				contentColor = contentColor,
+			)
+		}
 	}
 }
 
 @Composable
+fun FishComCard(){
+	SingleWideCard(
+		backgroundCardColor = MaterialTheme.colorScheme.tertiary,
+		contentColor = MaterialTheme.colorScheme.onTertiary
+	) {
+
+			Row(
+				modifier = Modifier.fillMaxWidth(),
+				verticalAlignment = Alignment.CenterVertically,
+				horizontalArrangement = Arrangement.Center
+			) {
+				Icon(
+					modifier = Modifier
+						.padding(end = dimensionResource(id = R.dimen.padding_large)),
+					imageVector = Icons.Filled.Star, 
+					contentDescription = null)
+				Column(
+					horizontalAlignment = Alignment.CenterHorizontally
+				) {
+					HeaderTextCard(
+						text = stringResource(id = R.string.text_welcome_compatibility_title),
+					)
+					BodyTextCard(
+						text = stringResource(id =  R.string.text_welcome_compatibility_2)
+					)
+				}
+			}
+	}
+}
+
+
+@Composable
 fun SingleWideCard(
-	shape: Shape = Shapes.extraLarge,
+	shape: Shape = Shapes.large,
 	backgroundCardColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color = MaterialTheme.colorScheme.onBackground,
 	content: @Composable ColumnScope.() -> Unit,
@@ -57,11 +104,12 @@ fun SingleWideCard(
 	ElevatedCard(
 		modifier = Modifier
 			.padding(
-				top= dimensionResource(id = R.dimen.padding_small),
+				top = dimensionResource(id = R.dimen.padding_small),
 				bottom = dimensionResource(id = R.dimen.padding_small),
-				start = dimensionResource(id = R.dimen.padding_medium),
-				end = dimensionResource(id = R.dimen.padding_medium)
-			),
+//				start = dimensionResource(id = R.dimen.padding_medium),
+//				end = dimensionResource(id = R.dimen.padding_medium)
+			)
+			.fillMaxWidth(fraction = 0.9f),
 		shape = shape,
 		colors = CardDefaults.cardColors(
 			containerColor = backgroundCardColor,
@@ -73,8 +121,7 @@ fun SingleWideCard(
 	) {
 		Column(
 			modifier = Modifier
-				.padding(dimensionResource(id = R.dimen.padding_small))
-				.fillMaxWidth(),
+				.padding(dimensionResource(id = R.dimen.padding_small)),
 		) {
 			content()
 		}
@@ -82,10 +129,10 @@ fun SingleWideCard(
 }
 
 @Composable
-fun CardHeaderText(
+fun HeaderTextCard(
 	text: String,
 	style: TextStyle = MaterialTheme.typography.titleMedium,
-	textAlign: TextAlign = TextAlign.Start
+	textAlign: TextAlign = TextAlign.Center
 ){
 	Text(
 		modifier = Modifier.padding(start = dimensionResource(id = R.dimen.padding_small)),
@@ -96,7 +143,7 @@ fun CardHeaderText(
 }
 
 @Composable
-fun CardBodyText(
+fun BodyTextCard(
 	text: String,
 	style: TextStyle = MaterialTheme.typography.bodyMedium,
 	textAlign: TextAlign = TextAlign.Center
@@ -186,7 +233,7 @@ fun CardTitlePreview(){
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		){
-			CardTitle(
+			TitleWideCard(
 				title = R.string.app_name,
 				body = R.string.text_welcome
 			)
@@ -204,7 +251,7 @@ fun CardTitlePreviewDark(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		){
-			CardTitle(
+			TitleWideCard(
 				title = R.string.app_name,
 				body = R.string.text_welcome
 			)

@@ -13,11 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.aquariuminformation.R
-import com.example.aquariuminformation.data.Home
 import com.example.aquariuminformation.data.Info
-import com.example.aquariuminformation.data.homeData
 import com.example.aquariuminformation.data.infoData
-import com.example.aquariuminformation.ui.commonui.CardTitle
+import com.example.aquariuminformation.ui.commonui.TitleWideCard
 import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @Composable
@@ -48,7 +46,7 @@ fun InfoItem(
 	dataSource: Info
 ) {
 	Column(modifier = modifier) {
-		CardTitle(title = dataSource.title, body = dataSource.body)
+		TitleWideCard(title = dataSource.title, body = dataSource.body)
 	}
 }
 
