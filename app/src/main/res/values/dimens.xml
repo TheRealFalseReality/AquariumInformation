@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <dimen name="padding_small" tools:ignore="UnusedResources">8dp</dimen>
-    <dimen name="padding_med" tools:ignore="UnusedResources">18dp</dimen>
-    <dimen name="padding_large" tools:ignore="UnusedResources">26dp</dimen>
+<resources>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_large">24dp</dimen>
     <dimen name="icon_size">64dp</dimen>
-    <dimen name="padding_verySmall" tools:ignore="UnusedResources">4dp</dimen>
+    <dimen name="padding_verySmall">4dp</dimen>
+    <dimen name="elevation_small">4dp</dimen>
+    <dimen name="elevation_medium">8dp</dimen>
+    <dimen name="elevation_large">16dp</dimen>
 </resources>

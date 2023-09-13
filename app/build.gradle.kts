@@ -70,4 +70,7 @@ dependencies {
 	debugImplementation(libs.ui.tooling)
 	debugImplementation(libs.ui.test.manifest)
 
+	// Jetpack Compose Navigation
+	implementation(libs.androidx.navigation.compose)
+
 }

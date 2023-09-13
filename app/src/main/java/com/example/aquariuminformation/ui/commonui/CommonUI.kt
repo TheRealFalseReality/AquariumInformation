@@ -1,78 +1,205 @@
 package com.example.aquariuminformation.ui.commonui
 
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.aquariuminformation.R
 import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
+import com.example.aquariuminformation.ui.theme.Shapes
 
-@ExperimentalMaterial3Api
+
 @Composable
-fun AquariumAppBar(
+fun SingleCard(
 	modifier: Modifier = Modifier,
-//	navController: NavHostController,
-//	onClick: () -> Unit
-) {
-	CenterAlignedTopAppBar(
+	shape: Shape = Shapes.medium,
+	backgroundCardColor: Color = MaterialTheme.colorScheme.background,
+	contentColor: Color = MaterialTheme.colorScheme.onBackground,
+	content: @Composable ColumnScope.() -> Unit,
+){
+	ElevatedCard(
 		modifier = modifier,
-		title = { 
-			Row(
-				verticalAlignment = Alignment.CenterVertically
-			) {
-				Icon(
-					painter = painterResource(id = R.drawable.ic_launcher_foreground),
-					contentDescription = null,
-					modifier = Modifier
-						.size(dimensionResource(R.dimen.icon_size)),
-					tint = MaterialTheme.colorScheme.onSurfaceVariant
-				)
-				Text(
-					text = stringResource(id = R.string.app_name),
-					color = MaterialTheme.colorScheme.onSurfaceVariant,
-					style = MaterialTheme.typography.titleLarge
-				)
-			}
-		},
-		colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-			containerColor = MaterialTheme.colorScheme.surfaceVariant
+		shape = shape,
+		colors = CardDefaults.cardColors(
+			containerColor = backgroundCardColor,
+			contentColor = contentColor
+		),
+//		border = BorderStroke(1.dp, MaterialTheme.colorScheme.onBackground)
+		elevation = CardDefaults.cardElevation(
+			defaultElevation = dimensionResource(id = R.dimen.elevation_medium)
 		)
+	) {
+		Column(
+			modifier = Modifier
+				.padding(dimensionResource(id = R.dimen.padding_small))
+				.fillMaxWidth(),
+		) {
+			content()
+		}
+	}
+}
+
+@Composable
+fun CardHeaderText(
+	modifier: Modifier = Modifier,
+	text: String,
+	style: TextStyle = MaterialTheme.typography.titleMedium,
+	textAlign: TextAlign = TextAlign.Start
+){
+	Text(
+		modifier = modifier,
+		text = text,
+		style = style,
+		textAlign = textAlign,
 	)
 }
 
+@Composable
+fun CardBodyText(
+	modifier: Modifier = Modifier,
+	text: String,
+	style: TextStyle = MaterialTheme.typography.bodyMedium,
+	textAlign: TextAlign = TextAlign.Start
+){
+	Text(
+		modifier = modifier,
+		text = text,
+		style = style,
+		textAlign = textAlign,
+	)
+}
 
+@Composable
+fun HeaderText(
+	modifier: Modifier = Modifier,
+	text: String,
+	color: Color = MaterialTheme.colorScheme.onBackground,
+	style: TextStyle = MaterialTheme.typography.titleMedium,
+	textAlign: TextAlign = TextAlign.Start
+){
+	Text(
+		modifier = modifier,
+		text = text,
+		color = color,
+		style = style,
+		textAlign = textAlign,
+	)
+}
+
+@Composable
+fun HeaderTextLarge(
+	modifier: Modifier = Modifier,
+	text: String,
+	color: Color = MaterialTheme.colorScheme.onBackground,
+	style: TextStyle = MaterialTheme.typography.titleLarge,
+	textAlign: TextAlign = TextAlign.Start
+){
+	Text(
+		modifier = modifier ,
+		text = text,
+		color = color,
+		style = style,
+		textAlign = textAlign,
+	)
+}
+
+@Composable
+fun BodyText(
+	modifier: Modifier = Modifier,
+	text: String,
+	color: Color = MaterialTheme.colorScheme.onBackground,
+	style: TextStyle = MaterialTheme.typography.bodyMedium,
+	textAlign: TextAlign = TextAlign.Start
+){
+	Text(
+		modifier = modifier,
+		text = text,
+		color = color,
+		style = style,
+		textAlign = textAlign,
+	)
+}
+
+@Composable
+fun GenericText(
+	modifier: Modifier = Modifier,
+	text: Int,
+	color: Color = MaterialTheme.colorScheme.onBackground,
+	style: TextStyle = MaterialTheme.typography.bodyMedium,
+	textAlign: TextAlign = TextAlign.Start
+){
+	Text(
+		modifier = modifier,
+		text = stringResource(id = text),
+		color = color,
+		style = style,
+		textAlign = textAlign,
+	)
+}
 
 @ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
-fun TopAppBarPreview(){
+fun SingleCardPreview(){
 	AquariumInformationTheme {
-		AquariumAppBar()
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.background)
+		){
+			SingleCard (
+				content = {
+					CardHeaderText(text =  stringResource(id = R.string.app_name))
+					CardBodyText(text = stringResource(id = R.string.text_welcome))
+				}
+			)
+		}
 	}
 }
 
 @ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
-fun TopAppBarPreviewDark(
+fun SingleCardPreviewDark(
 ){
 	AquariumInformationTheme(useDarkTheme = true) {
-		AquariumAppBar()
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.background)
+		){
+			SingleCard (
+				content = {
+					CardHeaderText(text = stringResource(id = R.string.app_name))
+					CardBodyText(text = stringResource(id = R.string.text_welcome))
+				}
+			)
+		}
 	}
 }

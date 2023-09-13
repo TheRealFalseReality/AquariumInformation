@@ -105,6 +105,7 @@ object Home : Destinations {
 //	override val title = "Marine"
 //}
 
+val bottomNavRow = listOf(Home)
 //val mainNavDrawer = listOf(FishCompat, TankVolume, Converters, Alkalinity, Salinity)
 //val bottomNavRow = listOf(FishCompat, TankVolume, Converters, Alkalinity, Salinity)
 //val tankVolumeNavRow = listOf(Rectangle, Cube, Cylinder, Hexagonal, BowFront)
