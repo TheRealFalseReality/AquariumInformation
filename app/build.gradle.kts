@@ -5,6 +5,9 @@ plugins {
 	alias(libs.plugins.androidApplication)
 	alias(libs.plugins.kotlinAndroid)
 }
+val versionMajor = 2
+val versionMinor = 0
+val versionPatch = 1
 
 android {
 	namespace = "com.example.aquariuminformation"
@@ -14,8 +17,8 @@ android {
 		applicationId = "com.example.aquariuminformation"
 		minSdk = 29
 		targetSdk = 34
-		versionCode = 20
-		versionName = "2"
+		versionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch
+		versionName = "$versionMajor.$versionMinor.$versionPatch"
 
 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 		vectorDrawables {
@@ -29,6 +32,11 @@ android {
 			proguardFiles(
 				getDefaultProguardFile("proguard-android-optimize.txt"),
 				"proguard-rules.pro"
+			)
+			resValue(
+				type = "string",
+				name  = "appVersion",
+				value = "${defaultConfig.versionName}"
 			)
 		}
 	}
@@ -72,5 +80,4 @@ dependencies {
 
 	// Jetpack Compose Navigation
 	implementation(libs.androidx.navigation.compose)
-
 }

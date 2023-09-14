@@ -75,7 +75,7 @@
     <string name="text_formula_vol_rec" tools:ignore="UnusedResources">V = LWH</string>
     <string name="text_formula_vol_cylinder" tools:ignore="UnusedResources">V = πr²h</string>
     <string name="text_formula_vol_cube" tools:ignore="UnusedResources">V = LLL</string>
-    <string name="text_label_version">"App Version: %s"</string>
+    <string name="text_label_version">"%s"</string>
     <string name="text_title_cube" tools:ignore="UnusedResources">Cube</string>
     <string name="text_amount_full_length" tools:ignore="UnusedResources">Length: %s</string>
     <string name="field_label_side" tools:ignore="UnusedResources">Enter Length of Side</string>
@@ -111,7 +111,6 @@
     <string name="text_hardness_label" tools:ignore="UnusedResources">Water Hardness: %s</string>
     <string name="text_hardness_else" tools:ignore="UnusedResources">Out-of-Bounds</string>
     <string name="text_error" tools:ignore="UnusedResources">Error</string>
-    <string name="text_home" tools:ignore="UnusedResources">Home</string>
     <string name="text_loading" tools:ignore="UnusedResources">Loading&#8230;</string>
     <string name="text_loaded" tools:ignore="UnusedResources">Loaded&#8230;</string>
     <string name="text_loading_in" tools:ignore="UnusedResources">Loading in&#8230; %s</string>
@@ -489,4 +488,13 @@
     <string name="contact">Contact</string>
     <string name="errors_or_bugs">Errors or Bugs?</string>
     <string name="app_information">App Information</string>
+    <string name="converters">Converters</string>
+    <string name="calculators">Calculators</string>
+    <string name="tap_below_to_navigate">Tap Below to Navigate</string>
+    <string name="app_version">App Version:</string>
+    <string name="home">Home</string>
+    <string name="overview">Overview</string>
+    <string name="appVersion">2.0.0</string>
+    <string name="temperature">Temperature</string>
+    <string name="carbon_dioxide">Carbon Dioxide</string>
 </resources>

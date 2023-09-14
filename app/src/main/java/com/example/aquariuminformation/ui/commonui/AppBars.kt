@@ -2,8 +2,6 @@ package com.example.aquariuminformation.ui.commonui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -27,6 +25,7 @@ import com.example.aquariuminformation.R
 import com.example.aquariuminformation.navigation.Destinations
 import com.example.aquariuminformation.navigation.Home
 import com.example.aquariuminformation.navigation.Information
+import com.example.aquariuminformation.navigation.Overview
 import com.example.aquariuminformation.navigation.bottomNavRow
 import com.example.aquariuminformation.navigation.navigateSingleTopTo
 import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
@@ -43,7 +42,7 @@ fun AquariumAppBar(
 			Row(
 				modifier = Modifier
 					.clickable {
-						navController.navigateSingleTopTo(Home.route)
+						navController.navigateSingleTopTo(Overview.route)
 					},
 			) {
 				HeaderTextLarge(
@@ -54,7 +53,7 @@ fun AquariumAppBar(
 			}
 		},
 		colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-			containerColor = MaterialTheme.colorScheme.surfaceVariant,
+			containerColor = MaterialTheme.colorScheme.background,
 			navigationIconContentColor = MaterialTheme.colorScheme.onSurfaceVariant,
 			actionIconContentColor = MaterialTheme.colorScheme.onSurfaceVariant
 		),
@@ -66,7 +65,7 @@ fun AquariumAppBar(
 			) {
 				Icon(
 					painter = painterResource(id = R.drawable.ic_launcher_foreground),
-					contentDescription = stringResource(R.string.text_home),
+					contentDescription = stringResource(R.string.home),
 				)
 			}
 		},
@@ -77,7 +76,7 @@ fun AquariumAppBar(
 				},
 			) {
 				Icon(
-					imageVector = Icons.Filled.Info,
+					painter = painterResource(id = R.drawable.baseline_info_24),
 					contentDescription = stringResource(R.string.text_title_info),
 					tint = MaterialTheme.colorScheme.onSurfaceVariant
 				)
@@ -97,8 +96,8 @@ fun BottomNavBar(
 			NavigationBarItem(
 				selected = currentScreen == screen,
 				onClick = { onTabSelected(screen) },
-				icon = { Icon(screen.icon, screen.title) },
-				label = { Text(screen.title) },
+				icon = { Icon(painter = painterResource(id = screen.icon), stringResource(id = screen.title)) },
+				label = { Text(stringResource(id = screen.title)) },
 				colors = NavigationBarItemDefaults.colors(
 					selectedTextColor = MaterialTheme.colorScheme.secondary,
 					selectedIconColor = MaterialTheme.colorScheme.secondary,

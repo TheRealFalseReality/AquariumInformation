@@ -1,16 +1,23 @@
 package com.example.aquariuminformation.ui.pages
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedCard
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.aquariuminformation.R
 import com.example.aquariuminformation.ui.commonui.BodyTextCard
 import com.example.aquariuminformation.ui.commonui.FishComCard
@@ -24,19 +31,11 @@ fun HomePage(){
 	PageView{
 		HomeLayout()
 		FishComCard()
+		TapBelow(
+			modifier = Modifier.weight(1f),
+		)
 	}
 }
-
-//@Composable
-//fun HomeCards(
-//	modifier: Modifier = Modifier
-//) {
-//	Column(
-//		modifier = modifier
-//	) {
-//
-//	}
-//}
 
 @Composable
 fun HomeLayout(
@@ -46,11 +45,33 @@ fun HomeLayout(
 		TitleWideCard(
 			title = stringResource(id = R.string.about),
 //			body = stringResource(id = R.string.text_welcome),
-			icon = Icons.Filled.Home
+			icon = painterResource(id = R.drawable.baseline_home_24)
 		){
 			SingleWideCard {
 				BodyTextCard(text = stringResource(id = R.string.text_welcome))
 			}
+		}
+	}
+}
+
+@Composable
+fun TapBelow(modifier: Modifier = Modifier,){
+	Column(
+		modifier = modifier,
+		verticalArrangement = Arrangement.Center
+		) {
+		OutlinedCard(
+			colors = CardDefaults.cardColors(
+				containerColor = MaterialTheme.colorScheme.background,
+				contentColor = MaterialTheme.colorScheme.secondary
+			),
+			border = BorderStroke(width = 4.dp, color = MaterialTheme.colorScheme.secondary)
+		) {
+			Text(
+				modifier = Modifier
+					.padding(dimensionResource(id = R.dimen.padding_large)),
+				text = stringResource(R.string.tap_below_to_navigate),
+			)
 		}
 	}
 }

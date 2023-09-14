@@ -1,27 +1,32 @@
 package com.example.aquariuminformation.navigation
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.ui.graphics.vector.ImageVector
+import com.example.aquariuminformation.R
 
 interface Destinations {
-	val icon: ImageVector
+	val icon: Int
 	val route: String
-	val title: String
+	val title: Int
 }
 
 object Home : Destinations {
-	override val icon = Icons.Filled.Home
+
+	override val icon = R.drawable.ic_launcher_foreground
 	override val route = "home"
-	override val title = "Home"
+	override val title = R.string.home
 }
 
 object Information : Destinations {
-	override val icon = Icons.Filled.Info
+	override val icon = R.drawable.baseline_info_24
 	override val route = "info"
-	override val title = "Information"
+	override val title = R.string.text_title_info
 }
+
+object Overview : Destinations {
+	override val icon = R.drawable.baseline_grid_view_24
+	override val route = "overview"
+	override val title = R.string.overview
+}
+
 
 //object Salinity : Destinations {
 //	override val icon = R.drawable.salinity
@@ -35,17 +40,17 @@ object Information : Destinations {
 //	override val title = "Alkalinity"
 //}
 //
-//object Temperature : Destinations {
-//	override val icon = R.drawable.thermostat_48px
-//	override val route = "temp"
-//	override val title = "Temperature"
-//}
+object Temperature : Destinations {
+	override val icon = R.drawable.baseline_thermostat_24
+	override val route = "temp"
+	override val title = R.string.temperature
+}
 //
-//object CarbonDioxide : Destinations {
-//	override val icon = R.drawable.carbondiox
-//	override val route = "carbon"
-//	override val title = "Carbon Dioxide"
-//}
+object CarbonDioxide : Destinations {
+	override val icon = R.drawable.baseline_co2_24
+	override val route = "carbon"
+	override val title = R.string.carbon_dioxide
+}
 //
 //object Rectangle : Destinations {
 //	override val icon = R.drawable.rectangle
@@ -107,7 +112,7 @@ object Information : Destinations {
 //	override val title = "Marine"
 //}
 
-val bottomNavRow = listOf(Home, Information)
+val bottomNavRow = listOf(Overview, Temperature, CarbonDioxide)
 //val mainNavDrawer = listOf(FishCompat, TankVolume, Converters, Alkalinity, Salinity)
 //val bottomNavRow = listOf(FishCompat, TankVolume, Converters, Alkalinity, Salinity)
 //val tankVolumeNavRow = listOf(Rectangle, Cube, Cylinder, Hexagonal, BowFront)

@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.aquariuminformation.ui.pages.HomePage
 import com.example.aquariuminformation.ui.pages.InfoPage
+import com.example.aquariuminformation.ui.pages.OverviewPage
 
 @Composable
 fun AquariumNavHost(
@@ -24,6 +25,15 @@ fun AquariumNavHost(
 		}
 		composable(route = Information.route){
 			InfoPage()
+		}
+		composable(route = Overview.route) {
+			OverviewPage()
+		}
+		composable(route = Temperature.route) {
+
+		}
+		composable(route = CarbonDioxide.route) {
+
 		}
 	}
 }
