@@ -1,14 +1,18 @@
 package com.example.aquariuminformation.ui.commonui
 
-import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
@@ -21,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -33,32 +38,87 @@ import com.example.aquariuminformation.ui.theme.Shapes
 @Composable
 fun TitleWideCard(
 	modifier: Modifier = Modifier,
-	@StringRes title: Int,
-	@StringRes body: Int,
-	contentColor: Color = MaterialTheme.colorScheme.onBackground,
-	backgroundCardColor: Color = MaterialTheme.colorScheme.background
+	title: String,
+	icon: ImageVector,
+	content: @Composable ColumnScope.() -> Unit,
 ){
 	Column(
 		modifier = modifier,
 	) {
-		HeaderTextLarge(
-			text = stringResource(title),
-			color = MaterialTheme.colorScheme.onSurface,
-		)
+		Row(
+			modifier = Modifier
+				.padding(start = dimensionResource(id = R.dimen.padding_verySmall)),
+			verticalAlignment = Alignment.CenterVertically
+		) {
+			Icon(
+				imageVector = icon,
+				contentDescription = title
+			)
+			HeaderTextLarge(
+				text = title,
+				color = MaterialTheme.colorScheme.onSurface,
+			)
+		}
 		Column(
 			modifier = Modifier.fillMaxWidth(),
 			horizontalAlignment = Alignment.CenterHorizontally
 		) {
-			SingleWideCard(
-				content = {
-					BodyTextCard(
-						text = stringResource(body)
-					)
-				},
-				backgroundCardColor = backgroundCardColor,
-				contentColor = contentColor,
-			)
+			content()
 		}
+	}
+}
+
+@Composable
+fun IconTextRow(
+	icon: ImageVector,
+	iconTint: Color = MaterialTheme.colorScheme.onBackground,
+	text: String,
+	textColor: Color = MaterialTheme.colorScheme.onBackground
+){
+	Row(
+		modifier = Modifier
+			.fillMaxWidth()
+			.padding(dimensionResource(id = R.dimen.padding_verySmall)),
+		verticalAlignment = Alignment.CenterVertically
+	) {
+		Icon(
+			modifier = Modifier
+				.weight(1f),
+			imageVector =icon,
+			contentDescription = null,
+			tint = iconTint
+		)
+		Text(
+			modifier = Modifier
+				.weight(5f),
+			text = text,
+			color = textColor
+		)
+	}
+}
+
+@Composable
+fun TextRow(
+	text1: String,
+	text2: String,
+
+	){
+	Row(
+		modifier = Modifier
+			.fillMaxWidth()
+			.padding(dimensionResource(id = R.dimen.padding_verySmall)),
+		verticalAlignment = Alignment.CenterVertically
+	) {
+		Text(
+			modifier = Modifier
+				.weight(1f),
+			text = text1
+		)
+		Text(
+			modifier = Modifier
+				.weight(1f),
+			text = text2
+		)
 	}
 }
 
@@ -76,10 +136,12 @@ fun FishComCard(){
 			) {
 				Icon(
 					modifier = Modifier
-						.padding(end = dimensionResource(id = R.dimen.padding_large)),
+						.weight(1f),
 					imageVector = Icons.Filled.Star, 
 					contentDescription = null)
 				Column(
+					modifier = Modifier
+						.weight(10f),
 					horizontalAlignment = Alignment.CenterHorizontally
 				) {
 					HeaderTextCard(
@@ -93,6 +155,18 @@ fun FishComCard(){
 	}
 }
 
+@Composable
+fun PageView(
+	content: @Composable ColumnScope.() -> Unit,
+){
+	Column(
+		modifier = Modifier.verticalScroll(rememberScrollState()),
+		horizontalAlignment = Alignment.CenterHorizontally
+	) {
+		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+		content()
+	}
+}
 
 @Composable
 fun SingleWideCard(
@@ -227,6 +301,35 @@ fun HeaderTextLarge(
 @ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
+fun FisComPreview(){
+	AquariumInformationTheme {
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.background)
+		){
+			FishComCard()
+		}
+	}
+}
+
+@ExperimentalMaterial3Api
+@Preview(showBackground = true)
+@Composable
+fun FisComPreviewDark(
+){
+	AquariumInformationTheme(useDarkTheme = true) {
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.background)
+		){
+			FishComCard()
+		}
+	}
+}
+
+@ExperimentalMaterial3Api
+@Preview(showBackground = true)
+@Composable
 fun CardTitlePreview(){
 	AquariumInformationTheme {
 		Column(
@@ -234,9 +337,13 @@ fun CardTitlePreview(){
 				.background(color = MaterialTheme.colorScheme.background)
 		){
 			TitleWideCard(
-				title = R.string.app_name,
-				body = R.string.text_welcome
-			)
+				title = stringResource(id = R.string.app_name),
+				icon = Icons.Filled.Home
+			) {
+				SingleWideCard {
+					BodyTextCard(text = stringResource(id = R.string.text_welcome))
+				}
+			}
 		}
 	}
 }
@@ -252,9 +359,13 @@ fun CardTitlePreviewDark(
 				.background(color = MaterialTheme.colorScheme.background)
 		){
 			TitleWideCard(
-				title = R.string.app_name,
-				body = R.string.text_welcome
-			)
+				title = stringResource(id = R.string.app_name),
+				icon = Icons.Filled.Home
+			){
+				SingleWideCard {
+					BodyTextCard(text = stringResource(id = R.string.text_welcome))
+				}
+			}
 		}
 	}
 }

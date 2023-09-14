@@ -3,59 +3,55 @@ package com.example.aquariuminformation.ui.pages
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.aquariuminformation.R
-import com.example.aquariuminformation.data.Home
-import com.example.aquariuminformation.data.homeData
+import com.example.aquariuminformation.ui.commonui.BodyTextCard
 import com.example.aquariuminformation.ui.commonui.FishComCard
+import com.example.aquariuminformation.ui.commonui.PageView
+import com.example.aquariuminformation.ui.commonui.SingleWideCard
 import com.example.aquariuminformation.ui.commonui.TitleWideCard
 import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @Composable
 fun HomePage(){
-	Column(
-		modifier = Modifier.fillMaxWidth(),
-		horizontalAlignment = Alignment.CenterHorizontally
-	){
-		HomeCards()
+	PageView{
+		HomeLayout()
 		FishComCard()
 	}
 }
 
-@Composable
-fun HomeCards(
-	modifier: Modifier = Modifier
-){
-	Column(modifier = modifier) {
-		LazyColumn(content = {
-			items(homeData) {
-				HomeItem(
-					dataSource = it,
-					modifier = Modifier.padding(dimensionResource(R.dimen.padding_small)),
-				)
-			}
-		})
-	}
-}
-
+//@Composable
+//fun HomeCards(
+//	modifier: Modifier = Modifier
+//) {
+//	Column(
+//		modifier = modifier
+//	) {
+//
+//	}
+//}
 
 @Composable
-fun HomeItem(
+fun HomeLayout(
 	modifier: Modifier = Modifier,
-	dataSource: Home
 ) {
 	Column(modifier = modifier) {
-		TitleWideCard(title = dataSource.title, body = dataSource.body)
+		TitleWideCard(
+			title = stringResource(id = R.string.about),
+//			body = stringResource(id = R.string.text_welcome),
+			icon = Icons.Filled.Home
+		){
+			SingleWideCard {
+				BodyTextCard(text = stringResource(id = R.string.text_welcome))
+			}
+		}
 	}
 }
 
