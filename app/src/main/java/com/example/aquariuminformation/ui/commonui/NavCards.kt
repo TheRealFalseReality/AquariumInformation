@@ -6,9 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -19,8 +16,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.aquariuminformation.R
@@ -34,7 +32,7 @@ fun NavButton(
 	containerColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color = MaterialTheme.colorScheme.onBackground,
 	title: String,
-	icon: ImageVector
+	icon: Painter
 ){
 	Button(
 		modifier = modifier,
@@ -60,8 +58,10 @@ fun NavButton(
 				text = title
 			)
 			Icon(
-				imageVector = icon,
-				contentDescription = null
+				painter = icon,
+				contentDescription = null,
+				modifier = Modifier
+					.padding(top = dimensionResource(id = R.dimen.padding_small)),
 			)
 		}
 
@@ -75,7 +75,7 @@ fun NavRowButton(
 	containerColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color = MaterialTheme.colorScheme.onBackground,
 	title: String,
-	icon: ImageVector
+	icon: Painter
 ){
 	Button(
 		modifier = modifier,
@@ -99,7 +99,7 @@ fun NavRowButton(
 			Icon(
 				modifier = Modifier
 					.padding(end = dimensionResource(id = R.dimen.padding_small)),
-				imageVector = icon,
+				painter = icon,
 				contentDescription = null
 			)
 			Text(
@@ -113,9 +113,9 @@ fun NavRowButton(
 fun NavButtonRow(
 	modifier: Modifier = Modifier,
 	title1: String,
-	icon1: ImageVector,
+	icon1: Painter,
 	title2: String,
-	icon2: ImageVector,
+	icon2: Painter,
 	containerColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color = MaterialTheme.colorScheme.onBackground,
 ){
@@ -154,7 +154,7 @@ fun NavRowButtonPreview(){
 		){
 			NavRowButton(
 				title = stringResource(id = R.string.converters),
-				icon = Icons.Filled.Email,
+				icon = painterResource(id = R.drawable.baseline_home_24),
 			)
 		}
 	}
@@ -171,7 +171,7 @@ fun NavRowButtonPreviewDark(
 		){
 			NavRowButton(
 				title = stringResource(R.string.converters),
-				icon = Icons.Filled.Home
+				icon = painterResource(id = R.drawable.baseline_home_24),
 			)
 		}
 	}
@@ -187,9 +187,9 @@ fun NavButtonRowPreview(){
 		){
 			NavButtonRow(
 				title1 = stringResource(id = R.string.converters),
-				icon1 = Icons.Filled.Email,
+				icon1 = painterResource(id = R.drawable.baseline_home_24),
 				title2 = stringResource(R.string.calculators),
-				icon2 = Icons.Filled.Home,
+				icon2 = painterResource(id = R.drawable.baseline_email_24),
 			)
 		}
 	}
@@ -206,9 +206,9 @@ fun NavButtonRowPreviewDark(
 		){
 			NavButtonRow(
 				title1 = stringResource(id = R.string.converters),
-				icon1 = Icons.Filled.Email,
+				icon1 = painterResource(id = R.drawable.baseline_email_24),
 				title2 = stringResource(R.string.calculators),
-				icon2 = Icons.Filled.Home,
+				icon2 = painterResource(id = R.drawable.baseline_home_24),
 			)
 		}
 	}
@@ -224,7 +224,7 @@ fun NavButtonPreview(){
 		){
 			NavButton(
 				title = stringResource(R.string.converters),
-				icon = Icons.Filled.Home
+				icon = painterResource(id = R.drawable.baseline_email_24),
 			)
 		}
 	}
@@ -241,7 +241,7 @@ fun NavButtonPreviewDark(
 		){
 			NavButton(
 				title = stringResource(R.string.converters),
-				icon = Icons.Filled.Home
+				icon = painterResource(id = R.drawable.baseline_email_24),
 			)
 		}
 	}
