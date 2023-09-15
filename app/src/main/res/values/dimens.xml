@@ -8,4 +8,5 @@
     <dimen name="elevation_small">4dp</dimen>
     <dimen name="elevation_medium">8dp</dimen>
     <dimen name="elevation_large">16dp</dimen>
+    <dimen name="button_height_medium">56dp</dimen>
 </resources>

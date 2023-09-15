@@ -12,8 +12,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -376,41 +374,6 @@ fun PopOutCard(
 //		textAlign = textAlign,
 //	)
 //}
-
-@ExperimentalMaterial3Api
-@Preview(showBackground = true)
-@Composable
-fun NavButtonPreview(){
-	AquariumInformationTheme {
-		Column(
-			modifier = Modifier
-				.background(color = MaterialTheme.colorScheme.background)
-		){
-			NavButton(
-				title = stringResource(R.string.converters),
-				icon = Icons.Filled.Home
-			)
-		}
-	}
-}
-
-@ExperimentalMaterial3Api
-@Preview(showBackground = true)
-@Composable
-fun NavButtonPreviewDark(
-){
-	AquariumInformationTheme(useDarkTheme = true) {
-		Column(
-			modifier = Modifier
-				.background(color = MaterialTheme.colorScheme.background)
-		){
-			NavButton(
-				title = stringResource(R.string.converters),
-				icon = Icons.Filled.Home
-			)
-		}
-	}
-}
 
 @ExperimentalMaterial3Api
 @Preview(showBackground = true)
