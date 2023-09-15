@@ -20,8 +20,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.aquariuminformation.R
 import com.example.aquariuminformation.ui.commonui.BodyTextCard
-import com.example.aquariuminformation.ui.commonui.FishComCard
 import com.example.aquariuminformation.ui.commonui.PageView
+import com.example.aquariuminformation.ui.commonui.PopOutCard
 import com.example.aquariuminformation.ui.commonui.SingleWideCard
 import com.example.aquariuminformation.ui.commonui.TitleWideCard
 import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
@@ -30,7 +30,11 @@ import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
 fun HomePage(){
 	PageView{
 		HomeLayout()
-		FishComCard()
+		PopOutCard(
+			icon = painterResource(id = R.drawable.baseline_new_releases_24), 
+			headerText = stringResource(id = R.string.text_welcome_compatibility_title), 
+			bodyText = stringResource(id = R.string.text_welcome_compatibility_2)
+		)
 		TapBelow(
 			modifier = Modifier.weight(1f),
 		)

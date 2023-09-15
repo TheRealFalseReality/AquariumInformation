@@ -14,8 +14,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -28,7 +26,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -131,115 +128,6 @@ fun TextRow(
 		}
 	}
 
-}
-
-@Composable
-fun NavButton(
-	modifier: Modifier = Modifier,
-	shape: Shape = Shapes.large,
-	containerColor: Color = MaterialTheme.colorScheme.background,
-	contentColor: Color = MaterialTheme.colorScheme.onBackground,
-	title: String,
-	icon: ImageVector
-){
-	Button(
-		modifier = modifier,
-		onClick = { /*TODO*/ },
-		shape = shape,
-		colors = ButtonDefaults.buttonColors(
-			containerColor = containerColor,
-			contentColor = contentColor,
-		),
-		elevation = ButtonDefaults.buttonElevation(
-			defaultElevation = dimensionResource(id = R.dimen.elevation_large),
-			pressedElevation = dimensionResource(id = R.dimen.elevation_small)
-		)
-	) {
-		Column(
-			modifier = Modifier
-				.padding(dimensionResource(id = R.dimen.padding_small)),
-			verticalArrangement = Arrangement.Center,
-			horizontalAlignment = Alignment.CenterHorizontally,
-		) {
-			Text(
-				text = title
-			)
-			Icon(
-				imageVector = icon,
-				contentDescription = null
-			)
-		}
-
-	}
-}
-
-@Composable
-fun NavButtonRow(
-	modifier: Modifier = Modifier,
-	title1: String,
-	icon1: ImageVector,
-	title2: String,
-	icon2: ImageVector,
-	containerColor: Color = MaterialTheme.colorScheme.background,
-	contentColor: Color = MaterialTheme.colorScheme.onBackground,
-){
-	Row(
-		modifier = modifier
-	) {
-		NavButton(
-			modifier = Modifier
-				.weight(1f)
-				.padding(dimensionResource(id = R.dimen.padding_small)),
-			title = title1,
-			icon = icon1,
-			containerColor = containerColor,
-			contentColor = contentColor,
-		)
-		NavButton(
-			modifier = Modifier
-				.weight(1f)
-				.padding(dimensionResource(id = R.dimen.padding_small)),
-			title = title2,
-			icon = icon2,
-			containerColor = containerColor,
-			contentColor = contentColor,
-		)
-	}
-}
-
-@Composable
-fun FishComCard(modifier: Modifier = Modifier){
-	Column(modifier = modifier) {
-		SingleWideCard(
-			backgroundCardColor = MaterialTheme.colorScheme.tertiary,
-			contentColor = MaterialTheme.colorScheme.onTertiary
-		) {
-
-			Row(
-				modifier = Modifier.fillMaxWidth(),
-				verticalAlignment = Alignment.CenterVertically,
-				horizontalArrangement = Arrangement.Center
-			) {
-				Icon(
-					modifier = Modifier
-						.weight(1f),
-					painter = painterResource(id = R.drawable.baseline_new_releases_24),
-					contentDescription = null)
-				Column(
-					modifier = Modifier
-						.weight(10f),
-					horizontalAlignment = Alignment.CenterHorizontally
-				) {
-					HeaderTextCard(
-						text = stringResource(id = R.string.text_welcome_compatibility_title),
-					)
-					BodyTextCard(
-						text = stringResource(id =  R.string.text_welcome_compatibility_2)
-					)
-				}
-			}
-		}
-	}
 }
 
 //@Composable
@@ -349,7 +237,6 @@ fun HeaderTextCard(
 ){
 	Column(modifier = modifier) {
 		Text(
-			modifier = Modifier.padding(start = dimensionResource(id = R.dimen.padding_small)),
 			text = text,
 			style = style,
 			textAlign = textAlign,
@@ -366,7 +253,6 @@ fun BodyTextCard(
 ){
 	Column(modifier = modifier) {
 		Text(
-			modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small)),
 			text = text,
 			style = style,
 			textAlign = textAlign,
@@ -391,6 +277,52 @@ fun HeaderTextLarge(
 			style = style,
 			textAlign = textAlign,
 		)
+	}
+}
+
+@Composable
+fun PopOutCard(
+	modifier: Modifier = Modifier,
+	icon: Painter,
+	headerText: String,
+	bodyText: String,
+){
+	Column(modifier = modifier) {
+		SingleWideCard(
+			backgroundCardColor = MaterialTheme.colorScheme.tertiary,
+			contentColor = MaterialTheme.colorScheme.onTertiary
+		) {
+
+			Row(
+				modifier = Modifier.fillMaxWidth(),
+				verticalAlignment = Alignment.CenterVertically,
+			) {
+				Column(
+					modifier = Modifier
+							.weight(1f),
+					horizontalAlignment = Alignment.CenterHorizontally
+				) {
+					Icon(
+//						modifier = Modifier
+//							.weight(1f),
+						painter = icon,
+						contentDescription = null)
+				}
+
+				Column(
+					modifier = Modifier
+						.weight(10f),
+					horizontalAlignment = Alignment.CenterHorizontally
+				) {
+					HeaderTextCard(
+						text = headerText,
+					)
+					BodyTextCard(
+						text = bodyText
+					)
+				}
+			}
+		}
 	}
 }
 
@@ -489,7 +421,11 @@ fun FisComPreview(){
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		){
-			FishComCard()
+			PopOutCard(
+				icon = painterResource(id = R.drawable.baseline_new_releases_24),
+				headerText = stringResource(id = R.string.text_welcome_compatibility_title),
+				bodyText = stringResource(id = R.string.text_welcome_compatibility_2)
+			)
 		}
 	}
 }
@@ -504,7 +440,11 @@ fun FisComPreviewDark(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		){
-			FishComCard()
+			PopOutCard(
+				icon = painterResource(id = R.drawable.baseline_new_releases_24),
+				headerText = stringResource(id = R.string.text_welcome_compatibility_title),
+				bodyText = stringResource(id = R.string.text_welcome_compatibility_2)
+			)
 		}
 	}
 }
