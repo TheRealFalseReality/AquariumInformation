@@ -22,15 +22,35 @@ import com.example.aquariuminformation.ui.commonui.PageViewCenter
 import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @Composable
-fun OverviewPage(){
+fun OverviewPage(
+	onClickTemperature: () -> Unit = {},
+	onClickCo2: () -> Unit = {},
+	onClickSalinity: () -> Unit = {},
+	onClickAlkalinity: () -> Unit = {},
+	onClickVolume: () -> Unit = {},
+	onClickFish: () -> Unit = {},
+){
 	PageViewCenter {
-		OverviewLayout()
+		OverviewLayout(
+			onClickTemperature = onClickTemperature,
+			onClickCo2 = onClickCo2,
+			onClickSalinity = onClickSalinity,
+			onClickAlkalinity = onClickAlkalinity,
+			onClickVolume = onClickVolume,
+			onClickFish = onClickFish
+		)
 	}
 }
 
 @Composable
 fun OverviewLayout(
-	modifier: Modifier = Modifier
+	modifier: Modifier = Modifier,
+	onClickTemperature: () -> Unit,
+	onClickCo2: () -> Unit,
+	onClickSalinity: () -> Unit,
+	onClickAlkalinity: () -> Unit,
+	onClickVolume: () -> Unit,
+	onClickFish: () -> Unit,
 ){
 	Column(
 		modifier = modifier,
@@ -39,16 +59,30 @@ fun OverviewLayout(
 			modifier = Modifier
 				.fillMaxWidth(fraction = 0.9f),
 		) {
-			ConvertersGrid()
-			CalculatorsGrid()
-			FishCompatability()
+			ConvertersGrid(
+				onClickTemperature = onClickTemperature,
+				onClickCo2 = onClickCo2,
+				onClickSalinity = onClickSalinity,
+				onClickAlkalinity = onClickAlkalinity
+			)
+			CalculatorsGrid(
+				onClickVolume = onClickVolume,
+				onClickCo2 = onClickCo2,
+			)
+			FishCompatability(
+				onClickFish = onClickFish,
+			)
 		}
 	}
 }
 
 @Composable
 fun ConvertersGrid(
-	color: Color = MaterialTheme.colorScheme.primary
+	color: Color = MaterialTheme.colorScheme.primary,
+	onClickTemperature: () -> Unit,
+	onClickCo2: () -> Unit,
+	onClickSalinity: () -> Unit,
+	onClickAlkalinity: () -> Unit,
 ) {
 	HeaderTextLarge(
 		text = stringResource(id = R.string.converters),
@@ -60,20 +94,26 @@ fun ConvertersGrid(
 		icon1 = painterResource(id = R.drawable.baseline_email_24),
 		title2 = stringResource(R.string.calculators),
 		icon2 = painterResource(id = R.drawable.baseline_email_24),
-		contentColor = color
+		contentColor = color,
+		onClick1 = onClickTemperature,
+		onClick2 = onClickCo2,
 	)
 	NavButtonRow(
 		title1 = stringResource(id = R.string.converters),
 		icon1 = painterResource(id = R.drawable.baseline_email_24),
 		title2 = stringResource(R.string.calculators),
 		icon2 = painterResource(id = R.drawable.baseline_email_24),
-		contentColor = color
+		contentColor = color,
+		onClick1 = onClickSalinity,
+		onClick2 = onClickAlkalinity,
 	)
 }
 
 @Composable
 fun CalculatorsGrid(
-	color: Color = MaterialTheme.colorScheme.secondary
+	color: Color = MaterialTheme.colorScheme.secondary,
+	onClickVolume: () -> Unit,
+	onClickCo2: () -> Unit,
 ) {
 	HeaderTextLarge(
 		text = stringResource(id = R.string.calculators),
@@ -85,16 +125,19 @@ fun CalculatorsGrid(
 		icon1 = painterResource(id = R.drawable.baseline_email_24),
 		title2 = stringResource(R.string.calculators),
 		icon2 = painterResource(id = R.drawable.baseline_email_24),
-		contentColor = color
+		contentColor = color,
+		onClick1 = onClickVolume,
+		onClick2 = onClickCo2,
 	)
 }
 
 @Composable
 fun FishCompatability(
-	color: Color = MaterialTheme.colorScheme.tertiary
+	color: Color = MaterialTheme.colorScheme.tertiary,
+	onClickFish: () -> Unit,
 ) {
 	HeaderTextLarge(
-		text = stringResource(id = R.string.calculators),
+		text = stringResource(id = R.string.text_fish_compatibility),
 		color = color,
 	)
 	AppDivider()
@@ -102,7 +145,10 @@ fun FishCompatability(
 		title = stringResource(id = R.string.text_welcome_compatibility_title),
 		icon = painterResource(id = R.drawable.baseline_email_24),
 		contentColor = color,
-		modifier = Modifier.fillMaxWidth().padding(dimensionResource(id = R.dimen.padding_small)),
+		modifier = Modifier
+			.fillMaxWidth()
+			.padding(dimensionResource(id = R.dimen.padding_small)),
+		onClick = onClickFish,
 	)
 }
 

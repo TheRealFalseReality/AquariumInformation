@@ -27,7 +27,18 @@ fun AquariumNavHost(
 			InfoPage()
 		}
 		composable(route = Overview.route) {
-			OverviewPage()
+			OverviewPage(
+			onClickTemperature = {
+				navController.navigateSingleTopTo(Home.route)
+			},
+			onClickCo2 = {
+				navController.navigateSingleTopTo(Information.route)
+			},
+//			onClickSalinity: () -> Unit = {},
+//			onClickAlkalinity: () -> Unit = {},
+//			onClickVolume: () -> Unit = {},
+//			onClickFish: () -> Unit = {},
+			)
 		}
 		composable(route = Temperature.route) {
 
