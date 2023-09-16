@@ -1,11 +1,15 @@
 package com.example.aquariuminformation.ui.commonui
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,19 +21,22 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
+import androidx.compose.material3.ListItemDefaults.contentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
+import androidx.compose.material3.RadioButton
+import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -41,8 +48,8 @@ import com.example.aquariuminformation.ui.theme.Shapes
 @Composable
 fun TitleWideCard(
 	modifier: Modifier = Modifier,
-	text: String,
-	icon: Painter,
+	@StringRes text: Int,
+	@DrawableRes icon: Int,
 	color: Color = MaterialTheme.colorScheme.onSurface,
 	content: @Composable ColumnScope.() -> Unit,
 ) {
@@ -58,8 +65,8 @@ fun TitleWideCard(
 						start = dimensionResource(id = R.dimen.padding_verySmall),
 						end = dimensionResource(id = R.dimen.padding_small)
 					),
-				painter = icon,
-				contentDescription = text,
+				painter = painterResource(id = icon),
+				contentDescription = stringResource(id = text),
 				tint = color
 			)
 			HeaderTextLarge(
@@ -82,11 +89,46 @@ fun TitleWideCard(
 }
 
 @Composable
+fun TitleText(
+	modifier: Modifier = Modifier,
+	@StringRes text: Int,
+	@DrawableRes icon: Int,
+	color: Color = MaterialTheme.colorScheme.onSurface,
+) {
+	Column(
+		modifier = modifier,
+	) {
+		Row(
+			verticalAlignment = Alignment.CenterVertically
+		) {
+			Icon(
+				modifier = Modifier
+					.padding(
+						start = dimensionResource(id = R.dimen.padding_verySmall),
+						end = dimensionResource(id = R.dimen.padding_small)
+					),
+				painter = painterResource(id = icon),
+				contentDescription = stringResource(id = text),
+				tint = color
+			)
+			HeaderTextLarge(
+				text = text,
+				color = color,
+			)
+		}
+		AppDivider(
+			color = color,
+//			modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_verySmall))
+		)
+	}
+}
+
+@Composable
 fun IconTextRow(
 	modifier: Modifier = Modifier,
-	icon: Painter,
+	@DrawableRes icon: Int,
 	iconTint: Color = MaterialTheme.colorScheme.onBackground,
-	text: String,
+	@StringRes text: Int,
 	textColor: Color = MaterialTheme.colorScheme.onBackground
 ) {
 	Column(modifier = modifier) {
@@ -99,14 +141,14 @@ fun IconTextRow(
 			Icon(
 				modifier = Modifier
 					.weight(1f),
-				painter = icon,
+				painter = painterResource(id = icon),
 				contentDescription = null,
 				tint = iconTint
 			)
 			Text(
 				modifier = Modifier
 					.weight(5f),
-				text = text,
+				text = stringResource(id = text),
 				color = textColor
 			)
 		}
@@ -116,8 +158,8 @@ fun IconTextRow(
 @Composable
 fun TextRow(
 	modifier: Modifier = Modifier,
-	text1: String,
-	text2: String,
+	@StringRes text1: Int,
+	@StringRes text2: Int,
 ) {
 	Column(modifier = modifier) {
 		Row(
@@ -129,12 +171,12 @@ fun TextRow(
 			Text(
 				modifier = Modifier
 					.weight(1f),
-				text = text1
+				text = stringResource(id = text1)
 			)
 			Text(
 				modifier = Modifier
 					.weight(1f),
-				text = text2
+				text = stringResource(id = text2)
 			)
 		}
 	}
@@ -239,15 +281,17 @@ fun SingleWideCard(
 @Composable
 fun HeaderTextCard(
 	modifier: Modifier = Modifier,
-	text: String,
+	@StringRes text: Int,
 	style: TextStyle = MaterialTheme.typography.titleMedium,
-	textAlign: TextAlign = TextAlign.Center
+	textAlign: TextAlign = TextAlign.Center,
+	color: Color = MaterialTheme.colorScheme.onBackground
 ) {
 	Column(modifier = modifier) {
 		Text(
-			text = text,
+			text = stringResource(id = text),
 			style = style,
 			textAlign = textAlign,
+			color = color
 		)
 	}
 }
@@ -255,15 +299,117 @@ fun HeaderTextCard(
 @Composable
 fun BodyTextCard(
 	modifier: Modifier = Modifier,
-	text: String,
+	@StringRes text: Int,
 	style: TextStyle = MaterialTheme.typography.bodyMedium,
-	textAlign: TextAlign = TextAlign.Center
+	textAlign: TextAlign = TextAlign.Center,
+	color: Color = MaterialTheme.colorScheme.onBackground
 ) {
 	Column(modifier = modifier) {
 		Text(
-			text = text,
+			text = stringResource(id = text),
 			style = style,
 			textAlign = textAlign,
+			color = color
+		)
+	}
+}
+
+@Composable
+fun GenericPageHeader(
+	modifier: Modifier = Modifier,
+	@StringRes title: Int,
+	@StringRes subtitle: Int,
+	@DrawableRes icon: Int,
+	color: Color = MaterialTheme.colorScheme.primary,
+	selectContent: @Composable ColumnScope.() -> Unit,
+) {
+	Column(
+		modifier = modifier.fillMaxSize(),
+//			verticalArrangement = Arrangement.SpaceBetween
+	) {
+		TitleText(
+			text = title,
+			icon = icon,
+			color = color
+		)
+		Column(
+			modifier = Modifier.fillMaxWidth(),
+			horizontalAlignment = Alignment.CenterHorizontally
+		) {
+			Text(
+				modifier = Modifier
+					.padding(dimensionResource(id = R.dimen.padding_verySmall)),
+				text = stringResource(id = subtitle),
+				color = color,
+				style = MaterialTheme.typography.titleMedium
+			)
+			Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_verySmall)))
+		}
+		Column(
+			modifier = Modifier.fillMaxWidth(),
+			horizontalAlignment = Alignment.CenterHorizontally
+		) {
+			selectContent()
+		}
+	}
+}
+
+@Composable
+fun RadioButtonCard(
+	modifier: Modifier = Modifier,
+	content: @Composable RowScope.() -> Unit,
+	containerColor: Color = MaterialTheme.colorScheme.primary,
+	contentColor: Color = MaterialTheme.colorScheme.onPrimary
+) {
+	Column(modifier = modifier) {
+		ElevatedCard(
+			modifier = Modifier,
+//				.padding(16.dp)
+//				.heightIn(50.dp),
+			elevation = CardDefaults.cardElevation(8.dp),
+			colors = CardDefaults.cardColors(
+				containerColor = containerColor,
+				contentColor = contentColor
+			)
+		) {
+			Row(
+				modifier = Modifier,
+				horizontalArrangement = Arrangement.Center
+			) {
+				content()
+			}
+		}
+	}
+}
+
+@Composable
+fun RadioButtonComp(
+	modifier: Modifier = Modifier,
+	@StringRes text: Int,
+	onClick1: () -> Unit,
+	selected: Int,
+	selectedColor: Color = MaterialTheme.colorScheme.primaryContainer,
+	unselectedColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
+) {
+	Column(
+		modifier = modifier.padding(dimensionResource(id = R.dimen.padding_small)),
+		horizontalAlignment = Alignment.CenterHorizontally
+	) {
+		RadioButton(
+			selected = selected == text,
+			onClick = onClick1,
+			colors = RadioButtonDefaults.colors(
+				selectedColor = selectedColor,
+				unselectedColor = unselectedColor
+			)
+		)
+		Text(
+			text = stringResource(id = text),
+			modifier = Modifier
+				.clickable(
+					onClick = onClick1
+				),
+			fontWeight = FontWeight.Bold,
 		)
 	}
 }
@@ -271,14 +417,14 @@ fun BodyTextCard(
 @Composable
 fun HeaderTextLarge(
 	modifier: Modifier = Modifier,
-	text: String,
+	@StringRes text: Int,
 	color: Color = MaterialTheme.colorScheme.onBackground,
 	style: TextStyle = MaterialTheme.typography.titleLarge,
 	textAlign: TextAlign = TextAlign.Start
 ) {
 	Column(modifier = modifier) {
 		Text(
-			text = text,
+			text = stringResource(id = text),
 			color = color,
 			style = style,
 			textAlign = textAlign,
@@ -289,8 +435,8 @@ fun HeaderTextLarge(
 @Composable
 fun HeaderTextIconLarge(
 	modifier: Modifier = Modifier,
-	icon: Painter,
-	text: String,
+	@DrawableRes icon: Int,
+	@StringRes text: Int,
 	color: Color = MaterialTheme.colorScheme.onBackground,
 	style: TextStyle = MaterialTheme.typography.titleLarge,
 	textAlign: TextAlign = TextAlign.Start
@@ -305,11 +451,11 @@ fun HeaderTextIconLarge(
 						start = dimensionResource(id = R.dimen.padding_verySmall),
 						end = dimensionResource(id = R.dimen.padding_small)
 					),
-				painter = icon,
-				contentDescription = text
+				painter = painterResource(id = icon),
+				contentDescription = stringResource(id = text)
 			)
 			Text(
-				text = text,
+				text = stringResource(id = text),
 				color = color,
 				style = style,
 				textAlign = textAlign,
@@ -322,9 +468,9 @@ fun HeaderTextIconLarge(
 @Composable
 fun PopOutCard(
 	modifier: Modifier = Modifier,
-	icon: Painter,
-	headerText: String,
-	bodyText: String,
+	@DrawableRes icon: Int,
+	@StringRes headerText: Int,
+	@StringRes bodyText: Int,
 ) {
 	Column(modifier = modifier) {
 		SingleWideCard(
@@ -341,11 +487,10 @@ fun PopOutCard(
 					horizontalAlignment = Alignment.CenterHorizontally
 				) {
 					Icon(
-						painter = icon,
+						painter = painterResource(id = icon),
 						contentDescription = null
 					)
 				}
-
 				Column(
 					modifier = Modifier
 						.weight(10f),
@@ -353,9 +498,11 @@ fun PopOutCard(
 				) {
 					HeaderTextCard(
 						text = headerText,
+						color = contentColor
 					)
 					BodyTextCard(
-						text = bodyText
+						text = bodyText,
+						color = contentColor
 					)
 				}
 			}
@@ -366,7 +513,7 @@ fun PopOutCard(
 @Composable
 fun PopOutlinedCard(
 	modifier: Modifier = Modifier,
-	text: String,
+	@StringRes text: Int,
 	containerColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color = MaterialTheme.colorScheme.secondary,
 ) {
@@ -383,7 +530,7 @@ fun PopOutlinedCard(
 			Text(
 				modifier = Modifier
 					.padding(dimensionResource(id = R.dimen.padding_large)),
-				text = text,
+				text = stringResource(id = text),
 			)
 		}
 	}
@@ -457,21 +604,64 @@ fun AppDivider(
 
 @Preview(showBackground = true)
 @Composable
-fun PopOutlinedCardPreview() {
+fun RadioButtonCardPreview() {
 	AquariumInformationTheme {
-		PopOutlinedCard(
-			text = stringResource(id = R.string.tap_below_to_navigate)
+		RadioButtonCard(
+			content = {
+				RadioButtonComp(
+					text = R.string.text_celsius,
+					onClick1 = {  },
+					selected = 1
+				)
+				RadioButtonComp(
+					text = R.string.text_fah,
+					onClick1 = {  },
+					selected = 1
+				)
+			}
 		)
 	}
 }
 
 @Preview(showBackground = true)
 @Composable
-fun PopOutlinedCarPreviewDark(
+fun PRadioButtonPreviewDark(
+) {
+	AquariumInformationTheme(useDarkTheme = true) {
+		RadioButtonCard(
+			content = {
+				RadioButtonComp(
+					text = R.string.text_celsius,
+					onClick1 = {  },
+					selected = 1
+				)
+				RadioButtonComp(
+					text = R.string.text_fah,
+					onClick1 = {  },
+					selected = 1
+				)
+			}
+		)
+	}
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PopOutlinedCardPreview() {
+	AquariumInformationTheme {
+		PopOutlinedCard(
+			text = R.string.tap_below_to_navigate
+		)
+	}
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PopOutlinedCardPreviewDark(
 ) {
 	AquariumInformationTheme(useDarkTheme = true) {
 		PopOutlinedCard(
-			text = stringResource(id = R.string.tap_below_to_navigate)
+			text = R.string.tap_below_to_navigate
 		)
 	}
 }
@@ -485,8 +675,8 @@ fun HeaderTextIconLargePreview() {
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
 			HeaderTextIconLarge(
-				icon = painterResource(id = R.drawable.ic_conversion),
-				text = stringResource(id = R.string.converters),
+				icon = R.drawable.ic_conversion,
+				text = R.string.converters,
 			)
 		}
 	}
@@ -502,8 +692,8 @@ fun HeaderTextIconLargePreviewDark(
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
 			HeaderTextIconLarge(
-				icon = painterResource(id = R.drawable.ic_conversion),
-				text = stringResource(id = R.string.converters),
+				icon = R.drawable.ic_conversion,
+				text = R.string.converters,
 			)
 		}
 	}
@@ -518,9 +708,9 @@ fun PopOutCardPreview() {
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
 			PopOutCard(
-				icon = painterResource(id = R.drawable.baseline_new_releases_24),
-				headerText = stringResource(id = R.string.text_welcome_compatibility_title),
-				bodyText = stringResource(id = R.string.text_welcome_compatibility_2)
+				icon = R.drawable.baseline_new_releases_24,
+				headerText = R.string.text_welcome_compatibility_title,
+				bodyText = R.string.text_welcome_compatibility_2
 			)
 		}
 	}
@@ -536,9 +726,9 @@ fun PopOutCardPreviewDark(
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
 			PopOutCard(
-				icon = painterResource(id = R.drawable.baseline_new_releases_24),
-				headerText = stringResource(id = R.string.text_welcome_compatibility_title),
-				bodyText = stringResource(id = R.string.text_welcome_compatibility_2)
+				icon = R.drawable.baseline_new_releases_24,
+				headerText = R.string.text_welcome_compatibility_title,
+				bodyText = R.string.text_welcome_compatibility_2
 			)
 		}
 	}
@@ -553,11 +743,11 @@ fun CardTitlePreview() {
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
 			TitleWideCard(
-				text = stringResource(id = R.string.app_name),
-				icon = painterResource(id = R.drawable.baseline_info_24)
+				text = R.string.app_name,
+				icon = R.drawable.baseline_info_24
 			) {
 				SingleWideCard {
-					BodyTextCard(text = stringResource(id = R.string.text_welcome))
+					BodyTextCard(text = R.string.text_welcome)
 				}
 			}
 		}
@@ -574,11 +764,11 @@ fun CardTitlePreviewDark(
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
 			TitleWideCard(
-				text = stringResource(id = R.string.app_name),
-				icon = painterResource(id = R.drawable.baseline_info_24)
+				text = R.string.app_name,
+				icon = R.drawable.baseline_info_24
 			){
 				SingleWideCard {
-					BodyTextCard(text = stringResource(id = R.string.text_welcome))
+					BodyTextCard(text = R.string.text_welcome)
 				}
 			}
 		}

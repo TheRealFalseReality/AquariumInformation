@@ -14,8 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.aquariuminformation.R
 import com.example.aquariuminformation.ui.commonui.NavButton
@@ -142,25 +140,25 @@ fun ConvertersGrid(
 		modifier = modifier,
 	) {
 		TitleWideCard(
-			text = stringResource(id = R.string.converters),
+			text = R.string.converters,
 			color = color,
-			icon = painterResource(id = R.drawable.ic_conversion)
+			icon = R.drawable.ic_conversion
 		) {
 			NavButtonRow(
-				title1 = stringResource(id = R.string.temperature),
-				icon1 = painterResource(id = R.drawable.ic_thermostat),
-				title2 = stringResource(R.string.carbon_dioxide),
-				icon2 = painterResource(id = R.drawable.baseline_co2_24),
+				title1 = R.string.temperature,
+				icon1 = R.drawable.ic_thermostat,
+				title2 = R.string.carbon_dioxide,
+				icon2 = R.drawable.baseline_co2_24,
 				contentColor = color,
 				onClick1 = onClickTemperature,
 				onClick2 = onClickCo2,
 				modifier = Modifier.fillMaxWidth(fraction = 0.9f)
 			)
 			NavButtonRow(
-				title1 = stringResource(R.string.salinity),
-				icon1 = painterResource(id = R.drawable.ic_salinity),
-				title2 = stringResource(R.string.alkalinity),
-				icon2 = painterResource(id = R.drawable.ic_water_drop),
+				title1 = R.string.salinity,
+				icon1 = R.drawable.ic_salinity,
+				title2 = R.string.alkalinity,
+				icon2 = R.drawable.ic_water_drop,
 				contentColor = color,
 				onClick1 = onClickSalinity,
 				onClick2 = onClickAlkalinity,
@@ -177,15 +175,15 @@ fun CalculatorsGrid(
 	onClickCo2: () -> Unit,
 ) {
 	TitleWideCard(
-		text = stringResource(id = R.string.calculators),
+		text = R.string.calculators,
 		color = color,
-		icon = painterResource(id = R.drawable.baseline_calculate_24)
+		icon = R.drawable.baseline_calculate_24
 	) {
 		NavButtonRow(
-			title1 = stringResource(R.string.tank_volume),
-			icon1 = painterResource(id = R.drawable.ic_cube),
-			title2 = stringResource(R.string.carbon_dioxide),
-			icon2 = painterResource(id = R.drawable.baseline_co2_24),
+			title1 = R.string.tank_volume,
+			icon1 = R.drawable.ic_cube,
+			title2 = R.string.carbon_dioxide,
+			icon2 = R.drawable.baseline_co2_24,
 			contentColor = color,
 			onClick1 = onClickVolume,
 			onClick2 = onClickCo2,
@@ -200,13 +198,13 @@ fun FishCompatability(
 	onClickFish: () -> Unit = {},
 ) {
 	TitleWideCard(
-		text = stringResource(id = R.string.text_fish_compatibility),
+		text = R.string.text_fish_compatibility,
 		color = color,
-		icon = painterResource(id = R.drawable.baseline_set_meal_24)
+		icon = R.drawable.baseline_set_meal_24
 	) {
 		NavButton(
-			title = stringResource(id = R.string.text_welcome_compatibility_title),
-			icon = painterResource(id = R.drawable.baseline_set_meal_24),
+			title = R.string.text_welcome_compatibility_title,
+			icon = R.drawable.baseline_set_meal_24,
 			contentColor = color,
 			modifier = Modifier
 				.fillMaxWidth(fraction = 0.9f)

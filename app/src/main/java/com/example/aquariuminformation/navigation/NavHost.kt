@@ -11,6 +11,7 @@ import com.example.aquariuminformation.ui.pages.ConvertersOverviewPage
 import com.example.aquariuminformation.ui.pages.HomePage
 import com.example.aquariuminformation.ui.pages.InfoPage
 import com.example.aquariuminformation.ui.pages.OverviewPage
+import com.example.aquariuminformation.ui.pages.TemperaturePage
 
 @Composable
 fun AquariumNavHost(
@@ -31,7 +32,7 @@ fun AquariumNavHost(
 		composable(route = Overview.route) {
 			OverviewPage(
 			onClickTemperature = {
-				navController.navigateSingleTopTo(Home.route)
+				navController.navigateSingleTopTo(Temperature.route)
 			},
 			onClickCo2 = {
 				navController.navigateSingleTopTo(Information.route)
@@ -43,7 +44,14 @@ fun AquariumNavHost(
 			)
 		}
 		composable(route = Converters.route) {
-			ConvertersOverviewPage()
+			ConvertersOverviewPage(
+				onClickTemperature = {
+					navController.navigateSingleTopTo(Temperature.route)
+				},
+//				onClickCo2 = onClickCo2,
+//				onClickSalinity = onClickSalinity,
+//				onClickAlkalinity = onClickAlkalinity
+			)
 		}
 		composable(route = Calculators.route) {
 			CalculatorsOverviewPage()
@@ -53,6 +61,9 @@ fun AquariumNavHost(
 		}
 		composable(route = FishCompatability.route) {
 
+		}
+		composable(route = Temperature.route) {
+			TemperaturePage()
 		}
 	}
 }

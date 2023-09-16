@@ -46,7 +46,7 @@ fun AquariumAppBar(
 					},
 			) {
 				HeaderTextLarge(
-					text = stringResource(id = R.string.app_name),
+					text = R.string.app_name,
 					color = MaterialTheme.colorScheme.onSurfaceVariant,
 				)
 

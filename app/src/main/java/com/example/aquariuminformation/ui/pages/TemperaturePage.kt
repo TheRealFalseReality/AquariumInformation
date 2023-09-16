@@ -13,7 +13,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.aquariuminformation.R
+import com.example.aquariuminformation.ui.commonui.GenericPageHeader
 import com.example.aquariuminformation.ui.commonui.PageView
+import com.example.aquariuminformation.ui.commonui.RadioButtonCard
+import com.example.aquariuminformation.ui.commonui.RadioButtonComp
 import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -27,23 +30,46 @@ fun TemperaturePage() {
 
 @Composable
 fun TemperatureLayout(
-	modifier: Modifier = Modifier
+	modifier: Modifier = Modifier,
 ) {
+	val inputTemperature by rememberSaveable {
+		mutableStateOf("0")
+	}
+	var selected by rememberSaveable {
+		mutableIntStateOf(R.string.text_celsius)
+	}
+
+	val temp = inputTemperature.toDoubleOrNull() ?: 0.0
+	val celsius = calculateCelsius(temp).toDoubleOrNull() ?: 0.0
+	val kelvinCel = calculateKelvinCel(temp).toDoubleOrNull() ?: 0.0
+	val kelvinFah = calculateKelvinFah(temp).toDoubleOrNull() ?: 0.0
+	val fahrenheit = calculateFahrenheit(temp).toDoubleOrNull() ?: 0.0
+
 	Column(
 		modifier = modifier
 	) {
-		val inputTemperature by rememberSaveable {
-			mutableStateOf("0")
-		}
-		var selected by rememberSaveable {
-			mutableIntStateOf(R.string.text_celsius)
-		}
 
-		val temp = inputTemperature.toDoubleOrNull() ?: 0.0
-		val celsius = calculateCelsius(temp).toDoubleOrNull() ?: 0.0
-		val kelvinCel = calculateKelvinCel(temp).toDoubleOrNull() ?: 0.0
-		val kelvinFah = calculateKelvinFah(temp).toDoubleOrNull() ?: 0.0
-		val fahrenheit = calculateFahrenheit(temp).toDoubleOrNull() ?: 0.0
+		GenericPageHeader(
+			title = R.string.text_title_temp,
+			subtitle = R.string.text_subtitle_temp,
+			icon = R.drawable.baseline_thermostat_24,
+			selectContent = {
+				RadioButtonCard(
+					content = {
+						RadioButtonComp(
+							text = R.string.text_celsius,
+							onClick1 = { selected = R.string.text_celsius },
+							selected = selected
+						)
+						RadioButtonComp(
+							text = R.string.text_fah,
+							onClick1 = { selected = R.string.text_fah },
+							selected = selected
+						)
+					}
+				)
+			}
+		)
 	}
 }
 

@@ -1,5 +1,7 @@
 package com.example.aquariuminformation.ui.commonui
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,7 +19,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -32,8 +33,8 @@ fun NavButton(
 	shape: Shape = Shapes.large,
 	containerColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color = MaterialTheme.colorScheme.onBackground,
-	title: String,
-	icon: Painter,
+	@StringRes title: Int,
+	@DrawableRes icon: Int,
 	onClick: () -> Unit,
 ){
 	Button(
@@ -57,10 +58,10 @@ fun NavButton(
 			horizontalAlignment = Alignment.CenterHorizontally,
 		) {
 			Text(
-				text = title
+				text = stringResource(id = title),
 			)
 			Icon(
-				painter = icon,
+				painter = painterResource(id = icon),
 				contentDescription = null,
 				modifier = Modifier
 					.padding(top = dimensionResource(id = R.dimen.padding_small)),
@@ -76,8 +77,8 @@ fun NavRowButton(
 	shape: Shape = Shapes.large,
 	containerColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color = MaterialTheme.colorScheme.onBackground,
-	title: String,
-	icon: Painter,
+	@StringRes title: Int,
+	@DrawableRes icon: Int,
 	onClick: () -> Unit
 ){
 	Button(
@@ -102,11 +103,11 @@ fun NavRowButton(
 			Icon(
 				modifier = Modifier
 					.padding(end = dimensionResource(id = R.dimen.padding_small)),
-				painter = icon,
+				painter = painterResource(id = icon),
 				contentDescription = null
 			)
 			Text(
-				text = title
+				text = stringResource(id = title)
 			)
 		}
 	}
@@ -115,10 +116,10 @@ fun NavRowButton(
 @Composable
 fun NavButtonRow(
 	modifier: Modifier = Modifier,
-	title1: String,
-	icon1: Painter,
-	title2: String,
-	icon2: Painter,
+	@StringRes title1: Int,
+	@DrawableRes icon1: Int,
+	@StringRes title2: Int,
+	@DrawableRes icon2: Int,
 	containerColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color = MaterialTheme.colorScheme.onBackground,
 	onClick1: () -> Unit,
@@ -169,8 +170,8 @@ fun NavRowButtonPreview(){
 				.background(color = MaterialTheme.colorScheme.background)
 		){
 			NavRowButton(
-				title = stringResource(id = R.string.converters),
-				icon = painterResource(id = R.drawable.baseline_home_24),
+				title = R.string.converters,
+				icon = R.drawable.baseline_home_24,
 				onClick = {}
 			)
 		}
@@ -187,8 +188,8 @@ fun NavRowButtonPreviewDark(
 				.background(color = MaterialTheme.colorScheme.background)
 		){
 			NavRowButton(
-				title = stringResource(R.string.converters),
-				icon = painterResource(id = R.drawable.baseline_home_24),
+				title = R.string.converters,
+				icon =  R.drawable.baseline_home_24,
 				onClick = {}
 			)
 		}
@@ -204,10 +205,10 @@ fun NavButtonRowPreview(){
 				.background(color = MaterialTheme.colorScheme.background)
 		){
 			NavButtonRow(
-				title1 = stringResource(id = R.string.converters),
-				icon1 = painterResource(id = R.drawable.baseline_home_24),
-				title2 = stringResource(R.string.calculators),
-				icon2 = painterResource(id = R.drawable.baseline_email_24),
+				title1 = R.string.converters,
+				icon1 = R.drawable.baseline_home_24,
+				title2 = R.string.calculators,
+				icon2 = R.drawable.baseline_email_24,
 				onClick1 = {},
 				onClick2 = {},
 			)
@@ -225,10 +226,10 @@ fun NavButtonRowPreviewDark(
 				.background(color = MaterialTheme.colorScheme.background)
 		){
 			NavButtonRow(
-				title1 = stringResource(id = R.string.converters),
-				icon1 = painterResource(id = R.drawable.baseline_email_24),
-				title2 = stringResource(R.string.calculators),
-				icon2 = painterResource(id = R.drawable.baseline_home_24),
+				title1 = R.string.converters,
+				icon1 = R.drawable.baseline_email_24,
+				title2 = R.string.calculators,
+				icon2 = R.drawable.baseline_home_24,
 				onClick1 = {},
 				onClick2 = {},
 			)
@@ -245,8 +246,8 @@ fun NavButtonPreview(){
 				.background(color = MaterialTheme.colorScheme.background)
 		){
 			NavButton(
-				title = stringResource(R.string.converters),
-				icon = painterResource(id = R.drawable.baseline_email_24),
+				title = R.string.converters,
+				icon = R.drawable.baseline_email_24,
 				onClick = {}
 			)
 		}
@@ -263,8 +264,8 @@ fun NavButtonPreviewDark(
 				.background(color = MaterialTheme.colorScheme.background)
 		){
 			NavButton(
-				title = stringResource(R.string.converters),
-				icon = painterResource(id = R.drawable.baseline_email_24),
+				title = R.string.converters,
+				icon = R.drawable.baseline_email_24,
 				onClick = {}
 			)
 		}

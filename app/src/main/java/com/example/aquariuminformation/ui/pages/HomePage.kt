@@ -3,13 +3,14 @@ package com.example.aquariuminformation.ui.pages
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.aquariuminformation.R
 import com.example.aquariuminformation.ui.commonui.BodyTextCard
@@ -35,31 +36,36 @@ fun HomeLayout(
 		modifier = modifier,
 	) {
 		Column(
+			modifier = Modifier.fillMaxHeight(),
 			horizontalAlignment = Alignment.CenterHorizontally,
+			verticalArrangement = Arrangement.SpaceBetween
 		) {
 			TitleWideCard(
-				text = stringResource(id = R.string.about),
-				icon = painterResource(id = R.drawable.baseline_home_24)
+				text = R.string.about,
+				icon = R.drawable.baseline_home_24
 			) {
 				SingleWideCard {
-					BodyTextCard(text = stringResource(id = R.string.text_welcome))
+					BodyTextCard(text =  R.string.text_welcome)
 				}
 			}
 			PopOutCard(
-				icon = painterResource(id = R.drawable.baseline_new_releases_24),
-				headerText = stringResource(id = R.string.text_welcome_compatibility_title),
-				bodyText = stringResource(id = R.string.text_welcome_compatibility_2)
+				icon = R.drawable.baseline_new_releases_24,
+				headerText = R.string.text_welcome_compatibility_title,
+				bodyText = R.string.text_welcome_compatibility_2
 			)
-		}
-		Column(
-			modifier = modifier.fillMaxSize(),
-			verticalArrangement = Arrangement.Center,
-			horizontalAlignment = Alignment.CenterHorizontally
-		) {
 			PopOutlinedCard(
-				text = stringResource(id = R.string.tap_below_to_navigate)
+				text = R.string.tap_below_to_navigate
 			)
-		}
+			Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_verySmall)))		}
+//		Column(
+//			modifier = modifier.fillMaxSize(),
+//			verticalArrangement = Arrangement.Center,
+//			horizontalAlignment = Alignment.CenterHorizontally
+//		) {
+//			PopOutlinedCard(
+//				text = R.string.tap_below_to_navigate
+//			)
+//		}
 	}
 }
 
