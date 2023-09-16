@@ -7,6 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.aquariuminformation.ui.pages.CalculatorsOverviewPage
+import com.example.aquariuminformation.ui.pages.CarbonDioxidePage
 import com.example.aquariuminformation.ui.pages.ConvertersOverviewPage
 import com.example.aquariuminformation.ui.pages.HomePage
 import com.example.aquariuminformation.ui.pages.InfoPage
@@ -35,7 +36,7 @@ fun AquariumNavHost(
 				navController.navigateSingleTopTo(Temperature.route)
 			},
 			onClickCo2 = {
-				navController.navigateSingleTopTo(Information.route)
+				navController.navigateSingleTopTo(CarbonDioxide.route)
 			},
 //			onClickSalinity: () -> Unit = {},
 //			onClickAlkalinity: () -> Unit = {},
@@ -48,13 +49,19 @@ fun AquariumNavHost(
 				onClickTemperature = {
 					navController.navigateSingleTopTo(Temperature.route)
 				},
-//				onClickCo2 = onClickCo2,
+				onClickCo2 = {
+					navController.navigateSingleTopTo(CarbonDioxide.route)
+				},
 //				onClickSalinity = onClickSalinity,
 //				onClickAlkalinity = onClickAlkalinity
 			)
 		}
 		composable(route = Calculators.route) {
-			CalculatorsOverviewPage()
+			CalculatorsOverviewPage(
+				onClickCo2 = {
+					navController.navigateSingleTopTo(CarbonDioxide.route)
+				},
+			)
 		}
 		composable(route = TankVolume.route){
 
@@ -64,6 +71,9 @@ fun AquariumNavHost(
 		}
 		composable(route = Temperature.route) {
 			TemperaturePage()
+		}
+		composable(route = CarbonDioxide.route) {
+			CarbonDioxidePage()
 		}
 	}
 }

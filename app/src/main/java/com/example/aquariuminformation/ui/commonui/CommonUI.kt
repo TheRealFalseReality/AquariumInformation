@@ -16,9 +16,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
@@ -29,25 +26,19 @@ import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.example.aquariuminformation.R
 import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
 import com.example.aquariuminformation.ui.theme.Shapes
@@ -286,7 +277,8 @@ fun SingleWideCard(
 			Column(
 				modifier = Modifier
 					.padding(dimensionResource(id = R.dimen.padding_small))
-					.fillMaxWidth()
+					.fillMaxWidth(),
+				horizontalAlignment = Alignment.CenterHorizontally
 			) {
 				content()
 			}
@@ -331,7 +323,7 @@ fun BodyTextCard(
 }
 
 @Composable
-fun GenericPageHeader(
+fun GenericPage(
 	modifier: Modifier = Modifier,
 	@StringRes title: Int,
 	@StringRes subtitle: Int,
@@ -339,12 +331,12 @@ fun GenericPageHeader(
 	color: Color,
 	selectContent: @Composable ColumnScope.() -> Unit,
 	calculateFieldContent: @Composable ColumnScope.() -> Unit,
+	formulaContent: @Composable ColumnScope.() -> Unit
 ) {
 	Column(
 		modifier = modifier.fillMaxSize(),
 		verticalArrangement = Arrangement.SpaceBetween,
 		horizontalAlignment = Alignment.CenterHorizontally
-
 	) {
 		Column {
 			TitleText(
@@ -363,18 +355,17 @@ fun GenericPageHeader(
 					color = color,
 					style = MaterialTheme.typography.titleMedium
 				)
-//				Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_verySmall)))
 			}
 		}
 		selectContent()
 		calculateFieldContent()
-
-//		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_verySmall)))
+		formulaContent()
 	}
+	Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_verySmall)))
 }
 
 @Composable
-fun RadioButtonCard(
+fun UnitButtonCard(
 	modifier: Modifier = Modifier,
 	content: @Composable RowScope.() -> Unit,
 	containerColor: Color = MaterialTheme.colorScheme.background,
@@ -397,6 +388,40 @@ fun RadioButtonCard(
 					text = R.string.select_input_units,
 					color = contentColor
 				)
+				Row(
+					modifier = Modifier
+						.fillMaxWidth(),
+					horizontalArrangement = Arrangement.Center,
+					verticalAlignment = Alignment.CenterVertically
+				) {
+					content()
+				}
+			}
+
+		}
+	}
+}
+
+@Composable
+fun TextCard(
+	modifier: Modifier = Modifier,
+	content: @Composable RowScope.() -> Unit,
+	containerColor: Color = MaterialTheme.colorScheme.background,
+	contentColor: Color,
+) {
+	Column(modifier = modifier) {
+		ElevatedCard(
+			elevation = CardDefaults.cardElevation(8.dp),
+			colors = CardDefaults.cardColors(
+				containerColor = containerColor,
+				contentColor = contentColor
+			)
+		) {
+			Column(
+				modifier = Modifier
+					.padding(dimensionResource(id = R.dimen.padding_small))
+					.fillMaxWidth(fraction = 0.6f),
+			) {
 				Row(
 					modifier = Modifier
 						.fillMaxWidth(),
@@ -445,112 +470,9 @@ fun RadioButtonComp(
 }
 
 @Composable
-fun InputNumberField(
-	modifier: Modifier = Modifier,
-	@StringRes label: Int,
-	@StringRes placeholder: Int,
-	value: String,
-	onValueChange: (String) -> Unit,
-	shape: Shape = RoundedCornerShape(
-		bottomStart = 0.dp,
-		bottomEnd = 0.dp,
-		topStart = dimensionResource(id = R.dimen.shape_medium),
-		topEnd = dimensionResource(id = R.dimen.shape_medium),
-	),
-	color: Color
-) {
-	val focusManager = LocalFocusManager.current
-
-	Column(
-		modifier = modifier,
-		horizontalAlignment = Alignment.CenterHorizontally
-	) {
-		TextField(
-			modifier = Modifier
-				.align(Alignment.CenterHorizontally),
-			value = value,
-			onValueChange = onValueChange,
-			colors = TextFieldDefaults.colors(
-				focusedIndicatorColor = color
-			),
-			label = {
-				Text(
-					stringResource(id = label),
-				)
-			},
-			placeholder = {
-				Text(
-					stringResource(id = placeholder),
-				)
-			},
-			keyboardOptions = KeyboardOptions(
-				keyboardType = KeyboardType.Number,
-				imeAction = ImeAction.Done
-			),
-			keyboardActions = KeyboardActions(
-				onDone = { focusManager.clearFocus() }
-			),
-			shape = shape
-		)
-	}
-}
-
-@Composable
-fun CalculateField(
-	modifier: Modifier = Modifier,
-	inputContent: @Composable () -> Unit,
-	@StringRes inputText: Int,
-	inputValue: String,
-	@StringRes equalsText: Int,
-	calculateContent: @Composable () -> Unit,
-	color: Color = MaterialTheme.colorScheme.primary
-) {
-	Column(modifier = modifier) {
-		inputContent()
-		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
-		Text(
-			text = stringResource(id = inputText, inputValue),
-			modifier = Modifier
-				.align(Alignment.CenterHorizontally)
-				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
-			color = color
-		)
-		Text(
-			text = stringResource(id = equalsText),
-			modifier = Modifier
-				.align(Alignment.CenterHorizontally)
-				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
-			color = color
-//			style = MaterialTheme.typography.bodySmall
-		)
-		calculateContent()
-	}
-}
-
-@Composable
-fun CalculatedText(
-	modifier: Modifier = Modifier,
-	@StringRes label: Int,
-	calculatedValue: Double,
-	color: Color
-) {
-	Column(modifier = modifier) {
-		Text(
-			modifier = Modifier
-				.padding(dimensionResource(id = R.dimen.padding_verySmall))
-				.align(Alignment.CenterHorizontally),
-			text = stringResource(id = label, calculatedValue),
-			fontSize = 20.sp,
-			fontWeight = FontWeight.Bold,
-			color = color
-		)
-	}
-}
-
-@Composable
 fun FormulaString(
 	content: @Composable () -> Unit,
-	color: Color = MaterialTheme.colorScheme.primary,
+	color: Color,
 ) {
 	TitleWideCard(
 		text = R.string.formula,
@@ -738,7 +660,7 @@ fun InputNumberPreviewDark(
 @Composable
 fun RadioButtonCardPreview() {
 	AquariumInformationTheme {
-		RadioButtonCard(
+		UnitButtonCard(
 			contentColor = MaterialTheme.colorScheme.primary,
 			content = {
 				RadioButtonComp(
@@ -765,7 +687,7 @@ fun RadioButtonCardPreview() {
 fun PRadioButtonPreviewDark(
 ) {
 	AquariumInformationTheme(useDarkTheme = true) {
-		RadioButtonCard(
+		UnitButtonCard(
 			contentColor = MaterialTheme.colorScheme.primary,
 			content = {
 				RadioButtonComp(

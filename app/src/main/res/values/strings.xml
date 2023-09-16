@@ -504,4 +504,5 @@
     <string name="tank_volume">Tank Volume</string>
     <string name="formula">Formula</string>
     <string name="select_input_units">Select Input Units:</string>
+    <string name="ph">pH</string>
 </resources>
