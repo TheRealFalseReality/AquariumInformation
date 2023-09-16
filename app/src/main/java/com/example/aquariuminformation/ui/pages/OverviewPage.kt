@@ -1,7 +1,9 @@
 package com.example.aquariuminformation.ui.pages
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -14,11 +16,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.aquariuminformation.R
-import com.example.aquariuminformation.ui.commonui.AppDivider
-import com.example.aquariuminformation.ui.commonui.HeaderTextLarge
+import com.example.aquariuminformation.ui.commonui.NavButton
 import com.example.aquariuminformation.ui.commonui.NavButtonRow
-import com.example.aquariuminformation.ui.commonui.NavRowButton
-import com.example.aquariuminformation.ui.commonui.PageViewCenter
+import com.example.aquariuminformation.ui.commonui.PageView
+import com.example.aquariuminformation.ui.commonui.TitleWideCard
 import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @Composable
@@ -29,15 +30,15 @@ fun OverviewPage(
 	onClickAlkalinity: () -> Unit = {},
 	onClickVolume: () -> Unit = {},
 	onClickFish: () -> Unit = {},
-){
-	PageViewCenter {
+) {
+	PageView {
 		OverviewLayout(
 			onClickTemperature = onClickTemperature,
 			onClickCo2 = onClickCo2,
 			onClickSalinity = onClickSalinity,
 			onClickAlkalinity = onClickAlkalinity,
 			onClickVolume = onClickVolume,
-			onClickFish = onClickFish
+			onClickFish = onClickFish,
 		)
 	}
 }
@@ -51,13 +52,13 @@ fun OverviewLayout(
 	onClickAlkalinity: () -> Unit,
 	onClickVolume: () -> Unit,
 	onClickFish: () -> Unit,
-){
+) {
 	Column(
 		modifier = modifier,
 	) {
 		Column(
-			modifier = Modifier
-				.fillMaxWidth(fraction = 0.9f),
+			modifier = Modifier.fillMaxSize(),
+			verticalArrangement = Arrangement.SpaceEvenly
 		) {
 			ConvertersGrid(
 				onClickTemperature = onClickTemperature,
@@ -78,35 +79,43 @@ fun OverviewLayout(
 
 @Composable
 fun ConvertersGrid(
+	modifier: Modifier = Modifier,
 	color: Color = MaterialTheme.colorScheme.primary,
 	onClickTemperature: () -> Unit,
 	onClickCo2: () -> Unit,
 	onClickSalinity: () -> Unit,
 	onClickAlkalinity: () -> Unit,
 ) {
-	HeaderTextLarge(
-		text = stringResource(id = R.string.converters),
-		color = color
-	)
-	AppDivider()
-	NavButtonRow(
-		title1 = stringResource(id = R.string.converters),
-		icon1 = painterResource(id = R.drawable.baseline_email_24),
-		title2 = stringResource(R.string.calculators),
-		icon2 = painterResource(id = R.drawable.baseline_email_24),
-		contentColor = color,
-		onClick1 = onClickTemperature,
-		onClick2 = onClickCo2,
-	)
-	NavButtonRow(
-		title1 = stringResource(id = R.string.converters),
-		icon1 = painterResource(id = R.drawable.baseline_email_24),
-		title2 = stringResource(R.string.calculators),
-		icon2 = painterResource(id = R.drawable.baseline_email_24),
-		contentColor = color,
-		onClick1 = onClickSalinity,
-		onClick2 = onClickAlkalinity,
-	)
+	Column(
+		modifier = modifier,
+	) {
+		TitleWideCard(
+			text = stringResource(id = R.string.converters),
+			color = color,
+			icon = painterResource(id = R.drawable.ic_conversion)
+		) {
+			NavButtonRow(
+				title1 = stringResource(id = R.string.temperature),
+				icon1 = painterResource(id = R.drawable.ic_thermostat),
+				title2 = stringResource(R.string.carbon_dioxide),
+				icon2 = painterResource(id = R.drawable.baseline_co2_24),
+				contentColor = color,
+				onClick1 = onClickTemperature,
+				onClick2 = onClickCo2,
+				modifier = Modifier.fillMaxWidth(fraction = 0.9f)
+			)
+			NavButtonRow(
+				title1 = stringResource(R.string.salinity),
+				icon1 = painterResource(id = R.drawable.ic_salinity),
+				title2 = stringResource(R.string.alkalinity),
+				icon2 = painterResource(id = R.drawable.ic_water_drop),
+				contentColor = color,
+				onClick1 = onClickSalinity,
+				onClick2 = onClickAlkalinity,
+				modifier = Modifier.fillMaxWidth(fraction = 0.9f)
+			)
+		}
+	}
 }
 
 @Composable
@@ -115,20 +124,22 @@ fun CalculatorsGrid(
 	onClickVolume: () -> Unit,
 	onClickCo2: () -> Unit,
 ) {
-	HeaderTextLarge(
+	TitleWideCard(
 		text = stringResource(id = R.string.calculators),
 		color = color,
-	)
-	AppDivider()
-	NavButtonRow(
-		title1 = stringResource(id = R.string.converters),
-		icon1 = painterResource(id = R.drawable.baseline_email_24),
-		title2 = stringResource(R.string.calculators),
-		icon2 = painterResource(id = R.drawable.baseline_email_24),
-		contentColor = color,
-		onClick1 = onClickVolume,
-		onClick2 = onClickCo2,
-	)
+		icon = painterResource(id = R.drawable.baseline_calculate_24)
+	) {
+		NavButtonRow(
+			title1 = stringResource(R.string.tank_volume),
+			icon1 = painterResource(id = R.drawable.ic_cube),
+			title2 = stringResource(R.string.carbon_dioxide),
+			icon2 = painterResource(id = R.drawable.baseline_co2_24),
+			contentColor = color,
+			onClick1 = onClickVolume,
+			onClick2 = onClickCo2,
+			modifier = Modifier.fillMaxWidth(fraction = 0.9f)
+		)
+	}
 }
 
 @Composable
@@ -136,31 +147,32 @@ fun FishCompatability(
 	color: Color = MaterialTheme.colorScheme.tertiary,
 	onClickFish: () -> Unit,
 ) {
-	HeaderTextLarge(
+	TitleWideCard(
 		text = stringResource(id = R.string.text_fish_compatibility),
 		color = color,
-	)
-	AppDivider()
-	NavRowButton(
-		title = stringResource(id = R.string.text_welcome_compatibility_title),
-		icon = painterResource(id = R.drawable.baseline_email_24),
-		contentColor = color,
-		modifier = Modifier
-			.fillMaxWidth()
-			.padding(dimensionResource(id = R.dimen.padding_small)),
-		onClick = onClickFish,
-	)
+		icon = painterResource(id = R.drawable.baseline_set_meal_24)
+	) {
+		NavButton(
+			title = stringResource(id = R.string.text_welcome_compatibility_title),
+			icon = painterResource(id = R.drawable.baseline_set_meal_24),
+			contentColor = color,
+			modifier = Modifier
+				.fillMaxWidth(fraction = 0.9f)
+				.padding(top = dimensionResource(id = R.dimen.padding_small)),
+			onClick = onClickFish,
+		)
+	}
 }
 
 @ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
-fun OverviewPreview(){
+fun OverviewPreview() {
 	AquariumInformationTheme {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
-		){
+		) {
 			OverviewPage()
 		}
 	}
@@ -170,12 +182,12 @@ fun OverviewPreview(){
 @Preview(showBackground = true)
 @Composable
 fun OverviewPreviewDark(
-){
+) {
 	AquariumInformationTheme(useDarkTheme = true) {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
-		){
+		) {
 			OverviewPage()
 		}
 	}

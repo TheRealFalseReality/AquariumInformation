@@ -23,7 +23,7 @@ import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
 
 
 @Composable
-fun InfoPage(){
+fun InfoPage() {
 	PageView {
 		InfoLayout()
 	}
@@ -38,9 +38,9 @@ fun InfoLayout(
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
 		TitleWideCard(
-			title = stringResource(id = R.string.text_title_info),
+			text = stringResource(id = R.string.text_title_info),
 			icon = painterResource(id = R.drawable.baseline_info_24)
-		){
+		) {
 			SingleWideCard {
 				BodyTextCard(text = stringResource(id = R.string.text_info_1))
 				BodyTextCard(text = stringResource(id = R.string.text_info_2))
@@ -48,7 +48,7 @@ fun InfoLayout(
 			}
 		}
 		TitleWideCard(
-			title = stringResource(R.string.errors_or_bugs),
+			text = stringResource(R.string.errors_or_bugs),
 			icon = painterResource(id = R.drawable.baseline_build_24)
 		) {
 			SingleWideCard(
@@ -59,9 +59,9 @@ fun InfoLayout(
 			}
 		}
 		TitleWideCard(
-			title = stringResource(R.string.contact),
+			text = stringResource(R.string.contact),
 			icon = painterResource(id = R.drawable.baseline_person_search_24)
-		){
+		) {
 			SingleWideCard {
 				IconTextRow(
 					icon = painterResource(id = R.drawable.baseline_email_24),
@@ -74,7 +74,7 @@ fun InfoLayout(
 			}
 		}
 		TitleWideCard(
-			title = stringResource(R.string.app_information),
+			text = stringResource(R.string.app_information),
 			icon = painterResource(id = R.drawable.baseline_settings_suggest_24),
 		) {
 			SingleWideCard {
@@ -91,13 +91,13 @@ fun InfoLayout(
 @ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
-fun InfoPreview(){
+fun InfoPreview() {
 	AquariumInformationTheme {
 		Column(
 			modifier = Modifier
 				.fillMaxSize()
 				.background(color = MaterialTheme.colorScheme.surface)
-		){
+		) {
 			InfoPage()
 		}
 	}
@@ -107,13 +107,13 @@ fun InfoPreview(){
 @Preview(showBackground = true)
 @Composable
 fun InfoPreviewDark(
-){
+) {
 	AquariumInformationTheme(useDarkTheme = true) {
 		Column(
 			modifier = Modifier
 				.fillMaxSize()
 				.background(color = MaterialTheme.colorScheme.surface)
-		){
+		) {
 			InfoPage()
 		}
 	}

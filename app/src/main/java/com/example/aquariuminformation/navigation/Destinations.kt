@@ -94,11 +94,11 @@ object CarbonDioxide : Destinations {
 //	override val title = "Tank Volume"
 //}
 //
-//object FishCompat : Destinations {
-//	override val icon = R.drawable.compaticon
-//	override val route = "fish_compat"
-//	override val title = "Compatibility"
-//}
+object FishCompatability : Destinations {
+	override val icon = R.drawable.baseline_set_meal_24
+	override val route = "fish_compatibility"
+	override val title = R.string.compatibility
+}
 //
 //object FishCompatFresh : Destinations {
 //	override val icon = R.drawable.combatfresh
@@ -112,7 +112,19 @@ object CarbonDioxide : Destinations {
 //	override val title = "Marine"
 //}
 
-val bottomNavRow = listOf(Overview, Temperature, CarbonDioxide)
+object Converters : Destinations {
+	override val icon = R.drawable.ic_conversion
+	override val route = "converters"
+	override val title = R.string.converters
+}
+
+object Calculators : Destinations {
+	override val icon = R.drawable.baseline_calculate_24
+	override val route = "calculators"
+	override val title = R.string.calculators
+}
+
+val bottomNavRow = listOf(Overview, Converters, Calculators, FishCompatability)
 //val mainNavDrawer = listOf(FishCompat, TankVolume, Converters, Alkalinity, Salinity)
 //val bottomNavRow = listOf(FishCompat, TankVolume, Converters, Alkalinity, Salinity)
 //val tankVolumeNavRow = listOf(Rectangle, Cube, Cylinder, Hexagonal, BowFront)

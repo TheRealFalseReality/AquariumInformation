@@ -40,10 +40,13 @@ fun AquariumNavHost(
 //			onClickFish: () -> Unit = {},
 			)
 		}
-		composable(route = Temperature.route) {
+		composable(route = Converters.route) {
 
 		}
-		composable(route = CarbonDioxide.route) {
+		composable(route = Calculators.route) {
+
+		}
+		composable(route = FishCompatability.route) {
 
 		}
 	}

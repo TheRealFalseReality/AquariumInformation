@@ -1,5 +1,6 @@
 package com.example.aquariuminformation.ui.commonui
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,9 +16,9 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedCard
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,6 +32,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.aquariuminformation.R
 import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
 import com.example.aquariuminformation.ui.theme.Shapes
@@ -39,29 +41,39 @@ import com.example.aquariuminformation.ui.theme.Shapes
 @Composable
 fun TitleWideCard(
 	modifier: Modifier = Modifier,
-	title: String,
+	text: String,
 	icon: Painter,
+	color: Color = MaterialTheme.colorScheme.onSurface,
 	content: @Composable ColumnScope.() -> Unit,
-){
+) {
 	Column(
 		modifier = modifier,
 	) {
 		Row(
-			modifier = Modifier
-				.padding(start = dimensionResource(id = R.dimen.padding_verySmall)),
 			verticalAlignment = Alignment.CenterVertically
 		) {
 			Icon(
+				modifier = Modifier
+					.padding(
+						start = dimensionResource(id = R.dimen.padding_verySmall),
+						end = dimensionResource(id = R.dimen.padding_small)
+					),
 				painter = icon,
-				contentDescription = title
+				contentDescription = text,
+				tint = color
 			)
 			HeaderTextLarge(
-				text = title,
-				color = MaterialTheme.colorScheme.onSurface,
+				text = text,
+				color = color,
 			)
 		}
+		AppDivider(
+			color = color,
+//			modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_verySmall))
+		)
 		Column(
-			modifier = Modifier.fillMaxWidth(),
+			modifier = Modifier
+				.fillMaxWidth(),
 			horizontalAlignment = Alignment.CenterHorizontally
 		) {
 			content()
@@ -76,7 +88,7 @@ fun IconTextRow(
 	iconTint: Color = MaterialTheme.colorScheme.onBackground,
 	text: String,
 	textColor: Color = MaterialTheme.colorScheme.onBackground
-){
+) {
 	Column(modifier = modifier) {
 		Row(
 			modifier = Modifier
@@ -106,7 +118,7 @@ fun TextRow(
 	modifier: Modifier = Modifier,
 	text1: String,
 	text2: String,
-	){
+) {
 	Column(modifier = modifier) {
 		Row(
 			modifier = Modifier
@@ -126,7 +138,6 @@ fun TextRow(
 			)
 		}
 	}
-
 }
 
 //@Composable
@@ -147,29 +158,29 @@ fun TextRow(
 
 @Composable
 fun PageView(
-	content: @Composable ColumnScope.() -> Unit,
-){
+	modifier: Modifier = Modifier,
+	content: @Composable ColumnScope.() -> Unit
+) {
 	Column(
-		modifier = Modifier
-			.fillMaxSize()
-			.verticalScroll(rememberScrollState()),
+		modifier = modifier.fillMaxSize(),
+		verticalArrangement = Arrangement.Top,
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
-		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_verySmall)))
 		content()
 	}
 }
 
 @Composable
 fun PageViewCenter(
+	modifier: Modifier = Modifier,
 	content: @Composable ColumnScope.() -> Unit,
-){
+) {
 	Column(
-		modifier = Modifier
+		modifier = modifier
 			.fillMaxSize()
 			.verticalScroll(rememberScrollState()),
-		horizontalAlignment = Alignment.CenterHorizontally,
-		verticalArrangement = Arrangement.Center,
+		verticalArrangement = Arrangement.SpaceBetween,
 	) {
 		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
 		content()
@@ -179,7 +190,7 @@ fun PageViewCenter(
 @Composable
 fun PageViewLazy(
 	content: @Composable ColumnScope.() -> Unit,
-){
+) {
 	Column(
 		modifier = Modifier
 			.fillMaxSize(),
@@ -197,15 +208,13 @@ fun SingleWideCard(
 	backgroundCardColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color = MaterialTheme.colorScheme.onBackground,
 	content: @Composable ColumnScope.() -> Unit,
-){
+) {
 	Column(modifier = modifier) {
 		ElevatedCard(
 			modifier = Modifier
 				.padding(
 					top = dimensionResource(id = R.dimen.padding_small),
 					bottom = dimensionResource(id = R.dimen.padding_small),
-//				start = dimensionResource(id = R.dimen.padding_medium),
-//				end = dimensionResource(id = R.dimen.padding_medium)
 				)
 				.fillMaxWidth(fraction = 0.9f),
 			shape = shape,
@@ -233,7 +242,7 @@ fun HeaderTextCard(
 	text: String,
 	style: TextStyle = MaterialTheme.typography.titleMedium,
 	textAlign: TextAlign = TextAlign.Center
-){
+) {
 	Column(modifier = modifier) {
 		Text(
 			text = text,
@@ -249,7 +258,7 @@ fun BodyTextCard(
 	text: String,
 	style: TextStyle = MaterialTheme.typography.bodyMedium,
 	textAlign: TextAlign = TextAlign.Center
-){
+) {
 	Column(modifier = modifier) {
 		Text(
 			text = text,
@@ -266,11 +275,9 @@ fun HeaderTextLarge(
 	color: Color = MaterialTheme.colorScheme.onBackground,
 	style: TextStyle = MaterialTheme.typography.titleLarge,
 	textAlign: TextAlign = TextAlign.Start
-){
+) {
 	Column(modifier = modifier) {
 		Text(
-			modifier = Modifier
-				.padding(start = dimensionResource(id = R.dimen.padding_small)),
 			text = text,
 			color = color,
 			style = style,
@@ -280,12 +287,45 @@ fun HeaderTextLarge(
 }
 
 @Composable
+fun HeaderTextIconLarge(
+	modifier: Modifier = Modifier,
+	icon: Painter,
+	text: String,
+	color: Color = MaterialTheme.colorScheme.onBackground,
+	style: TextStyle = MaterialTheme.typography.titleLarge,
+	textAlign: TextAlign = TextAlign.Start
+) {
+	Column(modifier = modifier) {
+		Row(
+			verticalAlignment = Alignment.CenterVertically
+		) {
+			Icon(
+				modifier = Modifier
+					.padding(
+						start = dimensionResource(id = R.dimen.padding_verySmall),
+						end = dimensionResource(id = R.dimen.padding_small)
+					),
+				painter = icon,
+				contentDescription = text
+			)
+			Text(
+				text = text,
+				color = color,
+				style = style,
+				textAlign = textAlign,
+			)
+		}
+
+	}
+}
+
+@Composable
 fun PopOutCard(
 	modifier: Modifier = Modifier,
 	icon: Painter,
 	headerText: String,
 	bodyText: String,
-){
+) {
 	Column(modifier = modifier) {
 		SingleWideCard(
 			backgroundCardColor = MaterialTheme.colorScheme.tertiary,
@@ -293,19 +333,17 @@ fun PopOutCard(
 		) {
 
 			Row(
-				modifier = Modifier.fillMaxWidth(),
 				verticalAlignment = Alignment.CenterVertically,
 			) {
 				Column(
 					modifier = Modifier
-							.weight(1f),
+						.weight(1f),
 					horizontalAlignment = Alignment.CenterHorizontally
 				) {
 					Icon(
-//						modifier = Modifier
-//							.weight(1f),
 						painter = icon,
-						contentDescription = null)
+						contentDescription = null
+					)
 				}
 
 				Column(
@@ -321,6 +359,32 @@ fun PopOutCard(
 					)
 				}
 			}
+		}
+	}
+}
+
+@Composable
+fun PopOutlined(
+	modifier: Modifier = Modifier,
+	text: String,
+	containerColor: Color,
+	contentColor: Color
+) {
+	Column(
+		modifier = modifier,
+	) {
+		OutlinedCard(
+			colors = CardDefaults.cardColors(
+				containerColor = MaterialTheme.colorScheme.background,
+				contentColor = MaterialTheme.colorScheme.secondary
+			),
+			border = BorderStroke(width = 4.dp, color = MaterialTheme.colorScheme.secondary)
+		) {
+			Text(
+				modifier = Modifier
+					.padding(dimensionResource(id = R.dimen.padding_large)),
+				text = stringResource(R.string.tap_below_to_navigate),
+			)
 		}
 	}
 }
@@ -377,44 +441,61 @@ fun PopOutCard(
 //}
 
 @Composable
-fun AppDivider() {
-	Divider(
-		modifier = Modifier
-			.fillMaxWidth(fraction = 0.8f)
-			.padding(start = dimensionResource(id = R.dimen.padding_small)),
-		color = MaterialTheme.colorScheme.primary
-	)
+fun AppDivider(
+	color: Color = MaterialTheme.colorScheme.onBackground,
+	modifier: Modifier = Modifier 
+) {
+	Column(modifier = modifier) {
+		Divider(
+			modifier = Modifier
+				.fillMaxWidth(fraction = 0.8f),
+			color = color
+		)		
+	}
+
 }
 
-
-@ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
-fun FisComPreview(){
+fun HeaderTextIconLargePreview() {
 	AquariumInformationTheme {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
-		){
-			PopOutCard(
-				icon = painterResource(id = R.drawable.baseline_new_releases_24),
-				headerText = stringResource(id = R.string.text_welcome_compatibility_title),
-				bodyText = stringResource(id = R.string.text_welcome_compatibility_2)
+		) {
+			HeaderTextIconLarge(
+				icon = painterResource(id = R.drawable.ic_conversion),
+				text = stringResource(id = R.string.converters),
 			)
 		}
 	}
 }
 
-@ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
-fun FisComPreviewDark(
-){
+fun HeaderTextIconLargePreviewDark(
+) {
 	AquariumInformationTheme(useDarkTheme = true) {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
-		){
+		) {
+			HeaderTextIconLarge(
+				icon = painterResource(id = R.drawable.ic_conversion),
+				text = stringResource(id = R.string.converters),
+			)
+		}
+	}
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PopOutCardPreview() {
+	AquariumInformationTheme {
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.background)
+		) {
 			PopOutCard(
 				icon = painterResource(id = R.drawable.baseline_new_releases_24),
 				headerText = stringResource(id = R.string.text_welcome_compatibility_title),
@@ -424,17 +505,34 @@ fun FisComPreviewDark(
 	}
 }
 
-@ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
-fun CardTitlePreview(){
+fun PopOutCardPreviewDark(
+) {
+	AquariumInformationTheme(useDarkTheme = true) {
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.background)
+		) {
+			PopOutCard(
+				icon = painterResource(id = R.drawable.baseline_new_releases_24),
+				headerText = stringResource(id = R.string.text_welcome_compatibility_title),
+				bodyText = stringResource(id = R.string.text_welcome_compatibility_2)
+			)
+		}
+	}
+}
+
+@Preview(showBackground = true)
+@Composable
+fun CardTitlePreview() {
 	AquariumInformationTheme {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
-		){
+		) {
 			TitleWideCard(
-				title = stringResource(id = R.string.app_name),
+				text = stringResource(id = R.string.app_name),
 				icon = painterResource(id = R.drawable.baseline_info_24)
 			) {
 				SingleWideCard {
@@ -445,18 +543,17 @@ fun CardTitlePreview(){
 	}
 }
 
-@ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
 fun CardTitlePreviewDark(
-){
+) {
 	AquariumInformationTheme(useDarkTheme = true) {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
-		){
+		) {
 			TitleWideCard(
-				title = stringResource(id = R.string.app_name),
+				text = stringResource(id = R.string.app_name),
 				icon = painterResource(id = R.drawable.baseline_info_24)
 			){
 				SingleWideCard {

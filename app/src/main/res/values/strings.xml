@@ -497,4 +497,9 @@
     <string name="appVersion">2.0.0</string>
     <string name="temperature">Temperature</string>
     <string name="carbon_dioxide">Carbon Dioxide</string>
+    <string name="compatibility">Compatibility</string>
+    <string name="salinity">Salinity</string>
+    <string name="alkalinity">Alkalinity</string>
+    <string name="co">CO₂</string>
+    <string name="tank_volume">Tank Volume</string>
 </resources>

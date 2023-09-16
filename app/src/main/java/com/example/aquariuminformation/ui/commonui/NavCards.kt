@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -129,7 +130,12 @@ fun NavButtonRow(
 		NavButton(
 			modifier = Modifier
 				.weight(1f)
-				.padding(dimensionResource(id = R.dimen.padding_small)),
+				.fillMaxWidth(fraction = 0.9f)
+				.padding(
+					top = dimensionResource(id = R.dimen.padding_small),
+					bottom = dimensionResource(id = R.dimen.padding_small),
+					end = dimensionResource(id = R.dimen.padding_small),
+				),
 			title = title1,
 			icon = icon1,
 			containerColor = containerColor,
@@ -139,7 +145,11 @@ fun NavButtonRow(
 		NavButton(
 			modifier = Modifier
 				.weight(1f)
-				.padding(dimensionResource(id = R.dimen.padding_small)),
+				.padding(
+					top = dimensionResource(id = R.dimen.padding_small),
+					bottom = dimensionResource(id = R.dimen.padding_small),
+					start = dimensionResource(id = R.dimen.padding_small),
+				),
 			title = title2,
 			icon = icon2,
 			containerColor = containerColor,
