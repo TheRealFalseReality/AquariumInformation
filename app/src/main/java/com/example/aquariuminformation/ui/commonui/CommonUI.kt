@@ -364,26 +364,26 @@ fun PopOutCard(
 }
 
 @Composable
-fun PopOutlined(
+fun PopOutlinedCard(
 	modifier: Modifier = Modifier,
 	text: String,
-	containerColor: Color,
-	contentColor: Color
+	containerColor: Color = MaterialTheme.colorScheme.background,
+	contentColor: Color = MaterialTheme.colorScheme.secondary,
 ) {
 	Column(
 		modifier = modifier,
 	) {
 		OutlinedCard(
 			colors = CardDefaults.cardColors(
-				containerColor = MaterialTheme.colorScheme.background,
-				contentColor = MaterialTheme.colorScheme.secondary
+				containerColor = containerColor,
+				contentColor = contentColor
 			),
-			border = BorderStroke(width = 4.dp, color = MaterialTheme.colorScheme.secondary)
+			border = BorderStroke(width = 4.dp, color = contentColor)
 		) {
 			Text(
 				modifier = Modifier
 					.padding(dimensionResource(id = R.dimen.padding_large)),
-				text = stringResource(R.string.tap_below_to_navigate),
+				text = text,
 			)
 		}
 	}
@@ -442,8 +442,8 @@ fun PopOutlined(
 
 @Composable
 fun AppDivider(
+	modifier: Modifier = Modifier,
 	color: Color = MaterialTheme.colorScheme.onBackground,
-	modifier: Modifier = Modifier 
 ) {
 	Column(modifier = modifier) {
 		Divider(
@@ -453,6 +453,27 @@ fun AppDivider(
 		)		
 	}
 
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PopOutlinedCardPreview() {
+	AquariumInformationTheme {
+		PopOutlinedCard(
+			text = stringResource(id = R.string.tap_below_to_navigate)
+		)
+	}
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PopOutlinedCarPreviewDark(
+) {
+	AquariumInformationTheme(useDarkTheme = true) {
+		PopOutlinedCard(
+			text = stringResource(id = R.string.tap_below_to_navigate)
+		)
+	}
 }
 
 @Preview(showBackground = true)

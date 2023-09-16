@@ -9,7 +9,6 @@ interface Destinations {
 }
 
 object Home : Destinations {
-
 	override val icon = R.drawable.ic_launcher_foreground
 	override val route = "home"
 	override val title = R.string.home
@@ -27,6 +26,11 @@ object Overview : Destinations {
 	override val title = R.string.overview
 }
 
+object TankVolume : Destinations {
+	override val icon = R.drawable.ic_cube
+	override val route = "volume"
+	override val title = R.string.tank_volume
+}
 
 //object Salinity : Destinations {
 //	override val icon = R.drawable.salinity
@@ -124,7 +128,7 @@ object Calculators : Destinations {
 	override val title = R.string.calculators
 }
 
-val bottomNavRow = listOf(Overview, Converters, Calculators, FishCompatability)
+val bottomNavRow = listOf(Overview, Converters, TankVolume, FishCompatability)
 //val mainNavDrawer = listOf(FishCompat, TankVolume, Converters, Alkalinity, Salinity)
 //val bottomNavRow = listOf(FishCompat, TankVolume, Converters, Alkalinity, Salinity)
 //val tankVolumeNavRow = listOf(Rectangle, Cube, Cylinder, Hexagonal, BowFront)

@@ -6,6 +6,8 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.aquariuminformation.ui.pages.CalculatorsOverviewPage
+import com.example.aquariuminformation.ui.pages.ConvertersOverviewPage
 import com.example.aquariuminformation.ui.pages.HomePage
 import com.example.aquariuminformation.ui.pages.InfoPage
 import com.example.aquariuminformation.ui.pages.OverviewPage
@@ -41,9 +43,12 @@ fun AquariumNavHost(
 			)
 		}
 		composable(route = Converters.route) {
-
+			ConvertersOverviewPage()
 		}
 		composable(route = Calculators.route) {
+			CalculatorsOverviewPage()
+		}
+		composable(route = TankVolume.route){
 
 		}
 		composable(route = FishCompatability.route) {

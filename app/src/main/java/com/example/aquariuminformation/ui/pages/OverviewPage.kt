@@ -3,12 +3,14 @@ package com.example.aquariuminformation.ui.pages
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
@@ -56,10 +58,7 @@ fun OverviewLayout(
 	Column(
 		modifier = modifier,
 	) {
-		Column(
-			modifier = Modifier.fillMaxSize(),
-			verticalArrangement = Arrangement.SpaceEvenly
-		) {
+		OverviewGenericLayout {
 			ConvertersGrid(
 				onClickTemperature = onClickTemperature,
 				onClickCo2 = onClickCo2,
@@ -73,6 +72,59 @@ fun OverviewLayout(
 			FishCompatability(
 				onClickFish = onClickFish,
 			)
+		}
+	}
+}
+
+@Composable
+fun ConvertersOverviewPage(
+	onClickTemperature: () -> Unit = {},
+	onClickCo2: () -> Unit = {},
+	onClickSalinity: () -> Unit = {},
+	onClickAlkalinity: () -> Unit = {},
+){
+	PageView {
+		OverviewGenericLayout {
+			ConvertersGrid(
+				onClickTemperature = onClickTemperature,
+				onClickCo2 = onClickCo2,
+				onClickSalinity = onClickSalinity,
+				onClickAlkalinity = onClickAlkalinity
+			)
+		}
+	}
+}
+
+@Composable
+fun CalculatorsOverviewPage(
+	onClickVolume: () -> Unit = {},
+	onClickCo2: () -> Unit = {},
+){
+	PageView {
+		OverviewGenericLayout {
+			CalculatorsGrid(
+				onClickVolume = onClickVolume,
+				onClickCo2 = onClickCo2,
+			)
+		}
+	}
+}
+
+@Composable
+fun OverviewGenericLayout(
+	modifier: Modifier = Modifier,
+	content: @Composable ColumnScope.() -> Unit,
+) {
+	Column(
+		modifier = modifier,
+	) {
+		Column(
+			modifier = Modifier.fillMaxSize(),
+			verticalArrangement = Arrangement.SpaceEvenly,
+			horizontalAlignment = Alignment.CenterHorizontally
+		) {
+//			HeaderTextLarge(text = "Tap to Choose")
+			content()
 		}
 	}
 }
@@ -145,7 +197,7 @@ fun CalculatorsGrid(
 @Composable
 fun FishCompatability(
 	color: Color = MaterialTheme.colorScheme.tertiary,
-	onClickFish: () -> Unit,
+	onClickFish: () -> Unit = {},
 ) {
 	TitleWideCard(
 		text = stringResource(id = R.string.text_fish_compatibility),
