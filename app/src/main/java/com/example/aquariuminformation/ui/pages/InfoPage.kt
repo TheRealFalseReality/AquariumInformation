@@ -53,39 +53,53 @@ fun InfoLayout(
 		}
 		TitleWideCard(
 			text = R.string.errors_or_bugs,
-			icon = R.drawable.baseline_build_24
+			icon = R.drawable.baseline_build_24,
+			color = MaterialTheme.colorScheme.primary
 		) {
 			SingleWideCard(
 				backgroundCardColor = MaterialTheme.colorScheme.primary,
 				contentColor = MaterialTheme.colorScheme.onPrimary
 			) {
-				BodyTextCard(text =  R.string.text_app_errors)
+				BodyTextCard(
+					text =  R.string.text_app_errors,
+					color = MaterialTheme.colorScheme.onPrimary
+				)
 			}
 		}
 		TitleWideCard(
 			text = R.string.contact,
-			icon = R.drawable.baseline_person_search_24
+			icon = R.drawable.baseline_person_search_24,
+			color = MaterialTheme.colorScheme.secondary
 		) {
 			SingleWideCard {
 				IconTextRow(
 					icon = R.drawable.baseline_email_24,
-					text = R.string.text_email
+					text = R.string.text_email,
+					textColor = MaterialTheme.colorScheme.secondary,
+					iconTint = MaterialTheme.colorScheme.secondary,
 				)
 				IconTextRow(
 					icon = R.drawable.baseline_web_24,
-					text = R.string.text_website
+					text = R.string.text_website,
+					textColor = MaterialTheme.colorScheme.secondary,
+					iconTint = MaterialTheme.colorScheme.secondary,
 				)
 			}
 		}
 		TitleWideCard(
 			text = R.string.app_information,
 			icon = R.drawable.baseline_settings_suggest_24,
+			color =  MaterialTheme.colorScheme.tertiary
 		) {
 			SingleWideCard {
-				HeaderTextCard(text =  R.string.app_name)
+				HeaderTextCard(
+					text = R.string.app_name,
+					color = MaterialTheme.colorScheme.tertiary
+				)
 				TextRow(
 					text1 = R.string.app_version,
-					text2 = R.string.appVersion
+					text2 = R.string.appVersion,
+					color = MaterialTheme.colorScheme.tertiary
 				)
 			}
 		}

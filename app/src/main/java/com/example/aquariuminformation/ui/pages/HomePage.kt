@@ -33,39 +33,27 @@ fun HomeLayout(
 	modifier: Modifier = Modifier,
 ) {
 	Column(
-		modifier = modifier,
+		modifier = modifier.fillMaxHeight(),
+		horizontalAlignment = Alignment.CenterHorizontally,
+		verticalArrangement = Arrangement.SpaceBetween
 	) {
-		Column(
-			modifier = Modifier.fillMaxHeight(),
-			horizontalAlignment = Alignment.CenterHorizontally,
-			verticalArrangement = Arrangement.SpaceBetween
+		TitleWideCard(
+			text = R.string.about,
+			icon = R.drawable.baseline_home_24
 		) {
-			TitleWideCard(
-				text = R.string.about,
-				icon = R.drawable.baseline_home_24
-			) {
-				SingleWideCard {
-					BodyTextCard(text =  R.string.text_welcome)
-				}
+			SingleWideCard {
+				BodyTextCard(text = R.string.text_welcome)
 			}
-			PopOutCard(
-				icon = R.drawable.baseline_new_releases_24,
-				headerText = R.string.text_welcome_compatibility_title,
-				bodyText = R.string.text_welcome_compatibility_2
-			)
-			PopOutlinedCard(
-				text = R.string.tap_below_to_navigate
-			)
-			Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_verySmall)))		}
-//		Column(
-//			modifier = modifier.fillMaxSize(),
-//			verticalArrangement = Arrangement.Center,
-//			horizontalAlignment = Alignment.CenterHorizontally
-//		) {
-//			PopOutlinedCard(
-//				text = R.string.tap_below_to_navigate
-//			)
-//		}
+		}
+		PopOutCard(
+			icon = R.drawable.baseline_new_releases_24,
+			headerText = R.string.text_welcome_compatibility_title,
+			bodyText = R.string.text_welcome_compatibility_2
+		)
+		PopOutlinedCard(
+			text = R.string.tap_below_to_navigate
+		)
+		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_verySmall)))
 	}
 }
 
