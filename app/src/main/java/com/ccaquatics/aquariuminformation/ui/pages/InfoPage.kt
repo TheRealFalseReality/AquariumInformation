@@ -56,10 +56,7 @@ fun InfoLayout(
 			icon = R.drawable.ic_build,
 //			color = MaterialTheme.colorScheme.primary
 		) {
-			SingleWideCard(
-//				backgroundCardColor = MaterialTheme.colorScheme.primary,
-//				contentColor = MaterialTheme.colorScheme.onPrimary
-			) {
+			SingleWideCard {
 				BodyTextCard(
 					text =  R.string.text_app_errors,
 //					color = MaterialTheme.colorScheme.onPrimary

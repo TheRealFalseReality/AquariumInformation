@@ -91,7 +91,8 @@ fun CarbonDioxideLayout(modifier: Modifier = Modifier) {
 					color = color,
 					content = {
 						BodyTextCard(
-							text = R.string.text_formula_soon
+							text = R.string.text_formula_soon,
+							color = color
 						)
 					}
 				)

@@ -78,7 +78,7 @@ fun OverviewLayout(
 @Composable
 fun ConvertersOverviewPage(
 	onClickTemperature: () -> Unit = {},
-	onClickCo2: () -> Unit = {},
+//	onClickCo2: () -> Unit = {},
 	onClickSalinity: () -> Unit = {},
 	onClickAlkalinity: () -> Unit = {},
 ){

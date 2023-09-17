@@ -39,9 +39,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import com.ccaquatics.aquariuminformation.ui.theme.Shapes
+import com.example.aquariuminformation.R
 
 
 @Composable
@@ -600,6 +600,7 @@ fun PopOutlinedCard(
 	@StringRes text: Int,
 	containerColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color = MaterialTheme.colorScheme.secondary,
+	shape: Shape = Shapes.large
 ) {
 	Column(
 		modifier = modifier,
@@ -607,9 +608,10 @@ fun PopOutlinedCard(
 		OutlinedCard(
 			colors = CardDefaults.cardColors(
 				containerColor = containerColor,
-				contentColor = contentColor
+				contentColor = contentColor,
 			),
-			border = BorderStroke(width = 4.dp, color = contentColor)
+			border = BorderStroke(width = 4.dp, color = contentColor),
+			shape = shape
 		) {
 			Text(
 				modifier = Modifier
