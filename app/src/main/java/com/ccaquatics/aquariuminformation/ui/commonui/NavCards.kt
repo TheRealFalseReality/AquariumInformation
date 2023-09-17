@@ -6,6 +6,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -69,6 +70,53 @@ fun NavButton(
 		}
 	}
 }
+
+@Composable
+fun NavButtonWide(
+	modifier: Modifier = Modifier,
+	shape: Shape = Shapes.large,
+	containerColor: Color = MaterialTheme.colorScheme.background,
+	contentColor: Color = MaterialTheme.colorScheme.onBackground,
+	@StringRes title: Int,
+	@DrawableRes icon: Int,
+	onClick: () -> Unit,
+){
+	Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+	Button(
+		modifier = modifier
+			.fillMaxWidth(fraction = 0.9f),
+		onClick = onClick,
+		shape = shape,
+		colors = ButtonDefaults.buttonColors(
+			containerColor = containerColor,
+			contentColor = contentColor,
+		),
+		elevation = ButtonDefaults.buttonElevation(
+			defaultElevation = dimensionResource(id = R.dimen.elevation_large),
+			pressedElevation = dimensionResource(id = R.dimen.elevation_small)
+		)
+	) {
+		Column(
+			modifier = Modifier
+				.padding(dimensionResource(id = R.dimen.padding_small))
+				.height(dimensionResource(id = R.dimen.button_height_medium)),
+			verticalArrangement = Arrangement.Center,
+			horizontalAlignment = Alignment.CenterHorizontally,
+		) {
+			Text(
+				text = stringResource(id = title),
+			)
+			Icon(
+				painter = painterResource(id = icon),
+				contentDescription = null,
+				modifier = Modifier
+					.padding(top = dimensionResource(id = R.dimen.padding_small)),
+			)
+		}
+	}
+	Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+}
+
 
 @Composable
 fun NavRowButton(

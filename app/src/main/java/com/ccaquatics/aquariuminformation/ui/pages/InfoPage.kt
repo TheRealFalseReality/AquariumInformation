@@ -57,12 +57,12 @@ fun InfoLayout(
 //			color = MaterialTheme.colorScheme.primary
 		) {
 			SingleWideCard(
-				backgroundCardColor = MaterialTheme.colorScheme.primary,
-				contentColor = MaterialTheme.colorScheme.onPrimary
+//				backgroundCardColor = MaterialTheme.colorScheme.primary,
+//				contentColor = MaterialTheme.colorScheme.onPrimary
 			) {
 				BodyTextCard(
 					text =  R.string.text_app_errors,
-					color = MaterialTheme.colorScheme.onPrimary
+//					color = MaterialTheme.colorScheme.onPrimary
 				)
 			}
 		}

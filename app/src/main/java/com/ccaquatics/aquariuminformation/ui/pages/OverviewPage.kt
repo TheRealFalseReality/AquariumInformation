@@ -17,6 +17,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.ui.commonui.NavButton
 import com.ccaquatics.aquariuminformation.ui.commonui.NavButtonRow
+import com.ccaquatics.aquariuminformation.ui.commonui.NavButtonWide
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.TitleWideCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
@@ -59,7 +60,7 @@ fun OverviewLayout(
 		OverviewGenericLayout {
 			ConvertersGrid(
 				onClickTemperature = onClickTemperature,
-				onClickCo2 = onClickCo2,
+//				onClickCo2 = onClickCo2,
 				onClickSalinity = onClickSalinity,
 				onClickAlkalinity = onClickAlkalinity
 			)
@@ -85,7 +86,7 @@ fun ConvertersOverviewPage(
 		OverviewGenericLayout {
 			ConvertersGrid(
 				onClickTemperature = onClickTemperature,
-				onClickCo2 = onClickCo2,
+//				onClickCo2 = onClickCo2,
 				onClickSalinity = onClickSalinity,
 				onClickAlkalinity = onClickAlkalinity
 			)
@@ -141,7 +142,7 @@ fun ConvertersGrid(
 	modifier: Modifier = Modifier,
 	color: Color = MaterialTheme.colorScheme.primary,
 	onClickTemperature: () -> Unit,
-	onClickCo2: () -> Unit,
+//	onClickCo2: () -> Unit,
 	onClickSalinity: () -> Unit,
 	onClickAlkalinity: () -> Unit,
 ) {
@@ -153,16 +154,31 @@ fun ConvertersGrid(
 			color = color,
 			icon = R.drawable.ic_conversion
 		) {
-			NavButtonRow(
-				title1 = R.string.temperature,
-				icon1 = R.drawable.ic_thermostat,
-				title2 = R.string.carbon_dioxide,
-				icon2 = R.drawable.baseline_co2_24,
-				contentColor = color,
-				onClick1 = onClickTemperature,
-				onClick2 = onClickCo2,
-				modifier = Modifier.fillMaxWidth(fraction = 0.9f)
+			NavButtonWide(
+				title = R.string.temperature,
+				icon = R.drawable.ic_thermostat,
+				onClick = onClickTemperature,
+				contentColor = color
 			)
+//			Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+//			NavButton(
+//				modifier = Modifier
+//					.fillMaxWidth(fraction = 0.9f),
+//				title = R.string.temperature,
+//				icon = R.drawable.ic_thermostat,
+//				onClick = onClickTemperature,
+//				contentColor = color
+//			)
+//			Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+//			NavButtonRow(
+//				title1 = R.string.temperature,
+//				icon1 = R.drawable.ic_thermostat,
+//				title2 = R.string.carbon_dioxide,
+//				icon2 = R.drawable.baseline_co2_24,
+//				contentColor = color,
+//				onClick1 = onClickTemperature,
+//				onClick2 = onClickCo2,
+//			)
 			NavButtonRow(
 				title1 = R.string.salinity,
 				icon1 = R.drawable.ic_salinity_alt,
@@ -171,7 +187,6 @@ fun ConvertersGrid(
 				contentColor = color,
 				onClick1 = onClickSalinity,
 				onClick2 = onClickAlkalinity,
-				modifier = Modifier.fillMaxWidth(fraction = 0.9f)
 			)
 		}
 	}
@@ -249,15 +264,20 @@ fun FishCompatability(
 		color = color,
 		icon = R.drawable.ic_fish_2
 	) {
-		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
-		NavButton(
-			modifier = Modifier
-				.fillMaxWidth(fraction = 0.9f),
+		NavButtonWide(
 			title = R.string.text_welcome_compatibility_title,
 			icon = R.drawable.ic_icon_question,
 			contentColor = color,
 			onClick = onClickFish,
 		)
+//		NavButton(
+//			modifier = Modifier
+//				.fillMaxWidth(fraction = 0.9f),
+//			title = R.string.text_welcome_compatibility_title,
+//			icon = R.drawable.ic_icon_question,
+//			contentColor = color,
+//			onClick = onClickFish,
+//		)
 	}
 }
 
