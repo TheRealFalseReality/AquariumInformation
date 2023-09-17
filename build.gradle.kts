@@ -5,5 +5,8 @@
 plugins {
 	alias(libs.plugins.androidApplication) apply false
 	alias(libs.plugins.kotlinAndroid) apply false
+
+	// Google services Gradle plugin
+//	id("com.google.gms.google-services") version "4.3.15" apply false
 }
 true // Needed to make the Suppress annotation work for the plugins block

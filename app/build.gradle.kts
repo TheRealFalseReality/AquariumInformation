@@ -4,6 +4,9 @@
 plugins {
 	alias(libs.plugins.androidApplication)
 	alias(libs.plugins.kotlinAndroid)
+
+//	// Google services Gradle plugin
+//	id("com.google.gms.google-services")
 }
 val versionMajor = 2
 val versionMinor = 0
@@ -80,4 +83,9 @@ dependencies {
 
 	// Jetpack Compose Navigation
 	implementation(libs.androidx.navigation.compose)
+
+//	// Firebase BoM
+//	implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
+//	// Firebase SDK for Google Analytics
+//	implementation("com.google.firebase:firebase-analytics-ktx")
 }

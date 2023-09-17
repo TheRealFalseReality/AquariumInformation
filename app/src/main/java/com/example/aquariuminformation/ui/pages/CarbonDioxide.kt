@@ -3,7 +3,6 @@ package com.example.aquariuminformation.ui.pages
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -11,16 +10,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.aquariuminformation.R
 import com.example.aquariuminformation.ui.commonui.BodyTextCard
-import com.example.aquariuminformation.ui.commonui.CalculateField2Inputs
+import com.example.aquariuminformation.ui.commonui.CalculateFieldTwoInputs
 import com.example.aquariuminformation.ui.commonui.CalculatedText
 import com.example.aquariuminformation.ui.commonui.FormulaString
 import com.example.aquariuminformation.ui.commonui.GenericPage
-import com.example.aquariuminformation.ui.commonui.HeaderTextCard
-import com.example.aquariuminformation.ui.commonui.InputNumberFieldDouble
+import com.example.aquariuminformation.ui.commonui.InputNumberFieldTwoInputs
 import com.example.aquariuminformation.ui.commonui.PageView
 import com.example.aquariuminformation.ui.commonui.TextCard
 import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
@@ -58,24 +55,14 @@ fun CarbonDioxideLayout(modifier: Modifier = Modifier) {
 			color = color,
 			selectContent = {
 				TextCard(
-					content = {
-						HeaderTextCard(
-							modifier = Modifier
-								.padding(
-									top = dimensionResource(id = R.dimen.padding_medium),
-									bottom = dimensionResource(id = R.dimen.padding_medium)
-								),
-							text = R.string.text_co2_units,
-							color = color,
-						)
-					},
+					text = R.string.text_co2_units,
 					contentColor = color
 				)
 			},
 			calculateFieldContent = {
-				CalculateField2Inputs(
+				CalculateFieldTwoInputs(
 					inputContent = {
-						InputNumberFieldDouble(
+						InputNumberFieldTwoInputs(
 							label1 = R.string.ph,
 							placeholder1 = R.string.field_label_ph,
 							label2 = R.string.button_label_dkh,
@@ -103,7 +90,7 @@ fun CarbonDioxideLayout(modifier: Modifier = Modifier) {
 			},
 			formulaContent = {
 				FormulaString(
-					color =  color,
+					color = color,
 					content = {
 						BodyTextCard(
 							text = R.string.text_formula_soon
@@ -120,7 +107,7 @@ fun calculateCarbonDioxide(
 	pH: Double,
 	dKH: Double
 ): String {
-	val phSolution = 10.toDouble().pow(6.37 - pH)
+	val phSolution = 10.0.pow(6.37 - pH)
 	val carbonDioxide = (12.839 * dKH) * phSolution
 
 	val df = DecimalFormat("#.##")

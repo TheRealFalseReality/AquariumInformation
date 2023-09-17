@@ -405,7 +405,7 @@ fun UnitButtonCard(
 @Composable
 fun TextCard(
 	modifier: Modifier = Modifier,
-	content: @Composable RowScope.() -> Unit,
+	@StringRes text: Int,
 	containerColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color,
 ) {
@@ -428,7 +428,15 @@ fun TextCard(
 					horizontalArrangement = Arrangement.Center,
 					verticalAlignment = Alignment.CenterVertically
 				) {
-					content()
+					HeaderTextCard(
+						modifier = Modifier
+							.padding(
+								top = dimensionResource(id = R.dimen.padding_medium),
+								bottom = dimensionResource(id = R.dimen.padding_medium)
+							),
+						text = text,
+						color = contentColor,
+					)
 				}
 			}
 

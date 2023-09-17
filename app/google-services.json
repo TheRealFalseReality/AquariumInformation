@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1046012145917",
+    "project_id": "peak-stream-291302",
+    "storage_bucket": "peak-stream-291302.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1046012145917:android:c27fa107770ce49df10e94",
+        "android_client_info": {
+          "package_name": "cca.capitalcityaquatics.aquariuminfo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1046012145917-evei217htu3sj1qoacf1tk051ku40nc9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4fDKjD0jCZoxPL0J2cPEwRUqpVCeqQ8c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1046012145917-evei217htu3sj1qoacf1tk051ku40nc9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-5701077439648731~9008626677"
+    }
+  ],
+  "configuration_version": "1"
+}

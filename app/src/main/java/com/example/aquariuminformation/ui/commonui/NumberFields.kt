@@ -145,7 +145,7 @@ fun InputNumberFieldNext(
 }
 
 @Composable
-fun InputNumberFieldDouble(
+fun InputNumberFieldTwoInputs(
 	modifier: Modifier = Modifier,
 	@StringRes label1: Int,
 	@StringRes placeholder1: Int,
@@ -220,7 +220,7 @@ fun CalculateField(
 }
 
 @Composable
-fun CalculateField2Inputs(
+fun CalculateFieldTwoInputs(
 	modifier: Modifier = Modifier,
 	inputContent: @Composable () -> Unit,
 	@StringRes inputText: Int,
