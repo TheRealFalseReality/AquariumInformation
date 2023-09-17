@@ -22,8 +22,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCard
 import com.ccaquatics.aquariuminformation.ui.commonui.TextRow
 import com.ccaquatics.aquariuminformation.ui.commonui.TitleWideCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
-import com.example.aquariuminformation.R
-
+import com.ccaquatics.aquariuminformation.R
 
 @Composable
 fun InfoPage() {

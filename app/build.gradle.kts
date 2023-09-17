@@ -17,7 +17,7 @@ val versionMinor = 0
 val versionPatch = 1
 
 android {
-	namespace = "com.example.aquariuminformation"
+	namespace = "com.ccaquatics.aquariuminformation"
 	compileSdk = 34
 
 	defaultConfig {
@@ -97,4 +97,7 @@ dependencies {
 	implementation("com.google.firebase:firebase-analytics-ktx")
 	// Performance Monitoring library
 	implementation("com.google.firebase:firebase-perf-ktx")
+
+	// Predicitive Back Gesture
+	implementation ("androidx.activity:activity-ktx:1.7.2")
 }

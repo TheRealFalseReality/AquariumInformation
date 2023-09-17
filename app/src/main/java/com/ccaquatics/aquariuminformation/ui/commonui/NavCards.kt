@@ -26,7 +26,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import com.ccaquatics.aquariuminformation.ui.theme.Shapes
-import com.example.aquariuminformation.R
+import com.ccaquatics.aquariuminformation.R
 
 @Composable
 fun NavButton(

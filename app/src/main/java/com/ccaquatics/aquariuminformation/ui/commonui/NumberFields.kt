@@ -26,7 +26,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.aquariuminformation.R
+import com.ccaquatics.aquariuminformation.R
 
 @Composable
 fun InputNumberField(
@@ -266,7 +266,7 @@ fun CalculateFieldTwoInputs(
 @Composable
 fun CalculatedText(
 	modifier: Modifier = Modifier,
-	@StringRes label: Int,
+	@StringRes text: Int,
 	calculatedValue: Double,
 	color: Color
 ) {
@@ -275,7 +275,7 @@ fun CalculatedText(
 			modifier = Modifier
 				.padding(dimensionResource(id = R.dimen.padding_verySmall))
 				.align(Alignment.CenterHorizontally),
-			text = stringResource(id = label, calculatedValue),
+			text = stringResource(id = text, calculatedValue),
 			fontSize = 20.sp,
 			fontWeight = FontWeight.Bold,
 			color = color

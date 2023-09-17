@@ -14,6 +14,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
@@ -24,7 +25,6 @@ import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
-import com.example.aquariuminformation.R
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
@@ -99,13 +99,13 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 							calculateContent = {
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									label = R.string.text_amount_fah,
+									text = R.string.text_amount_fah,
 									calculatedValue = fahrenheit,
 									color = color
 								)
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									label = R.string.text_amount_kelvin,
+									text = R.string.text_amount_kelvin,
 									calculatedValue = kelvinCelsius,
 									color = color
 								)
@@ -131,13 +131,13 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 							calculateContent = {
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									label = R.string.text_amount_celsius,
+									text = R.string.text_amount_celsius,
 									calculatedValue = celsius,
 									color = color
 								)
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									label = R.string.text_amount_kelvin,
+									text = R.string.text_amount_kelvin,
 									calculatedValue = kelvinFahrenheit,
 									color = color
 								)

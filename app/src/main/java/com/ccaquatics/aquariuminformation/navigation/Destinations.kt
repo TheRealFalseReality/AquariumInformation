@@ -1,6 +1,7 @@
 package com.ccaquatics.aquariuminformation.navigation
 
-import com.example.aquariuminformation.R
+import com.ccaquatics.aquariuminformation.R
+
 
 interface Destinations {
 	val icon: Int
@@ -32,17 +33,17 @@ object TankVolume : Destinations {
 	override val title = R.string.tank_volume
 }
 
-//object Salinity : Destinations {
-//	override val icon = R.drawable.salinity
-//	override val route = "salinity"
-//	override val title = "Salinity"
-//}
-//
-//object Alkalinity : Destinations {
-//	override val icon = R.drawable.alkalinity
-//	override val route = "alkalinity"
-//	override val title = "Alkalinity"
-//}
+object Salinity : Destinations {
+	override val icon = R.drawable.ic_salinity
+	override val route = "salinity"
+	override val title = R.string.salinity
+}
+
+object Alkalinity : Destinations {
+	override val icon = R.drawable.ic_alkalinity_2
+	override val route = "alkalinity"
+	override val title = R.string.alkalinity
+}
 //
 object Temperature : Destinations {
 	override val icon = R.drawable.baseline_thermostat_24

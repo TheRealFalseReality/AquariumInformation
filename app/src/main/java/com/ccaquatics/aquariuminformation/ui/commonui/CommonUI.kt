@@ -39,9 +39,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import com.ccaquatics.aquariuminformation.ui.theme.Shapes
-import com.example.aquariuminformation.R
 
 
 @Composable
@@ -489,7 +489,9 @@ fun FormulaString(
 	) {
 		SingleWideCard {
 			Column(
-				modifier = Modifier.fillMaxWidth(),
+				modifier = Modifier
+					.padding(dimensionResource(id = R.dimen.padding_verySmall))
+					.fillMaxWidth(),
 				horizontalAlignment = Alignment.CenterHorizontally
 			) {
 				Column {

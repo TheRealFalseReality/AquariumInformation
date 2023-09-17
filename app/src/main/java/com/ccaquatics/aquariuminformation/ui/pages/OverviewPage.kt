@@ -15,13 +15,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.ui.commonui.NavButton
 import com.ccaquatics.aquariuminformation.ui.commonui.NavButtonRow
 import com.ccaquatics.aquariuminformation.ui.commonui.NavButtonWide
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.TitleWideCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
-import com.example.aquariuminformation.R
 
 @Composable
 fun OverviewPage(

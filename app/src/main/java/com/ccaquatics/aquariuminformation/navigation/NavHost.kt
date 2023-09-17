@@ -6,6 +6,7 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.ccaquatics.aquariuminformation.ui.pages.AlkalinityPage
 import com.ccaquatics.aquariuminformation.ui.pages.CalculatorsOverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.CarbonDioxidePage
 import com.ccaquatics.aquariuminformation.ui.pages.ConvertersOverviewPage
@@ -22,28 +23,30 @@ fun AquariumNavHost(
 ) {
 	NavHost(
 		navController = navController,
-		startDestination = Home.route,
+		startDestination = Overview.route,
 		modifier = modifier,
-	){
+	) {
 		composable(route = Home.route) {
 			HomePage()
 		}
-		composable(route = Information.route){
+		composable(route = Information.route) {
 			InfoPage()
 		}
 		composable(route = Overview.route) {
 			OverviewPage(
-			onClickTemperature = {
-				navController.navigateSingleTopTo(Temperature.route)
-			},
-			onClickCo2 = {
-				navController.navigateSingleTopTo(CarbonDioxide.route)
-			},
+				onClickTemperature = {
+					navController.navigateSingleTopTo(Temperature.route)
+				},
+				onClickCo2 = {
+					navController.navigateSingleTopTo(CarbonDioxide.route)
+				},
 //			onClickSalinity: () -> Unit = {},
-//			onClickAlkalinity: () -> Unit = {},
-			onClickVolume = {
-				navController.navigateSingleTopTo(TankVolume.route)
-			},
+				onClickAlkalinity = {
+					navController.navigateSingleTopTo(Alkalinity.route)
+				},
+				onClickVolume = {
+					navController.navigateSingleTopTo(TankVolume.route)
+				},
 //			onClickFish: () -> Unit = {},
 			)
 		}
@@ -56,7 +59,9 @@ fun AquariumNavHost(
 //					navController.navigateSingleTopTo(CarbonDioxide.route)
 //				},
 //				onClickSalinity = onClickSalinity,
-//				onClickAlkalinity = onClickAlkalinity
+				onClickAlkalinity = {
+					navController.navigateSingleTopTo(Alkalinity.route)
+				},
 			)
 		}
 		composable(route = Calculators.route) {
@@ -66,7 +71,7 @@ fun AquariumNavHost(
 				},
 			)
 		}
-		composable(route = TankVolume.route){
+		composable(route = TankVolume.route) {
 			TankOverviewPage()
 		}
 		composable(route = FishCompatability.route) {
@@ -77,6 +82,12 @@ fun AquariumNavHost(
 		}
 		composable(route = CarbonDioxide.route) {
 			CarbonDioxidePage()
+		}
+		composable(route = Alkalinity.route) {
+			AlkalinityPage()
+		}
+		composable(route = Salinity.route) {
+
 		}
 	}
 }

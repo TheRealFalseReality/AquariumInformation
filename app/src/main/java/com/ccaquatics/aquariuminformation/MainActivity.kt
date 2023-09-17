@@ -22,13 +22,12 @@ import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.ccaquatics.aquariuminformation.navigation.AquariumNavHost
-import com.ccaquatics.aquariuminformation.navigation.Home
+import com.ccaquatics.aquariuminformation.navigation.Overview
 import com.ccaquatics.aquariuminformation.navigation.bottomNavRow
 import com.ccaquatics.aquariuminformation.navigation.navigateSingleTopTo
 import com.ccaquatics.aquariuminformation.ui.commonui.AquariumAppBar
 import com.ccaquatics.aquariuminformation.ui.commonui.BottomNavBar
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
-import com.example.aquariuminformation.R
 
 class MainActivity : ComponentActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,7 +62,7 @@ fun AquariumInfoApp() {
 	val currentDestination = currentBackStack?.destination
 	val currentScreen = bottomNavRow.find {
 		it.route == currentDestination?.route
-	} ?: Home
+	} ?: Overview
 
 	Scaffold(
 		topBar = {

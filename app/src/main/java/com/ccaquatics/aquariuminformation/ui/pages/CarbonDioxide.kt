@@ -20,7 +20,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.TextCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
-import com.example.aquariuminformation.R
+import com.ccaquatics.aquariuminformation.R
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.pow
@@ -79,7 +79,7 @@ fun CarbonDioxideLayout(modifier: Modifier = Modifier) {
 					color = color,
 					calculateContent = {
 						CalculatedText(
-							label = R.string.text_amount_co2,
+							text = R.string.text_amount_co2,
 							calculatedValue = co2,
 							color = color,
 						)

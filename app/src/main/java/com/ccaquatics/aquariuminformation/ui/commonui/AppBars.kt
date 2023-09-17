@@ -28,7 +28,7 @@ import com.ccaquatics.aquariuminformation.navigation.Overview
 import com.ccaquatics.aquariuminformation.navigation.bottomNavRow
 import com.ccaquatics.aquariuminformation.navigation.navigateSingleTopTo
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
-import com.example.aquariuminformation.R
+import com.ccaquatics.aquariuminformation.R
 
 @ExperimentalMaterial3Api
 @Composable
