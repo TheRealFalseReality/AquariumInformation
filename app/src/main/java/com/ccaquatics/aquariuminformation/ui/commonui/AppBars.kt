@@ -1,4 +1,4 @@
-package com.example.aquariuminformation.ui.commonui
+package com.ccaquatics.aquariuminformation.ui.commonui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
@@ -22,13 +22,13 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.aquariuminformation.R
-import com.example.aquariuminformation.navigation.Destinations
-import com.example.aquariuminformation.navigation.Home
-import com.example.aquariuminformation.navigation.Information
-import com.example.aquariuminformation.navigation.Overview
-import com.example.aquariuminformation.navigation.bottomNavRow
-import com.example.aquariuminformation.navigation.navigateSingleTopTo
-import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
+import com.ccaquatics.aquariuminformation.navigation.Destinations
+import com.ccaquatics.aquariuminformation.navigation.Home
+import com.ccaquatics.aquariuminformation.navigation.Information
+import com.ccaquatics.aquariuminformation.navigation.Overview
+import com.ccaquatics.aquariuminformation.navigation.bottomNavRow
+import com.ccaquatics.aquariuminformation.navigation.navigateSingleTopTo
+import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @ExperimentalMaterial3Api
 @Composable

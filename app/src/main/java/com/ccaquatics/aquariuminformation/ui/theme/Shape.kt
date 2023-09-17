@@ -1,4 +1,4 @@
-package com.example.aquariuminformation.ui.theme
+package com.ccaquatics.aquariuminformation.ui.theme
 
 import androidx.compose.material3.Shapes
 

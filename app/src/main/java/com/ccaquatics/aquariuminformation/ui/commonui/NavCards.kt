@@ -1,4 +1,4 @@
-package com.example.aquariuminformation.ui.commonui
+package com.ccaquatics.aquariuminformation.ui.commonui
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -24,8 +24,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.aquariuminformation.R
-import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
-import com.example.aquariuminformation.ui.theme.Shapes
+import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
+import com.ccaquatics.aquariuminformation.ui.theme.Shapes
 
 @Composable
 fun NavButton(

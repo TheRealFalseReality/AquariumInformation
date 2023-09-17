@@ -1,4 +1,4 @@
-package com.example.aquariuminformation.ui.pages
+package com.ccaquatics.aquariuminformation.ui.pages
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,14 +15,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.aquariuminformation.R
-import com.example.aquariuminformation.ui.commonui.BodyTextCard
-import com.example.aquariuminformation.ui.commonui.HeaderTextCard
-import com.example.aquariuminformation.ui.commonui.IconTextRow
-import com.example.aquariuminformation.ui.commonui.PageView
-import com.example.aquariuminformation.ui.commonui.SingleWideCard
-import com.example.aquariuminformation.ui.commonui.TextRow
-import com.example.aquariuminformation.ui.commonui.TitleWideCard
-import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
+import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
+import com.ccaquatics.aquariuminformation.ui.commonui.HeaderTextCard
+import com.ccaquatics.aquariuminformation.ui.commonui.IconTextRow
+import com.ccaquatics.aquariuminformation.ui.commonui.PageView
+import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCard
+import com.ccaquatics.aquariuminformation.ui.commonui.TextRow
+import com.ccaquatics.aquariuminformation.ui.commonui.TitleWideCard
+import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 
 
 @Composable

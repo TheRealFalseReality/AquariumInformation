@@ -1,4 +1,4 @@
-package com.example.aquariuminformation
+package com.ccaquatics.aquariuminformation
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

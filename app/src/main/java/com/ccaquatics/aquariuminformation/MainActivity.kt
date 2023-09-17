@@ -1,4 +1,4 @@
-package com.example.aquariuminformation
+package com.ccaquatics.aquariuminformation
 
 import android.app.Activity
 import android.os.Bundle
@@ -21,13 +21,14 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.aquariuminformation.navigation.AquariumNavHost
-import com.example.aquariuminformation.navigation.Home
-import com.example.aquariuminformation.navigation.bottomNavRow
-import com.example.aquariuminformation.navigation.navigateSingleTopTo
-import com.example.aquariuminformation.ui.commonui.AquariumAppBar
-import com.example.aquariuminformation.ui.commonui.BottomNavBar
-import com.example.aquariuminformation.ui.theme.AquariumInformationTheme
+import com.ccaquatics.aquariuminformation.navigation.AquariumNavHost
+import com.ccaquatics.aquariuminformation.navigation.Home
+import com.ccaquatics.aquariuminformation.navigation.bottomNavRow
+import com.ccaquatics.aquariuminformation.navigation.navigateSingleTopTo
+import com.ccaquatics.aquariuminformation.ui.commonui.AquariumAppBar
+import com.ccaquatics.aquariuminformation.ui.commonui.BottomNavBar
+import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
+import com.example.aquariuminformation.R
 
 class MainActivity : ComponentActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {

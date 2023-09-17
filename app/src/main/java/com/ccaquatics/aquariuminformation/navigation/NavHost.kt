@@ -1,4 +1,4 @@
-package com.example.aquariuminformation.navigation
+package com.ccaquatics.aquariuminformation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -6,13 +6,13 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.aquariuminformation.ui.pages.CalculatorsOverviewPage
-import com.example.aquariuminformation.ui.pages.CarbonDioxidePage
-import com.example.aquariuminformation.ui.pages.ConvertersOverviewPage
-import com.example.aquariuminformation.ui.pages.HomePage
-import com.example.aquariuminformation.ui.pages.InfoPage
-import com.example.aquariuminformation.ui.pages.OverviewPage
-import com.example.aquariuminformation.ui.pages.TemperaturePage
+import com.ccaquatics.aquariuminformation.ui.pages.CalculatorsOverviewPage
+import com.ccaquatics.aquariuminformation.ui.pages.CarbonDioxidePage
+import com.ccaquatics.aquariuminformation.ui.pages.ConvertersOverviewPage
+import com.ccaquatics.aquariuminformation.ui.pages.HomePage
+import com.ccaquatics.aquariuminformation.ui.pages.InfoPage
+import com.ccaquatics.aquariuminformation.ui.pages.OverviewPage
+import com.ccaquatics.aquariuminformation.ui.pages.TemperaturePage
 
 @Composable
 fun AquariumNavHost(

@@ -1,6 +1,6 @@
-package com.example.aquariuminformation
+package com.ccaquatics.aquariuminformation
 
-import com.example.aquariuminformation.ui.pages.calculateCarbonDioxide
+import com.ccaquatics.aquariuminformation.ui.pages.calculateCarbonDioxide
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 

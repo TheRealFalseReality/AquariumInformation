@@ -1,4 +1,4 @@
-package com.example.aquariuminformation.navigation
+package com.ccaquatics.aquariuminformation.navigation
 
 import com.example.aquariuminformation.R
 

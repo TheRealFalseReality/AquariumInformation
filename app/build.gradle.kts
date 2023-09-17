@@ -5,8 +5,12 @@ plugins {
 	alias(libs.plugins.androidApplication)
 	alias(libs.plugins.kotlinAndroid)
 
-//	// Google services Gradle plugin
-//	id("com.google.gms.google-services")
+	// Google services Gradle plugin
+	id("com.google.gms.google-services")
+	// Crashlytics Gradle plugin
+	id("com.google.firebase.crashlytics")
+	// Performance Monitoring Gradle plugin
+	id("com.google.firebase.firebase-perf")
 }
 val versionMajor = 2
 val versionMinor = 0
@@ -17,7 +21,7 @@ android {
 	compileSdk = 34
 
 	defaultConfig {
-		applicationId = "com.example.aquariuminformation"
+		applicationId = "com.ccaquatics.aquariuminformation"
 		minSdk = 29
 		targetSdk = 34
 		versionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch
@@ -84,8 +88,13 @@ dependencies {
 	// Jetpack Compose Navigation
 	implementation(libs.androidx.navigation.compose)
 
-//	// Firebase BoM
-//	implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
-//	// Firebase SDK for Google Analytics
-//	implementation("com.google.firebase:firebase-analytics-ktx")
+	// Firebase BoM
+	implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
+	// Firebase SDK for Google Analytics
+	implementation("com.google.firebase:firebase-analytics-ktx")
+	// rashlytics and Analytics libraries
+	implementation("com.google.firebase:firebase-crashlytics-ktx")
+	implementation("com.google.firebase:firebase-analytics-ktx")
+	// Performance Monitoring library
+	implementation("com.google.firebase:firebase-perf-ktx")
 }

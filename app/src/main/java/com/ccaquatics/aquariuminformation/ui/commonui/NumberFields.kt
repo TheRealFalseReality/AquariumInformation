@@ -1,4 +1,4 @@
-package com.example.aquariuminformation.ui.commonui
+package com.ccaquatics.aquariuminformation.ui.commonui
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
