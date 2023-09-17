@@ -14,7 +14,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
@@ -25,6 +24,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
+import com.example.aquariuminformation.R
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
@@ -37,13 +37,13 @@ fun TemperaturePage() {
 
 @Composable
 fun TemperatureLayout(modifier: Modifier = Modifier) {
+	val color = MaterialTheme.colorScheme.primary
 	var inputTemperature by rememberSaveable {
 		mutableStateOf("0")
 	}
 	var selected by rememberSaveable {
 		mutableIntStateOf(R.string.text_celsius)
 	}
-
 	val temp = inputTemperature.toDoubleOrNull() ?: 0.0
 	val celsius = calculateCelsius(temp).toDoubleOrNull() ?: 0.0
 	val kelvinCelsius = calculateKelvinCel(temp).toDoubleOrNull() ?: 0.0
@@ -51,8 +51,6 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 	val fahrenheit = calculateFahrenheit(temp).toDoubleOrNull() ?: 0.0
 
 	Column(modifier = modifier) {
-		val color = MaterialTheme.colorScheme.primary
-
 		GenericPage(
 			title = R.string.text_title_temp,
 			subtitle = R.string.text_subtitle_temp,

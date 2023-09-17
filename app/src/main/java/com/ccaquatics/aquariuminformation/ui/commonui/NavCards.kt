@@ -23,9 +23,9 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import com.ccaquatics.aquariuminformation.ui.theme.Shapes
+import com.example.aquariuminformation.R
 
 @Composable
 fun NavButton(
@@ -67,7 +67,6 @@ fun NavButton(
 					.padding(top = dimensionResource(id = R.dimen.padding_small)),
 			)
 		}
-
 	}
 }
 
@@ -81,34 +80,44 @@ fun NavRowButton(
 	@DrawableRes icon: Int,
 	onClick: () -> Unit
 ){
-	Button(
-		modifier = modifier,
-		onClick = onClick,
-		shape = shape,
-		colors = ButtonDefaults.buttonColors(
-			containerColor = containerColor,
-			contentColor = contentColor,
-		),
-		elevation = ButtonDefaults.buttonElevation(
-			defaultElevation = dimensionResource(id = R.dimen.elevation_large),
-			pressedElevation = dimensionResource(id = R.dimen.elevation_small)
-		)
+	Row(
+		modifier = modifier
 	) {
-		Row(
+		Button(
 			modifier = Modifier
-				.padding(dimensionResource(id = R.dimen.padding_small))
-				.height(dimensionResource(id = R.dimen.button_height_medium)),
-			verticalAlignment = Alignment.CenterVertically
+				.fillMaxWidth(fraction = 0.9f)
+				.padding(
+					top = dimensionResource(id = R.dimen.padding_small),
+					bottom = dimensionResource(id = R.dimen.padding_small),
+					end = dimensionResource(id = R.dimen.padding_small),
+				),
+			onClick = onClick,
+			shape = shape,
+			colors = ButtonDefaults.buttonColors(
+				containerColor = containerColor,
+				contentColor = contentColor,
+			),
+			elevation = ButtonDefaults.buttonElevation(
+				defaultElevation = dimensionResource(id = R.dimen.elevation_large),
+				pressedElevation = dimensionResource(id = R.dimen.elevation_small)
+			)
 		) {
-			Icon(
+			Row(
 				modifier = Modifier
-					.padding(end = dimensionResource(id = R.dimen.padding_small)),
-				painter = painterResource(id = icon),
-				contentDescription = null
-			)
-			Text(
-				text = stringResource(id = title)
-			)
+					.padding(dimensionResource(id = R.dimen.padding_small))
+					.height(dimensionResource(id = R.dimen.button_height_medium)),
+				verticalAlignment = Alignment.CenterVertically
+			) {
+				Icon(
+					modifier = Modifier
+						.padding(end = dimensionResource(id = R.dimen.padding_small)),
+					painter = painterResource(id = icon),
+					contentDescription = null
+				)
+				Text(
+					text = stringResource(id = title)
+				)
+			}
 		}
 	}
 }
@@ -126,7 +135,7 @@ fun NavButtonRow(
 	onClick2: () -> Unit
 ){
 	Row(
-		modifier = modifier
+		modifier = modifier.fillMaxWidth(fraction = 0.9f)
 	) {
 		NavButton(
 			modifier = Modifier

@@ -39,14 +39,14 @@ fun HomeLayout(
 	) {
 		TitleWideCard(
 			text = R.string.about,
-			icon = R.drawable.baseline_home_24
+			icon = R.drawable.ic_home
 		) {
 			SingleWideCard {
 				BodyTextCard(text = R.string.text_welcome)
 			}
 		}
 		PopOutCard(
-			icon = R.drawable.baseline_new_releases_24,
+			icon = R.drawable.ic_new_releases,
 			headerText = R.string.text_welcome_compatibility_title,
 			bodyText = R.string.text_welcome_compatibility_2
 		)

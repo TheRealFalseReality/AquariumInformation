@@ -12,6 +12,7 @@ import com.ccaquatics.aquariuminformation.ui.pages.ConvertersOverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.HomePage
 import com.ccaquatics.aquariuminformation.ui.pages.InfoPage
 import com.ccaquatics.aquariuminformation.ui.pages.OverviewPage
+import com.ccaquatics.aquariuminformation.ui.pages.TankOverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.TemperaturePage
 
 @Composable
@@ -40,7 +41,9 @@ fun AquariumNavHost(
 			},
 //			onClickSalinity: () -> Unit = {},
 //			onClickAlkalinity: () -> Unit = {},
-//			onClickVolume: () -> Unit = {},
+			onClickVolume = {
+				navController.navigateSingleTopTo(TankVolume.route)
+			},
 //			onClickFish: () -> Unit = {},
 			)
 		}
@@ -64,7 +67,7 @@ fun AquariumNavHost(
 			)
 		}
 		composable(route = TankVolume.route){
-
+			TankOverviewPage()
 		}
 		composable(route = FishCompatability.route) {
 

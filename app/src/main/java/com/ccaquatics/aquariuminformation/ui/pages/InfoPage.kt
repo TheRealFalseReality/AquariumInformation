@@ -14,7 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.HeaderTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.IconTextRow
@@ -23,6 +22,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCard
 import com.ccaquatics.aquariuminformation.ui.commonui.TextRow
 import com.ccaquatics.aquariuminformation.ui.commonui.TitleWideCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
+import com.example.aquariuminformation.R
 
 
 @Composable
@@ -43,7 +43,7 @@ fun InfoLayout(
 	) {
 		TitleWideCard(
 			text = R.string.text_title_info,
-			icon = R.drawable.baseline_info_24
+			icon = R.drawable.ic_info_2
 		) {
 			SingleWideCard {
 				BodyTextCard(text = R.string.text_info_1)
@@ -53,8 +53,8 @@ fun InfoLayout(
 		}
 		TitleWideCard(
 			text = R.string.errors_or_bugs,
-			icon = R.drawable.baseline_build_24,
-			color = MaterialTheme.colorScheme.primary
+			icon = R.drawable.ic_build,
+//			color = MaterialTheme.colorScheme.primary
 		) {
 			SingleWideCard(
 				backgroundCardColor = MaterialTheme.colorScheme.primary,
@@ -68,38 +68,38 @@ fun InfoLayout(
 		}
 		TitleWideCard(
 			text = R.string.contact,
-			icon = R.drawable.baseline_person_search_24,
-			color = MaterialTheme.colorScheme.secondary
+			icon = R.drawable.ic_person_search,
+//			color = MaterialTheme.colorScheme.secondary
 		) {
 			SingleWideCard {
 				IconTextRow(
-					icon = R.drawable.baseline_email_24,
+					icon = R.drawable.ic_mail,
 					text = R.string.text_email,
-					textColor = MaterialTheme.colorScheme.secondary,
-					iconTint = MaterialTheme.colorScheme.secondary,
+//					textColor = MaterialTheme.colorScheme.secondary,
+//					iconTint = MaterialTheme.colorScheme.secondary,
 				)
 				IconTextRow(
-					icon = R.drawable.baseline_web_24,
+					icon = R.drawable.ic_public,
 					text = R.string.text_website,
-					textColor = MaterialTheme.colorScheme.secondary,
-					iconTint = MaterialTheme.colorScheme.secondary,
+//					textColor = MaterialTheme.colorScheme.secondary,
+//					iconTint = MaterialTheme.colorScheme.secondary,
 				)
 			}
 		}
 		TitleWideCard(
 			text = R.string.app_information,
-			icon = R.drawable.baseline_settings_suggest_24,
-			color =  MaterialTheme.colorScheme.tertiary
+			icon = R.drawable.ic_settings_alert,
+//			color =  MaterialTheme.colorScheme.tertiary
 		) {
 			SingleWideCard {
 				HeaderTextCard(
 					text = R.string.app_name,
-					color = MaterialTheme.colorScheme.tertiary
+//					color = MaterialTheme.colorScheme.tertiary
 				)
 				TextRow(
 					text1 = R.string.app_version,
 					text2 = R.string.appVersion,
-					color = MaterialTheme.colorScheme.tertiary
+//					color = MaterialTheme.colorScheme.tertiary
 				)
 			}
 		}

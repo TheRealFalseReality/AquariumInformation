@@ -15,7 +15,7 @@ object Home : Destinations {
 }
 
 object Information : Destinations {
-	override val icon = R.drawable.baseline_info_24
+	override val icon = R.drawable.ic_info_2
 	override val route = "info"
 	override val title = R.string.text_title_info
 }
@@ -27,7 +27,7 @@ object Overview : Destinations {
 }
 
 object TankVolume : Destinations {
-	override val icon = R.drawable.ic_cube
+	override val icon = R.drawable.ic_volume
 	override val route = "volume"
 	override val title = R.string.tank_volume
 }
@@ -99,7 +99,7 @@ object CarbonDioxide : Destinations {
 //}
 //
 object FishCompatability : Destinations {
-	override val icon = R.drawable.baseline_set_meal_24
+	override val icon = R.drawable.ic_icon_question
 	override val route = "fish_compatibility"
 	override val title = R.string.compatibility
 }

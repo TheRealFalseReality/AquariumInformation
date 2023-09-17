@@ -4,10 +4,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,12 +15,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.ui.commonui.NavButton
 import com.ccaquatics.aquariuminformation.ui.commonui.NavButtonRow
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.TitleWideCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
+import com.example.aquariuminformation.R
 
 @Composable
 fun OverviewPage(
@@ -109,6 +109,15 @@ fun CalculatorsOverviewPage(
 }
 
 @Composable
+fun TankOverviewPage() {
+	PageView {
+		OverviewGenericLayout {
+			TankVolumeGrid()
+		}
+	}
+}
+
+@Composable
 fun OverviewGenericLayout(
 	modifier: Modifier = Modifier,
 	content: @Composable ColumnScope.() -> Unit,
@@ -156,9 +165,9 @@ fun ConvertersGrid(
 			)
 			NavButtonRow(
 				title1 = R.string.salinity,
-				icon1 = R.drawable.ic_salinity,
+				icon1 = R.drawable.ic_salinity_alt,
 				title2 = R.string.alkalinity,
-				icon2 = R.drawable.ic_water_drop,
+				icon2 = R.drawable.ic_water_do,
 				contentColor = color,
 				onClick1 = onClickSalinity,
 				onClick2 = onClickAlkalinity,
@@ -177,17 +186,55 @@ fun CalculatorsGrid(
 	TitleWideCard(
 		text = R.string.calculators,
 		color = color,
-		icon = R.drawable.baseline_calculate_24
+		icon = R.drawable.ic_calculate
 	) {
 		NavButtonRow(
 			title1 = R.string.tank_volume,
-			icon1 = R.drawable.ic_cube,
+			icon1 = R.drawable.ic_volume,
 			title2 = R.string.carbon_dioxide,
 			icon2 = R.drawable.baseline_co2_24,
 			contentColor = color,
 			onClick1 = onClickVolume,
 			onClick2 = onClickCo2,
-			modifier = Modifier.fillMaxWidth(fraction = 0.9f)
+		)
+	}
+}
+
+@Composable
+fun TankVolumeGrid(
+	color: Color = MaterialTheme.colorScheme.secondary
+) {
+	TitleWideCard(
+		text = R.string.tank_volume,
+		icon = R.drawable.ic_volume,
+		color = color
+	) {
+		NavButtonRow(
+			title1 = R.string.text_title_rectangle,
+			icon1 = R.drawable.ic_rectangle,
+			title2 = R.string.text_title_cube,
+			icon2 = R.drawable.ic_cube_2,
+			onClick1 = { /*TODO*/ },
+			onClick2 = { /*TODO*/ },
+			contentColor = color
+		)
+		NavButtonRow(
+			title1 = R.string.text_title_cyl,
+			icon1 = R.drawable.ic_cylinder,
+			title2 = R.string.text_title_hex,
+			icon2 = R.drawable.ic_hex,
+			onClick1 = { /*TODO*/ },
+			onClick2 = {/*TODO*/},
+			contentColor = color
+		)
+		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+		NavButton(
+			modifier = Modifier
+				.fillMaxWidth(fraction = 0.9f),
+			title = R.string.text_title_bow_front,
+			icon = R.drawable.ic_bow_front,
+			onClick = { /*TODO*/},
+			contentColor = color
 		)
 	}
 }
@@ -200,21 +247,47 @@ fun FishCompatability(
 	TitleWideCard(
 		text = R.string.text_fish_compatibility,
 		color = color,
-		icon = R.drawable.baseline_set_meal_24
+		icon = R.drawable.ic_fish_2
 	) {
+		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
 		NavButton(
-			title = R.string.text_welcome_compatibility_title,
-			icon = R.drawable.baseline_set_meal_24,
-			contentColor = color,
 			modifier = Modifier
-				.fillMaxWidth(fraction = 0.9f)
-				.padding(top = dimensionResource(id = R.dimen.padding_small)),
+				.fillMaxWidth(fraction = 0.9f),
+			title = R.string.text_welcome_compatibility_title,
+			icon = R.drawable.ic_icon_question,
+			contentColor = color,
 			onClick = onClickFish,
 		)
 	}
 }
 
-@ExperimentalMaterial3Api
+@Preview(showBackground = true)
+@Composable
+fun TankVolumePreview() {
+	AquariumInformationTheme {
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.background)
+		) {
+			TankOverviewPage()
+		}
+	}
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TankVolumePreviewDark(
+) {
+	AquariumInformationTheme(useDarkTheme = true) {
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.background)
+		) {
+			TankOverviewPage()
+		}
+	}
+}
+
 @Preview(showBackground = true)
 @Composable
 fun OverviewPreview() {
@@ -228,7 +301,6 @@ fun OverviewPreview() {
 	}
 }
 
-@ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
 fun OverviewPreviewDark(

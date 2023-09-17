@@ -21,7 +21,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.navigation.Destinations
 import com.ccaquatics.aquariuminformation.navigation.Home
 import com.ccaquatics.aquariuminformation.navigation.Information
@@ -29,6 +28,7 @@ import com.ccaquatics.aquariuminformation.navigation.Overview
 import com.ccaquatics.aquariuminformation.navigation.bottomNavRow
 import com.ccaquatics.aquariuminformation.navigation.navigateSingleTopTo
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
+import com.example.aquariuminformation.R
 
 @ExperimentalMaterial3Api
 @Composable
@@ -76,7 +76,7 @@ fun AquariumAppBar(
 				},
 			) {
 				Icon(
-					painter = painterResource(id = R.drawable.baseline_info_24),
+					painter = painterResource(id = R.drawable.ic_info_2),
 					contentDescription = stringResource(R.string.text_title_info),
 					tint = MaterialTheme.colorScheme.onSurfaceVariant
 				)
@@ -101,8 +101,8 @@ fun BottomNavBar(
 				colors = NavigationBarItemDefaults.colors(
 					selectedTextColor = MaterialTheme.colorScheme.secondary,
 					selectedIconColor = MaterialTheme.colorScheme.secondary,
-					unselectedIconColor = MaterialTheme.colorScheme.onSurface,
-					unselectedTextColor = MaterialTheme.colorScheme.onSurface,
+					unselectedIconColor = MaterialTheme.colorScheme.primary,
+					unselectedTextColor = MaterialTheme.colorScheme.primary,
 				)
 			)
 		}

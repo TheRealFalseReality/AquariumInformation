@@ -11,7 +11,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
@@ -21,6 +20,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.TextCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
+import com.example.aquariuminformation.R
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.pow
@@ -34,20 +34,18 @@ fun CarbonDioxidePage() {
 
 @Composable
 fun CarbonDioxideLayout(modifier: Modifier = Modifier) {
+	val color = MaterialTheme.colorScheme.secondary
 	var inputPH by rememberSaveable {
 		mutableStateOf("")
 	}
 	var inputDKH by rememberSaveable {
 		mutableStateOf("")
 	}
-
 	val ph = inputPH.toDoubleOrNull() ?: 0.0
 	val dkh = inputDKH.toDoubleOrNull() ?: 0.0
 	val co2 = calculateCarbonDioxide(ph, dkh).toDoubleOrNull() ?: 0.0
 
 	Column(modifier = modifier) {
-		val color = MaterialTheme.colorScheme.secondary
-
 		GenericPage(
 			title = R.string.text_title_co2,
 			subtitle = R.string.text_subtitle_co2,
