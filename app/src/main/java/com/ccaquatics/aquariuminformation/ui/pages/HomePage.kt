@@ -6,12 +6,20 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.ccaquatics.aquariuminformation.R
+import com.ccaquatics.aquariuminformation.navigation.Home
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.PopOutCard
@@ -19,7 +27,6 @@ import com.ccaquatics.aquariuminformation.ui.commonui.PopOutlinedCard
 import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCard
 import com.ccaquatics.aquariuminformation.ui.commonui.TitleWideCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
-import com.ccaquatics.aquariuminformation.R
 
 @Composable
 fun HomePage() {
@@ -45,6 +52,7 @@ fun HomeLayout(
 				BodyTextCard(text = R.string.text_welcome)
 			}
 		}
+		HomeScreen()
 		PopOutCard(
 			icon = R.drawable.ic_new_releases,
 			headerText = R.string.text_welcome_compatibility_title,
@@ -54,6 +62,26 @@ fun HomeLayout(
 			text = R.string.tap_below_to_navigate
 		)
 		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_verySmall)))
+	}
+}
+
+@Composable
+fun HomeScreen(
+	home: Home = Home
+) {
+
+	Column {
+		Icon(
+			painter = painterResource(id = home.icon),
+			contentDescription = stringResource(id = home.title),
+			modifier = Modifier.padding(16.dp)
+		)
+
+		Text(
+			text = stringResource(id = home.title),
+			style = MaterialTheme.typography.headlineMedium,
+			modifier = Modifier.padding(16.dp)
+		)
 	}
 }
 

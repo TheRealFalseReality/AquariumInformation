@@ -42,7 +42,7 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 		mutableStateOf("0")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(R.string.text_celsius)
+		mutableIntStateOf(R.string.button_label_cel)
 	}
 	val temp = inputTemperature.toDoubleOrNull() ?: 0.0
 	val celsius = calculateCelsius(temp).toDoubleOrNull() ?: 0.0
@@ -63,16 +63,16 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 						RadioButtonComp(
 							modifier = Modifier
 								.weight(1f),
-							text = R.string.text_celsius,
-							onClick = { selected = R.string.text_celsius },
+							text = R.string.button_label_cel,
+							onClick = { selected = R.string.button_label_cel },
 							selected = selected,
 							selectedColor = color,
 						)
 						RadioButtonComp(
 							modifier = Modifier
 								.weight(1f),
-							text = R.string.text_fah,
-							onClick = { selected = R.string.text_fah },
+							text = R.string.button_label_fah,
+							onClick = { selected = R.string.button_label_fah },
 							selected = selected,
 							selectedColor = color,
 						)
@@ -81,7 +81,7 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 			},
 			calculateFieldContent = {
 				when (selected) {
-					R.string.text_celsius -> {
+					R.string.button_label_cel -> {
 						CalculateField(
 							inputContent = {
 								InputNumberField(
@@ -113,7 +113,7 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 						)
 					}
 
-					R.string.text_fah -> {
+					R.string.button_label_fah -> {
 						CalculateField(
 							inputContent = {
 								InputNumberField(

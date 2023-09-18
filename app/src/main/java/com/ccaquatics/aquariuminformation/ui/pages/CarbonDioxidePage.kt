@@ -11,6 +11,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
@@ -20,7 +21,6 @@ import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.TextCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
-import com.ccaquatics.aquariuminformation.R
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.pow

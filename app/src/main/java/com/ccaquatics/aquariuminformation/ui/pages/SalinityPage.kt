@@ -39,7 +39,7 @@ fun SalinityLayout() {
 		mutableStateOf("36")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(R.string.button_label_ppt)
+		mutableIntStateOf(R.string.salinity_ppt)
 	}
 	val tempTestWater = 25.0
 	val tempPureWater = 25.0
@@ -60,8 +60,8 @@ fun SalinityLayout() {
 					RadioButtonComp(
 						modifier = Modifier
 							.weight(1f),
-						text = R.string.button_label_ppt,
-						onClick = { selected = R.string.button_label_ppt },
+						text = R.string.salinity_ppt,
+						onClick = { selected = R.string.salinity_ppt },
 						selected = selected,
 						selectedColor = color
 					)
@@ -79,7 +79,7 @@ fun SalinityLayout() {
 		},
 		calculateFieldContent = {
 			when (selected) {
-				R.string.button_label_ppt -> {
+				R.string.salinity_ppt -> {
 					CalculateField(
 						inputContent = {
 							InputNumberField(

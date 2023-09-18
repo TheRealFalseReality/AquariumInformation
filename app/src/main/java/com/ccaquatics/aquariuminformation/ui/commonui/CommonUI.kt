@@ -384,7 +384,7 @@ fun UnitButtonCard(
 		) {
 			Column(
 				modifier = Modifier
-					.padding(dimensionResource(id = R.dimen.padding_small))
+					.padding(dimensionResource(id = R.dimen.padding_medium))
 					.fillMaxWidth(fraction = 0.6f),
 			) {
 				HeaderTextCard(
@@ -395,7 +395,7 @@ fun UnitButtonCard(
 					modifier = Modifier
 						.fillMaxWidth(),
 					horizontalArrangement = Arrangement.Center,
-					verticalAlignment = Alignment.CenterVertically
+					verticalAlignment = Alignment.Top
 				) {
 					content()
 				}
@@ -411,6 +411,7 @@ fun TextCard(
 	@StringRes text: Int,
 	containerColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color,
+	shape: Shape = Shapes.large
 ) {
 	Column(modifier = modifier) {
 		ElevatedCard(
@@ -418,11 +419,12 @@ fun TextCard(
 			colors = CardDefaults.cardColors(
 				containerColor = containerColor,
 				contentColor = contentColor
-			)
+			),
+			shape = shape
 		) {
 			Column(
 				modifier = Modifier
-					.padding(dimensionResource(id = R.dimen.padding_small))
+					.padding(dimensionResource(id = R.dimen.padding_medium))
 					.fillMaxWidth(fraction = 0.6f),
 			) {
 				Row(

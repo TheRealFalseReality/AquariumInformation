@@ -7,14 +7,16 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.ccaquatics.aquariuminformation.ui.pages.AlkalinityPage
+import com.ccaquatics.aquariuminformation.ui.pages.CalculatorsNavHostScreen
 import com.ccaquatics.aquariuminformation.ui.pages.CalculatorsOverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.CarbonDioxidePage
+import com.ccaquatics.aquariuminformation.ui.pages.ConvertersNavHostScreen
 import com.ccaquatics.aquariuminformation.ui.pages.ConvertersOverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.HomePage
 import com.ccaquatics.aquariuminformation.ui.pages.InfoPage
 import com.ccaquatics.aquariuminformation.ui.pages.OverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.SalinityPage
-import com.ccaquatics.aquariuminformation.ui.pages.TankOverviewPage
+import com.ccaquatics.aquariuminformation.ui.pages.TankVolumeOverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.TemperaturePage
 
 @Composable
@@ -54,30 +56,32 @@ fun AquariumNavHost(
 			)
 		}
 		composable(route = Converters.route) {
-			ConvertersOverviewPage(
-				onClickTemperature = {
-					navController.navigateSingleTopTo(Temperature.route)
-				},
-				onClickSalinity =  {
-					navController.navigateSingleTopTo(Salinity.route)
-				},
-				onClickAlkalinity = {
-					navController.navigateSingleTopTo(Alkalinity.route)
-				},
-			)
+			ConvertersNavHostScreen()
+//			ConvertersOverviewPage(
+//				onClickTemperature = {
+//					navController.navigateSingleTopTo(Temperature.route)
+//				},
+//				onClickSalinity =  {
+//					navController.navigateSingleTopTo(Salinity.route)
+//				},
+//				onClickAlkalinity = {
+//					navController.navigateSingleTopTo(Alkalinity.route)
+//				},
+//			)
 		}
 		composable(route = Calculators.route) {
-			CalculatorsOverviewPage(
-				onClickCo2 = {
-					navController.navigateSingleTopTo(CarbonDioxide.route)
-				},
-				onClickVolume = {
-					navController.navigateSingleTopTo(TankVolume.route)
-				},
-			)
+			CalculatorsNavHostScreen()
+//			CalculatorsOverviewPage(
+//				onClickCo2 = {
+//					navController.navigateSingleTopTo(CarbonDioxide.route)
+//				},
+//				onClickVolume = {
+//					navController.navigateSingleTopTo(TankVolume.route)
+//				},
+//			)
 		}
 		composable(route = TankVolume.route) {
-			TankOverviewPage()
+			TankVolumeOverviewPage()
 		}
 		composable(route = FishCompatability.route) {
 
@@ -93,6 +97,70 @@ fun AquariumNavHost(
 		}
 		composable(route = Salinity.route) {
 			SalinityPage()
+		}
+	}
+}
+
+@Composable
+fun ConvertersNavHost(
+	navController: NavHostController,
+	modifier: Modifier = Modifier
+) {
+	NavHost(
+		navController = navController,
+		startDestination = Converters.route,
+		modifier = modifier,
+	) {
+		composable(route = Converters.route) {
+			ConvertersOverviewPage(
+				onClickTemperature = {
+					navController.navigateSingleTopTo(Temperature.route)
+				},
+				onClickSalinity = {
+					navController.navigateSingleTopTo(Salinity.route)
+				},
+				onClickAlkalinity = {
+					navController.navigateSingleTopTo(Alkalinity.route)
+				},
+			)
+		}
+		composable(route = Temperature.route) {
+			TemperaturePage()
+		}
+		composable(route = Alkalinity.route) {
+			AlkalinityPage()
+		}
+		composable(route = Salinity.route) {
+			SalinityPage()
+		}
+	}
+}
+
+@Composable
+fun CalculatorsNavHost(
+	navController: NavHostController,
+	modifier: Modifier = Modifier
+) {
+	NavHost(
+		navController = navController,
+		startDestination = Calculators.route,
+		modifier = modifier,
+	) {
+		composable(route = Calculators.route) {
+			CalculatorsOverviewPage(
+				onClickCo2 = {
+					navController.navigateSingleTopTo(CarbonDioxide.route)
+				},
+				onClickVolume = {
+					navController.navigateSingleTopTo(TankVolume.route)
+				},
+			)
+		}
+		composable(route = CarbonDioxide.route) {
+			CarbonDioxidePage()
+		}
+		composable(route = TankVolume.route) {
+			TankVolumeOverviewPage()
 		}
 	}
 }

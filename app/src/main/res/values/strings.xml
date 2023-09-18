@@ -39,7 +39,7 @@
     <string name="field_label_ph" tools:ignore="UnusedResources">Enter pH</string>
     <string name="field_label_dkh">Enter dKH</string>
     <string name="text_amount_co2" tools:ignore="UnusedResources">%s ppm CO₂</string>
-    <string name="text_co2_units" tools:ignore="UnusedResources">degrees of Alkalinity (dKH) and pH</string>
+    <string name="text_co2_units" tools:ignore="UnusedResources">pH\nDegrees of Alkalinity (dKH)</string>
     <string name="text_amount_ph_dkh" tools:ignore="UnusedResources">%s pH and %s dKH</string>
     <string name="text_water_hardness_chart" tools:ignore="UnusedResources">Water Hardness Chart</string>
     <string name="text_formula_alk" tools:ignore="UnusedResources">2.8 dKH = 50 ppm CaCO3 = 1 meq/L</string>
@@ -49,7 +49,7 @@
     <string name="button_label_dkh" tools:ignore="UnusedResources">dKH</string>
     <string name="button_label_ppm" tools:ignore="UnusedResources">ppm</string>
     <string name="button_label_meq" tools:ignore="UnusedResources">meq/L</string>
-    <string name="field_label_ppm" tools:ignore="UnusedResources">Enter PPM</string>
+    <string name="field_label_ppm" tools:ignore="UnusedResources">Enter ppm</string>
     <string name="field_label_meq" tools:ignore="UnusedResources">Enter meq/L</string>
     <string name="text_amount_dkh" tools:ignore="UnusedResources">%s dKH</string>
     <string name="text_amount_ppm" tools:ignore="UnusedResources">%s ppm CaCO3</string>
@@ -505,4 +505,5 @@
     <string name="formula">Formula</string>
     <string name="select_input_units">Select Input Units:</string>
     <string name="ph">pH</string>
+    <string name="salinity_ppt">Salinity\n (ppt)</string>
 </resources>

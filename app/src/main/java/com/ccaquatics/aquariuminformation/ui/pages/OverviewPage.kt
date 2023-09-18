@@ -9,13 +9,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.ccaquatics.aquariuminformation.R
+import com.ccaquatics.aquariuminformation.navigation.CalculatorsNavHost
+import com.ccaquatics.aquariuminformation.navigation.ConvertersNavHost
 import com.ccaquatics.aquariuminformation.ui.commonui.NavButton
 import com.ccaquatics.aquariuminformation.ui.commonui.NavButtonRow
 import com.ccaquatics.aquariuminformation.ui.commonui.NavButtonWide
@@ -110,7 +114,7 @@ fun CalculatorsOverviewPage(
 }
 
 @Composable
-fun TankOverviewPage() {
+fun TankVolumeOverviewPage() {
 	PageView {
 		OverviewGenericLayout {
 			TankVolumeGrid()
@@ -189,6 +193,22 @@ fun ConvertersGrid(
 				onClick2 = onClickAlkalinity,
 			)
 		}
+	}
+}
+
+@Composable
+fun ConvertersNavHostScreen() {
+	val navController = rememberNavController()
+	Surface {
+		ConvertersNavHost(navController = navController)
+	}
+}
+
+@Composable
+fun CalculatorsNavHostScreen() {
+	val navController = rememberNavController()
+	Surface {
+		CalculatorsNavHost(navController = navController)
 	}
 }
 
@@ -289,7 +309,7 @@ fun TankVolumePreview() {
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
-			TankOverviewPage()
+			TankVolumeOverviewPage()
 		}
 	}
 }
@@ -303,7 +323,7 @@ fun TankVolumePreviewDark(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
-			TankOverviewPage()
+			TankVolumeOverviewPage()
 		}
 	}
 }

@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.navigation.Destinations
 import com.ccaquatics.aquariuminformation.navigation.Home
 import com.ccaquatics.aquariuminformation.navigation.Information
@@ -28,7 +29,6 @@ import com.ccaquatics.aquariuminformation.navigation.Overview
 import com.ccaquatics.aquariuminformation.navigation.bottomNavRow
 import com.ccaquatics.aquariuminformation.navigation.navigateSingleTopTo
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
-import com.ccaquatics.aquariuminformation.R
 
 @ExperimentalMaterial3Api
 @Composable
@@ -90,13 +90,18 @@ fun BottomNavBar(
 	allScreens: List<Destinations>,
 	onTabSelected: (Destinations) -> Unit,
 	currentScreen: Destinations,
-){
+) {
 	NavigationBar {
 		allScreens.forEach { screen ->
 			NavigationBarItem(
 				selected = currentScreen == screen,
 				onClick = { onTabSelected(screen) },
-				icon = { Icon(painter = painterResource(id = screen.icon), stringResource(id = screen.title)) },
+				icon = {
+					Icon(
+						painter = painterResource(id = screen.icon),
+						stringResource(id = screen.title)
+					)
+				},
 				label = { Text(stringResource(id = screen.title)) },
 				colors = NavigationBarItemDefaults.colors(
 					selectedTextColor = MaterialTheme.colorScheme.secondary,
@@ -112,7 +117,7 @@ fun BottomNavBar(
 @ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
-fun TopAppBarPreview(){
+fun TopAppBarPreview() {
 	AquariumInformationTheme {
 		AquariumAppBar(navController = rememberNavController())
 	}
@@ -122,7 +127,7 @@ fun TopAppBarPreview(){
 @Preview(showBackground = true)
 @Composable
 fun TopAppBarPreviewDark(
-){
+) {
 	AquariumInformationTheme(useDarkTheme = true) {
 		AquariumAppBar(navController = rememberNavController())
 	}
@@ -131,7 +136,7 @@ fun TopAppBarPreviewDark(
 @ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
-fun BottomNavBarPreview(){
+fun BottomNavBarPreview() {
 	AquariumInformationTheme {
 		val navController = rememberNavController()
 		val currentBackStack by navController.currentBackStackEntryAsState()
@@ -152,7 +157,7 @@ fun BottomNavBarPreview(){
 @Preview(showBackground = true)
 @Composable
 fun BottomNavBarPreviewDark(
-){
+) {
 	AquariumInformationTheme(useDarkTheme = true) {
 		val navController = rememberNavController()
 		val currentBackStack by navController.currentBackStackEntryAsState()
