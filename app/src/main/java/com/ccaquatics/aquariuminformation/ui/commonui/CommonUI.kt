@@ -370,6 +370,8 @@ fun UnitButtonCard(
 	content: @Composable RowScope.() -> Unit,
 	containerColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color,
+	shape: Shape = Shapes.large
+
 ) {
 	Column(modifier = modifier) {
 		ElevatedCard(
@@ -377,7 +379,8 @@ fun UnitButtonCard(
 			colors = CardDefaults.cardColors(
 				containerColor = containerColor,
 				contentColor = contentColor
-			)
+			),
+			shape = shape
 		) {
 			Column(
 				modifier = Modifier
@@ -473,6 +476,7 @@ fun RadioButtonComp(
 					onClick = onClick
 				),
 			fontWeight = FontWeight.Bold,
+			textAlign = TextAlign.Center
 		)
 	}
 }

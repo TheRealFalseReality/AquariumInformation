@@ -13,6 +13,7 @@ import com.ccaquatics.aquariuminformation.ui.pages.ConvertersOverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.HomePage
 import com.ccaquatics.aquariuminformation.ui.pages.InfoPage
 import com.ccaquatics.aquariuminformation.ui.pages.OverviewPage
+import com.ccaquatics.aquariuminformation.ui.pages.SalinityPage
 import com.ccaquatics.aquariuminformation.ui.pages.TankOverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.TemperaturePage
 
@@ -40,7 +41,9 @@ fun AquariumNavHost(
 				onClickCo2 = {
 					navController.navigateSingleTopTo(CarbonDioxide.route)
 				},
-//			onClickSalinity: () -> Unit = {},
+				onClickSalinity =  {
+					navController.navigateSingleTopTo(Salinity.route)
+				},
 				onClickAlkalinity = {
 					navController.navigateSingleTopTo(Alkalinity.route)
 				},
@@ -55,10 +58,9 @@ fun AquariumNavHost(
 				onClickTemperature = {
 					navController.navigateSingleTopTo(Temperature.route)
 				},
-//				onClickCo2 = {
-//					navController.navigateSingleTopTo(CarbonDioxide.route)
-//				},
-//				onClickSalinity = onClickSalinity,
+				onClickSalinity =  {
+					navController.navigateSingleTopTo(Salinity.route)
+				},
 				onClickAlkalinity = {
 					navController.navigateSingleTopTo(Alkalinity.route)
 				},
@@ -68,6 +70,9 @@ fun AquariumNavHost(
 			CalculatorsOverviewPage(
 				onClickCo2 = {
 					navController.navigateSingleTopTo(CarbonDioxide.route)
+				},
+				onClickVolume = {
+					navController.navigateSingleTopTo(TankVolume.route)
 				},
 			)
 		}
@@ -87,7 +92,7 @@ fun AquariumNavHost(
 			AlkalinityPage()
 		}
 		composable(route = Salinity.route) {
-
+			SalinityPage()
 		}
 	}
 }

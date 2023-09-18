@@ -11,7 +11,7 @@
     <string name="text_subtitle_salinity" tools:ignore="UnusedResources">ppt : SG : g/L</string>
     <string name="text_header_salinity" tools:ignore="UnusedResources">Salinity Converter</string>
     <string name="button_label_ppt" tools:ignore="UnusedResources">ppt</string>
-    <string name="button_label_sg" tools:ignore="UnusedResources">SG</string>
+    <string name="button_label_sg" tools:ignore="UnusedResources">Specific Gravity</string>
     <string name="field_label_ppt">Enter Salinity (ppt)</string>
     <string name="field_label_sg" tools:ignore="UnusedResources">Enter Specific Gravity (SG)</string>
     <string name="text_equiv" tools:ignore="UnusedResources">is approximately equivalent to</string>
