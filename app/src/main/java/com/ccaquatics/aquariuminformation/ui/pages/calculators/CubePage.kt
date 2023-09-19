@@ -13,15 +13,16 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.ccaquatics.aquariuminformation.data.calculators.cubeDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.rectangleDataSource
-import com.ccaquatics.aquariuminformation.navigation.Rectangle
+import com.ccaquatics.aquariuminformation.navigation.Cube
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
-import com.ccaquatics.aquariuminformation.ui.commonui.CalculateFieldThreeInputs
+import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateImage
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericPage
-import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberFieldThreeInputs
+import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
@@ -30,43 +31,35 @@ import java.math.RoundingMode
 import java.text.DecimalFormat
 
 @Composable
-fun RectanglePage() {
+fun CubePage() {
 	PageView {
-		RectangleLayout()
+		CubeLayout()
 	}
 }
 
 @Composable
-fun RectangleLayout(modifier: Modifier = Modifier) {
+fun CubeLayout(modifier: Modifier = Modifier) {
 	val color = MaterialTheme.colorScheme.secondary
 
-	var inputLength by rememberSaveable {
-		mutableStateOf("")
-	}
-	var inputWidth by rememberSaveable {
-		mutableStateOf("")
-	}
-	var inputHeight by rememberSaveable {
+	var inputSide by rememberSaveable {
 		mutableStateOf("")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(rectangleDataSource.radioTextFeet)
+		mutableIntStateOf(cubeDataSource.radioTextFeet)
 	}
-	val length = inputLength.toDoubleOrNull() ?: 0.0
-	val width = inputWidth.toDoubleOrNull() ?: 0.0
-	val height = inputHeight.toDoubleOrNull() ?: 0.0
-	val volGallon = calculateVolGallon(length, width, height).toDoubleOrNull() ?: 0.0
-	val volLiter = calculateVolLiter(length, width, height).toDoubleOrNull() ?: 0.0
-	val waterWeight = calculateWaterWeight(length, width, height).toDoubleOrNull() ?: 0.0
-	val volGallonFT = calculateVolGallonFT(length, width, height).toDoubleOrNull() ?: 0.0
-	val volLiterFT = calculateVolLiterFT(length, width, height).toDoubleOrNull() ?: 0.0
-	val waterWeightFT = calculateWaterWeightFT(length, width, height).toDoubleOrNull() ?: 0.0
+	val side = inputSide.toDoubleOrNull() ?: 0.0
+	val volGallon = calculateVolGallonCube(side).toDoubleOrNull() ?: 0.0
+	val volLiter = calculateVolLiterCube(side).toDoubleOrNull() ?: 0.0
+	val waterWeight = calculateWaterWeightCube(side).toDoubleOrNull() ?: 0.0
+	val volGallonFT = calculateVolGallonFTCube(side).toDoubleOrNull() ?: 0.0
+	val volLiterFT = calculateVolLiterFTCube(side).toDoubleOrNull() ?: 0.0
+	val waterWeightFT = calculateWaterWeightFTCube(side).toDoubleOrNull() ?: 0.0
 
 	Column(modifier = modifier) {
 		GenericPage(
-			title = Rectangle.title,
-			subtitle = Rectangle.subtitle,
-			icon = Rectangle.icon,
+			title = Cube.title,
+			subtitle = Cube.subtitle,
+			icon = Cube.icon,
 			color = color,
 			selectContent = {
 				UnitButtonCard(
@@ -74,16 +67,16 @@ fun RectangleLayout(modifier: Modifier = Modifier) {
 						RadioButtonComp(
 							modifier = Modifier
 								.weight(1f),
-							text = rectangleDataSource.radioTextFeet,
-							onClick = { selected = rectangleDataSource.radioTextFeet },
+							text = cubeDataSource.radioTextFeet,
+							onClick = { selected = cubeDataSource.radioTextFeet },
 							selected = selected,
 							selectedColor = color
 						)
 						RadioButtonComp(
 							modifier = Modifier
 								.weight(1f),
-							text = rectangleDataSource.radioTextInches,
-							onClick = { selected = rectangleDataSource.radioTextInches },
+							text = cubeDataSource.radioTextInches,
+							onClick = { selected = cubeDataSource.radioTextInches },
 							selected = selected,
 							selectedColor = color
 						)
@@ -92,33 +85,22 @@ fun RectangleLayout(modifier: Modifier = Modifier) {
 				)
 			},
 			calculateFieldContent = {
-				CalculateFieldThreeInputs(
+				CalculateField(
 					inputContent = {
-						InputNumberFieldThreeInputs(
-							label1 = rectangleDataSource.labelLength,
-							placeholder1 = rectangleDataSource.placeholderLength,
-							label2 = rectangleDataSource.labelWidth,
-							placeholder2 = rectangleDataSource.placeholderWidth,
-							label3 = rectangleDataSource.labelHeight,
-							placeholder3 = rectangleDataSource.placeholderHeight,
-							value1 = inputLength,
-							onValueChange1 = { inputLength = it },
-							value2 = inputWidth,
-							onValueChange2 = { inputWidth = it },
-							value3 = inputHeight,
-							onValueChange3 = { inputHeight = it },
-							color = color
+						InputNumberField(
+							label = cubeDataSource.labelSide,
+							placeholder = cubeDataSource.placeholderSide,
+							value = inputSide,
+							onValueChange = { inputSide = it },
+							color = color,
 						)
 					},
-					inputText = rectangleDataSource.inputText,
-					inputValue1 = inputLength,
-					inputValue2 = inputWidth,
-					inputValue3 = inputHeight,
-					equalsText = rectangleDataSource.equalsText,
-					color = color,
+					inputText = cubeDataSource.inputText,
+					inputValue = inputSide,
+					equalsText = cubeDataSource.equalsText,
 					calculateContent = {
 						when (selected) {
-							rectangleDataSource.radioTextFeet -> {
+							cubeDataSource.radioTextFeet -> {
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
 									text = rectangleDataSource.calculatedTextGallons,
@@ -139,7 +121,7 @@ fun RectangleLayout(modifier: Modifier = Modifier) {
 								)
 							}
 
-							rectangleDataSource.radioTextInches -> {
+							cubeDataSource.radioTextInches -> {
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
 									text = rectangleDataSource.calculatedTextGallons,
@@ -160,35 +142,34 @@ fun RectangleLayout(modifier: Modifier = Modifier) {
 								)
 							}
 						}
-					}
+					},
+					color = color,
 				)
 			},
 			imageContent = {
 				CalculateImage(
-					painter = rectangleDataSource.image,
-					contentDescription = Rectangle.title,
+					painter = cubeDataSource.image,
+					contentDescription = Cube.title,
 					colorFilter = color
 				)
 			},
 			formulaContent = {
 				FormulaString(
 					content = {
-						BodyTextCard(text = rectangleDataSource.formulaText)
+						BodyTextCard(text = cubeDataSource.formulaText)
 					},
-					color = color
+					color = color,
 				)
-			},
+			}
 		)
 	}
 }
 
 @VisibleForTesting
-fun calculateVolGallon(
-	length: Double,
-	width: Double,
-	height: Double
+fun calculateVolGallonCube(
+	side: Double
 ): String {
-	val volGallons = (length * width * height) / 231.0
+	val volGallons = (side * side * side) / 231.0
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -197,12 +178,10 @@ fun calculateVolGallon(
 }
 
 @VisibleForTesting
-fun calculateVolLiter(
-	length: Double,
-	width: Double,
-	height: Double,
+fun calculateVolLiterCube(
+	side: Double
 ): String {
-	val volLiters = (length * width * height) / 61.0237
+	val volLiters = (side * side * side) / 61.0237
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -211,12 +190,10 @@ fun calculateVolLiter(
 }
 
 @VisibleForTesting
-fun calculateWaterWeight(
-	length: Double,
-	width: Double,
-	height: Double,
+fun calculateWaterWeightCube(
+	side: Double
 ): String {
-	val waterWeight = ((length * width * height) / 231.0) * 8.33
+	val waterWeight = ((side * side * side) / 231.0) * 8.33
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -225,12 +202,10 @@ fun calculateWaterWeight(
 }
 
 @VisibleForTesting
-fun calculateVolGallonFT(
-	length: Double,
-	width: Double,
-	height: Double
+fun calculateVolGallonFTCube(
+	side: Double
 ): String {
-	val volGallons = (length * width * height) / 0.133681
+	val volGallons = (side * side * side) / 0.133681
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -239,12 +214,10 @@ fun calculateVolGallonFT(
 }
 
 @VisibleForTesting
-fun calculateVolLiterFT(
-	length: Double,
-	width: Double,
-	height: Double,
+fun calculateVolLiterFTCube(
+	side: Double
 ): String {
-	val volLiters = (length * width * height) / 0.0353147
+	val volLiters = (side * side * side) / 0.0353147
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -253,12 +226,10 @@ fun calculateVolLiterFT(
 }
 
 @VisibleForTesting
-fun calculateWaterWeightFT(
-	length: Double,
-	width: Double,
-	height: Double,
+fun calculateWaterWeightFTCube(
+	side: Double
 ): String {
-	val waterWeight = ((length * width * height) / 0.133681) * 8.33
+	val waterWeight = ((side * side * side) / 0.133681) * 8.33
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -268,27 +239,27 @@ fun calculateWaterWeightFT(
 
 @Preview(showBackground = true)
 @Composable
-fun RectanglePreview() {
+fun CubePreview() {
 	AquariumInformationTheme {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
-			RectanglePage()
+			CubePage()
 		}
 	}
 }
 
 @Preview(showBackground = true)
 @Composable
-fun RectanglePreviewDark(
+fun CubePreviewDark(
 ) {
 	AquariumInformationTheme(useDarkTheme = true) {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
-			RectanglePage()
+			CubePage()
 		}
 	}
 }

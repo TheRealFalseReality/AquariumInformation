@@ -15,6 +15,7 @@ import com.ccaquatics.aquariuminformation.ui.pages.InfoPage
 import com.ccaquatics.aquariuminformation.ui.pages.OverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.TankVolumeOverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.calculators.CarbonDioxidePage
+import com.ccaquatics.aquariuminformation.ui.pages.calculators.CubePage
 import com.ccaquatics.aquariuminformation.ui.pages.calculators.RectanglePage
 import com.ccaquatics.aquariuminformation.ui.pages.converters.AlkalinityPage
 import com.ccaquatics.aquariuminformation.ui.pages.converters.SalinityPage
@@ -39,6 +40,8 @@ fun AquariumNavHost(
 		composable(route = Overview.route) {
 			OverviewPage(
 				onClickTemperature = {
+					/* TODO Alter Routes */
+//					navController.navigateSingleTopTo(Converters.route)
 					navController.navigateSingleTopTo(Temperature.route)
 				},
 				onClickCo2 = {
@@ -70,7 +73,7 @@ fun AquariumNavHost(
 					navController.navigateSingleTopTo(Rectangle.route)
 				},
 				onClickCube = {
-
+					navController.navigateSingleTopTo(Cube.route)
 				},
 				onClickCylinder = {
 
@@ -100,6 +103,9 @@ fun AquariumNavHost(
 		}
 		composable(route = Rectangle.route) {
 			RectanglePage()
+		}
+		composable(route = Cube.route) {
+			CubePage()
 		}
 	}
 }
@@ -165,13 +171,16 @@ fun CalculatorsNavHost(
 		composable(route = Rectangle.route) {
 			RectanglePage()
 		}
+		composable(route = Cube.route) {
+			CubePage()
+		}
 		composable(route = TankVolume.route) {
 			TankVolumeOverviewPage(
 				onClickRectangle = {
 					navController.navigateSingleTopTo(Rectangle.route)
 				},
 				onClickCube = {
-
+					navController.navigateSingleTopTo(Cube.route)
 				},
 				onClickCylinder = {
 

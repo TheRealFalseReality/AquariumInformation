@@ -406,7 +406,6 @@ fun UnitButtonCard(
 					content()
 				}
 			}
-
 		}
 	}
 }
@@ -415,7 +414,7 @@ fun CalculateImage(
 	modifier: Modifier = Modifier,
 	@DrawableRes painter: Int,
 	@StringRes contentDescription: Int,
-	colorFilter: Color = MaterialTheme.colorScheme.primary
+	colorFilter: Color
 ){
 	Column(
 		modifier = modifier
