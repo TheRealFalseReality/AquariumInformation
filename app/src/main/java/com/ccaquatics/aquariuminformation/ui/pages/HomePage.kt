@@ -6,19 +6,16 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.ccaquatics.aquariuminformation.R
+import com.ccaquatics.aquariuminformation.data.homeCompatibilityData
+import com.ccaquatics.aquariuminformation.data.homeHeaderData
+import com.ccaquatics.aquariuminformation.data.homeNavigateData
 import com.ccaquatics.aquariuminformation.navigation.Home
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
@@ -45,45 +42,25 @@ fun HomeLayout(
 		verticalArrangement = Arrangement.SpaceBetween
 	) {
 		TitleWideCard(
-			text = R.string.about,
-			icon = R.drawable.ic_home
+			text = Home.title,
+			icon = Home.icon
 		) {
 			SingleWideCard {
-				BodyTextCard(text = R.string.text_welcome)
+				BodyTextCard(text = homeHeaderData.text)
 			}
 		}
-		HomeScreen()
 		PopOutCard(
-			icon = R.drawable.ic_new_releases,
-			headerText = R.string.text_welcome_compatibility_title,
-			bodyText = R.string.text_welcome_compatibility_2
+			icon = homeCompatibilityData.icon,
+			title = homeCompatibilityData.title,
+			body = homeCompatibilityData.text
 		)
 		PopOutlinedCard(
-			text = R.string.tap_below_to_navigate
+			text = homeNavigateData.text
 		)
 		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_verySmall)))
 	}
 }
 
-@Composable
-fun HomeScreen(
-	home: Home = Home
-) {
-
-	Column {
-		Icon(
-			painter = painterResource(id = home.icon),
-			contentDescription = stringResource(id = home.title),
-			modifier = Modifier.padding(16.dp)
-		)
-
-		Text(
-			text = stringResource(id = home.title),
-			style = MaterialTheme.typography.headlineMedium,
-			modifier = Modifier.padding(16.dp)
-		)
-	}
-}
 
 @Preview(showBackground = true)
 @Composable

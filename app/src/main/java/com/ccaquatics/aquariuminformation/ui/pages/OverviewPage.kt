@@ -18,8 +18,16 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.ccaquatics.aquariuminformation.R
+import com.ccaquatics.aquariuminformation.navigation.Alkalinity
+import com.ccaquatics.aquariuminformation.navigation.Calculators
 import com.ccaquatics.aquariuminformation.navigation.CalculatorsNavHost
+import com.ccaquatics.aquariuminformation.navigation.CarbonDioxide
+import com.ccaquatics.aquariuminformation.navigation.Converters
 import com.ccaquatics.aquariuminformation.navigation.ConvertersNavHost
+import com.ccaquatics.aquariuminformation.navigation.FishCompatability
+import com.ccaquatics.aquariuminformation.navigation.Salinity
+import com.ccaquatics.aquariuminformation.navigation.TankVolume
+import com.ccaquatics.aquariuminformation.navigation.Temperature
 import com.ccaquatics.aquariuminformation.ui.commonui.NavButton
 import com.ccaquatics.aquariuminformation.ui.commonui.NavButtonRow
 import com.ccaquatics.aquariuminformation.ui.commonui.NavButtonWide
@@ -82,7 +90,6 @@ fun OverviewLayout(
 @Composable
 fun ConvertersOverviewPage(
 	onClickTemperature: () -> Unit = {},
-//	onClickCo2: () -> Unit = {},
 	onClickSalinity: () -> Unit = {},
 	onClickAlkalinity: () -> Unit = {},
 ){
@@ -90,7 +97,6 @@ fun ConvertersOverviewPage(
 		OverviewGenericLayout {
 			ConvertersGrid(
 				onClickTemperature = onClickTemperature,
-//				onClickCo2 = onClickCo2,
 				onClickSalinity = onClickSalinity,
 				onClickAlkalinity = onClickAlkalinity
 			)
@@ -127,9 +133,7 @@ fun OverviewGenericLayout(
 	modifier: Modifier = Modifier,
 	content: @Composable ColumnScope.() -> Unit,
 ) {
-	Column(
-		modifier = modifier,
-	) {
+	Column(modifier = modifier) {
 		Column(
 			modifier = Modifier.fillMaxSize(),
 			verticalArrangement = Arrangement.SpaceEvenly,
@@ -146,7 +150,6 @@ fun ConvertersGrid(
 	modifier: Modifier = Modifier,
 	color: Color = MaterialTheme.colorScheme.primary,
 	onClickTemperature: () -> Unit,
-//	onClickCo2: () -> Unit,
 	onClickSalinity: () -> Unit,
 	onClickAlkalinity: () -> Unit,
 ) {
@@ -154,61 +157,26 @@ fun ConvertersGrid(
 		modifier = modifier,
 	) {
 		TitleWideCard(
-			text = R.string.converters,
+			text = Converters.title,
 			color = color,
-			icon = R.drawable.ic_conversion
+			icon = Converters.icon
 		) {
 			NavButtonWide(
-				title = R.string.temperature,
-				icon = R.drawable.ic_thermostat,
+				title = Temperature.title,
+				icon = Temperature.icon,
 				onClick = onClickTemperature,
 				contentColor = color
 			)
-//			Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
-//			NavButton(
-//				modifier = Modifier
-//					.fillMaxWidth(fraction = 0.9f),
-//				title = R.string.temperature,
-//				icon = R.drawable.ic_thermostat,
-//				onClick = onClickTemperature,
-//				contentColor = color
-//			)
-//			Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
-//			NavButtonRow(
-//				title1 = R.string.temperature,
-//				icon1 = R.drawable.ic_thermostat,
-//				title2 = R.string.carbon_dioxide,
-//				icon2 = R.drawable.baseline_co2_24,
-//				contentColor = color,
-//				onClick1 = onClickTemperature,
-//				onClick2 = onClickCo2,
-//			)
 			NavButtonRow(
-				title1 = R.string.salinity,
-				icon1 = R.drawable.ic_salinity_alt,
-				title2 = R.string.alkalinity,
-				icon2 = R.drawable.ic_water_do,
+				title1 = Salinity.title,
+				icon1 = Salinity.icon,
+				title2 = Alkalinity.title,
+				icon2 = Alkalinity.icon,
 				contentColor = color,
 				onClick1 = onClickSalinity,
 				onClick2 = onClickAlkalinity,
 			)
 		}
-	}
-}
-
-@Composable
-fun ConvertersNavHostScreen() {
-	val navController = rememberNavController()
-	Surface {
-		ConvertersNavHost(navController = navController)
-	}
-}
-
-@Composable
-fun CalculatorsNavHostScreen() {
-	val navController = rememberNavController()
-	Surface {
-		CalculatorsNavHost(navController = navController)
 	}
 }
 
@@ -219,15 +187,15 @@ fun CalculatorsGrid(
 	onClickCo2: () -> Unit,
 ) {
 	TitleWideCard(
-		text = R.string.calculators,
+		text = Calculators.title,
 		color = color,
-		icon = R.drawable.ic_calculate
+		icon = Calculators.icon
 	) {
 		NavButtonRow(
-			title1 = R.string.tank_volume,
-			icon1 = R.drawable.ic_volume,
-			title2 = R.string.carbon_dioxide,
-			icon2 = R.drawable.baseline_co2_24,
+			title1 = TankVolume.title,
+			icon1 = TankVolume.icon,
+			title2 = CarbonDioxide.title,
+			icon2 = CarbonDioxide.icon,
 			contentColor = color,
 			onClick1 = onClickVolume,
 			onClick2 = onClickCo2,
@@ -240,8 +208,8 @@ fun TankVolumeGrid(
 	color: Color = MaterialTheme.colorScheme.secondary
 ) {
 	TitleWideCard(
-		text = R.string.tank_volume,
-		icon = R.drawable.ic_volume,
+		text = TankVolume.title,
+		icon = TankVolume.icon,
 		color = color
 	) {
 		NavButtonRow(
@@ -280,24 +248,32 @@ fun FishCompatability(
 	onClickFish: () -> Unit = {},
 ) {
 	TitleWideCard(
-		text = R.string.text_fish_compatibility,
+		text = FishCompatability.title,
 		color = color,
 		icon = R.drawable.ic_fish_2
 	) {
 		NavButtonWide(
 			title = R.string.text_welcome_compatibility_title,
-			icon = R.drawable.ic_icon_question,
+			icon = FishCompatability.icon,
 			contentColor = color,
 			onClick = onClickFish,
 		)
-//		NavButton(
-//			modifier = Modifier
-//				.fillMaxWidth(fraction = 0.9f),
-//			title = R.string.text_welcome_compatibility_title,
-//			icon = R.drawable.ic_icon_question,
-//			contentColor = color,
-//			onClick = onClickFish,
-//		)
+	}
+}
+
+@Composable
+fun ConvertersNavHostScreen() {
+	val navController = rememberNavController()
+	Surface {
+		ConvertersNavHost(navController = navController)
+	}
+}
+
+@Composable
+fun CalculatorsNavHostScreen() {
+	val navController = rememberNavController()
+	Surface {
+		CalculatorsNavHost(navController = navController)
 	}
 }
 

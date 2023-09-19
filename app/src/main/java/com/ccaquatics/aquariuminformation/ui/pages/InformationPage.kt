@@ -14,6 +14,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.ccaquatics.aquariuminformation.R
+import com.ccaquatics.aquariuminformation.data.appInformationData
+import com.ccaquatics.aquariuminformation.data.appVersionData
+import com.ccaquatics.aquariuminformation.data.contactData
+import com.ccaquatics.aquariuminformation.data.emailData
+import com.ccaquatics.aquariuminformation.data.errorData
+import com.ccaquatics.aquariuminformation.data.informationData
+import com.ccaquatics.aquariuminformation.data.informationHeaderData
+import com.ccaquatics.aquariuminformation.data.websiteData
+import com.ccaquatics.aquariuminformation.navigation.Information
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.HeaderTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.IconTextRow
@@ -22,7 +32,6 @@ import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCard
 import com.ccaquatics.aquariuminformation.ui.commonui.TextRow
 import com.ccaquatics.aquariuminformation.ui.commonui.TitleWideCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
-import com.ccaquatics.aquariuminformation.R
 
 @Composable
 fun InfoPage() {
@@ -41,61 +50,51 @@ fun InfoLayout(
 		verticalArrangement = Arrangement.SpaceBetween
 	) {
 		TitleWideCard(
-			text = R.string.text_title_info,
-			icon = R.drawable.ic_info_2
+			text = Information.title,
+			icon = Information.icon
 		) {
 			SingleWideCard {
-				BodyTextCard(text = R.string.text_info_1)
-				BodyTextCard(text =  R.string.text_info_2)
-				BodyTextCard(text =  R.string.text_app_errors)
+				BodyTextCard(text = informationHeaderData.text)
+				Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_verySmall)))
+				BodyTextCard(text = informationData.text)
 			}
 		}
 		TitleWideCard(
-			text = R.string.errors_or_bugs,
-			icon = R.drawable.ic_build,
-//			color = MaterialTheme.colorScheme.primary
+			text = errorData.title,
+			icon = errorData.icon,
 		) {
 			SingleWideCard {
 				BodyTextCard(
-					text =  R.string.text_app_errors,
-//					color = MaterialTheme.colorScheme.onPrimary
+					text = errorData.text,
 				)
 			}
 		}
 		TitleWideCard(
-			text = R.string.contact,
-			icon = R.drawable.ic_person_search,
-//			color = MaterialTheme.colorScheme.secondary
+			text = contactData.title,
+			icon = contactData.icon,
 		) {
 			SingleWideCard {
 				IconTextRow(
-					icon = R.drawable.ic_mail,
-					text = R.string.text_email,
-//					textColor = MaterialTheme.colorScheme.secondary,
-//					iconTint = MaterialTheme.colorScheme.secondary,
+					icon = emailData.icon,
+					text = emailData.title,
 				)
 				IconTextRow(
-					icon = R.drawable.ic_public,
-					text = R.string.text_website,
-//					textColor = MaterialTheme.colorScheme.secondary,
-//					iconTint = MaterialTheme.colorScheme.secondary,
+					icon = websiteData.icon,
+					text = websiteData.title,
 				)
 			}
 		}
 		TitleWideCard(
-			text = R.string.app_information,
-			icon = R.drawable.ic_settings_alert,
-//			color =  MaterialTheme.colorScheme.tertiary
+			text = appInformationData.title,
+			icon = appInformationData.icon,
 		) {
 			SingleWideCard {
 				HeaderTextCard(
-					text = R.string.app_name,
-//					color = MaterialTheme.colorScheme.tertiary
+					text = appInformationData.title,
 				)
 				TextRow(
-					text1 = R.string.app_version,
-					text2 = R.string.appVersion,
-//					color = MaterialTheme.colorScheme.tertiary
+					text1 = appVersionData.title,
+					text2 = appVersionData.text,
 				)
 			}
 		}

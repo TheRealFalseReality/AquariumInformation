@@ -82,6 +82,7 @@ fun TitleWideCard(
 				.fillMaxWidth(),
 			horizontalAlignment = Alignment.CenterHorizontally
 		) {
+			Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
 			content()
 		}
 	}
@@ -260,10 +261,10 @@ fun SingleWideCard(
 	Column(modifier = modifier) {
 		ElevatedCard(
 			modifier = Modifier
-				.padding(
-					top = dimensionResource(id = R.dimen.padding_small),
-					bottom = dimensionResource(id = R.dimen.padding_small),
-				)
+//				.padding(
+//					top = dimensionResource(id = R.dimen.padding_small),
+//					bottom = dimensionResource(id = R.dimen.padding_small),
+//				)
 				.fillMaxWidth(fraction = 0.9f),
 			shape = shape,
 			colors = CardDefaults.cardColors(
@@ -278,7 +279,7 @@ fun SingleWideCard(
 				modifier = Modifier
 					.padding(dimensionResource(id = R.dimen.padding_small))
 					.fillMaxWidth(),
-				horizontalAlignment = Alignment.CenterHorizontally
+				horizontalAlignment = Alignment.CenterHorizontally,
 			) {
 				content()
 			}
@@ -563,38 +564,41 @@ fun HeaderTextIconLarge(
 fun PopOutCard(
 	modifier: Modifier = Modifier,
 	@DrawableRes icon: Int,
-	@StringRes headerText: Int,
-	@StringRes bodyText: Int,
+	@StringRes title: Int,
+	@StringRes body: Int,
+	backgroundCardColor: Color = MaterialTheme.colorScheme.tertiary,
+	contentColor: Color = MaterialTheme.colorScheme.onTertiary
 ) {
 	Column(modifier = modifier) {
 		SingleWideCard(
-			backgroundCardColor = MaterialTheme.colorScheme.tertiary,
-			contentColor = MaterialTheme.colorScheme.onTertiary
+			backgroundCardColor = backgroundCardColor,
+			contentColor = contentColor
 		) {
-
 			Row(
 				verticalAlignment = Alignment.CenterVertically,
 			) {
 				Icon(
 					modifier = Modifier
-						.padding(end = dimensionResource(id = R.dimen.padding_small))
+//						.padding(end = dimensionResource(id = R.dimen.padding_small))
 						.weight(1f),
 					painter = painterResource(id = icon),
-					contentDescription = null
+					contentDescription = null,
+					tint = contentColor
 				)
 				Column(
 					modifier = Modifier
 						.weight(10f),
 					horizontalAlignment = Alignment.CenterHorizontally
 				) {
-					Text(
-						text = stringResource(id = headerText),
-						style = MaterialTheme.typography.titleMedium
+					HeaderTextCard(
+						text = title,
+						color = contentColor
 					)
-					Text(
-						text = stringResource(id = bodyText),
+					BodyTextCard(
+						text = body,
 						style = MaterialTheme.typography.bodyMedium,
-						textAlign = TextAlign.Center
+						textAlign = TextAlign.Center,
+						color = contentColor
 					)
 				}
 			}
@@ -621,10 +625,10 @@ fun PopOutlinedCard(
 			border = BorderStroke(width = 4.dp, color = contentColor),
 			shape = shape
 		) {
-			Text(
+			BodyTextCard(
 				modifier = Modifier
 					.padding(dimensionResource(id = R.dimen.padding_large)),
-				text = stringResource(id = text),
+				text = text,
 			)
 		}
 	}
@@ -791,8 +795,8 @@ fun PopOutCardPreview() {
 		) {
 			PopOutCard(
 				icon = R.drawable.baseline_new_releases_24,
-				headerText = R.string.text_welcome_compatibility_title,
-				bodyText = R.string.text_welcome_compatibility_2
+				title = R.string.text_welcome_compatibility_title,
+				body = R.string.text_welcome_compatibility_2
 			)
 		}
 	}
@@ -809,8 +813,8 @@ fun PopOutCardPreviewDark(
 		) {
 			PopOutCard(
 				icon = R.drawable.baseline_new_releases_24,
-				headerText = R.string.text_welcome_compatibility_title,
-				bodyText = R.string.text_welcome_compatibility_2
+				title = R.string.text_welcome_compatibility_title,
+				body = R.string.text_welcome_compatibility_2
 			)
 		}
 	}

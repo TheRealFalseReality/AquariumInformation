@@ -10,8 +10,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.ccaquatics.aquariuminformation.R
+import com.ccaquatics.aquariuminformation.data.carbonDioxideData
+import com.ccaquatics.aquariuminformation.navigation.CarbonDioxide
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
@@ -33,8 +35,10 @@ fun CarbonDioxidePage() {
 }
 
 @Composable
-fun CarbonDioxideLayout(modifier: Modifier = Modifier) {
-	val color = MaterialTheme.colorScheme.secondary
+fun CarbonDioxideLayout(
+	modifier: Modifier = Modifier,
+	color: Color = MaterialTheme.colorScheme.secondary
+) {
 	var inputPH by rememberSaveable {
 		mutableStateOf("")
 	}
@@ -47,13 +51,13 @@ fun CarbonDioxideLayout(modifier: Modifier = Modifier) {
 
 	Column(modifier = modifier) {
 		GenericPage(
-			title = R.string.text_title_co2,
-			subtitle = R.string.text_subtitle_co2,
-			icon = R.drawable.baseline_co2_24,
+			title = CarbonDioxide.title,
+			subtitle = CarbonDioxide.subtitle,
+			icon = CarbonDioxide.icon,
 			color = color,
 			selectContent = {
 				TextCard(
-					text = R.string.text_co2_units,
+					text = carbonDioxideData.unitsLabel,
 					contentColor = color
 				)
 			},
@@ -61,10 +65,10 @@ fun CarbonDioxideLayout(modifier: Modifier = Modifier) {
 				CalculateFieldTwoInputs(
 					inputContent = {
 						InputNumberFieldTwoInputs(
-							label1 = R.string.ph,
-							placeholder1 = R.string.field_label_ph,
-							label2 = R.string.button_label_dkh,
-							placeholder2 = R.string.field_label_dkh,
+							label1 = carbonDioxideData.label1,
+							placeholder1 = carbonDioxideData.placeholder1,
+							label2 = carbonDioxideData.label2,
+							placeholder2 = carbonDioxideData.placeholder2,
 							value1 = inputPH,
 							onValueChange1 = { inputPH = it },
 							value2 = inputDKH,
@@ -72,14 +76,14 @@ fun CarbonDioxideLayout(modifier: Modifier = Modifier) {
 							color = color,
 						)
 					},
-					inputText = R.string.text_amount_ph_dkh,
+					inputText = carbonDioxideData.inputText,
 					inputValue1 = inputPH,
 					inputValue2 = inputDKH,
-					equalsText = R.string.text_equal_to,
+					equalsText = carbonDioxideData.equalsText,
 					color = color,
 					calculateContent = {
 						CalculatedText(
-							text = R.string.text_amount_co2,
+							text = carbonDioxideData.calculatedText,
 							calculatedValue = co2,
 							color = color,
 						)
@@ -91,7 +95,7 @@ fun CarbonDioxideLayout(modifier: Modifier = Modifier) {
 					color = color,
 					content = {
 						BodyTextCard(
-							text = R.string.text_formula_soon,
+							text = carbonDioxideData.formulaText,
 							color = color
 						)
 					}
