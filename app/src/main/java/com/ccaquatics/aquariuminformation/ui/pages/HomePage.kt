@@ -4,7 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -37,7 +37,7 @@ fun HomeLayout(
 	modifier: Modifier = Modifier,
 ) {
 	Column(
-		modifier = modifier.fillMaxHeight(),
+		modifier = modifier.fillMaxSize(),
 		horizontalAlignment = Alignment.CenterHorizontally,
 		verticalArrangement = Arrangement.SpaceBetween
 	) {
@@ -57,6 +57,7 @@ fun HomeLayout(
 		PopOutlinedCard(
 			text = homeNavigateDataSource.text
 		)
+//		SwitchThemeToggle()
 		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_verySmall)))
 	}
 }

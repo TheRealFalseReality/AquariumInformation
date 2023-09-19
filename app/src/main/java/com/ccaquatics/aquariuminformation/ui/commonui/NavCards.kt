@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -24,9 +25,10 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import com.ccaquatics.aquariuminformation.ui.theme.Shapes
-import com.ccaquatics.aquariuminformation.R
 
 @Composable
 fun NavButton(
@@ -37,7 +39,7 @@ fun NavButton(
 	@StringRes title: Int,
 	@DrawableRes icon: Int,
 	onClick: () -> Unit,
-){
+) {
 	Button(
 		modifier = modifier,
 		onClick = onClick,
@@ -72,6 +74,101 @@ fun NavButton(
 }
 
 @Composable
+fun NavButtonTopLeft(
+	title: Int,
+	icon: Int,
+	onClick: () -> Unit,
+) {
+	NavButton(
+		title = title,
+		icon = icon,
+		onClick = onClick,
+		shape = RoundedCornerShape(
+			bottomStart = 12.dp,
+			bottomEnd = 12.dp,
+			topStart = 0.dp,
+			topEnd = 12.dp,
+		),
+	)
+}
+
+@Composable
+fun NavButtonTopRight(
+	title: Int,
+	icon: Int,
+	onClick: () -> Unit,
+) {
+	NavButton(
+		title = title,
+		icon = icon,
+		onClick = onClick,
+		shape = RoundedCornerShape(
+			bottomStart = 12.dp,
+			bottomEnd = 12.dp,
+			topStart = 12.dp,
+			topEnd = 0.dp,
+		),
+	)
+}
+
+@Composable
+fun NavButtonMid(
+	title: Int,
+	icon: Int,
+	onClick: () -> Unit,
+) {
+	NavButton(
+		title = title,
+		icon = icon,
+		onClick = onClick,
+		shape = RoundedCornerShape(
+			bottomStart = 12.dp,
+			bottomEnd = 12.dp,
+			topStart = 12.dp,
+			topEnd = 12.dp,
+		),
+	)
+}
+
+@Composable
+fun NavButtonBottomRight(
+	title: Int,
+	icon: Int,
+	onClick: () -> Unit,
+) {
+	NavButton(
+		title = title,
+		icon = icon,
+		onClick = onClick,
+		shape = RoundedCornerShape(
+			bottomStart = 12.dp,
+			bottomEnd = 12.dp,
+			topStart = 12.dp,
+			topEnd = 0.dp,
+		),
+	)
+}
+
+@Composable
+fun NavButtonBottomLeft(
+	title: Int,
+	icon: Int,
+	onClick: () -> Unit,
+) {
+	NavButton(
+		title = title,
+		icon = icon,
+		onClick = onClick,
+		shape = RoundedCornerShape(
+			bottomStart = 12.dp,
+			bottomEnd = 12.dp,
+			topStart = 12.dp,
+			topEnd = 0.dp,
+		),
+	)
+}
+
+@Composable
 fun NavButtonWide(
 	modifier: Modifier = Modifier,
 	shape: Shape = Shapes.large,
@@ -80,7 +177,7 @@ fun NavButtonWide(
 	@StringRes title: Int,
 	@DrawableRes icon: Int,
 	onClick: () -> Unit,
-){
+) {
 	Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
 	Button(
 		modifier = modifier
@@ -127,7 +224,7 @@ fun NavRowButton(
 	@StringRes title: Int,
 	@DrawableRes icon: Int,
 	onClick: () -> Unit
-){
+) {
 	Row(
 		modifier = modifier
 	) {
@@ -180,8 +277,8 @@ fun NavButtonRow(
 	containerColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color = MaterialTheme.colorScheme.onBackground,
 	onClick1: () -> Unit,
-	onClick2: () -> Unit
-){
+	onClick2: () -> Unit,
+) {
 	Row(
 		modifier = modifier.fillMaxWidth(fraction = 0.9f)
 	) {
@@ -220,12 +317,12 @@ fun NavButtonRow(
 
 @Preview(showBackground = true)
 @Composable
-fun NavRowButtonPreview(){
+fun NavRowButtonPreview() {
 	AquariumInformationTheme {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
-		){
+		) {
 			NavRowButton(
 				title = R.string.converters,
 				icon = R.drawable.baseline_home_24,
@@ -238,15 +335,15 @@ fun NavRowButtonPreview(){
 @Preview(showBackground = true)
 @Composable
 fun NavRowButtonPreviewDark(
-){
+) {
 	AquariumInformationTheme(useDarkTheme = true) {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
-		){
+		) {
 			NavRowButton(
 				title = R.string.converters,
-				icon =  R.drawable.baseline_home_24,
+				icon = R.drawable.baseline_home_24,
 				onClick = {}
 			)
 		}
@@ -255,12 +352,12 @@ fun NavRowButtonPreviewDark(
 
 @Preview(showBackground = true)
 @Composable
-fun NavButtonRowPreview(){
+fun NavButtonRowPreview() {
 	AquariumInformationTheme {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
-		){
+		) {
 			NavButtonRow(
 				title1 = R.string.converters,
 				icon1 = R.drawable.baseline_home_24,
@@ -276,12 +373,12 @@ fun NavButtonRowPreview(){
 @Preview(showBackground = true)
 @Composable
 fun NavButtonRowPreviewDark(
-){
+) {
 	AquariumInformationTheme(useDarkTheme = true) {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
-		){
+		) {
 			NavButtonRow(
 				title1 = R.string.converters,
 				icon1 = R.drawable.baseline_email_24,
@@ -296,12 +393,12 @@ fun NavButtonRowPreviewDark(
 
 @Preview(showBackground = true)
 @Composable
-fun NavButtonPreview(){
+fun NavButtonPreview() {
 	AquariumInformationTheme {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
-		){
+		) {
 			NavButton(
 				title = R.string.converters,
 				icon = R.drawable.baseline_email_24,
@@ -314,12 +411,12 @@ fun NavButtonPreview(){
 @Preview(showBackground = true)
 @Composable
 fun NavButtonPreviewDark(
-){
+) {
 	AquariumInformationTheme(useDarkTheme = true) {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
-		){
+		) {
 			NavButton(
 				title = R.string.converters,
 				icon = R.drawable.baseline_email_24,

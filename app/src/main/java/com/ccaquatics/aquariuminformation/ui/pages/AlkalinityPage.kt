@@ -23,6 +23,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericPage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
+import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
@@ -31,7 +32,9 @@ import java.text.DecimalFormat
 
 @Composable
 fun AlkalinityPage() {
-	AlkalinityLayout()
+	PageView {
+		AlkalinityLayout()
+	}
 }
 
 @Composable

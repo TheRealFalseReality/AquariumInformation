@@ -100,4 +100,7 @@ dependencies {
 
 	// Predicitive Back Gesture
 	implementation ("androidx.activity:activity-ktx:1.7.2")
+
+	// Use Theme Toggler
+	implementation ("androidx.compose.material:material:1.6.0-alpha05")
 }

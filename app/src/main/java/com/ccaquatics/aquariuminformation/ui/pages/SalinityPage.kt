@@ -13,12 +13,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.R
+import com.ccaquatics.aquariuminformation.data.salinityDataSource
+import com.ccaquatics.aquariuminformation.navigation.Salinity
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericPage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
+import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
@@ -28,11 +31,13 @@ import kotlin.math.pow
 
 @Composable
 fun SalinityPage() {
-	SalinityLayout()
+	PageView {
+		SalinityLayout()
+	}
 }
 
 @Composable
-fun SalinityLayout() {
+fun SalinityLayout(modifier: Modifier = Modifier) {
 	val color = MaterialTheme.colorScheme.primary
 
 	var inputSal by rememberSaveable {
@@ -49,107 +54,103 @@ fun SalinityLayout() {
 	val salDensityPPT = calculateDensityPPT(sal, tempTestWater).toDoubleOrNull() ?: 0.0
 	val salDensitySG = calculateDensitySG(sal, tempPureWater).toDoubleOrNull() ?: 0.0
 
-	GenericPage(
-		title = R.string.text_header_salinity,
-		subtitle = R.string.text_subtitle_salinity,
-		icon = R.drawable.ic_salinity,
-		color = color,
-		selectContent = {
-			UnitButtonCard(
-				content = {
-					RadioButtonComp(
-						modifier = Modifier
-							.weight(1f),
-						text = R.string.salinity_ppt,
-						onClick = { selected = R.string.salinity_ppt },
-						selected = selected,
-						selectedColor = color
-					)
-					RadioButtonComp(
-						modifier = Modifier
-							.weight(1f),
-						text = R.string.button_label_sg,
-						onClick = { selected = R.string.button_label_sg },
-						selected = selected,
-						selectedColor = color
-					)
-				},
-				contentColor = color
-			)
-		},
-		calculateFieldContent = {
-			when (selected) {
-				R.string.salinity_ppt -> {
-					CalculateField(
-						inputContent = {
-							InputNumberField(
-								label = R.string.button_label_ppt,
-								placeholder = R.string.field_label_ppt,
-								value = inputSal,
-								onValueChange = { inputSal = it },
-								color = color
-							)
-						},
-						inputText = R.string.text_amount_ppt,
-						inputValue = inputSal,
-						equalsText = R.string.text_equiv,
-						calculateContent = {
-							CalculatedText(
-								text = R.string.text_amount_sg,
-								calculatedValue = sg,
-								color = color
-							)
-							CalculatedText(
-								text = R.string.text_amount_density,
-								calculatedValue = salDensityPPT,
-								color = color
-							)
-						},
-					)
-				}
+	Column(modifier = modifier) {
+		GenericPage(title = Salinity.title,
+			subtitle = Salinity.subtitle,
+			icon = Salinity.icon,
+			color = color,
+			selectContent = {
+				UnitButtonCard(
+					content = {
+						RadioButtonComp(
+							modifier = Modifier.weight(1f),
+							text = salinityDataSource.radioTextPpt,
+							onClick = { selected = salinityDataSource.radioTextPpt },
+							selected = selected,
+							selectedColor = color
+						)
+						RadioButtonComp(
+							modifier = Modifier.weight(1f),
+							text = salinityDataSource.radioTextSg,
+							onClick = { selected = salinityDataSource.radioTextSg },
+							selected = selected,
+							selectedColor = color
+						)
+					}, contentColor = color
+				)
+			},
+			calculateFieldContent = {
+				when (selected) {
+					salinityDataSource.radioTextPpt -> {
+						CalculateField(
+							inputContent = {
+								InputNumberField(
+									label = salinityDataSource.labelPpt,
+									placeholder = salinityDataSource.placeholderPpt,
+									value = inputSal,
+									onValueChange = { inputSal = it },
+									color = color
+								)
+							},
+							inputText = salinityDataSource.inputTextPpt,
+							inputValue = inputSal,
+							equalsText = salinityDataSource.equalsText,
+							calculateContent = {
+								CalculatedText(
+									text = salinityDataSource.calculatedTextSg,
+									calculatedValue = sg,
+									color = color
+								)
+								CalculatedText(
+									text = salinityDataSource.calculatedTextDensity,
+									calculatedValue = salDensityPPT,
+									color = color
+								)
+							},
+						)
+					}
 
-				R.string.button_label_sg -> {
-					CalculateField(
-						inputContent = {
+					salinityDataSource.radioTextSg -> {
+						CalculateField(inputContent = {
 							InputNumberField(
-								label = R.string.button_label_sg,
-								placeholder = R.string.field_label_sg,
+								label = salinityDataSource.labelSg,
+								placeholder = salinityDataSource.placeholderSg,
 								value = inputSal,
 								onValueChange = { inputSal = it },
 								color = color
 							)
 						},
-						inputText = R.string.text_amount_sg,
-						inputValue = inputSal,
-						equalsText = R.string.text_equiv,
-						calculateContent = {
-							CalculatedText(
-								text = R.string.text_amount_ppt,
-								calculatedValue = ppt,
-								color = color
-							)
-							CalculatedText(
-								text = R.string.text_amount_density,
-								calculatedValue = salDensitySG,
-								color = color
-							)
-						}
-					)
+							inputText = salinityDataSource.inputTextSg,
+							inputValue = inputSal,
+							equalsText = salinityDataSource.equalsText,
+							calculateContent = {
+								CalculatedText(
+									text = salinityDataSource.calculatedTextPpt,
+									calculatedValue = ppt,
+									color = color
+								)
+								CalculatedText(
+									text = salinityDataSource.calculatedTextDensity,
+									calculatedValue = salDensitySG,
+									color = color
+								)
+							})
+					}
 				}
+			},
+			formulaContent = {
+				FormulaString(
+					content = {
+						BodyTextCard(
+							text = salinityDataSource.formulaText
+						)
+					}, color = color
+				)
 			}
-		},
-		formulaContent = {
-			FormulaString(
-				content = {
-					BodyTextCard(
-						text = R.string.text_formula_soon
-					)
-				},
-				color = color
-			)
-		}
-	)
+		)
+	}
 }
+
 
 @VisibleForTesting
 fun calculateSpecificGravity(

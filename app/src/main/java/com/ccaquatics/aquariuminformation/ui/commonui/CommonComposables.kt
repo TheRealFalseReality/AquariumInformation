@@ -5,6 +5,7 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -25,6 +26,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -662,7 +664,34 @@ fun AppDivider(
 			color = color
 		)
 	}
+}
 
+@Composable
+fun SwitchThemeToggle(
+	modifier: Modifier = Modifier,
+) {
+	Column(modifier = modifier) {
+		Text(
+			text = "Theme Switch",
+			style = MaterialTheme.typography.headlineLarge,
+			textAlign = TextAlign.Center,
+		)
+		Switch(
+			checked = isSystemInDarkTheme(),
+			onCheckedChange = {
+
+			}
+		)
+	}
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SwitchThemePreviewDark(
+) {
+	AquariumInformationTheme(useDarkTheme = true) {
+		SwitchThemeToggle()
+	}
 }
 
 @Preview(showBackground = true)

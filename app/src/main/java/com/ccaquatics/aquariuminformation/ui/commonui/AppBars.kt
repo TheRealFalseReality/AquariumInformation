@@ -96,7 +96,7 @@ fun BottomNavBar(
 			NavigationBarItem(
 				selected = currentScreen == screen,
 				onClick = { onTabSelected(screen) },
-				icon = {
+				icon = { /* TODO: Add filled selected icons elvis operator?*/
 					Icon(
 						painter = painterResource(id = screen.icon),
 						stringResource(id = screen.title)
