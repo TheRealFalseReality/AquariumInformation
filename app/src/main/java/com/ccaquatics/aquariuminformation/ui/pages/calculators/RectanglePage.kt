@@ -17,10 +17,12 @@ import com.ccaquatics.aquariuminformation.data.calculators.rectangleDataSource
 import com.ccaquatics.aquariuminformation.navigation.Rectangle
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateFieldThreeInputs
+import com.ccaquatics.aquariuminformation.ui.commonui.CalculateImage
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericPage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberFieldThreeInputs
+import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
@@ -29,7 +31,9 @@ import java.text.DecimalFormat
 
 @Composable
 fun RectanglePage() {
-	RectangleLayout()
+	PageView {
+		RectangleLayout()
+	}
 }
 
 @Composable
@@ -88,80 +92,84 @@ fun RectangleLayout(modifier: Modifier = Modifier) {
 				)
 			},
 			calculateFieldContent = {
-				when (selected) {
-					rectangleDataSource.radioTextFeet -> {
-						CalculateFieldThreeInputs(
-							inputContent = {
-								InputNumberFieldThreeInputs(
-									label1 = rectangleDataSource.labelLength,
-									placeholder1 = rectangleDataSource.placeholderLength,
-									label2 = rectangleDataSource.labelWidth,
-									placeholder2 = rectangleDataSource.placeholderWidth,
-									label3 = rectangleDataSource.labelHeight,
-									placeholder3 = rectangleDataSource.placeholderHeight,
-									value1 = inputLength,
-									onValueChange1 = { inputLength = it },
-									value2 = inputWidth,
-									onValueChange2 = { inputWidth = it },
-									value3 = inputHeight,
-									onValueChange3 = { inputHeight = it },
+				CalculateFieldThreeInputs(
+					inputContent = {
+						InputNumberFieldThreeInputs(
+							label1 = rectangleDataSource.labelLength,
+							placeholder1 = rectangleDataSource.placeholderLength,
+							label2 = rectangleDataSource.labelWidth,
+							placeholder2 = rectangleDataSource.placeholderWidth,
+							label3 = rectangleDataSource.labelHeight,
+							placeholder3 = rectangleDataSource.placeholderHeight,
+							value1 = inputLength,
+							onValueChange1 = { inputLength = it },
+							value2 = inputWidth,
+							onValueChange2 = { inputWidth = it },
+							value3 = inputHeight,
+							onValueChange3 = { inputHeight = it },
+							color = color
+						)
+					},
+					inputText = rectangleDataSource.inputText,
+					inputValue1 = inputLength,
+					inputValue2 = inputWidth,
+					inputValue3 = inputHeight,
+					equalsText = rectangleDataSource.equalsText,
+					color = color,
+					calculateContent = {
+						when (selected) {
+							rectangleDataSource.radioTextFeet -> {
+								CalculatedText(
+									modifier = Modifier.fillMaxWidth(),
+									text = rectangleDataSource.calculatedTextGallons,
+									calculatedValue = volGallonFT,
 									color = color
 								)
-							},
-							inputText = rectangleDataSource.inputText,
-							inputValue1 = inputLength,
-							inputValue2 = inputWidth,
-							inputValue3 = inputHeight,
-							equalsText = rectangleDataSource.equalsText,
-							color = color,
-							calculateContent = {
-								when (selected) {
-									rectangleDataSource.radioTextFeet -> {
-										CalculatedText(
-											modifier = Modifier.fillMaxWidth(),
-											text = rectangleDataSource.calculatedTextGallons,
-											calculatedValue = volGallonFT,
-											color = color
-										)
-										CalculatedText(
-											modifier = Modifier.fillMaxWidth(),
-											text = rectangleDataSource.calculatedTextLiters,
-											calculatedValue = volLiterFT,
-											color = color
-										)
-										CalculatedText(
-											modifier = Modifier.fillMaxWidth(),
-											text = rectangleDataSource.calculatedTextWaterWeight,
-											calculatedValue = waterWeightFT,
-											color = color
-										)
-									}
-
-									rectangleDataSource.radioTextInches -> {
-										CalculatedText(
-											modifier = Modifier.fillMaxWidth(),
-											text = rectangleDataSource.calculatedTextGallons,
-											calculatedValue = volGallon,
-											color = color
-										)
-										CalculatedText(
-											modifier = Modifier.fillMaxWidth(),
-											text = rectangleDataSource.calculatedTextLiters,
-											calculatedValue = volLiter,
-											color = color
-										)
-										CalculatedText(
-											modifier = Modifier.fillMaxWidth(),
-											text = rectangleDataSource.calculatedTextWaterWeight,
-											calculatedValue = waterWeight,
-											color = color
-										)
-									}
-								}
+								CalculatedText(
+									modifier = Modifier.fillMaxWidth(),
+									text = rectangleDataSource.calculatedTextLiters,
+									calculatedValue = volLiterFT,
+									color = color
+								)
+								CalculatedText(
+									modifier = Modifier.fillMaxWidth(),
+									text = rectangleDataSource.calculatedTextWaterWeight,
+									calculatedValue = waterWeightFT,
+									color = color
+								)
 							}
-						)
+
+							rectangleDataSource.radioTextInches -> {
+								CalculatedText(
+									modifier = Modifier.fillMaxWidth(),
+									text = rectangleDataSource.calculatedTextGallons,
+									calculatedValue = volGallon,
+									color = color
+								)
+								CalculatedText(
+									modifier = Modifier.fillMaxWidth(),
+									text = rectangleDataSource.calculatedTextLiters,
+									calculatedValue = volLiter,
+									color = color
+								)
+								CalculatedText(
+									modifier = Modifier.fillMaxWidth(),
+									text = rectangleDataSource.calculatedTextWaterWeight,
+									calculatedValue = waterWeight,
+									color = color
+								)
+							}
+						}
 					}
-				}
+				)
+
+			},
+			imageContent = {
+				CalculateImage(
+					painter = rectangleDataSource.image,
+					contentDescription = Rectangle.title,
+					colorFilter = color
+				)
 			},
 			formulaContent = {
 				FormulaString(

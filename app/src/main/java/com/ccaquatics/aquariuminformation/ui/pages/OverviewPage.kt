@@ -125,10 +125,23 @@ fun CalculatorsOverviewPage(
 }
 
 @Composable
-fun TankVolumeOverviewPage() {
+fun TankVolumeOverviewPage(
+	onClickRectangle: () -> Unit,
+	onClickCube: () -> Unit,
+	onClickCylinder: () -> Unit,
+	onClickHexagonal: () -> Unit,
+	onClickBowFront: () -> Unit,
+) {
 	PageView {
 		OverviewGenericLayout {
-			TankVolumeGrid()
+			TankVolumeGrid(
+				onClickRectangle = onClickRectangle,
+				onClickCube = onClickCube,
+				onClickCylinder = onClickCylinder,
+				onClickHexagonal = onClickHexagonal,
+				onClickBowFront = onClickBowFront
+			)
+
 		}
 	}
 }
@@ -210,7 +223,12 @@ fun CalculatorsGrid(
 
 @Composable
 fun TankVolumeGrid(
-	color: Color = MaterialTheme.colorScheme.secondary
+	color: Color = MaterialTheme.colorScheme.secondary,
+	onClickRectangle: () -> Unit,
+	onClickCube: () -> Unit,
+	onClickCylinder: () -> Unit,
+	onClickHexagonal: () -> Unit,
+	onClickBowFront: () -> Unit,
 ) {
 	TitleWideCard(
 		text = TankVolume.title,
@@ -222,8 +240,8 @@ fun TankVolumeGrid(
 			icon1 = Rectangle.icon,
 			title2 = Cube.title,
 			icon2 = Cube.icon,
-			onClick1 = { /*TODO*/ },
-			onClick2 = { /*TODO*/ },
+			onClick1 = onClickRectangle,
+			onClick2 = onClickCube,
 			contentColor = color
 		)
 		NavButtonRow(
@@ -231,8 +249,8 @@ fun TankVolumeGrid(
 			icon1 = Cylinder.icon,
 			title2 = Hexagonal.title,
 			icon2 = Hexagonal.icon,
-			onClick1 = { /*TODO*/ },
-			onClick2 = {/*TODO*/},
+			onClick1 = onClickCylinder,
+			onClick2 = onClickHexagonal,
 			contentColor = color
 		)
 		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
@@ -241,7 +259,7 @@ fun TankVolumeGrid(
 				.fillMaxWidth(fraction = 0.9f),
 			title = BowFront.title,
 			icon = BowFront.icon,
-			onClick = { /*TODO*/},
+			onClick = onClickBowFront,
 			contentColor = color
 		)
 	}
@@ -282,32 +300,32 @@ fun CalculatorsNavHostScreen() {
 	}
 }
 
-@Preview(showBackground = true)
-@Composable
-fun TankVolumePreview() {
-	AquariumInformationTheme {
-		Column(
-			modifier = Modifier
-				.background(color = MaterialTheme.colorScheme.background)
-		) {
-			TankVolumeOverviewPage()
-		}
-	}
-}
-
-@Preview(showBackground = true)
-@Composable
-fun TankVolumePreviewDark(
-) {
-	AquariumInformationTheme(useDarkTheme = true) {
-		Column(
-			modifier = Modifier
-				.background(color = MaterialTheme.colorScheme.background)
-		) {
-			TankVolumeOverviewPage()
-		}
-	}
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun TankVolumePreview() {
+//	AquariumInformationTheme {
+//		Column(
+//			modifier = Modifier
+//				.background(color = MaterialTheme.colorScheme.background)
+//		) {
+//			TankVolumeOverviewPage()
+//		}
+//	}
+//}
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun TankVolumePreviewDark(
+//) {
+//	AquariumInformationTheme(useDarkTheme = true) {
+//		Column(
+//			modifier = Modifier
+//				.background(color = MaterialTheme.colorScheme.background)
+//		) {
+//			TankVolumeOverviewPage()
+//		}
+//	}
+//}
 
 @Preview(showBackground = true)
 @Composable

@@ -196,10 +196,12 @@ fun InputNumberFieldThreeInputs(
 ){
 	Column(modifier = modifier) {
 		Row(
-			modifier = Modifier.fillMaxWidth()
+			modifier = Modifier.fillMaxWidth(),
+			verticalAlignment = Alignment.CenterVertically
 		) {
 			InputNumberFieldNext(
 				modifier = Modifier
+					.padding(dimensionResource(id = R.dimen.padding_verySmall))
 					.weight(1f),
 				label = label1,
 				placeholder = placeholder1,
@@ -207,9 +209,9 @@ fun InputNumberFieldThreeInputs(
 				onValueChange = onValueChange1,
 				color = color
 			)
-			Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
 			InputNumberFieldNext(
 				modifier = Modifier
+					.padding(dimensionResource(id = R.dimen.padding_verySmall))
 					.weight(1f),
 				label = label2,
 				placeholder = placeholder2,
@@ -217,9 +219,9 @@ fun InputNumberFieldThreeInputs(
 				onValueChange = onValueChange2,
 				color = color
 			)
-			Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
 			InputNumberField(
 				modifier = Modifier
+					.padding(dimensionResource(id = R.dimen.padding_verySmall))
 					.weight(1f),
 				label = label3,
 				placeholder = placeholder3,

@@ -21,6 +21,7 @@ data class RectangleData(
 	val calculatedTextWaterWeight: Int,
 	val waterWeightText: Int,
 	val formulaText: Int,
+	val image: Int,
 )
 
 val rectangleDataSource = 
@@ -43,4 +44,5 @@ val rectangleDataSource =
 		calculatedTextWaterWeight = R.string.text_amount_water_weight_lbs,
 		waterWeightText = R.string.text_water_weight,
 		formulaText = R.string.text_formula_vol_rec,
+		image = R.drawable.rectangle_calc,
 	)

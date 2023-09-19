@@ -15,6 +15,7 @@ import com.ccaquatics.aquariuminformation.ui.pages.InfoPage
 import com.ccaquatics.aquariuminformation.ui.pages.OverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.TankVolumeOverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.calculators.CarbonDioxidePage
+import com.ccaquatics.aquariuminformation.ui.pages.calculators.RectanglePage
 import com.ccaquatics.aquariuminformation.ui.pages.converters.AlkalinityPage
 import com.ccaquatics.aquariuminformation.ui.pages.converters.SalinityPage
 import com.ccaquatics.aquariuminformation.ui.pages.converters.TemperaturePage
@@ -59,31 +60,28 @@ fun AquariumNavHost(
 		}
 		composable(route = Converters.route) {
 			ConvertersNavHostScreen()
-//			ConvertersOverviewPage(
-//				onClickTemperature = {
-//					navController.navigateSingleTopTo(Temperature.route)
-//				},
-//				onClickSalinity =  {
-//					navController.navigateSingleTopTo(Salinity.route)
-//				},
-//				onClickAlkalinity = {
-//					navController.navigateSingleTopTo(Alkalinity.route)
-//				},
-//			)
 		}
 		composable(route = Calculators.route) {
 			CalculatorsNavHostScreen()
-//			CalculatorsOverviewPage(
-//				onClickCo2 = {
-//					navController.navigateSingleTopTo(CarbonDioxide.route)
-//				},
-//				onClickVolume = {
-//					navController.navigateSingleTopTo(TankVolume.route)
-//				},
-//			)
 		}
 		composable(route = TankVolume.route) {
-			TankVolumeOverviewPage()
+			TankVolumeOverviewPage(
+				onClickRectangle = {
+					navController.navigateSingleTopTo(Rectangle.route)
+				},
+				onClickCube = {
+
+				},
+				onClickCylinder = {
+
+				},
+				onClickHexagonal = {
+
+				},
+				onClickBowFront = {
+
+				},
+			)
 		}
 		composable(route = FishCompatability.route) {
 
@@ -99,6 +97,9 @@ fun AquariumNavHost(
 		}
 		composable(route = Salinity.route) {
 			SalinityPage()
+		}
+		composable(route = Rectangle.route) {
+			RectanglePage()
 		}
 	}
 }
@@ -161,11 +162,46 @@ fun CalculatorsNavHost(
 		composable(route = CarbonDioxide.route) {
 			CarbonDioxidePage()
 		}
+		composable(route = Rectangle.route) {
+			RectanglePage()
+		}
 		composable(route = TankVolume.route) {
-			TankVolumeOverviewPage()
+			TankVolumeOverviewPage(
+				onClickRectangle = {
+					navController.navigateSingleTopTo(Rectangle.route)
+				},
+				onClickCube = {
+
+				},
+				onClickCylinder = {
+
+				},
+				onClickHexagonal = {
+
+				},
+				onClickBowFront = {
+
+				},
+			)
 		}
 	}
 }
+
+//@Composable
+//fun TankVolumeNavHost(
+//	navController: NavHostController,
+//	modifier: Modifier = Modifier
+//) {
+//	NavHost(
+//		navController = navController,
+//		startDestination = Calculators.route,
+//		modifier = modifier,
+//	) {
+//		composable(route = Rectangle.route) {
+//			RectanglePage()
+//		}
+//	}
+//}
 
 fun NavHostController.navigateSingleTopTo(route: String) =
 	this.navigate(route) {

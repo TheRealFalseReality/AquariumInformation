@@ -3,6 +3,7 @@ package com.ccaquatics.aquariuminformation.ui.commonui
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -32,6 +33,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -333,6 +335,7 @@ fun GenericPage(
 	color: Color,
 	selectContent: @Composable ColumnScope.() -> Unit,
 	calculateFieldContent: @Composable ColumnScope.() -> Unit,
+	imageContent: @Composable ColumnScope.() -> Unit = {},
 	formulaContent: @Composable ColumnScope.() -> Unit
 ) {
 	Column(
@@ -361,6 +364,7 @@ fun GenericPage(
 		}
 		selectContent()
 		calculateFieldContent()
+		imageContent()
 		formulaContent()
 	}
 	Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_verySmall)))
@@ -406,6 +410,25 @@ fun UnitButtonCard(
 		}
 	}
 }
+@Composable
+fun CalculateImage(
+	modifier: Modifier = Modifier,
+	@DrawableRes painter: Int,
+	@StringRes contentDescription: Int,
+	colorFilter: Color = MaterialTheme.colorScheme.primary
+){
+	Column(
+		modifier = modifier
+			.padding(dimensionResource(id = R.dimen.padding_verySmall))
+	) {
+		Image(
+			painter = painterResource(id = painter),
+			contentDescription = stringResource(id = contentDescription),
+			colorFilter = ColorFilter.tint(colorFilter)
+		)
+	}
+}
+
 
 @Composable
 fun TextCard(
