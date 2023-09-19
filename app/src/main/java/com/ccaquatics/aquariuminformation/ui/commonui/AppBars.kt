@@ -98,7 +98,9 @@ fun BottomNavBar(
 				onClick = { onTabSelected(screen) },
 				icon = { /* TODO: Add filled selected icons elvis operator?*/
 					Icon(
-						painter = painterResource(id = screen.icon),
+						painter = if (currentScreen != screen) painterResource(id = screen.icon)
+									else painterResource(id = screen.iconFilled),
+//						painter = painterResource(id = screen.icon),
 						stringResource(id = screen.title)
 					)
 				},

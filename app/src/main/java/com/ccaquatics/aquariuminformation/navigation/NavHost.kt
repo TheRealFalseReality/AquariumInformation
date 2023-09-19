@@ -6,18 +6,18 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.ccaquatics.aquariuminformation.ui.pages.AlkalinityPage
 import com.ccaquatics.aquariuminformation.ui.pages.CalculatorsNavHostScreen
 import com.ccaquatics.aquariuminformation.ui.pages.CalculatorsOverviewPage
-import com.ccaquatics.aquariuminformation.ui.pages.CarbonDioxidePage
 import com.ccaquatics.aquariuminformation.ui.pages.ConvertersNavHostScreen
 import com.ccaquatics.aquariuminformation.ui.pages.ConvertersOverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.HomePage
 import com.ccaquatics.aquariuminformation.ui.pages.InfoPage
 import com.ccaquatics.aquariuminformation.ui.pages.OverviewPage
-import com.ccaquatics.aquariuminformation.ui.pages.SalinityPage
 import com.ccaquatics.aquariuminformation.ui.pages.TankVolumeOverviewPage
-import com.ccaquatics.aquariuminformation.ui.pages.TemperaturePage
+import com.ccaquatics.aquariuminformation.ui.pages.calculators.CarbonDioxidePage
+import com.ccaquatics.aquariuminformation.ui.pages.converters.AlkalinityPage
+import com.ccaquatics.aquariuminformation.ui.pages.converters.SalinityPage
+import com.ccaquatics.aquariuminformation.ui.pages.converters.TemperaturePage
 
 @Composable
 fun AquariumNavHost(
@@ -52,7 +52,9 @@ fun AquariumNavHost(
 				onClickVolume = {
 					navController.navigateSingleTopTo(TankVolume.route)
 				},
-//			onClickFish: () -> Unit = {},
+				onClickFish = {
+
+				}
 			)
 		}
 		composable(route = Converters.route) {

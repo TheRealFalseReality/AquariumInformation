@@ -678,8 +678,7 @@ fun SwitchThemeToggle(
 		)
 		Switch(
 			checked = isSystemInDarkTheme(),
-			onCheckedChange = {
-
+			onCheckedChange = { /* TODO */
 			}
 		)
 	}

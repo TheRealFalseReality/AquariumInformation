@@ -1,4 +1,4 @@
-package com.ccaquatics.aquariuminformation.ui.pages
+package com.ccaquatics.aquariuminformation.ui.pages.converters
 
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
@@ -14,8 +14,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.ccaquatics.aquariuminformation.R
-import com.ccaquatics.aquariuminformation.data.alkalinityDataSource
+import com.ccaquatics.aquariuminformation.data.converters.alkalinityDataSource
 import com.ccaquatics.aquariuminformation.navigation.Alkalinity
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
@@ -45,7 +44,7 @@ fun AlkalinityLayout() {
 		mutableStateOf("10")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(R.string.button_label_dkh)
+		mutableIntStateOf(alkalinityDataSource.radioTextDkh)
 	}
 	val alk = inputAlk.toDoubleOrNull() ?: 0.0
 	val ppmDKH = calculatePpmDkh(alk).toDoubleOrNull() ?: 0.0
@@ -112,6 +111,7 @@ fun AlkalinityLayout() {
 						inputText = alkalinityDataSource.inputTextDkh,
 						inputValue = inputAlk,
 						equalsText = alkalinityDataSource.equalsText,
+						color = color,
 						calculateContent = {
 							CalculatedText(
 								text = alkalinityDataSource.calculatedTextPpm,
@@ -141,6 +141,7 @@ fun AlkalinityLayout() {
 						inputText = alkalinityDataSource.inputTextPpm,
 						inputValue = inputAlk,
 						equalsText = alkalinityDataSource.equalsText,
+						color = color,
 						calculateContent = {
 							CalculatedText(
 								text = alkalinityDataSource.calculatedTextDkh,
@@ -170,6 +171,7 @@ fun AlkalinityLayout() {
 						inputText = alkalinityDataSource.inputTextMeq,
 						inputValue = inputAlk,
 						equalsText = alkalinityDataSource.equalsText,
+						color = color,
 						calculateContent = {
 							CalculatedText(
 								text = alkalinityDataSource.calculatedTextDkh,

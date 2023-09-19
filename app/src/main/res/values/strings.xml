@@ -506,4 +506,8 @@
     <string name="select_input_units">Select Input Units:</string>
     <string name="ph">pH</string>
     <string name="salinity_ppt">Salinity\n (ppt)</string>
+    <string name="length">Length</string>
+    <string name="width">Width</string>
+    <string name="height">Height</string>
+    <string name="text_amount_LWH">L: %s W: $s H: %s</string>
 </resources>

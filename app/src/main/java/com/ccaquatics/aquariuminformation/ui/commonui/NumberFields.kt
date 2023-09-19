@@ -2,6 +2,7 @@ package com.ccaquatics.aquariuminformation.ui.commonui
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -9,7 +10,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -178,6 +178,61 @@ fun InputNumberFieldTwoInputs(
 }
 
 @Composable
+fun InputNumberFieldThreeInputs(
+	modifier: Modifier = Modifier,
+	@StringRes label1: Int,
+	@StringRes placeholder1: Int,
+	@StringRes label2: Int,
+	@StringRes placeholder2: Int,
+	@StringRes label3: Int,
+	@StringRes placeholder3: Int,
+	value1: String,
+	onValueChange1: (String) -> Unit,
+	value2: String,
+	onValueChange2: (String) -> Unit,
+	value3: String,
+	onValueChange3: (String) -> Unit,
+	color: Color
+){
+	Column(modifier = modifier) {
+		Row(
+			modifier = Modifier.fillMaxWidth()
+		) {
+			InputNumberFieldNext(
+				modifier = Modifier
+					.weight(1f),
+				label = label1,
+				placeholder = placeholder1,
+				value = value1,
+				onValueChange = onValueChange1,
+				color = color
+			)
+			Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+			InputNumberFieldNext(
+				modifier = Modifier
+					.weight(1f),
+				label = label2,
+				placeholder = placeholder2,
+				value = value2,
+				onValueChange = onValueChange2,
+				color = color
+			)
+			Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+			InputNumberField(
+				modifier = Modifier
+					.weight(1f),
+				label = label3,
+				placeholder = placeholder3,
+				value = value3,
+				onValueChange = onValueChange3,
+				color = color
+			)
+		}
+
+	}
+}
+
+@Composable
 fun CalculateField(
 	modifier: Modifier = Modifier,
 	inputContent: @Composable () -> Unit,
@@ -185,7 +240,7 @@ fun CalculateField(
 	inputValue: String,
 	@StringRes equalsText: Int,
 	calculateContent: @Composable () -> Unit,
-	color: Color = MaterialTheme.colorScheme.primary
+	color: Color
 ) {
 	Column(
 		modifier = modifier,
@@ -239,6 +294,51 @@ fun CalculateFieldTwoInputs(
 
 		Text(
 			text = stringResource(id = inputText, inputValue1, inputValue2),
+			modifier = Modifier
+				.align(Alignment.CenterHorizontally)
+				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
+			color = color
+		)
+		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+		Text(
+			text = stringResource(id = equalsText),
+			modifier = Modifier
+				.align(Alignment.CenterHorizontally)
+				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
+			color = color,
+		)
+		Column(
+			modifier = Modifier.fillMaxWidth(),
+			horizontalAlignment = Alignment.CenterHorizontally
+		) {
+			SingleWideCard {
+				calculateContent()
+			}
+		}
+	}
+}
+
+@Composable
+fun CalculateFieldThreeInputs(
+	modifier: Modifier = Modifier,
+	inputContent: @Composable () -> Unit,
+	@StringRes inputText: Int,
+	inputValue1: String,
+	inputValue2: String,
+	inputValue3: String,
+	@StringRes equalsText: Int,
+	calculateContent: @Composable () -> Unit,
+	color: Color
+) {
+	Column(
+		modifier = modifier,
+		horizontalAlignment = Alignment.CenterHorizontally
+	) {
+		inputContent()
+		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+
+		Text(
+			text = stringResource(id = inputText, inputValue1, inputValue2, inputValue3),
 			modifier = Modifier
 				.align(Alignment.CenterHorizontally)
 				.padding(dimensionResource(id = R.dimen.padding_verySmall)),

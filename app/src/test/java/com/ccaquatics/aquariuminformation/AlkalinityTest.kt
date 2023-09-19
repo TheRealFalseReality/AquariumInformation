@@ -1,11 +1,11 @@
 package com.ccaquatics.aquariuminformation
 
-import com.ccaquatics.aquariuminformation.ui.pages.calculateDkhMeq
-import com.ccaquatics.aquariuminformation.ui.pages.calculateDkhPpm
-import com.ccaquatics.aquariuminformation.ui.pages.calculateMeqDkh
-import com.ccaquatics.aquariuminformation.ui.pages.calculateMeqPpm
-import com.ccaquatics.aquariuminformation.ui.pages.calculatePpmDkh
-import com.ccaquatics.aquariuminformation.ui.pages.calculatePpmMeq
+import com.ccaquatics.aquariuminformation.ui.pages.converters.calculateDkhMeq
+import com.ccaquatics.aquariuminformation.ui.pages.converters.calculateDkhPpm
+import com.ccaquatics.aquariuminformation.ui.pages.converters.calculateMeqDkh
+import com.ccaquatics.aquariuminformation.ui.pages.converters.calculateMeqPpm
+import com.ccaquatics.aquariuminformation.ui.pages.converters.calculatePpmDkh
+import com.ccaquatics.aquariuminformation.ui.pages.converters.calculatePpmMeq
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 

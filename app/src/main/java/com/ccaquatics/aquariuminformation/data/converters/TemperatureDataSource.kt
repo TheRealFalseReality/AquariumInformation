@@ -1,4 +1,4 @@
-package com.ccaquatics.aquariuminformation.data
+package com.ccaquatics.aquariuminformation.data.converters
 
 import com.ccaquatics.aquariuminformation.R
 
@@ -20,7 +20,7 @@ data class TemperatureData(
 	val formulaText3: Int,
 )
 
-val TemperatureDataSource =
+val temperatureDataSource =
 	TemperatureData(
 		radioTextCelsius = R.string.button_label_cel,
 		radioTextFahrenheit = R.string.button_label_fah,

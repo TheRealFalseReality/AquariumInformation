@@ -1,4 +1,4 @@
-package com.ccaquatics.aquariuminformation.data
+package com.ccaquatics.aquariuminformation.data.calculators
 
 import com.ccaquatics.aquariuminformation.R
 

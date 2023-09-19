@@ -1,4 +1,4 @@
-package com.ccaquatics.aquariuminformation.ui.pages
+package com.ccaquatics.aquariuminformation.ui.pages.converters
 
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
@@ -14,8 +14,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.ccaquatics.aquariuminformation.R
-import com.ccaquatics.aquariuminformation.data.TemperatureDataSource
+import com.ccaquatics.aquariuminformation.data.converters.temperatureDataSource
 import com.ccaquatics.aquariuminformation.navigation.Temperature
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
@@ -44,7 +43,7 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 		mutableStateOf("0")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(R.string.button_label_cel)
+		mutableIntStateOf(temperatureDataSource.radioTextCelsius)
 	}
 	val temp = inputTemperature.toDoubleOrNull() ?: 0.0
 	val celsius = calculateCelsius(temp).toDoubleOrNull() ?: 0.0
@@ -65,16 +64,16 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 						RadioButtonComp(
 							modifier = Modifier
 								.weight(1f),
-							text = TemperatureDataSource.radioTextCelsius,
-							onClick = { selected = TemperatureDataSource.radioTextCelsius },
+							text = temperatureDataSource.radioTextCelsius,
+							onClick = { selected = temperatureDataSource.radioTextCelsius },
 							selected = selected,
 							selectedColor = color,
 						)
 						RadioButtonComp(
 							modifier = Modifier
 								.weight(1f),
-							text = TemperatureDataSource.radioTextFahrenheit,
-							onClick = { selected = TemperatureDataSource.radioTextFahrenheit },
+							text = temperatureDataSource.radioTextFahrenheit,
+							onClick = { selected = temperatureDataSource.radioTextFahrenheit },
 							selected = selected,
 							selectedColor = color,
 						)
@@ -83,31 +82,32 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 			},
 			calculateFieldContent = {
 				when (selected) {
-					TemperatureDataSource.radioTextCelsius -> {
+					temperatureDataSource.radioTextCelsius -> {
 						CalculateField(
 							inputContent = {
 								InputNumberField(
 									modifier = Modifier.fillMaxWidth(),
-									placeholder = TemperatureDataSource.placeholderCelsius,
-									label = TemperatureDataSource.labelCelsius,
+									placeholder = temperatureDataSource.placeholderCelsius,
+									label = temperatureDataSource.labelCelsius,
 									value = inputTemperature,
 									onValueChange = { inputTemperature = it },
 									color = color
 								)
 							},
-							inputText = TemperatureDataSource.inputTextCelsius,
+							inputText = temperatureDataSource.inputTextCelsius,
 							inputValue = inputTemperature,
-							equalsText = TemperatureDataSource.equalsText,
+							equalsText = temperatureDataSource.equalsText,
+							color = color,
 							calculateContent = {
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									text = TemperatureDataSource.calculatedTextFahrenheit,
+									text = temperatureDataSource.calculatedTextFahrenheit,
 									calculatedValue = fahrenheit,
 									color = color
 								)
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									text = TemperatureDataSource.calculatedTextKelvin,
+									text = temperatureDataSource.calculatedTextKelvin,
 									calculatedValue = kelvinCelsius,
 									color = color
 								)
@@ -115,31 +115,32 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 						)
 					}
 
-					TemperatureDataSource.radioTextFahrenheit -> {
+					temperatureDataSource.radioTextFahrenheit -> {
 						CalculateField(
 							inputContent = {
 								InputNumberField(
 									modifier = Modifier.fillMaxWidth(),
-									placeholder = TemperatureDataSource.placeholderFahrenheit,
-									label =TemperatureDataSource.labelFahrenheit,
+									placeholder = temperatureDataSource.placeholderFahrenheit,
+									label = temperatureDataSource.labelFahrenheit,
 									value = inputTemperature,
 									onValueChange = { inputTemperature = it },
 									color = color
 								)
 							},
-							inputText = TemperatureDataSource.inputTextFahrenheit,
+							inputText = temperatureDataSource.inputTextFahrenheit,
 							inputValue = inputTemperature,
-							equalsText = TemperatureDataSource.equalsText,
+							equalsText = temperatureDataSource.equalsText,
+							color = color,
 							calculateContent = {
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									text = TemperatureDataSource.calculatedTextCelsius,
+									text = temperatureDataSource.calculatedTextCelsius,
 									calculatedValue = celsius,
 									color = color
 								)
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									text = TemperatureDataSource.calculatedTextKelvin,
+									text = temperatureDataSource.calculatedTextKelvin,
 									calculatedValue = kelvinFahrenheit,
 									color = color
 								)
@@ -153,17 +154,17 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 					color= color,
 					content = {
 						BodyTextCard(
-							text = TemperatureDataSource.formulaText1,
+							text = temperatureDataSource.formulaText1,
 							textAlign = TextAlign.Justify,
 							color = color
 						)
 						BodyTextCard(
-							text = TemperatureDataSource.formulaText2,
+							text = temperatureDataSource.formulaText2,
 							textAlign = TextAlign.Justify,
 							color = color
 						)
 						BodyTextCard(
-							text = TemperatureDataSource.formulaText3,
+							text = temperatureDataSource.formulaText3,
 							textAlign = TextAlign.Justify,
 							color = color
 						)

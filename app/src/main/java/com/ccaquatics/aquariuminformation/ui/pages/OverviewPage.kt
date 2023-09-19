@@ -94,9 +94,9 @@ fun OverviewLayout(
 
 @Composable
 fun ConvertersOverviewPage(
-	onClickTemperature: () -> Unit = {},
-	onClickSalinity: () -> Unit = {},
-	onClickAlkalinity: () -> Unit = {},
+	onClickTemperature: () -> Unit,
+	onClickSalinity: () -> Unit,
+	onClickAlkalinity: () -> Unit,
 ){
 	PageView {
 		OverviewGenericLayout {
@@ -111,8 +111,8 @@ fun ConvertersOverviewPage(
 
 @Composable
 fun CalculatorsOverviewPage(
-	onClickVolume: () -> Unit = {},
-	onClickCo2: () -> Unit = {},
+	onClickVolume: () -> Unit,
+	onClickCo2: () -> Unit,
 ){
 	PageView {
 		OverviewGenericLayout {

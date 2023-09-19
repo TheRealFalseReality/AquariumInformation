@@ -4,6 +4,7 @@ import com.ccaquatics.aquariuminformation.R
 
 interface Destinations {
 	val icon: Int
+	val iconFilled: Int
 	val route: String
 	val title: Int
 	val subtitle: Int
@@ -11,6 +12,7 @@ interface Destinations {
 
 object Home : Destinations {
 	override val icon = R.drawable.ic_home
+	override val iconFilled = R.drawable.baseline_home_24
 	override val route = "home"
 	override val title = R.string.home
 	override val subtitle = R.string.home
@@ -18,6 +20,7 @@ object Home : Destinations {
 
 object Information : Destinations {
 	override val icon = R.drawable.ic_info_2
+	override val iconFilled = R.drawable.baseline_info_24
 	override val route = "info"
 	override val title = R.string.text_title_info
 	override val subtitle = R.string.text_title_info
@@ -25,6 +28,7 @@ object Information : Destinations {
 
 object Overview : Destinations {
 	override val icon = R.drawable.baseline_grid_view_24
+	override val iconFilled = R.drawable.ic_grid_filled
 	override val route = "overview"
 	override val title = R.string.overview
 	override val subtitle = R.string.overview
@@ -32,13 +36,15 @@ object Overview : Destinations {
 
 object TankVolume : Destinations {
 	override val icon = R.drawable.ic_volume
+	override val iconFilled = R.drawable.baseline_home_24
 	override val route = "volume"
 	override val title = R.string.tank_volume
 	override val subtitle = R.string.tank_volume
 }
 
 object Salinity : Destinations {
-	override val icon = R.drawable.ic_salinity
+	override val icon = R.drawable.ic_salinity_alt
+	override val iconFilled = R.drawable.ic_salinity_filled
 	override val route = "salinity"
 	override val title = R.string.salinity
 	override val subtitle = R.string.text_subtitle_salinity
@@ -46,6 +52,7 @@ object Salinity : Destinations {
 
 object Alkalinity : Destinations {
 	override val icon = R.drawable.ic_water_do
+	override val iconFilled = R.drawable.ic_water_do_filled
 	override val route = "alkalinity"
 	override val title = R.string.alkalinity
 	override val subtitle = R.string.text_subtitle_alk
@@ -53,6 +60,7 @@ object Alkalinity : Destinations {
 //
 object Temperature : Destinations {
 	override val icon = R.drawable.baseline_thermostat_24
+	override val iconFilled = R.drawable.baseline_thermostat_24
 	override val route = "temp"
 	override val title = R.string.temperature
 	override val subtitle = R.string.text_subtitle_temp
@@ -60,6 +68,7 @@ object Temperature : Destinations {
 //
 object CarbonDioxide : Destinations {
 	override val icon = R.drawable.baseline_co2_24
+	override val iconFilled = R.drawable.baseline_co2_24
 	override val route = "carbon"
 	override val title = R.string.carbon_dioxide
 	override val subtitle = R.string.text_subtitle_co2
@@ -67,6 +76,7 @@ object CarbonDioxide : Destinations {
 
 object Rectangle : Destinations {
 	override val icon = R.drawable.ic_rectangle
+	override val iconFilled = R.drawable.ic_rectangle
 	override val route = "rectangle"
 	override val title = R.string.text_title_rectangle
 	override val subtitle = R.string.text_subtitle_tank_vol
@@ -74,6 +84,7 @@ object Rectangle : Destinations {
 
 object Cube : Destinations {
 	override val icon = R.drawable.ic_cube_2
+	override val iconFilled = R.drawable.ic_cube_2
 	override val route = "cube"
 	override val title = R.string.text_title_cube
 	override val subtitle = R.string.text_subtitle_tank_vol
@@ -81,6 +92,7 @@ object Cube : Destinations {
 
 object Cylinder : Destinations {
 	override val icon = R.drawable.ic_cylinder
+	override val iconFilled = R.drawable.ic_cylinder
 	override val route = "cylinder"
 	override val title = R.string.text_title_cyl
 	override val subtitle = R.string.text_subtitle_tank_vol
@@ -88,6 +100,7 @@ object Cylinder : Destinations {
 
 object Hexagonal : Destinations {
 	override val icon = R.drawable.ic_hex
+	override val iconFilled = R.drawable.ic_hex
 	override val route = "hexagonal"
 	override val title = R.string.text_title_hex
 	override val subtitle = R.string.text_subtitle_tank_vol
@@ -95,6 +108,7 @@ object Hexagonal : Destinations {
 
 object BowFront : Destinations {
 	override val icon = R.drawable.ic_bow_front
+	override val iconFilled = R.drawable.ic_bow_front
 	override val route = "bow_front"
 	override val title = R.string.text_title_bow_front
 	override val subtitle = R.string.text_subtitle_tank_vol
@@ -102,6 +116,7 @@ object BowFront : Destinations {
 
 object FishCompatability : Destinations {
 	override val icon = R.drawable.ic_icon_question
+	override val iconFilled = R.drawable.ic_icon_question
 	override val route = "fish_compatibility"
 	override val title = R.string.compatibility
 	override val subtitle = R.string.compatibility
@@ -121,6 +136,7 @@ object FishCompatability : Destinations {
 
 object Converters : Destinations {
 	override val icon = R.drawable.ic_conversion
+	override val iconFilled = R.drawable.ic_conversion
 	override val route = "converters"
 	override val title = R.string.converters
 	override val subtitle = R.string.converters
@@ -128,6 +144,7 @@ object Converters : Destinations {
 
 object Calculators : Destinations {
 	override val icon = R.drawable.ic_calculate
+	override val iconFilled = R.drawable.ic_calculate_filled
 	override val route = "calculators"
 	override val title = R.string.calculators
 	override val subtitle = R.string.calculators

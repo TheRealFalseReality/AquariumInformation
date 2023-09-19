@@ -1,4 +1,4 @@
-package com.ccaquatics.aquariuminformation.ui.pages
+package com.ccaquatics.aquariuminformation.ui.pages.converters
 
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
@@ -12,8 +12,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.ccaquatics.aquariuminformation.R
-import com.ccaquatics.aquariuminformation.data.salinityDataSource
+import com.ccaquatics.aquariuminformation.data.converters.salinityDataSource
 import com.ccaquatics.aquariuminformation.navigation.Salinity
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
@@ -44,7 +43,7 @@ fun SalinityLayout(modifier: Modifier = Modifier) {
 		mutableStateOf("36")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(R.string.salinity_ppt)
+		mutableIntStateOf(salinityDataSource.radioTextPpt)
 	}
 	val tempTestWater = 25.0
 	val tempPureWater = 25.0
@@ -95,6 +94,7 @@ fun SalinityLayout(modifier: Modifier = Modifier) {
 							inputText = salinityDataSource.inputTextPpt,
 							inputValue = inputSal,
 							equalsText = salinityDataSource.equalsText,
+							color = color,
 							calculateContent = {
 								CalculatedText(
 									text = salinityDataSource.calculatedTextSg,
@@ -123,6 +123,7 @@ fun SalinityLayout(modifier: Modifier = Modifier) {
 							inputText = salinityDataSource.inputTextSg,
 							inputValue = inputSal,
 							equalsText = salinityDataSource.equalsText,
+							color = color,
 							calculateContent = {
 								CalculatedText(
 									text = salinityDataSource.calculatedTextPpt,
