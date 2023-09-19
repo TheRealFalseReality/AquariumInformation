@@ -15,14 +15,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.R
-import com.ccaquatics.aquariuminformation.data.appInformationData
-import com.ccaquatics.aquariuminformation.data.appVersionData
-import com.ccaquatics.aquariuminformation.data.contactData
-import com.ccaquatics.aquariuminformation.data.emailData
-import com.ccaquatics.aquariuminformation.data.errorData
-import com.ccaquatics.aquariuminformation.data.informationData
-import com.ccaquatics.aquariuminformation.data.informationHeaderData
-import com.ccaquatics.aquariuminformation.data.websiteData
+import com.ccaquatics.aquariuminformation.data.appInformationDataSource
+import com.ccaquatics.aquariuminformation.data.appVersionDataSource
+import com.ccaquatics.aquariuminformation.data.contactDataSource
+import com.ccaquatics.aquariuminformation.data.emailDataSource
+import com.ccaquatics.aquariuminformation.data.errorDataSource
+import com.ccaquatics.aquariuminformation.data.informationDataSource
+import com.ccaquatics.aquariuminformation.data.informationHeaderDataSource
+import com.ccaquatics.aquariuminformation.data.websiteDataSource
 import com.ccaquatics.aquariuminformation.navigation.Information
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.HeaderTextCard
@@ -54,47 +54,47 @@ fun InfoLayout(
 			icon = Information.icon
 		) {
 			SingleWideCard {
-				BodyTextCard(text = informationHeaderData.text)
+				BodyTextCard(text = informationHeaderDataSource.text)
 				Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_verySmall)))
-				BodyTextCard(text = informationData.text)
+				BodyTextCard(text = informationDataSource.text)
 			}
 		}
 		TitleWideCard(
-			text = errorData.title,
-			icon = errorData.icon,
+			text = errorDataSource.title,
+			icon = errorDataSource.icon,
 		) {
 			SingleWideCard {
 				BodyTextCard(
-					text = errorData.text,
+					text = errorDataSource.text,
 				)
 			}
 		}
 		TitleWideCard(
-			text = contactData.title,
-			icon = contactData.icon,
+			text = contactDataSource.title,
+			icon = contactDataSource.icon,
 		) {
 			SingleWideCard {
 				IconTextRow(
-					icon = emailData.icon,
-					text = emailData.title,
+					icon = emailDataSource.icon,
+					text = emailDataSource.title,
 				)
 				IconTextRow(
-					icon = websiteData.icon,
-					text = websiteData.title,
+					icon = websiteDataSource.icon,
+					text = websiteDataSource.title,
 				)
 			}
 		}
 		TitleWideCard(
-			text = appInformationData.title,
-			icon = appInformationData.icon,
+			text = appInformationDataSource.title,
+			icon = appInformationDataSource.icon,
 		) {
 			SingleWideCard {
 				HeaderTextCard(
-					text = appInformationData.title,
+					text = appInformationDataSource.title,
 				)
 				TextRow(
-					text1 = appVersionData.title,
-					text2 = appVersionData.text,
+					text1 = appVersionDataSource.title,
+					text2 = appVersionDataSource.text,
 				)
 			}
 		}

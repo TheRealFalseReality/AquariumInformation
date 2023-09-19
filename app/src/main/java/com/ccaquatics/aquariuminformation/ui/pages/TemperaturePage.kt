@@ -15,6 +15,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.R
+import com.ccaquatics.aquariuminformation.data.TemperatureDataSource
+import com.ccaquatics.aquariuminformation.navigation.Temperature
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
@@ -52,9 +54,9 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 
 	Column(modifier = modifier) {
 		GenericPage(
-			title = R.string.text_title_temp,
-			subtitle = R.string.text_subtitle_temp,
-			icon = R.drawable.ic_thermostat,
+			title = Temperature.title,
+			subtitle = Temperature.subtitle,
+			icon = Temperature.icon,
 			color = color,
 			selectContent = {
 				UnitButtonCard(
@@ -63,16 +65,16 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 						RadioButtonComp(
 							modifier = Modifier
 								.weight(1f),
-							text = R.string.button_label_cel,
-							onClick = { selected = R.string.button_label_cel },
+							text = TemperatureDataSource.radioTextCelsius,
+							onClick = { selected = TemperatureDataSource.radioTextCelsius },
 							selected = selected,
 							selectedColor = color,
 						)
 						RadioButtonComp(
 							modifier = Modifier
 								.weight(1f),
-							text = R.string.button_label_fah,
-							onClick = { selected = R.string.button_label_fah },
+							text = TemperatureDataSource.radioTextFahrenheit,
+							onClick = { selected = TemperatureDataSource.radioTextFahrenheit },
 							selected = selected,
 							selectedColor = color,
 						)
@@ -81,31 +83,31 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 			},
 			calculateFieldContent = {
 				when (selected) {
-					R.string.button_label_cel -> {
+					TemperatureDataSource.radioTextCelsius -> {
 						CalculateField(
 							inputContent = {
 								InputNumberField(
 									modifier = Modifier.fillMaxWidth(),
-									placeholder = R.string.field_label_cel,
-									label = R.string.button_label_cel,
+									placeholder = TemperatureDataSource.placeholderCelsius,
+									label = TemperatureDataSource.labelCelsius,
 									value = inputTemperature,
 									onValueChange = { inputTemperature = it },
 									color = color
 								)
 							},
-							inputText = R.string.text_amount_celsius,
+							inputText = TemperatureDataSource.inputTextCelsius,
 							inputValue = inputTemperature,
-							equalsText = R.string.text_equal_to,
+							equalsText = TemperatureDataSource.equalsText,
 							calculateContent = {
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									text = R.string.text_amount_fah,
+									text = TemperatureDataSource.calculatedTextFahrenheit,
 									calculatedValue = fahrenheit,
 									color = color
 								)
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									text = R.string.text_amount_kelvin,
+									text = TemperatureDataSource.calculatedTextKelvin,
 									calculatedValue = kelvinCelsius,
 									color = color
 								)
@@ -113,31 +115,31 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 						)
 					}
 
-					R.string.button_label_fah -> {
+					TemperatureDataSource.radioTextFahrenheit -> {
 						CalculateField(
 							inputContent = {
 								InputNumberField(
 									modifier = Modifier.fillMaxWidth(),
-									placeholder = R.string.field_label_fah,
-									label = R.string.button_label_fah,
+									placeholder = TemperatureDataSource.placeholderFahrenheit,
+									label =TemperatureDataSource.labelFahrenheit,
 									value = inputTemperature,
 									onValueChange = { inputTemperature = it },
 									color = color
 								)
 							},
-							inputText = R.string.text_amount_fah,
+							inputText = TemperatureDataSource.inputTextFahrenheit,
 							inputValue = inputTemperature,
-							equalsText = R.string.text_equal_to,
+							equalsText = TemperatureDataSource.equalsText,
 							calculateContent = {
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									text = R.string.text_amount_celsius,
+									text = TemperatureDataSource.calculatedTextCelsius,
 									calculatedValue = celsius,
 									color = color
 								)
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									text = R.string.text_amount_kelvin,
+									text = TemperatureDataSource.calculatedTextKelvin,
 									calculatedValue = kelvinFahrenheit,
 									color = color
 								)
@@ -151,17 +153,17 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 					color= color,
 					content = {
 						BodyTextCard(
-							text = R.string.text_formula_celsius,
+							text = TemperatureDataSource.formulaText1,
 							textAlign = TextAlign.Justify,
 							color = color
 						)
 						BodyTextCard(
-							text = R.string.text_formula_fahrenheit,
+							text = TemperatureDataSource.formulaText2,
 							textAlign = TextAlign.Justify,
 							color = color
 						)
 						BodyTextCard(
-							text = R.string.formula_kelvin,
+							text = TemperatureDataSource.formulaText3,
 							textAlign = TextAlign.Justify,
 							color = color
 						)

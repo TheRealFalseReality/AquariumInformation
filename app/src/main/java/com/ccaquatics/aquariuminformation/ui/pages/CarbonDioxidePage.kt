@@ -12,7 +12,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.ccaquatics.aquariuminformation.data.carbonDioxideData
+import com.ccaquatics.aquariuminformation.data.carbonDioxideDataSource
 import com.ccaquatics.aquariuminformation.navigation.CarbonDioxide
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateFieldTwoInputs
@@ -57,7 +57,7 @@ fun CarbonDioxideLayout(
 			color = color,
 			selectContent = {
 				TextCard(
-					text = carbonDioxideData.unitsLabel,
+					text = carbonDioxideDataSource.unitsLabel,
 					contentColor = color
 				)
 			},
@@ -65,10 +65,10 @@ fun CarbonDioxideLayout(
 				CalculateFieldTwoInputs(
 					inputContent = {
 						InputNumberFieldTwoInputs(
-							label1 = carbonDioxideData.label1,
-							placeholder1 = carbonDioxideData.placeholder1,
-							label2 = carbonDioxideData.label2,
-							placeholder2 = carbonDioxideData.placeholder2,
+							label1 = carbonDioxideDataSource.labelPh,
+							placeholder1 = carbonDioxideDataSource.placeholderPh,
+							label2 = carbonDioxideDataSource.labelDkh,
+							placeholder2 = carbonDioxideDataSource.placeholderDkh,
 							value1 = inputPH,
 							onValueChange1 = { inputPH = it },
 							value2 = inputDKH,
@@ -76,14 +76,14 @@ fun CarbonDioxideLayout(
 							color = color,
 						)
 					},
-					inputText = carbonDioxideData.inputText,
+					inputText = carbonDioxideDataSource.inputText,
 					inputValue1 = inputPH,
 					inputValue2 = inputDKH,
-					equalsText = carbonDioxideData.equalsText,
+					equalsText = carbonDioxideDataSource.equalsText,
 					color = color,
 					calculateContent = {
 						CalculatedText(
-							text = carbonDioxideData.calculatedText,
+							text = carbonDioxideDataSource.calculatedText,
 							calculatedValue = co2,
 							color = color,
 						)
@@ -95,7 +95,7 @@ fun CarbonDioxideLayout(
 					color = color,
 					content = {
 						BodyTextCard(
-							text = carbonDioxideData.formulaText,
+							text = carbonDioxideDataSource.formulaText,
 							color = color
 						)
 					}

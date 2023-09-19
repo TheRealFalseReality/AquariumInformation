@@ -19,12 +19,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.navigation.Alkalinity
+import com.ccaquatics.aquariuminformation.navigation.BowFront
 import com.ccaquatics.aquariuminformation.navigation.Calculators
 import com.ccaquatics.aquariuminformation.navigation.CalculatorsNavHost
 import com.ccaquatics.aquariuminformation.navigation.CarbonDioxide
 import com.ccaquatics.aquariuminformation.navigation.Converters
 import com.ccaquatics.aquariuminformation.navigation.ConvertersNavHost
+import com.ccaquatics.aquariuminformation.navigation.Cube
+import com.ccaquatics.aquariuminformation.navigation.Cylinder
 import com.ccaquatics.aquariuminformation.navigation.FishCompatability
+import com.ccaquatics.aquariuminformation.navigation.Hexagonal
+import com.ccaquatics.aquariuminformation.navigation.Rectangle
 import com.ccaquatics.aquariuminformation.navigation.Salinity
 import com.ccaquatics.aquariuminformation.navigation.TankVolume
 import com.ccaquatics.aquariuminformation.navigation.Temperature
@@ -213,19 +218,19 @@ fun TankVolumeGrid(
 		color = color
 	) {
 		NavButtonRow(
-			title1 = R.string.text_title_rectangle,
-			icon1 = R.drawable.ic_rectangle,
-			title2 = R.string.text_title_cube,
-			icon2 = R.drawable.ic_cube_2,
+			title1 = Rectangle.title,
+			icon1 = Rectangle.icon,
+			title2 = Cube.title,
+			icon2 = Cube.icon,
 			onClick1 = { /*TODO*/ },
 			onClick2 = { /*TODO*/ },
 			contentColor = color
 		)
 		NavButtonRow(
-			title1 = R.string.text_title_cyl,
-			icon1 = R.drawable.ic_cylinder,
-			title2 = R.string.text_title_hex,
-			icon2 = R.drawable.ic_hex,
+			title1 = Cylinder.title,
+			icon1 = Cylinder.icon,
+			title2 = Hexagonal.title,
+			icon2 = Hexagonal.icon,
 			onClick1 = { /*TODO*/ },
 			onClick2 = {/*TODO*/},
 			contentColor = color
@@ -234,8 +239,8 @@ fun TankVolumeGrid(
 		NavButton(
 			modifier = Modifier
 				.fillMaxWidth(fraction = 0.9f),
-			title = R.string.text_title_bow_front,
-			icon = R.drawable.ic_bow_front,
+			title = BowFront.title,
+			icon = BowFront.icon,
 			onClick = { /*TODO*/},
 			contentColor = color
 		)

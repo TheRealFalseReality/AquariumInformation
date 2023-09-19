@@ -13,9 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.R
-import com.ccaquatics.aquariuminformation.data.homeCompatibilityData
-import com.ccaquatics.aquariuminformation.data.homeHeaderData
-import com.ccaquatics.aquariuminformation.data.homeNavigateData
+import com.ccaquatics.aquariuminformation.data.homeCompatibilityDataSource
+import com.ccaquatics.aquariuminformation.data.homeHeaderDataSource
+import com.ccaquatics.aquariuminformation.data.homeNavigateDataSource
 import com.ccaquatics.aquariuminformation.navigation.Home
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
@@ -46,16 +46,16 @@ fun HomeLayout(
 			icon = Home.icon
 		) {
 			SingleWideCard {
-				BodyTextCard(text = homeHeaderData.text)
+				BodyTextCard(text = homeHeaderDataSource.text)
 			}
 		}
 		PopOutCard(
-			icon = homeCompatibilityData.icon,
-			title = homeCompatibilityData.title,
-			body = homeCompatibilityData.text
+			icon = homeCompatibilityDataSource.icon,
+			title = homeCompatibilityDataSource.title,
+			body = homeCompatibilityDataSource.text
 		)
 		PopOutlinedCard(
-			text = homeNavigateData.text
+			text = homeNavigateDataSource.text
 		)
 		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_verySmall)))
 	}

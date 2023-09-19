@@ -15,6 +15,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.R
+import com.ccaquatics.aquariuminformation.data.alkalinityDataSource
+import com.ccaquatics.aquariuminformation.navigation.Alkalinity
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
@@ -51,9 +53,9 @@ fun AlkalinityLayout() {
 	val dkhMEQ = calculateDkhMeq(alk).toDoubleOrNull() ?: 0.0
 
 	GenericPage(
-		title = R.string.text_title_alk,
-		subtitle = R.string.text_subtitle_alk,
-		icon = R.drawable.ic_alkalinity,
+		title = Alkalinity.title,
+		subtitle = Alkalinity.subtitle,
+		icon = Alkalinity.icon,
 		color = color,
 		selectContent = {
 			UnitButtonCard(
@@ -65,24 +67,24 @@ fun AlkalinityLayout() {
 						RadioButtonComp(
 							modifier = Modifier
 								.weight(1f),
-							text = R.string.button_label_dkh,
-							onClick = { selected = R.string.button_label_dkh },
+							text = alkalinityDataSource.radioTextDkh,
+							onClick = { selected = alkalinityDataSource.radioTextDkh },
 							selected = selected,
 							selectedColor = color
 						)
 						RadioButtonComp(
 							modifier = Modifier
 								.weight(1f),
-							text = R.string.button_label_ppm,
-							onClick = { selected = R.string.button_label_ppm },
+							text = alkalinityDataSource.radioTextPpm,
+							onClick = { selected = alkalinityDataSource.radioTextPpm },
 							selected = selected,
 							selectedColor = color
 						)
 						RadioButtonComp(
 							modifier = Modifier
 								.weight(1f),
-							text = R.string.button_label_meq,
-							onClick = { selected = R.string.button_label_meq },
+							text = alkalinityDataSource.radioTextMeq,
+							onClick = { selected = alkalinityDataSource.radioTextMeq },
 							selected = selected,
 							selectedColor = color
 						)
@@ -93,28 +95,28 @@ fun AlkalinityLayout() {
 		},
 		calculateFieldContent = {
 			when (selected) {
-				R.string.button_label_dkh -> {
+				alkalinityDataSource.radioTextDkh -> {
 					CalculateField(
 						inputContent = {
 							InputNumberField(
-								label = R.string.button_label_dkh,
-								placeholder = R.string.field_label_dkh,
+								label = alkalinityDataSource.labelDkh,
+								placeholder = alkalinityDataSource.placeholderDkh,
 								value = inputAlk,
 								onValueChange = { inputAlk = it },
 								color = color,
 							)
 						},
-						inputText = R.string.text_amount_dkh,
+						inputText = alkalinityDataSource.inputTextDkh,
 						inputValue = inputAlk,
-						equalsText = R.string.text_equal_to,
+						equalsText = alkalinityDataSource.equalsText,
 						calculateContent = {
 							CalculatedText(
-								text = R.string.text_amount_ppm,
+								text = alkalinityDataSource.calculatedTextPpm,
 								calculatedValue = ppmDKH,
 								color = color
 							)
 							CalculatedText(
-								text = R.string.text_amount_meq,
+								text = alkalinityDataSource.calculatedTextMeq,
 								calculatedValue = meqDKH,
 								color = color
 							)
@@ -122,28 +124,28 @@ fun AlkalinityLayout() {
 					)
 				}
 
-				R.string.button_label_ppm -> {
+				alkalinityDataSource.radioTextPpm -> {
 					CalculateField(
 						inputContent = {
 							InputNumberField(
-								label = R.string.button_label_ppm,
-								placeholder = R.string.field_label_ppm,
+								label = alkalinityDataSource.labelPpm,
+								placeholder = alkalinityDataSource.placeholderPpm,
 								value = inputAlk,
 								onValueChange = { inputAlk = it },
 								color = color
 							)
 						},
-						inputText = R.string.text_amount_ppm,
+						inputText = alkalinityDataSource.inputTextPpm,
 						inputValue = inputAlk,
-						equalsText = R.string.text_equal_to,
+						equalsText = alkalinityDataSource.equalsText,
 						calculateContent = {
 							CalculatedText(
-								text = R.string.text_amount_dkh,
+								text = alkalinityDataSource.calculatedTextDkh,
 								calculatedValue = dkhPPM,
 								color = color
 							)
 							CalculatedText(
-								text = R.string.text_amount_meq,
+								text = alkalinityDataSource.calculatedTextMeq,
 								calculatedValue = meqPPM,
 								color = color
 							)
@@ -151,28 +153,28 @@ fun AlkalinityLayout() {
 					)
 				}
 
-				R.string.button_label_meq -> {
+				alkalinityDataSource.radioTextMeq -> {
 					CalculateField(
 						inputContent = {
 							InputNumberField(
-								label = R.string.button_label_meq,
-								placeholder = R.string.field_label_meq,
+								label = alkalinityDataSource.labelMeq,
+								placeholder = alkalinityDataSource.placeholderMeq,
 								value = inputAlk,
 								onValueChange = { inputAlk = it },
 								color = color
 							)
 						},
-						inputText = R.string.text_amount_meq,
+						inputText = alkalinityDataSource.inputTextMeq,
 						inputValue = inputAlk,
-						equalsText = R.string.text_equal_to,
+						equalsText = alkalinityDataSource.equalsText,
 						calculateContent = {
 							CalculatedText(
-								text = R.string.text_amount_dkh,
+								text = alkalinityDataSource.calculatedTextDkh,
 								calculatedValue = dkhMEQ,
 								color = color
 							)
 							CalculatedText(
-								text = R.string.text_amount_ppm,
+								text = alkalinityDataSource.calculatedTextPpm,
 								calculatedValue = ppmMEQ,
 								color = color
 							)
@@ -185,7 +187,7 @@ fun AlkalinityLayout() {
 			FormulaString(
 				content = {
 					BodyTextCard(
-						text = R.string.text_formula_alk
+						text = alkalinityDataSource.formulaText
 					)
 				},
 				color = color

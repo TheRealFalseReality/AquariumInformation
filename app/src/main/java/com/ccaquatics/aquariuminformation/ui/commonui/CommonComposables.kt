@@ -35,7 +35,6 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -472,13 +471,12 @@ fun RadioButtonComp(
 				unselectedColor = unselectedColor
 			)
 		)
-		Text(
-			text = stringResource(id = text),
+		RadioText(
+			text = text,
 			modifier = Modifier
 				.clickable(
 					onClick = onClick
 				),
-			fontWeight = FontWeight.Bold,
 			textAlign = TextAlign.Center
 		)
 	}
@@ -515,6 +513,24 @@ fun HeaderTextLarge(
 	@StringRes text: Int,
 	color: Color = MaterialTheme.colorScheme.onBackground,
 	style: TextStyle = MaterialTheme.typography.titleLarge,
+	textAlign: TextAlign = TextAlign.Start
+) {
+	Column(modifier = modifier) {
+		Text(
+			text = stringResource(id = text),
+			color = color,
+			style = style,
+			textAlign = textAlign,
+		)
+	}
+}
+
+@Composable
+fun RadioText(
+	modifier: Modifier = Modifier,
+	@StringRes text: Int,
+	color: Color = MaterialTheme.colorScheme.onBackground,
+	style: TextStyle = MaterialTheme.typography.titleMedium,
 	textAlign: TextAlign = TextAlign.Start
 ) {
 	Column(modifier = modifier) {
