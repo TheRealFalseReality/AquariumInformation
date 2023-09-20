@@ -74,7 +74,7 @@
     <string name="text_water_weight" tools:ignore="UnusedResources">Water Weight:</string>
     <string name="text_formula_vol_rec" tools:ignore="UnusedResources">V = LWH</string>
     <string name="text_formula_vol_cylinder" tools:ignore="UnusedResources">V = πr²h</string>
-    <string name="text_formula_vol_cube" tools:ignore="UnusedResources">V = LLL</string>
+    <string name="text_formula_vol_cube" tools:ignore="UnusedResources">V = L*L*L</string>
     <string name="text_label_version">"%s"</string>
     <string name="text_title_cube" tools:ignore="UnusedResources">Cube</string>
     <string name="text_amount_full_length" tools:ignore="UnusedResources">Length: %s</string>
@@ -514,4 +514,6 @@
     <string name="edge">Edge</string>
     <string name="text_amount_DH">D: %s H: %s</string>
     <string name="diameter">Diameter</string>
+    <string name="text_amount_LWHFW">L: %s W: %s H: %s FW: %s</string>
+    <string name="full_width">Full Width</string>
 </resources>

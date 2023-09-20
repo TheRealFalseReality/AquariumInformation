@@ -12,7 +12,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.ccaquatics.aquariuminformation.data.calculators.calculatorDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.rectangleDataSource
 import com.ccaquatics.aquariuminformation.navigation.Rectangle
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
@@ -37,9 +39,10 @@ fun RectanglePage() {
 }
 
 @Composable
-fun RectangleLayout(modifier: Modifier = Modifier) {
-	val color = MaterialTheme.colorScheme.secondary
-
+fun RectangleLayout(
+	modifier: Modifier = Modifier,
+	color: Color = MaterialTheme.colorScheme.secondary
+) {
 	var inputLength by rememberSaveable {
 		mutableStateOf("")
 	}
@@ -65,7 +68,7 @@ fun RectangleLayout(modifier: Modifier = Modifier) {
 	Column(modifier = modifier) {
 		GenericPage(
 			title = Rectangle.title,
-			subtitle = Rectangle.subtitle,
+			subtitle = calculatorDataSource.subtitle,
 			icon = Rectangle.icon,
 			color = color,
 			selectContent = {

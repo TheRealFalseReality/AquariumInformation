@@ -1,0 +1,25 @@
+package com.ccaquatics.aquariuminformation.data.calculators
+
+data class CommonData(
+	val subtitle: Int,
+	val radioTextFeet: Int,
+	val radioTextInches: Int,
+	val labelLength: Int,
+	val labelWidth: Int,
+	val labelHeight: Int,
+	val labelEdge: Int,
+	val labelSide: Int,
+	val labelDiameter: Int,
+	val labelFullWidth: Int,
+	val placeholderLength: Int,
+	val placeholderWidth: Int,
+	val placeholderHeight: Int,
+	val placeholderEdge: Int,
+	val placeholderSide: Int,
+	val placeholderDiameter: Int,
+	val placeholderFullWidth: Int,
+	val equalsText: Int,
+	val calculatedTextGallons: Int,
+	val calculatedTextLiters: Int,
+	val calculatedTextWaterWeight: Int,
+)

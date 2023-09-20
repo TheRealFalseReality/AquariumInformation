@@ -3,6 +3,7 @@ package com.ccaquatics.aquariuminformation.data.converters
 import com.ccaquatics.aquariuminformation.R
 
 data class AlkalinityData(
+	val subtitle: Int,
 	val radioTextDkh: Int,
 	val radioTextPpm: Int,
 	val radioTextMeq: Int,
@@ -24,6 +25,7 @@ data class AlkalinityData(
 
 val alkalinityDataSource =
 	AlkalinityData(
+		subtitle = R.string.text_subtitle_alk,
 		radioTextDkh = R.string.button_label_dkh,
 		radioTextPpm = R.string.button_label_ppm,
 		radioTextMeq = R.string.button_label_meq,

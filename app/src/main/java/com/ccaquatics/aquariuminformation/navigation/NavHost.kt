@@ -14,6 +14,7 @@ import com.ccaquatics.aquariuminformation.ui.pages.HomePage
 import com.ccaquatics.aquariuminformation.ui.pages.InfoPage
 import com.ccaquatics.aquariuminformation.ui.pages.OverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.TankVolumeOverviewPage
+import com.ccaquatics.aquariuminformation.ui.pages.calculators.BowFrontPage
 import com.ccaquatics.aquariuminformation.ui.pages.calculators.CarbonDioxidePage
 import com.ccaquatics.aquariuminformation.ui.pages.calculators.CubePage
 import com.ccaquatics.aquariuminformation.ui.pages.calculators.CylinderPage
@@ -84,7 +85,7 @@ fun AquariumNavHost(
 					navController.navigateSingleTopTo(Hexagonal.route)
 				},
 				onClickBowFront = {
-					/* TODO */
+					navController.navigateSingleTopTo(BowFront.route)
 				},
 			)
 		}
@@ -116,7 +117,7 @@ fun AquariumNavHost(
 			CylinderPage()
 		}
 		composable(route = BowFront.route) {
-			/* TODO */
+			BowFrontPage()
 		}
 	}
 }
@@ -192,7 +193,7 @@ fun CalculatorsNavHost(
 			CylinderPage()
 		}
 		composable(route = BowFront.route) {
-			/* TODO */
+			BowFrontPage()
 		}
 		composable(route = TankVolume.route) {
 			TankVolumeOverviewPage(
@@ -209,7 +210,7 @@ fun CalculatorsNavHost(
 					navController.navigateSingleTopTo(Hexagonal.route)
 				},
 				onClickBowFront = {
-					/* TODO */
+					navController.navigateSingleTopTo(BowFront.route)
 				},
 			)
 		}

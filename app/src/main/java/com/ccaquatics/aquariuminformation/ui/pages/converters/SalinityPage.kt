@@ -55,7 +55,7 @@ fun SalinityLayout(modifier: Modifier = Modifier) {
 
 	Column(modifier = modifier) {
 		GenericPage(title = Salinity.title,
-			subtitle = Salinity.subtitle,
+			subtitle = salinityDataSource.subtitle,
 			icon = Salinity.icon,
 			color = color,
 			selectContent = {

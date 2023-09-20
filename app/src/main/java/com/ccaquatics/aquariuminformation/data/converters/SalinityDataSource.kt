@@ -3,6 +3,7 @@ package com.ccaquatics.aquariuminformation.data.converters
 import com.ccaquatics.aquariuminformation.R
 
 data class SalinityData (
+	val subtitle: Int,
 	val radioTextPpt: Int,
 	val radioTextSg: Int,
 	val labelPpt: Int,
@@ -20,6 +21,7 @@ data class SalinityData (
 
 val salinityDataSource = 
 	SalinityData(
+		subtitle = R.string.text_subtitle_salinity,
 		radioTextPpt = R.string.salinity_ppt,
 		radioTextSg = R.string.button_label_sg,
 		labelPpt = R.string.button_label_ppt,

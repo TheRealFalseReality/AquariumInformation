@@ -54,7 +54,7 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 	Column(modifier = modifier) {
 		GenericPage(
 			title = Temperature.title,
-			subtitle = Temperature.subtitle,
+			subtitle = temperatureDataSource.subtitle,
 			icon = Temperature.icon,
 			color = color,
 			selectContent = {

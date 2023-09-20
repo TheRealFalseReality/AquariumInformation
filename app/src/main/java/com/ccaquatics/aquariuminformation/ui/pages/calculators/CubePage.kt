@@ -12,7 +12,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.ccaquatics.aquariuminformation.data.calculators.calculatorDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.cubeDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.rectangleDataSource
 import com.ccaquatics.aquariuminformation.navigation.Cube
@@ -38,9 +40,10 @@ fun CubePage() {
 }
 
 @Composable
-fun CubeLayout(modifier: Modifier = Modifier) {
-	val color = MaterialTheme.colorScheme.secondary
-
+fun CubeLayout(
+	modifier: Modifier = Modifier,
+	color: Color = MaterialTheme.colorScheme.secondary
+) {
 	var inputSide by rememberSaveable {
 		mutableStateOf("")
 	}
@@ -58,7 +61,7 @@ fun CubeLayout(modifier: Modifier = Modifier) {
 	Column(modifier = modifier) {
 		GenericPage(
 			title = Cube.title,
-			subtitle = Cube.subtitle,
+			subtitle = calculatorDataSource.subtitle,
 			icon = Cube.icon,
 			color = color,
 			selectContent = {

@@ -364,6 +364,51 @@ fun CalculateFieldTwoInputs(
 }
 
 @Composable
+fun CalculateFieldFourInputs(
+	modifier: Modifier = Modifier,
+	inputContent: @Composable () -> Unit,
+	@StringRes inputText: Int,
+	inputValue1: String,
+	inputValue2: String,
+	inputValue3: String,
+	inputValue4: String,
+	@StringRes equalsText: Int,
+	calculateContent: @Composable () -> Unit,
+	color: Color
+) {
+	Column(
+		modifier = modifier,
+		horizontalAlignment = Alignment.CenterHorizontally
+	) {
+		inputContent()
+//		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+		Text(
+			text = stringResource(id = inputText, inputValue1, inputValue2, inputValue3, inputValue4),
+			modifier = Modifier
+				.align(Alignment.CenterHorizontally)
+				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
+			color = color
+		)
+//		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+		Text(
+			text = stringResource(id = equalsText),
+			modifier = Modifier
+				.align(Alignment.CenterHorizontally)
+				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
+			color = color,
+		)
+		Column(
+			modifier = Modifier.fillMaxWidth(),
+			horizontalAlignment = Alignment.CenterHorizontally
+		) {
+			SingleWideCard {
+				calculateContent()
+			}
+		}
+	}
+}
+
+@Composable
 fun CalculateFieldThreeInputs(
 	modifier: Modifier = Modifier,
 	inputContent: @Composable () -> Unit,

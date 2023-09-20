@@ -52,7 +52,7 @@ fun CarbonDioxideLayout(
 	Column(modifier = modifier) {
 		GenericPage(
 			title = CarbonDioxide.title,
-			subtitle = CarbonDioxide.subtitle,
+			subtitle = carbonDioxideDataSource.subtitle,
 			icon = CarbonDioxide.icon,
 			color = color,
 			selectContent = {

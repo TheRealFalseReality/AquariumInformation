@@ -13,8 +13,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.ccaquatics.aquariuminformation.data.calculators.commonTankVolumeDataSource
+import com.ccaquatics.aquariuminformation.data.calculators.calculatorDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.cylinderDataSource
 import com.ccaquatics.aquariuminformation.navigation.Cylinder
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
@@ -41,9 +42,10 @@ fun CylinderPage() {
 }
 
 @Composable
-fun CylinderLayout(modifier: Modifier = Modifier) {
-	val color = MaterialTheme.colorScheme.secondary
-
+fun CylinderLayout(
+	modifier: Modifier = Modifier,
+	color: Color = MaterialTheme.colorScheme.secondary
+) {
 	var inputDiameter by rememberSaveable {
 		mutableStateOf("")
 	}
@@ -51,7 +53,7 @@ fun CylinderLayout(modifier: Modifier = Modifier) {
 		mutableStateOf("")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(commonTankVolumeDataSource.radioTextFeet)
+		mutableIntStateOf(calculatorDataSource.radioTextFeet)
 	}
 	var halfCyl by remember {
 		mutableStateOf(false)
@@ -76,7 +78,7 @@ fun CylinderLayout(modifier: Modifier = Modifier) {
 	Column(modifier = modifier) {
 		GenericPage(
 			title = Cylinder.title,
-			subtitle = Cylinder.subtitle,
+			subtitle = calculatorDataSource.subtitle,
 			icon = Cylinder.icon,
 			color = color,
 			selectContent = {
@@ -85,16 +87,16 @@ fun CylinderLayout(modifier: Modifier = Modifier) {
 						RadioButtonComp(
 							modifier = Modifier
 								.weight(1f),
-							text = commonTankVolumeDataSource.radioTextFeet,
-							onClick = { selected = commonTankVolumeDataSource.radioTextFeet },
+							text = calculatorDataSource.radioTextFeet,
+							onClick = { selected = calculatorDataSource.radioTextFeet },
 							selected = selected,
 							selectedColor = color
 						)
 						RadioButtonComp(
 							modifier = Modifier
 								.weight(1f),
-							text = commonTankVolumeDataSource.radioTextInches,
-							onClick = { selected = commonTankVolumeDataSource.radioTextInches },
+							text = calculatorDataSource.radioTextInches,
+							onClick = { selected = calculatorDataSource.radioTextInches },
 							selected = selected,
 							selectedColor = color
 						)
@@ -107,10 +109,10 @@ fun CylinderLayout(modifier: Modifier = Modifier) {
 				CalculateFieldTwoInputs(
 					inputContent = {
 						InputRowNumberFieldTwoInputs(
-							label1 = commonTankVolumeDataSource.labelDiameter,
-							placeholder1 = commonTankVolumeDataSource.placeholderDiameter,
-							label2 = commonTankVolumeDataSource.labelHeight,
-							placeholder2 = commonTankVolumeDataSource.placeholderHeight,
+							label1 = calculatorDataSource.labelDiameter,
+							placeholder1 = calculatorDataSource.placeholderDiameter,
+							label2 = calculatorDataSource.labelHeight,
+							placeholder2 = calculatorDataSource.placeholderHeight,
 							value1 = inputDiameter,
 							onValueChange1 = { inputDiameter = it },
 							value2 = inputHeight,
@@ -121,46 +123,46 @@ fun CylinderLayout(modifier: Modifier = Modifier) {
 					inputText = cylinderDataSource.inputText,
 					inputValue1 = inputDiameter,
 					inputValue2 = inputHeight,
-					equalsText = commonTankVolumeDataSource.equalsText,
+					equalsText = calculatorDataSource.equalsText,
 					calculateContent = {
 						when (selected) {
-							commonTankVolumeDataSource.radioTextFeet -> {
+							calculatorDataSource.radioTextFeet -> {
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									text = commonTankVolumeDataSource.calculatedTextGallons,
+									text = calculatorDataSource.calculatedTextGallons,
 									calculatedValue = volGallonFT,
 									color = color
 								)
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									text = commonTankVolumeDataSource.calculatedTextLiters,
+									text = calculatorDataSource.calculatedTextLiters,
 									calculatedValue = volLiterFT,
 									color = color
 								)
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									text = commonTankVolumeDataSource.calculatedTextWaterWeight,
+									text = calculatorDataSource.calculatedTextWaterWeight,
 									calculatedValue = waterWeightFT,
 									color = color
 								)
 							}
 
-							commonTankVolumeDataSource.radioTextInches -> {
+							calculatorDataSource.radioTextInches -> {
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									text = commonTankVolumeDataSource.calculatedTextGallons,
+									text = calculatorDataSource.calculatedTextGallons,
 									calculatedValue = volGallon,
 									color = color
 								)
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									text = commonTankVolumeDataSource.calculatedTextLiters,
+									text = calculatorDataSource.calculatedTextLiters,
 									calculatedValue = volLiter,
 									color = color
 								)
 								CalculatedText(
 									modifier = Modifier.fillMaxWidth(),
-									text = commonTankVolumeDataSource.calculatedTextWaterWeight,
+									text = calculatorDataSource.calculatedTextWaterWeight,
 									calculatedValue = waterWeight,
 									color = color
 								)

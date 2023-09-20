@@ -209,17 +209,19 @@ fun PageView(
 	modifier: Modifier = Modifier,
 	content: @Composable ColumnScope.() -> Unit
 ) {
-	Column(
-		modifier = modifier
-			.fillMaxSize()
-			.padding(
+	Column(modifier = modifier){
+		Column(
+			modifier = Modifier
+				.fillMaxSize()
+				.padding(
 //				top = dimensionResource(id = R.dimen.padding_verySmall),
-				bottom = dimensionResource(id = R.dimen.padding_small)
-			),
-		verticalArrangement = Arrangement.Top,
-		horizontalAlignment = Alignment.CenterHorizontally
-	) {
-		content()
+					bottom = dimensionResource(id = R.dimen.padding_small)
+				),
+			verticalArrangement = Arrangement.Top,
+			horizontalAlignment = Alignment.CenterHorizontally
+		) {
+			content()
+		}
 	}
 }
 

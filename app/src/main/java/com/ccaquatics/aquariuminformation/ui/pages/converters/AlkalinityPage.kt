@@ -56,7 +56,7 @@ fun AlkalinityLayout() {
 
 	GenericPage(
 		title = Alkalinity.title,
-		subtitle = Alkalinity.subtitle,
+		subtitle = alkalinityDataSource.subtitle,
 		icon = Alkalinity.icon,
 		color = color,
 		selectContent = {

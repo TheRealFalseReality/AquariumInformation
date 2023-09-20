@@ -3,6 +3,7 @@ package com.ccaquatics.aquariuminformation.data.calculators
 import com.ccaquatics.aquariuminformation.R
 
 data class CarbonDioxideData(
+	val subtitle: Int,
 	val unitsLabel: Int,
 	val labelPh: Int,
 	val placeholderPh: Int,
@@ -16,6 +17,7 @@ data class CarbonDioxideData(
 
 val carbonDioxideDataSource =
 	CarbonDioxideData(
+		subtitle = R.string.text_subtitle_co2,
 		unitsLabel = R.string.text_co2_units,
 		labelPh = R.string.ph,
 		placeholderPh = R.string.field_label_ph,
