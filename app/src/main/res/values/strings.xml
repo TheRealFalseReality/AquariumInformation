@@ -55,7 +55,7 @@
     <string name="text_amount_ppm" tools:ignore="UnusedResources">%s ppm CaCO3</string>
     <string name="text_amount_meq" tools:ignore="UnusedResources">%s meq/L</string>
     <string name="text_title_rectangle" tools:ignore="UnusedResources">Rectangle</string>
-    <string name="text_subtitle_tank_vol" tools:ignore="UnusedResources">gal : L</string>
+    <string name="text_subtitle_tank_vol" tools:ignore="UnusedResources">ft : in -> gal : L</string>
     <string name="button_label_inches" tools:ignore="UnusedResources">Inches</string>
     <string name="button_label_feet" tools:ignore="UnusedResources">Feet</string>
     <string name="field_label_inches" tools:ignore="UnusedResources">Enter Inches</string>
@@ -510,4 +510,6 @@
     <string name="width">Width</string>
     <string name="height">Height</string>
     <string name="text_amount_LWH">L: %s W: %s H: %s</string>
+    <string name="text_amount_EH">E: %s H: %s</string>
+    <string name="edge">Edge</string>
 </resources>

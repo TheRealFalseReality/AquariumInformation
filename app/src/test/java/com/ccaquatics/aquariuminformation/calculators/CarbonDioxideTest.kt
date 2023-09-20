@@ -1,4 +1,4 @@
-package com.ccaquatics.aquariuminformation
+package com.ccaquatics.aquariuminformation.calculators
 
 import com.ccaquatics.aquariuminformation.ui.pages.calculators.calculateCarbonDioxide
 import junit.framework.TestCase.assertEquals

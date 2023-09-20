@@ -1,6 +1,7 @@
 package com.ccaquatics.aquariuminformation.ui.commonui
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -174,7 +175,50 @@ fun InputNumberFieldTwoInputs(
 			color = color
 		)
 	}
+}
 
+@Composable
+fun InputRowNumberFieldTwoInputs(
+	modifier: Modifier = Modifier,
+	@StringRes label1: Int,
+	@StringRes placeholder1: Int,
+	@StringRes label2: Int,
+	@StringRes placeholder2: Int,
+	value1: String,
+	onValueChange1: (String) -> Unit,
+	value2: String,
+	onValueChange2: (String) -> Unit,
+	color: Color
+){
+	Column(modifier = modifier) {
+		Row(
+			modifier = Modifier
+				.fillMaxWidth(),
+			horizontalArrangement = Arrangement.Center,
+			verticalAlignment = Alignment.CenterVertically
+		) {
+			InputNumberFieldNext(
+				modifier = Modifier
+					.padding(dimensionResource(id = R.dimen.padding_verySmall))
+					.weight(1f),
+				label = label1,
+				placeholder = placeholder1,
+				value = value1,
+				onValueChange = onValueChange1,
+				color = color
+			)
+			InputNumberField(
+				modifier = Modifier
+					.padding(dimensionResource(id = R.dimen.padding_verySmall))
+					.weight(1f),
+				label = label2,
+				placeholder = placeholder2,
+				value = value2,
+				onValueChange = onValueChange2,
+				color = color
+			)
+		}
+	}
 }
 
 @Composable
@@ -292,8 +336,7 @@ fun CalculateFieldTwoInputs(
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
 		inputContent()
-		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
-
+//		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
 		Text(
 			text = stringResource(id = inputText, inputValue1, inputValue2),
 			modifier = Modifier
@@ -301,7 +344,7 @@ fun CalculateFieldTwoInputs(
 				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
 			color = color
 		)
-		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+//		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
 		Text(
 			text = stringResource(id = equalsText),
 			modifier = Modifier

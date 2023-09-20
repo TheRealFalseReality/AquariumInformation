@@ -1,4 +1,4 @@
-package com.ccaquatics.aquariuminformation
+package com.ccaquatics.aquariuminformation.converters
 
 import com.ccaquatics.aquariuminformation.ui.pages.converters.calculateDensityPPT
 import com.ccaquatics.aquariuminformation.ui.pages.converters.calculateDensitySG

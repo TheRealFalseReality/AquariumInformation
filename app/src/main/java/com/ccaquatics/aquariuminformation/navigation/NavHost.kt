@@ -16,6 +16,7 @@ import com.ccaquatics.aquariuminformation.ui.pages.OverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.TankVolumeOverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.calculators.CarbonDioxidePage
 import com.ccaquatics.aquariuminformation.ui.pages.calculators.CubePage
+import com.ccaquatics.aquariuminformation.ui.pages.calculators.HexagonalPage
 import com.ccaquatics.aquariuminformation.ui.pages.calculators.RectanglePage
 import com.ccaquatics.aquariuminformation.ui.pages.converters.AlkalinityPage
 import com.ccaquatics.aquariuminformation.ui.pages.converters.SalinityPage
@@ -31,6 +32,7 @@ fun AquariumNavHost(
 		startDestination = Overview.route,
 		modifier = modifier,
 	) {
+		/* TODO Alter Routes */
 		composable(route = Home.route) {
 			HomePage()
 		}
@@ -40,7 +42,6 @@ fun AquariumNavHost(
 		composable(route = Overview.route) {
 			OverviewPage(
 				onClickTemperature = {
-					/* TODO Alter Routes */
 //					navController.navigateSingleTopTo(Converters.route)
 					navController.navigateSingleTopTo(Temperature.route)
 				},
@@ -57,7 +58,7 @@ fun AquariumNavHost(
 					navController.navigateSingleTopTo(TankVolume.route)
 				},
 				onClickFish = {
-
+					/* TODO */
 				}
 			)
 		}
@@ -76,18 +77,19 @@ fun AquariumNavHost(
 					navController.navigateSingleTopTo(Cube.route)
 				},
 				onClickCylinder = {
-
+					/* TODO */
 				},
 				onClickHexagonal = {
+					navController.navigateSingleTopTo(Hexagonal.route)
 
 				},
 				onClickBowFront = {
-
+					/* TODO */
 				},
 			)
 		}
 		composable(route = FishCompatability.route) {
-
+			/* TODO */
 		}
 		composable(route = Temperature.route) {
 			TemperaturePage()
@@ -106,6 +108,15 @@ fun AquariumNavHost(
 		}
 		composable(route = Cube.route) {
 			CubePage()
+		}
+		composable(route = Hexagonal.route) {
+			HexagonalPage()
+		}
+		composable(route = Cylinder.route) {
+			/* TODO */
+		}
+		composable(route = BowFront.route) {
+			/* TODO */
 		}
 	}
 }
@@ -174,6 +185,15 @@ fun CalculatorsNavHost(
 		composable(route = Cube.route) {
 			CubePage()
 		}
+		composable(route = Hexagonal.route) {
+			HexagonalPage()
+		}
+		composable(route = Cylinder.route) {
+			/* TODO */
+		}
+		composable(route = BowFront.route) {
+			/* TODO */
+		}
 		composable(route = TankVolume.route) {
 			TankVolumeOverviewPage(
 				onClickRectangle = {
@@ -183,13 +203,13 @@ fun CalculatorsNavHost(
 					navController.navigateSingleTopTo(Cube.route)
 				},
 				onClickCylinder = {
-
+					/* TODO */
 				},
 				onClickHexagonal = {
-
+					navController.navigateSingleTopTo(Hexagonal.route)
 				},
 				onClickBowFront = {
-
+					/* TODO */
 				},
 			)
 		}
