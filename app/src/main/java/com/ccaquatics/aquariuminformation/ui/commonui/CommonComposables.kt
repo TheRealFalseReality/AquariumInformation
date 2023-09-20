@@ -334,6 +334,7 @@ fun GenericPage(
 	@DrawableRes icon: Int,
 	color: Color,
 	selectContent: @Composable ColumnScope.() -> Unit,
+	optionsContent: @Composable ColumnScope.() -> Unit = {},
 	calculateFieldContent: @Composable ColumnScope.() -> Unit,
 	imageContent: @Composable ColumnScope.() -> Unit = {},
 	formulaContent: @Composable ColumnScope.() -> Unit
@@ -363,6 +364,7 @@ fun GenericPage(
 			}
 		}
 		selectContent()
+		optionsContent()
 		calculateFieldContent()
 		imageContent()
 		formulaContent()

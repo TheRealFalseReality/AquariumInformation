@@ -512,4 +512,6 @@
     <string name="text_amount_LWH">L: %s W: %s H: %s</string>
     <string name="text_amount_EH">E: %s H: %s</string>
     <string name="edge">Edge</string>
+    <string name="text_amount_DH">D: %s H: %s</string>
+    <string name="diameter">Diameter</string>
 </resources>
