@@ -64,14 +64,20 @@ fun SalinityLayout() {
 						text = salinityDataSource.radioTextPpt,
 						onClick = { selected = salinityDataSource.radioTextPpt },
 						selected = selected,
-						selectedColor = color
+						selectedColor = color,
+						textColor =
+						if (selected == salinityDataSource.radioTextPpt) color
+						else MaterialTheme.colorScheme.onBackground
 					)
 					RadioButtonComp(
 						modifier = Modifier.weight(1f),
 						text = salinityDataSource.radioTextSg,
 						onClick = { selected = salinityDataSource.radioTextSg },
 						selected = selected,
-						selectedColor = color
+						selectedColor = color,
+						textColor =
+						if (selected == salinityDataSource.radioTextSg) color
+						else MaterialTheme.colorScheme.onBackground
 					)
 				}, contentColor = color
 			)
@@ -133,7 +139,8 @@ fun SalinityLayout() {
 								calculatedValue = salDensitySG,
 								color = color
 							)
-						})
+						}
+					)
 				}
 			}
 		},

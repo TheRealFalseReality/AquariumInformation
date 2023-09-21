@@ -73,7 +73,10 @@ fun HexagonalLayout(
 						text = hexagonalDataSource.radioTextFeet,
 						onClick = { selected = hexagonalDataSource.radioTextFeet },
 						selected = selected,
-						selectedColor = color
+						selectedColor = color,
+						textColor =
+						if (selected == hexagonalDataSource.radioTextFeet) color
+						else MaterialTheme.colorScheme.onBackground
 					)
 					RadioButtonComp(
 						modifier = Modifier
@@ -81,7 +84,10 @@ fun HexagonalLayout(
 						text = hexagonalDataSource.radioTextInches,
 						onClick = { selected = hexagonalDataSource.radioTextInches },
 						selected = selected,
-						selectedColor = color
+						selectedColor = color,
+						textColor =
+							if (selected == hexagonalDataSource.radioTextInches) color
+							else MaterialTheme.colorScheme.onBackground
 					)
 				},
 				contentColor = color

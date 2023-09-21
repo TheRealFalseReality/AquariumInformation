@@ -71,7 +71,10 @@ fun AlkalinityLayout() {
 							text = alkalinityDataSource.radioTextDkh,
 							onClick = { selected = alkalinityDataSource.radioTextDkh },
 							selected = selected,
-							selectedColor = color
+							selectedColor = color,
+							textColor =
+							if (selected == alkalinityDataSource.radioTextDkh) color
+							else MaterialTheme.colorScheme.onBackground
 						)
 						RadioButtonComp(
 							modifier = Modifier
@@ -79,7 +82,10 @@ fun AlkalinityLayout() {
 							text = alkalinityDataSource.radioTextPpm,
 							onClick = { selected = alkalinityDataSource.radioTextPpm },
 							selected = selected,
-							selectedColor = color
+							selectedColor = color,
+							textColor =
+							if (selected == alkalinityDataSource.radioTextPpm) color
+							else MaterialTheme.colorScheme.onBackground
 						)
 						RadioButtonComp(
 							modifier = Modifier
@@ -87,7 +93,10 @@ fun AlkalinityLayout() {
 							text = alkalinityDataSource.radioTextMeq,
 							onClick = { selected = alkalinityDataSource.radioTextMeq },
 							selected = selected,
-							selectedColor = color
+							selectedColor = color,
+							textColor =
+							if (selected == alkalinityDataSource.radioTextMeq) color
+							else MaterialTheme.colorScheme.onBackground
 						)
 					}
 				},

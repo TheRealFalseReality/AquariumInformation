@@ -3,7 +3,6 @@ package com.ccaquatics.aquariuminformation.ui.pages.calculators
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -17,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.data.calculators.calculatorDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.cylinderDataSource
+import com.ccaquatics.aquariuminformation.data.calculators.hexagonalDataSource
 import com.ccaquatics.aquariuminformation.navigation.Cylinder
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateImage
@@ -87,7 +87,10 @@ fun CylinderLayout(
 						text = calculatorDataSource.radioTextFeet,
 						onClick = { selected = calculatorDataSource.radioTextFeet },
 						selected = selected,
-						selectedColor = color
+						selectedColor = color,
+						textColor =
+						if (selected == hexagonalDataSource.radioTextFeet) color
+						else MaterialTheme.colorScheme.onBackground
 					)
 					RadioButtonComp(
 						modifier = Modifier
@@ -95,7 +98,10 @@ fun CylinderLayout(
 						text = calculatorDataSource.radioTextInches,
 						onClick = { selected = calculatorDataSource.radioTextInches },
 						selected = selected,
-						selectedColor = color
+						selectedColor = color,
+						textColor =
+						if (selected == hexagonalDataSource.radioTextInches) color
+						else MaterialTheme.colorScheme.onBackground
 					)
 				},
 				contentColor = color
@@ -125,19 +131,16 @@ fun CylinderLayout(
 					when (selected) {
 						calculatorDataSource.radioTextFeet -> {
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallonFT,
 								color = color
 							)
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiterFT,
 								color = color
 							)
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeightFT,
 								color = color
@@ -146,19 +149,16 @@ fun CylinderLayout(
 
 						calculatorDataSource.radioTextInches -> {
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallon,
 								color = color
 							)
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiter,
 								color = color
 							)
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeight,
 								color = color

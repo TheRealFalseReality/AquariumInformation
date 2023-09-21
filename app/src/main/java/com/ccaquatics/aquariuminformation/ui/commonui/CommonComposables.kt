@@ -142,7 +142,7 @@ fun SingleWideCard(
 		) {
 			Column(
 				modifier = Modifier
-					.padding(dimensionResource(id = R.dimen.padding_medium))
+					.padding(dimensionResource(id = R.dimen.padding_small))
 					.fillMaxWidth(),
 				horizontalAlignment = Alignment.CenterHorizontally,
 			) {
@@ -242,8 +242,9 @@ fun RadioButtonComp(
 	@StringRes text: Int,
 	onClick: () -> Unit,
 	selected: Int,
-	selectedColor: Color,
+	selectedColor: Color = MaterialTheme.colorScheme.primary,
 	unselectedColor: Color = MaterialTheme.colorScheme.outline,
+	textColor: Color = MaterialTheme.colorScheme.onBackground,
 ) {
 	Column(
 		modifier = modifier,
@@ -263,7 +264,8 @@ fun RadioButtonComp(
 				.clickable(
 					onClick = onClick
 				),
-			textAlign = TextAlign.Center
+			textAlign = TextAlign.Center,
+			color = textColor
 		)
 	}
 }

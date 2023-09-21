@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ccaquatics.aquariuminformation.R
 
+/*TODO Add Quad Buttons and simplify composables*/
 @Composable
 fun InputNumberField(
 	modifier: Modifier = Modifier,
@@ -50,6 +51,10 @@ fun InputNumberField(
 	) {
 		TextField(
 			modifier = Modifier
+				.padding(
+					top = dimensionResource(id = R.dimen.padding_verySmall),
+					bottom = dimensionResource(id = R.dimen.padding_verySmall)
+				)
 				.align(Alignment.CenterHorizontally),
 			value = value,
 			onValueChange = onValueChange,
@@ -107,8 +112,8 @@ fun InputNumberFieldNext(
 		TextField(
 			modifier = Modifier
 				.padding(
-					top = dimensionResource(id = R.dimen.padding_small),
-					bottom = dimensionResource(id = R.dimen.padding_small)
+					top = dimensionResource(id = R.dimen.padding_verySmall),
+					bottom = dimensionResource(id = R.dimen.padding_verySmall)
 				)
 				.align(Alignment.CenterHorizontally),
 			value = value,
@@ -164,7 +169,6 @@ fun InputNumberFieldTwoInputs(
 			onValueChange = onValueChange1,
 			color = color
 		)
-		MediumSpacer()
 		InputNumberField(
 			label = label2,
 			placeholder = placeholder2,
@@ -197,7 +201,10 @@ fun InputRowNumberFieldTwoInputs(
 		) {
 			InputNumberFieldNext(
 				modifier = Modifier
-					.padding(dimensionResource(id = R.dimen.padding_verySmall))
+					.padding(
+						start = dimensionResource(id = R.dimen.padding_verySmall),
+						end = dimensionResource(id = R.dimen.padding_verySmall)
+					)
 					.weight(1f),
 				label = label1,
 				placeholder = placeholder1,
@@ -207,7 +214,10 @@ fun InputRowNumberFieldTwoInputs(
 			)
 			InputNumberField(
 				modifier = Modifier
-					.padding(dimensionResource(id = R.dimen.padding_verySmall))
+					.padding(
+						start = dimensionResource(id = R.dimen.padding_verySmall),
+						end = dimensionResource(id = R.dimen.padding_verySmall)
+					)
 					.weight(1f),
 				label = label2,
 				placeholder = placeholder2,

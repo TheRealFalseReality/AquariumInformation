@@ -4,20 +4,16 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.compose.rememberNavController
 import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.navigation.Alkalinity
 import com.ccaquatics.aquariuminformation.navigation.BowFront
 import com.ccaquatics.aquariuminformation.navigation.Calculators
-import com.ccaquatics.aquariuminformation.navigation.CalculatorsNavHost
 import com.ccaquatics.aquariuminformation.navigation.CarbonDioxide
 import com.ccaquatics.aquariuminformation.navigation.Converters
-import com.ccaquatics.aquariuminformation.navigation.ConvertersNavHost
 import com.ccaquatics.aquariuminformation.navigation.Cube
 import com.ccaquatics.aquariuminformation.navigation.Cylinder
 import com.ccaquatics.aquariuminformation.navigation.FishCompatability
@@ -251,23 +247,6 @@ fun FishCompatability(
 		}
 	}
 
-}
-
-@Composable
-fun ConvertersNavHostScreen() {
-	val navController = rememberNavController()
-	Surface {
-		ConvertersNavHost(navController = navController)
-	}
-}
-
-@Composable
-		/* TODO Add Tank Volumes ALL */
-fun CalculatorsNavHostScreen() {
-	val navController = rememberNavController()
-	Surface {
-		CalculatorsNavHost(navController = navController)
-	}
 }
 
 @Preview(showBackground = true)

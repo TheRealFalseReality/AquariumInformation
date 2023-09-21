@@ -3,7 +3,6 @@ package com.ccaquatics.aquariuminformation.ui.pages.converters
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -67,6 +66,9 @@ fun TemperatureLayout() {
 						onClick = { selected = temperatureDataSource.radioTextCelsius },
 						selected = selected,
 						selectedColor = color,
+						textColor =
+						if (selected == temperatureDataSource.radioTextCelsius) color
+						else MaterialTheme.colorScheme.onBackground
 					)
 					RadioButtonComp(
 						modifier = Modifier
@@ -75,6 +77,9 @@ fun TemperatureLayout() {
 						onClick = { selected = temperatureDataSource.radioTextFahrenheit },
 						selected = selected,
 						selectedColor = color,
+						textColor =
+						if (selected == temperatureDataSource.radioTextFahrenheit) color
+						else MaterialTheme.colorScheme.onBackground
 					)
 				}
 			)
@@ -85,7 +90,6 @@ fun TemperatureLayout() {
 					CalculateField(
 						inputContent = {
 							InputNumberField(
-								modifier = Modifier.fillMaxWidth(),
 								placeholder = temperatureDataSource.placeholderCelsius,
 								label = temperatureDataSource.labelCelsius,
 								value = inputTemperature,
@@ -99,13 +103,11 @@ fun TemperatureLayout() {
 						color = color,
 						calculateContent = {
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = temperatureDataSource.calculatedTextFahrenheit,
 								calculatedValue = fahrenheit,
 								color = color
 							)
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = temperatureDataSource.calculatedTextKelvin,
 								calculatedValue = kelvinCelsius,
 								color = color
@@ -118,7 +120,6 @@ fun TemperatureLayout() {
 					CalculateField(
 						inputContent = {
 							InputNumberField(
-								modifier = Modifier.fillMaxWidth(),
 								placeholder = temperatureDataSource.placeholderFahrenheit,
 								label = temperatureDataSource.labelFahrenheit,
 								value = inputTemperature,
@@ -132,13 +133,11 @@ fun TemperatureLayout() {
 						color = color,
 						calculateContent = {
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = temperatureDataSource.calculatedTextCelsius,
 								calculatedValue = celsius,
 								color = color
 							)
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = temperatureDataSource.calculatedTextKelvin,
 								calculatedValue = kelvinFahrenheit,
 								color = color

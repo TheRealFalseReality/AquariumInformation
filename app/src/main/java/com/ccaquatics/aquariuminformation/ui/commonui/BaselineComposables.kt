@@ -171,7 +171,7 @@ fun RadioText(
 	@StringRes text: Int,
 	color: Color = MaterialTheme.colorScheme.onBackground,
 	style: TextStyle = MaterialTheme.typography.titleMedium,
-	textAlign: TextAlign = TextAlign.Start
+	textAlign: TextAlign = TextAlign.Start,
 ) {
 	Column(modifier = modifier) {
 		Text(

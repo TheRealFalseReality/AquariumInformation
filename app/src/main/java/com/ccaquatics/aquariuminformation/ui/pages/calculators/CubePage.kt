@@ -3,7 +3,6 @@ package com.ccaquatics.aquariuminformation.ui.pages.calculators
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -16,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.data.calculators.calculatorDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.cubeDataSource
+import com.ccaquatics.aquariuminformation.data.calculators.hexagonalDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.rectangleDataSource
 import com.ccaquatics.aquariuminformation.navigation.Cube
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
@@ -70,7 +70,10 @@ fun CubeLayout(
 						text = cubeDataSource.radioTextFeet,
 						onClick = { selected = cubeDataSource.radioTextFeet },
 						selected = selected,
-						selectedColor = color
+						selectedColor = color,
+						textColor =
+						if (selected == hexagonalDataSource.radioTextFeet) color
+						else MaterialTheme.colorScheme.onBackground
 					)
 					RadioButtonComp(
 						modifier = Modifier
@@ -78,7 +81,10 @@ fun CubeLayout(
 						text = cubeDataSource.radioTextInches,
 						onClick = { selected = cubeDataSource.radioTextInches },
 						selected = selected,
-						selectedColor = color
+						selectedColor = color,
+						textColor =
+						if (selected == hexagonalDataSource.radioTextInches) color
+						else MaterialTheme.colorScheme.onBackground
 					)
 				},
 				contentColor = color,
@@ -102,19 +108,16 @@ fun CubeLayout(
 					when (selected) {
 						cubeDataSource.radioTextFeet -> {
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = rectangleDataSource.calculatedTextGallons,
 								calculatedValue = volGallonFT,
 								color = color
 							)
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = rectangleDataSource.calculatedTextLiters,
 								calculatedValue = volLiterFT,
 								color = color
 							)
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = rectangleDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeightFT,
 								color = color
@@ -123,19 +126,16 @@ fun CubeLayout(
 
 						cubeDataSource.radioTextInches -> {
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = rectangleDataSource.calculatedTextGallons,
 								calculatedValue = volGallon,
 								color = color
 							)
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = rectangleDataSource.calculatedTextLiters,
 								calculatedValue = volLiter,
 								color = color
 							)
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = rectangleDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeight,
 								color = color

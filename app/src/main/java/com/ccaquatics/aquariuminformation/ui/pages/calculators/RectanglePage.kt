@@ -3,7 +3,6 @@ package com.ccaquatics.aquariuminformation.ui.pages.calculators
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -77,7 +76,10 @@ fun RectangleLayout(
 						text = rectangleDataSource.radioTextFeet,
 						onClick = { selected = rectangleDataSource.radioTextFeet },
 						selected = selected,
-						selectedColor = color
+						selectedColor = color,
+						textColor =
+						if (selected == rectangleDataSource.radioTextFeet) color
+						else MaterialTheme.colorScheme.onBackground
 					)
 					RadioButtonComp(
 						modifier = Modifier
@@ -85,7 +87,10 @@ fun RectangleLayout(
 						text = rectangleDataSource.radioTextInches,
 						onClick = { selected = rectangleDataSource.radioTextInches },
 						selected = selected,
-						selectedColor = color
+						selectedColor = color,
+						textColor =
+						if (selected == rectangleDataSource.radioTextInches) color
+						else MaterialTheme.colorScheme.onBackground
 					)
 				},
 				contentColor = color,
@@ -120,19 +125,16 @@ fun RectangleLayout(
 					when (selected) {
 						rectangleDataSource.radioTextFeet -> {
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = rectangleDataSource.calculatedTextGallons,
 								calculatedValue = volGallonFT,
 								color = color
 							)
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = rectangleDataSource.calculatedTextLiters,
 								calculatedValue = volLiterFT,
 								color = color
 							)
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = rectangleDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeightFT,
 								color = color
@@ -141,19 +143,16 @@ fun RectangleLayout(
 
 						rectangleDataSource.radioTextInches -> {
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = rectangleDataSource.calculatedTextGallons,
 								calculatedValue = volGallon,
 								color = color
 							)
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = rectangleDataSource.calculatedTextLiters,
 								calculatedValue = volLiter,
 								color = color
 							)
 							CalculatedText(
-								modifier = Modifier.fillMaxWidth(),
 								text = rectangleDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeight,
 								color = color

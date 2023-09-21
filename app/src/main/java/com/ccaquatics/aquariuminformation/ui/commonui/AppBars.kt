@@ -104,9 +104,11 @@ fun BottomNavBar(
 				onClick = { onTabSelected(screen) },
 				icon = {
 					Icon(
-						painter = if (currentScreen != screen) painterResource(id = screen.icon)
-									else painterResource(id = screen.iconFilled),
+						painter =
+						if (currentScreen != screen) painterResource(id = screen.icon)
+						else painterResource(id = screen.iconFilled),
 						stringResource(id = screen.title),
+
 						modifier = Modifier
 							.size(dimensionResource(id = R.dimen.icon_size_verySmall)),
 					)
