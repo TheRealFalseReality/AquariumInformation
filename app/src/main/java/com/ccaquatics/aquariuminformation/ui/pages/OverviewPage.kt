@@ -1,20 +1,13 @@
 package com.ccaquatics.aquariuminformation.ui.pages
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.ccaquatics.aquariuminformation.R
@@ -37,7 +30,8 @@ import com.ccaquatics.aquariuminformation.ui.commonui.NavButton
 import com.ccaquatics.aquariuminformation.ui.commonui.NavButtonRow
 import com.ccaquatics.aquariuminformation.ui.commonui.NavButtonWide
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
-import com.ccaquatics.aquariuminformation.ui.commonui.TitleWideCard
+import com.ccaquatics.aquariuminformation.ui.commonui.PageViewCenter
+import com.ccaquatics.aquariuminformation.ui.commonui.TitleWideContent
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @Composable
@@ -63,7 +57,6 @@ fun OverviewPage(
 
 @Composable
 fun OverviewLayout(
-	modifier: Modifier = Modifier,
 	onClickTemperature: () -> Unit,
 	onClickCo2: () -> Unit,
 	onClickSalinity: () -> Unit,
@@ -71,25 +64,18 @@ fun OverviewLayout(
 	onClickVolume: () -> Unit,
 	onClickFish: () -> Unit,
 ) {
-	Column(
-		modifier = modifier,
-	) {
-		OverviewGenericLayout {
-			ConvertersGrid(
-				onClickTemperature = onClickTemperature,
-//				onClickCo2 = onClickCo2,
-				onClickSalinity = onClickSalinity,
-				onClickAlkalinity = onClickAlkalinity
-			)
-			CalculatorsGrid(
-				onClickVolume = onClickVolume,
-				onClickCo2 = onClickCo2,
-			)
-			FishCompatability(
-				onClickFish = onClickFish,
-			)
-		}
-	}
+	ConvertersGrid(
+		onClickTemperature = onClickTemperature,
+		onClickSalinity = onClickSalinity,
+		onClickAlkalinity = onClickAlkalinity
+	)
+	CalculatorsGrid(
+		onClickVolume = onClickVolume,
+		onClickCo2 = onClickCo2,
+	)
+	FishCompatability(
+		onClickFish = onClickFish,
+	)
 }
 
 @Composable
@@ -97,15 +83,13 @@ fun ConvertersOverviewPage(
 	onClickTemperature: () -> Unit,
 	onClickSalinity: () -> Unit,
 	onClickAlkalinity: () -> Unit,
-){
-	PageView {
-		OverviewGenericLayout {
-			ConvertersGrid(
-				onClickTemperature = onClickTemperature,
-				onClickSalinity = onClickSalinity,
-				onClickAlkalinity = onClickAlkalinity
-			)
-		}
+) {
+	PageViewCenter {
+		ConvertersGrid(
+			onClickTemperature = onClickTemperature,
+			onClickSalinity = onClickSalinity,
+			onClickAlkalinity = onClickAlkalinity
+		)
 	}
 }
 
@@ -113,53 +97,31 @@ fun ConvertersOverviewPage(
 fun CalculatorsOverviewPage(
 	onClickVolume: () -> Unit,
 	onClickCo2: () -> Unit,
-){
-	PageView {
-		OverviewGenericLayout {
-			CalculatorsGrid(
-				onClickVolume = onClickVolume,
-				onClickCo2 = onClickCo2,
-			)
-		}
+) {
+	PageViewCenter {
+		CalculatorsGrid(
+			onClickVolume = onClickVolume,
+			onClickCo2 = onClickCo2,
+		)
 	}
 }
 
 @Composable
 fun TankVolumeOverviewPage(
-	onClickRectangle: () -> Unit,
-	onClickCube: () -> Unit,
-	onClickCylinder: () -> Unit,
-	onClickHexagonal: () -> Unit,
-	onClickBowFront: () -> Unit,
+	onClickRectangle: () -> Unit = {},
+	onClickCube: () -> Unit = {},
+	onClickCylinder: () -> Unit = {},
+	onClickHexagonal: () -> Unit = {},
+	onClickBowFront: () -> Unit = {},
 ) {
-	PageView {
-		OverviewGenericLayout {
-			TankVolumeGrid(
-				onClickRectangle = onClickRectangle,
-				onClickCube = onClickCube,
-				onClickCylinder = onClickCylinder,
-				onClickHexagonal = onClickHexagonal,
-				onClickBowFront = onClickBowFront
-			)
-
-		}
-	}
-}
-
-@Composable
-fun OverviewGenericLayout(
-	modifier: Modifier = Modifier,
-	content: @Composable ColumnScope.() -> Unit,
-) {
-	Column(modifier = modifier) {
-		Column(
-			modifier = Modifier.fillMaxSize(),
-			verticalArrangement = Arrangement.SpaceEvenly,
-			horizontalAlignment = Alignment.CenterHorizontally
-		) {
-//			HeaderTextLarge(text = "Tap to Choose")
-			content()
-		}
+	PageViewCenter {
+		TankVolumeGrid(
+			onClickRectangle = onClickRectangle,
+			onClickCube = onClickCube,
+			onClickCylinder = onClickCylinder,
+			onClickHexagonal = onClickHexagonal,
+			onClickBowFront = onClickBowFront
+		)
 	}
 }
 
@@ -171,10 +133,8 @@ fun ConvertersGrid(
 	onClickSalinity: () -> Unit,
 	onClickAlkalinity: () -> Unit,
 ) {
-	Column(
-		modifier = modifier,
-	) {
-		TitleWideCard(
+	Column(modifier = modifier) {
+		TitleWideContent(
 			text = Converters.title,
 			color = color,
 			icon = Converters.icon
@@ -200,29 +160,33 @@ fun ConvertersGrid(
 
 @Composable
 fun CalculatorsGrid(
+	modifier: Modifier = Modifier,
 	color: Color = MaterialTheme.colorScheme.secondary,
 	onClickVolume: () -> Unit,
 	onClickCo2: () -> Unit,
 ) {
-	TitleWideCard(
-		text = Calculators.title,
-		color = color,
-		icon = Calculators.icon
-	) {
-		NavButtonRow(
-			title1 = TankVolume.title,
-			icon1 = TankVolume.icon,
-			title2 = CarbonDioxide.title,
-			icon2 = CarbonDioxide.icon,
-			contentColor = color,
-			onClick1 = onClickVolume,
-			onClick2 = onClickCo2,
-		)
+	Column(modifier = modifier) {
+		TitleWideContent(
+			text = Calculators.title,
+			color = color,
+			icon = Calculators.icon
+		) {
+			NavButtonRow(
+				title1 = TankVolume.title,
+				icon1 = TankVolume.icon,
+				title2 = CarbonDioxide.title,
+				icon2 = CarbonDioxide.icon,
+				contentColor = color,
+				onClick1 = onClickVolume,
+				onClick2 = onClickCo2,
+			)
+		}
 	}
 }
 
 @Composable
 fun TankVolumeGrid(
+	modifier: Modifier = Modifier,
 	color: Color = MaterialTheme.colorScheme.secondary,
 	onClickRectangle: () -> Unit,
 	onClickCube: () -> Unit,
@@ -230,58 +194,63 @@ fun TankVolumeGrid(
 	onClickHexagonal: () -> Unit,
 	onClickBowFront: () -> Unit,
 ) {
-	TitleWideCard(
-		text = TankVolume.title,
-		icon = TankVolume.icon,
-		color = color
-	) {
-		NavButtonRow(
-			title1 = Rectangle.title,
-			icon1 = Rectangle.icon,
-			title2 = Cube.title,
-			icon2 = Cube.icon,
-			onClick1 = onClickRectangle,
-			onClick2 = onClickCube,
-			contentColor = color
-		)
-		NavButtonRow(
-			title1 = Cylinder.title,
-			icon1 = Cylinder.icon,
-			title2 = Hexagonal.title,
-			icon2 = Hexagonal.icon,
-			onClick1 = onClickCylinder,
-			onClick2 = onClickHexagonal,
-			contentColor = color
-		)
-		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
-		NavButton(
-			modifier = Modifier
-				.fillMaxWidth(fraction = 0.9f),
-			title = BowFront.title,
-			icon = BowFront.icon,
-			onClick = onClickBowFront,
-			contentColor = color
-		)
+	Column(modifier = modifier) {
+		TitleWideContent(
+			text = TankVolume.title,
+			icon = TankVolume.icon,
+			color = color
+		) {
+			NavButtonRow(
+				title1 = Rectangle.title,
+				icon1 = Rectangle.icon,
+				title2 = Cube.title,
+				icon2 = Cube.icon,
+				onClick1 = onClickRectangle,
+				onClick2 = onClickCube,
+				contentColor = color
+			)
+			NavButtonRow(
+				title1 = Cylinder.title,
+				icon1 = Cylinder.icon,
+				title2 = Hexagonal.title,
+				icon2 = Hexagonal.icon,
+				onClick1 = onClickCylinder,
+				onClick2 = onClickHexagonal,
+				contentColor = color
+			)
+			NavButton(
+				modifier = Modifier
+					.fillMaxWidth(fraction = 0.9f),
+				title = BowFront.title,
+				icon = BowFront.icon,
+				onClick = onClickBowFront,
+				contentColor = color
+			)
+		}
 	}
 }
 
 @Composable
 fun FishCompatability(
+	modifier: Modifier = Modifier,
 	color: Color = MaterialTheme.colorScheme.tertiary,
 	onClickFish: () -> Unit = {},
 ) {
-	TitleWideCard(
-		text = FishCompatability.title,
-		color = color,
-		icon = R.drawable.ic_fish_2
-	) {
-		NavButtonWide(
-			title = R.string.text_welcome_compatibility_title,
-			icon = FishCompatability.icon,
-			contentColor = color,
-			onClick = onClickFish,
-		)
+	Column(modifier) {
+		TitleWideContent(
+			text = FishCompatability.title,
+			color = color,
+			icon = R.drawable.ic_fish_2
+		) {
+			NavButtonWide(
+				title = R.string.text_welcome_compatibility_title,
+				icon = FishCompatability.icon,
+				contentColor = color,
+				onClick = onClickFish,
+			)
+		}
 	}
+
 }
 
 @Composable
@@ -293,40 +262,13 @@ fun ConvertersNavHostScreen() {
 }
 
 @Composable
-/* TODO Add Tank Volumes ALL */
+		/* TODO Add Tank Volumes ALL */
 fun CalculatorsNavHostScreen() {
 	val navController = rememberNavController()
 	Surface {
 		CalculatorsNavHost(navController = navController)
 	}
 }
-
-//@Preview(showBackground = true)
-//@Composable
-//fun TankVolumePreview() {
-//	AquariumInformationTheme {
-//		Column(
-//			modifier = Modifier
-//				.background(color = MaterialTheme.colorScheme.background)
-//		) {
-//			TankVolumeOverviewPage()
-//		}
-//	}
-//}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun TankVolumePreviewDark(
-//) {
-//	AquariumInformationTheme(useDarkTheme = true) {
-//		Column(
-//			modifier = Modifier
-//				.background(color = MaterialTheme.colorScheme.background)
-//		) {
-//			TankVolumeOverviewPage()
-//		}
-//	}
-//}
 
 @Preview(showBackground = true)
 @Composable
@@ -351,6 +293,33 @@ fun OverviewPreviewDark(
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
 			OverviewPage()
+		}
+	}
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TankVolumePreview() {
+	AquariumInformationTheme {
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.background)
+		) {
+			TankVolumeOverviewPage()
+		}
+	}
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TankVolumePreviewDark(
+) {
+	AquariumInformationTheme(useDarkTheme = true) {
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.background)
+		) {
+			TankVolumeOverviewPage()
 		}
 	}
 }

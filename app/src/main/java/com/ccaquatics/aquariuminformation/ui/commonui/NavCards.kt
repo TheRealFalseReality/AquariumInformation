@@ -6,16 +6,14 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,9 +21,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import com.ccaquatics.aquariuminformation.ui.theme.Shapes
@@ -60,113 +56,114 @@ fun NavButton(
 			verticalArrangement = Arrangement.Center,
 			horizontalAlignment = Alignment.CenterHorizontally,
 		) {
-			Text(
-				text = stringResource(id = title),
+			BodyText(
+				text = title,
 			)
 			Icon(
 				painter = painterResource(id = icon),
 				contentDescription = null,
 				modifier = Modifier
+					.size(dimensionResource(id = R.dimen.icon_size_small))
 					.padding(top = dimensionResource(id = R.dimen.padding_small)),
 			)
 		}
 	}
 }
 
-@Composable
-fun NavButtonTopLeft(
-	title: Int,
-	icon: Int,
-	onClick: () -> Unit,
-) {
-	NavButton(
-		title = title,
-		icon = icon,
-		onClick = onClick,
-		shape = RoundedCornerShape(
-			bottomStart = 12.dp,
-			bottomEnd = 12.dp,
-			topStart = 0.dp,
-			topEnd = 12.dp,
-		),
-	)
-}
-
-@Composable
-fun NavButtonTopRight(
-	title: Int,
-	icon: Int,
-	onClick: () -> Unit,
-) {
-	NavButton(
-		title = title,
-		icon = icon,
-		onClick = onClick,
-		shape = RoundedCornerShape(
-			bottomStart = 12.dp,
-			bottomEnd = 12.dp,
-			topStart = 12.dp,
-			topEnd = 0.dp,
-		),
-	)
-}
-
-@Composable
-fun NavButtonMid(
-	title: Int,
-	icon: Int,
-	onClick: () -> Unit,
-) {
-	NavButton(
-		title = title,
-		icon = icon,
-		onClick = onClick,
-		shape = RoundedCornerShape(
-			bottomStart = 12.dp,
-			bottomEnd = 12.dp,
-			topStart = 12.dp,
-			topEnd = 12.dp,
-		),
-	)
-}
-
-@Composable
-fun NavButtonBottomRight(
-	title: Int,
-	icon: Int,
-	onClick: () -> Unit,
-) {
-	NavButton(
-		title = title,
-		icon = icon,
-		onClick = onClick,
-		shape = RoundedCornerShape(
-			bottomStart = 12.dp,
-			bottomEnd = 12.dp,
-			topStart = 12.dp,
-			topEnd = 0.dp,
-		),
-	)
-}
-
-@Composable
-fun NavButtonBottomLeft(
-	title: Int,
-	icon: Int,
-	onClick: () -> Unit,
-) {
-	NavButton(
-		title = title,
-		icon = icon,
-		onClick = onClick,
-		shape = RoundedCornerShape(
-			bottomStart = 12.dp,
-			bottomEnd = 12.dp,
-			topStart = 12.dp,
-			topEnd = 0.dp,
-		),
-	)
-}
+//@Composable
+//fun NavButtonTopLeft(
+//	title: Int,
+//	icon: Int,
+//	onClick: () -> Unit,
+//) {
+//	NavButton(
+//		title = title,
+//		icon = icon,
+//		onClick = onClick,
+//		shape = RoundedCornerShape(
+//			bottomStart = 12.dp,
+//			bottomEnd = 12.dp,
+//			topStart = 0.dp,
+//			topEnd = 12.dp,
+//		),
+//	)
+//}
+//
+//@Composable
+//fun NavButtonTopRight(
+//	title: Int,
+//	icon: Int,
+//	onClick: () -> Unit,
+//) {
+//	NavButton(
+//		title = title,
+//		icon = icon,
+//		onClick = onClick,
+//		shape = RoundedCornerShape(
+//			bottomStart = 12.dp,
+//			bottomEnd = 12.dp,
+//			topStart = 12.dp,
+//			topEnd = 0.dp,
+//		),
+//	)
+//}
+//
+//@Composable
+//fun NavButtonMid(
+//	title: Int,
+//	icon: Int,
+//	onClick: () -> Unit,
+//) {
+//	NavButton(
+//		title = title,
+//		icon = icon,
+//		onClick = onClick,
+//		shape = RoundedCornerShape(
+//			bottomStart = 12.dp,
+//			bottomEnd = 12.dp,
+//			topStart = 12.dp,
+//			topEnd = 12.dp,
+//		),
+//	)
+//}
+//
+//@Composable
+//fun NavButtonBottomRight(
+//	title: Int,
+//	icon: Int,
+//	onClick: () -> Unit,
+//) {
+//	NavButton(
+//		title = title,
+//		icon = icon,
+//		onClick = onClick,
+//		shape = RoundedCornerShape(
+//			bottomStart = 12.dp,
+//			bottomEnd = 12.dp,
+//			topStart = 12.dp,
+//			topEnd = 0.dp,
+//		),
+//	)
+//}
+//
+//@Composable
+//fun NavButtonBottomLeft(
+//	title: Int,
+//	icon: Int,
+//	onClick: () -> Unit,
+//) {
+//	NavButton(
+//		title = title,
+//		icon = icon,
+//		onClick = onClick,
+//		shape = RoundedCornerShape(
+//			bottomStart = 12.dp,
+//			bottomEnd = 12.dp,
+//			topStart = 12.dp,
+//			topEnd = 0.dp,
+//		),
+//	)
+//}
 
 @Composable
 fun NavButtonWide(
@@ -178,94 +175,71 @@ fun NavButtonWide(
 	@DrawableRes icon: Int,
 	onClick: () -> Unit,
 ) {
-	Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
-	Button(
+	NavButton(
 		modifier = modifier
 			.fillMaxWidth(fraction = 0.9f),
+		title = title,
+		icon = icon,
 		onClick = onClick,
 		shape = shape,
-		colors = ButtonDefaults.buttonColors(
-			containerColor = containerColor,
-			contentColor = contentColor,
-		),
-		elevation = ButtonDefaults.buttonElevation(
-			defaultElevation = dimensionResource(id = R.dimen.elevation_large),
-			pressedElevation = dimensionResource(id = R.dimen.elevation_small)
-		)
-	) {
-		Column(
-			modifier = Modifier
-				.padding(dimensionResource(id = R.dimen.padding_small))
-				.height(dimensionResource(id = R.dimen.button_height_medium)),
-			verticalArrangement = Arrangement.Center,
-			horizontalAlignment = Alignment.CenterHorizontally,
-		) {
-			Text(
-				text = stringResource(id = title),
-			)
-			Icon(
-				painter = painterResource(id = icon),
-				contentDescription = null,
-				modifier = Modifier
-					.padding(top = dimensionResource(id = R.dimen.padding_small)),
-			)
-		}
-	}
-	Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+		containerColor = containerColor,
+		contentColor = contentColor,
+	)
+	MediumSpacer()
 }
 
 
-@Composable
-fun NavRowButton(
-	modifier: Modifier = Modifier,
-	shape: Shape = Shapes.large,
-	containerColor: Color = MaterialTheme.colorScheme.background,
-	contentColor: Color = MaterialTheme.colorScheme.onBackground,
-	@StringRes title: Int,
-	@DrawableRes icon: Int,
-	onClick: () -> Unit
-) {
-	Row(
-		modifier = modifier
-	) {
-		Button(
-			modifier = Modifier
-				.fillMaxWidth(fraction = 0.9f)
-				.padding(
-					top = dimensionResource(id = R.dimen.padding_small),
-					bottom = dimensionResource(id = R.dimen.padding_small),
-					end = dimensionResource(id = R.dimen.padding_small),
-				),
-			onClick = onClick,
-			shape = shape,
-			colors = ButtonDefaults.buttonColors(
-				containerColor = containerColor,
-				contentColor = contentColor,
-			),
-			elevation = ButtonDefaults.buttonElevation(
-				defaultElevation = dimensionResource(id = R.dimen.elevation_large),
-				pressedElevation = dimensionResource(id = R.dimen.elevation_small)
-			)
-		) {
-			Row(
-				modifier = Modifier
-					.padding(dimensionResource(id = R.dimen.padding_small))
-					.height(dimensionResource(id = R.dimen.button_height_medium)),
-				verticalAlignment = Alignment.CenterVertically
-			) {
-				Icon(
-					modifier = Modifier
-						.padding(end = dimensionResource(id = R.dimen.padding_small)),
-					painter = painterResource(id = icon),
-					contentDescription = null
-				)
-				Text(
-					text = stringResource(id = title)
-				)
-			}
-		}
-	}
-}
+//@Composable
+//fun NavRowButton(
+//	modifier: Modifier = Modifier,
+//	shape: Shape = Shapes.large,
+//	containerColor: Color = MaterialTheme.colorScheme.background,
+//	contentColor: Color = MaterialTheme.colorScheme.onBackground,
+//	@StringRes title: Int,
+//	@DrawableRes icon: Int,
+//	onClick: () -> Unit
+//) {
+//	Row(
+//		modifier = modifier
+//	) {
+//		Button(
+//			modifier = Modifier
+//				.fillMaxWidth(fraction = 0.9f)
+//				.padding(
+//					top = dimensionResource(id = R.dimen.padding_small),
+//					bottom = dimensionResource(id = R.dimen.padding_small),
+//					end = dimensionResource(id = R.dimen.padding_small),
+//				),
+//			onClick = onClick,
+//			shape = shape,
+//			colors = ButtonDefaults.buttonColors(
+//				containerColor = containerColor,
+//				contentColor = contentColor,
+//			),
+//			elevation = ButtonDefaults.buttonElevation(
+//				defaultElevation = dimensionResource(id = R.dimen.elevation_large),
+//				pressedElevation = dimensionResource(id = R.dimen.elevation_small)
+//			)
+//		) {
+//			Row(
+//				modifier = Modifier
+//					.padding(dimensionResource(id = R.dimen.padding_small))
+//					.height(dimensionResource(id = R.dimen.button_height_medium)),
+//				verticalAlignment = Alignment.CenterVertically
+//			) {
+//				Icon(
+//					modifier = Modifier
+//						.padding(end = dimensionResource(id = R.dimen.padding_small)),
+//					painter = painterResource(id = icon),
+//					contentDescription = null
+//				)
+//				Text(
+//					text = stringResource(id = title)
+//				)
+//			}
+//		}
+//	}
+//}
 
 @Composable
 fun NavButtonRow(
@@ -287,8 +261,6 @@ fun NavButtonRow(
 				.weight(1f)
 				.fillMaxWidth(fraction = 0.9f)
 				.padding(
-					top = dimensionResource(id = R.dimen.padding_small),
-					bottom = dimensionResource(id = R.dimen.padding_small),
 					end = dimensionResource(id = R.dimen.padding_small),
 				),
 			title = title1,
@@ -301,8 +273,6 @@ fun NavButtonRow(
 			modifier = Modifier
 				.weight(1f)
 				.padding(
-					top = dimensionResource(id = R.dimen.padding_small),
-					bottom = dimensionResource(id = R.dimen.padding_small),
 					start = dimensionResource(id = R.dimen.padding_small),
 				),
 			title = title2,
@@ -312,6 +282,7 @@ fun NavButtonRow(
 			onClick = onClick2
 		)
 	}
+	MediumSpacer()
 }
 
 
@@ -323,7 +294,7 @@ fun NavRowButtonPreview() {
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
-			NavRowButton(
+			NavButtonWide(
 				title = R.string.converters,
 				icon = R.drawable.baseline_home_24,
 				onClick = {}
@@ -341,7 +312,7 @@ fun NavRowButtonPreviewDark(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
-			NavRowButton(
+			NavButtonWide(
 				title = R.string.converters,
 				icon = R.drawable.baseline_home_24,
 				onClick = {}

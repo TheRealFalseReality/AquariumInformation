@@ -14,11 +14,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.data.calculators.carbonDioxideDataSource
 import com.ccaquatics.aquariuminformation.navigation.CarbonDioxide
-import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
-import com.ccaquatics.aquariuminformation.ui.commonui.GenericPage
+import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.TextCard
@@ -36,7 +35,6 @@ fun CarbonDioxidePage() {
 
 @Composable
 fun CarbonDioxideLayout(
-	modifier: Modifier = Modifier,
 	color: Color = MaterialTheme.colorScheme.secondary
 ) {
 	var inputPH by rememberSaveable {
@@ -49,60 +47,53 @@ fun CarbonDioxideLayout(
 	val dkh = inputDKH.toDoubleOrNull() ?: 0.0
 	val co2 = calculateCarbonDioxide(ph, dkh).toDoubleOrNull() ?: 0.0
 
-	Column(modifier = modifier) {
-		GenericPage(
-			title = CarbonDioxide.title,
-			subtitle = carbonDioxideDataSource.subtitle,
-			icon = CarbonDioxide.icon,
-			color = color,
-			selectContent = {
-				TextCard(
-					text = carbonDioxideDataSource.unitsLabel,
-					contentColor = color
-				)
-			},
-			calculateFieldContent = {
-				CalculateFieldTwoInputs(
-					inputContent = {
-						InputNumberFieldTwoInputs(
-							label1 = carbonDioxideDataSource.labelPh,
-							placeholder1 = carbonDioxideDataSource.placeholderPh,
-							label2 = carbonDioxideDataSource.labelDkh,
-							placeholder2 = carbonDioxideDataSource.placeholderDkh,
-							value1 = inputPH,
-							onValueChange1 = { inputPH = it },
-							value2 = inputDKH,
-							onValueChange2 = { inputDKH = it },
-							color = color,
-						)
-					},
-					inputText = carbonDioxideDataSource.inputText,
-					inputValue1 = inputPH,
-					inputValue2 = inputDKH,
-					equalsText = carbonDioxideDataSource.equalsText,
-					color = color,
-					calculateContent = {
-						CalculatedText(
-							text = carbonDioxideDataSource.calculatedText,
-							calculatedValue = co2,
-							color = color,
-						)
-					}
-				)
-			},
-			formulaContent = {
-				FormulaString(
-					color = color,
-					content = {
-						BodyTextCard(
-							text = carbonDioxideDataSource.formulaText,
-							color = color
-						)
-					}
-				)
-			}
-		)
-	}
+	GenericCalculatePage(
+		title = CarbonDioxide.title,
+		subtitle = carbonDioxideDataSource.subtitle,
+		icon = CarbonDioxide.icon,
+		color = color,
+		selectContent = {
+			TextCard(
+				text = carbonDioxideDataSource.unitsLabel,
+				contentColor = color
+			)
+		},
+		calculateFieldContent = {
+			CalculateFieldTwoInputs(
+				inputContent = {
+					InputNumberFieldTwoInputs(
+						label1 = carbonDioxideDataSource.labelPh,
+						placeholder1 = carbonDioxideDataSource.placeholderPh,
+						label2 = carbonDioxideDataSource.labelDkh,
+						placeholder2 = carbonDioxideDataSource.placeholderDkh,
+						value1 = inputPH,
+						onValueChange1 = { inputPH = it },
+						value2 = inputDKH,
+						onValueChange2 = { inputDKH = it },
+						color = color,
+					)
+				},
+				inputText = carbonDioxideDataSource.inputText,
+				inputValue1 = inputPH,
+				inputValue2 = inputDKH,
+				equalsText = carbonDioxideDataSource.equalsText,
+				color = color,
+				calculateContent = {
+					CalculatedText(
+						text = carbonDioxideDataSource.calculatedText,
+						calculatedValue = co2,
+						color = color,
+					)
+				}
+			)
+		},
+		formulaContent = {
+			FormulaString(
+				color = color,
+				text = carbonDioxideDataSource.formulaText,
+			)
+		}
+	)
 }
 
 @VisibleForTesting

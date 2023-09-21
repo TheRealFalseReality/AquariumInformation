@@ -18,12 +18,11 @@ import com.ccaquatics.aquariuminformation.data.calculators.calculatorDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.cubeDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.rectangleDataSource
 import com.ccaquatics.aquariuminformation.navigation.Cube
-import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateImage
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
-import com.ccaquatics.aquariuminformation.ui.commonui.GenericPage
+import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
@@ -41,7 +40,6 @@ fun CubePage() {
 
 @Composable
 fun CubeLayout(
-	modifier: Modifier = Modifier,
 	color: Color = MaterialTheme.colorScheme.secondary
 ) {
 	var inputSide by rememberSaveable {
@@ -58,114 +56,110 @@ fun CubeLayout(
 	val volLiterFT = calculateVolLiterFTCube(side).toDoubleOrNull() ?: 0.0
 	val waterWeightFT = calculateWaterWeightFTCube(side).toDoubleOrNull() ?: 0.0
 
-	Column(modifier = modifier) {
-		GenericPage(
-			title = Cube.title,
-			subtitle = calculatorDataSource.subtitle,
-			icon = Cube.icon,
-			color = color,
-			selectContent = {
-				UnitButtonCard(
-					content = {
-						RadioButtonComp(
-							modifier = Modifier
-								.weight(1f),
-							text = cubeDataSource.radioTextFeet,
-							onClick = { selected = cubeDataSource.radioTextFeet },
-							selected = selected,
-							selectedColor = color
-						)
-						RadioButtonComp(
-							modifier = Modifier
-								.weight(1f),
-							text = cubeDataSource.radioTextInches,
-							onClick = { selected = cubeDataSource.radioTextInches },
-							selected = selected,
-							selectedColor = color
-						)
-					},
-					contentColor = color,
-				)
-			},
-			calculateFieldContent = {
-				CalculateField(
-					inputContent = {
-						InputNumberField(
-							label = cubeDataSource.labelSide,
-							placeholder = cubeDataSource.placeholderSide,
-							value = inputSide,
-							onValueChange = { inputSide = it },
-							color = color,
-						)
-					},
-					inputText = cubeDataSource.inputText,
-					inputValue = inputSide,
-					equalsText = cubeDataSource.equalsText,
-					calculateContent = {
-						when (selected) {
-							cubeDataSource.radioTextFeet -> {
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = rectangleDataSource.calculatedTextGallons,
-									calculatedValue = volGallonFT,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = rectangleDataSource.calculatedTextLiters,
-									calculatedValue = volLiterFT,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = rectangleDataSource.calculatedTextWaterWeight,
-									calculatedValue = waterWeightFT,
-									color = color
-								)
-							}
-
-							cubeDataSource.radioTextInches -> {
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = rectangleDataSource.calculatedTextGallons,
-									calculatedValue = volGallon,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = rectangleDataSource.calculatedTextLiters,
-									calculatedValue = volLiter,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = rectangleDataSource.calculatedTextWaterWeight,
-									calculatedValue = waterWeight,
-									color = color
-								)
-							}
+	GenericCalculatePage(
+		title = Cube.title,
+		subtitle = calculatorDataSource.subtitle,
+		icon = Cube.icon,
+		color = color,
+		selectContent = {
+			UnitButtonCard(
+				content = {
+					RadioButtonComp(
+						modifier = Modifier
+							.weight(1f),
+						text = cubeDataSource.radioTextFeet,
+						onClick = { selected = cubeDataSource.radioTextFeet },
+						selected = selected,
+						selectedColor = color
+					)
+					RadioButtonComp(
+						modifier = Modifier
+							.weight(1f),
+						text = cubeDataSource.radioTextInches,
+						onClick = { selected = cubeDataSource.radioTextInches },
+						selected = selected,
+						selectedColor = color
+					)
+				},
+				contentColor = color,
+			)
+		},
+		calculateFieldContent = {
+			CalculateField(
+				inputContent = {
+					InputNumberField(
+						label = cubeDataSource.labelSide,
+						placeholder = cubeDataSource.placeholderSide,
+						value = inputSide,
+						onValueChange = { inputSide = it },
+						color = color,
+					)
+				},
+				inputText = cubeDataSource.inputText,
+				inputValue = inputSide,
+				equalsText = cubeDataSource.equalsText,
+				calculateContent = {
+					when (selected) {
+						cubeDataSource.radioTextFeet -> {
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = rectangleDataSource.calculatedTextGallons,
+								calculatedValue = volGallonFT,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = rectangleDataSource.calculatedTextLiters,
+								calculatedValue = volLiterFT,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = rectangleDataSource.calculatedTextWaterWeight,
+								calculatedValue = waterWeightFT,
+								color = color
+							)
 						}
-					},
-					color = color,
-				)
-			},
-			imageContent = {
-				CalculateImage(
-					painter = cubeDataSource.image,
-					contentDescription = Cube.title,
-					colorFilter = color
-				)
-			},
-			formulaContent = {
-				FormulaString(
-					content = {
-						BodyTextCard(text = cubeDataSource.formulaText)
-					},
-					color = color,
-				)
-			}
-		)
-	}
+
+						cubeDataSource.radioTextInches -> {
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = rectangleDataSource.calculatedTextGallons,
+								calculatedValue = volGallon,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = rectangleDataSource.calculatedTextLiters,
+								calculatedValue = volLiter,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = rectangleDataSource.calculatedTextWaterWeight,
+								calculatedValue = waterWeight,
+								color = color
+							)
+						}
+					}
+				},
+				color = color,
+			)
+		},
+		imageContent = {
+			CalculateImage(
+				painter = cubeDataSource.image,
+				contentDescription = Cube.title,
+				colorFilter = color
+			)
+		},
+		formulaContent = {
+			FormulaString(
+				text = cubeDataSource.formulaText,
+				color = color,
+			)
+		}
+	)
 }
 
 @VisibleForTesting

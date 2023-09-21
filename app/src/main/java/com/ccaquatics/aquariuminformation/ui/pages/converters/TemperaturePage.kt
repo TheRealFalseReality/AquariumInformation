@@ -16,11 +16,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.data.converters.temperatureDataSource
 import com.ccaquatics.aquariuminformation.navigation.Temperature
-import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
+import com.ccaquatics.aquariuminformation.ui.commonui.BodyText
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
-import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
-import com.ccaquatics.aquariuminformation.ui.commonui.GenericPage
+import com.ccaquatics.aquariuminformation.ui.commonui.FormulaStringContent
+import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
@@ -37,7 +37,7 @@ fun TemperaturePage() {
 }
 
 @Composable
-fun TemperatureLayout(modifier: Modifier = Modifier) {
+fun TemperatureLayout() {
 	val color = MaterialTheme.colorScheme.primary
 	var inputTemperature by rememberSaveable {
 		mutableStateOf("0")
@@ -51,128 +51,126 @@ fun TemperatureLayout(modifier: Modifier = Modifier) {
 	val kelvinFahrenheit = calculateKelvinFah(temp).toDoubleOrNull() ?: 0.0
 	val fahrenheit = calculateFahrenheit(temp).toDoubleOrNull() ?: 0.0
 
-	Column(modifier = modifier) {
-		GenericPage(
-			title = Temperature.title,
-			subtitle = temperatureDataSource.subtitle,
-			icon = Temperature.icon,
-			color = color,
-			selectContent = {
-				UnitButtonCard(
-					contentColor = color,
-					content = {
-						RadioButtonComp(
-							modifier = Modifier
-								.weight(1f),
-							text = temperatureDataSource.radioTextCelsius,
-							onClick = { selected = temperatureDataSource.radioTextCelsius },
-							selected = selected,
-							selectedColor = color,
-						)
-						RadioButtonComp(
-							modifier = Modifier
-								.weight(1f),
-							text = temperatureDataSource.radioTextFahrenheit,
-							onClick = { selected = temperatureDataSource.radioTextFahrenheit },
-							selected = selected,
-							selectedColor = color,
-						)
-					}
-				)
-			},
-			calculateFieldContent = {
-				when (selected) {
-					temperatureDataSource.radioTextCelsius -> {
-						CalculateField(
-							inputContent = {
-								InputNumberField(
-									modifier = Modifier.fillMaxWidth(),
-									placeholder = temperatureDataSource.placeholderCelsius,
-									label = temperatureDataSource.labelCelsius,
-									value = inputTemperature,
-									onValueChange = { inputTemperature = it },
-									color = color
-								)
-							},
-							inputText = temperatureDataSource.inputTextCelsius,
-							inputValue = inputTemperature,
-							equalsText = temperatureDataSource.equalsText,
-							color = color,
-							calculateContent = {
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = temperatureDataSource.calculatedTextFahrenheit,
-									calculatedValue = fahrenheit,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = temperatureDataSource.calculatedTextKelvin,
-									calculatedValue = kelvinCelsius,
-									color = color
-								)
-							}
-						)
-					}
-
-					temperatureDataSource.radioTextFahrenheit -> {
-						CalculateField(
-							inputContent = {
-								InputNumberField(
-									modifier = Modifier.fillMaxWidth(),
-									placeholder = temperatureDataSource.placeholderFahrenheit,
-									label = temperatureDataSource.labelFahrenheit,
-									value = inputTemperature,
-									onValueChange = { inputTemperature = it },
-									color = color
-								)
-							},
-							inputText = temperatureDataSource.inputTextFahrenheit,
-							inputValue = inputTemperature,
-							equalsText = temperatureDataSource.equalsText,
-							color = color,
-							calculateContent = {
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = temperatureDataSource.calculatedTextCelsius,
-									calculatedValue = celsius,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = temperatureDataSource.calculatedTextKelvin,
-									calculatedValue = kelvinFahrenheit,
-									color = color
-								)
-							}
-						)
-					}
+	GenericCalculatePage(
+		title = Temperature.title,
+		subtitle = temperatureDataSource.subtitle,
+		icon = Temperature.icon,
+		color = color,
+		selectContent = {
+			UnitButtonCard(
+				contentColor = color,
+				content = {
+					RadioButtonComp(
+						modifier = Modifier
+							.weight(1f),
+						text = temperatureDataSource.radioTextCelsius,
+						onClick = { selected = temperatureDataSource.radioTextCelsius },
+						selected = selected,
+						selectedColor = color,
+					)
+					RadioButtonComp(
+						modifier = Modifier
+							.weight(1f),
+						text = temperatureDataSource.radioTextFahrenheit,
+						onClick = { selected = temperatureDataSource.radioTextFahrenheit },
+						selected = selected,
+						selectedColor = color,
+					)
 				}
-			},
-			formulaContent = {
-				FormulaString(
-					color= color,
-					content = {
-						BodyTextCard(
-							text = temperatureDataSource.formulaText1,
-							textAlign = TextAlign.Justify,
-							color = color
-						)
-						BodyTextCard(
-							text = temperatureDataSource.formulaText2,
-							textAlign = TextAlign.Justify,
-							color = color
-						)
-						BodyTextCard(
-							text = temperatureDataSource.formulaText3,
-							textAlign = TextAlign.Justify,
-							color = color
-						)
-					}
-				)
+			)
+		},
+		calculateFieldContent = {
+			when (selected) {
+				temperatureDataSource.radioTextCelsius -> {
+					CalculateField(
+						inputContent = {
+							InputNumberField(
+								modifier = Modifier.fillMaxWidth(),
+								placeholder = temperatureDataSource.placeholderCelsius,
+								label = temperatureDataSource.labelCelsius,
+								value = inputTemperature,
+								onValueChange = { inputTemperature = it },
+								color = color
+							)
+						},
+						inputText = temperatureDataSource.inputTextCelsius,
+						inputValue = inputTemperature,
+						equalsText = temperatureDataSource.equalsText,
+						color = color,
+						calculateContent = {
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = temperatureDataSource.calculatedTextFahrenheit,
+								calculatedValue = fahrenheit,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = temperatureDataSource.calculatedTextKelvin,
+								calculatedValue = kelvinCelsius,
+								color = color
+							)
+						}
+					)
+				}
+
+				temperatureDataSource.radioTextFahrenheit -> {
+					CalculateField(
+						inputContent = {
+							InputNumberField(
+								modifier = Modifier.fillMaxWidth(),
+								placeholder = temperatureDataSource.placeholderFahrenheit,
+								label = temperatureDataSource.labelFahrenheit,
+								value = inputTemperature,
+								onValueChange = { inputTemperature = it },
+								color = color
+							)
+						},
+						inputText = temperatureDataSource.inputTextFahrenheit,
+						inputValue = inputTemperature,
+						equalsText = temperatureDataSource.equalsText,
+						color = color,
+						calculateContent = {
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = temperatureDataSource.calculatedTextCelsius,
+								calculatedValue = celsius,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = temperatureDataSource.calculatedTextKelvin,
+								calculatedValue = kelvinFahrenheit,
+								color = color
+							)
+						}
+					)
+				}
 			}
-		)
-	}
+		},
+		formulaContent = {
+			FormulaStringContent(
+				color = color,
+				content = {
+					BodyText(
+						text = temperatureDataSource.formulaText1,
+						textAlign = TextAlign.Start,
+						color = color
+					)
+					BodyText(
+						text = temperatureDataSource.formulaText2,
+						textAlign = TextAlign.Start,
+						color = color
+					)
+					BodyText(
+						text = temperatureDataSource.formulaText3,
+						textAlign = TextAlign.Start,
+						color = color
+					)
+				}
+			)
+		}
+	)
 }
 
 @VisibleForTesting

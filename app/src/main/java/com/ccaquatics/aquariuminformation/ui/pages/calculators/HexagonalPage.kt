@@ -17,12 +17,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.data.calculators.calculatorDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.hexagonalDataSource
 import com.ccaquatics.aquariuminformation.navigation.Hexagonal
-import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateImage
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
-import com.ccaquatics.aquariuminformation.ui.commonui.GenericPage
+import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputRowNumberFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
@@ -40,7 +39,6 @@ fun HexagonalPage() {
 
 @Composable
 fun HexagonalLayout(
-	modifier: Modifier = Modifier,
 	color: Color = MaterialTheme.colorScheme.secondary
 ) {
 	var inputEdge by rememberSaveable {
@@ -52,7 +50,6 @@ fun HexagonalLayout(
 	var selected by rememberSaveable {
 		mutableIntStateOf(hexagonalDataSource.radioTextFeet)
 	}
-
 	val edge = inputEdge.toDoubleOrNull() ?: 0.0
 	val height = inputHeight.toDoubleOrNull() ?: 0.0
 	val volGallon = calculateVolGallonHex(edge, height).toDoubleOrNull() ?: 0.0
@@ -62,120 +59,115 @@ fun HexagonalLayout(
 	val volLiterFT = calculateVolLiterFTHex(edge, height).toDoubleOrNull() ?: 0.0
 	val waterWeightFT = calculateWaterWeightFTHex(edge, height).toDoubleOrNull() ?: 0.0
 
-	Column(modifier = modifier) {
-		GenericPage(
-			title = Hexagonal.title,
-			subtitle = calculatorDataSource.subtitle,
-			icon = Hexagonal.icon,
-			color = color,
-			selectContent = {
-				UnitButtonCard(
-					content = {
-						RadioButtonComp(
-							modifier = Modifier
-								.weight(1f),
-							text = hexagonalDataSource.radioTextFeet,
-							onClick = { selected = hexagonalDataSource.radioTextFeet },
-							selected = selected,
-							selectedColor = color
-						)
-						RadioButtonComp(
-							modifier = Modifier
-								.weight(1f),
-							text = hexagonalDataSource.radioTextInches,
-							onClick = { selected = hexagonalDataSource.radioTextInches },
-							selected = selected,
-							selectedColor = color
-						)
-					},
-					contentColor = color
-				)
-			},
-			calculateFieldContent = {
-				CalculateFieldTwoInputs(
-					inputContent = {
-						InputRowNumberFieldTwoInputs(
-							label1 = hexagonalDataSource.labelEdge,
-							placeholder1 = hexagonalDataSource.placeholderEdge,
-							label2 = hexagonalDataSource.labelHeight,
-							placeholder2 = hexagonalDataSource.placeholderHeight,
-							value1 = inputEdge,
-							onValueChange1 = { inputEdge = it },
-							value2 = inputHeight,
-							onValueChange2 = { inputHeight = it },
-							color = color,
-						)
-					},
-					inputText = hexagonalDataSource.inputText,
-					inputValue1 = inputEdge,
-					inputValue2 = inputHeight,
-					equalsText = hexagonalDataSource.equalsText,
-					calculateContent = {
-						when (selected) {
-							hexagonalDataSource.radioTextFeet -> {
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = hexagonalDataSource.calculatedTextGallons,
-									calculatedValue = volGallonFT,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = hexagonalDataSource.calculatedTextLiters,
-									calculatedValue = volLiterFT,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = hexagonalDataSource.calculatedTextWaterWeight,
-									calculatedValue = waterWeightFT,
-									color = color
-								)
-							}
-							hexagonalDataSource.radioTextInches -> {
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = hexagonalDataSource.calculatedTextGallons,
-									calculatedValue = volGallon,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = hexagonalDataSource.calculatedTextLiters,
-									calculatedValue = volLiter,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = hexagonalDataSource.calculatedTextWaterWeight,
-									calculatedValue = waterWeight,
-									color = color
-								)
-							}
+	GenericCalculatePage(
+		title = Hexagonal.title,
+		subtitle = calculatorDataSource.subtitle,
+		icon = Hexagonal.icon,
+		color = color,
+		selectContent = {
+			UnitButtonCard(
+				content = {
+					RadioButtonComp(
+						modifier = Modifier
+							.weight(1f),
+						text = hexagonalDataSource.radioTextFeet,
+						onClick = { selected = hexagonalDataSource.radioTextFeet },
+						selected = selected,
+						selectedColor = color
+					)
+					RadioButtonComp(
+						modifier = Modifier
+							.weight(1f),
+						text = hexagonalDataSource.radioTextInches,
+						onClick = { selected = hexagonalDataSource.radioTextInches },
+						selected = selected,
+						selectedColor = color
+					)
+				},
+				contentColor = color
+			)
+		},
+		calculateFieldContent = {
+			CalculateFieldTwoInputs(
+				inputContent = {
+					InputRowNumberFieldTwoInputs(
+						label1 = hexagonalDataSource.labelEdge,
+						placeholder1 = hexagonalDataSource.placeholderEdge,
+						label2 = hexagonalDataSource.labelHeight,
+						placeholder2 = hexagonalDataSource.placeholderHeight,
+						value1 = inputEdge,
+						onValueChange1 = { inputEdge = it },
+						value2 = inputHeight,
+						onValueChange2 = { inputHeight = it },
+						color = color,
+					)
+				},
+				inputText = hexagonalDataSource.inputText,
+				inputValue1 = inputEdge,
+				inputValue2 = inputHeight,
+				equalsText = hexagonalDataSource.equalsText,
+				calculateContent = {
+					when (selected) {
+						hexagonalDataSource.radioTextFeet -> {
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = hexagonalDataSource.calculatedTextGallons,
+								calculatedValue = volGallonFT,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = hexagonalDataSource.calculatedTextLiters,
+								calculatedValue = volLiterFT,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = hexagonalDataSource.calculatedTextWaterWeight,
+								calculatedValue = waterWeightFT,
+								color = color
+							)
 						}
-					},
-					color = color
-				)
-			},
-			imageContent = {
-				CalculateImage(
-					painter = hexagonalDataSource.image,
-					contentDescription = Hexagonal.title,
-					colorFilter = color,
-				)
-			},
-			formulaContent = {
-				FormulaString(
-					content = {
-						BodyTextCard(
-							text = hexagonalDataSource.formulaText
-						)
-					},
-					color = color
-				)
-			}
-		)
-	}
+
+						hexagonalDataSource.radioTextInches -> {
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = hexagonalDataSource.calculatedTextGallons,
+								calculatedValue = volGallon,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = hexagonalDataSource.calculatedTextLiters,
+								calculatedValue = volLiter,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = hexagonalDataSource.calculatedTextWaterWeight,
+								calculatedValue = waterWeight,
+								color = color
+							)
+						}
+					}
+				},
+				color = color
+			)
+		},
+		imageContent = {
+			CalculateImage(
+				painter = hexagonalDataSource.image,
+				contentDescription = Hexagonal.title,
+				colorFilter = color,
+			)
+		},
+		formulaContent = {
+			FormulaString(
+				text = hexagonalDataSource.formulaText,
+				color = color
+			)
+		}
+	)
 }
 
 @VisibleForTesting

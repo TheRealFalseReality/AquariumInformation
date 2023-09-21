@@ -1,28 +1,22 @@
 package com.ccaquatics.aquariuminformation.ui.pages
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.data.homeCompatibilityDataSource
 import com.ccaquatics.aquariuminformation.data.homeHeaderDataSource
 import com.ccaquatics.aquariuminformation.data.homeNavigateDataSource
 import com.ccaquatics.aquariuminformation.navigation.Home
-import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
+import com.ccaquatics.aquariuminformation.ui.commonui.BodyText
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.PopOutCard
 import com.ccaquatics.aquariuminformation.ui.commonui.PopOutlinedCard
 import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCard
-import com.ccaquatics.aquariuminformation.ui.commonui.TitleWideCard
+import com.ccaquatics.aquariuminformation.ui.commonui.SmallSpacer
+import com.ccaquatics.aquariuminformation.ui.commonui.TitleWideContent
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @Composable
@@ -33,35 +27,26 @@ fun HomePage() {
 }
 
 @Composable
-fun HomeLayout(
-	modifier: Modifier = Modifier,
-) {
-	Column(
-		modifier = modifier.fillMaxSize(),
-		horizontalAlignment = Alignment.CenterHorizontally,
-		verticalArrangement = Arrangement.SpaceBetween
+fun HomeLayout() {
+	TitleWideContent(
+		text = Home.title,
+		icon = Home.icon
 	) {
-		TitleWideCard(
-			text = Home.title,
-			icon = Home.icon
-		) {
-			SingleWideCard {
-				BodyTextCard(text = homeHeaderDataSource.text)
-			}
+		SingleWideCard {
+			BodyText(text = homeHeaderDataSource.text)
 		}
-		PopOutCard(
-			icon = homeCompatibilityDataSource.icon,
-			title = homeCompatibilityDataSource.title,
-			body = homeCompatibilityDataSource.text
-		)
-		PopOutlinedCard(
-			text = homeNavigateDataSource.text
-		)
-//		SwitchThemeToggle()
-		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_verySmall)))
 	}
+	SmallSpacer()
+	PopOutCard(
+		icon = homeCompatibilityDataSource.icon,
+		title = homeCompatibilityDataSource.title,
+		body = homeCompatibilityDataSource.text
+	)
+	SmallSpacer()
+	PopOutlinedCard(
+		text = homeNavigateDataSource.text
+	)
 }
-
 
 @Preview(showBackground = true)
 @Composable

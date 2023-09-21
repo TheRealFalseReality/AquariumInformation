@@ -16,11 +16,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.data.converters.alkalinityDataSource
 import com.ccaquatics.aquariuminformation.navigation.Alkalinity
-import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
-import com.ccaquatics.aquariuminformation.ui.commonui.GenericPage
+import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
@@ -54,7 +53,7 @@ fun AlkalinityLayout() {
 	val ppmMEQ = calculatePpmMeq(alk).toDoubleOrNull() ?: 0.0
 	val dkhMEQ = calculateDkhMeq(alk).toDoubleOrNull() ?: 0.0
 
-	GenericPage(
+	GenericCalculatePage(
 		title = Alkalinity.title,
 		subtitle = alkalinityDataSource.subtitle,
 		icon = Alkalinity.icon,
@@ -190,11 +189,7 @@ fun AlkalinityLayout() {
 		},
 		formulaContent = {
 			FormulaString(
-				content = {
-					BodyTextCard(
-						text = alkalinityDataSource.formulaText
-					)
-				},
+				text = alkalinityDataSource.formulaText,
 				color = color
 			)
 		}

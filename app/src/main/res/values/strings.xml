@@ -31,6 +31,7 @@
     <string name="text_amount_kelvin" tools:ignore="UnusedResources">%s K</string>
     <string name="text_subtitle_temp" tools:ignore="UnusedResources">°C : °F : K</string>
     <string name="field_label_cel" tools:ignore="UnusedResources">Enter Celsius</string>
+    <string name="text_formula_temperature" tools:ignore="UnusedResources">C = (F - 32) * (5/9)\nF = (C * (9/5)) + 32\nK  =  C + 273.15</string>
     <string name="text_formula_celsius" tools:ignore="UnusedResources">C = (F - 32) * (5/9)</string>
     <string name="text_formula_fahrenheit" tools:ignore="UnusedResources">F = (C * (9/5)) + 32</string>
     <string name="text_formula_kelvin" tools:ignore="UnusedResources">K  =  C + 273.15</string>

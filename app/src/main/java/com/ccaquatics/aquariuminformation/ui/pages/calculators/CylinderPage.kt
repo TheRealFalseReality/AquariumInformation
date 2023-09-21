@@ -18,12 +18,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.data.calculators.calculatorDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.cylinderDataSource
 import com.ccaquatics.aquariuminformation.navigation.Cylinder
-import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateImage
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
-import com.ccaquatics.aquariuminformation.ui.commonui.GenericPage
+import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputRowNumberFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
@@ -43,7 +42,6 @@ fun CylinderPage() {
 
 @Composable
 fun CylinderLayout(
-	modifier: Modifier = Modifier,
 	color: Color = MaterialTheme.colorScheme.secondary
 ) {
 	var inputDiameter by rememberSaveable {
@@ -75,120 +73,116 @@ fun CylinderLayout(
 	val waterWeightFT =
 		calculateWaterWeightFTCyl(diameter, height, halfCyl, quartCyl).toDoubleOrNull() ?: 0.0
 
-	Column(modifier = modifier) {
-		GenericPage(
-			title = Cylinder.title,
-			subtitle = calculatorDataSource.subtitle,
-			icon = Cylinder.icon,
-			color = color,
-			selectContent = {
-				UnitButtonCard(
-					content = {
-						RadioButtonComp(
-							modifier = Modifier
-								.weight(1f),
-							text = calculatorDataSource.radioTextFeet,
-							onClick = { selected = calculatorDataSource.radioTextFeet },
-							selected = selected,
-							selectedColor = color
-						)
-						RadioButtonComp(
-							modifier = Modifier
-								.weight(1f),
-							text = calculatorDataSource.radioTextInches,
-							onClick = { selected = calculatorDataSource.radioTextInches },
-							selected = selected,
-							selectedColor = color
-						)
-					},
-					contentColor = color
-				)
-			},
-			optionsContent = { /* TODO */ },
-			calculateFieldContent = {
-				CalculateFieldTwoInputs(
-					inputContent = {
-						InputRowNumberFieldTwoInputs(
-							label1 = calculatorDataSource.labelDiameter,
-							placeholder1 = calculatorDataSource.placeholderDiameter,
-							label2 = calculatorDataSource.labelHeight,
-							placeholder2 = calculatorDataSource.placeholderHeight,
-							value1 = inputDiameter,
-							onValueChange1 = { inputDiameter = it },
-							value2 = inputHeight,
-							onValueChange2 = { inputHeight = it },
-							color = color
-						)
-					},
-					inputText = cylinderDataSource.inputText,
-					inputValue1 = inputDiameter,
-					inputValue2 = inputHeight,
-					equalsText = calculatorDataSource.equalsText,
-					calculateContent = {
-						when (selected) {
-							calculatorDataSource.radioTextFeet -> {
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = calculatorDataSource.calculatedTextGallons,
-									calculatedValue = volGallonFT,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = calculatorDataSource.calculatedTextLiters,
-									calculatedValue = volLiterFT,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = calculatorDataSource.calculatedTextWaterWeight,
-									calculatedValue = waterWeightFT,
-									color = color
-								)
-							}
-
-							calculatorDataSource.radioTextInches -> {
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = calculatorDataSource.calculatedTextGallons,
-									calculatedValue = volGallon,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = calculatorDataSource.calculatedTextLiters,
-									calculatedValue = volLiter,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = calculatorDataSource.calculatedTextWaterWeight,
-									calculatedValue = waterWeight,
-									color = color
-								)
-							}
+	GenericCalculatePage(
+		title = Cylinder.title,
+		subtitle = calculatorDataSource.subtitle,
+		icon = Cylinder.icon,
+		color = color,
+		selectContent = {
+			UnitButtonCard(
+				content = {
+					RadioButtonComp(
+						modifier = Modifier
+							.weight(1f),
+						text = calculatorDataSource.radioTextFeet,
+						onClick = { selected = calculatorDataSource.radioTextFeet },
+						selected = selected,
+						selectedColor = color
+					)
+					RadioButtonComp(
+						modifier = Modifier
+							.weight(1f),
+						text = calculatorDataSource.radioTextInches,
+						onClick = { selected = calculatorDataSource.radioTextInches },
+						selected = selected,
+						selectedColor = color
+					)
+				},
+				contentColor = color
+			)
+		},
+		optionsContent = { /* TODO */ },
+		calculateFieldContent = {
+			CalculateFieldTwoInputs(
+				inputContent = {
+					InputRowNumberFieldTwoInputs(
+						label1 = calculatorDataSource.labelDiameter,
+						placeholder1 = calculatorDataSource.placeholderDiameter,
+						label2 = calculatorDataSource.labelHeight,
+						placeholder2 = calculatorDataSource.placeholderHeight,
+						value1 = inputDiameter,
+						onValueChange1 = { inputDiameter = it },
+						value2 = inputHeight,
+						onValueChange2 = { inputHeight = it },
+						color = color
+					)
+				},
+				inputText = cylinderDataSource.inputText,
+				inputValue1 = inputDiameter,
+				inputValue2 = inputHeight,
+				equalsText = calculatorDataSource.equalsText,
+				calculateContent = {
+					when (selected) {
+						calculatorDataSource.radioTextFeet -> {
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = calculatorDataSource.calculatedTextGallons,
+								calculatedValue = volGallonFT,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = calculatorDataSource.calculatedTextLiters,
+								calculatedValue = volLiterFT,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = calculatorDataSource.calculatedTextWaterWeight,
+								calculatedValue = waterWeightFT,
+								color = color
+							)
 						}
-					},
-					color = color,
-				)
-			},
-			imageContent = {
-				CalculateImage(
-					painter = cylinderDataSource.image,
-					contentDescription = Cylinder.title,
-					colorFilter = color
-				)
-			},
-			formulaContent = {
-				FormulaString(
-					content = {
-						BodyTextCard(text = cylinderDataSource.formulaText)
-					},
-					color = color
-				)
-			}
-		)
-	}
+
+						calculatorDataSource.radioTextInches -> {
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = calculatorDataSource.calculatedTextGallons,
+								calculatedValue = volGallon,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = calculatorDataSource.calculatedTextLiters,
+								calculatedValue = volLiter,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = calculatorDataSource.calculatedTextWaterWeight,
+								calculatedValue = waterWeight,
+								color = color
+							)
+						}
+					}
+				},
+				color = color,
+			)
+		},
+		imageContent = {
+			CalculateImage(
+				painter = cylinderDataSource.image,
+				contentDescription = Cylinder.title,
+				colorFilter = color
+			)
+		},
+		formulaContent = {
+			FormulaString(
+				text = cylinderDataSource.formulaText,
+				color = color
+			)
+		}
+	)
 }
 
 @VisibleForTesting

@@ -4,9 +4,7 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
@@ -157,7 +155,7 @@ fun InputNumberFieldTwoInputs(
 	value2: String,
 	onValueChange2: (String) -> Unit,
 	color: Color
-){
+) {
 	Column(modifier = modifier) {
 		InputNumberFieldNext(
 			label = label1,
@@ -166,7 +164,7 @@ fun InputNumberFieldTwoInputs(
 			onValueChange = onValueChange1,
 			color = color
 		)
-		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+		MediumSpacer()
 		InputNumberField(
 			label = label2,
 			placeholder = placeholder2,
@@ -189,7 +187,7 @@ fun InputRowNumberFieldTwoInputs(
 	value2: String,
 	onValueChange2: (String) -> Unit,
 	color: Color
-){
+) {
 	Column(modifier = modifier) {
 		Row(
 			modifier = Modifier
@@ -237,7 +235,7 @@ fun InputNumberFieldThreeInputs(
 	value3: String,
 	onValueChange3: (String) -> Unit,
 	color: Color
-){
+) {
 	Column(modifier = modifier) {
 		Row(
 			modifier = Modifier.fillMaxWidth(),
@@ -293,22 +291,21 @@ fun CalculateField(
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
 		inputContent()
-		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+		MediumSpacer()
 		Text(
 			text = stringResource(id = inputText, inputValue),
 			modifier = Modifier
-				.align(Alignment.CenterHorizontally)
-				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
+				.align(Alignment.CenterHorizontally),
 			color = color
 		)
-		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+		MediumSpacer()
 		Text(
 			text = stringResource(id = equalsText),
 			modifier = Modifier
-				.align(Alignment.CenterHorizontally)
-				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
+				.align(Alignment.CenterHorizontally),
 			color = color,
 		)
+		SmallSpacer()
 		Column(
 			modifier = Modifier.fillMaxWidth(),
 			horizontalAlignment = Alignment.CenterHorizontally
@@ -336,7 +333,7 @@ fun CalculateFieldTwoInputs(
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
 		inputContent()
-//		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+		MediumSpacer()
 		Text(
 			text = stringResource(id = inputText, inputValue1, inputValue2),
 			modifier = Modifier
@@ -344,7 +341,8 @@ fun CalculateFieldTwoInputs(
 				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
 			color = color
 		)
-//		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+		MediumSpacer()
+
 		Text(
 			text = stringResource(id = equalsText),
 			modifier = Modifier
@@ -352,6 +350,7 @@ fun CalculateFieldTwoInputs(
 				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
 			color = color,
 		)
+		SmallSpacer()
 		Column(
 			modifier = Modifier.fillMaxWidth(),
 			horizontalAlignment = Alignment.CenterHorizontally
@@ -381,15 +380,23 @@ fun CalculateFieldFourInputs(
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
 		inputContent()
-//		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+		MediumSpacer()
+
 		Text(
-			text = stringResource(id = inputText, inputValue1, inputValue2, inputValue3, inputValue4),
+			text = stringResource(
+				id = inputText,
+				inputValue1,
+				inputValue2,
+				inputValue3,
+				inputValue4
+			),
 			modifier = Modifier
 				.align(Alignment.CenterHorizontally)
 				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
 			color = color
 		)
-//		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+		MediumSpacer()
+
 		Text(
 			text = stringResource(id = equalsText),
 			modifier = Modifier
@@ -397,6 +404,7 @@ fun CalculateFieldFourInputs(
 				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
 			color = color,
 		)
+		SmallSpacer()
 		Column(
 			modifier = Modifier.fillMaxWidth(),
 			horizontalAlignment = Alignment.CenterHorizontally
@@ -425,8 +433,7 @@ fun CalculateFieldThreeInputs(
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
 		inputContent()
-		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
-
+		MediumSpacer()
 		Text(
 			text = stringResource(id = inputText, inputValue1, inputValue2, inputValue3),
 			modifier = Modifier
@@ -434,7 +441,7 @@ fun CalculateFieldThreeInputs(
 				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
 			color = color
 		)
-		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+		MediumSpacer()
 		Text(
 			text = stringResource(id = equalsText),
 			modifier = Modifier
@@ -442,6 +449,7 @@ fun CalculateFieldThreeInputs(
 				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
 			color = color,
 		)
+		SmallSpacer()
 		Column(
 			modifier = Modifier.fillMaxWidth(),
 			horizontalAlignment = Alignment.CenterHorizontally
@@ -463,7 +471,6 @@ fun CalculatedText(
 	Column(modifier = modifier) {
 		Text(
 			modifier = Modifier
-				.padding(dimensionResource(id = R.dimen.padding_verySmall))
 				.align(Alignment.CenterHorizontally),
 			text = stringResource(id = text, calculatedValue),
 			fontSize = 20.sp,

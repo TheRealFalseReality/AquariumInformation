@@ -4,8 +4,6 @@ import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -19,12 +17,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.data.calculators.bowFrontDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.calculatorDataSource
 import com.ccaquatics.aquariuminformation.navigation.BowFront
-import com.ccaquatics.aquariuminformation.ui.commonui.BodyTextCard
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateFieldFourInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateImage
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
-import com.ccaquatics.aquariuminformation.ui.commonui.GenericPage
+import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputRowNumberFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
@@ -36,16 +33,13 @@ import kotlin.math.PI
 
 @Composable
 fun BowFrontPage() {
-	PageView(
-		modifier = Modifier.verticalScroll(rememberScrollState())
-	) {
+	PageView {
 		BowFrontLayout()
 	}
 }
 
 @Composable
 fun BowFrontLayout(
-	modifier: Modifier = Modifier,
 	color: Color = MaterialTheme.colorScheme.secondary
 ) {
 	var inputLength by rememberSaveable {
@@ -77,134 +71,129 @@ fun BowFrontLayout(
 	val volLiterFT = calculateVolLiterFTBF(length, width, height, fullWidth).toDoubleOrNull() ?: 0.0
 	val waterWeightFT =
 		calculateWaterWeightFTBF(length, width, height, fullWidth).toDoubleOrNull() ?: 0.0
-	Column(modifier = modifier) {
-		GenericPage(
-			title = BowFront.title,
-			subtitle = calculatorDataSource.subtitle,
-			icon = BowFront.icon,
-			color = color,
-			selectContent = {
-				UnitButtonCard(
-					content = {
-						RadioButtonComp(
-							modifier = Modifier
-								.weight(1f),
-							text = calculatorDataSource.radioTextFeet,
-							onClick = { selected = calculatorDataSource.radioTextFeet },
-							selected = selected,
-							selectedColor = color
-						)
-						RadioButtonComp(
-							modifier = Modifier
-								.weight(1f),
-							text = calculatorDataSource.radioTextInches,
-							onClick = { selected = calculatorDataSource.radioTextInches },
-							selected = selected,
-							selectedColor = color
-						)
-					},
-					contentColor = color
-				)
-			},
-			calculateFieldContent = {
-				CalculateFieldFourInputs(
-					inputContent = {
-						InputRowNumberFieldTwoInputs(
-							label1 = calculatorDataSource.labelLength,
-							placeholder1 = calculatorDataSource.placeholderLength,
-							label2 = calculatorDataSource.labelWidth,
-							placeholder2 = calculatorDataSource.placeholderWidth,
-							value1 = inputLength,
-							onValueChange1 = { inputLength = it },
-							value2 = inputWidth,
-							onValueChange2 = { inputWidth = it },
-							color = color,
-						)
-						InputRowNumberFieldTwoInputs(
-							label1 = calculatorDataSource.labelHeight,
-							placeholder1 = calculatorDataSource.placeholderHeight,
-							label2 = calculatorDataSource.labelFullWidth,
-							placeholder2 = calculatorDataSource.placeholderFullWidth,
-							value1 = inputHeight,
-							onValueChange1 = { inputHeight = it },
-							value2 = inputFullWidth,
-							onValueChange2 = { inputFullWidth = it },
-							color = color
-						)
-					},
-					inputText = bowFrontDataSource.inputText,
-					inputValue1 = inputLength,
-					inputValue2 = inputWidth,
-					inputValue3 = inputHeight,
-					inputValue4 = inputFullWidth,
-					equalsText = calculatorDataSource.equalsText,
-					calculateContent = {
-						when (selected) {
-							calculatorDataSource.radioTextFeet -> {
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = calculatorDataSource.calculatedTextGallons,
-									calculatedValue = volGallonFT,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = calculatorDataSource.calculatedTextLiters,
-									calculatedValue = volLiterFT,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = calculatorDataSource.calculatedTextWaterWeight,
-									calculatedValue = waterWeightFT,
-									color = color
-								)
-							}
 
-							calculatorDataSource.radioTextInches -> {
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = calculatorDataSource.calculatedTextGallons,
-									calculatedValue = volGallon,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = calculatorDataSource.calculatedTextLiters,
-									calculatedValue = volLiter,
-									color = color
-								)
-								CalculatedText(
-									modifier = Modifier.fillMaxWidth(),
-									text = calculatorDataSource.calculatedTextWaterWeight,
-									calculatedValue = waterWeight,
-									color = color
-								)
-							}
+	GenericCalculatePage(
+		title = BowFront.title,
+		subtitle = calculatorDataSource.subtitle,
+		icon = BowFront.icon,
+		color = color,
+		selectContent = {
+			UnitButtonCard(
+				content = {
+					RadioButtonComp(
+						modifier = Modifier
+							.weight(1f),
+						text = calculatorDataSource.radioTextFeet,
+						onClick = { selected = calculatorDataSource.radioTextFeet },
+						selected = selected,
+						selectedColor = color
+					)
+					RadioButtonComp(
+						modifier = Modifier
+							.weight(1f),
+						text = calculatorDataSource.radioTextInches,
+						onClick = { selected = calculatorDataSource.radioTextInches },
+						selected = selected,
+						selectedColor = color
+					)
+				},
+				contentColor = color
+			)
+		},
+		calculateFieldContent = {
+			CalculateFieldFourInputs(
+				inputContent = {
+					InputRowNumberFieldTwoInputs(
+						label1 = calculatorDataSource.labelLength,
+						placeholder1 = calculatorDataSource.placeholderLength,
+						label2 = calculatorDataSource.labelWidth,
+						placeholder2 = calculatorDataSource.placeholderWidth,
+						value1 = inputLength,
+						onValueChange1 = { inputLength = it },
+						value2 = inputWidth,
+						onValueChange2 = { inputWidth = it },
+						color = color,
+					)
+					InputRowNumberFieldTwoInputs(
+						label1 = calculatorDataSource.labelHeight,
+						placeholder1 = calculatorDataSource.placeholderHeight,
+						label2 = calculatorDataSource.labelFullWidth,
+						placeholder2 = calculatorDataSource.placeholderFullWidth,
+						value1 = inputHeight,
+						onValueChange1 = { inputHeight = it },
+						value2 = inputFullWidth,
+						onValueChange2 = { inputFullWidth = it },
+						color = color
+					)
+				},
+				inputText = bowFrontDataSource.inputText,
+				inputValue1 = inputLength,
+				inputValue2 = inputWidth,
+				inputValue3 = inputHeight,
+				inputValue4 = inputFullWidth,
+				equalsText = calculatorDataSource.equalsText,
+				calculateContent = {
+					when (selected) {
+						calculatorDataSource.radioTextFeet -> {
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = calculatorDataSource.calculatedTextGallons,
+								calculatedValue = volGallonFT,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = calculatorDataSource.calculatedTextLiters,
+								calculatedValue = volLiterFT,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = calculatorDataSource.calculatedTextWaterWeight,
+								calculatedValue = waterWeightFT,
+								color = color
+							)
 						}
-					},
-					color = color
-				)
-			},
-			imageContent = {
-				CalculateImage(
-					painter = bowFrontDataSource.image,
-					contentDescription = BowFront.title,
-					colorFilter = color,
-				)
-			},
-			formulaContent = {
-				FormulaString(
-					content = {
-						BodyTextCard(
-							text = bowFrontDataSource.formulaText
-						)
-					},
-					color = color
-				)
-			}
-		)
-	}
+
+						calculatorDataSource.radioTextInches -> {
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = calculatorDataSource.calculatedTextGallons,
+								calculatedValue = volGallon,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = calculatorDataSource.calculatedTextLiters,
+								calculatedValue = volLiter,
+								color = color
+							)
+							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
+								text = calculatorDataSource.calculatedTextWaterWeight,
+								calculatedValue = waterWeight,
+								color = color
+							)
+						}
+					}
+				},
+				color = color
+			)
+		},
+		imageContent = {
+			CalculateImage(
+				painter = bowFrontDataSource.image,
+				contentDescription = BowFront.title,
+				colorFilter = color,
+			)
+		},
+		formulaContent = {
+			FormulaString(
+				text = bowFrontDataSource.formulaText,
+				color = color
+			)
+		}
+	)
 }
 
 @VisibleForTesting
