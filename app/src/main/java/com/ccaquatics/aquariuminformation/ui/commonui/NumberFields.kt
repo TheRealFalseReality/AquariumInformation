@@ -61,6 +61,7 @@ fun InputNumberField(
 			value = value,
 			onValueChange = onValueChange,
 			colors = TextFieldDefaults.colors(
+				/* TODO Add container colors. */
 				focusedIndicatorColor = color,
 				focusedLabelColor = color,
 				focusedPlaceholderColor = color,

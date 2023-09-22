@@ -58,6 +58,7 @@ fun NavButton(
 		) {
 			BodyText(
 				text = title,
+				color = contentColor,
 			)
 			Icon(
 				painter = painterResource(id = icon),

@@ -19,6 +19,7 @@ import com.ccaquatics.aquariuminformation.ui.pages.calculators.CubePage
 import com.ccaquatics.aquariuminformation.ui.pages.calculators.CylinderPage
 import com.ccaquatics.aquariuminformation.ui.pages.calculators.HexagonalPage
 import com.ccaquatics.aquariuminformation.ui.pages.calculators.RectanglePage
+import com.ccaquatics.aquariuminformation.ui.pages.compatability.MarineCompatabilityScreen
 import com.ccaquatics.aquariuminformation.ui.pages.converters.AlkalinityPage
 import com.ccaquatics.aquariuminformation.ui.pages.converters.SalinityPage
 import com.ccaquatics.aquariuminformation.ui.pages.converters.TemperaturePage
@@ -59,7 +60,7 @@ fun AquariumNavHost(
 					navController.navigateSingleTopTo(TankVolume.route)
 				},
 				onClickFish = {
-					/* TODO */
+					navController.navigateSingleTopTo(FishCompatabilityMarine.route)
 				}
 			)
 		}
@@ -129,6 +130,9 @@ fun AquariumNavHost(
 		}
 		composable(route = BowFront.route) {
 			BowFrontPage()
+		}
+		composable(route = FishCompatabilityMarine.route) {
+			MarineCompatabilityScreen()
 		}
 	}
 }
@@ -230,7 +234,6 @@ fun CalculatorsNavHost(
 
 @Composable
 fun ConvertersNavHostScreen(
-
 ) {
 	val navController = rememberNavController()
 	ConvertersNavHost(navController = navController)

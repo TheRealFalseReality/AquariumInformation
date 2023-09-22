@@ -517,4 +517,6 @@
     <string name="diameter">Diameter</string>
     <string name="text_amount_LWHFW">L: %s W: %s H: %s FW: %s</string>
     <string name="full_width">Full Width</string>
+    <string name="freshwater">Freshwater</string>
+    <string name="marine">Marine</string>
 </resources>

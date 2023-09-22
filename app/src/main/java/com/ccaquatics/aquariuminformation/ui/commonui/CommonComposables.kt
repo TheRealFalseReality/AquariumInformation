@@ -319,8 +319,8 @@ fun PopOutCard(
 	@DrawableRes icon: Int,
 	@StringRes title: Int,
 	@StringRes body: Int,
-	backgroundCardColor: Color = MaterialTheme.colorScheme.tertiary,
-	contentColor: Color = MaterialTheme.colorScheme.onTertiary
+	backgroundCardColor: Color = MaterialTheme.colorScheme.tertiaryContainer,
+	contentColor: Color = MaterialTheme.colorScheme.onTertiaryContainer
 ) {
 	Column(modifier = modifier) {
 		SingleWideCard(
@@ -332,15 +332,15 @@ fun PopOutCard(
 			) {
 				Icon(
 					modifier = Modifier
-						.size(dimensionResource(id = R.dimen.icon_size_medium))
-						.weight(1f),
+						.size(dimensionResource(id = R.dimen.icon_size_small))
+						.weight(2f),
 					painter = painterResource(id = icon),
 					contentDescription = null,
 					tint = contentColor
 				)
 				Column(
 					modifier = Modifier
-						.weight(10f),
+						.weight(11f),
 					horizontalAlignment = Alignment.CenterHorizontally
 				) {
 					HeaderText(

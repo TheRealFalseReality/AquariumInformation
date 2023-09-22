@@ -106,18 +106,20 @@ object FishCompatability : Destinations {
 	override val route = "fish_compatibility"
 	override val title = R.string.compatibility
 }
-//
-//object FishCompatFresh : Destinations {
-//	override val icon = R.drawable.combatfresh
-//	override val route = "fish_compat_fresh"
-//	override val title = "Freshwater"
-//}
-//
-//object FishCompatMarine : Destinations {
-//	override val icon = R.drawable.combatmarine
-//	override val route = "fish_compat_marine"
-//	override val title = "Marine"
-//}
+
+object FishCompatabilityFresh : Destinations {
+	override val icon = R.drawable.ic_fish_2
+	override val iconFilled = R.drawable.ic_icon_question
+	override val route = "fish_compat_fresh"
+	override val title = R.string.freshwater
+}
+
+object FishCompatabilityMarine : Destinations {
+	override val icon = R.drawable.ic_fish_2
+	override val iconFilled = R.drawable.ic_icon_question
+	override val route = "fish_compat_marine"
+	override val title =R.string.marine
+}
 
 object Converters : Destinations {
 	override val icon = R.drawable.ic_conversion
