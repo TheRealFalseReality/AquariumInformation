@@ -26,6 +26,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ccaquatics.aquariuminformation.R
+import com.ccaquatics.aquariuminformation.data.calculators.calculatorDataSource
 
 /*TODO Add Quad Buttons and simplify composables*/
 @Composable
@@ -41,7 +42,8 @@ fun InputNumberField(
 		topStart = dimensionResource(id = R.dimen.shape_medium),
 		topEnd = dimensionResource(id = R.dimen.shape_medium),
 	),
-	color: Color
+	color: Color,
+	imeAction: ImeAction = ImeAction.Done
 ) {
 	val focusManager = LocalFocusManager.current
 
@@ -78,67 +80,7 @@ fun InputNumberField(
 			},
 			keyboardOptions = KeyboardOptions(
 				keyboardType = KeyboardType.Number,
-				imeAction = ImeAction.Done
-			),
-			keyboardActions = KeyboardActions(
-				onDone = { focusManager.clearFocus() }
-			),
-			shape = shape
-		)
-	}
-}
-
-@Composable
-fun InputNumberFieldNext(
-	modifier: Modifier = Modifier,
-	@StringRes label: Int,
-	@StringRes placeholder: Int,
-	value: String,
-	onValueChange: (String) -> Unit,
-	shape: Shape = RoundedCornerShape(
-		bottomStart = 0.dp,
-		bottomEnd = 0.dp,
-		topStart = dimensionResource(id = R.dimen.shape_medium),
-		topEnd = dimensionResource(id = R.dimen.shape_medium),
-	),
-	color: Color
-) {
-	val focusManager = LocalFocusManager.current
-
-	Column(
-		modifier = modifier,
-		horizontalAlignment = Alignment.CenterHorizontally
-	) {
-		TextField(
-			modifier = Modifier
-				.padding(
-					top = dimensionResource(id = R.dimen.padding_verySmall),
-					bottom = dimensionResource(id = R.dimen.padding_verySmall)
-				)
-				.align(Alignment.CenterHorizontally),
-			value = value,
-			onValueChange = onValueChange,
-			colors = TextFieldDefaults.colors(
-				focusedIndicatorColor = color,
-				focusedLabelColor = color,
-				focusedPlaceholderColor = color,
-				focusedTextColor = color,
-				focusedSupportingTextColor = color,
-				cursorColor = color,
-			),
-			label = {
-				Text(
-					stringResource(id = label),
-				)
-			},
-			placeholder = {
-				Text(
-					stringResource(id = placeholder),
-				)
-			},
-			keyboardOptions = KeyboardOptions(
-				keyboardType = KeyboardType.Number,
-				imeAction = ImeAction.Next
+				imeAction = imeAction
 			),
 			keyboardActions = KeyboardActions(
 				onDone = { focusManager.clearFocus() }
@@ -162,12 +104,13 @@ fun InputNumberFieldTwoInputs(
 	color: Color
 ) {
 	Column(modifier = modifier) {
-		InputNumberFieldNext(
+		InputNumberField(
 			label = label1,
 			placeholder = placeholder1,
 			value = value1,
 			onValueChange = onValueChange1,
-			color = color
+			color = color,
+			imeAction = ImeAction.Next
 		)
 		InputNumberField(
 			label = label2,
@@ -199,7 +142,7 @@ fun InputRowNumberFieldTwoInputs(
 			horizontalArrangement = Arrangement.Center,
 			verticalAlignment = Alignment.CenterVertically
 		) {
-			InputNumberFieldNext(
+			InputNumberField(
 				modifier = Modifier
 					.padding(
 						start = dimensionResource(id = R.dimen.padding_verySmall),
@@ -210,7 +153,8 @@ fun InputRowNumberFieldTwoInputs(
 				placeholder = placeholder1,
 				value = value1,
 				onValueChange = onValueChange1,
-				color = color
+				color = color,
+				imeAction = ImeAction.Next
 			)
 			InputNumberField(
 				modifier = Modifier
@@ -251,7 +195,7 @@ fun InputNumberFieldThreeInputs(
 			modifier = Modifier.fillMaxWidth(),
 			verticalAlignment = Alignment.CenterVertically
 		) {
-			InputNumberFieldNext(
+			InputNumberField(
 				modifier = Modifier
 					.padding(dimensionResource(id = R.dimen.padding_verySmall))
 					.weight(1f),
@@ -259,9 +203,10 @@ fun InputNumberFieldThreeInputs(
 				placeholder = placeholder1,
 				value = value1,
 				onValueChange = onValueChange1,
-				color = color
+				color = color,
+				imeAction = ImeAction.Next
 			)
-			InputNumberFieldNext(
+			InputNumberField(
 				modifier = Modifier
 					.padding(dimensionResource(id = R.dimen.padding_verySmall))
 					.weight(1f),
@@ -269,7 +214,8 @@ fun InputNumberFieldThreeInputs(
 				placeholder = placeholder2,
 				value = value2,
 				onValueChange = onValueChange2,
-				color = color
+				color = color,
+				imeAction = ImeAction.Next
 			)
 			InputNumberField(
 				modifier = Modifier
@@ -282,7 +228,6 @@ fun InputNumberFieldThreeInputs(
 				color = color
 			)
 		}
-
 	}
 }
 
@@ -292,7 +237,7 @@ fun CalculateField(
 	inputContent: @Composable () -> Unit,
 	@StringRes inputText: Int,
 	inputValue: String,
-	@StringRes equalsText: Int,
+	@StringRes equalsText: Int = calculatorDataSource.equalsText,
 	calculateContent: @Composable () -> Unit,
 	color: Color
 ) {
@@ -309,11 +254,9 @@ fun CalculateField(
 			color = color
 		)
 		MediumSpacer()
-		Text(
-			text = stringResource(id = equalsText),
-			modifier = Modifier
-				.align(Alignment.CenterHorizontally),
+		EqualsText(
 			color = color,
+			equalsText = equalsText
 		)
 		SmallSpacer()
 		Column(
@@ -328,13 +271,30 @@ fun CalculateField(
 }
 
 @Composable
+fun EqualsText(
+	modifier: Modifier = Modifier,
+	@StringRes equalsText: Int = calculatorDataSource.equalsText,
+	color: Color,
+) {
+	Column(modifier = modifier) {
+		Text(
+			text = stringResource(id = equalsText),
+			modifier = Modifier
+				.align(Alignment.CenterHorizontally),
+			color = color,
+		)
+	}
+}
+
+
+@Composable
 fun CalculateFieldTwoInputs(
 	modifier: Modifier = Modifier,
 	inputContent: @Composable () -> Unit,
 	@StringRes inputText: Int,
 	inputValue1: String,
 	inputValue2: String,
-	@StringRes equalsText: Int,
+	@StringRes equalsText: Int = calculatorDataSource.equalsText,
 	calculateContent: @Composable () -> Unit,
 	color: Color
 ) {
@@ -352,13 +312,9 @@ fun CalculateFieldTwoInputs(
 			color = color
 		)
 		MediumSpacer()
-
-		Text(
-			text = stringResource(id = equalsText),
-			modifier = Modifier
-				.align(Alignment.CenterHorizontally)
-				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
+		EqualsText(
 			color = color,
+			equalsText = equalsText
 		)
 		SmallSpacer()
 		Column(
@@ -381,7 +337,7 @@ fun CalculateFieldFourInputs(
 	inputValue2: String,
 	inputValue3: String,
 	inputValue4: String,
-	@StringRes equalsText: Int,
+	@StringRes equalsText: Int = calculatorDataSource.equalsText,
 	calculateContent: @Composable () -> Unit,
 	color: Color
 ) {
@@ -406,13 +362,9 @@ fun CalculateFieldFourInputs(
 			color = color
 		)
 		MediumSpacer()
-
-		Text(
-			text = stringResource(id = equalsText),
-			modifier = Modifier
-				.align(Alignment.CenterHorizontally)
-				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
+		EqualsText(
 			color = color,
+			equalsText = equalsText
 		)
 		SmallSpacer()
 		Column(
@@ -434,7 +386,7 @@ fun CalculateFieldThreeInputs(
 	inputValue1: String,
 	inputValue2: String,
 	inputValue3: String,
-	@StringRes equalsText: Int,
+	@StringRes equalsText: Int = calculatorDataSource.equalsText,
 	calculateContent: @Composable () -> Unit,
 	color: Color
 ) {
@@ -452,12 +404,9 @@ fun CalculateFieldThreeInputs(
 			color = color
 		)
 		MediumSpacer()
-		Text(
-			text = stringResource(id = equalsText),
-			modifier = Modifier
-				.align(Alignment.CenterHorizontally)
-				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
+		EqualsText(
 			color = color,
+			equalsText = equalsText
 		)
 		SmallSpacer()
 		Column(

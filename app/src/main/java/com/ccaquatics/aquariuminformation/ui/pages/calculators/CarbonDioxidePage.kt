@@ -76,7 +76,6 @@ fun CarbonDioxideLayout(
 				inputText = carbonDioxideDataSource.inputText,
 				inputValue1 = inputPH,
 				inputValue2 = inputDKH,
-				equalsText = carbonDioxideDataSource.equalsText,
 				color = color,
 				calculateContent = {
 					CalculatedText(

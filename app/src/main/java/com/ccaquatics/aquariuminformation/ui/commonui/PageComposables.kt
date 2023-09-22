@@ -5,9 +5,7 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -21,7 +19,7 @@ import com.ccaquatics.aquariuminformation.R
 
 @Composable
 fun PageView(
-	content: @Composable () -> Unit
+	content: @Composable () -> Unit,
 ) {
 	Column(
 		modifier = Modifier
@@ -71,11 +69,20 @@ fun PageViewLazy(
 ) {
 	Column(
 		modifier = Modifier
-			.fillMaxSize(),
-		horizontalAlignment = Alignment.CenterHorizontally
+			.padding(
+				top = dimensionResource(id = R.dimen.padding_verySmall),
+				bottom = dimensionResource(id = R.dimen.padding_small)
+			),
 	) {
-		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
-		content()
+		Column(
+			modifier = Modifier
+//				.verticalScroll(rememberScrollState())
+				.fillMaxSize(),//
+			horizontalAlignment = Alignment.CenterHorizontally,
+			verticalArrangement = Arrangement.Center
+		) {
+			content()
+		}
 	}
 }
 
