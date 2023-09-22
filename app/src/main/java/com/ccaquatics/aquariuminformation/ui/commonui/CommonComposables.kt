@@ -283,7 +283,8 @@ fun FormulaString(
 		SingleWideCard(
 		) {
 			BodyText(
-				text = text
+				text = text,
+				color = color
 			)
 		}
 	}
@@ -291,17 +292,22 @@ fun FormulaString(
 
 @Composable
 fun FormulaStringContent(
+	modifier: Modifier = Modifier,
 	color: Color,
 	content: @Composable () -> Unit
 ) {
-	Column {
+	Column(modifier = modifier) {
 		TitleWideContent(
 			text = R.string.formula,
 			icon = R.drawable.baseline_functions_24,
 			color = color,
 		) {
 			SingleWideCard {
-				content()
+				Column(
+					horizontalAlignment = Alignment.Start
+				) {
+					content()
+				}
 			}
 		}
 	}

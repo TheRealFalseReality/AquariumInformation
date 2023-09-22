@@ -15,8 +15,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.data.calculators.calculatorDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.cubeDataSource
-import com.ccaquatics.aquariuminformation.data.calculators.hexagonalDataSource
-import com.ccaquatics.aquariuminformation.data.calculators.rectangleDataSource
 import com.ccaquatics.aquariuminformation.navigation.Cube
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateImage
@@ -46,7 +44,7 @@ fun CubeLayout(
 		mutableStateOf("")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(cubeDataSource.radioTextFeet)
+		mutableIntStateOf(calculatorDataSource.radioTextFeet)
 	}
 	val side = inputSide.toDoubleOrNull() ?: 0.0
 	val volGallon = calculateVolGallonCube(side).toDoubleOrNull() ?: 0.0
@@ -67,23 +65,23 @@ fun CubeLayout(
 					RadioButtonComp(
 						modifier = Modifier
 							.weight(1f),
-						text = cubeDataSource.radioTextFeet,
-						onClick = { selected = cubeDataSource.radioTextFeet },
+						text = calculatorDataSource.radioTextFeet,
+						onClick = { selected = calculatorDataSource.radioTextFeet },
 						selected = selected,
 						selectedColor = color,
 						textColor =
-						if (selected == hexagonalDataSource.radioTextFeet) color
+						if (selected == calculatorDataSource.radioTextFeet) color
 						else MaterialTheme.colorScheme.onBackground
 					)
 					RadioButtonComp(
 						modifier = Modifier
 							.weight(1f),
-						text = cubeDataSource.radioTextInches,
-						onClick = { selected = cubeDataSource.radioTextInches },
+						text = calculatorDataSource.radioTextInches,
+						onClick = { selected = calculatorDataSource.radioTextInches },
 						selected = selected,
 						selectedColor = color,
 						textColor =
-						if (selected == hexagonalDataSource.radioTextInches) color
+						if (selected == calculatorDataSource.radioTextInches) color
 						else MaterialTheme.colorScheme.onBackground
 					)
 				},
@@ -94,8 +92,8 @@ fun CubeLayout(
 			CalculateField(
 				inputContent = {
 					InputNumberField(
-						label = cubeDataSource.labelSide,
-						placeholder = cubeDataSource.placeholderSide,
+						label = calculatorDataSource.labelSide,
+						placeholder = calculatorDataSource.placeholderSide,
 						value = inputSide,
 						onValueChange = { inputSide = it },
 						color = color,
@@ -103,40 +101,40 @@ fun CubeLayout(
 				},
 				inputText = cubeDataSource.inputText,
 				inputValue = inputSide,
-				equalsText = cubeDataSource.equalsText,
+				equalsText = calculatorDataSource.equalsText,
 				calculateContent = {
 					when (selected) {
-						cubeDataSource.radioTextFeet -> {
+						calculatorDataSource.radioTextFeet -> {
 							CalculatedText(
-								text = rectangleDataSource.calculatedTextGallons,
+								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallonFT,
 								color = color
 							)
 							CalculatedText(
-								text = rectangleDataSource.calculatedTextLiters,
+								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiterFT,
 								color = color
 							)
 							CalculatedText(
-								text = rectangleDataSource.calculatedTextWaterWeight,
+								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeightFT,
 								color = color
 							)
 						}
 
-						cubeDataSource.radioTextInches -> {
+						calculatorDataSource.radioTextInches -> {
 							CalculatedText(
-								text = rectangleDataSource.calculatedTextGallons,
+								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallon,
 								color = color
 							)
 							CalculatedText(
-								text = rectangleDataSource.calculatedTextLiters,
+								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiter,
 								color = color
 							)
 							CalculatedText(
-								text = rectangleDataSource.calculatedTextWaterWeight,
+								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeight,
 								color = color
 							)

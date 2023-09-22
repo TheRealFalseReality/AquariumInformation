@@ -50,7 +50,7 @@ fun RectangleLayout(
 		mutableStateOf("")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(rectangleDataSource.radioTextFeet)
+		mutableIntStateOf(calculatorDataSource.radioTextFeet)
 	}
 	val length = inputLength.toDoubleOrNull() ?: 0.0
 	val width = inputWidth.toDoubleOrNull() ?: 0.0
@@ -73,23 +73,23 @@ fun RectangleLayout(
 					RadioButtonComp(
 						modifier = Modifier
 							.weight(1f),
-						text = rectangleDataSource.radioTextFeet,
-						onClick = { selected = rectangleDataSource.radioTextFeet },
+						text = calculatorDataSource.radioTextFeet,
+						onClick = { selected = calculatorDataSource.radioTextFeet },
 						selected = selected,
 						selectedColor = color,
 						textColor =
-						if (selected == rectangleDataSource.radioTextFeet) color
+						if (selected == calculatorDataSource.radioTextFeet) color
 						else MaterialTheme.colorScheme.onBackground
 					)
 					RadioButtonComp(
 						modifier = Modifier
 							.weight(1f),
-						text = rectangleDataSource.radioTextInches,
-						onClick = { selected = rectangleDataSource.radioTextInches },
+						text = calculatorDataSource.radioTextInches,
+						onClick = { selected = calculatorDataSource.radioTextInches },
 						selected = selected,
 						selectedColor = color,
 						textColor =
-						if (selected == rectangleDataSource.radioTextInches) color
+						if (selected == calculatorDataSource.radioTextInches) color
 						else MaterialTheme.colorScheme.onBackground
 					)
 				},
@@ -100,12 +100,12 @@ fun RectangleLayout(
 			CalculateFieldThreeInputs(
 				inputContent = {
 					InputNumberFieldThreeInputs(
-						label1 = rectangleDataSource.labelLength,
-						placeholder1 = rectangleDataSource.placeholderLength,
-						label2 = rectangleDataSource.labelWidth,
-						placeholder2 = rectangleDataSource.placeholderWidth,
-						label3 = rectangleDataSource.labelHeight,
-						placeholder3 = rectangleDataSource.placeholderHeight,
+						label1 = calculatorDataSource.labelLength,
+						placeholder1 = calculatorDataSource.placeholderLength,
+						label2 = calculatorDataSource.labelWidth,
+						placeholder2 = calculatorDataSource.placeholderWidth,
+						label3 = calculatorDataSource.labelHeight,
+						placeholder3 = calculatorDataSource.placeholderHeight,
 						value1 = inputLength,
 						onValueChange1 = { inputLength = it },
 						value2 = inputWidth,
@@ -119,41 +119,41 @@ fun RectangleLayout(
 				inputValue1 = inputLength,
 				inputValue2 = inputWidth,
 				inputValue3 = inputHeight,
-				equalsText = rectangleDataSource.equalsText,
+				equalsText = calculatorDataSource.equalsText,
 				color = color,
 				calculateContent = {
 					when (selected) {
-						rectangleDataSource.radioTextFeet -> {
+						calculatorDataSource.radioTextFeet -> {
 							CalculatedText(
-								text = rectangleDataSource.calculatedTextGallons,
+								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallonFT,
 								color = color
 							)
 							CalculatedText(
-								text = rectangleDataSource.calculatedTextLiters,
+								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiterFT,
 								color = color
 							)
 							CalculatedText(
-								text = rectangleDataSource.calculatedTextWaterWeight,
+								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeightFT,
 								color = color
 							)
 						}
 
-						rectangleDataSource.radioTextInches -> {
+						calculatorDataSource.radioTextInches -> {
 							CalculatedText(
-								text = rectangleDataSource.calculatedTextGallons,
+								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallon,
 								color = color
 							)
 							CalculatedText(
-								text = rectangleDataSource.calculatedTextLiters,
+								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiter,
 								color = color
 							)
 							CalculatedText(
-								text = rectangleDataSource.calculatedTextWaterWeight,
+								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeight,
 								color = color
 							)

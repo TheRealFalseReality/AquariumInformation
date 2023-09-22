@@ -16,7 +16,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.data.calculators.calculatorDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.cylinderDataSource
-import com.ccaquatics.aquariuminformation.data.calculators.hexagonalDataSource
 import com.ccaquatics.aquariuminformation.navigation.Cylinder
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateImage
@@ -89,7 +88,7 @@ fun CylinderLayout(
 						selected = selected,
 						selectedColor = color,
 						textColor =
-						if (selected == hexagonalDataSource.radioTextFeet) color
+						if (selected == calculatorDataSource.radioTextFeet) color
 						else MaterialTheme.colorScheme.onBackground
 					)
 					RadioButtonComp(
@@ -100,7 +99,7 @@ fun CylinderLayout(
 						selected = selected,
 						selectedColor = color,
 						textColor =
-						if (selected == hexagonalDataSource.radioTextInches) color
+						if (selected == calculatorDataSource.radioTextInches) color
 						else MaterialTheme.colorScheme.onBackground
 					)
 				},

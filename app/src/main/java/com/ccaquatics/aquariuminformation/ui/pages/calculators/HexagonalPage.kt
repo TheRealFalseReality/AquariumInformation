@@ -48,7 +48,7 @@ fun HexagonalLayout(
 		mutableStateOf("")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(hexagonalDataSource.radioTextFeet)
+		mutableIntStateOf(calculatorDataSource.radioTextFeet)
 	}
 	val edge = inputEdge.toDoubleOrNull() ?: 0.0
 	val height = inputHeight.toDoubleOrNull() ?: 0.0
@@ -70,23 +70,23 @@ fun HexagonalLayout(
 					RadioButtonComp(
 						modifier = Modifier
 							.weight(1f),
-						text = hexagonalDataSource.radioTextFeet,
-						onClick = { selected = hexagonalDataSource.radioTextFeet },
+						text = calculatorDataSource.radioTextFeet,
+						onClick = { selected = calculatorDataSource.radioTextFeet },
 						selected = selected,
 						selectedColor = color,
 						textColor =
-						if (selected == hexagonalDataSource.radioTextFeet) color
+						if (selected == calculatorDataSource.radioTextFeet) color
 						else MaterialTheme.colorScheme.onBackground
 					)
 					RadioButtonComp(
 						modifier = Modifier
 							.weight(1f),
-						text = hexagonalDataSource.radioTextInches,
-						onClick = { selected = hexagonalDataSource.radioTextInches },
+						text = calculatorDataSource.radioTextInches,
+						onClick = { selected = calculatorDataSource.radioTextInches },
 						selected = selected,
 						selectedColor = color,
 						textColor =
-							if (selected == hexagonalDataSource.radioTextInches) color
+							if (selected == calculatorDataSource.radioTextInches) color
 							else MaterialTheme.colorScheme.onBackground
 					)
 				},
@@ -97,10 +97,10 @@ fun HexagonalLayout(
 			CalculateFieldTwoInputs(
 				inputContent = {
 					InputRowNumberFieldTwoInputs(
-						label1 = hexagonalDataSource.labelEdge,
-						placeholder1 = hexagonalDataSource.placeholderEdge,
-						label2 = hexagonalDataSource.labelHeight,
-						placeholder2 = hexagonalDataSource.placeholderHeight,
+						label1 = calculatorDataSource.labelEdge,
+						placeholder1 = calculatorDataSource.placeholderEdge,
+						label2 = calculatorDataSource.labelHeight,
+						placeholder2 = calculatorDataSource.placeholderHeight,
 						value1 = inputEdge,
 						onValueChange1 = { inputEdge = it },
 						value2 = inputHeight,
@@ -111,46 +111,46 @@ fun HexagonalLayout(
 				inputText = hexagonalDataSource.inputText,
 				inputValue1 = inputEdge,
 				inputValue2 = inputHeight,
-				equalsText = hexagonalDataSource.equalsText,
+				equalsText = calculatorDataSource.equalsText,
 				calculateContent = {
 					when (selected) {
-						hexagonalDataSource.radioTextFeet -> {
+						calculatorDataSource.radioTextFeet -> {
 							CalculatedText(
 								modifier = Modifier.fillMaxWidth(),
-								text = hexagonalDataSource.calculatedTextGallons,
+								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallonFT,
 								color = color
 							)
 							CalculatedText(
 								modifier = Modifier.fillMaxWidth(),
-								text = hexagonalDataSource.calculatedTextLiters,
+								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiterFT,
 								color = color
 							)
 							CalculatedText(
 								modifier = Modifier.fillMaxWidth(),
-								text = hexagonalDataSource.calculatedTextWaterWeight,
+								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeightFT,
 								color = color
 							)
 						}
 
-						hexagonalDataSource.radioTextInches -> {
+						calculatorDataSource.radioTextInches -> {
 							CalculatedText(
 								modifier = Modifier.fillMaxWidth(),
-								text = hexagonalDataSource.calculatedTextGallons,
+								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallon,
 								color = color
 							)
 							CalculatedText(
 								modifier = Modifier.fillMaxWidth(),
-								text = hexagonalDataSource.calculatedTextLiters,
+								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiter,
 								color = color
 							)
 							CalculatedText(
 								modifier = Modifier.fillMaxWidth(),
-								text = hexagonalDataSource.calculatedTextWaterWeight,
+								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeight,
 								color = color
 							)

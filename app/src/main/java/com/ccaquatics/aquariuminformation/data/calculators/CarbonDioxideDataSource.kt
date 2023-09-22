@@ -1,18 +1,19 @@
 package com.ccaquatics.aquariuminformation.data.calculators
 
+import androidx.annotation.StringRes
 import com.ccaquatics.aquariuminformation.R
 
 data class CarbonDioxideData(
-	val subtitle: Int,
-	val unitsLabel: Int,
-	val labelPh: Int,
-	val placeholderPh: Int,
-	val labelDkh: Int,
-	val placeholderDkh: Int,
-	val inputText: Int,
-	val equalsText: Int,
-	val calculatedText: Int,
-	val formulaText: Int
+	@StringRes val subtitle: Int,
+	@StringRes val unitsLabel: Int,
+	@StringRes val labelPh: Int,
+	@StringRes val placeholderPh: Int,
+	@StringRes val labelDkh: Int,
+	@StringRes val placeholderDkh: Int,
+	@StringRes val inputText: Int,
+	@StringRes val equalsText: Int,
+	@StringRes val calculatedText: Int,
+	@StringRes val formulaText: Int
 )
 
 val carbonDioxideDataSource =
