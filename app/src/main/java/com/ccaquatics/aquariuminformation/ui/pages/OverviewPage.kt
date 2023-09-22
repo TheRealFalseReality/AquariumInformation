@@ -124,7 +124,9 @@ fun TankVolumeOverviewPage(
 @Composable
 fun ConvertersGrid(
 	modifier: Modifier = Modifier,
-	color: Color = MaterialTheme.colorScheme.primary,
+	fontColor: Color = MaterialTheme.colorScheme.primary,
+	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
+	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
 	onClickTemperature: () -> Unit,
 	onClickSalinity: () -> Unit,
 	onClickAlkalinity: () -> Unit,
@@ -132,21 +134,23 @@ fun ConvertersGrid(
 	Column(modifier = modifier) {
 		TitleWideContent(
 			text = Converters.title,
-			color = color,
+			color = fontColor,
 			icon = Converters.icon
 		) {
 			NavButtonWide(
 				title = Temperature.title,
 				icon = Temperature.icon,
 				onClick = onClickTemperature,
-				contentColor = color
+				contentColor = contentColor,
+				containerColor = containerColor
 			)
 			NavButtonRow(
 				title1 = Salinity.title,
 				icon1 = Salinity.icon,
 				title2 = Alkalinity.title,
 				icon2 = Alkalinity.icon,
-				contentColor = color,
+				contentColor = contentColor,
+				containerColor = containerColor,
 				onClick1 = onClickSalinity,
 				onClick2 = onClickAlkalinity,
 			)
@@ -157,14 +161,16 @@ fun ConvertersGrid(
 @Composable
 fun CalculatorsGrid(
 	modifier: Modifier = Modifier,
-	color: Color = MaterialTheme.colorScheme.secondary,
+	fontColor: Color =  MaterialTheme.colorScheme.secondary,
+	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
+	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
 	onClickVolume: () -> Unit,
 	onClickCo2: () -> Unit,
 ) {
 	Column(modifier = modifier) {
 		TitleWideContent(
 			text = Calculators.title,
-			color = color,
+			color = fontColor,
 			icon = Calculators.icon
 		) {
 			NavButtonRow(
@@ -172,7 +178,8 @@ fun CalculatorsGrid(
 				icon1 = TankVolume.icon,
 				title2 = CarbonDioxide.title,
 				icon2 = CarbonDioxide.icon,
-				contentColor = color,
+				contentColor = contentColor,
+				containerColor = containerColor,
 				onClick1 = onClickVolume,
 				onClick2 = onClickCo2,
 			)
@@ -183,7 +190,9 @@ fun CalculatorsGrid(
 @Composable
 fun TankVolumeGrid(
 	modifier: Modifier = Modifier,
-	color: Color = MaterialTheme.colorScheme.secondary,
+	fontColor: Color =  MaterialTheme.colorScheme.secondary,
+	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
+	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
 	onClickRectangle: () -> Unit,
 	onClickCube: () -> Unit,
 	onClickCylinder: () -> Unit,
@@ -194,7 +203,7 @@ fun TankVolumeGrid(
 		TitleWideContent(
 			text = TankVolume.title,
 			icon = TankVolume.icon,
-			color = color
+			color = fontColor
 		) {
 			NavButtonRow(
 				title1 = Rectangle.title,
@@ -203,7 +212,8 @@ fun TankVolumeGrid(
 				icon2 = Cube.icon,
 				onClick1 = onClickRectangle,
 				onClick2 = onClickCube,
-				contentColor = color
+				contentColor = contentColor,
+				containerColor = containerColor,
 			)
 			NavButtonRow(
 				title1 = Cylinder.title,
@@ -212,7 +222,8 @@ fun TankVolumeGrid(
 				icon2 = Hexagonal.icon,
 				onClick1 = onClickCylinder,
 				onClick2 = onClickHexagonal,
-				contentColor = color
+				contentColor = contentColor,
+				containerColor = containerColor,
 			)
 			NavButton(
 				modifier = Modifier
@@ -220,7 +231,8 @@ fun TankVolumeGrid(
 				title = BowFront.title,
 				icon = BowFront.icon,
 				onClick = onClickBowFront,
-				contentColor = color
+				contentColor = contentColor,
+				containerColor = containerColor,
 			)
 		}
 	}
@@ -229,19 +241,22 @@ fun TankVolumeGrid(
 @Composable
 fun FishCompatability(
 	modifier: Modifier = Modifier,
-	color: Color = MaterialTheme.colorScheme.tertiary,
+	fontColor: Color =  MaterialTheme.colorScheme.tertiary,
+	contentColor: Color = MaterialTheme.colorScheme.onTertiaryContainer,
+	containerColor: Color = MaterialTheme.colorScheme.tertiaryContainer,
 	onClickFish: () -> Unit = {},
 ) {
 	Column(modifier) {
 		TitleWideContent(
 			text = FishCompatability.title,
-			color = color,
+			color = fontColor,
 			icon = R.drawable.ic_fish_2
 		) {
 			NavButtonWide(
 				title = R.string.text_welcome_compatibility_title,
 				icon = FishCompatability.icon,
-				contentColor = color,
+				contentColor = contentColor,
+				containerColor = containerColor,
 				onClick = onClickFish,
 			)
 		}

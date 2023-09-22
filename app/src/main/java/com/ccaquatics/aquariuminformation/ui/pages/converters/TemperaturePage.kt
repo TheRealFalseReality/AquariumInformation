@@ -11,6 +11,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.data.converters.temperatureDataSource
@@ -36,8 +37,11 @@ fun TemperaturePage() {
 }
 
 @Composable
-fun TemperatureLayout() {
-	val color = MaterialTheme.colorScheme.primary
+fun TemperatureLayout(
+	color: Color = MaterialTheme.colorScheme.primary,
+	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
+	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
+	) {
 	var inputTemperature by rememberSaveable {
 		mutableStateOf("0")
 	}
@@ -94,23 +98,26 @@ fun TemperatureLayout() {
 								label = temperatureDataSource.labelCelsius,
 								value = inputTemperature,
 								onValueChange = { inputTemperature = it },
-								color = color
+								focusedContainerColor = containerColor,
+								focusedColor = contentColor,
+								unfocusedColor = color,
 							)
 						},
 						inputText = temperatureDataSource.inputTextCelsius,
 						inputValue = inputTemperature,
 						equalsText = temperatureDataSource.equalsText,
-						color = color,
+						contentColor = color,
+						containerColor = containerColor,
 						calculateContent = {
 							CalculatedText(
 								text = temperatureDataSource.calculatedTextFahrenheit,
 								calculatedValue = fahrenheit,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = temperatureDataSource.calculatedTextKelvin,
 								calculatedValue = kelvinCelsius,
-								color = color
+								textColor = contentColor,
 							)
 						}
 					)
@@ -124,23 +131,26 @@ fun TemperatureLayout() {
 								label = temperatureDataSource.labelFahrenheit,
 								value = inputTemperature,
 								onValueChange = { inputTemperature = it },
-								color = color
+								focusedContainerColor = containerColor,
+								focusedColor = contentColor,
+								unfocusedColor = color,
 							)
 						},
 						inputText = temperatureDataSource.inputTextFahrenheit,
 						inputValue = inputTemperature,
 						equalsText = temperatureDataSource.equalsText,
-						color = color,
+						contentColor = color,
+						containerColor = containerColor,
 						calculateContent = {
 							CalculatedText(
 								text = temperatureDataSource.calculatedTextCelsius,
 								calculatedValue = celsius,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = temperatureDataSource.calculatedTextKelvin,
 								calculatedValue = kelvinFahrenheit,
-								color = color
+								textColor = contentColor,
 							)
 						}
 					)
@@ -149,7 +159,7 @@ fun TemperatureLayout() {
 		},
 		formulaContent = {
 			FormulaStringContent(
-				color = color,
+				titleColor = color,
 				content = {
 					BodyText(
 						text = temperatureDataSource.formulaText1,

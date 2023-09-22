@@ -23,10 +23,10 @@ fun PageView(
 ) {
 	Column(
 		modifier = Modifier
-			.padding(
-				top = dimensionResource(id = R.dimen.padding_verySmall),
-				bottom = dimensionResource(id = R.dimen.padding_small)
-			),
+//			.padding(
+//				top = dimensionResource(id = R.dimen.padding_verySmall),
+//				bottom = dimensionResource(id = R.dimen.padding_small)
+//			),
 	) {
 		Column(
 			modifier = Modifier
@@ -36,6 +36,7 @@ fun PageView(
 			verticalArrangement = Arrangement.SpaceBetween
 		) {
 			content()
+			SmallSpacer()
 		}
 	}
 }
@@ -46,10 +47,10 @@ fun PageViewCenter(
 ) {
 	Column(
 		modifier = Modifier
-			.padding(
-				top = dimensionResource(id = R.dimen.padding_verySmall),
-				bottom = dimensionResource(id = R.dimen.padding_small)
-			),
+//			.padding(
+//				top = dimensionResource(id = R.dimen.padding_verySmall),
+//				bottom = dimensionResource(id = R.dimen.padding_small)
+//			),
 	) {
 		Column(
 			modifier = Modifier
@@ -59,6 +60,7 @@ fun PageViewCenter(
 			verticalArrangement = Arrangement.Center
 		) {
 			content()
+			SmallSpacer()
 		}
 	}
 }
@@ -86,6 +88,7 @@ fun PageViewLazy(
 	}
 }
 
+/*TODO Add clear button*/
 @Composable
 fun GenericCalculatePage(
 	@StringRes title: Int,

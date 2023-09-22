@@ -38,7 +38,9 @@ fun RectanglePage() {
 
 @Composable
 fun RectangleLayout(
-	color: Color = MaterialTheme.colorScheme.secondary
+	color: Color = MaterialTheme.colorScheme.secondary,
+	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
+	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
 ) {
 	var inputLength by rememberSaveable {
 		mutableStateOf("")
@@ -112,7 +114,9 @@ fun RectangleLayout(
 						onValueChange2 = { inputWidth = it },
 						value3 = inputHeight,
 						onValueChange3 = { inputHeight = it },
-						color = color
+						focusedContainerColor = containerColor,
+						focusedColor = contentColor,
+						unfocusedColor = color,
 					)
 				},
 				inputText = rectangleDataSource.inputText,
@@ -120,24 +124,25 @@ fun RectangleLayout(
 				inputValue2 = inputWidth,
 				inputValue3 = inputHeight,
 				equalsText = calculatorDataSource.equalsText,
-				color = color,
+				contentColor = color,
+				containerColor = containerColor,
 				calculateContent = {
 					when (selected) {
 						calculatorDataSource.radioTextFeet -> {
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallonFT,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiterFT,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeightFT,
-								color = color
+								textColor = contentColor,
 							)
 						}
 
@@ -145,17 +150,17 @@ fun RectangleLayout(
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallon,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiter,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeight,
-								color = color
+								textColor = contentColor,
 							)
 						}
 					}

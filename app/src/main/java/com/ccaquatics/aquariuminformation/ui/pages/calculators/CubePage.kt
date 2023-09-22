@@ -38,7 +38,9 @@ fun CubePage() {
 
 @Composable
 fun CubeLayout(
-	color: Color = MaterialTheme.colorScheme.secondary
+	color: Color = MaterialTheme.colorScheme.secondary,
+	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
+	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
 ) {
 	var inputSide by rememberSaveable {
 		mutableStateOf("")
@@ -96,7 +98,9 @@ fun CubeLayout(
 						placeholder = calculatorDataSource.placeholderSide,
 						value = inputSide,
 						onValueChange = { inputSide = it },
-						color = color,
+						focusedContainerColor = containerColor,
+						focusedColor = contentColor,
+						unfocusedColor = color,
 					)
 				},
 				inputText = cubeDataSource.inputText,
@@ -108,17 +112,17 @@ fun CubeLayout(
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallonFT,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiterFT,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeightFT,
-								color = color
+								textColor = contentColor,
 							)
 						}
 
@@ -126,22 +130,23 @@ fun CubeLayout(
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallon,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiter,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeight,
-								color = color
+								textColor = contentColor,
 							)
 						}
 					}
 				},
-				color = color,
+				contentColor = color,
+				containerColor = containerColor
 			)
 		},
 		imageContent = {

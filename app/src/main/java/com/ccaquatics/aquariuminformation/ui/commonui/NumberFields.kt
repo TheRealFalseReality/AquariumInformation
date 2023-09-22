@@ -42,7 +42,9 @@ fun InputNumberField(
 		topStart = dimensionResource(id = R.dimen.shape_medium),
 		topEnd = dimensionResource(id = R.dimen.shape_medium),
 	),
-	color: Color,
+	focusedColor: Color,
+	focusedContainerColor: Color,
+	unfocusedColor: Color,
 	imeAction: ImeAction = ImeAction.Done
 ) {
 	val focusManager = LocalFocusManager.current
@@ -61,13 +63,16 @@ fun InputNumberField(
 			value = value,
 			onValueChange = onValueChange,
 			colors = TextFieldDefaults.colors(
-				/* TODO Add container colors. */
-				focusedIndicatorColor = color,
-				focusedLabelColor = color,
-				focusedPlaceholderColor = color,
-				focusedTextColor = color,
-				focusedSupportingTextColor = color,
-				cursorColor = color,
+				focusedIndicatorColor = focusedColor,
+				focusedLabelColor = focusedColor,
+				focusedPlaceholderColor = focusedColor,
+				focusedTextColor = focusedColor,
+				focusedSupportingTextColor = focusedColor,
+				cursorColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedTextColor = unfocusedColor,
+				unfocusedIndicatorColor = unfocusedColor,
+				unfocusedLabelColor = unfocusedColor,
 			),
 			label = {
 				Text(
@@ -102,7 +107,9 @@ fun InputNumberFieldTwoInputs(
 	onValueChange1: (String) -> Unit,
 	value2: String,
 	onValueChange2: (String) -> Unit,
-	color: Color
+	focusedColor: Color,
+	focusedContainerColor: Color,
+	unfocusedColor: Color,
 ) {
 	Column(modifier = modifier) {
 		InputNumberField(
@@ -110,7 +117,9 @@ fun InputNumberFieldTwoInputs(
 			placeholder = placeholder1,
 			value = value1,
 			onValueChange = onValueChange1,
-			color = color,
+			focusedColor = focusedColor,
+			focusedContainerColor = focusedContainerColor,
+			unfocusedColor = unfocusedColor,
 			imeAction = ImeAction.Next
 		)
 		InputNumberField(
@@ -118,7 +127,9 @@ fun InputNumberFieldTwoInputs(
 			placeholder = placeholder2,
 			value = value2,
 			onValueChange = onValueChange2,
-			color = color
+			focusedColor = focusedColor,
+			focusedContainerColor = focusedContainerColor,
+			unfocusedColor = unfocusedColor,
 		)
 	}
 }
@@ -134,7 +145,9 @@ fun InputRowNumberFieldTwoInputs(
 	onValueChange1: (String) -> Unit,
 	value2: String,
 	onValueChange2: (String) -> Unit,
-	color: Color
+	focusedColor: Color,
+	focusedContainerColor: Color,
+	unfocusedColor: Color,
 ) {
 	Column(modifier = modifier) {
 		Row(
@@ -154,7 +167,9 @@ fun InputRowNumberFieldTwoInputs(
 				placeholder = placeholder1,
 				value = value1,
 				onValueChange = onValueChange1,
-				color = color,
+				focusedColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedColor = unfocusedColor,
 				imeAction = ImeAction.Next
 			)
 			InputNumberField(
@@ -168,7 +183,113 @@ fun InputRowNumberFieldTwoInputs(
 				placeholder = placeholder2,
 				value = value2,
 				onValueChange = onValueChange2,
-				color = color
+				focusedColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedColor = unfocusedColor,
+			)
+		}
+	}
+}
+
+@Composable
+fun InputQuadNumberFieldFourInputs(
+	modifier: Modifier = Modifier,
+	@StringRes label1: Int,
+	@StringRes placeholder1: Int,
+	@StringRes label2: Int,
+	@StringRes placeholder2: Int,
+	value1: String,
+	onValueChange1: (String) -> Unit,
+	value2: String,
+	onValueChange2: (String) -> Unit,
+	@StringRes label3: Int,
+	@StringRes placeholder3: Int,
+	@StringRes label4: Int,
+	@StringRes placeholder4: Int,
+	value3: String,
+	onValueChange3: (String) -> Unit,
+	value4: String,
+	onValueChange4: (String) -> Unit,
+	focusedColor: Color,
+	focusedContainerColor: Color,
+	unfocusedColor: Color,
+) {
+	Column(modifier = modifier) {
+		Row(
+			modifier = Modifier
+				.fillMaxWidth(),
+			horizontalArrangement = Arrangement.Center,
+			verticalAlignment = Alignment.CenterVertically
+		) {
+			InputNumberField(
+				modifier = Modifier
+					.padding(
+						start = dimensionResource(id = R.dimen.padding_verySmall),
+						end = dimensionResource(id = R.dimen.padding_verySmall)
+					)
+					.weight(1f),
+				label = label1,
+				placeholder = placeholder1,
+				value = value1,
+				onValueChange = onValueChange1,
+				focusedColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedColor = unfocusedColor,
+				imeAction = ImeAction.Next
+			)
+			InputNumberField(
+				modifier = Modifier
+					.padding(
+						start = dimensionResource(id = R.dimen.padding_verySmall),
+						end = dimensionResource(id = R.dimen.padding_verySmall)
+					)
+					.weight(1f),
+				label = label2,
+				placeholder = placeholder2,
+				value = value2,
+				onValueChange = onValueChange2,
+				focusedColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedColor = unfocusedColor,
+				imeAction = ImeAction.Next
+			)
+		}
+		Row(
+			modifier = Modifier
+				.fillMaxWidth(),
+			horizontalArrangement = Arrangement.Center,
+			verticalAlignment = Alignment.CenterVertically
+		) {
+			InputNumberField(
+				modifier = Modifier
+					.padding(
+						start = dimensionResource(id = R.dimen.padding_verySmall),
+						end = dimensionResource(id = R.dimen.padding_verySmall)
+					)
+					.weight(1f),
+				label = label3,
+				placeholder = placeholder3,
+				value = value3,
+				onValueChange = onValueChange3,
+				focusedColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedColor = unfocusedColor,
+				imeAction = ImeAction.Next
+			)
+			InputNumberField(
+				modifier = Modifier
+					.padding(
+						start = dimensionResource(id = R.dimen.padding_verySmall),
+						end = dimensionResource(id = R.dimen.padding_verySmall)
+					)
+					.weight(1f),
+				label = label4,
+				placeholder = placeholder4,
+				value = value4,
+				onValueChange = onValueChange4,
+				focusedColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedColor = unfocusedColor,
 			)
 		}
 	}
@@ -189,7 +310,9 @@ fun InputNumberFieldThreeInputs(
 	onValueChange2: (String) -> Unit,
 	value3: String,
 	onValueChange3: (String) -> Unit,
-	color: Color
+	focusedColor: Color,
+	focusedContainerColor: Color,
+	unfocusedColor: Color,
 ) {
 	Column(modifier = modifier) {
 		Row(
@@ -204,7 +327,9 @@ fun InputNumberFieldThreeInputs(
 				placeholder = placeholder1,
 				value = value1,
 				onValueChange = onValueChange1,
-				color = color,
+				focusedColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedColor = unfocusedColor,
 				imeAction = ImeAction.Next
 			)
 			InputNumberField(
@@ -215,7 +340,9 @@ fun InputNumberFieldThreeInputs(
 				placeholder = placeholder2,
 				value = value2,
 				onValueChange = onValueChange2,
-				color = color,
+				focusedColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedColor = unfocusedColor,
 				imeAction = ImeAction.Next
 			)
 			InputNumberField(
@@ -226,7 +353,9 @@ fun InputNumberFieldThreeInputs(
 				placeholder = placeholder3,
 				value = value3,
 				onValueChange = onValueChange3,
-				color = color
+				focusedColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedColor = unfocusedColor,
 			)
 		}
 	}
@@ -240,7 +369,8 @@ fun CalculateField(
 	inputValue: String,
 	@StringRes equalsText: Int = calculatorDataSource.equalsText,
 	calculateContent: @Composable () -> Unit,
-	color: Color
+	contentColor: Color,
+	containerColor: Color,
 ) {
 	Column(
 		modifier = modifier,
@@ -252,11 +382,11 @@ fun CalculateField(
 			text = stringResource(id = inputText, inputValue),
 			modifier = Modifier
 				.align(Alignment.CenterHorizontally),
-			color = color
+			color = contentColor
 		)
 		MediumSpacer()
 		EqualsText(
-			color = color,
+			color = contentColor,
 			equalsText = equalsText
 		)
 		SmallSpacer()
@@ -264,7 +394,10 @@ fun CalculateField(
 			modifier = Modifier.fillMaxWidth(),
 			horizontalAlignment = Alignment.CenterHorizontally
 		) {
-			SingleWideCard {
+			SingleWideCard(
+				contentColor = contentColor,
+				containerColor = containerColor
+			) {
 				calculateContent()
 			}
 		}
@@ -297,7 +430,8 @@ fun CalculateFieldTwoInputs(
 	inputValue2: String,
 	@StringRes equalsText: Int = calculatorDataSource.equalsText,
 	calculateContent: @Composable () -> Unit,
-	color: Color
+	contentColor: Color,
+	containerColor: Color,
 ) {
 	Column(
 		modifier = modifier,
@@ -310,11 +444,11 @@ fun CalculateFieldTwoInputs(
 			modifier = Modifier
 				.align(Alignment.CenterHorizontally)
 				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
-			color = color
+			color = contentColor
 		)
 		MediumSpacer()
 		EqualsText(
-			color = color,
+			color = contentColor,
 			equalsText = equalsText
 		)
 		SmallSpacer()
@@ -322,7 +456,10 @@ fun CalculateFieldTwoInputs(
 			modifier = Modifier.fillMaxWidth(),
 			horizontalAlignment = Alignment.CenterHorizontally
 		) {
-			SingleWideCard {
+			SingleWideCard(
+				contentColor = contentColor,
+				containerColor = containerColor
+			) {
 				calculateContent()
 			}
 		}
@@ -340,7 +477,8 @@ fun CalculateFieldFourInputs(
 	inputValue4: String,
 	@StringRes equalsText: Int = calculatorDataSource.equalsText,
 	calculateContent: @Composable () -> Unit,
-	color: Color
+	contentColor: Color,
+	containerColor: Color,
 ) {
 	Column(
 		modifier = modifier,
@@ -360,11 +498,11 @@ fun CalculateFieldFourInputs(
 			modifier = Modifier
 				.align(Alignment.CenterHorizontally)
 				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
-			color = color
+			color = contentColor
 		)
 		MediumSpacer()
 		EqualsText(
-			color = color,
+			color = contentColor,
 			equalsText = equalsText
 		)
 		SmallSpacer()
@@ -372,7 +510,10 @@ fun CalculateFieldFourInputs(
 			modifier = Modifier.fillMaxWidth(),
 			horizontalAlignment = Alignment.CenterHorizontally
 		) {
-			SingleWideCard {
+			SingleWideCard(
+				contentColor = contentColor,
+				containerColor = containerColor
+			) {
 				calculateContent()
 			}
 		}
@@ -389,7 +530,8 @@ fun CalculateFieldThreeInputs(
 	inputValue3: String,
 	@StringRes equalsText: Int = calculatorDataSource.equalsText,
 	calculateContent: @Composable () -> Unit,
-	color: Color
+	contentColor: Color,
+	containerColor: Color,
 ) {
 	Column(
 		modifier = modifier,
@@ -402,11 +544,11 @@ fun CalculateFieldThreeInputs(
 			modifier = Modifier
 				.align(Alignment.CenterHorizontally)
 				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
-			color = color
+			color = contentColor
 		)
 		MediumSpacer()
 		EqualsText(
-			color = color,
+			color = contentColor,
 			equalsText = equalsText
 		)
 		SmallSpacer()
@@ -414,7 +556,10 @@ fun CalculateFieldThreeInputs(
 			modifier = Modifier.fillMaxWidth(),
 			horizontalAlignment = Alignment.CenterHorizontally
 		) {
-			SingleWideCard {
+			SingleWideCard(
+				contentColor = contentColor,
+				containerColor = containerColor
+			) {
 				calculateContent()
 			}
 		}
@@ -426,7 +571,7 @@ fun CalculatedText(
 	modifier: Modifier = Modifier,
 	@StringRes text: Int,
 	calculatedValue: Double,
-	color: Color
+	textColor: Color
 ) {
 	Column(modifier = modifier) {
 		Text(
@@ -435,7 +580,7 @@ fun CalculatedText(
 			text = stringResource(id = text, calculatedValue),
 			fontSize = 20.sp,
 			fontWeight = FontWeight.Bold,
-			color = color
+			color = textColor
 		)
 	}
 }

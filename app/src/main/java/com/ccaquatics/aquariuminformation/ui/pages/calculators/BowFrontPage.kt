@@ -21,7 +21,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.CalculateImage
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
-import com.ccaquatics.aquariuminformation.ui.commonui.InputRowNumberFieldTwoInputs
+import com.ccaquatics.aquariuminformation.ui.commonui.InputQuadNumberFieldFourInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
@@ -39,7 +39,9 @@ fun BowFrontPage() {
 
 @Composable
 fun BowFrontLayout(
-	color: Color = MaterialTheme.colorScheme.secondary
+	color: Color = MaterialTheme.colorScheme.secondary,
+	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
+	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
 ) {
 	var inputLength by rememberSaveable {
 		mutableStateOf("")
@@ -108,7 +110,7 @@ fun BowFrontLayout(
 		calculateFieldContent = {
 			CalculateFieldFourInputs(
 				inputContent = {
-					InputRowNumberFieldTwoInputs(
+					InputQuadNumberFieldFourInputs(
 						label1 = calculatorDataSource.labelLength,
 						placeholder1 = calculatorDataSource.placeholderLength,
 						label2 = calculatorDataSource.labelWidth,
@@ -117,18 +119,18 @@ fun BowFrontLayout(
 						onValueChange1 = { inputLength = it },
 						value2 = inputWidth,
 						onValueChange2 = { inputWidth = it },
-						color = color,
-					)
-					InputRowNumberFieldTwoInputs(
-						label1 = calculatorDataSource.labelHeight,
-						placeholder1 = calculatorDataSource.placeholderHeight,
-						label2 = calculatorDataSource.labelFullWidth,
-						placeholder2 = calculatorDataSource.placeholderFullWidth,
-						value1 = inputHeight,
-						onValueChange1 = { inputHeight = it },
-						value2 = inputFullWidth,
-						onValueChange2 = { inputFullWidth = it },
-						color = color
+						focusedContainerColor = containerColor,
+						focusedColor = contentColor,
+						unfocusedColor = color,
+
+						label3 = calculatorDataSource.labelHeight,
+						placeholder3 = calculatorDataSource.placeholderHeight,
+						label4 = calculatorDataSource.labelFullWidth,
+						placeholder4 = calculatorDataSource.placeholderFullWidth,
+						value3 = inputHeight,
+						onValueChange3 = { inputHeight = it },
+						value4 = inputFullWidth,
+						onValueChange4 = { inputFullWidth = it },
 					)
 				},
 				inputText = bowFrontDataSource.inputText,
@@ -143,17 +145,17 @@ fun BowFrontLayout(
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallonFT,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiterFT,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeightFT,
-								color = color
+								textColor = contentColor,
 							)
 						}
 
@@ -161,22 +163,23 @@ fun BowFrontLayout(
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallon,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiter,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeight,
-								color = color
+								textColor = contentColor,
 							)
 						}
 					}
 				},
-				color = color
+				containerColor = containerColor,
+				contentColor = color
 			)
 		},
 		imageContent = {

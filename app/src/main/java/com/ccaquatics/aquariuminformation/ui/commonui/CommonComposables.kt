@@ -123,7 +123,7 @@ fun TitleWideContent(
 fun SingleWideCard(
 	modifier: Modifier = Modifier,
 	shape: Shape = Shapes.large,
-	backgroundCardColor: Color = MaterialTheme.colorScheme.background,
+	containerColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color = MaterialTheme.colorScheme.onBackground,
 	content: @Composable ColumnScope.() -> Unit,
 ) {
@@ -133,7 +133,7 @@ fun SingleWideCard(
 				.fillMaxWidth(fraction = 0.9f),
 			shape = shape,
 			colors = CardDefaults.cardColors(
-				containerColor = backgroundCardColor,
+				containerColor = containerColor,
 				contentColor = contentColor
 			),
 			elevation = CardDefaults.cardElevation(
@@ -158,8 +158,7 @@ fun UnitButtonCard(
 	content: @Composable RowScope.() -> Unit,
 	containerColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color,
-	shape: Shape = Shapes.large
-
+	shape: Shape = Shapes.large,
 ) {
 	Column(modifier = modifier) {
 		ElevatedCard(
@@ -293,14 +292,14 @@ fun FormulaString(
 @Composable
 fun FormulaStringContent(
 	modifier: Modifier = Modifier,
-	color: Color,
+	titleColor: Color,
 	content: @Composable () -> Unit
 ) {
 	Column(modifier = modifier) {
 		TitleWideContent(
 			text = R.string.formula,
 			icon = R.drawable.baseline_functions_24,
-			color = color,
+			color = titleColor,
 		) {
 			SingleWideCard {
 				Column(
@@ -324,7 +323,7 @@ fun PopOutCard(
 ) {
 	Column(modifier = modifier) {
 		SingleWideCard(
-			backgroundCardColor = backgroundCardColor,
+			containerColor = backgroundCardColor,
 			contentColor = contentColor
 		) {
 			Row(
@@ -382,6 +381,7 @@ fun PopOutlinedCard(
 				modifier = Modifier
 					.padding(dimensionResource(id = R.dimen.padding_large)),
 				text = text,
+				color = contentColor
 			)
 		}
 	}
@@ -437,7 +437,9 @@ fun InputNumberPreview() {
 			label = R.string.button_label_cel,
 			value = "1",
 			onValueChange = { },
-			color = MaterialTheme.colorScheme.primary
+			focusedColor = MaterialTheme.colorScheme.onPrimaryContainer,
+			focusedContainerColor = MaterialTheme.colorScheme.primaryContainer,
+			unfocusedColor = MaterialTheme.colorScheme.primary,
 		)
 	}
 }
@@ -452,7 +454,9 @@ fun InputNumberPreviewDark(
 			label = R.string.button_label_cel,
 			value = "1",
 			onValueChange = { },
-			color = MaterialTheme.colorScheme.primary
+			focusedColor = MaterialTheme.colorScheme.onPrimaryContainer,
+			focusedContainerColor = MaterialTheme.colorScheme.primaryContainer,
+			unfocusedColor = MaterialTheme.colorScheme.primary,
 		)
 	}
 }

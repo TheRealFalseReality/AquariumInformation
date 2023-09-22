@@ -196,6 +196,8 @@ fun CalculateImage(
 			.padding(dimensionResource(id = R.dimen.padding_verySmall))
 	) {
 		Image(
+			modifier = Modifier
+				.height(dimensionResource(id = R.dimen.image_size_large)),
 			painter = painterResource(id = painter),
 			contentDescription = stringResource(id = contentDescription),
 			colorFilter = ColorFilter.tint(colorFilter)

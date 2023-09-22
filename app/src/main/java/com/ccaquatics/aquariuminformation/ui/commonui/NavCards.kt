@@ -30,8 +30,8 @@ import com.ccaquatics.aquariuminformation.ui.theme.Shapes
 fun NavButton(
 	modifier: Modifier = Modifier,
 	shape: Shape = Shapes.large,
-	containerColor: Color = MaterialTheme.colorScheme.background,
-	contentColor: Color = MaterialTheme.colorScheme.onBackground,
+	containerColor: Color,
+	contentColor: Color,
 	@StringRes title: Int,
 	@DrawableRes icon: Int,
 	onClick: () -> Unit,
@@ -170,8 +170,8 @@ fun NavButton(
 fun NavButtonWide(
 	modifier: Modifier = Modifier,
 	shape: Shape = Shapes.large,
-	containerColor: Color = MaterialTheme.colorScheme.background,
-	contentColor: Color = MaterialTheme.colorScheme.onBackground,
+	containerColor: Color,
+	contentColor: Color,
 	@StringRes title: Int,
 	@DrawableRes icon: Int,
 	onClick: () -> Unit,
@@ -249,8 +249,8 @@ fun NavButtonRow(
 	@DrawableRes icon1: Int,
 	@StringRes title2: Int,
 	@DrawableRes icon2: Int,
-	containerColor: Color = MaterialTheme.colorScheme.background,
-	contentColor: Color = MaterialTheme.colorScheme.onBackground,
+	containerColor: Color,
+	contentColor: Color,
 	onClick1: () -> Unit,
 	onClick2: () -> Unit,
 ) {
@@ -286,7 +286,6 @@ fun NavButtonRow(
 	MediumSpacer()
 }
 
-
 @Preview(showBackground = true)
 @Composable
 fun NavRowButtonPreview() {
@@ -298,7 +297,9 @@ fun NavRowButtonPreview() {
 			NavButtonWide(
 				title = R.string.converters,
 				icon = R.drawable.baseline_home_24,
-				onClick = {}
+				onClick = {},
+				containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+				contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
 			)
 		}
 	}
@@ -316,7 +317,9 @@ fun NavRowButtonPreviewDark(
 			NavButtonWide(
 				title = R.string.converters,
 				icon = R.drawable.baseline_home_24,
-				onClick = {}
+				onClick = {},
+				containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+				contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
 			)
 		}
 	}
@@ -337,6 +340,8 @@ fun NavButtonRowPreview() {
 				icon2 = R.drawable.baseline_email_24,
 				onClick1 = {},
 				onClick2 = {},
+				containerColor = MaterialTheme.colorScheme.primaryContainer,
+				contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
 			)
 		}
 	}
@@ -358,6 +363,8 @@ fun NavButtonRowPreviewDark(
 				icon2 = R.drawable.baseline_home_24,
 				onClick1 = {},
 				onClick2 = {},
+				containerColor = MaterialTheme.colorScheme.primaryContainer,
+				contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
 			)
 		}
 	}
@@ -374,7 +381,9 @@ fun NavButtonPreview() {
 			NavButton(
 				title = R.string.converters,
 				icon = R.drawable.baseline_email_24,
-				onClick = {}
+				onClick = {},
+				containerColor = MaterialTheme.colorScheme.secondaryContainer,
+				contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
 			)
 		}
 	}
@@ -392,7 +401,9 @@ fun NavButtonPreviewDark(
 			NavButton(
 				title = R.string.converters,
 				icon = R.drawable.baseline_email_24,
-				onClick = {}
+				onClick = {},
+				containerColor = MaterialTheme.colorScheme.secondaryContainer,
+				contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
 			)
 		}
 	}

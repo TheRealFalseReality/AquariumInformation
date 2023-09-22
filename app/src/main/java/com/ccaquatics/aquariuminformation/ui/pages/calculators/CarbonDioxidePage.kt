@@ -35,7 +35,9 @@ fun CarbonDioxidePage() {
 
 @Composable
 fun CarbonDioxideLayout(
-	color: Color = MaterialTheme.colorScheme.secondary
+	color: Color = MaterialTheme.colorScheme.secondary,
+	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
+	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
 ) {
 	var inputPH by rememberSaveable {
 		mutableStateOf("")
@@ -70,18 +72,21 @@ fun CarbonDioxideLayout(
 						onValueChange1 = { inputPH = it },
 						value2 = inputDKH,
 						onValueChange2 = { inputDKH = it },
-						color = color,
+						focusedContainerColor = containerColor,
+						focusedColor = contentColor,
+						unfocusedColor = color,
 					)
 				},
 				inputText = carbonDioxideDataSource.inputText,
 				inputValue1 = inputPH,
 				inputValue2 = inputDKH,
-				color = color,
+				contentColor = color,
+				containerColor = containerColor,
 				calculateContent = {
 					CalculatedText(
 						text = carbonDioxideDataSource.calculatedText,
 						calculatedValue = co2,
-						color = color,
+						textColor = contentColor,
 					)
 				}
 			)

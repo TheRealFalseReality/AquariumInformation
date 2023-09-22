@@ -39,7 +39,9 @@ fun HexagonalPage() {
 
 @Composable
 fun HexagonalLayout(
-	color: Color = MaterialTheme.colorScheme.secondary
+	color: Color = MaterialTheme.colorScheme.secondary,
+	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
+	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
 ) {
 	var inputEdge by rememberSaveable {
 		mutableStateOf("")
@@ -105,7 +107,9 @@ fun HexagonalLayout(
 						onValueChange1 = { inputEdge = it },
 						value2 = inputHeight,
 						onValueChange2 = { inputHeight = it },
-						color = color,
+						focusedContainerColor = containerColor,
+						focusedColor = contentColor,
+						unfocusedColor = color,
 					)
 				},
 				inputText = hexagonalDataSource.inputText,
@@ -119,19 +123,19 @@ fun HexagonalLayout(
 								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallonFT,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiterFT,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeightFT,
-								color = color
+								textColor = contentColor,
 							)
 						}
 
@@ -140,24 +144,25 @@ fun HexagonalLayout(
 								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallon,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiter,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeight,
-								color = color
+								textColor = contentColor,
 							)
 						}
 					}
 				},
-				color = color
+				containerColor = containerColor,
+				contentColor = color
 			)
 		},
 		imageContent = {

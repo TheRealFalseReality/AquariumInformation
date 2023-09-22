@@ -11,6 +11,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.data.converters.salinityDataSource
 import com.ccaquatics.aquariuminformation.navigation.Salinity
@@ -35,9 +36,11 @@ fun SalinityPage() {
 }
 
 @Composable
-fun SalinityLayout() {
-	val color = MaterialTheme.colorScheme.primary
-
+fun SalinityLayout(
+	color: Color = MaterialTheme.colorScheme.primary,
+	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
+	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
+	) {
 	var inputSal by rememberSaveable {
 		mutableStateOf("36")
 	}
@@ -92,23 +95,26 @@ fun SalinityLayout() {
 								placeholder = salinityDataSource.placeholderPpt,
 								value = inputSal,
 								onValueChange = { inputSal = it },
-								color = color
+								focusedContainerColor = containerColor,
+								focusedColor = contentColor,
+								unfocusedColor = color,
 							)
 						},
 						inputText = salinityDataSource.inputTextPpt,
 						inputValue = inputSal,
 						equalsText = salinityDataSource.equalsText,
-						color = color,
+						contentColor = color,
+						containerColor = containerColor,
 						calculateContent = {
 							CalculatedText(
 								text = salinityDataSource.calculatedTextSg,
 								calculatedValue = sg,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = salinityDataSource.calculatedTextDensity,
 								calculatedValue = salDensityPPT,
-								color = color
+								textColor = contentColor,
 							)
 						},
 					)
@@ -121,23 +127,26 @@ fun SalinityLayout() {
 							placeholder = salinityDataSource.placeholderSg,
 							value = inputSal,
 							onValueChange = { inputSal = it },
-							color = color
+							focusedContainerColor = containerColor,
+							focusedColor = contentColor,
+							unfocusedColor = color,
 						)
 					},
 						inputText = salinityDataSource.inputTextSg,
 						inputValue = inputSal,
 						equalsText = salinityDataSource.equalsText,
-						color = color,
+						contentColor = color,
+						containerColor = containerColor,
 						calculateContent = {
 							CalculatedText(
 								text = salinityDataSource.calculatedTextPpt,
 								calculatedValue = ppt,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = salinityDataSource.calculatedTextDensity,
 								calculatedValue = salDensitySG,
-								color = color
+								textColor = contentColor,
 							)
 						}
 					)

@@ -13,6 +13,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.data.converters.alkalinityDataSource
 import com.ccaquatics.aquariuminformation.navigation.Alkalinity
@@ -36,9 +37,11 @@ fun AlkalinityPage() {
 }
 
 @Composable
-fun AlkalinityLayout() {
-	val color = MaterialTheme.colorScheme.primary
-
+fun AlkalinityLayout(
+	color: Color = MaterialTheme.colorScheme.primary,
+	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
+	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
+) {
 	var inputAlk by rememberSaveable {
 		mutableStateOf("10")
 	}
@@ -113,23 +116,26 @@ fun AlkalinityLayout() {
 								placeholder = alkalinityDataSource.placeholderDkh,
 								value = inputAlk,
 								onValueChange = { inputAlk = it },
-								color = color,
+								focusedContainerColor = containerColor,
+								focusedColor = contentColor,
+								unfocusedColor = color,
 							)
 						},
 						inputText = alkalinityDataSource.inputTextDkh,
 						inputValue = inputAlk,
 						equalsText = alkalinityDataSource.equalsText,
-						color = color,
+						contentColor = color,
+						containerColor = containerColor,
 						calculateContent = {
 							CalculatedText(
 								text = alkalinityDataSource.calculatedTextPpm,
 								calculatedValue = ppmDKH,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = alkalinityDataSource.calculatedTextMeq,
 								calculatedValue = meqDKH,
-								color = color
+								textColor = contentColor,
 							)
 						}
 					)
@@ -143,23 +149,26 @@ fun AlkalinityLayout() {
 								placeholder = alkalinityDataSource.placeholderPpm,
 								value = inputAlk,
 								onValueChange = { inputAlk = it },
-								color = color
+								focusedContainerColor = containerColor,
+								focusedColor = contentColor,
+								unfocusedColor = color,
 							)
 						},
 						inputText = alkalinityDataSource.inputTextPpm,
 						inputValue = inputAlk,
 						equalsText = alkalinityDataSource.equalsText,
-						color = color,
+						contentColor = color,
+						containerColor = containerColor,
 						calculateContent = {
 							CalculatedText(
 								text = alkalinityDataSource.calculatedTextDkh,
 								calculatedValue = dkhPPM,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = alkalinityDataSource.calculatedTextMeq,
 								calculatedValue = meqPPM,
-								color = color
+								textColor = contentColor,
 							)
 						}
 					)
@@ -173,23 +182,26 @@ fun AlkalinityLayout() {
 								placeholder = alkalinityDataSource.placeholderMeq,
 								value = inputAlk,
 								onValueChange = { inputAlk = it },
-								color = color
+								focusedContainerColor = containerColor,
+								focusedColor = contentColor,
+								unfocusedColor = color,
 							)
 						},
 						inputText = alkalinityDataSource.inputTextMeq,
 						inputValue = inputAlk,
 						equalsText = alkalinityDataSource.equalsText,
-						color = color,
+						contentColor = color,
+						containerColor = containerColor,
 						calculateContent = {
 							CalculatedText(
 								text = alkalinityDataSource.calculatedTextDkh,
 								calculatedValue = dkhMEQ,
-								color = color
+								textColor = contentColor,
 							)
 							CalculatedText(
 								text = alkalinityDataSource.calculatedTextPpm,
 								calculatedValue = ppmMEQ,
-								color = color
+								textColor = contentColor,
 							)
 						}
 					)
