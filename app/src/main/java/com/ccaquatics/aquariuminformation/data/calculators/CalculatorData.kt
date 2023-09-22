@@ -7,4 +7,5 @@ data class CalculatorData(
 	@StringRes val inputText: Int,
 	@StringRes val formulaText: Int,
 	@DrawableRes val image: Int,
+//	val color: Color,
 )
