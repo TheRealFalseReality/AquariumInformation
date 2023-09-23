@@ -1,4 +1,4 @@
-package com.ccaquatics.aquariuminformation.ui.pages.calculators
+package com.ccaquatics.aquariuminformation.ui.pages.tankvolumes
 
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
@@ -13,70 +13,53 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.ccaquatics.aquariuminformation.data.calculators.bowFrontDataSource
-import com.ccaquatics.aquariuminformation.data.calculators.calculatorDataSource
-import com.ccaquatics.aquariuminformation.navigation.BowFront
-import com.ccaquatics.aquariuminformation.ui.commonui.CalculateFieldFourInputs
+import com.ccaquatics.aquariuminformation.data.tankvolumes.calculatorDataSource
+import com.ccaquatics.aquariuminformation.data.tankvolumes.cubeDataSource
+import com.ccaquatics.aquariuminformation.navigation.Cube
+import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateImage
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
-import com.ccaquatics.aquariuminformation.ui.commonui.InputQuadNumberFieldFourInputs
+import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
-import kotlin.math.PI
 
 @Composable
-fun BowFrontPage() {
+fun CubePage() {
 	PageView {
-		BowFrontLayout()
+		CubeLayout()
 	}
 }
 
 @Composable
-fun BowFrontLayout(
+fun CubeLayout(
 	color: Color = MaterialTheme.colorScheme.secondary,
 	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
 ) {
-	var inputLength by rememberSaveable {
-		mutableStateOf("")
-	}
-	var inputWidth by rememberSaveable {
-		mutableStateOf("")
-	}
-	var inputHeight by rememberSaveable {
-		mutableStateOf("")
-	}
-	var inputFullWidth by rememberSaveable {
+	var inputSide by rememberSaveable {
 		mutableStateOf("")
 	}
 	var selected by rememberSaveable {
 		mutableIntStateOf(calculatorDataSource.radioTextFeet)
 	}
-	val length = inputLength.toDoubleOrNull() ?: 0.0
-	val width = inputWidth.toDoubleOrNull() ?: 0.0
-	val height = inputHeight.toDoubleOrNull() ?: 0.0
-	val fullWidth = inputFullWidth.toDoubleOrNull() ?: 0.0
-
-	val volGallon = calculateVolGallonBF(length, width, height, fullWidth).toDoubleOrNull() ?: 0.0
-	val volLiter = calculateVolLiterBF(length, width, height, fullWidth).toDoubleOrNull() ?: 0.0
-	val waterWeight =
-		calculateWaterWeightBF(length, width, height, fullWidth).toDoubleOrNull() ?: 0.0
-	val volGallonFT =
-		calculateVolGallonFTBF(length, width, height, fullWidth).toDoubleOrNull() ?: 0.0
-	val volLiterFT = calculateVolLiterFTBF(length, width, height, fullWidth).toDoubleOrNull() ?: 0.0
-	val waterWeightFT =
-		calculateWaterWeightFTBF(length, width, height, fullWidth).toDoubleOrNull() ?: 0.0
+	val side = inputSide.toDoubleOrNull() ?: 0.0
+	val volGallon = calculateVolGallonCube(side).toDoubleOrNull() ?: 0.0
+	val volLiter = calculateVolLiterCube(side).toDoubleOrNull() ?: 0.0
+	val waterWeight = calculateWaterWeightCube(side).toDoubleOrNull() ?: 0.0
+	val volGallonFT = calculateVolGallonFTCube(side).toDoubleOrNull() ?: 0.0
+	val volLiterFT = calculateVolLiterFTCube(side).toDoubleOrNull() ?: 0.0
+	val waterWeightFT = calculateWaterWeightFTCube(side).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
-		title = BowFront.title,
+		title = Cube.title,
 		subtitle = calculatorDataSource.subtitle,
-		icon = BowFront.icon,
+		icon = Cube.icon,
 		color = color,
 		selectContent = {
 			UnitButtonCard(
@@ -104,40 +87,24 @@ fun BowFrontLayout(
 						else MaterialTheme.colorScheme.onBackground
 					)
 				},
-				contentColor = color
+				contentColor = color,
 			)
 		},
 		calculateFieldContent = {
-			CalculateFieldFourInputs(
+			CalculateField(
 				inputContent = {
-					InputQuadNumberFieldFourInputs(
-						label1 = calculatorDataSource.labelLength,
-						placeholder1 = calculatorDataSource.placeholderLength,
-						label2 = calculatorDataSource.labelWidth,
-						placeholder2 = calculatorDataSource.placeholderWidth,
-						value1 = inputLength,
-						onValueChange1 = { inputLength = it },
-						value2 = inputWidth,
-						onValueChange2 = { inputWidth = it },
+					InputNumberField(
+						label = calculatorDataSource.labelSide,
+						placeholder = calculatorDataSource.placeholderSide,
+						value = inputSide,
+						onValueChange = { inputSide = it },
 						focusedContainerColor = containerColor,
 						focusedColor = contentColor,
 						unfocusedColor = color,
-
-						label3 = calculatorDataSource.labelHeight,
-						placeholder3 = calculatorDataSource.placeholderHeight,
-						label4 = calculatorDataSource.labelFullWidth,
-						placeholder4 = calculatorDataSource.placeholderFullWidth,
-						value3 = inputHeight,
-						onValueChange3 = { inputHeight = it },
-						value4 = inputFullWidth,
-						onValueChange4 = { inputFullWidth = it },
 					)
 				},
-				inputText = bowFrontDataSource.inputText,
-				inputValue1 = inputLength,
-				inputValue2 = inputWidth,
-				inputValue3 = inputHeight,
-				inputValue4 = inputFullWidth,
+				inputText = cubeDataSource.inputText,
+				inputValue = inputSide,
 				equalsText = calculatorDataSource.equalsText,
 				calculateContent = {
 					when (selected) {
@@ -178,35 +145,31 @@ fun BowFrontLayout(
 						}
 					}
 				},
-				containerColor = containerColor,
-				contentColor = color
+				contentColor = color,
+				containerColor = containerColor
 			)
 		},
 		imageContent = {
 			CalculateImage(
-				painter = bowFrontDataSource.image,
-				contentDescription = BowFront.title,
-				colorFilter = color,
+				painter = cubeDataSource.image,
+				contentDescription = Cube.title,
+				colorFilter = color
 			)
 		},
 		formulaContent = {
 			FormulaString(
-				text = bowFrontDataSource.formulaText,
-				color = color
+				text = cubeDataSource.formulaText,
+				color = color,
 			)
 		}
 	)
 }
 
 @VisibleForTesting
-fun calculateVolGallonBF(
-	length: Double,
-	width: Double,
-	height: Double,
-	fullWidth: Double
+fun calculateVolGallonCube(
+	side: Double
 ): String {
-	val volGallons =
-		((length * width + (PI * (length / 2) * (fullWidth - width)) / 2) * height) / 231.0
+	val volGallons = (side * side * side) / 231.0
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -215,14 +178,10 @@ fun calculateVolGallonBF(
 }
 
 @VisibleForTesting
-fun calculateVolLiterBF(
-	length: Double,
-	width: Double,
-	height: Double,
-	fullWidth: Double
+fun calculateVolLiterCube(
+	side: Double
 ): String {
-	val volLiters =
-		((length * width + (PI * (length / 2) * (fullWidth - width)) / 2) * height) / 61.0237
+	val volLiters = (side * side * side) / 61.0237
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -231,14 +190,10 @@ fun calculateVolLiterBF(
 }
 
 @VisibleForTesting
-fun calculateWaterWeightBF(
-	length: Double,
-	width: Double,
-	height: Double,
-	fullWidth: Double
+fun calculateWaterWeightCube(
+	side: Double
 ): String {
-	val waterWeight =
-		(((length * width + (PI * (length / 2) * (fullWidth - width)) / 2) * height) / 231.0) * 8.33
+	val waterWeight = ((side * side * side) / 231.0) * 8.33
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -247,14 +202,10 @@ fun calculateWaterWeightBF(
 }
 
 @VisibleForTesting
-fun calculateVolGallonFTBF(
-	length: Double,
-	width: Double,
-	height: Double,
-	fullWidth: Double
+fun calculateVolGallonFTCube(
+	side: Double
 ): String {
-	val volGallons =
-		((length * width + (PI * (length / 2) * (fullWidth - width)) / 2) * height) / 0.133681
+	val volGallons = (side * side * side) / 0.133681
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -263,14 +214,10 @@ fun calculateVolGallonFTBF(
 }
 
 @VisibleForTesting
-fun calculateVolLiterFTBF(
-	length: Double,
-	width: Double,
-	height: Double,
-	fullWidth: Double
+fun calculateVolLiterFTCube(
+	side: Double
 ): String {
-	val volLiters =
-		((length * width + (PI * (length / 2) * (fullWidth - width)) / 2) * height) / 0.0353147
+	val volLiters = (side * side * side) / 0.0353147
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -279,14 +226,10 @@ fun calculateVolLiterFTBF(
 }
 
 @VisibleForTesting
-fun calculateWaterWeightFTBF(
-	length: Double,
-	width: Double,
-	height: Double,
-	fullWidth: Double
+fun calculateWaterWeightFTCube(
+	side: Double
 ): String {
-	val waterWeight =
-		(((length * width + (PI * (length / 2) * (fullWidth - width)) / 2) * height) / 0.133681) * 8.33
+	val waterWeight = ((side * side * side) / 0.133681) * 8.33
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -296,27 +239,27 @@ fun calculateWaterWeightFTBF(
 
 @Preview(showBackground = true)
 @Composable
-fun BowFrontPreview() {
+fun CubePreview() {
 	AquariumInformationTheme {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
-			BowFrontPage()
+			CubePage()
 		}
 	}
 }
 
 @Preview(showBackground = true)
 @Composable
-fun BowFrontPreviewDark(
+fun CubePreviewDark(
 ) {
 	AquariumInformationTheme(useDarkTheme = true) {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
-			BowFrontPage()
+			CubePage()
 		}
 	}
 }

@@ -1,9 +1,9 @@
 package com.ccaquatics.aquariuminformation.converters
 
-import com.ccaquatics.aquariuminformation.ui.pages.converters.calculateDensityPPT
-import com.ccaquatics.aquariuminformation.ui.pages.converters.calculateDensitySG
-import com.ccaquatics.aquariuminformation.ui.pages.converters.calculateSalinity
-import com.ccaquatics.aquariuminformation.ui.pages.converters.calculateSpecificGravity
+import com.ccaquatics.aquariuminformation.ui.pages.calculators.calculateDensityPPT
+import com.ccaquatics.aquariuminformation.ui.pages.calculators.calculateDensitySG
+import com.ccaquatics.aquariuminformation.ui.pages.calculators.calculateSalinity
+import com.ccaquatics.aquariuminformation.ui.pages.calculators.calculateSpecificGravity
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.ccaquatics.aquariuminformation.ui.pages.converters
+package com.ccaquatics.aquariuminformation.ui.pages.calculators
 
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.ccaquatics.aquariuminformation.data.converters.temperatureDataSource
+import com.ccaquatics.aquariuminformation.data.calculators.temperatureDataSource
 import com.ccaquatics.aquariuminformation.navigation.Temperature
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyText
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField

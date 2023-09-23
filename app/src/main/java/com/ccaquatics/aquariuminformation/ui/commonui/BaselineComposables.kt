@@ -25,7 +25,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.R
-import com.ccaquatics.aquariuminformation.data.calculators.bowFrontDataSource
+import com.ccaquatics.aquariuminformation.data.tankvolumes.bowFrontDataSource
 import com.ccaquatics.aquariuminformation.navigation.BowFront
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 

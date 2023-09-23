@@ -1,6 +1,7 @@
-package com.ccaquatics.aquariuminformation.data.calculators
+package com.ccaquatics.aquariuminformation.data.tankvolumes
 
 import com.ccaquatics.aquariuminformation.R
+
 
 val calculatorDataSource =
 	CommonData(

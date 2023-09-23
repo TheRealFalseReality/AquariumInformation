@@ -1,11 +1,11 @@
 package com.ccaquatics.aquariuminformation.calculators
 
-import com.ccaquatics.aquariuminformation.ui.pages.calculators.calculateVolGallonCyl
-import com.ccaquatics.aquariuminformation.ui.pages.calculators.calculateVolGallonFTCyl
-import com.ccaquatics.aquariuminformation.ui.pages.calculators.calculateVolLiterCyl
-import com.ccaquatics.aquariuminformation.ui.pages.calculators.calculateVolLiterFTCyl
-import com.ccaquatics.aquariuminformation.ui.pages.calculators.calculateWaterWeightCyl
-import com.ccaquatics.aquariuminformation.ui.pages.calculators.calculateWaterWeightFTCyl
+import com.ccaquatics.aquariuminformation.ui.pages.tankvolumes.calculateVolGallonCyl
+import com.ccaquatics.aquariuminformation.ui.pages.tankvolumes.calculateVolGallonFTCyl
+import com.ccaquatics.aquariuminformation.ui.pages.tankvolumes.calculateVolLiterCyl
+import com.ccaquatics.aquariuminformation.ui.pages.tankvolumes.calculateVolLiterFTCyl
+import com.ccaquatics.aquariuminformation.ui.pages.tankvolumes.calculateWaterWeightCyl
+import com.ccaquatics.aquariuminformation.ui.pages.tankvolumes.calculateWaterWeightFTCyl
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 

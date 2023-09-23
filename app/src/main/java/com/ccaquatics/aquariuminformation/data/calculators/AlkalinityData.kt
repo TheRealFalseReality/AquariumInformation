@@ -1,4 +1,4 @@
-package com.ccaquatics.aquariuminformation.data.converters
+package com.ccaquatics.aquariuminformation.data.calculators
 
 data class AlkalinityData(
 	val subtitle: Int,

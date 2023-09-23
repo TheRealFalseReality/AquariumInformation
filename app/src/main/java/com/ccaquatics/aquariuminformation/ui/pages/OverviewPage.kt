@@ -39,7 +39,7 @@ fun OverviewPage(
 	onClickVolume: () -> Unit = {},
 	onClickFish: () -> Unit = {},
 ) {
-	PageView {
+	PageView{
 		OverviewLayout(
 			onClickTemperature = onClickTemperature,
 			onClickCo2 = onClickCo2,

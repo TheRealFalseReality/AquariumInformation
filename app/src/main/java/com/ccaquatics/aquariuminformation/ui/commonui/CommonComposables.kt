@@ -130,6 +130,7 @@ fun SingleWideCard(
 	Column(modifier = modifier) {
 		ElevatedCard(
 			modifier = Modifier
+				.padding(bottom = dimensionResource(id = R.dimen.padding_medium))
 				.fillMaxWidth(fraction = 0.9f),
 			shape = shape,
 			colors = CardDefaults.cardColors(
@@ -370,6 +371,7 @@ fun PopOutlinedCard(
 		modifier = modifier,
 	) {
 		OutlinedCard(
+			modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.padding_medium)),
 			colors = CardDefaults.cardColors(
 				containerColor = containerColor,
 				contentColor = contentColor,

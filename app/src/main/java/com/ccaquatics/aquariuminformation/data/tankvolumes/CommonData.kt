@@ -1,4 +1,4 @@
-package com.ccaquatics.aquariuminformation.data.calculators
+package com.ccaquatics.aquariuminformation.data.tankvolumes
 
 import androidx.annotation.StringRes
 

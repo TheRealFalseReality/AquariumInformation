@@ -36,7 +36,6 @@ fun PageView(
 			verticalArrangement = Arrangement.SpaceBetween
 		) {
 			content()
-			SmallSpacer()
 		}
 	}
 }

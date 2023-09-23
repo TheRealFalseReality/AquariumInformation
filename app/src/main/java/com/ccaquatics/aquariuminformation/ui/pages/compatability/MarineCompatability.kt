@@ -54,7 +54,6 @@ fun FishCardsCompatabilityData(
 	modifier: Modifier = Modifier,
 ) {
 	var expanded by remember { mutableStateOf(false) }
-
 	ElevatedCard(
 		modifier = modifier
 			.padding(8.dp)

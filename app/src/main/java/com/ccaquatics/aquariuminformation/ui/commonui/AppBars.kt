@@ -108,7 +108,6 @@ fun BottomNavBar(
 						if (currentScreen != screen) painterResource(id = screen.icon)
 						else painterResource(id = screen.iconFilled),
 						stringResource(id = screen.title),
-
 						modifier = Modifier
 							.size(dimensionResource(id = R.dimen.icon_size_verySmall)),
 					)
@@ -144,7 +143,6 @@ fun TopAppBarPreviewDark(
 	}
 }
 
-@ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
 fun BottomNavBarPreview() {
@@ -164,7 +162,6 @@ fun BottomNavBarPreview() {
 	}
 }
 
-@ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
 fun BottomNavBarPreviewDark(

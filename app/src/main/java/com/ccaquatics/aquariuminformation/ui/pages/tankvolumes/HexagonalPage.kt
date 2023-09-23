@@ -1,8 +1,9 @@
-package com.ccaquatics.aquariuminformation.ui.pages.calculators
+package com.ccaquatics.aquariuminformation.ui.pages.tankvolumes
 
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -13,15 +14,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.ccaquatics.aquariuminformation.data.calculators.calculatorDataSource
-import com.ccaquatics.aquariuminformation.data.calculators.rectangleDataSource
-import com.ccaquatics.aquariuminformation.navigation.Rectangle
-import com.ccaquatics.aquariuminformation.ui.commonui.CalculateFieldThreeInputs
+import com.ccaquatics.aquariuminformation.data.tankvolumes.calculatorDataSource
+import com.ccaquatics.aquariuminformation.data.tankvolumes.hexagonalDataSource
+import com.ccaquatics.aquariuminformation.navigation.Hexagonal
+import com.ccaquatics.aquariuminformation.ui.commonui.CalculateFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateImage
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
-import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberFieldThreeInputs
+import com.ccaquatics.aquariuminformation.ui.commonui.InputRowNumberFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
@@ -30,22 +31,19 @@ import java.math.RoundingMode
 import java.text.DecimalFormat
 
 @Composable
-fun RectanglePage() {
+fun HexagonalPage() {
 	PageView {
-		RectangleLayout()
+		HexagonalLayout()
 	}
 }
 
 @Composable
-fun RectangleLayout(
+fun HexagonalLayout(
 	color: Color = MaterialTheme.colorScheme.secondary,
 	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
 ) {
-	var inputLength by rememberSaveable {
-		mutableStateOf("")
-	}
-	var inputWidth by rememberSaveable {
+	var inputEdge by rememberSaveable {
 		mutableStateOf("")
 	}
 	var inputHeight by rememberSaveable {
@@ -54,20 +52,19 @@ fun RectangleLayout(
 	var selected by rememberSaveable {
 		mutableIntStateOf(calculatorDataSource.radioTextFeet)
 	}
-	val length = inputLength.toDoubleOrNull() ?: 0.0
-	val width = inputWidth.toDoubleOrNull() ?: 0.0
+	val edge = inputEdge.toDoubleOrNull() ?: 0.0
 	val height = inputHeight.toDoubleOrNull() ?: 0.0
-	val volGallon = calculateVolGallon(length, width, height).toDoubleOrNull() ?: 0.0
-	val volLiter = calculateVolLiter(length, width, height).toDoubleOrNull() ?: 0.0
-	val waterWeight = calculateWaterWeight(length, width, height).toDoubleOrNull() ?: 0.0
-	val volGallonFT = calculateVolGallonFT(length, width, height).toDoubleOrNull() ?: 0.0
-	val volLiterFT = calculateVolLiterFT(length, width, height).toDoubleOrNull() ?: 0.0
-	val waterWeightFT = calculateWaterWeightFT(length, width, height).toDoubleOrNull() ?: 0.0
+	val volGallon = calculateVolGallonHex(edge, height).toDoubleOrNull() ?: 0.0
+	val volLiter = calculateVolLiterHex(edge, height).toDoubleOrNull() ?: 0.0
+	val waterWeight = calculateWaterWeightHex(edge, height).toDoubleOrNull() ?: 0.0
+	val volGallonFT = calculateVolGallonFTHex(edge, height).toDoubleOrNull() ?: 0.0
+	val volLiterFT = calculateVolLiterFTHex(edge, height).toDoubleOrNull() ?: 0.0
+	val waterWeightFT = calculateWaterWeightFTHex(edge, height).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
-		title = Rectangle.title,
+		title = Hexagonal.title,
 		subtitle = calculatorDataSource.subtitle,
-		icon = Rectangle.icon,
+		icon = Hexagonal.icon,
 		color = color,
 		selectContent = {
 			UnitButtonCard(
@@ -91,55 +88,51 @@ fun RectangleLayout(
 						selected = selected,
 						selectedColor = color,
 						textColor =
-						if (selected == calculatorDataSource.radioTextInches) color
-						else MaterialTheme.colorScheme.onBackground
+							if (selected == calculatorDataSource.radioTextInches) color
+							else MaterialTheme.colorScheme.onBackground
 					)
 				},
-				contentColor = color,
+				contentColor = color
 			)
 		},
 		calculateFieldContent = {
-			CalculateFieldThreeInputs(
+			CalculateFieldTwoInputs(
 				inputContent = {
-					InputNumberFieldThreeInputs(
-						label1 = calculatorDataSource.labelLength,
-						placeholder1 = calculatorDataSource.placeholderLength,
-						label2 = calculatorDataSource.labelWidth,
-						placeholder2 = calculatorDataSource.placeholderWidth,
-						label3 = calculatorDataSource.labelHeight,
-						placeholder3 = calculatorDataSource.placeholderHeight,
-						value1 = inputLength,
-						onValueChange1 = { inputLength = it },
-						value2 = inputWidth,
-						onValueChange2 = { inputWidth = it },
-						value3 = inputHeight,
-						onValueChange3 = { inputHeight = it },
+					InputRowNumberFieldTwoInputs(
+						label1 = calculatorDataSource.labelEdge,
+						placeholder1 = calculatorDataSource.placeholderEdge,
+						label2 = calculatorDataSource.labelHeight,
+						placeholder2 = calculatorDataSource.placeholderHeight,
+						value1 = inputEdge,
+						onValueChange1 = { inputEdge = it },
+						value2 = inputHeight,
+						onValueChange2 = { inputHeight = it },
 						focusedContainerColor = containerColor,
 						focusedColor = contentColor,
 						unfocusedColor = color,
 					)
 				},
-				inputText = rectangleDataSource.inputText,
-				inputValue1 = inputLength,
-				inputValue2 = inputWidth,
-				inputValue3 = inputHeight,
+				inputText = hexagonalDataSource.inputText,
+				inputValue1 = inputEdge,
+				inputValue2 = inputHeight,
 				equalsText = calculatorDataSource.equalsText,
-				contentColor = color,
-				containerColor = containerColor,
 				calculateContent = {
 					when (selected) {
 						calculatorDataSource.radioTextFeet -> {
 							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallonFT,
 								textColor = contentColor,
 							)
 							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiterFT,
 								textColor = contentColor,
 							)
 							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeightFT,
 								textColor = contentColor,
@@ -148,48 +141,52 @@ fun RectangleLayout(
 
 						calculatorDataSource.radioTextInches -> {
 							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextGallons,
 								calculatedValue = volGallon,
 								textColor = contentColor,
 							)
 							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextLiters,
 								calculatedValue = volLiter,
 								textColor = contentColor,
 							)
 							CalculatedText(
+								modifier = Modifier.fillMaxWidth(),
 								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeight,
 								textColor = contentColor,
 							)
 						}
 					}
-				}
+				},
+				containerColor = containerColor,
+				contentColor = color
 			)
 		},
 		imageContent = {
 			CalculateImage(
-				painter = rectangleDataSource.image,
-				contentDescription = Rectangle.title,
-				colorFilter = color
+				painter = hexagonalDataSource.image,
+				contentDescription = Hexagonal.title,
+				colorFilter = color,
 			)
 		},
 		formulaContent = {
 			FormulaString(
-				text = rectangleDataSource.formulaText,
+				text = hexagonalDataSource.formulaText,
 				color = color
 			)
-		},
+		}
 	)
 }
 
 @VisibleForTesting
-fun calculateVolGallon(
-	length: Double,
-	width: Double,
+fun calculateVolGallonHex(
+	edge: Double,
 	height: Double
 ): String {
-	val volGallons = (length * width * height) / 231.0
+	val volGallons = (((3 * kotlin.math.sqrt(3.0)) / 2) * edge * edge * height) / 231.0
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -198,12 +195,11 @@ fun calculateVolGallon(
 }
 
 @VisibleForTesting
-fun calculateVolLiter(
-	length: Double,
-	width: Double,
-	height: Double,
+fun calculateVolLiterHex(
+	edge: Double,
+	height: Double
 ): String {
-	val volLiters = (length * width * height) / 61.0237
+	val volLiters = (((3 * kotlin.math.sqrt(3.0)) / 2) * edge * edge * height) / 61.0237
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -212,12 +208,11 @@ fun calculateVolLiter(
 }
 
 @VisibleForTesting
-fun calculateWaterWeight(
-	length: Double,
-	width: Double,
-	height: Double,
+fun calculateWaterWeightHex(
+	edge: Double,
+	height: Double
 ): String {
-	val waterWeight = ((length * width * height) / 231.0) * 8.33
+	val waterWeight = ((((3 * kotlin.math.sqrt(3.0)) / 2) * edge * edge * height) / 231.0) * 8.33
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -226,12 +221,11 @@ fun calculateWaterWeight(
 }
 
 @VisibleForTesting
-fun calculateVolGallonFT(
-	length: Double,
-	width: Double,
+fun calculateVolGallonFTHex(
+	edge: Double,
 	height: Double
 ): String {
-	val volGallons = (length * width * height) / 0.133681
+	val volGallons = (((3 * kotlin.math.sqrt(3.0)) / 2) * edge * edge * height) / 0.133681
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -240,12 +234,11 @@ fun calculateVolGallonFT(
 }
 
 @VisibleForTesting
-fun calculateVolLiterFT(
-	length: Double,
-	width: Double,
-	height: Double,
+fun calculateVolLiterFTHex(
+	edge: Double,
+	height: Double
 ): String {
-	val volLiters = (length * width * height) / 0.0353147
+	val volLiters = (((3 * kotlin.math.sqrt(3.0)) / 2) * edge * edge * height) / 0.0353147
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -254,12 +247,11 @@ fun calculateVolLiterFT(
 }
 
 @VisibleForTesting
-fun calculateWaterWeightFT(
-	length: Double,
-	width: Double,
-	height: Double,
+fun calculateWaterWeightFTHex(
+	edge: Double,
+	height: Double
 ): String {
-	val waterWeight = ((length * width * height) / 0.133681) * 8.33
+	val waterWeight = ((((3 * kotlin.math.sqrt(3.0)) / 2) * edge * edge * height) / 0.133681) * 8.33
 
 	val df = DecimalFormat("#.##")
 	df.roundingMode = RoundingMode.HALF_UP
@@ -269,27 +261,27 @@ fun calculateWaterWeightFT(
 
 @Preview(showBackground = true)
 @Composable
-fun RectanglePreview() {
+fun HexagonalPreview() {
 	AquariumInformationTheme {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
-			RectanglePage()
+			HexagonalPage()
 		}
 	}
 }
 
 @Preview(showBackground = true)
 @Composable
-fun RectanglePreviewDark(
+fun HexagonalPreviewDark(
 ) {
 	AquariumInformationTheme(useDarkTheme = true) {
 		Column(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
-			RectanglePage()
+			HexagonalPage()
 		}
 	}
 }

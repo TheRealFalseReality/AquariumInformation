@@ -1,4 +1,4 @@
-package com.ccaquatics.aquariuminformation.ui.pages.calculators
+package com.ccaquatics.aquariuminformation.ui.pages.tankvolumes
 
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
@@ -14,8 +14,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.ccaquatics.aquariuminformation.data.calculators.calculatorDataSource
-import com.ccaquatics.aquariuminformation.data.calculators.cylinderDataSource
+import com.ccaquatics.aquariuminformation.data.tankvolumes.calculatorDataSource
+import com.ccaquatics.aquariuminformation.data.tankvolumes.cylinderDataSource
 import com.ccaquatics.aquariuminformation.navigation.Cylinder
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateImage

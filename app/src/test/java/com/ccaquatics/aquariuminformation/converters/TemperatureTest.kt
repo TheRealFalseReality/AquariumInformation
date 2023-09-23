@@ -1,9 +1,9 @@
 package com.ccaquatics.aquariuminformation.converters
 
-import com.ccaquatics.aquariuminformation.ui.pages.converters.calculateCelsius
-import com.ccaquatics.aquariuminformation.ui.pages.converters.calculateFahrenheit
-import com.ccaquatics.aquariuminformation.ui.pages.converters.calculateKelvinCel
-import com.ccaquatics.aquariuminformation.ui.pages.converters.calculateKelvinFah
+import com.ccaquatics.aquariuminformation.ui.pages.calculators.calculateCelsius
+import com.ccaquatics.aquariuminformation.ui.pages.calculators.calculateFahrenheit
+import com.ccaquatics.aquariuminformation.ui.pages.calculators.calculateKelvinCel
+import com.ccaquatics.aquariuminformation.ui.pages.calculators.calculateKelvinFah
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
