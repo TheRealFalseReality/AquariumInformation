@@ -26,6 +26,7 @@ import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import com.ccaquatics.aquariuminformation.ui.theme.Shapes
 
+//TODO Add CLEAR button
 @Composable
 fun NavButton(
 	modifier: Modifier = Modifier,

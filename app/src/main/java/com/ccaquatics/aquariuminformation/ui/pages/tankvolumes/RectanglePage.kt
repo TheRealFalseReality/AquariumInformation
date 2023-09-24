@@ -21,7 +21,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.CalculateImage
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
-import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberFieldThreeInputs
+import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberFieldThreeStackedInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
@@ -101,7 +101,7 @@ fun RectangleLayout(
 		calculateFieldContent = {
 			CalculateFieldThreeInputs(
 				inputContent = {
-					InputNumberFieldThreeInputs(
+					InputNumberFieldThreeStackedInputs(
 						label1 = calculatorDataSource.labelLength,
 						placeholder1 = calculatorDataSource.placeholderLength,
 						label2 = calculatorDataSource.labelWidth,

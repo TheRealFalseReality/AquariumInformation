@@ -28,7 +28,6 @@ import androidx.compose.ui.unit.sp
 import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.data.tankvolumes.calculatorDataSource
 
-/*TODO Add Quad Buttons and simplify composables*/
 @Composable
 fun InputNumberField(
 	modifier: Modifier = Modifier,
@@ -345,6 +344,81 @@ fun InputNumberFieldThreeInputs(
 				unfocusedColor = unfocusedColor,
 				imeAction = ImeAction.Next
 			)
+			InputNumberField(
+				modifier = Modifier
+					.padding(dimensionResource(id = R.dimen.padding_verySmall))
+					.weight(1f),
+				label = label3,
+				placeholder = placeholder3,
+				value = value3,
+				onValueChange = onValueChange3,
+				focusedColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedColor = unfocusedColor,
+			)
+		}
+	}
+}
+
+@Composable
+fun InputNumberFieldThreeStackedInputs(
+	modifier: Modifier = Modifier,
+	@StringRes label1: Int,
+	@StringRes placeholder1: Int,
+	@StringRes label2: Int,
+	@StringRes placeholder2: Int,
+	@StringRes label3: Int,
+	@StringRes placeholder3: Int,
+	value1: String,
+	onValueChange1: (String) -> Unit,
+	value2: String,
+	onValueChange2: (String) -> Unit,
+	value3: String,
+	onValueChange3: (String) -> Unit,
+	focusedColor: Color,
+	focusedContainerColor: Color,
+	unfocusedColor: Color,
+) {
+	Column(modifier = modifier) {
+		Row(
+			modifier = Modifier
+				.fillMaxWidth(),
+			horizontalArrangement = Arrangement.SpaceBetween,
+			verticalAlignment = Alignment.CenterVertically
+		) {
+			InputNumberField(
+				modifier = Modifier
+					.padding(dimensionResource(id = R.dimen.padding_verySmall))
+					.weight(1f),
+				label = label1,
+				placeholder = placeholder1,
+				value = value1,
+				onValueChange = onValueChange1,
+				focusedColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedColor = unfocusedColor,
+				imeAction = ImeAction.Next
+			)
+			InputNumberField(
+				modifier = Modifier
+					.padding(dimensionResource(id = R.dimen.padding_verySmall))
+					.weight(1f),
+				label = label2,
+				placeholder = placeholder2,
+				value = value2,
+				onValueChange = onValueChange2,
+				focusedColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedColor = unfocusedColor,
+				imeAction = ImeAction.Next
+			)
+		}
+		Row(
+			modifier = Modifier
+				.fillMaxWidth(),
+			horizontalArrangement = Arrangement.Center,
+			verticalAlignment = Alignment.CenterVertically
+		) {
 			InputNumberField(
 				modifier = Modifier
 					.padding(dimensionResource(id = R.dimen.padding_verySmall))

@@ -11,8 +11,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.navigation.Alkalinity
 import com.ccaquatics.aquariuminformation.navigation.BowFront
+import com.ccaquatics.aquariuminformation.navigation.Calculators
 import com.ccaquatics.aquariuminformation.navigation.CarbonDioxide
-import com.ccaquatics.aquariuminformation.navigation.Converters
 import com.ccaquatics.aquariuminformation.navigation.Cube
 import com.ccaquatics.aquariuminformation.navigation.Cylinder
 import com.ccaquatics.aquariuminformation.navigation.FishCompatability
@@ -157,9 +157,9 @@ fun CalculatorsGrid(
 ) {
 	Column(modifier = modifier) {
 		TitleWideContent(
-			text = Converters.title,
+			text = Calculators.title,
 			color = fontColor,
-			icon = Converters.icon
+			icon = Calculators.icon
 		) {
 //			NavButtonWide(
 //				title = Temperature.title,

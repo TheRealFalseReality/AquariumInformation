@@ -74,6 +74,7 @@ fun CylinderLayout(
 	val waterWeightFT =
 		calculateWaterWeightFTCyl(diameter, height, halfCyl, quartCyl).toDoubleOrNull() ?: 0.0
 
+	// TODO Add half and corner cylinder
 	GenericCalculatePage(
 		title = Cylinder.title,
 		subtitle = calculatorDataSource.subtitle,

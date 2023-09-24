@@ -122,7 +122,6 @@ fun BowFrontLayout(
 						focusedContainerColor = containerColor,
 						focusedColor = contentColor,
 						unfocusedColor = color,
-
 						label3 = calculatorDataSource.labelHeight,
 						placeholder3 = calculatorDataSource.placeholderHeight,
 						label4 = calculatorDataSource.labelFullWidth,
