@@ -6,7 +6,7 @@ val salinityDataSource =
 	SalinityData(
 		subtitle = R.string.text_subtitle_salinity,
 		radioTextPpt = R.string.salinity_ppt,
-		radioTextSg = R.string.button_label_sg,
+		radioTextSg = R.string.button_label_sg_break,
 		labelPpt = R.string.button_label_ppt,
 		labelSg = R.string.button_label_sg,
 		placeholderPpt = R.string.field_label_ppt,

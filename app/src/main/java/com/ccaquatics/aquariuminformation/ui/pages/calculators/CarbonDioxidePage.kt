@@ -35,9 +35,9 @@ fun CarbonDioxidePage() {
 
 @Composable
 fun CarbonDioxideLayout(
-	color: Color = MaterialTheme.colorScheme.secondary,
-	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
-	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
+	color: Color = MaterialTheme.colorScheme.primary,
+	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
+	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
 ) {
 	var inputPH by rememberSaveable {
 		mutableStateOf("")

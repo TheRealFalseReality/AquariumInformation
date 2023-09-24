@@ -100,17 +100,23 @@ fun GenericCalculatePage(
 	imageContent: @Composable () -> Unit = {},
 	formulaContent: @Composable () -> Unit
 ) {
-	TitleWideContent(
-		text = title,
-		icon = icon,
-		color = color
-	) {
-		BodyText(
-			text = subtitle,
-			color = color,
-			style = MaterialTheme.typography.titleMedium
-		)
-	}
+//	TitleWideContent(
+//		text = title,
+//		icon = icon,
+//		color = color
+//	) {
+//		BodyText(
+//			text = subtitle,
+//			color = color,
+//			style = MaterialTheme.typography.titleMedium
+//		)
+//	}
+	SmallSpacer()
+	BodyText(
+		text = subtitle,
+		color = color,
+		style = MaterialTheme.typography.titleMedium
+	)
 	SmallSpacer()
 	selectContent()
 	SmallSpacer()

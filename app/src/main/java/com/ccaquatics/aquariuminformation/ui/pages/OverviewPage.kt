@@ -63,7 +63,8 @@ fun OverviewLayout(
 	ConvertersGrid(
 		onClickTemperature = onClickTemperature,
 		onClickSalinity = onClickSalinity,
-		onClickAlkalinity = onClickAlkalinity
+		onClickAlkalinity = onClickAlkalinity,
+		onClickCo2 = onClickCo2
 	)
 	CalculatorsGrid(
 		onClickVolume = onClickVolume,
@@ -74,20 +75,20 @@ fun OverviewLayout(
 	)
 }
 
-@Composable
-fun ConvertersOverviewPage(
-	onClickTemperature: () -> Unit,
-	onClickSalinity: () -> Unit,
-	onClickAlkalinity: () -> Unit,
-) {
-	PageViewCenter {
-		ConvertersGrid(
-			onClickTemperature = onClickTemperature,
-			onClickSalinity = onClickSalinity,
-			onClickAlkalinity = onClickAlkalinity
-		)
-	}
-}
+//@Composable
+//fun ConvertersOverviewPage(
+//	onClickTemperature: () -> Unit,
+//	onClickSalinity: () -> Unit,
+//	onClickAlkalinity: () -> Unit,
+//) {
+//	PageViewCenter {
+//		ConvertersGrid(
+//			onClickTemperature = onClickTemperature,
+//			onClickSalinity = onClickSalinity,
+//			onClickAlkalinity = onClickAlkalinity
+//		)
+//	}
+//}
 
 @Composable
 fun CalculatorsOverviewPage(
@@ -130,6 +131,7 @@ fun ConvertersGrid(
 	onClickTemperature: () -> Unit,
 	onClickSalinity: () -> Unit,
 	onClickAlkalinity: () -> Unit,
+	onClickCo2: () -> Unit,
 ) {
 	Column(modifier = modifier) {
 		TitleWideContent(
@@ -137,13 +139,13 @@ fun ConvertersGrid(
 			color = fontColor,
 			icon = Converters.icon
 		) {
-			NavButtonWide(
-				title = Temperature.title,
-				icon = Temperature.icon,
-				onClick = onClickTemperature,
-				contentColor = contentColor,
-				containerColor = containerColor
-			)
+//			NavButtonWide(
+//				title = Temperature.title,
+//				icon = Temperature.icon,
+//				onClick = onClickTemperature,
+//				contentColor = contentColor,
+//				containerColor = containerColor
+//			)
 			NavButtonRow(
 				title1 = Salinity.title,
 				icon1 = Salinity.icon,
@@ -153,6 +155,16 @@ fun ConvertersGrid(
 				containerColor = containerColor,
 				onClick1 = onClickSalinity,
 				onClick2 = onClickAlkalinity,
+			)
+			NavButtonRow(
+				title1 = Temperature.title,
+				icon1 = Temperature.icon,
+				title2 = CarbonDioxide.title    ,
+				icon2 = CarbonDioxide.icon,
+				containerColor = containerColor,
+				contentColor = contentColor,
+				onClick1 = onClickTemperature,
+				onClick2 = onClickCo2
 			)
 		}
 	}

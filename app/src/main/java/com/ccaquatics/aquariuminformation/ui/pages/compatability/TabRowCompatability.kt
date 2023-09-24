@@ -25,13 +25,16 @@ import com.ccaquatics.aquariuminformation.navigation.compatibilityTabRow
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @Composable
-fun CompatabilityTabRow() {
-	var state by remember { mutableIntStateOf(0) }
-	var tabs = compatibilityTabRow
+fun CompatabilityTabRow(
+	state: Int = 0
+) {
+	var state by remember { mutableIntStateOf(state) }
+	val tabs = compatibilityTabRow
 
 	Column(
 		modifier = Modifier.fillMaxSize()
 	) {
+//		AppTabRow(tabs = tabs)
 		TabRow(selectedTabIndex = state) {
 			tabs.forEachIndexed { index, tab ->
 				Tab(
@@ -40,7 +43,7 @@ fun CompatabilityTabRow() {
 					text = {
 						Text(
 							text = stringResource(id = tab.title),
-							maxLines = 2,
+							maxLines = 1,
 							overflow = TextOverflow.Ellipsis
 						)
 					},

@@ -63,8 +63,8 @@ fun FishCardsFresh(
 		shape = Shapes.large,
 		elevation = CardDefaults.cardElevation(12.dp),
 		colors = CardDefaults.cardColors(
-			MaterialTheme.colorScheme.tertiary,
-			MaterialTheme.colorScheme.onTertiary
+			MaterialTheme.colorScheme.tertiaryContainer,
+			MaterialTheme.colorScheme.onTertiaryContainer
 		)
 	) {
 		Column(
