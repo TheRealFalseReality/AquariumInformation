@@ -1,4 +1,4 @@
-package com.ccaquatics.aquariuminformation.ui.pages.calculators
+package com.ccaquatics.aquariuminformation.ui.pages.tankvolumes
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,16 +15,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
-import com.ccaquatics.aquariuminformation.navigation.calculatorsTabRow
-import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
+import com.ccaquatics.aquariuminformation.navigation.tankVolumeTabRow
 
 @Composable
-fun CalculatorsTabRow(
+fun TankVolumeTabRow(
 	state: Int = 0
 ) {
 	var state by remember { mutableIntStateOf(state) }
-	val tabs = calculatorsTabRow
+	val tabs = tankVolumeTabRow
 
 	Column(
 		modifier = Modifier.fillMaxSize()
@@ -52,32 +50,20 @@ fun CalculatorsTabRow(
 		}
 		when (state) {
 			0 -> {
-				SalinityPage()
+				RectanglePage()
 			}
 			1 -> {
-				AlkalinityPage()
+				CubePage()
 			}
 			2 -> {
-				TemperaturePage()
+				CylinderPage()
 			}
-			3 -> CarbonDioxidePage()
+			3 -> {
+				HexagonalPage()
+			}
+			4 -> {
+				BowFrontPage()
+			}
 		}
-	}
-}
-
-@Preview(showBackground = true)
-@Composable
-fun TopAppBarPreview() {
-	AquariumInformationTheme {
-		CalculatorsTabRow()
-	}
-}
-
-@Preview(showBackground = true)
-@Composable
-fun TopAppBarPreviewDark(
-) {
-	AquariumInformationTheme(useDarkTheme = true) {
-		CalculatorsTabRow()
 	}
 }

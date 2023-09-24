@@ -52,7 +52,7 @@ fun NavButton(
 		Column(
 			modifier = Modifier
 				.padding(dimensionResource(id = R.dimen.padding_small))
-				.height(dimensionResource(id = R.dimen.button_height_medium)),
+				.height(dimensionResource(id = R.dimen.button_height_small)),
 			verticalArrangement = Arrangement.Center,
 			horizontalAlignment = Alignment.CenterHorizontally,
 		) {

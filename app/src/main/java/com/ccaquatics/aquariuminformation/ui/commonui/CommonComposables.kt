@@ -49,69 +49,6 @@ import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import com.ccaquatics.aquariuminformation.ui.theme.Shapes
 
 @Composable
-fun AppScrollableTabRow(
-	tabs: List<Destinations>,
-	state: Int = 0,
-	content: @Composable () -> Unit
-) {
-	var state by remember { mutableIntStateOf(state) }
-	val tabs = tabs
-	ScrollableTabRow(selectedTabIndex = state) {
-		tabs.forEachIndexed { index, tab ->
-			Tab(
-				selected = state == index,
-				onClick = { state = index },
-				text = {
-					Text(
-						text = stringResource(id = tab.title),
-						maxLines = 1,
-						overflow = TextOverflow.Ellipsis
-					)
-				},
-				icon = {
-					Icon(
-						painter = painterResource(id = tab.icon),
-						contentDescription = stringResource(id = tab.title)
-					)
-				}
-			)
-		}
-	}
-//	when (state) {
-//		content()
-//	}
-}
-
-@Composable
-fun AppTabRow(
-	tabs: List<Destinations>
-) {
-	var state by remember { mutableIntStateOf(0) }
-	val tabs = tabs
-	TabRow(selectedTabIndex = state) {
-		tabs.forEachIndexed { index, tab ->
-			Tab(
-				selected = state == index,
-				onClick = { state = index },
-				text = {
-					Text(
-						text = stringResource(id = tab.title),
-						maxLines = 1,
-						overflow = TextOverflow.Ellipsis
-					)
-				},
-				icon = {
-					Icon(
-						painter = painterResource(id = tab.icon),
-						contentDescription = stringResource(id = tab.title)
-					)
-				}
-			)
-		}
-	}
-}
-
-@Composable
 fun TitleTextIcon(
 	modifier: Modifier = Modifier,
 	@StringRes text: Int,

@@ -9,14 +9,9 @@ import androidx.navigation.compose.composable
 import com.ccaquatics.aquariuminformation.ui.pages.HomePage
 import com.ccaquatics.aquariuminformation.ui.pages.InfoPage
 import com.ccaquatics.aquariuminformation.ui.pages.OverviewPage
-import com.ccaquatics.aquariuminformation.ui.pages.TankVolumeOverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.calculators.CalculatorsTabRow
 import com.ccaquatics.aquariuminformation.ui.pages.compatability.CompatabilityTabRow
-import com.ccaquatics.aquariuminformation.ui.pages.tankvolumes.BowFrontPage
-import com.ccaquatics.aquariuminformation.ui.pages.tankvolumes.CubePage
-import com.ccaquatics.aquariuminformation.ui.pages.tankvolumes.CylinderPage
-import com.ccaquatics.aquariuminformation.ui.pages.tankvolumes.HexagonalPage
-import com.ccaquatics.aquariuminformation.ui.pages.tankvolumes.RectanglePage
+import com.ccaquatics.aquariuminformation.ui.pages.tankvolumes.TankVolumeTabRow
 
 @Composable
 fun AquariumNavHost(
@@ -49,11 +44,29 @@ fun AquariumNavHost(
 				onClickAlkalinity = {
 					navController.navigateSingleTopTo(Alkalinity.route)
 				},
-				onClickVolume = {
-					navController.navigateSingleTopTo(TankVolume.route)
-				},
-				onClickFish = {
+//				onClickVolume = {
+//					navController.navigateSingleTopTo(TankVolume.route)
+//				},
+				onClickFreshwater = {
 					navController.navigateSingleTopTo(FishCompatability.route)
+				},
+				onClickMarine = {
+					navController.navigateSingleTopTo(FishCompatabilityMarine.route)
+				},
+				onClickRectangle = {
+					navController.navigateSingleTopTo((TankVolume.route))
+				},
+				onClickCube = {
+					navController.navigateSingleTopTo(Cube.route)
+				},
+				onClickCylinder = {
+					navController.navigateSingleTopTo(Cylinder.route)
+				},
+				onClickHexagonal = {
+					navController.navigateSingleTopTo(Hexagonal.route)
+				},
+				onClickBowFront = {
+					navController.navigateSingleTopTo(BowFront.route)
 				}
 			)
 		}
@@ -72,36 +85,36 @@ fun AquariumNavHost(
 //			)
 		}
 		composable(route = Calculators.route) {
-			// TODO
 			CalculatorsTabRow()
 		}
 		composable(route = TankVolume.route) {
-			TankVolumeOverviewPage(
-				onClickRectangle = {
-					navController.navigateSingleTopTo(Rectangle.route)
-				},
-				onClickCube = {
-					navController.navigateSingleTopTo(Cube.route)
-				},
-				onClickCylinder = {
-					navController.navigateSingleTopTo(Cylinder.route)
-				},
-				onClickHexagonal = {
-					navController.navigateSingleTopTo(Hexagonal.route)
-				},
-				onClickBowFront = {
-					navController.navigateSingleTopTo(BowFront.route)
-				},
-			)
+			TankVolumeTabRow()
+//			TankVolumeOverviewPage(
+//				onClickRectangle = {
+//					navController.navigateSingleTopTo(Rectangle.route)
+//				},
+//				onClickCube = {
+//					navController.navigateSingleTopTo(Cube.route)
+//				},
+//				onClickCylinder = {
+//					navController.navigateSingleTopTo(Cylinder.route)
+//				},
+//				onClickHexagonal = {
+//					navController.navigateSingleTopTo(Hexagonal.route)
+//				},
+//				onClickBowFront = {
+//					navController.navigateSingleTopTo(BowFront.route)
+//				},
+//			)
 		}
 		composable(route = FishCompatability.route) {
 			CompatabilityTabRow()
 		}
 		composable(route = FishCompatabilityMarine.route) {
-			CompatabilityTabRow()
+			CompatabilityTabRow(state = 1)
 		}
 		composable(route = FishCompatabilityFreshwater.route) {
-			CompatabilityTabRow(state = 0)
+			CompatabilityTabRow()
 		}
 		composable(route = Temperature.route) {
 			CalculatorsTabRow(state = 2)
@@ -117,19 +130,19 @@ fun AquariumNavHost(
 			CalculatorsTabRow()
 		}
 		composable(route = Rectangle.route) {
-			RectanglePage()
+			TankVolumeTabRow()
 		}
 		composable(route = Cube.route) {
-			CubePage()
+			TankVolumeTabRow(state = 1)
 		}
 		composable(route = Hexagonal.route) {
-			HexagonalPage()
+			TankVolumeTabRow(state = 3)
 		}
 		composable(route = Cylinder.route) {
-			CylinderPage()
+			TankVolumeTabRow(state = 2)
 		}
 		composable(route = BowFront.route) {
-			BowFrontPage()
+			TankVolumeTabRow(state = 4)
 		}
 //		composable(route = FishCompatabilityMarine.route) {
 //			MarineCompatabilityScreen()

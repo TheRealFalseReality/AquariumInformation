@@ -137,7 +137,8 @@ object Calculators : Destinations {
 
 val bottomNavRow = listOf(Overview, Calculators, TankVolume, FishCompatability)
 val compatibilityTabRow = listOf(FishCompatabilityFreshwater, FishCompatabilityMarine)
-val calculatorsTabRow = listOf(Salinity, Alkalinity, Temperature, CarbonDioxide, )
+val calculatorsTabRow = listOf(Salinity, Alkalinity, Temperature, CarbonDioxide)
+val tankVolumeTabRow = listOf(Rectangle, Cube, Cylinder, Hexagonal, BowFront)
 //val destinations = listOf(Converters, Calculators, FishCompatability, Temperature)
 //val allDestinations = listOf(Temperature, Alkalinity, Salinity, TankVolume, CarbonDioxide)
 //val mainNavDrawer = listOf(FishCompat, TankVolume, Converters, Alkalinity, Salinity)

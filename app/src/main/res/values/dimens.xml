@@ -13,5 +13,6 @@
     <dimen name="elevation_medium">8dp</dimen>
     <dimen name="elevation_large">16dp</dimen>
     <dimen name="button_height_medium">56dp</dimen>
+    <dimen name="button_height_small">48dp</dimen>
     <dimen name="shape_medium">6dp</dimen>
 </resources>
