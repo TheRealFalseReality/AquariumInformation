@@ -2,7 +2,6 @@ package com.ccaquatics.aquariuminformation.data.tankvolumes
 
 import com.ccaquatics.aquariuminformation.R
 
-
 val calculatorDataSource =
 	CommonData(
 		subtitle = R.string.text_subtitle_tank_vol,

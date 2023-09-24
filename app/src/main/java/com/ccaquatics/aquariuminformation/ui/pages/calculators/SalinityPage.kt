@@ -21,7 +21,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
-import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
+import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComposable
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
@@ -62,7 +62,7 @@ fun SalinityLayout(
 		selectContent = {
 			UnitButtonCard(
 				content = {
-					RadioButtonComp(
+					RadioButtonComposable(
 						modifier = Modifier.weight(1f),
 						text = salinityDataSource.radioTextPpt,
 						onClick = { selected = salinityDataSource.radioTextPpt },
@@ -72,7 +72,7 @@ fun SalinityLayout(
 						if (selected == salinityDataSource.radioTextPpt) color
 						else MaterialTheme.colorScheme.onBackground
 					)
-					RadioButtonComp(
+					RadioButtonComposable(
 						modifier = Modifier.weight(1f),
 						text = salinityDataSource.radioTextSg,
 						onClick = { selected = salinityDataSource.radioTextSg },

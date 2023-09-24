@@ -23,7 +23,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputQuadNumberFieldFourInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
-import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
+import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComposable
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
@@ -81,7 +81,8 @@ fun BowFrontLayout(
 		selectContent = {
 			UnitButtonCard(
 				content = {
-					RadioButtonComp(
+//					RadioButtonFeetInches()
+					RadioButtonComposable(
 						modifier = Modifier
 							.weight(1f),
 						text = calculatorDataSource.radioTextFeet,
@@ -92,7 +93,7 @@ fun BowFrontLayout(
 						if (selected == calculatorDataSource.radioTextFeet) color
 						else MaterialTheme.colorScheme.onBackground
 					)
-					RadioButtonComp(
+					RadioButtonComposable(
 						modifier = Modifier
 							.weight(1f),
 						text = calculatorDataSource.radioTextInches,
@@ -132,7 +133,9 @@ fun BowFrontLayout(
 						onValueChange4 = { inputFullWidth = it },
 					)
 				},
-				inputText = bowFrontDataSource.inputText,
+				inputText =
+				if (selected == calculatorDataSource.radioTextFeet) bowFrontDataSource.inputTextFeet
+				else bowFrontDataSource.inputTextInches,
 				inputValue1 = inputLength,
 				inputValue2 = inputWidth,
 				inputValue3 = inputHeight,

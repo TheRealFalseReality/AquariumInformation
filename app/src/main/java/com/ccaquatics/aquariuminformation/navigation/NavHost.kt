@@ -110,20 +110,20 @@ fun AquariumNavHost(
 			CompatabilityTabRow()
 		}
 		composable(route = FishCompatabilityMarine.route) {
-			CompatabilityTabRow(state = 1)
+			CompatabilityTabRow(selectedState = 1)
 		}
 		composable(route = FishCompatabilityFreshwater.route) {
 			CompatabilityTabRow()
 		}
 		composable(route = Temperature.route) {
-			CalculatorsTabRow(state = 2)
+			CalculatorsTabRow(selectedState = 2)
 //			TemperaturePage()
 		}
 		composable(route = CarbonDioxide.route) {
-			CalculatorsTabRow(state = 3)
+			CalculatorsTabRow(selectedState = 3)
 		}
 		composable(route = Alkalinity.route) {
-			CalculatorsTabRow(state = 1)
+			CalculatorsTabRow(selectedState = 1)
 		}
 		composable(route = Salinity.route) {
 			CalculatorsTabRow()
@@ -132,16 +132,16 @@ fun AquariumNavHost(
 			TankVolumeTabRow()
 		}
 		composable(route = Cube.route) {
-			TankVolumeTabRow(state = 1)
+			TankVolumeTabRow(selectedState = 1)
 		}
 		composable(route = Hexagonal.route) {
-			TankVolumeTabRow(state = 3)
+			TankVolumeTabRow(selectedState = 3)
 		}
 		composable(route = Cylinder.route) {
-			TankVolumeTabRow(state = 2)
+			TankVolumeTabRow(selectedState = 2)
 		}
 		composable(route = BowFront.route) {
-			TankVolumeTabRow(state = 4)
+			TankVolumeTabRow(selectedState = 4)
 		}
 //		composable(route = FishCompatabilityMarine.route) {
 //			MarineCompatabilityScreen()

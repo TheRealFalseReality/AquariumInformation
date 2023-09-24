@@ -24,11 +24,11 @@ import com.ccaquatics.aquariuminformation.ui.commonui.FancyIndicator
 
 @Composable
 fun TankVolumeTabRow(
-	state: Int = 0,
+	selectedState: Int = 0,
 	selectedColor: Color = MaterialTheme.colorScheme.secondary,
 	unselectedColor: Color = MaterialTheme.colorScheme.outline,
 ) {
-	var state by remember { mutableIntStateOf(state) }
+	var state by remember { mutableIntStateOf(selectedState) }
 	val tabs = tankVolumeTabRow
 	val indicator = @Composable { tabPositions: List<TabPosition> ->
 		FancyIndicator(

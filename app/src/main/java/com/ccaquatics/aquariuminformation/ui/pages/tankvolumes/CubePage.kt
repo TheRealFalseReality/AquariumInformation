@@ -23,7 +23,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
-import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
+import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComposable
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
@@ -64,7 +64,7 @@ fun CubeLayout(
 		selectContent = {
 			UnitButtonCard(
 				content = {
-					RadioButtonComp(
+					RadioButtonComposable(
 						modifier = Modifier
 							.weight(1f),
 						text = calculatorDataSource.radioTextFeet,
@@ -75,7 +75,7 @@ fun CubeLayout(
 						if (selected == calculatorDataSource.radioTextFeet) color
 						else MaterialTheme.colorScheme.onBackground
 					)
-					RadioButtonComp(
+					RadioButtonComposable(
 						modifier = Modifier
 							.weight(1f),
 						text = calculatorDataSource.radioTextInches,
@@ -103,7 +103,9 @@ fun CubeLayout(
 						unfocusedColor = color,
 					)
 				},
-				inputText = cubeDataSource.inputText,
+				inputText =
+				if (selected == calculatorDataSource.radioTextFeet) cubeDataSource.inputTextFeet
+				else cubeDataSource.inputTextInches,
 				inputValue = inputSide,
 				equalsText = calculatorDataSource.equalsText,
 				calculateContent = {

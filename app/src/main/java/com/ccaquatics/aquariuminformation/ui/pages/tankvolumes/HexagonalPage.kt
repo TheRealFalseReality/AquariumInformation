@@ -24,7 +24,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputRowNumberFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
-import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
+import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComposable
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
@@ -69,7 +69,7 @@ fun HexagonalLayout(
 		selectContent = {
 			UnitButtonCard(
 				content = {
-					RadioButtonComp(
+					RadioButtonComposable(
 						modifier = Modifier
 							.weight(1f),
 						text = calculatorDataSource.radioTextFeet,
@@ -80,7 +80,7 @@ fun HexagonalLayout(
 						if (selected == calculatorDataSource.radioTextFeet) color
 						else MaterialTheme.colorScheme.onBackground
 					)
-					RadioButtonComp(
+					RadioButtonComposable(
 						modifier = Modifier
 							.weight(1f),
 						text = calculatorDataSource.radioTextInches,
@@ -112,7 +112,9 @@ fun HexagonalLayout(
 						unfocusedColor = color,
 					)
 				},
-				inputText = hexagonalDataSource.inputText,
+				inputText =
+				if (selected == calculatorDataSource.radioTextFeet) hexagonalDataSource.inputTextFeet
+				else hexagonalDataSource.inputTextInches,
 				inputValue1 = inputEdge,
 				inputValue2 = inputHeight,
 				equalsText = calculatorDataSource.equalsText,

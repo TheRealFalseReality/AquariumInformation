@@ -30,11 +30,11 @@ import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @Composable
 fun CompatabilityTabRow(
-	state: Int = 0,
+	selectedState: Int = 0,
 	selectedColor: Color = MaterialTheme.colorScheme.tertiary,
 	unselectedColor: Color = MaterialTheme.colorScheme.outline,
 	) {
-	var state by remember { mutableIntStateOf(state) }
+	var state by remember { mutableIntStateOf(selectedState) }
 	val tabs = compatibilityTabRow
 	val indicator = @Composable { tabPositions: List<TabPosition> ->
 		FancyIndicator(

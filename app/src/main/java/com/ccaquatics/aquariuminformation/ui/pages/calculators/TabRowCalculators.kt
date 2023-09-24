@@ -26,11 +26,11 @@ import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @Composable
 fun CalculatorsTabRow(
-	state: Int = 0,
+	selectedState: Int = 0,
 	selectedColor: Color = MaterialTheme.colorScheme.primary,
 	unselectedColor: Color = MaterialTheme.colorScheme.outline,
 ) {
-	var state by remember { mutableIntStateOf(state) }
+	var state by remember { mutableIntStateOf(selectedState) }
 	val tabs = calculatorsTabRow
 	val indicator = @Composable { tabPositions: List<TabPosition> ->
 		FancyIndicator(
@@ -90,7 +90,7 @@ fun CalculatorsTabRow(
 
 @Preview(showBackground = true)
 @Composable
-fun TopAppBarPreview() {
+fun CalculatorsTabRowPreview() {
 	AquariumInformationTheme {
 		CalculatorsTabRow()
 	}
@@ -98,7 +98,7 @@ fun TopAppBarPreview() {
 
 @Preview(showBackground = true)
 @Composable
-fun TopAppBarPreviewDark(
+fun CalculatorsTabRowPreviewDark(
 ) {
 	AquariumInformationTheme(useDarkTheme = true) {
 		CalculatorsTabRow()

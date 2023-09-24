@@ -23,7 +23,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.FormulaStringContent
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
-import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
+import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComposable
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
@@ -63,7 +63,7 @@ fun TemperatureLayout(
 			UnitButtonCard(
 				contentColor = color,
 				content = {
-					RadioButtonComp(
+					RadioButtonComposable(
 						modifier = Modifier
 							.weight(1f),
 						text = temperatureDataSource.radioTextCelsius,
@@ -74,7 +74,7 @@ fun TemperatureLayout(
 						if (selected == temperatureDataSource.radioTextCelsius) color
 						else MaterialTheme.colorScheme.onBackground
 					)
-					RadioButtonComp(
+					RadioButtonComposable(
 						modifier = Modifier
 							.weight(1f),
 						text = temperatureDataSource.radioTextFahrenheit,

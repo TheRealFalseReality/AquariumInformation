@@ -23,7 +23,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberFieldThreeStackedInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
-import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComp
+import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComposable
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
@@ -72,7 +72,7 @@ fun RectangleLayout(
 		selectContent = {
 			UnitButtonCard(
 				content = {
-					RadioButtonComp(
+					RadioButtonComposable(
 						modifier = Modifier
 							.weight(1f),
 						text = calculatorDataSource.radioTextFeet,
@@ -83,7 +83,7 @@ fun RectangleLayout(
 						if (selected == calculatorDataSource.radioTextFeet) color
 						else MaterialTheme.colorScheme.onBackground
 					)
-					RadioButtonComp(
+					RadioButtonComposable(
 						modifier = Modifier
 							.weight(1f),
 						text = calculatorDataSource.radioTextInches,
@@ -119,7 +119,9 @@ fun RectangleLayout(
 						unfocusedColor = color,
 					)
 				},
-				inputText = rectangleDataSource.inputText,
+				inputText =
+				if (selected == calculatorDataSource.radioTextFeet) rectangleDataSource.inputTextFeet
+				else rectangleDataSource.inputTextInches,
 				inputValue1 = inputLength,
 				inputValue2 = inputWidth,
 				inputValue3 = inputHeight,

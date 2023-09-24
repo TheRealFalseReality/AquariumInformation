@@ -17,6 +17,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedCard
@@ -28,6 +30,8 @@ import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -35,6 +39,7 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -201,8 +206,10 @@ fun UnitButtonCard(
 					text = R.string.select_input_units,
 					color = contentColor
 				)
+//				SmallSpacer()
 				Row(
 					modifier = Modifier
+						.selectableGroup()
 						.fillMaxWidth(),
 					horizontalArrangement = Arrangement.Center,
 					verticalAlignment = Alignment.Top
@@ -259,7 +266,7 @@ fun TextCard(
 }
 
 @Composable
-fun RadioButtonComp(
+fun RadioButtonComposable(
 	modifier: Modifier = Modifier,
 	@StringRes text: Int,
 	onClick: () -> Unit,
@@ -289,6 +296,56 @@ fun RadioButtonComp(
 			textAlign = TextAlign.Center,
 			color = textColor
 		)
+	}
+}
+
+@Composable
+fun RadioButtonFeetInches(
+	modifier: Modifier = Modifier,
+//	@StringRes text: Int,
+//	onClick: () -> Unit,
+//	selected: Int,
+	selectedColor: Color = MaterialTheme.colorScheme.primary,
+	unselectedColor: Color = MaterialTheme.colorScheme.outline,
+	textColor: Color = MaterialTheme.colorScheme.onBackground,
+) {
+	val radioOptions = listOf(R.string.button_label_feet, R.string.button_label_inches)
+	val (selectedOption, onOptionSelected) = remember { mutableIntStateOf(radioOptions[0]) }
+	Row(
+		modifier = modifier,
+	) {
+		radioOptions.forEach { text ->
+			Column(
+				Modifier
+					.weight(1f)
+					.height(56.dp)
+					.selectable(
+						selected = (text == selectedOption),
+						onClick = { onOptionSelected(text) },
+						role = Role.RadioButton
+					),
+//					.padding(vertical = 16.dp),
+				horizontalAlignment = Alignment.CenterHorizontally
+			) {
+				RadioButton(
+					selected = (text == selectedOption),
+					onClick = null,
+					colors = RadioButtonDefaults.colors(
+						selectedColor = selectedColor,
+						unselectedColor = unselectedColor
+					)
+				)
+				RadioText(
+					text = text,
+//					modifier = Modifier
+//						.clickable(
+//							onClick = onClick
+//						),
+					textAlign = TextAlign.Center,
+					color = textColor
+				)
+			}
+		}
 	}
 }
 
@@ -392,7 +449,6 @@ fun PopOutlinedCard(
 		modifier = modifier,
 	) {
 		OutlinedCard(
-			modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.padding_medium)),
 			colors = CardDefaults.cardColors(
 				containerColor = containerColor,
 				contentColor = contentColor,
@@ -444,6 +500,15 @@ fun SwitchThemeToggle(
 
 @Preview(showBackground = true)
 @Composable
+fun RadioFeetInchesPreviewDark(
+) {
+	AquariumInformationTheme(useDarkTheme = true) {
+		RadioButtonFeetInches()
+	}
+}
+
+@Preview(showBackground = true)
+@Composable
 fun SwitchThemePreviewDark(
 ) {
 	AquariumInformationTheme(useDarkTheme = true) {
@@ -484,58 +549,58 @@ fun InputNumberPreviewDark(
 	}
 }
 
-@Preview(showBackground = true)
-@Composable
-fun RadioButtonCardPreview() {
-	AquariumInformationTheme {
-		UnitButtonCard(
-			contentColor = MaterialTheme.colorScheme.primary,
-			content = {
-				RadioButtonComp(
-					text = R.string.text_celsius,
-					onClick = { },
-					selected = 1,
-					selectedColor = MaterialTheme.colorScheme.primary,
-					unselectedColor = MaterialTheme.colorScheme.onPrimary,
-				)
-				RadioButtonComp(
-					text = R.string.text_fah,
-					onClick = { },
-					selected = 1,
-					selectedColor = MaterialTheme.colorScheme.primary,
-					unselectedColor = MaterialTheme.colorScheme.onPrimary,
-				)
-			}
-		)
-	}
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun RadioButtonCardPreview() {
+//	AquariumInformationTheme {
+//		UnitButtonCard(
+//			contentColor = MaterialTheme.colorScheme.primary,
+//			content = {
+//				RadioButtonComposable(
+//					text = R.string.text_celsius,
+//					onClick = { },
+//					selected = 1,
+//					selectedColor = MaterialTheme.colorScheme.primary,
+//					unselectedColor = MaterialTheme.colorScheme.onPrimary,
+//				)
+//				RadioButtonComposable(
+//					text = R.string.text_fah,
+//					onClick = { },
+//					selected = 1,
+//					selectedColor = MaterialTheme.colorScheme.primary,
+//					unselectedColor = MaterialTheme.colorScheme.onPrimary,
+//				)
+//			}
+//		)
+//	}
+//}
 
-@Preview(showBackground = true)
-@Composable
-fun RadioButtonPreviewDark(
-) {
-	AquariumInformationTheme(useDarkTheme = true) {
-		UnitButtonCard(
-			contentColor = MaterialTheme.colorScheme.primary,
-			content = {
-				RadioButtonComp(
-					text = R.string.text_celsius,
-					onClick = { },
-					selected = 1,
-					selectedColor = MaterialTheme.colorScheme.primary,
-					unselectedColor = MaterialTheme.colorScheme.onPrimary,
-				)
-				RadioButtonComp(
-					text = R.string.text_fah,
-					onClick = { },
-					selected = 1,
-					selectedColor = MaterialTheme.colorScheme.primary,
-					unselectedColor = MaterialTheme.colorScheme.onPrimary,
-				)
-			}
-		)
-	}
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun RadioButtonPreviewDark(
+//) {
+//	AquariumInformationTheme(useDarkTheme = true) {
+//		UnitButtonCard(
+//			contentColor = MaterialTheme.colorScheme.primary,
+//			content = {
+//				RadioButtonComposable(
+//					text = R.string.text_celsius,
+//					onClick = { },
+//					selected = 1,
+//					selectedColor = MaterialTheme.colorScheme.primary,
+//					unselectedColor = MaterialTheme.colorScheme.onPrimary,
+//				)
+//				RadioButtonComposable(
+//					text = R.string.text_fah,
+//					onClick = { },
+//					selected = 1,
+//					selectedColor = MaterialTheme.colorScheme.primary,
+//					unselectedColor = MaterialTheme.colorScheme.onPrimary,
+//				)
+//			}
+//		)
+//	}
+//}
 
 @Preview(showBackground = true)
 @Composable

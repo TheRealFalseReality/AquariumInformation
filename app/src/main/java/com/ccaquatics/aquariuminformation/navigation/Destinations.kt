@@ -32,7 +32,7 @@ object Overview : Destinations {
 
 object TankVolume : Destinations {
 	override val icon = R.drawable.ic_volume
-	override val iconFilled = R.drawable.baseline_home_24
+	override val iconFilled = R.drawable.ic_volume
 	override val route = "volume"
 	override val title = R.string.tank_volume
 }
@@ -52,8 +52,8 @@ object Alkalinity : Destinations {
 }
 //
 object Temperature : Destinations {
-	override val icon = R.drawable.baseline_thermostat_24
-	override val iconFilled = R.drawable.baseline_thermostat_24
+	override val icon = R.drawable.ic_thermostat
+	override val iconFilled = R.drawable.ic_thermostat
 	override val route = "temp"
 	override val title = R.string.temperature
 }

@@ -65,7 +65,8 @@
     <string name="text_amount_height" tools:ignore="UnusedResources">H: %s</string>
     <string name="text_amount_full_height" tools:ignore="UnusedResources">Height: %s</string>
     <string name="text_amount_length" tools:ignore="UnusedResources">L: %s</string>
-    <string name="text_amount_length_side" tools:ignore="UnusedResources">Length of Side: %s</string>
+    <string name="text_amount_length_side_feet" tools:ignore="UnusedResources">Length of Side: %sft.</string>
+    <string name="text_amount_length_side_inches" tools:ignore="UnusedResources">Length of Side: %sin.</string>
     <string name="text_amount_width" tools:ignore="UnusedResources">W: %s</string>
     <string name="text_amount_gallon" tools:ignore="UnusedResources">%s US gallons</string>
     <string name="text_amount_liters" tools:ignore="UnusedResources">%s Liters</string>
@@ -511,13 +512,18 @@
     <string name="length">Length</string>
     <string name="width">Width</string>
     <string name="height">Height</string>
-    <string name="text_amount_LWH">L: %s W: %s H: %s</string>
-    <string name="text_amount_EH">E: %s H: %s</string>
+    <string name="text_amount_LWH">L: %sft. W: %sft. H: %sft.</string>
+    <string name="text_amount_LWH_inches">L: %sin. W: %sin. H: %sin.</string>
+    <string name="text_amount_EH_feet">E: %sft. H: %sft.</string>
+    <string name="text_amount_EH_inches">E: %sin. H: %sin.</string>
     <string name="edge">Edge</string>
-    <string name="text_amount_DH">D: %s H: %s</string>
+    <string name="text_amount_DH_feet">D: %sft. H: %sft.</string>
+    <string name="text_amount_DH_inches">D: %sin. H: %sin.</string>
     <string name="diameter">Diameter</string>
-    <string name="text_amount_LWHFW">L: %s W: %s H: %s FW: %s</string>
+    <string name="text_amount_LWHFW_feet">L: %sft. W: %sft. H: %sft. FW: %sft.</string>
+    <string name="text_amount_LWHFW_inches">L: %sin. W: %sin. H: %sin. FW: %sin.</string>
     <string name="full_width">Full Width</string>
     <string name="freshwater">Freshwater</string>
     <string name="marine">Marine</string>
+    <string name="clear">Clear</string>
 </resources>

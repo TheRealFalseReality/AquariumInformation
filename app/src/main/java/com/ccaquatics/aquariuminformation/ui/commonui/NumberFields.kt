@@ -9,6 +9,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -19,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -44,7 +48,7 @@ fun InputNumberField(
 	focusedColor: Color,
 	focusedContainerColor: Color,
 	unfocusedColor: Color,
-	imeAction: ImeAction = ImeAction.Done
+	imeAction: ImeAction = ImeAction.Done,
 ) {
 	val focusManager = LocalFocusManager.current
 
@@ -54,10 +58,6 @@ fun InputNumberField(
 	) {
 		TextField(
 			modifier = Modifier
-				.padding(
-					top = dimensionResource(id = R.dimen.padding_verySmall),
-					bottom = dimensionResource(id = R.dimen.padding_verySmall)
-				)
 				.align(Alignment.CenterHorizontally),
 			value = value,
 			onValueChange = onValueChange,
@@ -90,7 +90,22 @@ fun InputNumberField(
 			keyboardActions = KeyboardActions(
 				onDone = { focusManager.clearFocus() }
 			),
-			shape = shape
+			shape = shape,
+			trailingIcon = {
+				if (value.isNotEmpty()) {
+					IconButton(
+						onClick = {
+							onValueChange("")
+						}
+					) {
+						Icon(
+							painter = painterResource(id = R.drawable.ic_cancel),
+							contentDescription = stringResource(R.string.clear),
+							tint = MaterialTheme.colorScheme.outline
+						)
+					}
+				}
+			}
 		)
 	}
 }
@@ -121,6 +136,7 @@ fun InputNumberFieldTwoInputs(
 			unfocusedColor = unfocusedColor,
 			imeAction = ImeAction.Next
 		)
+		SmallSpacer()
 		InputNumberField(
 			label = label2,
 			placeholder = placeholder2,
@@ -253,6 +269,7 @@ fun InputQuadNumberFieldFourInputs(
 				imeAction = ImeAction.Next
 			)
 		}
+		SmallSpacer()
 		Row(
 			modifier = Modifier
 				.fillMaxWidth(),
@@ -388,7 +405,7 @@ fun InputNumberFieldThreeStackedInputs(
 		) {
 			InputNumberField(
 				modifier = Modifier
-					.padding(dimensionResource(id = R.dimen.padding_verySmall))
+					.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
 					.weight(1f),
 				label = label1,
 				placeholder = placeholder1,
@@ -401,7 +418,7 @@ fun InputNumberFieldThreeStackedInputs(
 			)
 			InputNumberField(
 				modifier = Modifier
-					.padding(dimensionResource(id = R.dimen.padding_verySmall))
+					.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
 					.weight(1f),
 				label = label2,
 				placeholder = placeholder2,
@@ -413,6 +430,7 @@ fun InputNumberFieldThreeStackedInputs(
 				imeAction = ImeAction.Next
 			)
 		}
+		SmallSpacer()
 		Row(
 			modifier = Modifier
 				.fillMaxWidth(),
@@ -421,7 +439,7 @@ fun InputNumberFieldThreeStackedInputs(
 		) {
 			InputNumberField(
 				modifier = Modifier
-					.padding(dimensionResource(id = R.dimen.padding_verySmall))
+					.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
 					.weight(1f),
 				label = label3,
 				placeholder = placeholder3,
@@ -455,6 +473,7 @@ fun CalculateField(
 		Text(
 			text = stringResource(id = inputText, inputValue),
 			modifier = Modifier
+				.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
 				.align(Alignment.CenterHorizontally),
 			color = contentColor
 		)
@@ -516,8 +535,8 @@ fun CalculateFieldTwoInputs(
 		Text(
 			text = stringResource(id = inputText, inputValue1, inputValue2),
 			modifier = Modifier
-				.align(Alignment.CenterHorizontally)
-				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
+				.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
+				.align(Alignment.CenterHorizontally),
 			color = contentColor
 		)
 		MediumSpacer()
@@ -570,8 +589,8 @@ fun CalculateFieldFourInputs(
 				inputValue4
 			),
 			modifier = Modifier
-				.align(Alignment.CenterHorizontally)
-				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
+				.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
+				.align(Alignment.CenterHorizontally),
 			color = contentColor
 		)
 		MediumSpacer()
@@ -616,8 +635,8 @@ fun CalculateFieldThreeInputs(
 		Text(
 			text = stringResource(id = inputText, inputValue1, inputValue2, inputValue3),
 			modifier = Modifier
-				.align(Alignment.CenterHorizontally)
-				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
+				.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
+				.align(Alignment.CenterHorizontally),
 			color = contentColor
 		)
 		MediumSpacer()

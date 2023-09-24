@@ -155,10 +155,10 @@ fun IconTextRow(
 				contentDescription = null,
 				tint = iconTint
 			)
-			Text(
+			BodyText(
 				modifier = Modifier
 					.weight(5f),
-				text = stringResource(id = text),
+				text = text,
 				color = textColor
 			)
 		}
@@ -174,8 +174,8 @@ fun RadioText(
 	textAlign: TextAlign = TextAlign.Start,
 ) {
 	Column(modifier = modifier) {
-		Text(
-			text = stringResource(id = text),
+		BodyText(
+			text = text,
 			color = color,
 			style = style,
 			textAlign = textAlign,

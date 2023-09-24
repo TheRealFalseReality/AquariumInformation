@@ -2,10 +2,13 @@ package com.ccaquatics.aquariuminformation.ui.pages
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.data.homeCompatibilityDataSource
 import com.ccaquatics.aquariuminformation.data.homeHeaderDataSource
 import com.ccaquatics.aquariuminformation.data.homeNavigateDataSource
@@ -44,6 +47,7 @@ fun HomeLayout() {
 	)
 	SmallSpacer()
 	PopOutlinedCard(
+		modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.padding_medium)),
 		text = homeNavigateDataSource.text
 	)
 }
