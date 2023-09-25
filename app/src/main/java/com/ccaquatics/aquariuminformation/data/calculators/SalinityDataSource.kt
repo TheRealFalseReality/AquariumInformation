@@ -18,4 +18,7 @@ val salinityDataSource =
 		calculatedTextPpt = R.string.text_amount_ppt,
 		calculatedTextDensity = R.string.text_amount_density,
 		formulaText = R.string.text_formula_soon,
+		labelSalinity = R.string.salinity,
+		labelSpecificGravity = R.string.button_label_sg,
+		labelConductivity = R.string.conductivity
 	)

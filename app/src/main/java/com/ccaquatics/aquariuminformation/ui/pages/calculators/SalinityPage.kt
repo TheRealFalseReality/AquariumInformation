@@ -20,9 +20,13 @@ import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
+import com.ccaquatics.aquariuminformation.ui.commonui.LabelConductivity
+import com.ccaquatics.aquariuminformation.ui.commonui.LabelSalinity
+import com.ccaquatics.aquariuminformation.ui.commonui.LabelSpecificGravity
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComposable
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
+import com.ccaquatics.aquariuminformation.ui.commonui.VerySmallSpacer
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -106,11 +110,14 @@ fun SalinityLayout(
 						contentColor = color,
 						containerColor = containerColor,
 						calculateContent = {
+							LabelSpecificGravity()
 							CalculatedText(
 								text = salinityDataSource.calculatedTextSg,
 								calculatedValue = sg,
 								textColor = contentColor,
 							)
+							VerySmallSpacer()
+							LabelConductivity()
 							CalculatedText(
 								text = salinityDataSource.calculatedTextDensity,
 								calculatedValue = salDensityPPT,
@@ -138,11 +145,14 @@ fun SalinityLayout(
 						contentColor = color,
 						containerColor = containerColor,
 						calculateContent = {
+							LabelSalinity()
 							CalculatedText(
 								text = salinityDataSource.calculatedTextPpt,
 								calculatedValue = ppt,
 								textColor = contentColor,
 							)
+							VerySmallSpacer()
+							LabelConductivity()
 							CalculatedText(
 								text = salinityDataSource.calculatedTextDensity,
 								calculatedValue = salDensitySG,

@@ -25,4 +25,8 @@ val calculatorDataSource =
 		calculatedTextGallons = R.string.text_amount_gallon,
 		calculatedTextLiters = R.string.text_amount_liters,
 		calculatedTextWaterWeight = R.string.text_amount_water_weight_lbs,
+		labelWaterWeight = R.string.text_water_weight,
+		radioCornerCylinder = R.string.text_cyl_quart,
+		radioHalfCylinder = R.string.text_cyl_half,
+		radioFullCylinder = R.string.full_cylinder,
 	)

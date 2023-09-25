@@ -21,6 +21,7 @@ All notable changes to this project will be documented in this file.
 * Marine tank types added to Water Hardness
 * Gesture Navigation
 * Launch Default Page
+* Add metrics inputs and water weight
 
 ## [Issues]
 

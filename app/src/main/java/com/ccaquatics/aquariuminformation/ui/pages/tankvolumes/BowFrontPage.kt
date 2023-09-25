@@ -22,9 +22,11 @@ import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputQuadNumberFieldFourInputs
+import com.ccaquatics.aquariuminformation.ui.commonui.LabelWaterWeight
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComposable
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
+import com.ccaquatics.aquariuminformation.ui.commonui.VerySmallSpacer
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -154,6 +156,8 @@ fun BowFrontLayout(
 								calculatedValue = volLiterFT,
 								textColor = contentColor,
 							)
+							VerySmallSpacer()
+							LabelWaterWeight()
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeightFT,
@@ -172,6 +176,8 @@ fun BowFrontLayout(
 								calculatedValue = volLiter,
 								textColor = contentColor,
 							)
+							VerySmallSpacer()
+							LabelWaterWeight()
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeight,

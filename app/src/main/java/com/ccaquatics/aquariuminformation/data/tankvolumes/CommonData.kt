@@ -24,4 +24,8 @@ data class CommonData(
 	@StringRes val calculatedTextGallons: Int,
 	@StringRes val calculatedTextLiters: Int,
 	@StringRes val calculatedTextWaterWeight: Int,
+	@StringRes val labelWaterWeight: Int,
+	@StringRes val radioHalfCylinder: Int,
+	@StringRes val radioCornerCylinder: Int,
+	@StringRes val radioFullCylinder: Int,
 )

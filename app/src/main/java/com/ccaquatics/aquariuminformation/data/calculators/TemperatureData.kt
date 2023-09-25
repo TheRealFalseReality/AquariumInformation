@@ -1,20 +1,22 @@
 package com.ccaquatics.aquariuminformation.data.calculators
 
+import androidx.annotation.StringRes
+
 data class TemperatureData(
-	val subtitle: Int,
-	val radioTextCelsius: Int,
-	val radioTextFahrenheit: Int,
-	val labelCelsius: Int,
-	val labelFahrenheit: Int,
-	val placeholderCelsius: Int,
-	val placeholderFahrenheit: Int,
-	val inputTextCelsius: Int,
-	val inputTextFahrenheit: Int,
-	val equalsText: Int,
-	val calculatedTextFahrenheit: Int,
-	val calculatedTextCelsius: Int,
-	val calculatedTextKelvin: Int,
-	val formulaText1: Int,
-	val formulaText2: Int,
-	val formulaText3: Int,
+	@StringRes val subtitle: Int,
+	@StringRes val radioTextCelsius: Int,
+	@StringRes val radioTextFahrenheit: Int,
+	@StringRes val labelCelsius: Int,
+	@StringRes val labelFahrenheit: Int,
+	@StringRes val placeholderCelsius: Int,
+	@StringRes val placeholderFahrenheit: Int,
+	@StringRes val inputTextCelsius: Int,
+	@StringRes val inputTextFahrenheit: Int,
+	@StringRes val equalsText: Int,
+	@StringRes val calculatedTextFahrenheit: Int,
+	@StringRes val calculatedTextCelsius: Int,
+	@StringRes val calculatedTextKelvin: Int,
+	@StringRes val formulaText1: Int,
+	@StringRes val formulaText2: Int,
+	@StringRes val formulaText3: Int,
 )

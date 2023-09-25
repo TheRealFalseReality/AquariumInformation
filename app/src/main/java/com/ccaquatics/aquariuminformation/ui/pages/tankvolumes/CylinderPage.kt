@@ -23,9 +23,11 @@ import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputRowNumberFieldTwoInputs
+import com.ccaquatics.aquariuminformation.ui.commonui.LabelWaterWeight
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComposable
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
+import com.ccaquatics.aquariuminformation.ui.commonui.VerySmallSpacer
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -53,6 +55,9 @@ fun CylinderLayout(
 	}
 	var selected by rememberSaveable {
 		mutableIntStateOf(calculatorDataSource.radioTextFeet)
+	}
+	var selectedCylinder by rememberSaveable {
+		mutableIntStateOf(calculatorDataSource.radioFullCylinder)
 	}
 	var halfCyl by remember {
 		mutableStateOf(false)
@@ -83,6 +88,7 @@ fun CylinderLayout(
 		selectContent = {
 			UnitButtonCard(
 				content = {
+//					RadioButtonFeetInches()
 					RadioButtonComposable(
 						modifier = Modifier
 							.weight(1f),
@@ -108,6 +114,39 @@ fun CylinderLayout(
 				},
 				contentColor = color
 			)
+//			UnitButtonCard(
+//				content = {
+//					RadioButtonComposable(
+//						text = calculatorDataSource.radioFullCylinder,
+//						onClick = { selectedCylinder = calculatorDataSource.radioFullCylinder },
+//						selected = selectedCylinder,
+//						selectedColor = color,
+//						textColor =
+//						if (selectedCylinder == calculatorDataSource.radioFullCylinder) color
+//						else MaterialTheme.colorScheme.onBackground
+//					)
+//					RadioButtonComposable(
+//						text = calculatorDataSource.radioHalfCylinder,
+//						onClick = { halfCyl = true },
+//						selected = selectedCylinder,
+//						selectedColor = color,
+//						textColor =
+//						if (selectedCylinder == calculatorDataSource.radioHalfCylinder) color
+//						else MaterialTheme.colorScheme.onBackground
+//					)
+//					RadioButtonComposable(
+//						text = calculatorDataSource.radioCornerCylinder,
+//						onClick = { quartCyl = true },
+//						selected =selectedCylinder,
+//						selectedColor = color,
+//						textColor =
+//						if (selectedCylinder == calculatorDataSource.radioCornerCylinder) color
+//						else MaterialTheme.colorScheme.onBackground
+//					)
+//
+//				},
+//				contentColor = color,
+//			)
 		},
 		optionsContent = { /* TODO */ },
 		calculateFieldContent = {
@@ -146,6 +185,8 @@ fun CylinderLayout(
 								calculatedValue = volLiterFT,
 								textColor = contentColor,
 							)
+							VerySmallSpacer()
+							LabelWaterWeight()
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeightFT,
@@ -164,6 +205,8 @@ fun CylinderLayout(
 								calculatedValue = volLiter,
 								textColor = contentColor,
 							)
+							VerySmallSpacer()
+							LabelWaterWeight()
 							CalculatedText(
 								text = calculatorDataSource.calculatedTextWaterWeight,
 								calculatedValue = waterWeight,

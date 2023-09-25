@@ -1,22 +1,24 @@
 package com.ccaquatics.aquariuminformation.data.calculators
 
+import androidx.annotation.StringRes
+
 data class AlkalinityData(
-	val subtitle: Int,
-	val radioTextDkh: Int,
-	val radioTextPpm: Int,
-	val radioTextMeq: Int,
-	val labelDkh: Int,
-	val labelPpm: Int,
-	val labelMeq: Int,
-	val placeholderDkh: Int,
-	val placeholderPpm: Int,
-	val placeholderMeq: Int,
-	val inputTextDkh: Int,
-	val inputTextPpm: Int,
-	val inputTextMeq: Int,
-	val equalsText: Int,
-	val calculatedTextPpm: Int,
-	val calculatedTextDkh: Int,
-	val calculatedTextMeq: Int,
-	val formulaText: Int
+	@StringRes val subtitle: Int,
+	@StringRes val radioTextDkh: Int,
+	@StringRes val radioTextPpm: Int,
+	@StringRes val radioTextMeq: Int,
+	@StringRes val labelDkh: Int,
+	@StringRes val labelPpm: Int,
+	@StringRes val labelMeq: Int,
+	@StringRes val placeholderDkh: Int,
+	@StringRes val placeholderPpm: Int,
+	@StringRes val placeholderMeq: Int,
+	@StringRes val inputTextDkh: Int,
+	@StringRes val inputTextPpm: Int,
+	@StringRes val inputTextMeq: Int,
+	@StringRes val equalsText: Int,
+	@StringRes val calculatedTextPpm: Int,
+	@StringRes val calculatedTextDkh: Int,
+	@StringRes val calculatedTextMeq: Int,
+	@StringRes val formulaText: Int
 )
