@@ -20,7 +20,6 @@ import com.ccaquatics.aquariuminformation.ui.commonui.PopOutlinedCard
 import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCard
 import com.ccaquatics.aquariuminformation.ui.commonui.SmallSpacer
 import com.ccaquatics.aquariuminformation.ui.commonui.TitleWideContent
-import com.ccaquatics.aquariuminformation.ui.commonui.switchThemeToggle
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @Composable
@@ -47,7 +46,7 @@ fun HomeLayout() {
 		body = homeCompatibilityDataSource.text
 	)
 	SmallSpacer()
-	switchThemeToggle()
+//	ThemeSwitch()
 	PopOutlinedCard(
 		modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.padding_medium)),
 		text = homeNavigateDataSource.text

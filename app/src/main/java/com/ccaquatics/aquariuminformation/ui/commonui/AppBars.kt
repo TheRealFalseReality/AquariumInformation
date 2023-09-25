@@ -55,9 +55,9 @@ fun AquariumAppBar(
 			}
 		},
 		colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-			containerColor = MaterialTheme.colorScheme.surfaceVariant,
-			navigationIconContentColor = MaterialTheme.colorScheme.onSurfaceVariant,
-			actionIconContentColor = MaterialTheme.colorScheme.onSurfaceVariant
+			containerColor = MaterialTheme.colorScheme.surface,
+			navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
+			actionIconContentColor = MaterialTheme.colorScheme.onSurface
 		),
 		navigationIcon = {
 			IconButton(

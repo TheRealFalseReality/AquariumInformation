@@ -17,7 +17,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -38,16 +37,16 @@ class MainActivity : ComponentActivity() {
 				// A surface container using the 'background' color from the theme
 				Surface(
 					modifier = Modifier.fillMaxSize(),
-					color = MaterialTheme.colorScheme.surface
+//					color = MaterialTheme.colorScheme.surface
 				) {
 					AquariumInfoApp()
 
-					changeStatusBarColor(
-						ContextCompat.getColor(
-							this,
-							R.color.status_bar
-						), false
-					)
+//					changeStatusBarColor(
+//						ContextCompat.getColor(
+//							this,
+//							R.color.status_bar
+//						), false
+//					)
 				}
 			}
 		}
@@ -76,7 +75,7 @@ fun AquariumInfoApp() {
 				},
 				currentScreen = currentScreen,
 			)
-		}
+		},
 	) { innerPadding ->
 		AquariumNavHost(
 			navController = navController,

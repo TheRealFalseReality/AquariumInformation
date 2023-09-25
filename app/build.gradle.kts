@@ -12,9 +12,10 @@ plugins {
 	// Performance Monitoring Gradle plugin
 	id("com.google.firebase.firebase-perf")
 }
+
 val versionMajor = 2
 val versionMinor = 0
-val versionPatch = 1
+val versionPatch = 0
 
 android {
 	namespace = "com.ccaquatics.aquariuminformation"
@@ -56,6 +57,7 @@ android {
 	}
 	buildFeatures {
 		compose = true
+		buildConfig = true
 	}
 	composeOptions {
 		kotlinCompilerExtensionVersion = "1.4.3"

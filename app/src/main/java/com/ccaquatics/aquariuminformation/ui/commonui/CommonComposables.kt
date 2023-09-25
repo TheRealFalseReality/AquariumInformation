@@ -18,8 +18,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedCard
@@ -29,7 +27,7 @@ import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Switch
-import androidx.compose.material3.SwitchDefaults
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -44,11 +42,10 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.ccaquatics.aquariuminformation.BuildConfig
 import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.data.calculators.salinityDataSource
 import com.ccaquatics.aquariuminformation.data.tankvolumes.calculatorDataSource
@@ -138,21 +135,22 @@ fun TitleWideContent(
 	}
 }
 
-//@Composable
-//fun AppInfo(
-//) {
-//
-//	Row(
-//		horizontalArrangement = Arrangement.Center,
-//	) {
-//		Text(
-//			text = stringResource(R.string.app_version)
-//		)
-//		Text(
-//			text = stringResource(id = R.string.text_label_version, version),
-//		)
-//	}
-//}
+@Composable
+fun AppVersion(
+) {
+	val version = BuildConfig.VERSION_NAME
+
+	Row(
+		horizontalArrangement = Arrangement.Center,
+	) {
+		Text(
+			text = stringResource(R.string.app_version)
+		)
+		Text(
+			text = stringResource(id = R.string.text_label_version, version),
+		)
+	}
+}
 
 @Composable
 fun SingleWideCard(
@@ -496,6 +494,33 @@ fun PopOutlinedCard(
 }
 
 @Composable
+fun ThemeSwitch() {
+	var isDarkTheme by remember { mutableStateOf(true) }
+
+	AquariumInformationTheme(useDarkTheme = isDarkTheme) {
+			Row(
+				verticalAlignment = Alignment.CenterVertically,
+				modifier = Modifier
+					.fillMaxWidth()
+					.padding(
+						horizontal = 16.dp,
+						vertical = 10.dp
+					),
+				horizontalArrangement = Arrangement.spacedBy(8.dp)
+			) {
+				Text("☀️")
+				Switch(
+					checked = isDarkTheme,
+					onCheckedChange = {
+						isDarkTheme = it
+					}
+				)
+				Text("🌘")
+			}
+		}
+}
+
+@Composable
 fun AppDivider(
 	modifier: Modifier = Modifier,
 	color: Color = MaterialTheme.colorScheme.onBackground,
@@ -509,46 +534,12 @@ fun AppDivider(
 	}
 }
 
-@Composable
-fun switchThemeToggle(
-): Boolean {
-	var checked by remember { mutableStateOf(false) }
-	val icon: (@Composable () -> Unit)? = if (checked) {
-		{
-			Icon(
-				imageVector = Icons.Filled.Check,
-				contentDescription = null,
-				modifier = Modifier.size(SwitchDefaults.IconSize),
-			)
-		}
-	} else {
-		null
-	}
-
-	Switch(
-		modifier = Modifier.semantics { contentDescription = "Demo with icon" },
-		checked = checked,
-		onCheckedChange = { checked = it },
-		thumbContent = icon
-	)
-	return checked
-}
-
 @Preview(showBackground = true)
 @Composable
 fun RadioFeetInchesPreviewDark(
 ) {
 	AquariumInformationTheme(useDarkTheme = true) {
 		RadioButtonFeetInches()
-	}
-}
-
-@Preview(showBackground = true)
-@Composable
-fun SwitchThemePreviewDark(
-) {
-	AquariumInformationTheme(useDarkTheme = true) {
-		switchThemeToggle()
 	}
 }
 
@@ -637,6 +628,14 @@ fun InputNumberPreviewDark(
 //		)
 //	}
 //}
+
+@Preview(showBackground = true)
+@Composable
+fun AppInfoPreview() {
+	AquariumInformationTheme {
+		AppVersion()
+	}
+}
 
 @Preview(showBackground = true)
 @Composable

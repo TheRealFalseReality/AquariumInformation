@@ -42,10 +42,3 @@ val appInformationDataSource =
 		title = R.string.app_name,
 		text = R.string.app_name,
 	)
-
-val appVersionDataSource =
-	HeaderData(
-		icon = R.drawable.ic_settings_alert,
-		title = R.string.app_version,
-		text = R.string.appVersion,
-	)

@@ -28,6 +28,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ccaquatics.aquariuminformation.R
@@ -475,9 +476,9 @@ fun CalculateField(
 		Text(
 			text = stringResource(id = inputText, inputValue),
 			modifier = Modifier
-				.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
-				.align(Alignment.CenterHorizontally),
-			color = contentColor
+				.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall)),
+			color = contentColor,
+			textAlign = TextAlign.Center
 		)
 		MediumSpacer()
 		EqualsText(
@@ -537,9 +538,9 @@ fun CalculateFieldTwoInputs(
 		Text(
 			text = stringResource(id = inputText, inputValue1, inputValue2),
 			modifier = Modifier
-				.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
-				.align(Alignment.CenterHorizontally),
-			color = contentColor
+				.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall)),
+			color = contentColor,
+			textAlign = TextAlign.Center
 		)
 		MediumSpacer()
 		EqualsText(
@@ -591,9 +592,9 @@ fun CalculateFieldFourInputs(
 				inputValue4
 			),
 			modifier = Modifier
-				.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
-				.align(Alignment.CenterHorizontally),
-			color = contentColor
+				.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall)),
+			color = contentColor,
+			textAlign = TextAlign.Center
 		)
 		MediumSpacer()
 		EqualsText(
@@ -637,9 +638,9 @@ fun CalculateFieldThreeInputs(
 		Text(
 			text = stringResource(id = inputText, inputValue1, inputValue2, inputValue3),
 			modifier = Modifier
-				.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
-				.align(Alignment.CenterHorizontally),
-			color = contentColor
+				.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall)),
+			color = contentColor,
+			textAlign = TextAlign.Center
 		)
 		MediumSpacer()
 		EqualsText(
