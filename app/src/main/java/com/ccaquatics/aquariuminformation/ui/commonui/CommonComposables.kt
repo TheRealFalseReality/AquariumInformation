@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
@@ -30,7 +29,6 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -41,12 +39,12 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ccaquatics.aquariuminformation.BuildConfig
 import com.ccaquatics.aquariuminformation.R
+import com.ccaquatics.aquariuminformation.data.calculators.alkalinityDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.salinityDataSource
 import com.ccaquatics.aquariuminformation.data.tankvolumes.calculatorDataSource
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
@@ -189,6 +187,7 @@ fun SingleWideCard(
 @Composable
 fun UnitButtonCard(
 	modifier: Modifier = Modifier,
+	header: Int = R.string.select_input_units,
 	content: @Composable RowScope.() -> Unit,
 	containerColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color,
@@ -209,7 +208,7 @@ fun UnitButtonCard(
 					.fillMaxWidth(fraction = 0.6f),
 			) {
 				HeaderText(
-					text = R.string.select_input_units,
+					text = header,
 					color = contentColor
 				)
 //				SmallSpacer()
@@ -327,54 +326,194 @@ fun RadioButtonComposable(
 }
 
 @Composable
-fun RadioButtonFeetInches(
+fun RadioButtonComposableALT(
 	modifier: Modifier = Modifier,
-//	@StringRes text: Int,
-//	onClick: () -> Unit,
-//	selected: Int,
+	@StringRes text: Int,
+	onClick: () -> Unit,
+	selected: Boolean,
 	selectedColor: Color = MaterialTheme.colorScheme.primary,
 	unselectedColor: Color = MaterialTheme.colorScheme.outline,
 	textColor: Color = MaterialTheme.colorScheme.onBackground,
 ) {
-	val radioOptions = listOf(R.string.button_label_feet, R.string.button_label_inches)
-	val (selectedOption, onOptionSelected) = remember { mutableIntStateOf(radioOptions[0]) }
-	Row(
+	Column(
 		modifier = modifier,
+		horizontalAlignment = Alignment.CenterHorizontally
 	) {
-		radioOptions.forEach { text ->
-			Column(
-				Modifier
-					.weight(1f)
-					.height(56.dp)
-					.selectable(
-						selected = (text == selectedOption),
-						onClick = { onOptionSelected(text) },
-						role = Role.RadioButton
-					),
-//					.padding(vertical = 16.dp),
-				horizontalAlignment = Alignment.CenterHorizontally
-			) {
-				RadioButton(
-					selected = (text == selectedOption),
-					onClick = null,
-					colors = RadioButtonDefaults.colors(
-						selectedColor = selectedColor,
-						unselectedColor = unselectedColor
-					)
-				)
-				RadioText(
-					text = text,
-//					modifier = Modifier
-//						.clickable(
-//							onClick = onClick
-//						),
-					textAlign = TextAlign.Center,
-					color = textColor
-				)
-			}
-		}
+		RadioButton(
+			selected = selected,
+			onClick = onClick,
+			colors = RadioButtonDefaults.colors(
+				selectedColor = selectedColor,
+				unselectedColor = unselectedColor
+			)
+		)
+		RadioText(
+			text = text,
+			modifier = Modifier
+				.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
+				.clickable(
+					onClick = onClick
+				),
+			textAlign = TextAlign.Center,
+			color = textColor
+		)
 	}
 }
+
+@Composable
+fun TankVolumeResults(
+	modifier: Modifier = Modifier,
+	contentColor: Color,
+	calculatedValue1: Double,
+	calculatedValue2: Double,
+	calculatedValue3: Double,
+) {
+	Column(
+		modifier = modifier,
+		horizontalAlignment = Alignment.CenterHorizontally
+	) {
+		CalculatedText(
+			text = calculatorDataSource.calculatedTextGallons,
+			calculatedValue = calculatedValue1,
+			textColor = contentColor,
+		)
+		CalculatedText(
+			text = calculatorDataSource.calculatedTextLiters,
+			calculatedValue = calculatedValue2,
+			textColor = contentColor,
+		)
+		VerySmallSpacer()
+		LabelWaterWeight()
+		CalculatedText(
+			text = calculatorDataSource.calculatedTextWaterWeight,
+			calculatedValue = calculatedValue3,
+			textColor = contentColor,
+		)
+	}
+
+}
+
+@Composable
+fun RadioButtonTwoUnits(
+	modifier: Modifier = Modifier,
+	onClick1: () -> Unit,
+	onClick2: () -> Unit,
+	@StringRes label1: Int = calculatorDataSource.radioTextFeet,
+	@StringRes label2: Int = calculatorDataSource.radioTextInches,
+	selected: Int,
+	selectedColor: Color,
+	textColor: Color,
+
+) {
+	Row(modifier = modifier) {
+		RadioButtonComposableALT(
+			modifier = Modifier
+				.weight(1f),
+			text = label1,
+			onClick = onClick1,
+			selected = selected == label1,
+			selectedColor = selectedColor,
+			textColor =
+			if (selected == label1) textColor
+			else MaterialTheme.colorScheme.onBackground
+		)
+		RadioButtonComposableALT(
+			modifier = Modifier
+				.weight(1f),
+			text = label2,
+			onClick = onClick2,
+			selected = selected == label2,
+			selectedColor = selectedColor,
+			textColor =
+			if (selected == label2) textColor
+			else MaterialTheme.colorScheme.onBackground
+		)
+	}
+}
+
+@Composable
+fun RadioButtonThreeUnits(
+	modifier: Modifier = Modifier,
+	onClick1: () -> Unit,
+	onClick2: () -> Unit,
+	onClick3: () -> Unit,
+	@StringRes label1: Int = alkalinityDataSource.radioTextDkh,
+	@StringRes label2: Int = alkalinityDataSource.radioTextPpm,
+	@StringRes label3: Int = alkalinityDataSource.radioTextMeq,
+	selected: Int,
+	selectedColor: Color,
+	textColor: Color,
+
+	) {
+	Row(modifier = modifier) {
+		RadioButtonComposableALT(
+			modifier = Modifier
+				.weight(1f),
+			text = label1,
+			onClick = onClick1,
+			selected = selected == label1,
+			selectedColor = selectedColor,
+			textColor =
+			if (selected == label1) textColor
+			else MaterialTheme.colorScheme.onBackground
+		)
+		RadioButtonComposableALT(
+			modifier = Modifier
+				.weight(1f),
+			text = label2,
+			onClick = onClick2,
+			selected = selected == label2,
+			selectedColor = selectedColor,
+			textColor =
+			if (selected == label2) textColor
+			else MaterialTheme.colorScheme.onBackground
+		)
+		RadioButtonComposableALT(
+			modifier = Modifier
+				.weight(1f),
+			text = label3,
+			onClick = onClick3,
+			selected = selected == label3,
+			selectedColor = selectedColor,
+			textColor =
+			if (selected == label3) textColor
+			else MaterialTheme.colorScheme.onBackground
+		)
+	}
+}
+
+//@Composable
+//fun RadioButtonSalinityUnits(
+//	modifier: Modifier = Modifier,
+//	onClick1: () -> Unit,
+//	onClick2: () -> Unit,
+//	selected: Int,
+//	selectedColor: Color,
+//	textColor: Color,
+//) {
+//	Row(modifier = modifier) {
+//		RadioButtonComposable(
+//			modifier = Modifier.weight(1f),
+//			text = salinityDataSource.radioTextPpt,
+//			onClick = onClick1,
+//			selected = selected == salinityDataSource.radioTextPpt,
+//			selectedColor = selectedColor,
+//			textColor =
+//			if (selected == salinityDataSource.radioTextPpt) textColor
+//			else MaterialTheme.colorScheme.onBackground
+//		)
+//		RadioButtonComposable(
+//			modifier = Modifier.weight(1f),
+//			text = salinityDataSource.radioTextSg,
+//			onClick = onClick2,
+//			selected = selected == salinityDataSource.radioTextSg,
+//			selectedColor = selectedColor,
+//			textColor =
+//			if (selected == salinityDataSource.radioTextSg) textColor
+//			else MaterialTheme.colorScheme.onBackground
+//		)
+//	}
+//}
 
 @Composable
 fun FormulaString(
@@ -539,7 +678,7 @@ fun AppDivider(
 fun RadioFeetInchesPreviewDark(
 ) {
 	AquariumInformationTheme(useDarkTheme = true) {
-		RadioButtonFeetInches()
+//		RadioButtonTankVolumeUnits()
 	}
 }
 

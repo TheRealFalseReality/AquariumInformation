@@ -23,7 +23,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.FormulaStringContent
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
-import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComposable
+import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonTwoUnits
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
@@ -63,28 +63,37 @@ fun TemperatureLayout(
 			UnitButtonCard(
 				contentColor = color,
 				content = {
-					RadioButtonComposable(
-						modifier = Modifier
-							.weight(1f),
-						text = temperatureDataSource.radioTextCelsius,
-						onClick = { selected = temperatureDataSource.radioTextCelsius },
+					RadioButtonTwoUnits(
+						onClick1 = { selected = temperatureDataSource.radioTextCelsius },
+						onClick2 = { selected = temperatureDataSource.radioTextFahrenheit },
+						label1 =  temperatureDataSource.radioTextCelsius,
+						label2 = temperatureDataSource.radioTextFahrenheit,
 						selected = selected,
 						selectedColor = color,
-						textColor =
-						if (selected == temperatureDataSource.radioTextCelsius) color
-						else MaterialTheme.colorScheme.onBackground
+						textColor = color
 					)
-					RadioButtonComposable(
-						modifier = Modifier
-							.weight(1f),
-						text = temperatureDataSource.radioTextFahrenheit,
-						onClick = { selected = temperatureDataSource.radioTextFahrenheit },
-						selected = selected,
-						selectedColor = color,
-						textColor =
-						if (selected == temperatureDataSource.radioTextFahrenheit) color
-						else MaterialTheme.colorScheme.onBackground
-					)
+//					RadioButtonComposable(
+//						modifier = Modifier
+//							.weight(1f),
+//						text = temperatureDataSource.radioTextCelsius,
+//						onClick = { selected = temperatureDataSource.radioTextCelsius },
+//						selected = selected,
+//						selectedColor = color,
+//						textColor =
+//						if (selected == temperatureDataSource.radioTextCelsius) color
+//						else MaterialTheme.colorScheme.onBackground
+//					)
+//					RadioButtonComposable(
+//						modifier = Modifier
+//							.weight(1f),
+//						text = temperatureDataSource.radioTextFahrenheit,
+//						onClick = { selected = temperatureDataSource.radioTextFahrenheit },
+//						selected = selected,
+//						selectedColor = color,
+//						textColor =
+//						if (selected == temperatureDataSource.radioTextFahrenheit) color
+//						else MaterialTheme.colorScheme.onBackground
+//					)
 				}
 			)
 		},

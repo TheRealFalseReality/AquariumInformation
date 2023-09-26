@@ -28,4 +28,5 @@ data class CommonData(
 	@StringRes val radioHalfCylinder: Int,
 	@StringRes val radioCornerCylinder: Int,
 	@StringRes val radioFullCylinder: Int,
+	@StringRes val labelCylinderType: Int,
 )

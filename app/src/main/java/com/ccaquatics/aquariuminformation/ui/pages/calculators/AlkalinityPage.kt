@@ -21,7 +21,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
-import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComposable
+import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonThreeUnits
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
@@ -62,39 +62,47 @@ fun AlkalinityLayout(
 		selectContent = {
 			UnitButtonCard(
 				content = {
-					RadioButtonComposable(
-						modifier = Modifier
-							.weight(1f),
-						text = alkalinityDataSource.radioTextDkh,
-						onClick = { selected = alkalinityDataSource.radioTextDkh },
+					RadioButtonThreeUnits(
+						onClick1 = { selected = alkalinityDataSource.radioTextDkh },
+						onClick2 = { selected = alkalinityDataSource.radioTextPpm },
+						onClick3 = { selected = alkalinityDataSource.radioTextMeq },
 						selected = selected,
 						selectedColor = color,
-						textColor =
-						if (selected == alkalinityDataSource.radioTextDkh) color
-						else MaterialTheme.colorScheme.onBackground
+						textColor = color
 					)
-					RadioButtonComposable(
-						modifier = Modifier
-							.weight(1f),
-						text = alkalinityDataSource.radioTextPpm,
-						onClick = { selected = alkalinityDataSource.radioTextPpm },
-						selected = selected,
-						selectedColor = color,
-						textColor =
-						if (selected == alkalinityDataSource.radioTextPpm) color
-						else MaterialTheme.colorScheme.onBackground
-					)
-					RadioButtonComposable(
-						modifier = Modifier
-							.weight(1f),
-						text = alkalinityDataSource.radioTextMeq,
-						onClick = { selected = alkalinityDataSource.radioTextMeq },
-						selected = selected,
-						selectedColor = color,
-						textColor =
-						if (selected == alkalinityDataSource.radioTextMeq) color
-						else MaterialTheme.colorScheme.onBackground
-					)
+//					RadioButtonComposable(
+//						modifier = Modifier
+//							.weight(1f),
+//						text = alkalinityDataSource.radioTextDkh,
+//						onClick = { selected = alkalinityDataSource.radioTextDkh },
+//						selected = selected,
+//						selectedColor = color,
+//						textColor =
+//						if (selected == alkalinityDataSource.radioTextDkh) color
+//						else MaterialTheme.colorScheme.onBackground
+//					)
+//					RadioButtonComposable(
+//						modifier = Modifier
+//							.weight(1f),
+//						text = alkalinityDataSource.radioTextPpm,
+//						onClick = { selected = alkalinityDataSource.radioTextPpm },
+//						selected = selected,
+//						selectedColor = color,
+//						textColor =
+//						if (selected == alkalinityDataSource.radioTextPpm) color
+//						else MaterialTheme.colorScheme.onBackground
+//					)
+//					RadioButtonComposable(
+//						modifier = Modifier
+//							.weight(1f),
+//						text = alkalinityDataSource.radioTextMeq,
+//						onClick = { selected = alkalinityDataSource.radioTextMeq },
+//						selected = selected,
+//						selectedColor = color,
+//						textColor =
+//						if (selected == alkalinityDataSource.radioTextMeq) color
+//						else MaterialTheme.colorScheme.onBackground
+//					)
 				},
 				contentColor = color,
 			)

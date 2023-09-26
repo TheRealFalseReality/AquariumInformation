@@ -2,14 +2,12 @@ package com.ccaquatics.aquariuminformation.data.tankvolumes
 
 import com.ccaquatics.aquariuminformation.R
 
-// TODO Finish adding units
 val cylinderDataSource =
 	CalculatorData(
 		inputTextFeet = R.string.text_amount_DH_feet,
 		inputTextInches = R.string.text_amount_DH_inches,
 		formulaText = R.string.text_formula_vol_cylinder,
 		image = R.drawable.cylinder_calc,
-//		color = MaterialTheme.colorScheme.secondary
 	)
 
 val bowFrontDataSource =

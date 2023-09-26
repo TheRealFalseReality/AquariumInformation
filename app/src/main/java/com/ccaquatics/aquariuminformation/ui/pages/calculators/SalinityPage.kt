@@ -24,7 +24,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.LabelConductivity
 import com.ccaquatics.aquariuminformation.ui.commonui.LabelSalinity
 import com.ccaquatics.aquariuminformation.ui.commonui.LabelSpecificGravity
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
-import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonComposable
+import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonTwoUnits
 import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
 import com.ccaquatics.aquariuminformation.ui.commonui.VerySmallSpacer
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
@@ -44,7 +44,7 @@ fun SalinityLayout(
 	color: Color = MaterialTheme.colorScheme.primary,
 	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
-	) {
+) {
 	var inputSal by rememberSaveable {
 		mutableStateOf("36")
 	}
@@ -66,26 +66,33 @@ fun SalinityLayout(
 		selectContent = {
 			UnitButtonCard(
 				content = {
-					RadioButtonComposable(
-						modifier = Modifier.weight(1f),
-						text = salinityDataSource.radioTextPpt,
-						onClick = { selected = salinityDataSource.radioTextPpt },
+					RadioButtonTwoUnits(
+						onClick1 = { selected = salinityDataSource.radioTextPpt },
+						onClick2 = { selected = salinityDataSource.radioTextSg },
+						label1 = salinityDataSource.radioTextPpt,
+						label2 = salinityDataSource.radioTextSg,
 						selected = selected,
 						selectedColor = color,
-						textColor =
-						if (selected == salinityDataSource.radioTextPpt) color
-						else MaterialTheme.colorScheme.onBackground
+						textColor = color
 					)
-					RadioButtonComposable(
-						modifier = Modifier.weight(1f),
-						text = salinityDataSource.radioTextSg,
-						onClick = { selected = salinityDataSource.radioTextSg },
-						selected = selected,
-						selectedColor = color,
-						textColor =
-						if (selected == salinityDataSource.radioTextSg) color
-						else MaterialTheme.colorScheme.onBackground
-					)
+//					RadioButtonComposable(
+//						modifier = Modifier.weight(1f),
+//						text = salinityDataSource.radioTextPpt,
+//						onClick = { selected = salinityDataSource.radioTextPpt },
+//						selected = selected,
+//						selectedColor = color,
+//						textColor =
+//						if (selected == salinityDataSource.radioTextPpt) color
+//						else MaterialTheme.colorScheme.onBackground
+//					)
+//					RadioButtonComposable(
+//						modifier = Modifier.weight(1f),
+//						text = salinityDataSource.radioTextSg,
+//						onClick = { selected = salinityDataSource.radioTextSg },
+//						selected = selected,
+//						selectedColor = color,
+//						textColor = color
+//					)
 				}, contentColor = color
 			)
 		},

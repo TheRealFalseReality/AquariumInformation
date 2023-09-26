@@ -29,4 +29,5 @@ val calculatorDataSource =
 		radioCornerCylinder = R.string.text_cyl_quart,
 		radioHalfCylinder = R.string.text_cyl_half,
 		radioFullCylinder = R.string.full_cylinder,
+		labelCylinderType = R.string.select_cylinder_type
 	)

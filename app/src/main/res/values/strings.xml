@@ -102,8 +102,8 @@
     <string name="text_units_ft" tools:ignore="UnusedResources">ft.</string>
     <string name="text_units_inches" tools:ignore="UnusedResources">in.</string>
     <string name="text_options" tools:ignore="UnusedResources">Click for Options</string>
-    <string name="text_cyl_half" tools:ignore="UnusedResources">Half Cylinder</string>
-    <string name="text_cyl_quart" tools:ignore="UnusedResources">Corner Cylinder</string>
+    <string name="text_cyl_half" tools:ignore="UnusedResources">Half</string>
+    <string name="text_cyl_quart" tools:ignore="UnusedResources">Corner</string>
     <string name="text_choose_one" tools:ignore="UnusedResources">Please Choose only 1</string>
     <string name="text_title_changelog">Click for Changelog</string>
     <string name="text_hardness_very_soft" tools:ignore="UnusedResources">Very Soft</string>
@@ -526,5 +526,6 @@
     <string name="marine">Marine</string>
     <string name="clear">Clear</string>
     <string name="conductivity">Conductivity</string>
-    <string name="full_cylinder">Full Cylinder</string>
+    <string name="full_cylinder">Full</string>
+    <string name="select_cylinder_type">Select Cylinder Type:</string>
 </resources>
