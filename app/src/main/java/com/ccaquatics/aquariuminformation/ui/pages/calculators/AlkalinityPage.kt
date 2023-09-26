@@ -3,6 +3,7 @@ package com.ccaquatics.aquariuminformation.ui.pages.calculators
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -13,6 +14,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.data.calculators.alkalinityDataSource
 import com.ccaquatics.aquariuminformation.navigation.Alkalinity
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
@@ -22,7 +24,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonThreeUnits
-import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
+import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCardExpandable
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -60,7 +62,9 @@ fun AlkalinityLayout(
 		icon = Alkalinity.icon,
 		color = color,
 		selectContent = {
-			UnitButtonCard(
+			SingleWideCardExpandable(
+				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
+				header = R.string.select_input_units,
 				content = {
 					RadioButtonThreeUnits(
 						onClick1 = { selected = alkalinityDataSource.radioTextDkh },

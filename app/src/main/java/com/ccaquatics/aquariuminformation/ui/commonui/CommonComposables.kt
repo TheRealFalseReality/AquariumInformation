@@ -2,6 +2,9 @@ package com.ccaquatics.aquariuminformation.ui.commonui
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -21,6 +24,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.RadioButton
@@ -185,6 +189,80 @@ fun SingleWideCard(
 }
 
 @Composable
+fun SingleWideCardExpandable(
+	modifier: Modifier = Modifier,
+	shape: Shape = Shapes.large,
+	@StringRes header: Int,
+	containerColor: Color = MaterialTheme.colorScheme.background,
+	contentColor: Color = MaterialTheme.colorScheme.onBackground,
+	content: @Composable ColumnScope.() -> Unit = {},
+) {
+	var expanded by remember {
+		mutableStateOf(false)
+	}
+
+	Column(modifier = modifier) {
+		ElevatedCard(
+			shape = shape,
+			colors = CardDefaults.cardColors(
+				containerColor = containerColor,
+				contentColor = contentColor
+			),
+		) {
+			Row(
+				modifier = Modifier
+					.fillMaxWidth()
+					.animateContentSize(
+						animationSpec = spring(
+							dampingRatio = Spring.DampingRatioMediumBouncy,
+							stiffness = Spring.StiffnessLow
+						),
+					)
+			) {
+				Column(
+					modifier = Modifier
+						.fillMaxWidth()
+						.padding(dimensionResource(id = R.dimen.padding_small)),
+					horizontalAlignment = Alignment.CenterHorizontally
+				) {
+					Row(
+						modifier = Modifier
+							.clickable { expanded = !expanded }
+							.fillMaxWidth(),
+						verticalAlignment = Alignment.CenterVertically,
+						horizontalArrangement = Arrangement.SpaceBetween
+					) {
+						HeaderText(
+							text = header,
+							color = contentColor
+						)
+						IconButton(
+							onClick = { expanded = !expanded },
+						) {
+							Icon(
+								painter = if (expanded)
+									painterResource(id = R.drawable.ic_expand_less)
+								else painterResource(id = R.drawable.ic_expand_more),
+								contentDescription = if (expanded) {
+									stringResource(R.string.text_show_less)
+								} else {
+									stringResource(R.string.text_show_more)
+								},
+							)
+						}
+					}
+					if (expanded) {
+						Column(modifier = Modifier.selectableGroup()) {
+							content()
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@Composable
 fun UnitButtonCard(
 	modifier: Modifier = Modifier,
 	header: Int = R.string.select_input_units,
@@ -245,7 +323,7 @@ fun TextCard(
 		) {
 			Column(
 				modifier = Modifier
-					.padding(dimensionResource(id = R.dimen.padding_medium))
+					.padding(dimensionResource(id = R.dimen.padding_small))
 					.fillMaxWidth(fraction = 0.6f),
 			) {
 				Row(
@@ -265,7 +343,6 @@ fun TextCard(
 					)
 				}
 			}
-
 		}
 	}
 }
@@ -290,43 +367,43 @@ fun LabelConductivity() {
 	BodyText(text = salinityDataSource.labelConductivity)
 }
 
-@Composable
-fun RadioButtonComposable(
-	modifier: Modifier = Modifier,
-	@StringRes text: Int,
-	onClick: () -> Unit,
-	selected: Int,
-	selectedColor: Color = MaterialTheme.colorScheme.primary,
-	unselectedColor: Color = MaterialTheme.colorScheme.outline,
-	textColor: Color = MaterialTheme.colorScheme.onBackground,
-) {
-	Column(
-		modifier = modifier,
-		horizontalAlignment = Alignment.CenterHorizontally
-	) {
-		RadioButton(
-			selected = selected == text,
-			onClick = onClick,
-			colors = RadioButtonDefaults.colors(
-				selectedColor = selectedColor,
-				unselectedColor = unselectedColor
-			)
-		)
-		RadioText(
-			text = text,
-			modifier = Modifier
-				.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
-				.clickable(
-					onClick = onClick
-				),
-			textAlign = TextAlign.Center,
-			color = textColor
-		)
-	}
-}
+//@Composable
+//fun RadioButtonComposable(
+//	modifier: Modifier = Modifier,
+//	@StringRes text: Int,
+//	onClick: () -> Unit,
+//	selected: Int,
+//	selectedColor: Color = MaterialTheme.colorScheme.primary,
+//	unselectedColor: Color = MaterialTheme.colorScheme.outline,
+//	textColor: Color = MaterialTheme.colorScheme.onBackground,
+//) {
+//	Column(
+//		modifier = modifier,
+//		horizontalAlignment = Alignment.CenterHorizontally
+//	) {
+//		RadioButton(
+//			selected = selected == text,
+//			onClick = onClick,
+//			colors = RadioButtonDefaults.colors(
+//				selectedColor = selectedColor,
+//				unselectedColor = unselectedColor
+//			)
+//		)
+//		RadioText(
+//			text = text,
+//			modifier = Modifier
+//				.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
+//				.clickable(
+//					onClick = onClick
+//				),
+//			textAlign = TextAlign.Center,
+//			color = textColor
+//		)
+//	}
+//}
 
 @Composable
-fun RadioButtonComposableALT(
+fun RadioButtonComposable(
 	modifier: Modifier = Modifier,
 	@StringRes text: Int,
 	onClick: () -> Unit,
@@ -404,9 +481,9 @@ fun RadioButtonTwoUnits(
 	selectedColor: Color,
 	textColor: Color,
 
-) {
+	) {
 	Row(modifier = modifier) {
-		RadioButtonComposableALT(
+		RadioButtonComposable(
 			modifier = Modifier
 				.weight(1f),
 			text = label1,
@@ -417,7 +494,7 @@ fun RadioButtonTwoUnits(
 			if (selected == label1) textColor
 			else MaterialTheme.colorScheme.onBackground
 		)
-		RadioButtonComposableALT(
+		RadioButtonComposable(
 			modifier = Modifier
 				.weight(1f),
 			text = label2,
@@ -446,7 +523,7 @@ fun RadioButtonThreeUnits(
 
 	) {
 	Row(modifier = modifier) {
-		RadioButtonComposableALT(
+		RadioButtonComposable(
 			modifier = Modifier
 				.weight(1f),
 			text = label1,
@@ -457,7 +534,7 @@ fun RadioButtonThreeUnits(
 			if (selected == label1) textColor
 			else MaterialTheme.colorScheme.onBackground
 		)
-		RadioButtonComposableALT(
+		RadioButtonComposable(
 			modifier = Modifier
 				.weight(1f),
 			text = label2,
@@ -468,7 +545,7 @@ fun RadioButtonThreeUnits(
 			if (selected == label2) textColor
 			else MaterialTheme.colorScheme.onBackground
 		)
-		RadioButtonComposableALT(
+		RadioButtonComposable(
 			modifier = Modifier
 				.weight(1f),
 			text = label3,
@@ -537,16 +614,57 @@ fun FormulaString(
 @Composable
 fun FormulaStringContent(
 	modifier: Modifier = Modifier,
-	titleColor: Color,
-	content: @Composable () -> Unit
+	color: Color,
+	content: @Composable () -> Unit,
+	containerColor: Color = MaterialTheme.colorScheme.background
 ) {
 	Column(modifier = modifier) {
 		TitleWideContent(
 			text = R.string.formula,
 			icon = R.drawable.baseline_functions_24,
-			color = titleColor,
+			color = color,
 		) {
-			SingleWideCard {
+			SingleWideCardExpandable(
+				modifier = Modifier
+					.fillMaxWidth(fraction = 0.8f)
+					.padding(vertical = dimensionResource(id = R.dimen.padding_small)),
+				header = R.string.tap_to_expand,
+				containerColor = containerColor,
+				contentColor = color
+
+			) {
+				Column(
+					horizontalAlignment = Alignment.Start
+				) {
+					content()
+				}
+			}
+		}
+	}
+}
+
+@Composable
+fun FormulaStringContentExpandable(
+	modifier: Modifier = Modifier,
+	color: Color,
+	content: @Composable () -> Unit,
+	containerColor: Color = MaterialTheme.colorScheme.background
+) {
+	Column(modifier = modifier) {
+		TitleWideContent(
+			text = R.string.formula,
+			icon = R.drawable.baseline_functions_24,
+			color = color,
+		) {
+			SingleWideCardExpandable(
+				modifier = Modifier
+					.fillMaxWidth(fraction = 0.8f)
+					.padding(vertical = dimensionResource(id = R.dimen.padding_small)),
+				header = R.string.tap_to_expand,
+				containerColor = containerColor,
+				contentColor = color
+
+			) {
 				Column(
 					horizontalAlignment = Alignment.Start
 				) {
@@ -637,26 +755,26 @@ fun ThemeSwitch() {
 	var isDarkTheme by remember { mutableStateOf(true) }
 
 	AquariumInformationTheme(useDarkTheme = isDarkTheme) {
-			Row(
-				verticalAlignment = Alignment.CenterVertically,
-				modifier = Modifier
-					.fillMaxWidth()
-					.padding(
-						horizontal = 16.dp,
-						vertical = 10.dp
-					),
-				horizontalArrangement = Arrangement.spacedBy(8.dp)
-			) {
-				Text("☀️")
-				Switch(
-					checked = isDarkTheme,
-					onCheckedChange = {
-						isDarkTheme = it
-					}
-				)
-				Text("🌘")
-			}
+		Row(
+			verticalAlignment = Alignment.CenterVertically,
+			modifier = Modifier
+				.fillMaxWidth()
+				.padding(
+					horizontal = 16.dp,
+					vertical = 10.dp
+				),
+			horizontalArrangement = Arrangement.spacedBy(8.dp)
+		) {
+			Text("☀️")
+			Switch(
+				checked = isDarkTheme,
+				onCheckedChange = {
+					isDarkTheme = it
+				}
+			)
+			Text("🌘")
 		}
+	}
 }
 
 @Composable
@@ -675,10 +793,10 @@ fun AppDivider(
 
 @Preview(showBackground = true)
 @Composable
-fun RadioFeetInchesPreviewDark(
+fun SingleWideCardExpandablePreviewDark(
 ) {
 	AquariumInformationTheme(useDarkTheme = true) {
-//		RadioButtonTankVolumeUnits()
+		SingleWideCardExpandable(header = calculatorDataSource.labelCylinderType)
 	}
 }
 

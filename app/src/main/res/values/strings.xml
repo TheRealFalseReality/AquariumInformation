@@ -528,4 +528,5 @@
     <string name="conductivity">Conductivity</string>
     <string name="full_cylinder">Full</string>
     <string name="select_cylinder_type">Select Cylinder Type:</string>
+    <string name="tap_to_expand">Tap to Expand</string>
 </resources>

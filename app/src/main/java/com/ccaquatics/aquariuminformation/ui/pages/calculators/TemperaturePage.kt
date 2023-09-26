@@ -3,6 +3,7 @@ package com.ccaquatics.aquariuminformation.ui.pages.calculators
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -14,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.data.calculators.temperatureDataSource
 import com.ccaquatics.aquariuminformation.navigation.Temperature
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyText
@@ -24,7 +26,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonTwoUnits
-import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
+import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCardExpandable
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -60,7 +62,9 @@ fun TemperatureLayout(
 		icon = Temperature.icon,
 		color = color,
 		selectContent = {
-			UnitButtonCard(
+			SingleWideCardExpandable(
+				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
+				header = R.string.select_input_units,
 				contentColor = color,
 				content = {
 					RadioButtonTwoUnits(
@@ -168,7 +172,7 @@ fun TemperatureLayout(
 		},
 		formulaContent = {
 			FormulaStringContent(
-				titleColor = color,
+				color = color,
 				content = {
 					BodyText(
 						text = temperatureDataSource.formulaText1,

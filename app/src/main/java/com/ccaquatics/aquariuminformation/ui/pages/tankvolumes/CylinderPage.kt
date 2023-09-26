@@ -3,6 +3,7 @@ package com.ccaquatics.aquariuminformation.ui.pages.tankvolumes
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -14,6 +15,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.data.tankvolumes.calculatorDataSource
 import com.ccaquatics.aquariuminformation.data.tankvolumes.cylinderDataSource
 import com.ccaquatics.aquariuminformation.navigation.Cylinder
@@ -25,8 +27,8 @@ import com.ccaquatics.aquariuminformation.ui.commonui.InputRowNumberFieldTwoInpu
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonThreeUnits
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonTwoUnits
+import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCardExpandable
 import com.ccaquatics.aquariuminformation.ui.commonui.TankVolumeResults
-import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -85,7 +87,9 @@ fun CylinderLayout(
 		icon = Cylinder.icon,
 		color = color,
 		selectContent = {
-			UnitButtonCard(
+			SingleWideCardExpandable(
+				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
+				header = R.string.select_input_units,
 				content = {
 					RadioButtonTwoUnits(
 						onClick1 = { selected = calculatorDataSource.radioTextFeet },
@@ -121,8 +125,9 @@ fun CylinderLayout(
 			)
 		},
 		optionsContent = {
-			UnitButtonCard(
+			SingleWideCardExpandable(
 				header = calculatorDataSource.labelCylinderType,
+				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
 				content = {
 					RadioButtonThreeUnits(
 						onClick1 = {
