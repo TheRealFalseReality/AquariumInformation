@@ -27,7 +27,7 @@ class MarineDataSource {
 			CompatabilityData(
 				R.drawable.angler,
 				R.string.text_anglers_frogs,
-				R.string.text_latin_anglers_frogs,
+				R.string.text_latin_various,
 				R.string.list_compatible_anglers_frogs,
 				R.string.list_caution_anglers_frogs,
 				R.string.list_incompatible_anglers_frogs

@@ -529,4 +529,7 @@
     <string name="full_cylinder">Full</string>
     <string name="select_cylinder_type">Select Cylinder Type:</string>
     <string name="tap_to_expand">Tap to Expand</string>
+    <string name="share">Share</string>
+    <string name="share_this_app">Share this app!</string>
+    <string name="pleco_description">Also known as the suckermouth catfish or the common pleco, is a tropical freshwater fish belonging to the armored catfish family.</string>
 </resources>

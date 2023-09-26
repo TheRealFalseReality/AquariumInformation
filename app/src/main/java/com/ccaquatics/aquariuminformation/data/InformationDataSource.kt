@@ -26,7 +26,7 @@ val emailDataSource =
 	HeaderData(
 		icon = R.drawable.ic_mail,
 		title = R.string.text_email,
-		text = R.string.text_title_info,
+		text = R.string.url_website,
 	)
 
 val websiteDataSource =
@@ -41,4 +41,11 @@ val appInformationDataSource =
 		icon = R.drawable.ic_settings_alert,
 		title = R.string.app_name,
 		text = R.string.app_name,
+	)
+
+val shareDataSource =
+	HeaderData(
+		icon = R.drawable.ic_share,
+		title = R.string.share,
+		text = R.string.share_this_app,
 	)

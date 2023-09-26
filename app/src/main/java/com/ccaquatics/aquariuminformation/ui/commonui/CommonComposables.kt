@@ -6,6 +6,7 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -17,6 +18,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.selection.selectableGroup
@@ -40,9 +42,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -138,11 +142,11 @@ fun TitleWideContent(
 }
 
 @Composable
-fun AppVersion(
-) {
+fun AppVersion(modifier: Modifier = Modifier) {
 	val version = BuildConfig.VERSION_NAME
 
 	Row(
+		modifier = modifier,
 		horizontalArrangement = Arrangement.Center,
 	) {
 		Text(
@@ -189,16 +193,41 @@ fun SingleWideCard(
 }
 
 @Composable
+fun CardImage(
+	modifier: Modifier = Modifier,
+	@DrawableRes image: Int,
+	@StringRes contentDescription: Int,
+) {
+	Column(modifier = modifier) {
+		Image(
+			painter = painterResource(id = image),
+			contentDescription = stringResource(contentDescription),
+			modifier = Modifier
+				.heightIn(max = 200.dp), // TODO set size?
+			contentScale = ContentScale.Crop
+		)
+	}
+}
+
+@Composable
 fun SingleWideCardExpandable(
 	modifier: Modifier = Modifier,
+	headerModifier: Modifier = Modifier,
 	shape: Shape = Shapes.large,
+	headerStyle: TextStyle = MaterialTheme.typography.titleMedium,
 	@StringRes header: Int,
 	containerColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color = MaterialTheme.colorScheme.onBackground,
-	content: @Composable ColumnScope.() -> Unit = {},
+	content: @Composable () -> Unit = {},
+	imageContent: @Composable () -> Unit = {},
+	descriptionContent: @Composable () -> Unit = {},
+	subtitleContent: @Composable () -> Unit = {},
+	expandedState: Boolean = false,
+	dampingRatio: Float = Spring.DampingRatioLowBouncy,
+	stiffness: Float = Spring.StiffnessLow,
 ) {
 	var expanded by remember {
-		mutableStateOf(false)
+		mutableStateOf(expandedState)
 	}
 
 	Column(modifier = modifier) {
@@ -214,8 +243,8 @@ fun SingleWideCardExpandable(
 					.fillMaxWidth()
 					.animateContentSize(
 						animationSpec = spring(
-							dampingRatio = Spring.DampingRatioMediumBouncy,
-							stiffness = Spring.StiffnessLow
+							dampingRatio = dampingRatio,
+							stiffness = stiffness
 						),
 					)
 			) {
@@ -225,31 +254,132 @@ fun SingleWideCardExpandable(
 						.padding(horizontal = dimensionResource(id = R.dimen.padding_small)),
 					horizontalAlignment = Alignment.CenterHorizontally
 				) {
-					Row(
-						modifier = Modifier
-							.clickable { expanded = !expanded }
-							.fillMaxWidth(),
-						verticalAlignment = Alignment.CenterVertically,
-						horizontalArrangement = Arrangement.SpaceBetween
-					) {
-						HeaderText(
-							text = header,
-							color = contentColor
-						)
-						IconButton(
-							onClick = { expanded = !expanded },
+					imageContent()
+					Column {
+						Row(
+							modifier = Modifier
+								.fillMaxWidth(),
+							verticalAlignment = Alignment.CenterVertically,
+							horizontalArrangement = Arrangement.SpaceBetween
 						) {
-							Icon(
-								painter = if (expanded)
-									painterResource(id = R.drawable.ic_expand_less)
-								else painterResource(id = R.drawable.ic_expand_more),
-								contentDescription = if (expanded) {
-									stringResource(R.string.text_show_less)
-								} else {
-									stringResource(R.string.text_show_more)
-								},
-							)
+							Column {
+								HeaderText(
+									modifier = headerModifier,
+									text = header,
+									color = contentColor,
+									style = headerStyle
+								)
+								subtitleContent()
+							}
+							IconButton(
+								onClick = { expanded = !expanded },
+							) {
+								Icon(
+									painter = if (expanded)
+										painterResource(id = R.drawable.ic_expand_less)
+									else painterResource(id = R.drawable.ic_expand_more),
+									contentDescription = if (expanded) {
+										stringResource(R.string.text_show_less)
+									} else {
+										stringResource(R.string.text_show_more)
+									},
+								)
+							}
 						}
+						descriptionContent()
+					}
+					if (expanded) {
+						Column(modifier = Modifier.selectableGroup()) {
+							content()
+							SmallSpacer()
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@Composable
+fun SingleWideCardExpandableFull(
+	modifier: Modifier = Modifier,
+	headerModifier: Modifier = Modifier,
+	shape: Shape = Shapes.large,
+	headerStyle: TextStyle = MaterialTheme.typography.titleMedium,
+	@StringRes header: Int,
+	containerColor: Color = MaterialTheme.colorScheme.background,
+	contentColor: Color = MaterialTheme.colorScheme.onBackground,
+	content: @Composable () -> Unit = {},
+	imageContent: @Composable () -> Unit = {},
+	descriptionContent: @Composable () -> Unit = {},
+	subtitleContent: @Composable () -> Unit = {},
+	expandedState: Boolean = false,
+	dampingRatio: Float = Spring.DampingRatioLowBouncy,
+	stiffness: Float = Spring.StiffnessLow,
+) {
+	var expanded by remember {
+		mutableStateOf(expandedState)
+	}
+
+	Column(modifier = modifier) {
+		ElevatedCard(
+			modifier = Modifier
+				.clickable { expanded = !expanded },
+			shape = shape,
+			colors = CardDefaults.cardColors(
+				containerColor = containerColor,
+				contentColor = contentColor
+			),
+		) {
+			Row(
+				modifier = Modifier
+					.fillMaxWidth()
+					.animateContentSize(
+						animationSpec = spring(
+							dampingRatio = dampingRatio,
+							stiffness = stiffness
+						),
+					)
+			) {
+				Column(
+					modifier = Modifier
+						.fillMaxWidth()
+						.padding(horizontal = dimensionResource(id = R.dimen.padding_small)),
+					horizontalAlignment = Alignment.CenterHorizontally
+				) {
+					imageContent()
+					Column {
+						Row(
+							modifier = Modifier
+								.fillMaxWidth(),
+							verticalAlignment = Alignment.CenterVertically,
+							horizontalArrangement = Arrangement.SpaceBetween
+						) {
+							Column {
+								HeaderText(
+									modifier = headerModifier,
+									text = header,
+									color = contentColor,
+									style = headerStyle
+								)
+								subtitleContent()
+							}
+							IconButton(
+								onClick = { expanded = !expanded },
+							) {
+								Icon(
+									painter = if (expanded)
+										painterResource(id = R.drawable.ic_expand_less)
+									else painterResource(id = R.drawable.ic_expand_more),
+									contentDescription = if (expanded) {
+										stringResource(R.string.text_show_less)
+									} else {
+										stringResource(R.string.text_show_more)
+									},
+								)
+							}
+						}
+						descriptionContent()
 					}
 					if (expanded) {
 						Column(modifier = Modifier.selectableGroup()) {
@@ -619,7 +749,6 @@ fun FormulaStringContent(
 	modifier: Modifier = Modifier,
 	color: Color,
 	content: @Composable () -> Unit,
-	containerColor: Color = MaterialTheme.colorScheme.background
 ) {
 	Column(modifier = modifier) {
 		TitleWideContent(
@@ -627,47 +756,7 @@ fun FormulaStringContent(
 			icon = R.drawable.baseline_functions_24,
 			color = color,
 		) {
-			SingleWideCardExpandable(
-				modifier = Modifier
-					.fillMaxWidth(fraction = 0.8f)
-					.padding(vertical = dimensionResource(id = R.dimen.padding_small)),
-				header = R.string.tap_to_expand,
-				containerColor = containerColor,
-				contentColor = color
-
-			) {
-				Column(
-					horizontalAlignment = Alignment.Start
-				) {
-					content()
-				}
-			}
-		}
-	}
-}
-
-@Composable
-fun FormulaStringContentExpandable(
-	modifier: Modifier = Modifier,
-	color: Color,
-	content: @Composable () -> Unit,
-	containerColor: Color = MaterialTheme.colorScheme.background
-) {
-	Column(modifier = modifier) {
-		TitleWideContent(
-			text = R.string.formula,
-			icon = R.drawable.baseline_functions_24,
-			color = color,
-		) {
-			SingleWideCardExpandable(
-				modifier = Modifier
-					.fillMaxWidth(fraction = 0.8f)
-					.padding(vertical = dimensionResource(id = R.dimen.padding_small)),
-				header = R.string.tap_to_expand,
-				containerColor = containerColor,
-				contentColor = color
-
-			) {
+			SingleWideCard {
 				Column(
 					horizontalAlignment = Alignment.Start
 				) {

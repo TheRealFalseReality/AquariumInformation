@@ -61,6 +61,7 @@ fun TemperatureLayout(
 		selectContent = {
 			SingleWideCardExpandable(
 				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
+				expandedState = true,
 				header = R.string.select_input_units,
 				contentColor = color,
 				content = {

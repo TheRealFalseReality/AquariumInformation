@@ -7,7 +7,7 @@ val homeHeaderDataSource =
 
 val homeCompatibilityDataSource =
 	HeaderData(
-		icon = R.drawable.ic_new_releases,
+		icon = R.drawable.ic_icon_question,
 		title = R.string.text_welcome_compatibility_title,
 		text = R.string.text_welcome_compatibility_2,
 	)

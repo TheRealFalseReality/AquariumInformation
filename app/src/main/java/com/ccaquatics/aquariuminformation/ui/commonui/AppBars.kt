@@ -2,7 +2,6 @@ package com.ccaquatics.aquariuminformation.ui.commonui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -16,7 +15,6 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -66,8 +64,8 @@ fun AquariumAppBar(
 				},
 			) {
 				Icon(
-					modifier = Modifier
-						.size(dimensionResource(id = R.dimen.icon_size_medium)),
+//					modifier = Modifier
+//						.size(dimensionResource(id = R.dimen.icon_size_medium)),
 					painter = painterResource(id = R.drawable.ic_launcher_foreground),
 					contentDescription = stringResource(R.string.home),
 				)
@@ -80,8 +78,8 @@ fun AquariumAppBar(
 				},
 			) {
 				Icon(
-					modifier = Modifier
-						.size(dimensionResource(id = R.dimen.icon_size_verySmall)),
+//					modifier = Modifier
+//						.size(dimensionResource(id = R.dimen.icon_size_verySmall)),
 					painter = painterResource(id = R.drawable.ic_info_2),
 					contentDescription = stringResource(R.string.text_title_info),
 					tint = MaterialTheme.colorScheme.onSurfaceVariant
@@ -108,11 +106,12 @@ fun BottomNavBar(
 						if (currentScreen != screen) painterResource(id = screen.icon)
 						else painterResource(id = screen.iconFilled),
 						stringResource(id = screen.title),
-						modifier = Modifier
-							.size(dimensionResource(id = R.dimen.icon_size_verySmall)),
+//						modifier = Modifier
+//							.size(dimensionResource(id = R.dimen.icon_size_verySmall)),
 					)
 				},
 				label = { Text(stringResource(id = screen.title)) },
+				alwaysShowLabel = false,
 				colors = NavigationBarItemDefaults.colors(
 					selectedTextColor = MaterialTheme.colorScheme.secondary,
 					selectedIconColor = MaterialTheme.colorScheme.secondary,

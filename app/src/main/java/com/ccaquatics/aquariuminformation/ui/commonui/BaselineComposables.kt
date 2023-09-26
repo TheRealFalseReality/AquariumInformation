@@ -22,7 +22,10 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.data.tankvolumes.bowFrontDataSource
@@ -35,6 +38,7 @@ fun MediumSpacer(modifier: Modifier = Modifier) {
 		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
 	}
 }
+
 @Composable
 fun SmallSpacer(modifier: Modifier = Modifier) {
 	Column(modifier = modifier) {
@@ -73,14 +77,16 @@ fun HeaderText(
 	@StringRes text: Int,
 	style: TextStyle = MaterialTheme.typography.titleMedium,
 	textAlign: TextAlign = TextAlign.Center,
-	color: Color = MaterialTheme.colorScheme.onBackground
+	color: Color = MaterialTheme.colorScheme.onBackground,
+	textDecoration: TextDecoration = TextDecoration.None
 ) {
 	Column(modifier = modifier) {
 		Text(
 			text = stringResource(id = text),
 			style = style,
 			textAlign = textAlign,
-			color = color
+			color = color,
+			textDecoration = textDecoration
 		)
 	}
 }
@@ -91,14 +97,20 @@ fun BodyText(
 	@StringRes text: Int,
 	style: TextStyle = MaterialTheme.typography.bodyMedium,
 	textAlign: TextAlign = TextAlign.Center,
-	color: Color = MaterialTheme.colorScheme.onBackground
+	color: Color = MaterialTheme.colorScheme.onBackground,
+	textDecoration: TextDecoration = TextDecoration.None,
+	fontWeight: FontWeight = FontWeight.Normal,
+	fontStyle: FontStyle = FontStyle.Normal
 ) {
 	Column(modifier = modifier) {
 		Text(
 			text = stringResource(id = text),
 			style = style,
 			textAlign = textAlign,
-			color = color
+			color = color,
+			textDecoration = textDecoration,
+			fontWeight = fontWeight,
+			fontStyle = fontStyle
 		)
 	}
 }
@@ -139,14 +151,16 @@ fun IconTextRow(
 	@DrawableRes icon: Int,
 	iconTint: Color = MaterialTheme.colorScheme.onBackground,
 	@StringRes text: Int,
-	textColor: Color = MaterialTheme.colorScheme.onBackground
+	textColor: Color = MaterialTheme.colorScheme.onBackground,
+	textDecoration: TextDecoration = TextDecoration.None,
+	fontWeight: FontWeight = FontWeight.Normal
 ) {
 	Column(modifier = modifier) {
 		Row(
 			modifier = Modifier
 				.fillMaxWidth()
-				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
-			verticalAlignment = Alignment.CenterVertically
+				.padding(vertical = dimensionResource(id = R.dimen.padding_small)),
+			verticalAlignment = Alignment.CenterVertically,
 		) {
 			Icon(
 				modifier = Modifier
@@ -159,7 +173,9 @@ fun IconTextRow(
 				modifier = Modifier
 					.weight(5f),
 				text = text,
-				color = textColor
+				color = textColor,
+				textDecoration = textDecoration,
+				fontWeight = fontWeight
 			)
 		}
 	}

@@ -9,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -65,7 +66,12 @@ fun AquariumInfoApp() {
 
 	Scaffold(
 		topBar = {
-			AquariumAppBar(navController = navController)
+			Column {
+				AquariumAppBar(navController = navController)
+				Divider(
+					color = MaterialTheme.colorScheme.inverseOnSurface
+				)
+			}
 		},
 		bottomBar = {
 			BottomNavBar(
