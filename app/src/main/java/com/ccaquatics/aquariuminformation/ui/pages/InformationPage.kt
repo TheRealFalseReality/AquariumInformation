@@ -34,6 +34,7 @@ fun InfoPage() {
 	}
 }
 
+// TODO Add Changelog and URLs
 @Composable
 fun InfoLayout() {
 	TitleWideContent(

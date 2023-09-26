@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -22,7 +23,10 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.ccaquatics.aquariuminformation.R
+import com.ccaquatics.aquariuminformation.navigation.Alkalinity
+import com.ccaquatics.aquariuminformation.navigation.Salinity
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import com.ccaquatics.aquariuminformation.ui.theme.Shapes
 
@@ -72,100 +76,290 @@ fun NavButton(
 	}
 }
 
-//@Composable
-//fun NavButtonTopLeft(
-//	title: Int,
-//	icon: Int,
-//	onClick: () -> Unit,
-//) {
-//	NavButton(
-//		title = title,
-//		icon = icon,
-//		onClick = onClick,
-//		shape = RoundedCornerShape(
-//			bottomStart = 12.dp,
-//			bottomEnd = 12.dp,
-//			topStart = 0.dp,
-//			topEnd = 12.dp,
-//		),
-//	)
-//}
-//
-//@Composable
-//fun NavButtonTopRight(
-//	title: Int,
-//	icon: Int,
-//	onClick: () -> Unit,
-//) {
-//	NavButton(
-//		title = title,
-//		icon = icon,
-//		onClick = onClick,
-//		shape = RoundedCornerShape(
-//			bottomStart = 12.dp,
-//			bottomEnd = 12.dp,
-//			topStart = 12.dp,
-//			topEnd = 0.dp,
-//		),
-//	)
-//}
-//
-//@Composable
-//fun NavButtonMid(
-//	title: Int,
-//	icon: Int,
-//	onClick: () -> Unit,
-//) {
-//	NavButton(
-//		title = title,
-//		icon = icon,
-//		onClick = onClick,
-//		shape = RoundedCornerShape(
-//			bottomStart = 12.dp,
-//			bottomEnd = 12.dp,
-//			topStart = 12.dp,
-//			topEnd = 12.dp,
-//		),
-//	)
-//}
-//
-//@Composable
-//fun NavButtonBottomRight(
-//	title: Int,
-//	icon: Int,
-//	onClick: () -> Unit,
-//) {
-//	NavButton(
-//		title = title,
-//		icon = icon,
-//		onClick = onClick,
-//		shape = RoundedCornerShape(
-//			bottomStart = 12.dp,
-//			bottomEnd = 12.dp,
-//			topStart = 12.dp,
-//			topEnd = 0.dp,
-//		),
-//	)
-//}
-//
-//@Composable
-//fun NavButtonBottomLeft(
-//	title: Int,
-//	icon: Int,
-//	onClick: () -> Unit,
-//) {
-//	NavButton(
-//		title = title,
-//		icon = icon,
-//		onClick = onClick,
-//		shape = RoundedCornerShape(
-//			bottomStart = 12.dp,
-//			bottomEnd = 12.dp,
-//			topStart = 12.dp,
-//			topEnd = 0.dp,
-//		),
-//	)
-//}
+@Composable
+fun NavButtonRowTop(
+	modifier: Modifier = Modifier,
+	@StringRes title1: Int,
+	@DrawableRes icon1: Int,
+	@StringRes title2: Int,
+	@DrawableRes icon2: Int,
+	containerColor: Color = MaterialTheme.colorScheme.background,
+	contentColor: Color = MaterialTheme.colorScheme.onBackground,
+	onClick1: () -> Unit = {},
+	onClick2: () -> Unit = {},
+) {
+	Row(modifier = modifier.fillMaxWidth(fraction = 0.9f)) {
+		NavButton(
+			modifier = Modifier
+				.weight(1f)
+				.fillMaxWidth(fraction = 0.9f)
+				.padding(
+					end = dimensionResource(id = R.dimen.padding_small),
+				),
+			shape = RoundedCornerShape(
+				bottomEnd = 0.dp,
+				bottomStart = dimensionResource(id = R.dimen.card_large),
+				topStart = dimensionResource(id = R.dimen.card_large),
+				topEnd = dimensionResource(id = R.dimen.card_large),
+			),
+			title = title1,
+			icon = icon1,
+			onClick = onClick1,
+			containerColor = containerColor,
+			contentColor = contentColor
+		)
+		NavButton(
+			modifier = Modifier
+				.weight(1f)
+				.fillMaxWidth(fraction = 0.9f)
+				.padding(
+					start = dimensionResource(id = R.dimen.padding_small),
+				),
+			shape = RoundedCornerShape(
+				bottomEnd = dimensionResource(id = R.dimen.card_large),
+				bottomStart = 0.dp,
+				topStart = dimensionResource(id = R.dimen.card_large),
+				topEnd = dimensionResource(id = R.dimen.card_large),
+			),
+			title = title2,
+			icon = icon2,
+			onClick = onClick2,
+			containerColor = containerColor,
+			contentColor = contentColor
+		)
+	}
+	MediumSpacer()
+}
+
+@Composable
+fun NavButtonRowMid(
+	modifier: Modifier = Modifier,
+	@StringRes title1: Int,
+	@DrawableRes icon1: Int,
+	@StringRes title2: Int,
+	@DrawableRes icon2: Int,
+	containerColor: Color = MaterialTheme.colorScheme.background,
+	contentColor: Color = MaterialTheme.colorScheme.onBackground,
+	onClick1: () -> Unit = {},
+	onClick2: () -> Unit = {},
+) {
+	Row(modifier = modifier.fillMaxWidth(fraction = 0.9f)) {
+		NavButton(
+			modifier = Modifier
+				.weight(1f)
+				.fillMaxWidth(fraction = 0.9f)
+				.padding(
+					end = dimensionResource(id = R.dimen.padding_small),
+				),
+			shape = RoundedCornerShape(
+				bottomEnd = 0.dp,
+				bottomStart = dimensionResource(id = R.dimen.card_large),
+				topEnd = 0.dp,
+				topStart = dimensionResource(id = R.dimen.card_large),
+			),
+			title = title1,
+			icon = icon1,
+			onClick = onClick1,
+			containerColor = containerColor,
+			contentColor = contentColor
+		)
+		NavButton(
+			modifier = Modifier
+				.weight(1f)
+				.fillMaxWidth(fraction = 0.9f)
+				.padding(
+					start = dimensionResource(id = R.dimen.padding_small),
+				),
+			shape = RoundedCornerShape(
+				bottomEnd = dimensionResource(id = R.dimen.card_large),
+				bottomStart = 0.dp,
+				topEnd = dimensionResource(id = R.dimen.card_large),
+				topStart = 0.dp
+			),
+			title = title2,
+			icon = icon2,
+			onClick = onClick2,
+			containerColor = containerColor,
+			contentColor = contentColor
+		)
+	}
+	MediumSpacer()
+}
+
+@Composable
+fun NavButtonRowBottom(
+	modifier: Modifier = Modifier,
+	@StringRes title1: Int,
+	@DrawableRes icon1: Int,
+	@StringRes title2: Int,
+	@DrawableRes icon2: Int,
+	containerColor: Color = MaterialTheme.colorScheme.background,
+	contentColor: Color = MaterialTheme.colorScheme.onBackground,
+	onClick1: () -> Unit = {},
+	onClick2: () -> Unit = {},
+) {
+	Row(modifier = modifier.fillMaxWidth(fraction = 0.9f)) {
+		NavButton(
+			modifier = Modifier
+				.weight(1f)
+				.fillMaxWidth(fraction = 0.9f)
+				.padding(
+					end = dimensionResource(id = R.dimen.padding_small),
+				),
+			shape = RoundedCornerShape(
+				bottomEnd = dimensionResource(id = R.dimen.card_large),
+				bottomStart = dimensionResource(id = R.dimen.card_large),
+				topEnd = 0.dp,
+				topStart = dimensionResource(id = R.dimen.card_large),
+			),
+			title = title1,
+			icon = icon1,
+			onClick = onClick1,
+			containerColor = containerColor,
+			contentColor = contentColor
+		)
+		NavButton(
+			modifier = Modifier
+				.weight(1f)
+				.fillMaxWidth(fraction = 0.9f)
+				.padding(
+					start = dimensionResource(id = R.dimen.padding_small),
+				),
+			shape = RoundedCornerShape(
+				bottomEnd = dimensionResource(id = R.dimen.card_large),
+				bottomStart = dimensionResource(id = R.dimen.card_large),
+				topEnd = dimensionResource(id = R.dimen.card_large),
+				topStart = 0.dp
+			),
+			title = title2,
+			icon = icon2,
+			onClick = onClick2,
+			containerColor = containerColor,
+			contentColor = contentColor
+		)
+	}
+	MediumSpacer()
+}
+
+
+@Composable
+fun NavButtonTopLeft(
+	title: Int,
+	icon: Int,
+	onClick: () -> Unit,
+	containerColor: Color,
+	contentColor: Color,
+) {
+	NavButton(
+		title = title,
+		icon = icon,
+		onClick = onClick,
+		shape = RoundedCornerShape(
+			bottomStart = 12.dp,
+			bottomEnd = 12.dp,
+			topStart = 0.dp,
+			topEnd = 12.dp,
+		),
+		containerColor = containerColor,
+		contentColor = contentColor,
+	)
+}
+
+@Composable
+fun NavButtonTopRight(
+	modifier: Modifier = Modifier,
+	title: Int,
+	icon: Int,
+	onClick: () -> Unit,
+	containerColor: Color,
+	contentColor: Color,
+) {
+	NavButton(
+		modifier = modifier,
+		title = title,
+		icon = icon,
+		onClick = onClick,
+		shape = RoundedCornerShape(
+			bottomStart = 12.dp,
+			bottomEnd = 12.dp,
+			topStart = 12.dp,
+			topEnd = 0.dp,
+		),
+		containerColor = containerColor,
+		contentColor = contentColor,
+	)
+}
+
+@Composable
+fun NavButtonMid(
+	title: Int,
+	icon: Int,
+	onClick: () -> Unit,
+	containerColor: Color,
+	contentColor: Color,
+) {
+	NavButton(
+		title = title,
+		icon = icon,
+		onClick = onClick,
+		shape = RoundedCornerShape(
+			bottomStart = 12.dp,
+			bottomEnd = 12.dp,
+			topStart = 12.dp,
+			topEnd = 12.dp,
+		),
+		containerColor = containerColor,
+		contentColor = contentColor,
+	)
+}
+
+@Composable
+fun NavButtonBottomRight(
+	title: Int,
+	icon: Int,
+	onClick: () -> Unit,
+	containerColor: Color,
+	contentColor: Color,
+) {
+	NavButton(
+		title = title,
+		icon = icon,
+		onClick = onClick,
+		shape = RoundedCornerShape(
+			bottomStart = 12.dp,
+			bottomEnd = 12.dp,
+			topStart = 12.dp,
+			topEnd = 0.dp,
+		),
+		containerColor = containerColor,
+		contentColor = contentColor,
+	)
+}
+
+@Composable
+fun NavButtonBottomLeft(
+	modifier: Modifier = Modifier,
+	title: Int,
+	icon: Int,
+	onClick: () -> Unit,
+	containerColor: Color,
+	contentColor: Color,
+) {
+	NavButton(
+		modifier = modifier,
+		title = title,
+		icon = icon,
+		onClick = onClick,
+		shape = RoundedCornerShape(
+			bottomStart = 12.dp,
+			bottomEnd = 12.dp,
+			topStart = 12.dp,
+			topEnd = 0.dp,
+		),
+		containerColor = containerColor,
+		contentColor = contentColor,
+	)
+}
 
 @Composable
 fun NavButtonWide(
@@ -285,6 +479,36 @@ fun NavButtonRow(
 		)
 	}
 	MediumSpacer()
+}
+
+@Preview(showBackground = true)
+@Composable
+fun NavRowStyledPreview() {
+	AquariumInformationTheme {
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.background)
+		) {
+			NavButtonRowTop(
+				title1 = Salinity.title,
+				icon1 = Salinity.icon,
+				title2 = Alkalinity.title,
+				icon2 = Alkalinity.icon,
+			)
+			NavButtonRowMid(
+				title1 = Salinity.title,
+				icon1 = Salinity.icon,
+				title2 = Alkalinity.title,
+				icon2 = Alkalinity.icon,
+			)
+			NavButtonRowBottom(
+				title1 = Salinity.title,
+				icon1 = Salinity.icon,
+				title2 = Alkalinity.title,
+				icon2 = Alkalinity.icon,
+			)
+		}
+	}
 }
 
 @Preview(showBackground = true)

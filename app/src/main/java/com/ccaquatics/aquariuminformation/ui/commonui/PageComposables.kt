@@ -1,6 +1,5 @@
 package com.ccaquatics.aquariuminformation.ui.commonui
 
-import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -78,9 +77,7 @@ fun PageViewLazy(
 
 @Composable
 fun GenericCalculatePage(
-	@StringRes title: Int,
 	@StringRes subtitle: Int,
-	@DrawableRes icon: Int,
 	color: Color,
 	selectContent: @Composable () -> Unit,
 	optionsContent: @Composable () -> Unit = {},

@@ -13,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.data.calculators.carbonDioxideDataSource
-import com.ccaquatics.aquariuminformation.navigation.CarbonDioxide
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateFieldTwoInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
@@ -50,9 +49,7 @@ fun CarbonDioxideLayout(
 	val co2 = calculateCarbonDioxide(ph, dkh).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
-		title = CarbonDioxide.title,
 		subtitle = carbonDioxideDataSource.subtitle,
-		icon = CarbonDioxide.icon,
 		color = color,
 		selectContent = {
 			TextCard(

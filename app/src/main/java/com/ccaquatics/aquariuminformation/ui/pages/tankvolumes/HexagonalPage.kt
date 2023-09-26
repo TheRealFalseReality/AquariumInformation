@@ -63,9 +63,7 @@ fun HexagonalLayout(
 	val waterWeightFT = calculateWaterWeightFTHex(edge, height).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
-		title = Hexagonal.title,
 		subtitle = calculatorDataSource.subtitle,
-		icon = Hexagonal.icon,
 		color = color,
 		selectContent = {
 			SingleWideCardExpandable(

@@ -16,7 +16,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.data.calculators.salinityDataSource
-import com.ccaquatics.aquariuminformation.navigation.Salinity
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
@@ -61,9 +60,8 @@ fun SalinityLayout(
 	val salDensityPPT = calculateDensityPPT(sal, tempTestWater).toDoubleOrNull() ?: 0.0
 	val salDensitySG = calculateDensitySG(sal, tempPureWater).toDoubleOrNull() ?: 0.0
 
-	GenericCalculatePage(title = Salinity.title,
+	GenericCalculatePage(
 		subtitle = salinityDataSource.subtitle,
-		icon = Salinity.icon,
 		color = color,
 		selectContent = {
 			SingleWideCardExpandable(

@@ -82,9 +82,7 @@ fun CylinderLayout(
 
 	// TODO Add half and corner cylinder
 	GenericCalculatePage(
-		title = Cylinder.title,
 		subtitle = calculatorDataSource.subtitle,
-		icon = Cylinder.icon,
 		color = color,
 		selectContent = {
 			SingleWideCardExpandable(
@@ -131,15 +129,15 @@ fun CylinderLayout(
 				content = {
 					RadioButtonThreeUnits(
 						onClick1 = {
-							selectedCylinder = calculatorDataSource.radioFullCylinder;
+							selectedCylinder = calculatorDataSource.radioFullCylinder
 							halfCyl = false; quartCyl = false
 						},
 						onClick2 = {
-							selectedCylinder = calculatorDataSource.radioHalfCylinder;
+							selectedCylinder = calculatorDataSource.radioHalfCylinder
 							halfCyl = true; quartCyl = false
 						},
 						onClick3 = {
-							selectedCylinder = calculatorDataSource.radioCornerCylinder;
+							selectedCylinder = calculatorDataSource.radioCornerCylinder
 							halfCyl = false; quartCyl = true
 						},
 						label1 = calculatorDataSource.radioFullCylinder,

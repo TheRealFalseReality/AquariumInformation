@@ -27,7 +27,6 @@ import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonTwoUnits
 import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCardExpandable
 import com.ccaquatics.aquariuminformation.ui.commonui.TankVolumeResults
-import com.ccaquatics.aquariuminformation.ui.commonui.UnitButtonCard
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -77,9 +76,7 @@ fun BowFrontLayout(
 		calculateWaterWeightFTBF(length, width, height, fullWidth).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
-		title = BowFront.title,
 		subtitle = calculatorDataSource.subtitle,
-		icon = BowFront.icon,
 		color = color,
 		selectContent = {
 			SingleWideCardExpandable(

@@ -17,7 +17,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.data.calculators.temperatureDataSource
-import com.ccaquatics.aquariuminformation.navigation.Temperature
 import com.ccaquatics.aquariuminformation.ui.commonui.BodyText
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
@@ -57,9 +56,7 @@ fun TemperatureLayout(
 	val fahrenheit = calculateFahrenheit(temp).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
-		title = Temperature.title,
 		subtitle = temperatureDataSource.subtitle,
-		icon = Temperature.icon,
 		color = color,
 		selectContent = {
 			SingleWideCardExpandable(

@@ -21,4 +21,5 @@
     <dimen name="corner_radius_filled">50dp</dimen>
     <dimen name="grid_colum_medium">400dp</dimen>
     <dimen name="icon_trailing_small">18dp</dimen>
+    <dimen name="card_large">12dp</dimen>
 </resources>

@@ -16,7 +16,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.data.calculators.alkalinityDataSource
-import com.ccaquatics.aquariuminformation.navigation.Alkalinity
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
@@ -57,9 +56,7 @@ fun AlkalinityLayout(
 	val dkhMEQ = calculateDkhMeq(alk).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
-		title = Alkalinity.title,
 		subtitle = alkalinityDataSource.subtitle,
-		icon = Alkalinity.icon,
 		color = color,
 		selectContent = {
 			SingleWideCardExpandable(

@@ -222,7 +222,7 @@ fun SingleWideCardExpandable(
 				Column(
 					modifier = Modifier
 						.fillMaxWidth()
-						.padding(dimensionResource(id = R.dimen.padding_small)),
+						.padding(horizontal = dimensionResource(id = R.dimen.padding_small)),
 					horizontalAlignment = Alignment.CenterHorizontally
 				) {
 					Row(
@@ -254,6 +254,7 @@ fun SingleWideCardExpandable(
 					if (expanded) {
 						Column(modifier = Modifier.selectableGroup()) {
 							content()
+							SmallSpacer()
 						}
 					}
 				}
@@ -427,7 +428,9 @@ fun RadioButtonComposable(
 		RadioText(
 			text = text,
 			modifier = Modifier
-				.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
+				.padding(
+					bottom = dimensionResource(id = R.dimen.padding_verySmall),
+				)
 				.clickable(
 					onClick = onClick
 				),

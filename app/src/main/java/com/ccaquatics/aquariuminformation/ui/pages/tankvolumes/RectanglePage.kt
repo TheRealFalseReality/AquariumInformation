@@ -67,9 +67,7 @@ fun RectangleLayout(
 	val waterWeightFT = calculateWaterWeightFT(length, width, height).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
-		title = Rectangle.title,
 		subtitle = calculatorDataSource.subtitle,
-		icon = Rectangle.icon,
 		color = color,
 		selectContent = {
 			SingleWideCardExpandable(
