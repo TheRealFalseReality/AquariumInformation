@@ -2,6 +2,7 @@ package com.ccaquatics.aquariuminformation.ui.commonui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -15,6 +16,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -106,8 +108,8 @@ fun BottomNavBar(
 						if (currentScreen != screen) painterResource(id = screen.icon)
 						else painterResource(id = screen.iconFilled),
 						stringResource(id = screen.title),
-//						modifier = Modifier
-//							.size(dimensionResource(id = R.dimen.icon_size_verySmall)),
+						modifier = Modifier
+							.size(dimensionResource(id = R.dimen.icon_size_verySmall)),
 					)
 				},
 				label = { Text(stringResource(id = screen.title)) },

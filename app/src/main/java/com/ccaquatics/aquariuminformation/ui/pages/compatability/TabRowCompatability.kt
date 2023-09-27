@@ -33,7 +33,7 @@ fun CompatabilityTabRow(
 	selectedState: Int = 0,
 	selectedColor: Color = MaterialTheme.colorScheme.tertiary,
 	unselectedColor: Color = MaterialTheme.colorScheme.outline,
-	) {
+) {
 	var state by remember { mutableIntStateOf(selectedState) }
 	val tabs = compatibilityTabRow
 	val indicator = @Composable { tabPositions: List<TabPosition> ->
@@ -65,6 +65,8 @@ fun CompatabilityTabRow(
 					},
 					icon = {
 						Icon(
+//							modifier = Modifier
+//								.size(dimensionResource(id = R.dimen.icon_size_verySmall)),
 							painter = painterResource(id = tab.icon),
 							contentDescription = stringResource(id = tab.title)
 						)
@@ -76,6 +78,7 @@ fun CompatabilityTabRow(
 			0 -> {
 				FreshwaterList(FreshwaterDataSource().loadFishCardsFresh())
 			}
+
 			1 -> {
 				CompatabilityDataList(MarineDataSource().loadFishCardsMarineData())
 			}

@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -69,7 +68,7 @@ fun NavButton(
 				painter = painterResource(id = icon),
 				contentDescription = null,
 				modifier = Modifier
-					.size(dimensionResource(id = R.dimen.icon_size_small))
+//					.size(dimensionResource(id = R.dimen.icon_size_large))
 					.padding(top = dimensionResource(id = R.dimen.padding_small)),
 			)
 		}

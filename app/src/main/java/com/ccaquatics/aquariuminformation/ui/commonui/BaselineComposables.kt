@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -27,6 +28,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.data.tankvolumes.bowFrontDataSource
 import com.ccaquatics.aquariuminformation.navigation.BowFront
@@ -213,7 +215,10 @@ fun CalculateImage(
 	) {
 		Image(
 			modifier = Modifier
-				.height(dimensionResource(id = R.dimen.image_size_large)),
+				.heightIn(
+					min = dimensionResource(id = R.dimen.image_size_large),
+					max = 1500.dp
+				),
 			painter = painterResource(id = painter),
 			contentDescription = stringResource(id = contentDescription),
 			colorFilter = ColorFilter.tint(colorFilter)

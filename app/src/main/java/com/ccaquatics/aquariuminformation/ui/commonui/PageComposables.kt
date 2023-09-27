@@ -89,7 +89,6 @@ fun FishCardsCompatabilityData(
 	containerColor: Color = MaterialTheme.colorScheme.tertiaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onTertiaryContainer,
 ) {
-	// TODO Make Common Composable
 	Column(
 		modifier = modifier
 			.padding(vertical = dimensionResource(id = R.dimen.padding_small))
@@ -106,11 +105,6 @@ fun FishCardsCompatabilityData(
 			modifier = Modifier
 				.fillMaxWidth(fraction = 0.95f),
 			header = compatabilityData.title,
-			headerModifier = Modifier
-				.padding(
-					top = dimensionResource(id = R.dimen.padding_medium),
-					bottom = dimensionResource(id = R.dimen.padding_small)
-				),
 			headerStyle = MaterialTheme.typography.titleLarge,
 			containerColor = containerColor,
 			contentColor = contentColor,
@@ -128,16 +122,13 @@ fun FishCardsCompatabilityData(
 					textAlign = TextAlign.Start,
 					color = contentColor
 				)
-//				VerySmallSpacer()
-				SmallSpacer()
 			},
-//			descriptionContent = {
-//				BodyText(
-//					text = R.string.pleco_description,
-//					color = contentColor
-//				)
-//				SmallSpacer()
-//			},
+			descriptionContent = {
+				BodyText(
+					text = R.string.pleco_description,
+					color = contentColor
+				)
+			},
 			content = {
 				Column(
 					modifier = Modifier
@@ -158,7 +149,7 @@ fun FishCardsCompatabilityData(
 						textAlign = TextAlign.Justify,
 						color = contentColor
 					)
-					MediumSpacer()
+					SmallSpacer()
 					HeaderText(
 						text = R.string.text_caution,
 						color = contentColor
@@ -174,7 +165,7 @@ fun FishCardsCompatabilityData(
 						textAlign = TextAlign.Justify,
 						color = contentColor
 					)
-					MediumSpacer()
+					SmallSpacer()
 					HeaderText(
 						text = R.string.text_incompatible,
 						color = contentColor
@@ -190,7 +181,7 @@ fun FishCardsCompatabilityData(
 						textAlign = TextAlign.Justify,
 						color = contentColor
 					)
-					VerySmallSpacer()
+//					VerySmallSpacer()
 				}
 			}
 		)

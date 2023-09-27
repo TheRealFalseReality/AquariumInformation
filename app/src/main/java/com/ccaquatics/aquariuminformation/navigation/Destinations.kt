@@ -25,7 +25,7 @@ object Information : Destinations {
 
 object Overview : Destinations {
 	override val icon = R.drawable.baseline_grid_view_24
-	override val iconFilled = R.drawable.ic_grid_filled
+	override val iconFilled = R.drawable.baseline_grid_view_24
 	override val route = "overview"
 	override val title = R.string.overview
 }
@@ -50,6 +50,7 @@ object Alkalinity : Destinations {
 	override val route = "alkalinity"
 	override val title = R.string.alkalinity
 }
+
 //
 object Temperature : Destinations {
 	override val icon = R.drawable.ic_thermostat
@@ -57,6 +58,7 @@ object Temperature : Destinations {
 	override val route = "temp"
 	override val title = R.string.temperature
 }
+
 //
 object CarbonDioxide : Destinations {
 	override val icon = R.drawable.baseline_co2_24
@@ -118,7 +120,7 @@ object FishCompatabilityMarine : Destinations {
 	override val icon = R.drawable.ic_fish
 	override val iconFilled = R.drawable.ic_icon_question
 	override val route = "fish_compat_marine"
-	override val title =R.string.marine
+	override val title = R.string.marine
 }
 
 object Converters : Destinations {
@@ -130,7 +132,7 @@ object Converters : Destinations {
 
 object Calculators : Destinations {
 	override val icon = R.drawable.ic_calculate
-	override val iconFilled = R.drawable.ic_calculate_filled
+	override val iconFilled = R.drawable.ic_calculate
 	override val route = "calculators"
 	override val title = R.string.calculators
 }

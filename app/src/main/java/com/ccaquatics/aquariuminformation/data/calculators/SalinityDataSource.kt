@@ -2,7 +2,7 @@ package com.ccaquatics.aquariuminformation.data.calculators
 
 import com.ccaquatics.aquariuminformation.R
 
-val salinityDataSource = 
+val salinityDataSource =
 	SalinityData(
 		subtitle = R.string.text_subtitle_salinity,
 		radioTextPpt = R.string.salinity_ppt,

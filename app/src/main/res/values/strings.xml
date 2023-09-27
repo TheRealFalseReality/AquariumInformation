@@ -532,4 +532,7 @@
     <string name="share">Share</string>
     <string name="share_this_app">Share this app!</string>
     <string name="pleco_description">Also known as the suckermouth catfish or the common pleco, is a tropical freshwater fish belonging to the armored catfish family.</string>
+    <string name="changelog_url">https://github.com/TheRealFalseReality/AquariumInformation/blob/793339b1c9f9a5d1d63d748df513aa6db0fca4cc/app/src/main/assets/Changelog.md</string>
+    <string name="store_link">Store Link</string>
+    <string name="tap_to_see_changelog">Tap to see Changelog</string>
 </resources>

@@ -54,6 +54,7 @@ import com.ccaquatics.aquariuminformation.BuildConfig
 import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.data.calculators.alkalinityDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.salinityDataSource
+import com.ccaquatics.aquariuminformation.data.calculators.temperatureDataSource
 import com.ccaquatics.aquariuminformation.data.tankvolumes.calculatorDataSource
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import com.ccaquatics.aquariuminformation.ui.theme.Shapes
@@ -144,16 +145,16 @@ fun TitleWideContent(
 @Composable
 fun AppVersion(modifier: Modifier = Modifier) {
 	val version = BuildConfig.VERSION_NAME
-
 	Row(
 		modifier = modifier,
 		horizontalArrangement = Arrangement.Center,
 	) {
-		Text(
-			text = stringResource(R.string.app_version)
+		BodyText(
+			text = R.string.app_version
 		)
 		Text(
 			text = stringResource(id = R.string.text_label_version, version),
+			style = MaterialTheme.typography.bodyMedium
 		)
 	}
 }
@@ -203,14 +204,14 @@ fun CardImage(
 			painter = painterResource(id = image),
 			contentDescription = stringResource(contentDescription),
 			modifier = Modifier
-				.heightIn(max = 200.dp), // TODO set size?
+				.heightIn(max = dimensionResource(id = R.dimen.card_image_height)),
 			contentScale = ContentScale.Crop
 		)
 	}
 }
 
 @Composable
-fun SingleWideCardExpandable(
+fun SingleWideCardExpandableRadio(
 	modifier: Modifier = Modifier,
 	headerModifier: Modifier = Modifier,
 	shape: Shape = Shapes.large,
@@ -255,7 +256,10 @@ fun SingleWideCardExpandable(
 					horizontalAlignment = Alignment.CenterHorizontally
 				) {
 					imageContent()
-					Column {
+					Column(
+						modifier = Modifier
+							.clickable { expanded = !expanded },
+					) {
 						Row(
 							modifier = Modifier
 								.fillMaxWidth(),
@@ -289,9 +293,12 @@ fun SingleWideCardExpandable(
 						descriptionContent()
 					}
 					if (expanded) {
-						Column(modifier = Modifier.selectableGroup()) {
+						Column(
+							modifier = Modifier
+								.selectableGroup()
+								.padding(bottom = dimensionResource(id = R.dimen.padding_small))
+						) {
 							content()
-							SmallSpacer()
 						}
 					}
 				}
@@ -303,7 +310,6 @@ fun SingleWideCardExpandable(
 @Composable
 fun SingleWideCardExpandableFull(
 	modifier: Modifier = Modifier,
-	headerModifier: Modifier = Modifier,
 	shape: Shape = Shapes.large,
 	headerStyle: TextStyle = MaterialTheme.typography.titleMedium,
 	@StringRes header: Int,
@@ -343,12 +349,14 @@ fun SingleWideCardExpandableFull(
 			) {
 				Column(
 					modifier = Modifier
-						.fillMaxWidth()
-						.padding(horizontal = dimensionResource(id = R.dimen.padding_small)),
+						.fillMaxWidth(),
 					horizontalAlignment = Alignment.CenterHorizontally
 				) {
 					imageContent()
-					Column {
+					Column(
+						modifier = Modifier
+							.padding(dimensionResource(id = R.dimen.padding_small)),
+					) {
 						Row(
 							modifier = Modifier
 								.fillMaxWidth(),
@@ -357,32 +365,53 @@ fun SingleWideCardExpandableFull(
 						) {
 							Column {
 								HeaderText(
-									modifier = headerModifier,
 									text = header,
 									color = contentColor,
 									style = headerStyle
 								)
+								VerySmallSpacer()
 								subtitleContent()
 							}
-							IconButton(
-								onClick = { expanded = !expanded },
+							Row(
+								verticalAlignment = Alignment.CenterVertically
 							) {
-								Icon(
-									painter = if (expanded)
-										painterResource(id = R.drawable.ic_expand_less)
-									else painterResource(id = R.drawable.ic_expand_more),
-									contentDescription = if (expanded) {
-										stringResource(R.string.text_show_less)
+								BodyText(
+									text =
+									if (expanded) {
+										R.string.text_show_less
 									} else {
-										stringResource(R.string.text_show_more)
+										R.string.text_show_more
 									},
+									style = MaterialTheme.typography.labelMedium,
+									color = contentColor
 								)
+								IconButton(
+									onClick = { expanded = !expanded },
+								) {
+									Icon(
+										painter =
+										if (expanded)
+											painterResource(id = R.drawable.ic_expand_less)
+										else painterResource(id = R.drawable.ic_expand_more),
+										contentDescription =
+										if (expanded) {
+											stringResource(R.string.text_show_less)
+										} else {
+											stringResource(R.string.text_show_more)
+										},
+									)
+								}
 							}
+
 						}
-						descriptionContent()
 					}
 					if (expanded) {
-						Column(modifier = Modifier.selectableGroup()) {
+						Column(
+							modifier = Modifier
+								.padding(horizontal = dimensionResource(id = R.dimen.padding_small))
+						) {
+							descriptionContent()
+							VerySmallSpacer()
 							content()
 							SmallSpacer()
 						}
@@ -464,11 +493,11 @@ fun TextCard(
 					verticalAlignment = Alignment.CenterVertically
 				) {
 					HeaderText(
-						modifier = Modifier
-							.padding(
-								top = dimensionResource(id = R.dimen.padding_medium),
-								bottom = dimensionResource(id = R.dimen.padding_medium)
-							),
+//						modifier = Modifier
+//							.padding(
+//								top = dimensionResource(id = R.dimen.padding_medium),
+//								bottom = dimensionResource(id = R.dimen.padding_medium)
+//							),
 						text = text,
 						color = contentColor,
 					)
@@ -558,9 +587,9 @@ fun RadioButtonComposable(
 		RadioText(
 			text = text,
 			modifier = Modifier
-				.padding(
-					bottom = dimensionResource(id = R.dimen.padding_verySmall),
-				)
+//				.padding(
+//					bottom = dimensionResource(id = R.dimen.padding_verySmall),
+//				)
 				.clickable(
 					onClick = onClick
 				),
@@ -613,8 +642,7 @@ fun RadioButtonTwoUnits(
 	selected: Int,
 	selectedColor: Color,
 	textColor: Color,
-
-	) {
+) {
 	Row(modifier = modifier) {
 		RadioButtonComposable(
 			modifier = Modifier
@@ -885,10 +913,26 @@ fun AppDivider(
 
 @Preview(showBackground = true)
 @Composable
+fun RadioRowPreview() {
+	AquariumInformationTheme {
+		RadioButtonTwoUnits(
+			onClick1 = { },
+			onClick2 = { },
+			label1 = temperatureDataSource.radioTextCelsius,
+			label2 = temperatureDataSource.radioTextFahrenheit,
+			selected = 1,
+			selectedColor = MaterialTheme.colorScheme.primary,
+			textColor = MaterialTheme.colorScheme.outline
+		)
+	}
+}
+
+@Preview(showBackground = true)
+@Composable
 fun SingleWideCardExpandablePreviewDark(
 ) {
 	AquariumInformationTheme(useDarkTheme = true) {
-		SingleWideCardExpandable(header = calculatorDataSource.labelCylinderType)
+		SingleWideCardExpandableRadio(header = calculatorDataSource.labelCylinderType)
 	}
 }
 
@@ -924,59 +968,6 @@ fun InputNumberPreviewDark(
 		)
 	}
 }
-
-//@Preview(showBackground = true)
-//@Composable
-//fun RadioButtonCardPreview() {
-//	AquariumInformationTheme {
-//		UnitButtonCard(
-//			contentColor = MaterialTheme.colorScheme.primary,
-//			content = {
-//				RadioButtonComposable(
-//					text = R.string.text_celsius,
-//					onClick = { },
-//					selected = 1,
-//					selectedColor = MaterialTheme.colorScheme.primary,
-//					unselectedColor = MaterialTheme.colorScheme.onPrimary,
-//				)
-//				RadioButtonComposable(
-//					text = R.string.text_fah,
-//					onClick = { },
-//					selected = 1,
-//					selectedColor = MaterialTheme.colorScheme.primary,
-//					unselectedColor = MaterialTheme.colorScheme.onPrimary,
-//				)
-//			}
-//		)
-//	}
-//}
-
-//@Preview(showBackground = true)
-//@Composable
-//fun RadioButtonPreviewDark(
-//) {
-//	AquariumInformationTheme(useDarkTheme = true) {
-//		UnitButtonCard(
-//			contentColor = MaterialTheme.colorScheme.primary,
-//			content = {
-//				RadioButtonComposable(
-//					text = R.string.text_celsius,
-//					onClick = { },
-//					selected = 1,
-//					selectedColor = MaterialTheme.colorScheme.primary,
-//					unselectedColor = MaterialTheme.colorScheme.onPrimary,
-//				)
-//				RadioButtonComposable(
-//					text = R.string.text_fah,
-//					onClick = { },
-//					selected = 1,
-//					selectedColor = MaterialTheme.colorScheme.primary,
-//					unselectedColor = MaterialTheme.colorScheme.onPrimary,
-//				)
-//			}
-//		)
-//	}
-//}
 
 @Preview(showBackground = true)
 @Composable

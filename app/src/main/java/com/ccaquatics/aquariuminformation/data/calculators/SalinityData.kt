@@ -2,7 +2,7 @@ package com.ccaquatics.aquariuminformation.data.calculators
 
 import androidx.annotation.StringRes
 
-data class SalinityData (
+data class SalinityData(
 	@StringRes val subtitle: Int,
 	@StringRes val radioTextPpt: Int,
 	@StringRes val radioTextSg: Int,

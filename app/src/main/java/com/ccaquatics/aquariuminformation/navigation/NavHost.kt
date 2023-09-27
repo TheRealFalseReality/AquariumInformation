@@ -37,7 +37,7 @@ fun AquariumNavHost(
 				onClickCo2 = {
 					navController.navigateSingleTopTo(CarbonDioxide.route)
 				},
-				onClickSalinity =  {
+				onClickSalinity = {
 					navController.navigateSingleTopTo(Calculators.route)
 				},
 				onClickAlkalinity = {

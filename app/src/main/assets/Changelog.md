@@ -2,95 +2,81 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
-
+## Unreleased
 * Add tank volume calculators:
-	* Corner Pentagon
 	* Flat Back Hex
 	* Octagon
-* Aquarium Specific Volume Converters
-* Make Tank Shape Landing Screen
-* Add more Units to select from
-* Add CLEAR buttons where useful
+* Add more Units to select, metric inputs, conductivity 
 * Dedicated Water Weight Calculator
-* Adjust how images are displayed
 * Add formulas where needed
 * Add surface area to volume calculator
 * Add substrate calculator
-* Ability to remove ADs with in*app billing
 * Marine tank types added to Water Hardness
 * Gesture Navigation
 * Launch Default Page
-* Add metrics inputs and water weight
 
-## [Issues]
-
+## Issues
 * Fix Subscripts for CaCO3
 
-## [2.0] - 2023.8
+## Updates
 
-Complete rewrite of code.
+### 2.0 - 2023.9.1
 
-## [1.2] - 2022-7-21
+**Changed**
+* Complete rewrite of code.
 
-### Added
+**Added**
+* Fish descriptions
 
+### 1.2 - 2022.7.4
+
+**Added**
 * Fish Compatibility Tool
 
-### Changed
-
+**Changed**
 * Reduced Top Banner Ad size
 * Material 3 Compatible
 
-## [1.1] - 2022-7-10
+### 1.1 - 2022.7.3
 
-### Added
-
+**Added**
 * Review App Link
 
-### Changed
-
+**Changed**
 * Theme colors adjusted
 
-## [1.0] - 2022-7-8
+### 1.0 - 2022.7.2
 
-### Changed
-
+**Changed**
 * General Public Release
 
-## [0.6.6] - 2022-7-3
+### 0.6.6- 2022.7.1
 
-### Added
-
+**Added**
 * Changelog.md created and linked in HomeScreen
 * Icons reformatted as vectors
 
-### Changed
-
+**Changed**
 * Display More Information for Salinity Converter
 
-### Fixed
-
+**Fixed**
 * General Code re-write
 * Navigation re-worked
 
-## [0.5] - 2022-6-27
+### 0.5 - 2022.6.2
 
-### Added
-
+**Added**
 * Water Hardness text
 * Icon as vector
 * Water Hardness Chart
 
-## [0.4] - 2022-6-26
+### 0.4 - 2022.6.1
 
-### Added
-
+**Added**
 * Add tank volume calculators:
 	* Half Cylinder
 	* Corner Cylinder
 
-### Fixed
-
+**Fixed**
 * General code re-write
 * General UI fixes

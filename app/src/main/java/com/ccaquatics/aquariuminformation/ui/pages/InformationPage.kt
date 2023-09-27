@@ -3,6 +3,7 @@ package com.ccaquatics.aquariuminformation.ui.pages
 import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -39,6 +40,7 @@ import com.ccaquatics.aquariuminformation.data.emailDataSource
 import com.ccaquatics.aquariuminformation.data.errorDataSource
 import com.ccaquatics.aquariuminformation.data.informationHeaderDataSource
 import com.ccaquatics.aquariuminformation.data.shareDataSource
+import com.ccaquatics.aquariuminformation.data.storeDataSource
 import com.ccaquatics.aquariuminformation.data.websiteDataSource
 import com.ccaquatics.aquariuminformation.navigation.Information
 import com.ccaquatics.aquariuminformation.ui.commonui.AppVersion
@@ -67,6 +69,7 @@ fun InfoLayout(
 	val emailURL = stringResource(id = R.string.url_email)
 	val websiteURL = stringResource(id = R.string.url_website)
 	val appURL = stringResource(id = R.string.url_app)
+	val changelogURL = stringResource(id = R.string.changelog_url)
 	val context = LocalContext.current
 
 	TitleWideContent(
@@ -100,7 +103,6 @@ fun InfoLayout(
 		SingleWideCard {
 			IconTextRow(
 				modifier = Modifier
-//					.padding(vertical = dimensionResource(id = R.dimen.padding_verySmall))
 					.clickable { uriHandler.openUri(emailURL) },
 				icon = emailDataSource.icon,
 				text = emailDataSource.title,
@@ -109,7 +111,6 @@ fun InfoLayout(
 			)
 			IconTextRow(
 				modifier = Modifier
-//					.padding(vertical = dimensionResource(id = R.dimen.padding_verySmall))
 					.clickable { uriHandler.openUri(websiteURL) },
 				icon = websiteDataSource.icon,
 				text = websiteDataSource.title,
@@ -118,7 +119,6 @@ fun InfoLayout(
 			)
 			IconTextRow(
 				modifier = Modifier
-//					.padding(vertical = dimensionResource(id = R.dimen.padding_verySmall))
 					.clickable {
 						val shareIntent = Intent(Intent.ACTION_SEND)
 						shareIntent.type = "text/plain"
@@ -128,6 +128,14 @@ fun InfoLayout(
 				icon = shareDataSource.icon,
 				text = shareDataSource.text,
 				textDecoration = TextDecoration.Underline,
+				fontWeight = FontWeight.Bold
+			)
+			IconTextRow(
+				modifier = Modifier
+					.clickable { uriHandler.openUri(appURL) },
+				icon = storeDataSource.icon,
+				text = storeDataSource.title,
+						textDecoration = TextDecoration.Underline,
 				fontWeight = FontWeight.Bold
 			)
 		}
@@ -142,17 +150,19 @@ fun InfoLayout(
 	) {
 		SingleWideCard(
 			modifier = Modifier
-				.clickable { uriHandler.openUri(appURL) },
+				.clickable { uriHandler.openUri(changelogURL) },
 		) {
-//			HeaderText(
-//				text = appInformationDataSource.title,
-//				textDecoration = TextDecoration.Underline
-//			)
-//			SmallSpacer()
 			Row(
-				verticalAlignment = Alignment.CenterVertically
+				verticalAlignment = Alignment.CenterVertically,
+				horizontalArrangement = Arrangement.Center
 			) {
-				AppVersion(modifier = Modifier.weight(8f))
+				Column(
+					modifier = Modifier.weight(8f),
+					horizontalAlignment = Alignment.CenterHorizontally
+				) {
+					AppVersion()
+					BodyText(text = R.string.tap_to_see_changelog)
+				}
 				Icon(
 					modifier = Modifier.weight(1f),
 					painter = painterResource(id = R.drawable.ic_open_new),

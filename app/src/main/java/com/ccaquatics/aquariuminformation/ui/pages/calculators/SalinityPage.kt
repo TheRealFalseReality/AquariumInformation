@@ -26,7 +26,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.LabelSalinity
 import com.ccaquatics.aquariuminformation.ui.commonui.LabelSpecificGravity
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonTwoUnits
-import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCardExpandable
+import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCardExpandableRadio
 import com.ccaquatics.aquariuminformation.ui.commonui.VerySmallSpacer
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
@@ -64,7 +64,7 @@ fun SalinityLayout(
 		subtitle = salinityDataSource.subtitle,
 		color = color,
 		selectContent = {
-			SingleWideCardExpandable(
+			SingleWideCardExpandableRadio(
 				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
 				expandedState = true,
 				header = R.string.select_input_units,

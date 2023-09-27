@@ -45,7 +45,7 @@ fun OverviewPage(
 	onClickHexagonal: () -> Unit = {},
 	onClickBowFront: () -> Unit = {},
 ) {
-	PageView{
+	PageView {
 		OverviewLayout(
 			onClickTemperature = onClickTemperature,
 			onClickCo2 = onClickCo2,
@@ -181,7 +181,7 @@ fun CalculatorsGrid(
 			NavButtonRow(
 				title1 = Temperature.title,
 				icon1 = Temperature.icon,
-				title2 = CarbonDioxide.title    ,
+				title2 = CarbonDioxide.title,
 				icon2 = CarbonDioxide.icon,
 				containerColor = containerColor,
 				contentColor = contentColor,
@@ -224,7 +224,7 @@ fun CalculatorsGrid(
 @Composable
 fun TankVolumeGrid(
 	modifier: Modifier = Modifier,
-	fontColor: Color =  MaterialTheme.colorScheme.secondary,
+	fontColor: Color = MaterialTheme.colorScheme.secondary,
 	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
 	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
 	onClickRectangle: () -> Unit,
@@ -275,7 +275,7 @@ fun TankVolumeGrid(
 @Composable
 fun FishCompatability(
 	modifier: Modifier = Modifier,
-	fontColor: Color =  MaterialTheme.colorScheme.tertiary,
+	fontColor: Color = MaterialTheme.colorScheme.tertiary,
 	contentColor: Color = MaterialTheme.colorScheme.onTertiaryContainer,
 	containerColor: Color = MaterialTheme.colorScheme.tertiaryContainer,
 	onClickFreshwater: () -> Unit,
@@ -290,7 +290,7 @@ fun FishCompatability(
 			NavButtonRow(
 				title1 = FishCompatabilityFreshwater.title,
 				icon1 = FishCompatabilityFreshwater.icon,
-				title2 =FishCompatabilityMarine.title ,
+				title2 = FishCompatabilityMarine.title,
 				icon2 = FishCompatabilityMarine.icon,
 				containerColor = containerColor,
 				contentColor = contentColor,

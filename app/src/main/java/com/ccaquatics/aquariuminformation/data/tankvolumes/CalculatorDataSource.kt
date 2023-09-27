@@ -21,7 +21,7 @@ val bowFrontDataSource =
 val hexagonalDataSource =
 	CalculatorData(
 		inputTextFeet = R.string.text_amount_EH_feet,
-		inputTextInches = R.string.text_amount_EH_inches ,
+		inputTextInches = R.string.text_amount_EH_inches,
 		formulaText = R.string.text_formula_soon,
 		image = R.drawable.hexagonal_prism,
 	)

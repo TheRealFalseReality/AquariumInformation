@@ -25,7 +25,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonTwoUnits
-import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCardExpandable
+import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCardExpandableRadio
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -42,7 +42,7 @@ fun TemperatureLayout(
 	color: Color = MaterialTheme.colorScheme.primary,
 	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
-	) {
+) {
 	var inputTemperature by rememberSaveable {
 		mutableStateOf("0")
 	}
@@ -59,7 +59,7 @@ fun TemperatureLayout(
 		subtitle = temperatureDataSource.subtitle,
 		color = color,
 		selectContent = {
-			SingleWideCardExpandable(
+			SingleWideCardExpandableRadio(
 				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
 				expandedState = true,
 				header = R.string.select_input_units,
@@ -68,7 +68,7 @@ fun TemperatureLayout(
 					RadioButtonTwoUnits(
 						onClick1 = { selected = temperatureDataSource.radioTextCelsius },
 						onClick2 = { selected = temperatureDataSource.radioTextFahrenheit },
-						label1 =  temperatureDataSource.radioTextCelsius,
+						label1 = temperatureDataSource.radioTextCelsius,
 						label2 = temperatureDataSource.radioTextFahrenheit,
 						selected = selected,
 						selectedColor = color,

@@ -59,6 +59,8 @@ fun TankVolumeTabRow(
 					},
 					icon = {
 						Icon(
+//							modifier = Modifier
+//								.size(dimensionResource(id = R.dimen.icon_size_verySmall)),
 							painter = painterResource(id = tab.icon),
 							contentDescription = stringResource(id = tab.title)
 						)
@@ -70,15 +72,19 @@ fun TankVolumeTabRow(
 			0 -> {
 				RectanglePage()
 			}
+
 			1 -> {
 				CubePage()
 			}
+
 			2 -> {
 				CylinderPage()
 			}
+
 			3 -> {
 				HexagonalPage()
 			}
+
 			4 -> {
 				BowFrontPage()
 			}

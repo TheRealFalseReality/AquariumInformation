@@ -8,14 +8,14 @@ val Shapes = Shapes(
 //	small = RoundedCornerShape(4.dp),
 	medium = RoundedCornerShape(
 		bottomStart = 0.dp,
-		bottomEnd = 0.dp,
-		topStart = 6.dp,
-		topEnd = 6.dp,
+		bottomEnd = 12.dp,
+		topStart = 12.dp,
+		topEnd = 0.dp,
 	),
 	large = RoundedCornerShape(
-		bottomStart = 12.dp,
-		bottomEnd = 0.dp,
-		topStart = 0.dp,
-		topEnd = 12.dp,
+		bottomStart = 0.dp,
+		bottomEnd = 12.dp,
+		topStart = 12.dp,
+		topEnd = 0.dp,
 	),
 )

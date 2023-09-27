@@ -25,7 +25,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputQuadNumberFieldFourInputs
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonTwoUnits
-import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCardExpandable
+import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCardExpandableRadio
 import com.ccaquatics.aquariuminformation.ui.commonui.TankVolumeResults
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
@@ -79,7 +79,7 @@ fun BowFrontLayout(
 		subtitle = calculatorDataSource.subtitle,
 		color = color,
 		selectContent = {
-			SingleWideCardExpandable(
+			SingleWideCardExpandableRadio(
 				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
 				header = R.string.select_input_units,
 				content = {

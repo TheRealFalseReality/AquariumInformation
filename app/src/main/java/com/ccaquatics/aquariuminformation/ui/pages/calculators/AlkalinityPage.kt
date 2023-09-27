@@ -23,7 +23,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonThreeUnits
-import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCardExpandable
+import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCardExpandableRadio
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -59,7 +59,7 @@ fun AlkalinityLayout(
 		subtitle = alkalinityDataSource.subtitle,
 		color = color,
 		selectContent = {
-			SingleWideCardExpandable(
+			SingleWideCardExpandableRadio(
 				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
 				expandedState = true,
 				header = R.string.select_input_units,

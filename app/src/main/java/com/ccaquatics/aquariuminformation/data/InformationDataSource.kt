@@ -49,3 +49,10 @@ val shareDataSource =
 		title = R.string.share,
 		text = R.string.share_this_app,
 	)
+
+val storeDataSource =
+	HeaderData(
+		icon = R.drawable.ic_store,
+		title = R.string.store_link,
+		text = R.string.store_link,
+	)

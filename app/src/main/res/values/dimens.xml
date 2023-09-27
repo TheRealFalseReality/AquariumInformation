@@ -22,4 +22,5 @@
     <dimen name="grid_colum_medium">400dp</dimen>
     <dimen name="icon_trailing_small">18dp</dimen>
     <dimen name="card_large">12dp</dimen>
+    <dimen name="card_image_height">200dp</dimen>
 </resources>
