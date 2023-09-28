@@ -11,4 +11,5 @@ This app is featured on the Google Play Store.
 
 This app was created by Nicholas White from Capital City Aquatics.
 
-[Google Store Link](https://play.google.com/store/apps/details?id=cca.capitalcityaquatics.aquariuminfo&hl=en_US&pli=1)
+[View Changelog](https://github.com/TheRealFalseReality/AquariumInformation/blob/793339b1c9f9a5d1d63d748df513aa6db0fca4cc/app/src/main/assets/Changelog.md)  
+[Google Store Link](https://play.google.com/store/apps/details?id=cca.capitalcityaquatics.aquariuminfo&hl=en_US&pli=1)  
