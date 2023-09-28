@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -69,6 +70,23 @@ fun HeaderTextLarge(
 			color = color,
 			style = style,
 			textAlign = textAlign,
+		)
+	}
+}
+
+@Composable
+fun CardImage(
+	modifier: Modifier = Modifier,
+	@DrawableRes image: Int,
+	@StringRes contentDescription: Int,
+) {
+	Column(modifier = modifier) {
+		Image(
+			painter = painterResource(id = image),
+			contentDescription = stringResource(contentDescription),
+			modifier = Modifier
+				.heightIn(max = dimensionResource(id = R.dimen.card_image_height)),
+			contentScale = ContentScale.Crop
 		)
 	}
 }
@@ -161,7 +179,7 @@ fun IconTextRow(
 		Row(
 			modifier = Modifier
 				.fillMaxWidth()
-				.padding(vertical = dimensionResource(id = R.dimen.padding_small)),
+				.padding(vertical = dimensionResource(id = R.dimen.padding_medium_small)),
 			verticalAlignment = Alignment.CenterVertically,
 		) {
 			Icon(

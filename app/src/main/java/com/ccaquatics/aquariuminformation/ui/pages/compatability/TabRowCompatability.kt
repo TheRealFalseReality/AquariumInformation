@@ -25,6 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.data.compatability.FreshwaterDataSource
 import com.ccaquatics.aquariuminformation.data.compatability.MarineDataSource
 import com.ccaquatics.aquariuminformation.navigation.compatibilityTabRow
+import com.ccaquatics.aquariuminformation.ui.commonui.CompatabilityDataList
 import com.ccaquatics.aquariuminformation.ui.commonui.FancyIndicator
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 
@@ -76,11 +77,11 @@ fun CompatabilityTabRow(
 		}
 		when (state) {
 			0 -> {
-				FreshwaterList(FreshwaterDataSource().loadFishCardsFresh())
+				CompatabilityDataList(FreshwaterDataSource().loadFishCardsFreshwaterDataSource())
 			}
 
 			1 -> {
-				CompatabilityDataList(MarineDataSource().loadFishCardsMarineData())
+				CompatabilityDataList(MarineDataSource().loadFishCardsMarineDataSource())
 			}
 		}
 	}

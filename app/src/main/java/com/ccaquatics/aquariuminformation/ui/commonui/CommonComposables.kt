@@ -6,7 +6,6 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -18,7 +17,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.selection.selectableGroup
@@ -29,8 +27,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
-import androidx.compose.material3.RadioButton
-import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -42,7 +38,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -52,8 +47,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ccaquatics.aquariuminformation.BuildConfig
 import com.ccaquatics.aquariuminformation.R
-import com.ccaquatics.aquariuminformation.data.calculators.alkalinityDataSource
-import com.ccaquatics.aquariuminformation.data.calculators.salinityDataSource
 import com.ccaquatics.aquariuminformation.data.calculators.temperatureDataSource
 import com.ccaquatics.aquariuminformation.data.tankvolumes.calculatorDataSource
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
@@ -190,23 +183,6 @@ fun SingleWideCard(
 				content()
 			}
 		}
-	}
-}
-
-@Composable
-fun CardImage(
-	modifier: Modifier = Modifier,
-	@DrawableRes image: Int,
-	@StringRes contentDescription: Int,
-) {
-	Column(modifier = modifier) {
-		Image(
-			painter = painterResource(id = image),
-			contentDescription = stringResource(contentDescription),
-			modifier = Modifier
-				.heightIn(max = dimensionResource(id = R.dimen.card_image_height)),
-			contentScale = ContentScale.Crop
-		)
 	}
 }
 
@@ -364,6 +340,7 @@ fun SingleWideCardExpandableFull(
 							horizontalArrangement = Arrangement.SpaceBetween
 						) {
 							Column {
+//								SmallSpacer()
 								HeaderText(
 									text = header,
 									color = contentColor,
@@ -371,20 +348,24 @@ fun SingleWideCardExpandableFull(
 								)
 								VerySmallSpacer()
 								subtitleContent()
+//								if (expanded) {
+//									VerySmallSpacer()
+//									subtitleContent()
+//								}
 							}
 							Row(
 								verticalAlignment = Alignment.CenterVertically
 							) {
-								BodyText(
-									text =
-									if (expanded) {
-										R.string.text_show_less
-									} else {
-										R.string.text_show_more
-									},
-									style = MaterialTheme.typography.labelMedium,
-									color = contentColor
-								)
+//								BodyText(
+//									text =
+//									if (expanded) {
+//										R.string.text_show_less
+//									} else {
+//										R.string.text_show_more
+//									},
+//									style = MaterialTheme.typography.labelMedium,
+//									color = contentColor
+//								)
 								IconButton(
 									onClick = { expanded = !expanded },
 								) {
@@ -449,7 +430,6 @@ fun UnitButtonCard(
 					text = header,
 					color = contentColor
 				)
-//				SmallSpacer()
 				Row(
 					modifier = Modifier
 						.selectableGroup()
@@ -493,109 +473,12 @@ fun TextCard(
 					verticalAlignment = Alignment.CenterVertically
 				) {
 					HeaderText(
-//						modifier = Modifier
-//							.padding(
-//								top = dimensionResource(id = R.dimen.padding_medium),
-//								bottom = dimensionResource(id = R.dimen.padding_medium)
-//							),
 						text = text,
 						color = contentColor,
 					)
 				}
 			}
 		}
-	}
-}
-
-@Composable
-fun LabelWaterWeight() {
-	BodyText(text = calculatorDataSource.labelWaterWeight)
-}
-
-@Composable
-fun LabelSalinity() {
-	BodyText(text = salinityDataSource.labelSalinity)
-}
-
-@Composable
-fun LabelSpecificGravity() {
-	BodyText(text = salinityDataSource.labelSpecificGravity)
-}
-
-@Composable
-fun LabelConductivity() {
-	BodyText(text = salinityDataSource.labelConductivity)
-}
-
-//@Composable
-//fun RadioButtonComposable(
-//	modifier: Modifier = Modifier,
-//	@StringRes text: Int,
-//	onClick: () -> Unit,
-//	selected: Int,
-//	selectedColor: Color = MaterialTheme.colorScheme.primary,
-//	unselectedColor: Color = MaterialTheme.colorScheme.outline,
-//	textColor: Color = MaterialTheme.colorScheme.onBackground,
-//) {
-//	Column(
-//		modifier = modifier,
-//		horizontalAlignment = Alignment.CenterHorizontally
-//	) {
-//		RadioButton(
-//			selected = selected == text,
-//			onClick = onClick,
-//			colors = RadioButtonDefaults.colors(
-//				selectedColor = selectedColor,
-//				unselectedColor = unselectedColor
-//			)
-//		)
-//		RadioText(
-//			text = text,
-//			modifier = Modifier
-//				.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
-//				.clickable(
-//					onClick = onClick
-//				),
-//			textAlign = TextAlign.Center,
-//			color = textColor
-//		)
-//	}
-//}
-
-@Composable
-fun RadioButtonComposable(
-	modifier: Modifier = Modifier,
-	@StringRes text: Int,
-	onClick: () -> Unit,
-	selected: Boolean,
-	selectedColor: Color = MaterialTheme.colorScheme.primary,
-	unselectedColor: Color = MaterialTheme.colorScheme.outline,
-	textColor: Color = MaterialTheme.colorScheme.onBackground,
-) {
-	Column(
-		modifier = modifier,
-		horizontalAlignment = Alignment.CenterHorizontally
-	) {
-		RadioButton(
-			selected = selected,
-			onClick = onClick,
-			colors = RadioButtonDefaults.colors(
-				selectedColor = selectedColor,
-				unselectedColor = unselectedColor
-			)
-		)
-		RadioText(
-			text = text,
-			modifier = Modifier
-//				.padding(
-//					bottom = dimensionResource(id = R.dimen.padding_verySmall),
-//				)
-				.clickable(
-					onClick = onClick
-				),
-			textAlign = TextAlign.Center,
-			color = textColor
-		)
 	}
 }
 
@@ -622,7 +505,7 @@ fun TankVolumeResults(
 			textColor = contentColor,
 		)
 		VerySmallSpacer()
-		LabelWaterWeight()
+		BodyText(text = calculatorDataSource.labelWaterWeight)
 		CalculatedText(
 			text = calculatorDataSource.calculatedTextWaterWeight,
 			calculatedValue = calculatedValue3,
@@ -631,127 +514,6 @@ fun TankVolumeResults(
 	}
 
 }
-
-@Composable
-fun RadioButtonTwoUnits(
-	modifier: Modifier = Modifier,
-	onClick1: () -> Unit,
-	onClick2: () -> Unit,
-	@StringRes label1: Int = calculatorDataSource.radioTextFeet,
-	@StringRes label2: Int = calculatorDataSource.radioTextInches,
-	selected: Int,
-	selectedColor: Color,
-	textColor: Color,
-) {
-	Row(modifier = modifier) {
-		RadioButtonComposable(
-			modifier = Modifier
-				.weight(1f),
-			text = label1,
-			onClick = onClick1,
-			selected = selected == label1,
-			selectedColor = selectedColor,
-			textColor =
-			if (selected == label1) textColor
-			else MaterialTheme.colorScheme.onBackground
-		)
-		RadioButtonComposable(
-			modifier = Modifier
-				.weight(1f),
-			text = label2,
-			onClick = onClick2,
-			selected = selected == label2,
-			selectedColor = selectedColor,
-			textColor =
-			if (selected == label2) textColor
-			else MaterialTheme.colorScheme.onBackground
-		)
-	}
-}
-
-@Composable
-fun RadioButtonThreeUnits(
-	modifier: Modifier = Modifier,
-	onClick1: () -> Unit,
-	onClick2: () -> Unit,
-	onClick3: () -> Unit,
-	@StringRes label1: Int = alkalinityDataSource.radioTextDkh,
-	@StringRes label2: Int = alkalinityDataSource.radioTextPpm,
-	@StringRes label3: Int = alkalinityDataSource.radioTextMeq,
-	selected: Int,
-	selectedColor: Color,
-	textColor: Color,
-
-	) {
-	Row(modifier = modifier) {
-		RadioButtonComposable(
-			modifier = Modifier
-				.weight(1f),
-			text = label1,
-			onClick = onClick1,
-			selected = selected == label1,
-			selectedColor = selectedColor,
-			textColor =
-			if (selected == label1) textColor
-			else MaterialTheme.colorScheme.onBackground
-		)
-		RadioButtonComposable(
-			modifier = Modifier
-				.weight(1f),
-			text = label2,
-			onClick = onClick2,
-			selected = selected == label2,
-			selectedColor = selectedColor,
-			textColor =
-			if (selected == label2) textColor
-			else MaterialTheme.colorScheme.onBackground
-		)
-		RadioButtonComposable(
-			modifier = Modifier
-				.weight(1f),
-			text = label3,
-			onClick = onClick3,
-			selected = selected == label3,
-			selectedColor = selectedColor,
-			textColor =
-			if (selected == label3) textColor
-			else MaterialTheme.colorScheme.onBackground
-		)
-	}
-}
-
-//@Composable
-//fun RadioButtonSalinityUnits(
-//	modifier: Modifier = Modifier,
-//	onClick1: () -> Unit,
-//	onClick2: () -> Unit,
-//	selected: Int,
-//	selectedColor: Color,
-//	textColor: Color,
-//) {
-//	Row(modifier = modifier) {
-//		RadioButtonComposable(
-//			modifier = Modifier.weight(1f),
-//			text = salinityDataSource.radioTextPpt,
-//			onClick = onClick1,
-//			selected = selected == salinityDataSource.radioTextPpt,
-//			selectedColor = selectedColor,
-//			textColor =
-//			if (selected == salinityDataSource.radioTextPpt) textColor
-//			else MaterialTheme.colorScheme.onBackground
-//		)
-//		RadioButtonComposable(
-//			modifier = Modifier.weight(1f),
-//			text = salinityDataSource.radioTextSg,
-//			onClick = onClick2,
-//			selected = selected == salinityDataSource.radioTextSg,
-//			selectedColor = selectedColor,
-//			textColor =
-//			if (selected == salinityDataSource.radioTextSg) textColor
-//			else MaterialTheme.colorScheme.onBackground
-//		)
-//	}
-//}
 
 @Composable
 fun FormulaString(

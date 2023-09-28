@@ -9,5 +9,6 @@ data class CompatabilityData(
 	@StringRes val latin: Int,
 	@StringRes val compatible: Int,
 	@StringRes val caution: Int,
-	@StringRes val incompatible: Int
+	@StringRes val incompatible: Int,
+	@StringRes val description: Int,
 )

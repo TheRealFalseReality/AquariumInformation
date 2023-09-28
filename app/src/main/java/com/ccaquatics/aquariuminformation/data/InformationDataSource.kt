@@ -3,10 +3,11 @@ package com.ccaquatics.aquariuminformation.data
 import com.ccaquatics.aquariuminformation.R
 
 val informationHeaderDataSource =
-	TextData(text = R.string.text_info_1)
-
-val informationDataSource =
-	TextData(R.string.text_info_2)
+	HeaderData(
+		icon = R.drawable.ic_info_2,
+		title = R.string.text_info_1,
+		text = R.string.text_info_1,
+	)
 
 val errorDataSource =
 	HeaderData(

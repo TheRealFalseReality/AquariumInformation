@@ -8,7 +8,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.navigation.Alkalinity
 import com.ccaquatics.aquariuminformation.navigation.BowFront
 import com.ccaquatics.aquariuminformation.navigation.Calculators
@@ -36,7 +35,6 @@ fun OverviewPage(
 	onClickCo2: () -> Unit = {},
 	onClickSalinity: () -> Unit = {},
 	onClickAlkalinity: () -> Unit = {},
-//	onClickVolume: () -> Unit = {},
 	onClickFreshwater: () -> Unit = {},
 	onClickMarine: () -> Unit = {},
 	onClickRectangle: () -> Unit = {},
@@ -51,7 +49,6 @@ fun OverviewPage(
 			onClickCo2 = onClickCo2,
 			onClickSalinity = onClickSalinity,
 			onClickAlkalinity = onClickAlkalinity,
-//			onClickVolume = onClickVolume,
 			onClickFreshwater = onClickFreshwater,
 			onClickMarine = onClickMarine,
 			onClickRectangle = onClickRectangle,
@@ -69,7 +66,6 @@ fun OverviewLayout(
 	onClickCo2: () -> Unit,
 	onClickSalinity: () -> Unit,
 	onClickAlkalinity: () -> Unit,
-//	onClickVolume: () -> Unit,
 	onClickFreshwater: () -> Unit,
 	onClickMarine: () -> Unit,
 	onClickRectangle: () -> Unit,
@@ -96,34 +92,6 @@ fun OverviewLayout(
 		onClickMarine = onClickMarine,
 	)
 }
-
-//@Composable
-//fun ConvertersOverviewPage(
-//	onClickTemperature: () -> Unit,
-//	onClickSalinity: () -> Unit,
-//	onClickAlkalinity: () -> Unit,
-//) {
-//	PageViewCenter {
-//		ConvertersGrid(
-//			onClickTemperature = onClickTemperature,
-//			onClickSalinity = onClickSalinity,
-//			onClickAlkalinity = onClickAlkalinity
-//		)
-//	}
-//}
-
-//@Composable
-//fun CalculatorsOverviewPage(
-//	onClickVolume: () -> Unit,
-//	onClickCo2: () -> Unit,
-//) {
-//	PageViewCenter {
-//		CalculatorsGrid(
-//			onClickVolume = onClickVolume,
-//			onClickCo2 = onClickCo2,
-//		)
-//	}
-//}
 
 @Composable
 fun TankVolumeOverviewPage(
@@ -161,13 +129,6 @@ fun CalculatorsGrid(
 			color = fontColor,
 			icon = Calculators.icon
 		) {
-//			NavButtonWide(
-//				title = Temperature.title,
-//				icon = Temperature.icon,
-//				onClick = onClickTemperature,
-//				contentColor = contentColor,
-//				containerColor = containerColor
-//			)
 			NavButtonRow(
 				title1 = Salinity.title,
 				icon1 = Salinity.icon,
@@ -191,35 +152,6 @@ fun CalculatorsGrid(
 		}
 	}
 }
-
-//@Composable
-//fun CalculatorsGrid(
-//	modifier: Modifier = Modifier,
-//	fontColor: Color =  MaterialTheme.colorScheme.secondary,
-//	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
-//	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
-//	onClickVolume: () -> Unit,
-//	onClickCo2: () -> Unit,
-//) {
-//	Column(modifier = modifier) {
-//		TitleWideContent(
-//			text = Calculators.title,
-//			color = fontColor,
-//			icon = Calculators.icon
-//		) {
-//			NavButtonRow(
-//				title1 = TankVolume.title,
-//				icon1 = TankVolume.icon,
-//				title2 = CarbonDioxide.title,
-//				icon2 = CarbonDioxide.icon,
-//				contentColor = contentColor,
-//				containerColor = containerColor,
-//				onClick1 = onClickVolume,
-//				onClick2 = onClickCo2,
-//			)
-//		}
-//	}
-//}
 
 @Composable
 fun TankVolumeGrid(
@@ -285,7 +217,7 @@ fun FishCompatability(
 		TitleWideContent(
 			text = FishCompatability.title,
 			color = fontColor,
-			icon = R.drawable.ic_fish_2
+			icon = FishCompatability.icon
 		) {
 			NavButtonRow(
 				title1 = FishCompatabilityFreshwater.title,
@@ -297,13 +229,6 @@ fun FishCompatability(
 				onClick1 = onClickFreshwater,
 				onClick2 = onClickMarine
 			)
-//			NavButtonWide(
-//				title = R.string.text_welcome_compatibility_title,
-//				icon = FishCompatability.icon,
-//				contentColor = contentColor,
-//				containerColor = containerColor,
-//				onClick = onClickFish,
-//			)
 		}
 	}
 

@@ -36,6 +36,7 @@ android {
 
 	buildTypes {
 		release {
+			isDebuggable = false
 			isMinifyEnabled = false
 			proguardFiles(
 				getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -46,6 +47,9 @@ android {
 				name  = "appVersion",
 				value = "${defaultConfig.versionName}"
 			)
+		}
+		debug {
+			isDebuggable = true
 		}
 	}
 	compileOptions {

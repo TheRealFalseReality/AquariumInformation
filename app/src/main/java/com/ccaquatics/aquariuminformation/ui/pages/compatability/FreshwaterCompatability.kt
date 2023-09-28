@@ -1,55 +1,18 @@
 package com.ccaquatics.aquariuminformation.ui.pages.compatability
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyGridState
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.data.compatability.CompatabilityData
 import com.ccaquatics.aquariuminformation.data.compatability.FreshwaterDataSource
+import com.ccaquatics.aquariuminformation.ui.commonui.CompatabilityDataList
 import com.ccaquatics.aquariuminformation.ui.commonui.FishCardsCompatabilityData
 import com.ccaquatics.aquariuminformation.ui.commonui.PageViewLazy
 
 @Composable
 fun FreshwaterCompatabilityScreen() {
 	PageViewLazy {
-		FreshwaterList(FreshwaterDataSource().loadFishCardsFresh())
-	}
-}
-
-@Composable
-fun FreshwaterList(
-	freshwaterList: List<CompatabilityData>,
-	modifier: Modifier = Modifier
-) {
-	Surface(
-		modifier = modifier
-			.fillMaxSize(),
-		color = MaterialTheme.colorScheme.background
-	) {
-		Column(
-			horizontalAlignment = Alignment.CenterHorizontally
-		) {
-			LazyVerticalGrid(
-				columns = GridCells.Adaptive(minSize = dimensionResource(id = R.dimen.grid_colum_medium)),
-				userScrollEnabled = true,
-				state = LazyGridState(),
-				content = {
-					items(freshwaterList) { freshwater ->
-						FishCardsCompatabilityData(compatabilityData = freshwater)
-					}
-				}
-			)
-		}
+		CompatabilityDataList(FreshwaterDataSource().loadFishCardsFreshwaterDataSource())
 	}
 }
 
@@ -63,7 +26,8 @@ fun FishCardPreview() {
 			R.string.text_latin_pleco,
 			R.string.text_app_errors,
 			R.string.text_amount_fah,
-			R.string.text_pleco
+			R.string.text_pleco,
+			R.string.plecos_description
 		)
 	)
 }

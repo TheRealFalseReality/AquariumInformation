@@ -5,7 +5,3 @@ data class HeaderData(
 	val title: Int,
 	val text: Int,
 )
-
-data class TextData(
-	val text: Int,
-)

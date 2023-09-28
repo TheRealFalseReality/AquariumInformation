@@ -39,8 +39,8 @@ import com.ccaquatics.aquariuminformation.data.contactDataSource
 import com.ccaquatics.aquariuminformation.data.emailDataSource
 import com.ccaquatics.aquariuminformation.data.errorDataSource
 import com.ccaquatics.aquariuminformation.data.informationHeaderDataSource
+import com.ccaquatics.aquariuminformation.data.reviewAppDataSource
 import com.ccaquatics.aquariuminformation.data.shareDataSource
-import com.ccaquatics.aquariuminformation.data.storeDataSource
 import com.ccaquatics.aquariuminformation.data.websiteDataSource
 import com.ccaquatics.aquariuminformation.navigation.Information
 import com.ccaquatics.aquariuminformation.ui.commonui.AppVersion
@@ -50,6 +50,7 @@ import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCard
 import com.ccaquatics.aquariuminformation.ui.commonui.SmallSpacer
 import com.ccaquatics.aquariuminformation.ui.commonui.TitleWideContent
+import com.ccaquatics.aquariuminformation.ui.commonui.VerySmallSpacer
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @Composable
@@ -66,11 +67,11 @@ fun InfoLayout(
 	shareDialogTitle: String = stringResource(R.string.share),
 ) {
 	val uriHandler = LocalUriHandler.current
+	val context = LocalContext.current
 	val emailURL = stringResource(id = R.string.url_email)
 	val websiteURL = stringResource(id = R.string.url_website)
 	val appURL = stringResource(id = R.string.url_app)
 	val changelogURL = stringResource(id = R.string.changelog_url)
-	val context = LocalContext.current
 
 	TitleWideContent(
 		text = Information.title,
@@ -119,6 +120,14 @@ fun InfoLayout(
 			)
 			IconTextRow(
 				modifier = Modifier
+					.clickable { uriHandler.openUri(appURL) },
+				icon = reviewAppDataSource.icon,
+				text = reviewAppDataSource.title,
+				textDecoration = TextDecoration.Underline,
+				fontWeight = FontWeight.Bold
+			)
+			IconTextRow(
+				modifier = Modifier
 					.clickable {
 						val shareIntent = Intent(Intent.ACTION_SEND)
 						shareIntent.type = "text/plain"
@@ -128,14 +137,6 @@ fun InfoLayout(
 				icon = shareDataSource.icon,
 				text = shareDataSource.text,
 				textDecoration = TextDecoration.Underline,
-				fontWeight = FontWeight.Bold
-			)
-			IconTextRow(
-				modifier = Modifier
-					.clickable { uriHandler.openUri(appURL) },
-				icon = storeDataSource.icon,
-				text = storeDataSource.title,
-						textDecoration = TextDecoration.Underline,
 				fontWeight = FontWeight.Bold
 			)
 		}
@@ -161,6 +162,7 @@ fun InfoLayout(
 					horizontalAlignment = Alignment.CenterHorizontally
 				) {
 					AppVersion()
+					VerySmallSpacer()
 					BodyText(text = R.string.tap_to_see_changelog)
 				}
 				Icon(

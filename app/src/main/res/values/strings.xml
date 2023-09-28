@@ -1,492 +1,491 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">Aquarium Information</string>
-    <string name="text_title_welcome" tools:ignore="UnusedResources">Welcome to the Aquarium Information App!!</string>
-    <string name="text_footer_welcome" tools:ignore="UnusedResources">Use the Bottom Bar to select your desired calculator</string>
-    <string name="text_title_info" tools:ignore="UnusedResources">Information</string>
+    <string name="text_title_welcome">Welcome to the Aquarium Information App!!</string>
+    <string name="text_footer_welcome">Use the Bottom Bar to select your desired calculator</string>
+    <string name="text_title_info">Information</string>
     <string name="text_email">AppInfo@CapitalCityAquatics.com</string>
-    <string name="text_website" tools:ignore="UnusedResources">CapitalCityAquatics.com</string>
-    <string name="text_label_email" tools:ignore="UnusedResources">Email:</string>
-    <string name="text_label_web" tools:ignore="UnusedResources">On the Web:</string>
-    <string name="text_empty" tools:ignore="UnusedResources" />
-    <string name="text_subtitle_salinity" tools:ignore="UnusedResources">ppt : SG : g/L</string>
-    <string name="text_header_salinity" tools:ignore="UnusedResources">Salinity Converter</string>
-    <string name="button_label_ppt" tools:ignore="UnusedResources">ppt</string>
-    <string name="button_label_sg_break" tools:ignore="UnusedResources">Specific\nGravity</string>
-    <string name="button_label_sg" tools:ignore="UnusedResources">Specific Gravity</string>
+    <string name="text_website">CapitalCityAquatics.com</string>
+    <string name="text_label_email">Email:</string>
+    <string name="text_label_web">On the Web:</string>
+    <string name="text_empty" />
+    <string name="text_subtitle_salinity">ppt : SG : g/L</string>
+    <string name="text_header_salinity">Salinity Converter</string>
+    <string name="button_label_ppt">ppt</string>
+    <string name="button_label_sg_break">Specific\nGravity</string>
+    <string name="button_label_sg">Specific Gravity</string>
     <string name="field_label_ppt">Enter Salinity (ppt)</string>
-    <string name="field_label_sg" tools:ignore="UnusedResources">Enter Specific Gravity (SG)</string>
-    <string name="text_equiv" tools:ignore="UnusedResources">is approximately equivalent to</string>
-    <string name="text_amount_ppt" tools:ignore="UnusedResources">%s ppt</string>
-    <string name="text_amount_sg" tools:ignore="UnusedResources">%s SG</string>
-    <string name="text_amount_density" tools:ignore="UnusedResources">%s g/L</string>
-    <string name="text_density" tools:ignore="UnusedResources">Density:</string>
-    <string name="button_label_cel" tools:ignore="UnusedResources">Celsius</string>
-    <string name="button_label_fah" tools:ignore="UnusedResources">Fahrenheit</string>
-    <string name="text_title_temp" tools:ignore="UnusedResources">Temperature Converter</string>
-    <string name="field_label_fah" tools:ignore="UnusedResources">Enter Fahrenheit</string>
-    <string name="text_amount_celsius" tools:ignore="UnusedResources">%s °C</string>
-    <string name="text_equal_to" tools:ignore="UnusedResources">is equal to</string>
-    <string name="text_amount_fah" tools:ignore="UnusedResources">%s °F</string>
-    <string name="text_fah" tools:ignore="UnusedResources">°F</string>
-    <string name="text_celsius" tools:ignore="UnusedResources">°C</string>
-    <string name="text_amount_kelvin" tools:ignore="UnusedResources">%s K</string>
-    <string name="text_subtitle_temp" tools:ignore="UnusedResources">°C : °F : K</string>
-    <string name="field_label_cel" tools:ignore="UnusedResources">Enter Celsius</string>
-    <string name="text_formula_temperature" tools:ignore="UnusedResources">C = (F - 32) * (5/9)\nF = (C * (9/5)) + 32\nK  =  C + 273.15</string>
-    <string name="text_formula_celsius" tools:ignore="UnusedResources">C = (F - 32) * (5/9)</string>
-    <string name="text_formula_fahrenheit" tools:ignore="UnusedResources">F = (C * (9/5)) + 32</string>
-    <string name="text_formula_kelvin" tools:ignore="UnusedResources">K  =  C + 273.15</string>
-    <string name="text_title_co2" tools:ignore="UnusedResources">Carbon Dioxide Calculator</string>
+    <string name="field_label_sg">Enter Specific Gravity (SG)</string>
+    <string name="text_equiv">is approximately equivalent to</string>
+    <string name="text_amount_ppt">%s ppt</string>
+    <string name="text_amount_sg">%s SG</string>
+    <string name="text_amount_density">%s g/L</string>
+    <string name="text_density">Density:</string>
+    <string name="button_label_cel">Celsius</string>
+    <string name="button_label_fah">Fahrenheit</string>
+    <string name="text_title_temp">Temperature Converter</string>
+    <string name="field_label_fah">Enter Fahrenheit</string>
+    <string name="text_amount_celsius">%s °C</string>
+    <string name="text_equal_to">is equal to</string>
+    <string name="text_amount_fah">%s °F</string>
+    <string name="text_fah">°F</string>
+    <string name="text_celsius">°C</string>
+    <string name="text_amount_kelvin">%s K</string>
+    <string name="text_subtitle_temp">°C : °F : K</string>
+    <string name="field_label_cel">Enter Celsius</string>
+    <string name="text_formula_temperature">C = (F - 32) * (5/9)\nF = (C * (9/5)) + 32\nK  =  C + 273.15</string>
+    <string name="text_formula_celsius">C = (F - 32) * (5/9)</string>
+    <string name="text_formula_fahrenheit">F = (C * (9/5)) + 32</string>
+    <string name="text_formula_kelvin">K  =  C + 273.15</string>
+    <string name="text_title_co2">Carbon Dioxide Calculator</string>
     <string name="text_subtitle_co2">pH + KH (dKH) = CO₂ (ppm)</string>
-    <string name="field_label_ph" tools:ignore="UnusedResources">Enter pH</string>
+    <string name="field_label_ph">Enter pH</string>
     <string name="field_label_dkh">Enter dKH</string>
-    <string name="text_amount_co2" tools:ignore="UnusedResources">%s ppm CO₂</string>
-    <string name="text_co2_units" tools:ignore="UnusedResources">pH\nDegrees of Alkalinity (dKH)</string>
-    <string name="text_amount_ph_dkh" tools:ignore="UnusedResources">%s pH and %s dKH</string>
-    <string name="text_water_hardness_chart" tools:ignore="UnusedResources">Water Hardness Chart</string>
-    <string name="text_formula_alk" tools:ignore="UnusedResources">2.8 dKH = 50 ppm CaCO3 = 1 meq/L</string>
-    <string name="text_title_alk" tools:ignore="UnusedResources">Alkalinity (KH)</string>
-    <string name="text_subtitle_alk" tools:ignore="UnusedResources">dKH : ppm : meq/L</string>
-    <string name="formula_kelvin" tools:ignore="UnusedResources">K = C + 273.15</string>
-    <string name="button_label_dkh" tools:ignore="UnusedResources">dKH</string>
-    <string name="button_label_ppm" tools:ignore="UnusedResources">ppm</string>
-    <string name="button_label_meq" tools:ignore="UnusedResources">meq/L</string>
-    <string name="field_label_ppm" tools:ignore="UnusedResources">Enter ppm</string>
-    <string name="field_label_meq" tools:ignore="UnusedResources">Enter meq/L</string>
-    <string name="text_amount_dkh" tools:ignore="UnusedResources">%s dKH</string>
-    <string name="text_amount_ppm" tools:ignore="UnusedResources">%s ppm CaCO3</string>
-    <string name="text_amount_meq" tools:ignore="UnusedResources">%s meq/L</string>
-    <string name="text_title_rectangle" tools:ignore="UnusedResources">Rectangle</string>
-    <string name="text_subtitle_tank_vol" tools:ignore="UnusedResources">ft : in -> gal : L</string>
-    <string name="button_label_inches" tools:ignore="UnusedResources">Inches</string>
-    <string name="button_label_feet" tools:ignore="UnusedResources">Feet</string>
-    <string name="field_label_inches" tools:ignore="UnusedResources">Enter Inches</string>
-    <string name="field_label_feet" tools:ignore="UnusedResources">Enter Feet</string>
-    <string name="text_amount_height" tools:ignore="UnusedResources">H: %s</string>
-    <string name="text_amount_full_height" tools:ignore="UnusedResources">Height: %s</string>
-    <string name="text_amount_length" tools:ignore="UnusedResources">L: %s</string>
-    <string name="text_amount_length_side_feet" tools:ignore="UnusedResources">Length of Side: %sft.</string>
-    <string name="text_amount_length_side_inches" tools:ignore="UnusedResources">Length of Side: %sin.</string>
-    <string name="text_amount_width" tools:ignore="UnusedResources">W: %s</string>
-    <string name="text_amount_gallon" tools:ignore="UnusedResources">%s US gallons</string>
-    <string name="text_amount_liters" tools:ignore="UnusedResources">%s Liters</string>
-    <string name="text_amount_water_weight_lbs" tools:ignore="UnusedResources">%s lbs</string>
-    <string name="field_label_length" tools:ignore="UnusedResources">Enter Length</string>
-    <string name="Field_label_height" tools:ignore="UnusedResources">Enter Height</string>
-    <string name="Field_label_width" tools:ignore="UnusedResources">Enter Width</string>
-    <string name="text_water_weight" tools:ignore="UnusedResources">Water Weight:</string>
-    <string name="text_formula_vol_rec" tools:ignore="UnusedResources">V = LWH</string>
-    <string name="text_formula_vol_cylinder" tools:ignore="UnusedResources">V = πr²h</string>
-    <string name="text_formula_vol_cube" tools:ignore="UnusedResources">V = LLL</string>
+    <string name="text_amount_co2">%s ppm CO₂</string>
+    <string name="text_co2_units">pH\nDegrees of Alkalinity (dKH)</string>
+    <string name="text_amount_ph_dkh">%s pH and %s dKH</string>
+    <string name="text_water_hardness_chart">Water Hardness Chart</string>
+    <string name="text_formula_alk">2.8 dKH = 50 ppm CaCO3 = 1 meq/L</string>
+    <string name="text_title_alk">Alkalinity (KH)</string>
+    <string name="text_subtitle_alk">dKH : ppm : meq/L</string>
+    <string name="formula_kelvin">K = C + 273.15</string>
+    <string name="button_label_dkh">dKH</string>
+    <string name="button_label_ppm">ppm</string>
+    <string name="button_label_meq">meq/L</string>
+    <string name="field_label_ppm">Enter ppm</string>
+    <string name="field_label_meq">Enter meq/L</string>
+    <string name="text_amount_dkh">%s dKH</string>
+    <string name="text_amount_ppm">%s ppm CaCO3</string>
+    <string name="text_amount_meq">%s meq/L</string>
+    <string name="text_title_rectangle">Rectangle</string>
+    <string name="text_subtitle_tank_vol">ft : in -> gal : L</string>
+    <string name="button_label_inches">Inches</string>
+    <string name="button_label_feet">Feet</string>
+    <string name="field_label_inches">Enter Inches</string>
+    <string name="field_label_feet">Enter Feet</string>
+    <string name="text_amount_height">H: %s</string>
+    <string name="text_amount_full_height">Height: %s</string>
+    <string name="text_amount_length">L: %s</string>
+    <string name="text_amount_length_side_feet">Length of Side: %sft.</string>
+    <string name="text_amount_length_side_inches">Length of Side: %sin.</string>
+    <string name="text_amount_width">W: %s</string>
+    <string name="text_amount_gallon">%s US gallons</string>
+    <string name="text_amount_liters">%s Liters</string>
+    <string name="text_amount_water_weight_lbs">%s lbs</string>
+    <string name="field_label_length">Enter Length</string>
+    <string name="Field_label_height">Enter Height</string>
+    <string name="Field_label_width">Enter Width</string>
+    <string name="text_water_weight">Water Weight:</string>
+    <string name="text_formula_vol_rec">V = LWH</string>
+    <string name="text_formula_vol_cylinder">V = πr²h</string>
+    <string name="text_formula_vol_cube">V = LLL</string>
     <string name="text_label_version">" %s"</string>
-    <string name="text_title_cube" tools:ignore="UnusedResources">Cube</string>
-    <string name="text_amount_full_length" tools:ignore="UnusedResources">Length: %s</string>
-    <string name="field_label_side" tools:ignore="UnusedResources">Enter Length of Side</string>
-    <string name="text_title_cyl" tools:ignore="UnusedResources">Cylinder</string>
+    <string name="text_title_cube">Cube</string>
+    <string name="text_amount_full_length">Length: %s</string>
+    <string name="field_label_side">Enter Length of Side</string>
+    <string name="text_title_cyl">Cylinder</string>
     <string name="field_label_diameter">Enter Diameter</string>
-    <string name="text_amount_diameter" tools:ignore="UnusedResources">D: %s</string>
-    <string name="text_amount_full_diameter" tools:ignore="UnusedResources">Diameter: %s</string>
-    <string name="text_title_hex" tools:ignore="UnusedResources">Hexagonal</string>
-    <string name="text_formula_soon" tools:ignore="UnusedResources">Formula Coming Soon!</string>
-    <string name="text_amount_edge" tools:ignore="UnusedResources">Edge: %s</string>
-    <string name="field_label_edge" tools:ignore="UnusedResources">Enter Edge</string>
-    <string name="text_title_bow_front" tools:ignore="UnusedResources">Bow-Front</string>
-    <string name="field_label_full_width" tools:ignore="UnusedResources">Enter Full Width</string>
-    <string name="text_amount_full_width" tools:ignore="UnusedResources">FW: %s</string>
-    <string name="text_formula" tools:ignore="UnusedResources">Click for Formula</string>
-    <string name="text_formulas" tools:ignore="UnusedResources">Click for Formulas</string>
-    <string name="text_show_more" tools:ignore="UnusedResources">Show more</string>
-    <string name="text_show_less" tools:ignore="UnusedResources">Show less</string>
-    <string name="text_more_info" tools:ignore="UnusedResources">Click for More Information</string>
-    <string name="text_test_temp" tools:ignore="UnusedResources">Testing Temperature</string>
-    <string name="text_units_ft" tools:ignore="UnusedResources">ft.</string>
-    <string name="text_units_inches" tools:ignore="UnusedResources">in.</string>
-    <string name="text_options" tools:ignore="UnusedResources">Click for Options</string>
-    <string name="text_cyl_half" tools:ignore="UnusedResources">Half</string>
-    <string name="text_cyl_quart" tools:ignore="UnusedResources">Corner</string>
-    <string name="text_choose_one" tools:ignore="UnusedResources">Please Choose only 1</string>
+    <string name="text_amount_diameter">D: %s</string>
+    <string name="text_amount_full_diameter">Diameter: %s</string>
+    <string name="text_title_hex">Hexagonal</string>
+    <string name="text_formula_soon">Formula Coming Soon!</string>
+    <string name="text_amount_edge">Edge: %s</string>
+    <string name="field_label_edge">Enter Edge</string>
+    <string name="text_title_bow_front">Bow-Front</string>
+    <string name="field_label_full_width">Enter Full Width</string>
+    <string name="text_amount_full_width">FW: %s</string>
+    <string name="text_formula">Click for Formula</string>
+    <string name="text_formulas">Click for Formulas</string>
+    <string name="text_show_more">Show more</string>
+    <string name="text_show_less">Show less</string>
+    <string name="text_more_info">Click for More Information</string>
+    <string name="text_test_temp">Testing Temperature</string>
+    <string name="text_units_ft">ft.</string>
+    <string name="text_units_inches">in.</string>
+    <string name="text_options">Click for Options</string>
+    <string name="text_cyl_half">Half</string>
+    <string name="text_cyl_quart">Corner</string>
+    <string name="text_choose_one">Please Choose only 1</string>
     <string name="text_title_changelog">Click for Changelog</string>
-    <string name="text_hardness_very_soft" tools:ignore="UnusedResources">Very Soft</string>
-    <string name="text_hardness_soft" tools:ignore="UnusedResources">Soft</string>
-    <string name="text_hardness_mod_hard" tools:ignore="UnusedResources">Moderately Hard</string>
-    <string name="text_hardness_hard" tools:ignore="UnusedResources">Hard</string>
-    <string name="text_hardness_very_hard" tools:ignore="UnusedResources">Very Hard</string>
-    <string name="text_hardness_label" tools:ignore="UnusedResources">Water Hardness: %s</string>
-    <string name="text_hardness_else" tools:ignore="UnusedResources">Out-of-Bounds</string>
-    <string name="text_error" tools:ignore="UnusedResources">Error</string>
-    <string name="text_loading" tools:ignore="UnusedResources">Loading&#8230;</string>
-    <string name="text_loaded" tools:ignore="UnusedResources">Loaded&#8230;</string>
-    <string name="text_loading_in" tools:ignore="UnusedResources">Loading in&#8230; %s</string>
-    <string name="text_native_ad" tools:ignore="UnusedResources">Native Ad</string>
-    <string name="text_product_title" tools:ignore="UnusedResources">Product Title</string>
-    <string name="text_the_sample_description" tools:ignore="UnusedResources">The sample description</string>
-    <string name="text_ad" tools:ignore="UnusedResources">AD</string>
-    <string name="text_advertiser" tools:ignore="UnusedResources">Advertiser</string>
-    <string name="text_the_description_of_the_ad" tools:ignore="UnusedResources">The description of the AD</string>
-    <string name="text_free" tools:ignore="UnusedResources">FREE</string>
-    <string name="text_google_play" tools:ignore="UnusedResources">Google Play</string>
-    <string name="text_install" tools:ignore="UnusedResources">Install</string>
-    <string name="text_native_ad2" tools:ignore="UnusedResources">Native AD</string>
-    <string name="id_app_open" translatable="false" tools:ignore="UnusedResources">ca-app-pub-5701077439648731/3561874207</string>
-    <string name="id_ad_banner" translatable="false" tools:ignore="UnusedResources">ca-app-pub-5701077439648731/8932072220</string>
-    <string name="text_rate_app" tools:ignore="UnusedResources">Review this App</string>
-    <string name="url_email" tools:ignore="UnusedResources">mailto:AppInfo@CapitalCityAquatics.com</string>
-    <string name="url_app" tools:ignore="UnusedResources"><![CDATA[https://play.google.com/store/apps/details?id=cca.capitalcityaquatics.aquariuminfo&hl=en_US&pli=1]]></string>
-    <string name="url_website" tools:ignore="UnusedResources">https://www.capitalcityaquatics.com/</string>
-    <string name="text_valuable_review" tools:ignore="UnusedResources">Your Valuable Review will be GREATLY Appreciated!! Thank you!!</string>
-    <string name="text_thank_you" tools:ignore="UnusedResources">Thank You!</string>
-    <string name="text_kindly_review" tools:ignore="UnusedResources">Would you kindly rate this App?</string>
-    <string name="id_ad_banner_inner" tools:ignore="UnusedResources">ca-app-pub-5701077439648731/8384973397</string>
-    <string name="text_info_1" tools:ignore="UnusedResources">This app was created by Nick White from North Florida. I am not a programmer, but an enthusiastic aquarist. I went to school for biology and have been in the hobby for over 10 years.</string>
-    <string name="text_info_2" tools:ignore="UnusedResources">I got tired of having to search for converters every time I wanted to convert meq/L to dKH or determine my new tank’s size. The most commonly used products vary widely in which units are used, and I wanted to create a quick access app to confirm I was dosing the appropriate amount.</string>
-    <string name="text_app_errors" tools:ignore="UnusedResources">Please, inform me of ANY errors. I tried my best to build this app, but I am new to app programming.</string>
-    <string name="text_sal_info" tools:ignore="UnusedResources">-Testing Water Temp is set to 77 °F or 25 °C. Ability to set custom Testing Water Temp is coming!  \n\n-The direct calculation from Salinity (‰ - ppt) to Density (g/l or kg/m3) / Specific Gravity is based on the equation adopted by UNESCO - The One Atmosphere International Equation of the State of Seawater (Millero and Poisson, 1981).  \n\n-The inverse calculation, from Specific Density / Gravity to Salinity, is performed by the solution for iterative methods of the reverse equation of Millero and Poisson.  \n\n-The calculation from Conductivity to Salinity / Density / Gravity Specification is performed according to the complex polynomial equation adopted by UNESCO/ICES/SCOR/IAPSO. In this case,the values are reliable for the resulting salinity between 2 and 42 and a temperature between -2 °C and 35 °C.  \n\n-Salinity values are expressed in Practical Salinity.  \n\n-Thanks to OceanLife.com for providing the source code for the calculations.</string>
-    <string name="text_welcome" tools:ignore="UnusedResources">This App is more than just a simple Unit Converter: It\'s tailored more towards Aquarists or anyone interested in water chemistry. \n\nNot only is there a simple Temperature Converter, but also a Salinity and Alkalinity (KH) converter.  \n\nThere’s also a CO₂ calculator for planted aquariums. Also included are Tank Volume Calculators, which will calculate a tank’s volume in gallons or liters and include its water weight.  \n\nThere will be more to come including specific aquarium parameters, maintenance plans and more!! If you like this app, please rate it!</string>
-    <string name="text_pleco" tools:ignore="UnusedResources">Pleco</string>
-    <string name="text_latin_pleco" tools:ignore="UnusedResources">Hypostomus plecostomus</string>
-    <string name="text_common" tools:ignore="UnusedResources">Common Names</string>
-    <string name="text_compatibility" tools:ignore="UnusedResources">Compatibility:</string>
-    <string name="text_fancy_goldfish" tools:ignore="UnusedResources">Fancy Goldfish</string>
-    <string name="text_compatible" tools:ignore="UnusedResources">Compatible:</string>
-    <string name="text_incompatible" tools:ignore="UnusedResources">Not Compatible:</string>
-    <string name="text_caution" tools:ignore="UnusedResources">With Caution:</string>
-    <string name="list_compatible_pleco" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Fancy Goldfish, Gouramis, Guppies, Hatchets, Killifish, Loaches, Platies, Rainbowfish, Rasboras, Sharks, Suckermouth, Catfish, Swordtails, Tetras</string>
-    <string name="list_caution_pleco" tools:ignore="UnusedResources">Discus, Larger Catfish, Mollies, Plecos, Pond Fish, Misc. Fish, Invertebrates, Brackish Fish</string>
+    <string name="text_hardness_very_soft">Very Soft</string>
+    <string name="text_hardness_soft">Soft</string>
+    <string name="text_hardness_mod_hard">Moderately Hard</string>
+    <string name="text_hardness_hard">Hard</string>
+    <string name="text_hardness_very_hard">Very Hard</string>
+    <string name="text_hardness_label">Water Hardness: %s</string>
+    <string name="text_hardness_else">Out-of-Bounds</string>
+    <string name="text_error">Error</string>
+    <string name="text_loading">Loading&#8230;</string>
+    <string name="text_loaded">Loaded&#8230;</string>
+    <string name="text_loading_in">Loading in&#8230; %s</string>
+    <string name="text_native_ad">Native Ad</string>
+    <string name="text_product_title">Product Title</string>
+    <string name="text_the_sample_description">The sample description</string>
+    <string name="text_ad">AD</string>
+    <string name="text_advertiser">Advertiser</string>
+    <string name="text_the_description_of_the_ad">The description of the AD</string>
+    <string name="text_free">FREE</string>
+    <string name="text_google_play">Google Play</string>
+    <string name="text_install">Install</string>
+    <string name="text_native_ad2">Native AD</string>
+    <string name="id_app_open" translatable="false">ca-app-pub-5701077439648731/3561874207</string>
+    <string name="id_ad_banner" translatable="false">ca-app-pub-5701077439648731/8932072220</string>
+    <string name="text_rate_app">Review this App</string>
+    <string name="url_email">mailto:AppInfo@CapitalCityAquatics.com</string>
+    <string name="url_app"><![CDATA[https://play.google.com/store/apps/details?id=cca.capitalcityaquatics.aquariuminfo&hl=en_US&pli=1]]></string>
+    <string name="url_website">https://www.capitalcityaquatics.com/</string>
+    <string name="text_valuable_review">Your Valuable Review will be GREATLY Appreciated!! Thank you!!</string>
+    <string name="text_thank_you">Thank You!</string>
+    <string name="text_kindly_review">Would you kindly rate this App?</string>
+    <string name="id_ad_banner_inner">ca-app-pub-5701077439648731/8384973397</string>
+    <string name="text_info_1">This app was created by Nick White from North Florida. I am not a programmer, but an enthusiastic aquarist. I went to school for biology and have been in the hobby for over 10 years.</string>
+    <string name="text_info_2">I got tired of having to search for converters every time I wanted to convert meq/L to dKH or determine my new tank’s size. The most commonly used products vary widely in which units are used, and I wanted to create a quick access app to confirm I was dosing the appropriate amount.</string>
+    <string name="text_app_errors">Please, inform me of ANY errors. I tried my best to build this app, but I am new to app programming.</string>
+    <string name="text_sal_info">-Testing Water Temp is set to 77 °F or 25 °C. Ability to set custom Testing Water Temp is coming!  \n\n-The direct calculation from Salinity (‰ - ppt) to Density (g/l or kg/m3) / Specific Gravity is based on the equation adopted by UNESCO - The One Atmosphere International Equation of the State of Seawater (Millero and Poisson, 1981).  \n\n-The inverse calculation, from Specific Density / Gravity to Salinity, is performed by the solution for iterative methods of the reverse equation of Millero and Poisson.  \n\n-The calculation from Conductivity to Salinity / Density / Gravity Specification is performed according to the complex polynomial equation adopted by UNESCO/ICES/SCOR/IAPSO. In this case,the values are reliable for the resulting salinity between 2 and 42 and a temperature between -2 °C and 35 °C.  \n\n-Salinity values are expressed in Practical Salinity.  \n\n-Thanks to OceanLife.com for providing the source code for the calculations.</string>
+    <string name="text_welcome">This App is more than just a simple Unit Converter: It\'s tailored more towards Aquarists or anyone interested in water chemistry. \n\nNot only is there a simple Temperature Converter, but also a Salinity and Alkalinity (KH) converter.  \n\nThere’s also a CO₂ calculator for planted aquariums. Also included are Tank Volume Calculators, which will calculate a tank’s volume in gallons or liters and include its water weight.  \n\nThere will be more to come including specific aquarium parameters, maintenance plans and more!! If you like this app, please rate it!</string>
+    <string name="text_pleco">Pleco</string>
+    <string name="text_latin_pleco">Loricariidae\nHypostomus, Pterygoplichthys, etc. </string>
+    <string name="text_common">Common Names</string>
+    <string name="text_compatibility">Compatibility:</string>
+    <string name="text_fancy_goldfish">Goldfishh</string>
+    <string name="text_compatible">Compatible:</string>
+    <string name="text_incompatible">Not Compatible:</string>
+    <string name="text_caution">With Caution:</string>
+    <string name="list_compatible_pleco">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Fancy Goldfish, Gouramis, Guppies, Hatchets, Killifish, Loaches, Platies, Rainbowfish, Rasboras, Sharks, Suckermouth, Catfish, Swordtails, Tetras</string>
+    <string name="list_caution_pleco">Discus, Larger Catfish, Mollies, Plecos, Pond Fish, Misc. Fish, Invertebrates, Brackish Fish</string>
     <string name="list_incompatible_pleco">none</string>
-    <string name="list_compatible_fancy_goldfish" tools:ignore="UnusedResources">Cory Cats, Fancy Goldfish, Plecos, Suckermouth, Catfish, Pond Fish</string>
-    <string name="list_caution_fancy_goldfish" tools:ignore="UnusedResources">Loaches, Misc. Fish, Invertebrates, Freshwater Plants</string>
-    <string name="list_incompatible_fancy_goldfish" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Barbs, Bettas, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Larger, Catfish, Mollies, Platies, Rainbowfish, Rasboras, Sharks, Swordtails, Tetras, Brackish Fish</string>
-    <string name="text_latin_fancy_goldfish" tools:ignore="UnusedResources">Carassius auratus</string>
-    <string name="text_tap_more_info" tools:ignore="UnusedResources">Tap to Expand for More Information</string>
-    <string name="text_malawi" tools:ignore="UnusedResources">Malawian Cichlids</string>
-    <string name="text_latin_various" tools:ignore="UnusedResources">Various</string>
-    <string name="list_compatible_malawi" tools:ignore="UnusedResources">Malawian Cichlids</string>
-    <string name="list_incompatible_malawi" tools:ignore="UnusedResources">Angelfish, Bettas, Danios / Minnows, Discus, Fancy Goldfish, Gouramis, Guppies, Hatchets, Killifish, Mollies, Platies, Rainbowfish, Rasboras, Swordtails, Tetras, Brackish Fish, Pond Fish</string>
-    <string name="list_caution_malawi" tools:ignore="UnusedResources">Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Barbs, Cory Cats, Larger Catfish Loaches Plecos, Sharks, Suckermouth Catfish Misc. Fish, Invertebrates, Freshwater Plants</string>
+    <string name="list_compatible_fancy_goldfish">Cory Cats, Fancy Goldfish, Plecos, Suckermouth, Catfish, Pond Fish</string>
+    <string name="list_caution_fancy_goldfish">Loaches, Misc. Fish, Invertebrates, Freshwater Plants</string>
+    <string name="list_incompatible_fancy_goldfish">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Barbs, Bettas, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Larger, Catfish, Mollies, Platies, Rainbowfish, Rasboras, Sharks, Swordtails, Tetras, Brackish Fish</string>
+    <string name="text_latin_fancy_goldfish">Cyprinidae\nCarassius auratus</string>
+    <string name="text_tap_more_info">Tap to Expand for More Information</string>
+    <string name="text_malawi">Malawian Cichlids</string>
+    <string name="text_latin_various">Various</string>
+    <string name="list_compatible_malawi">Malawian Cichlids</string>
+    <string name="list_incompatible_malawi">Angelfish, Bettas, Danios / Minnows, Discus, Fancy Goldfish, Gouramis, Guppies, Hatchets, Killifish, Mollies, Platies, Rainbowfish, Rasboras, Swordtails, Tetras, Brackish Fish, Pond Fish</string>
+    <string name="list_caution_malawi">Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Barbs, Cory Cats, Larger Catfish Loaches Plecos, Sharks, Suckermouth Catfish Misc. Fish, Invertebrates, Freshwater Plants</string>
     <string name="text_tanganyikan">Tanganyikan Cichlid</string>
-    <string name="list_compatible_tanganyikan" tools:ignore="UnusedResources">Plecos</string>
-    <string name="list_incompatible_tanganyikan" tools:ignore="UnusedResources">Angelfish, Bettas, Danios / Minnows, Discus, Fancy Goldfish, Gouramis, Guppies, Hatchets, Killifish, Mollies, Platies, Rainbowfish, Rasboras, Swordtails, Tetras, Brackish Fish, Pond Fish</string>
-    <string name="list_caution_tanganyikan" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Barbs, Cory Cats, Larger Catfish, Loaches, Sharks, Suckermouth Catfish, Misc. Fish, Invertebrates, Freshwater Plants</string>
-    <string name="text_african_cichlid" tools:ignore="UnusedResources">Misc. African Cichlids</string>
-    <string name="list_compatible_african_cichlid" tools:ignore="UnusedResources">Misc. African Cichlids, Plecos</string>
-    <string name="list_incompatible_african_cichlid" tools:ignore="UnusedResources">Angelfish, Bettas, Danios / Minnows, Discus, Fancy, Goldfish, Gouramis, Guppies, Hatchets, Killifish, Mollies, Platies, Rainbowfish, Rasboras, Swordtails, Tetras, Brackish Fish, Pond Fish</string>
-    <string name="list_caution_african_cichlid" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, New World Cichlids, Barbs, Cory Cats, Larger Catfish, Loaches, Sharks, Suckermouth Catfish, Misc. Fish, Invertebrates, Freshwater Plants</string>
-    <string name="text_cichlids_american" tools:ignore="UnusedResources">New World Cichlids</string>
-    <string name="list_compatible_cichlids_american" tools:ignore="UnusedResources">Plecos</string>
-    <string name="list_incompatible_cichlids_american" tools:ignore="UnusedResources">Bettas, Fancy Goldfish, Guppies, Pond Fish</string>
-    <string name="list_caution_cichlids_american" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Barbs, Cory Cats, Danios / Minnows, Discus, Hatchets, Killifish, Larger Catfish, Loaches, Mollies, Platies, Rainbowfish, Rasboras, Sharks, Suckermouth Catfish, Swordtails, Tetras, Misc. Fish, Invertebrates, Brackish Fish, Freshwater Plants</string>
-    <string name="text_angelfish" tools:ignore="UnusedResources">Angelfish</string>
-    <string name="list_compatible_angelfish" tools:ignore="UnusedResources">Angelfish, Cory Cats, Danios / Minnows, Gouramis, Guppies, Hatchets, Killifish, Loaches, Mollies, Platies, Plecos, Rainbowfish, Rasboras, Swordtails, Tetras, Freshwater Plants</string>
-    <string name="list_incompatible_angelfish" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish, Brackish Fish, Pond Fish</string>
-    <string name="list_caution_angelfish" tools:ignore="UnusedResources">New World Cichlids, Barbs, Bettas, Discus, Larger Catfish, Sharks, Suckermouth Catfish, Misc. Fish, Invertebrates</string>
-    <string name="text_barbs" tools:ignore="UnusedResources">Barbs</string>
-    <string name="list_compatible_barb" tools:ignore="UnusedResources">Barbs, Cory Cats, Danios / Minnows, Gouramis, Loaches, Mollies, Plecos, Rainbowfish, Rasboras, Sharks, Suckermouth Catfish, Tetras, Freshwater Plants</string>
-    <string name="list_incompatible_barb" tools:ignore="UnusedResources">Bettas, Fancy Goldfish, Pond Fish</string>
-    <string name="list_caution_barb" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Discus, Guppies, Hatchets, Killifish, Larger Catfish, Platies, Swordtails, Misc. Fish, Invertebrates, Brackish Fish</string>
-    <string name="text_betta" tools:ignore="UnusedResources">Bettas</string>
-    <string name="list_compatible_betta" tools:ignore="UnusedResources">Cory Cats, Danios / Minnows, Guppies, Hatchets, Loaches, Mollies, Platies, Plecos, Rasboras, Suckermouth Catfish, Swordtails, Tetras, Freshwater Plants</string>
-    <string name="list_incompatible_betta" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Barbs, Fancy Goldfish, Brackish Fish, Pond Fish</string>
-    <string name="list_caution_betta" tools:ignore="UnusedResources">Angelfish, Bettas, Discus, Gouramis, Killifish, Larger Catfish Rainbowfish, Sharks, Misc. Fish, Invertebrates</string>
-    <string name="text_cory_cats" tools:ignore="UnusedResources">Cory Cats</string>
-    <string name="list_compatible_cory" tools:ignore="UnusedResources">Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Fancy Goldfish, Gouramis, Guppies, Hatchets, Killifish, Loaches, Mollies, Platies, Plecos, Rainbowfish, Rasboras, Suckermouth Catfish, Swordtails, Tetras, Freshwater Plants</string>
-    <string name="list_incompatible_cory" tools:ignore="UnusedResources">Brackish Fish, Pond Fish</string>
-    <string name="list_caution_cory" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Larger Catfish Sharks, Misc. Fish, Invertebrates</string>
-    <string name="text_danios" tools:ignore="UnusedResources">Danios / Minnows</string>
-    <string name="list_compatible_danios" tools:ignore="UnusedResources">Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Loaches, Mollies, Platies, Plecos, Rainbowfish, Rasboras, Sharks, Suckermouth Catfish, Swordtails, Tetras, Freshwater Plants</string>
-    <string name="list_incompatible_danios" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish, Pond Fish</string>
-    <string name="list_caution_danios" tools:ignore="UnusedResources">New World Cichlids, Larger Catfish, Misc. Fish, Invertebrates, Brackish Fish</string>
-    <string name="text_discus" tools:ignore="UnusedResources">Discus</string>
-    <string name="list_compatible_discus" tools:ignore="UnusedResources">Cory Cat, Danios / Minnows, Discus, Guppies, Hatchets, Killifish, Loaches, Mollies, Platies, Rainbowfish, Rasboras, Swordtails, Tetras, Freshwater Plants</string>
-    <string name="list_incompatible_discus" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish, Brackish Fish, Pond Fish</string>
-    <string name="list_caution_discus" tools:ignore="UnusedResources">New World Cichlids, Angelfish, Barbs, Bettas, Gouramis, Larger Catfish, Plecos, Sharks, Suckermouth, Catfish, Misc. Fish, Invertebrates</string>
-    <string name="text_gouramis" tools:ignore="UnusedResources">Gouramis</string>
-    <string name="list_compatible_gourami" tools:ignore="UnusedResources">Angelfish, Barbs, Cory Cats, Danios / Minnows, Gouramis, Guppies, Hatchets, Killifish, Loaches, Mollies, Platies, Plecos, Rainbowfish, Rasboras, Sharks, Suckermouth Catfish, Swordtails, Freshwater Plants</string>
-    <string name="list_incompatible_gourami" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish, Brackish Fish, Pond Fish</string>
-    <string name="list_caution_gourami" tools:ignore="UnusedResources">New World Cichlids, Bettas, Discus, Larger Catfish, Tetras, Misc. Fish, Invertebrates</string>
+    <string name="list_compatible_tanganyikan">Plecos</string>
+    <string name="list_incompatible_tanganyikan">Angelfish, Bettas, Danios / Minnows, Discus, Fancy Goldfish, Gouramis, Guppies, Hatchets, Killifish, Mollies, Platies, Rainbowfish, Rasboras, Swordtails, Tetras, Brackish Fish, Pond Fish</string>
+    <string name="list_caution_tanganyikan">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Barbs, Cory Cats, Larger Catfish, Loaches, Sharks, Suckermouth Catfish, Misc. Fish, Invertebrates, Freshwater Plants</string>
+    <string name="text_african_cichlid">Misc. African Cichlids</string>
+    <string name="list_compatible_african_cichlid">Misc. African Cichlids, Plecos</string>
+    <string name="list_incompatible_african_cichlid">Angelfish, Bettas, Danios / Minnows, Discus, Fancy, Goldfish, Gouramis, Guppies, Hatchets, Killifish, Mollies, Platies, Rainbowfish, Rasboras, Swordtails, Tetras, Brackish Fish, Pond Fish</string>
+    <string name="list_caution_african_cichlid">Malawian Cichlids, Tanganyikan Cichlids, New World Cichlids, Barbs, Cory Cats, Larger Catfish, Loaches, Sharks, Suckermouth Catfish, Misc. Fish, Invertebrates, Freshwater Plants</string>
+    <string name="text_cichlids_american">New World Cichlids</string>
+    <string name="list_compatible_cichlids_american">Plecos</string>
+    <string name="list_incompatible_cichlids_american">Bettas, Fancy Goldfish, Guppies, Pond Fish</string>
+    <string name="list_caution_cichlids_american">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Barbs, Cory Cats, Danios / Minnows, Discus, Hatchets, Killifish, Larger Catfish, Loaches, Mollies, Platies, Rainbowfish, Rasboras, Sharks, Suckermouth Catfish, Swordtails, Tetras, Misc. Fish, Invertebrates, Brackish Fish, Freshwater Plants</string>
+    <string name="text_angelfish">Angelfish</string>
+    <string name="list_compatible_angelfish">Angelfish, Cory Cats, Danios / Minnows, Gouramis, Guppies, Hatchets, Killifish, Loaches, Mollies, Platies, Plecos, Rainbowfish, Rasboras, Swordtails, Tetras, Freshwater Plants</string>
+    <string name="list_incompatible_angelfish">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish, Brackish Fish, Pond Fish</string>
+    <string name="list_caution_angelfish">New World Cichlids, Barbs, Bettas, Discus, Larger Catfish, Sharks, Suckermouth Catfish, Misc. Fish, Invertebrates</string>
+    <string name="text_barbs">Barbs</string>
+    <string name="list_compatible_barb">Barbs, Cory Cats, Danios / Minnows, Gouramis, Loaches, Mollies, Plecos, Rainbowfish, Rasboras, Sharks, Suckermouth Catfish, Tetras, Freshwater Plants</string>
+    <string name="list_incompatible_barb">Bettas, Fancy Goldfish, Pond Fish</string>
+    <string name="list_caution_barb">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Discus, Guppies, Hatchets, Killifish, Larger Catfish, Platies, Swordtails, Misc. Fish, Invertebrates, Brackish Fish</string>
+    <string name="text_betta">Bettas</string>
+    <string name="list_compatible_betta">Cory Cats, Danios / Minnows, Guppies, Hatchets, Loaches, Mollies, Platies, Plecos, Rasboras, Suckermouth Catfish, Swordtails, Tetras, Freshwater Plants</string>
+    <string name="list_incompatible_betta">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Barbs, Fancy Goldfish, Brackish Fish, Pond Fish</string>
+    <string name="list_caution_betta">Angelfish, Bettas, Discus, Gouramis, Killifish, Larger Catfish Rainbowfish, Sharks, Misc. Fish, Invertebrates</string>
+    <string name="text_cory_cats">Cory Cats</string>
+    <string name="list_compatible_cory">Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Fancy Goldfish, Gouramis, Guppies, Hatchets, Killifish, Loaches, Mollies, Platies, Plecos, Rainbowfish, Rasboras, Suckermouth Catfish, Swordtails, Tetras, Freshwater Plants</string>
+    <string name="list_incompatible_cory">Brackish Fish, Pond Fish</string>
+    <string name="list_caution_cory">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Larger Catfish Sharks, Misc. Fish, Invertebrates</string>
+    <string name="text_danios">Danios, Minnows</string>
+    <string name="list_compatible_danios">Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Loaches, Mollies, Platies, Plecos, Rainbowfish, Rasboras, Sharks, Suckermouth Catfish, Swordtails, Tetras, Freshwater Plants</string>
+    <string name="list_incompatible_danios">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish, Pond Fish</string>
+    <string name="list_caution_danios">New World Cichlids, Larger Catfish, Misc. Fish, Invertebrates, Brackish Fish</string>
+    <string name="text_discus">Discus</string>
+    <string name="list_compatible_discus">Cory Cat, Danios / Minnows, Discus, Guppies, Hatchets, Killifish, Loaches, Mollies, Platies, Rainbowfish, Rasboras, Swordtails, Tetras, Freshwater Plants</string>
+    <string name="list_incompatible_discus">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish, Brackish Fish, Pond Fish</string>
+    <string name="list_caution_discus">New World Cichlids, Angelfish, Barbs, Bettas, Gouramis, Larger Catfish, Plecos, Sharks, Suckermouth, Catfish, Misc. Fish, Invertebrates</string>
+    <string name="text_gouramis">Gouramis</string>
+    <string name="list_compatible_gourami">Angelfish, Barbs, Cory Cats, Danios / Minnows, Gouramis, Guppies, Hatchets, Killifish, Loaches, Mollies, Platies, Plecos, Rainbowfish, Rasboras, Sharks, Suckermouth Catfish, Swordtails, Freshwater Plants</string>
+    <string name="list_incompatible_gourami">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish, Brackish Fish, Pond Fish</string>
+    <string name="list_caution_gourami">New World Cichlids, Bettas, Discus, Larger Catfish, Tetras, Misc. Fish, Invertebrates</string>
     <string name="text_guppies">Guppies</string>
-    <string name="list_compatible_guppies" tools:ignore="UnusedResources">Angelfish, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Mollies, Platies, Plecos, Rainbowfish, Rasboras, Swordtails, Tetras, Freshwater Plants</string>
-    <string name="list_incompatible_guppies" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Fancy Goldfish, Brackish Fish, Pond Fish</string>
-    <string name="list_caution_guppies" tools:ignore="UnusedResources">Barbs, Larger Catfish, Loaches, Sharks, Suckermouth Catfish, Misc. Fish, Invertebrates</string>
-    <string name="text_hatchets" tools:ignore="UnusedResources">Hatchets</string>
-    <string name="list_compatible_hatchets" tools:ignore="UnusedResources">Angelfish, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Loaches, Mollies, Platies, Plecos, Rasboras, Suckermouth Catfish, Swordtails, Tetras, Freshwater Plants</string>
-    <string name="list_incompatible_hatchets" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish Brackish Fish, Pond Fish</string>
-    <string name="list_caution_hatchets" tools:ignore="UnusedResources">New World Cichlids, Barbs, Larger Catfish Rainbowfish, Sharks, Misc. Fish, Invertebrates</string>
-    <string name="text_killifish" tools:ignore="UnusedResources">Killifish</string>
-    <string name="list_compatible_killifish" tools:ignore="UnusedResources">Angelfish, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Mollies, Platies, Plecos, Rainbowfish, Rasboras Suckermouth Catfish Swordtails Tetras Freshwater Plants</string>
-    <string name="list_incompatible_killifish" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish Brackish Fish, Pond Fish</string>
-    <string name="list_caution_killifish" tools:ignore="UnusedResources">New World Cichlids, Barbs, Bettas, Larger Catfish Loaches Sharks, Misc. Fish, Invertebrates</string>
-    <string name="text_catfish" tools:ignore="UnusedResources">Larger Catfish</string>
-    <string name="list_compatible_catfish" tools:ignore="UnusedResources">none</string>
-    <string name="list_incompatible_catfish" tools:ignore="UnusedResources">Fancy Goldfish Tetras Pond Fish</string>
-    <string name="list_caution_catfish" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Larger Catfish Loaches Mollies, Platies, Plecos, Rainbowfish, Rasboras Sharks, Suckermouth Catfish Swordtails Misc. Fish, Invertebrates, Brackish Fish, Freshwater Plants</string>
-    <string name="text_loach" tools:ignore="UnusedResources">Loaches</string>
-    <string name="list_compatible_loach" tools:ignore="UnusedResources">Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Hatchets, Plecos, Rainbowfish, Rasboras Sharks, Suckermouth Catfish Tetras Freshwater Plants</string>
-    <string name="list_incompatible_loach" tools:ignore="UnusedResources">Pond Fish</string>
-    <string name="list_caution_loach" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Fancy Goldfish Guppies, Killifish, Larger Catfish Mollies, Platies, Swordtails Misc. Fish, Invertebrates, Brackish Fish</string>
-    <string name="text_molly" tools:ignore="UnusedResources">Mollies</string>
-    <string name="list_compatible_molly" tools:ignore="UnusedResources">Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Mollies, Rainbowfish, Rasboras Sharks, Suckermouth Catfish Tetras Brackish Fish, Freshwater Plants</string>
-    <string name="list_incompatible_molly" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish Pond Fish</string>
-    <string name="list_caution_molly" tools:ignore="UnusedResources">New World Cichlids, Larger Catfish Loaches Platies, Plecos, Swordtails Misc. Fish, Invertebrates</string>
-    <string name="text_platy" tools:ignore="UnusedResources">Platies</string>
-    <string name="list_compatible_platy" tools:ignore="UnusedResources">Angelfish, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Platies, Plecos, Rainbowfish, Rasboras Swordtails Tetras Freshwater Plants</string>
-    <string name="list_incompatible_platy" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish Brackish Fish, Pond Fish</string>
-    <string name="list_caution_platy" tools:ignore="UnusedResources">New World Cichlids, Barbs, Larger Catfish Loaches Mollies, Sharks, Suckermouth Catfish Misc. Fish, Invertebrates</string>
-    <string name="text_rasboras" tools:ignore="UnusedResources">Rasboras</string>
-    <string name="list_compatible_rasboras" tools:ignore="UnusedResources">Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Loaches Mollies, Platies, Plecos, Rainbowfish, Rasboras Suckermouth Catfish Swordtails Tetras Freshwater Plants</string>
-    <string name="list_incompatible_rasboras" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish Brackish Fish, Pond Fish</string>
-    <string name="list_caution_rasboras" tools:ignore="UnusedResources">New World Cichlids, Larger Catfish Sharks, Misc. Fish, Invertebrates</string>
-    <string name="text_shark" tools:ignore="UnusedResources">Sharks</string>
-    <string name="list_compatible_shark" tools:ignore="UnusedResources">Barbs, Danios / Minnows, Gouramis, Loaches Mollies, Plecos, Rainbowfish, Freshwater Plants</string>
-    <string name="list_incompatible_shark" tools:ignore="UnusedResources">Fancy Goldfish Pond Fish</string>
-    <string name="list_caution_shark" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Bettas, Cory Cats, Discus, Guppies, Hatchets, Killifish, Larger Catfish Platies, Rasboras Sharks, Suckermouth Catfish Swordtails Tetras Misc. Fish, Invertebrates, Brackish Fish</string>
-    <string name="text_sucker_catfish" tools:ignore="UnusedResources">Suckermouth Catfish</string>
-    <string name="list_compatible_suckermouth_catfish" tools:ignore="UnusedResources">Barbs, Bettas, Cory Cats, Danios / Minnows, Fancy Goldfish Gouramis, Hatchets, Killifish, Loaches Mollies, Plecos, Rainbowfish, Rasboras Suckermouth Catfish Tetras</string>
-    <string name="list_incompatible_suckermouth_catfish" tools:ignore="UnusedResources">Pond Fish</string>
-    <string name="list_caution_suckermouth_catfish" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Discus, Guppies, Larger Catfish Platies, Sharks, Swordtails Misc. Fish, Invertebrates, Brackish Fish, Freshwater Plants</string>
-    <string name="text_swordtail" tools:ignore="UnusedResources">Swordtails</string>
-    <string name="list_compatible_swordtail" tools:ignore="UnusedResources">Angelfish, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Platies, Plecos, Rainbowfish, Rasboras Sharks, Swordtails Tetras Freshwater Plants</string>
-    <string name="list_incompatible_swordtail" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish Brackish Fish, Pond Fish</string>
-    <string name="list_caution_swordtail" tools:ignore="UnusedResources">New World Cichlids, Barbs, Larger Catfish Loaches Mollies, Suckermouth Catfish Misc. Fish, Invertebrates</string>
-    <string name="text_tetra" tools:ignore="UnusedResources">Tetras</string>
-    <string name="list_compatible_tetra" tools:ignore="UnusedResources">Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Guppies, Hatchets, Killifish, Loaches Mollies, Platies, Plecos, Rainbowfish, Rasboras Suckermouth Catfish Swordtails Tetras Freshwater Plants</string>
-    <string name="list_incompatible_tetra" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish Larger Catfish Brackish Fish, Pond Fish</string>
-    <string name="list_caution_tetra" tools:ignore="UnusedResources">New World Cichlids, Gouramis, Sharks, Misc. Fish, Invertebrates</string>
-    <string name="text_misc_fish" tools:ignore="UnusedResources">Misc. Fish</string>
+    <string name="list_compatible_guppies">Angelfish, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Mollies, Platies, Plecos, Rainbowfish, Rasboras, Swordtails, Tetras, Freshwater Plants</string>
+    <string name="list_incompatible_guppies">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Fancy Goldfish, Brackish Fish, Pond Fish</string>
+    <string name="list_caution_guppies">Barbs, Larger Catfish, Loaches, Sharks, Suckermouth Catfish, Misc. Fish, Invertebrates</string>
+    <string name="text_hatchets">Hatchets</string>
+    <string name="list_compatible_hatchets">Angelfish, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Loaches, Mollies, Platies, Plecos, Rasboras, Suckermouth Catfish, Swordtails, Tetras, Freshwater Plants</string>
+    <string name="list_incompatible_hatchets">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish Brackish Fish, Pond Fish</string>
+    <string name="list_caution_hatchets">New World Cichlids, Barbs, Larger Catfish Rainbowfish, Sharks, Misc. Fish, Invertebrates</string>
+    <string name="text_killifish">Killifish</string>
+    <string name="list_compatible_killifish">Angelfish, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Mollies, Platies, Plecos, Rainbowfish, Rasboras Suckermouth Catfish Swordtails Tetras Freshwater Plants</string>
+    <string name="list_incompatible_killifish">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish Brackish Fish, Pond Fish</string>
+    <string name="list_caution_killifish">New World Cichlids, Barbs, Bettas, Larger Catfish Loaches Sharks, Misc. Fish, Invertebrates</string>
+    <string name="text_catfish">Larger Catfish</string>
+    <string name="list_compatible_catfish">none</string>
+    <string name="list_incompatible_catfish">Fancy Goldfish Tetras Pond Fish</string>
+    <string name="list_caution_catfish">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Larger Catfish Loaches Mollies, Platies, Plecos, Rainbowfish, Rasboras Sharks, Suckermouth Catfish Swordtails Misc. Fish, Invertebrates, Brackish Fish, Freshwater Plants</string>
+    <string name="text_loach">Loaches</string>
+    <string name="list_compatible_loach">Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Hatchets, Plecos, Rainbowfish, Rasboras Sharks, Suckermouth Catfish Tetras Freshwater Plants</string>
+    <string name="list_incompatible_loach">Pond Fish</string>
+    <string name="list_caution_loach">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Fancy Goldfish Guppies, Killifish, Larger Catfish Mollies, Platies, Swordtails Misc. Fish, Invertebrates, Brackish Fish</string>
+    <string name="text_molly">Mollies</string>
+    <string name="list_compatible_molly">Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Mollies, Rainbowfish, Rasboras Sharks, Suckermouth Catfish Tetras Brackish Fish, Freshwater Plants</string>
+    <string name="list_incompatible_molly">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish Pond Fish</string>
+    <string name="list_caution_molly">New World Cichlids, Larger Catfish Loaches Platies, Plecos, Swordtails Misc. Fish, Invertebrates</string>
+    <string name="text_platy">Platies</string>
+    <string name="list_compatible_platy">Angelfish, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Platies, Plecos, Rainbowfish, Rasboras Swordtails Tetras Freshwater Plants</string>
+    <string name="list_incompatible_platy">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish Brackish Fish, Pond Fish</string>
+    <string name="list_caution_platy">New World Cichlids, Barbs, Larger Catfish Loaches Mollies, Sharks, Suckermouth Catfish Misc. Fish, Invertebrates</string>
+    <string name="text_rasboras">Rasboras</string>
+    <string name="list_compatible_rasboras">Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Loaches Mollies, Platies, Plecos, Rainbowfish, Rasboras Suckermouth Catfish Swordtails Tetras Freshwater Plants</string>
+    <string name="list_incompatible_rasboras">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish Brackish Fish, Pond Fish</string>
+    <string name="list_caution_rasboras">New World Cichlids, Larger Catfish Sharks, Misc. Fish, Invertebrates</string>
+    <string name="text_freshwater_shark">Freshwater Sharks</string>
+    <string name="list_compatible_shark">Barbs, Danios / Minnows, Gouramis, Loaches Mollies, Plecos, Rainbowfish, Freshwater Plants</string>
+    <string name="list_incompatible_shark">Fancy Goldfish Pond Fish</string>
+    <string name="list_caution_shark">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Bettas, Cory Cats, Discus, Guppies, Hatchets, Killifish, Larger Catfish Platies, Rasboras Sharks, Suckermouth Catfish Swordtails Tetras Misc. Fish, Invertebrates, Brackish Fish</string>
+    <string name="text_sucker_catfish">Suckermouth Catfish</string>
+    <string name="list_compatible_suckermouth_catfish">Barbs, Bettas, Cory Cats, Danios / Minnows, Fancy Goldfish Gouramis, Hatchets, Killifish, Loaches Mollies, Plecos, Rainbowfish, Rasboras Suckermouth Catfish Tetras</string>
+    <string name="list_incompatible_suckermouth_catfish">Pond Fish</string>
+    <string name="list_caution_suckermouth_catfish">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Discus, Guppies, Larger Catfish Platies, Sharks, Swordtails Misc. Fish, Invertebrates, Brackish Fish, Freshwater Plants</string>
+    <string name="text_swordtail">Swordtails</string>
+    <string name="list_compatible_swordtail">Angelfish, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Platies, Plecos, Rainbowfish, Rasboras Sharks, Swordtails Tetras Freshwater Plants</string>
+    <string name="list_incompatible_swordtail">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish Brackish Fish, Pond Fish</string>
+    <string name="list_caution_swordtail">New World Cichlids, Barbs, Larger Catfish Loaches Mollies, Suckermouth Catfish Misc. Fish, Invertebrates</string>
+    <string name="text_tetra">Tetras</string>
+    <string name="list_compatible_tetra">Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Guppies, Hatchets, Killifish, Loaches Mollies, Platies, Plecos, Rainbowfish, Rasboras Suckermouth Catfish Swordtails Tetras Freshwater Plants</string>
+    <string name="list_incompatible_tetra">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish Larger Catfish Brackish Fish, Pond Fish</string>
+    <string name="list_caution_tetra">New World Cichlids, Gouramis, Sharks, Misc. Fish, Invertebrates</string>
+    <string name="text_misc_fish">Misc. Fish</string>
     <string name="list_compatible_misc">none</string>
-    <string name="list_incompatible_misc" tools:ignore="UnusedResources">Pond Fish</string>
-    <string name="list_caution_misc" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Fancy Goldfish Gouramis, Guppies, Hatchets, Killifish, Larger Catfish Loaches Mollies, Platies, Plecos, Rainbowfish, Rasboras Sharks, Suckermouth Catfish Swordtails Tetras Misc. Fish, Invertebrates, Brackish Fish, Freshwater Plants</string>
-    <string name="text_inverts" tools:ignore="UnusedResources">Invertebrates</string>
-    <string name="list_compatible_inverts" tools:ignore="UnusedResources">Freshwater Plants</string>
-    <string name="list_incompatible_inverts" tools:ignore="UnusedResources">none</string>
-    <string name="list_caution_inverts" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Fancy Goldfish Gouramis, Guppies, Hatchets, Killifish, Larger Catfish Loaches Mollies, Platies, Plecos, Rainbowfish, Rasboras Sharks, Suckermouth Catfish Swordtails Tetras Misc. Fish, Invertebrates, Brackish Fish, Pond Fish</string>
-    <string name="text_brackish" tools:ignore="UnusedResources">Brackish Fish</string>
-    <string name="list_compatible_brackish" tools:ignore="UnusedResources">Mollies, Brackish Fish</string>
-    <string name="list_incompatible_brackish" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Angelfish, Bettas, Cory Cats, Discus, Fancy Goldfish Gouramis, Guppies, Hatchets, Killifish, Platies, Rasboras Swordtails Tetras Pond Fish</string>
-    <string name="list_caution_brackish" tools:ignore="UnusedResources">New World Cichlids, Barbs, Danios / Minnows, Larger Catfish Loaches Plecos, Rainbowfish, Sharks, Suckermouth Catfish Misc. Fish, Invertebrates, Freshwater Plants</string>
-    <string name="text_pond" tools:ignore="UnusedResources">Pond FIsh</string>
-    <string name="list_compatible_pond" tools:ignore="UnusedResources">Fancy Goldfish Pond Fish</string>
-    <string name="list_incompatible_pond" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Larger Catfish Loaches Mollies, Platies, Plecos, Rainbowfish, Rasboras Sharks, Suckermouth Catfish Swordtails Tetras Misc. Fish, Brackish Fish</string>
-    <string name="list_caution_pond" tools:ignore="UnusedResources">Invertebrates, Freshwater Plants</string>
-    <string name="text_freshwater_plants" tools:ignore="UnusedResources">Freshwater Plants</string>
-    <string name="list_compatible_freshwater_plants" tools:ignore="UnusedResources">Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Loaches Mollies, Platies, Rainbowfish, Rasboras Sharks, Swordtails Tetras Invertebrates, Freshwater Plants</string>
-    <string name="list_caution_freshwater_plants" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Fancy Goldfish Larger Catfish Plecos, Suckermouth Catfish Misc. Fish, Brackish Fish, Pond Fish</string>
-    <string name="list_incompatible_freshwater_plants" tools:ignore="UnusedResources">none</string>
-    <string name="text_latin_angelfish" tools:ignore="UnusedResources">Pterophyllum</string>
-    <string name="text_latin_barb" tools:ignore="UnusedResources">Puntigrus</string>
-    <string name="text_latin_betta" tools:ignore="UnusedResources">Betta splendens</string>
-    <string name="text_latin_cory" tools:ignore="UnusedResources">Corydoras</string>
-    <string name="text_latin_danio" tools:ignore="UnusedResources">Danio / Cyprinidae</string>
-    <string name="text_latin_discus" tools:ignore="UnusedResources">Symphysodon</string>
-    <string name="text_latin_gourami" tools:ignore="UnusedResources">Osphronemidae</string>
-    <string name="text_latin_guppy" tools:ignore="UnusedResources">Poecilia</string>
-    <string name="text_latin_hatchet" tools:ignore="UnusedResources">Argyropelecus</string>
-    <string name="text_latin_killifish" tools:ignore="UnusedResources">Fundulus</string>
-    <string name="text_latin_larger_catfish" tools:ignore="UnusedResources">Siluriformes</string>
-    <string name="text_latin_loach" tools:ignore="UnusedResources">Cobitidae</string>
-    <string name="text_latin_molly" tools:ignore="UnusedResources">Poecilia</string>
-    <string name="text_latin_platy" tools:ignore="UnusedResources">Xiphophorus</string>
-    <string name="text_latin_rainbowfish" tools:ignore="UnusedResources">Melanotaeniidae</string>
-    <string name="text_rainbowfish" tools:ignore="UnusedResources">Rainbowfish</string>
-    <string name="list_compatible_rainbowfish" tools:ignore="UnusedResources">Angelfish, Barbs, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Killifish, Loaches Mollies, Platies, Plecos, Rainbowfish, Rasboras Sharks, Suckermouth Catfish Swordtails Tetras Freshwater Plants</string>
-    <string name="list_incompatible_rainbowfish" tools:ignore="UnusedResources">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish Pond Fish</string>
-    <string name="list_caution_rainbowfish" tools:ignore="UnusedResources">New World Cichlids, Bettas, Hatchets, Larger Catfish Misc. Fish, Invertebrates, Brackish Fish</string>
-    <string name="text_latin_rasbora" tools:ignore="UnusedResources">Rasbora</string>
-    <string name="text_latin_shark" tools:ignore="UnusedResources">Epalzeorhynchos</string>
-    <string name="text_latin_swordtail" tools:ignore="UnusedResources">Xiphophorus</string>
-    <string name="text_latin_tetra" tools:ignore="UnusedResources">Alestiidae</string>
-    <string name="text_beta" tools:ignore="UnusedResources">THIS FEATURE IS IN BETA</string>
-    <string name="text_fish_compatibility" tools:ignore="UnusedResources">Fish Compatibility</string>
-    <string name="text_dwarf_angels" tools:ignore="UnusedResources">Dwarf Angels</string>
-    <string name="text_latin_dwarf_angels" tools:ignore="UnusedResources">Centropyge</string>
-    <string name="list_compatible_dwarf_angels" tools:ignore="UnusedResources">Large Angels, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Parrotfish, Pseudochromis, Puffers, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe</string>
-    <string name="list_incompatible_dwarf_angels" tools:ignore="UnusedResources">Seahorse / Pipefish, Sharks / Rays</string>
-    <string name="list_caution_dwarf_angels" tools:ignore="UnusedResources">Dwarf Angels, Anglers/Frogs, Eels, Groupers, Lions / Scorpions, Triggerfish, Wrasse - Fish Only, Live Corals, Invertebrates</string>
-    <string name="text_large_angels" tools:ignore="UnusedResources">Large Angels</string>
-    <string name="text_latin_large_angels">Pomacanthus</string>
-    <string name="list_compatible_large_angels" tools:ignore="UnusedResources">Dwarf Angels, Anglers/Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Chromis, Clownfish, Damsels, Dragonets, Eels, Foxface / Rabbits, Groupers, Grunts / Sweetlips, Hawkfish, Hogfish, Lions / Scorpions, Parrotfish, Puffers, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe, Wrasse - Fish Only</string>
-    <string name="list_incompatible_large_angels" tools:ignore="UnusedResources">Seahorse / Pipefish</string>
-    <string name="list_caution_large_angels" tools:ignore="UnusedResources">Large Angels, Cardinals, Dartfish, Filefish, Gobies, Jawfish, Pseudochromis, Sharks / Rays, Triggerfish, Live Corals, Invertebrates</string>
-    <string name="text_anglers_frogs" tools:ignore="UnusedResources">Anglers / Frogs</string>
-    <string name="text_latin_anglers_frogs" tools:ignore="UnusedResources">Soon</string>
-    <string name="list_compatible_anglers_frogs" tools:ignore="UnusedResources">Large Angels, Batfish, Boxfish, Butterflies, Filefish, Foxface / Rabbits, Grunts / Sweetlips, Lions / Scorpions, Squirrelfish, Tangs / Surgeons, Live Corals</string>
-    <string name="list_incompatible_anglers_frogs" tools:ignore="UnusedResources">Basslets, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Gobies, Jawfish, Pseudochromis, Seahorse / Pipefish, Sharks / Rays, Triggerfish</string>
-    <string name="list_caution_anglers_frogs" tools:ignore="UnusedResources">Dwarf Angels, Anglers / Frogs, Anthias, Blennies, Eels, Groupers, Hawkfish, Hogfish, Parrotfish, Puffers, Wrasse - Reef Safe, Wrasse - Fish Only, Invertebrates</string>
-    <string name="text_anthias" tools:ignore="UnusedResources">Anthias</string>
-    <string name="text_latin_anthias" tools:ignore="UnusedResources">Anthias</string>
-    <string name="list_compatible_anthias" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Basslets, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Parrotfish, Pseudochromis, Puffers, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
-    <string name="list_incompatible_anthias" tools:ignore="UnusedResources">Groupers, Seahorse / Pipefish, Sharks / Rays</string>
-    <string name="list_caution_anthias" tools:ignore="UnusedResources">Anglers / Frogs, Anthias, Batfish, Eels, Lions / Scorpions, Triggerfish, Wrasse - Fish Only</string>
-    <string name="text_basslets" tools:ignore="UnusedResources">Basslets</string>
-    <string name="text_latin_basslets" tools:ignore="UnusedResources">Various</string>
-    <string name="list_compatible_basslets" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anthias, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
-    <string name="list_incompatible_basslets" tools:ignore="UnusedResources">Anglers / Frogs, Basslets, Eels, Groupers, Lions / Scorpions, Pseudochromis, Seahorse / Pipefish, Sharks / Rays, Triggerfish</string>
-    <string name="list_caution_basslets" tools:ignore="UnusedResources">Batfish, Blennies, Dartfish, Dragonets, Hogfish, Parrotfish, Puffers, Wrasse - Fish Only</string>
-    <string name="text_latin_batfish" tools:ignore="UnusedResources">Ogcocephalidae</string>
-    <string name="list_compatible_batfish" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anglers / Frogs, Boxfish, Butterflies, Cardinals, Clownfish, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Parrotfish, Puffers, Squirrelfish, Wrasse - Reef Safe, Live Corals</string>
-    <string name="list_incompatible_batfish" tools:ignore="UnusedResources">Batfish, Groupers, Seahorse / Pipefish, Sharks / Rays, Triggerfish</string>
-    <string name="list_caution_batfish" tools:ignore="UnusedResources">Anthias, Basslets, Blennies, Chromis, Damsels, Dartfish, Dragonets, Eels, Hogfish, Lions / Scorpions, Tangs / Surgeons, Wrasse - Fish Only, Invertebrates</string>
-    <string name="text_blennies" tools:ignore="UnusedResources">Blennies</string>
-    <string name="text_latin_blennies" tools:ignore="UnusedResources">Blenniiformes</string>
-    <string name="list_compatible_blennies" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anthias, Boxfish, Butterflies, Chromis, Clownfish, Damsels, Dartfish, Filefish, Foxface / Rabbits, Gobies, Hawkfish, Puffers, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
-    <string name="list_incompatible_blennies" tools:ignore="UnusedResources">Eels, Groupers, Lions / Scorpions, Seahorse / Pipefish, Sharks / Rays</string>
+    <string name="list_incompatible_misc">Pond Fish</string>
+    <string name="list_caution_misc">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Fancy Goldfish Gouramis, Guppies, Hatchets, Killifish, Larger Catfish Loaches Mollies, Platies, Plecos, Rainbowfish, Rasboras Sharks, Suckermouth Catfish Swordtails Tetras Misc. Fish, Invertebrates, Brackish Fish, Freshwater Plants</string>
+    <string name="text_inverts">Invertebrates</string>
+    <string name="list_compatible_inverts">Freshwater Plants</string>
+    <string name="list_incompatible_inverts">none</string>
+    <string name="list_caution_inverts">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Fancy Goldfish Gouramis, Guppies, Hatchets, Killifish, Larger Catfish Loaches Mollies, Platies, Plecos, Rainbowfish, Rasboras Sharks, Suckermouth Catfish Swordtails Tetras Misc. Fish, Invertebrates, Brackish Fish, Pond Fish</string>
+    <string name="text_brackish">Brackish Fish</string>
+    <string name="list_compatible_brackish">Mollies, Brackish Fish</string>
+    <string name="list_incompatible_brackish">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Angelfish, Bettas, Cory Cats, Discus, Fancy Goldfish Gouramis, Guppies, Hatchets, Killifish, Platies, Rasboras Swordtails Tetras Pond Fish</string>
+    <string name="list_caution_brackish">New World Cichlids, Barbs, Danios / Minnows, Larger Catfish Loaches Plecos, Rainbowfish, Sharks, Suckermouth Catfish Misc. Fish, Invertebrates, Freshwater Plants</string>
+    <string name="text_pond">Koi or Pond Fish</string>
+    <string name="list_compatible_pond">Fancy Goldfish Pond Fish</string>
+    <string name="list_incompatible_pond">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Larger Catfish Loaches Mollies, Platies, Plecos, Rainbowfish, Rasboras Sharks, Suckermouth Catfish Swordtails Tetras Misc. Fish, Brackish Fish</string>
+    <string name="list_caution_pond">Invertebrates, Freshwater Plants</string>
+    <string name="text_freshwater_plants">Freshwater Plants</string>
+    <string name="list_compatible_freshwater_plants">Angelfish, Barbs, Bettas, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Hatchets, Killifish, Loaches Mollies, Platies, Rainbowfish, Rasboras Sharks, Swordtails Tetras Invertebrates, Freshwater Plants</string>
+    <string name="list_caution_freshwater_plants">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, New World Cichlids, Fancy Goldfish Larger Catfish Plecos, Suckermouth Catfish Misc. Fish, Brackish Fish, Pond Fish</string>
+    <string name="list_incompatible_freshwater_plants">none</string>
+    <string name="text_latin_angelfish">Cichlidae\nPterophyllum</string>
+    <string name="text_latin_barb">	Cyprinidae\nBarbus</string>
+    <string name="text_latin_betta">Osphronemidae\nBetta splendens</string>
+    <string name="text_latin_cory">Callichthyidae\nCorydoras</string>
+    <string name="text_latin_danio">	Cyprinidae\nDanio</string>
+    <string name="text_latin_discus">Cichlidae\nSymphysodon</string>
+    <string name="text_latin_gourami">Osphronemidae\nVarious</string>
+    <string name="text_latin_poecilia">Poeciliidae\nPoecilia</string>
+    <string name="text_latin_hatchet">Gasteropelecidae\nCarnegiella, Gasteropelecus, Thoracocharax</string>
+    <string name="text_latin_killifish">Aplocheilidae\nVarious</string>
+    <string name="text_latin_larger_catfish">Siluriformes</string>
+    <string name="text_latin_loach">Cobitidae, Botiidae, Gyrinocheilidae, etc.\nVarious </string>
+    <string name="text_latin_platy">Poeciliidae\nXiphophorus</string>
+    <string name="text_latin_rainbowfish">Melanotaeniidae\nMelanotaenia, Glossolepis, Cairnsichthys, etc.</string>
+    <string name="text_rainbowfish">Rainbowfish</string>
+    <string name="list_compatible_rainbowfish">Angelfish, Barbs, Cory Cats, Danios / Minnows, Discus, Gouramis, Guppies, Killifish, Loaches Mollies, Platies, Plecos, Rainbowfish, Rasboras Sharks, Suckermouth Catfish Swordtails Tetras Freshwater Plants</string>
+    <string name="list_incompatible_rainbowfish">Malawian Cichlids, Tanganyikan Cichlids, Misc. African Cichlids, Fancy Goldfish Pond Fish</string>
+    <string name="list_caution_rainbowfish">New World Cichlids, Bettas, Hatchets, Larger Catfish Misc. Fish, Invertebrates, Brackish Fish</string>
+    <string name="text_latin_rasbora">Cyprinidae\nRasbora</string>
+    <string name="text_latin_shark">Cyprinidae\nEpalzeorhynchos</string>
+    <string name="text_latin_swordtail">Poeciliidae\nXiphophorus</string>
+    <string name="text_latin_tetra">Characidae\nVarious</string>
+    <string name="text_beta">THIS FEATURE IS IN BETA</string>
+    <string name="text_fish_compatibility">Fish Compatibility</string>
+    <string name="text_dwarf_angels">Dwarf Angels</string>
+    <string name="text_latin_dwarf_angels">Pomacanthidae\nCentropyge</string>
+    <string name="list_compatible_dwarf_angels">Large Angels, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Parrotfish, Pseudochromis, Puffers, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe</string>
+    <string name="list_incompatible_dwarf_angels">Seahorse / Pipefish, Sharks / Rays</string>
+    <string name="list_caution_dwarf_angels">Dwarf Angels, Anglers/Frogs, Eels, Groupers, Lions / Scorpions, Triggerfish, Wrasse - Fish Only, Live Corals, Invertebrates</string>
+    <string name="text_large_angels">Large Angels</string>
+    <string name="text_latin_large_angels">Pomacanthidae\nPomacanthus</string>
+    <string name="list_compatible_large_angels">Dwarf Angels, Anglers/Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Chromis, Clownfish, Damsels, Dragonets, Eels, Foxface / Rabbits, Groupers, Grunts / Sweetlips, Hawkfish, Hogfish, Lions / Scorpions, Parrotfish, Puffers, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe, Wrasse - Fish Only</string>
+    <string name="list_incompatible_large_angels">Seahorse / Pipefish</string>
+    <string name="list_caution_large_angels">Large Angels, Cardinals, Dartfish, Filefish, Gobies, Jawfish, Pseudochromis, Sharks / Rays, Triggerfish, Live Corals, Invertebrates</string>
+    <string name="text_anglers_frogs">Anglers, Frogs</string>
+    <string name="text_latin_anglers_frogs">Soon</string>
+    <string name="list_compatible_anglers_frogs">Large Angels, Batfish, Boxfish, Butterflies, Filefish, Foxface / Rabbits, Grunts / Sweetlips, Lions / Scorpions, Squirrelfish, Tangs / Surgeons, Live Corals</string>
+    <string name="list_incompatible_anglers_frogs">Basslets, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Gobies, Jawfish, Pseudochromis, Seahorse / Pipefish, Sharks / Rays, Triggerfish</string>
+    <string name="list_caution_anglers_frogs">Dwarf Angels, Anglers / Frogs, Anthias, Blennies, Eels, Groupers, Hawkfish, Hogfish, Parrotfish, Puffers, Wrasse - Reef Safe, Wrasse - Fish Only, Invertebrates</string>
+    <string name="text_anthias">Anthias</string>
+    <string name="text_latin_anthias">Serranidae\nAnthiinae</string>
+    <string name="list_compatible_anthias">Dwarf Angels, Large Angels, Basslets, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Parrotfish, Pseudochromis, Puffers, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
+    <string name="list_incompatible_anthias">Groupers, Seahorse / Pipefish, Sharks / Rays</string>
+    <string name="list_caution_anthias">Anglers / Frogs, Anthias, Batfish, Eels, Lions / Scorpions, Triggerfish, Wrasse - Fish Only</string>
+    <string name="text_basslets">Basslets</string>
+    <string name="text_latin_basslets">Grammatidae\nGramma, Lipogramma</string>
+    <string name="list_compatible_basslets">Dwarf Angels, Large Angels, Anthias, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
+    <string name="list_incompatible_basslets">Anglers / Frogs, Basslets, Eels, Groupers, Lions / Scorpions, Pseudochromis, Seahorse / Pipefish, Sharks / Rays, Triggerfish</string>
+    <string name="list_caution_basslets">Batfish, Blennies, Dartfish, Dragonets, Hogfish, Parrotfish, Puffers, Wrasse - Fish Only</string>
+    <string name="text_latin_batfish">Ogcocephalidae, Ephippidae\nVarious</string>
+    <string name="list_compatible_batfish">Dwarf Angels, Large Angels, Anglers / Frogs, Boxfish, Butterflies, Cardinals, Clownfish, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Parrotfish, Puffers, Squirrelfish, Wrasse - Reef Safe, Live Corals</string>
+    <string name="list_incompatible_batfish">Batfish, Groupers, Seahorse / Pipefish, Sharks / Rays, Triggerfish</string>
+    <string name="list_caution_batfish">Anthias, Basslets, Blennies, Chromis, Damsels, Dartfish, Dragonets, Eels, Hogfish, Lions / Scorpions, Tangs / Surgeons, Wrasse - Fish Only, Invertebrates</string>
+    <string name="text_blennies">Blennies</string>
+    <string name="text_latin_blennies">Blenniidae\nVarious</string>
+    <string name="list_compatible_blennies">Dwarf Angels, Large Angels, Anthias, Boxfish, Butterflies, Chromis, Clownfish, Damsels, Dartfish, Filefish, Foxface / Rabbits, Gobies, Hawkfish, Puffers, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
+    <string name="list_incompatible_blennies">Eels, Groupers, Lions / Scorpions, Seahorse / Pipefish, Sharks / Rays</string>
     <string name="list_caution_blennies">Anglers / Frogs, Basslets, Batfish, Blennies, Cardinals, Dragonets, Grunts / Sweetlips, Jawfish, Hogfish, Parrotfish, Pseudochromis, Squirrelfish, Wrasse - Fish Only</string>
-    <string name="text_boxfish" tools:ignore="UnusedResources">Boxfish</string>
-    <string name="text_latin_boxfish" tools:ignore="UnusedResources">Ostracion</string>
-    <string name="list_compatible_boxfish" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hogfish, Lions / Scorpions, Parrotfish, Pseudochromis, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe, Wrasse - Fish Only, Live Corals</string>
-    <string name="list_incompatible_boxfish" tools:ignore="UnusedResources">Seahorse / Pipefish, Sharks / Rays,</string>
-    <string name="list_caution_boxfish" tools:ignore="UnusedResources">Boxfish, Eels, Groupers, Hawkfish, Puffers, Triggerfish, Invertebrates</string>
-    <string name="text_butterflies" tools:ignore="UnusedResources">Butterflies</string>
-    <string name="text_latin_butterflies" tools:ignore="UnusedResources">Actinopterygii</string>
-    <string name="list_compatible_butterflies" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Parrotfish, Pseudochromis, Puffers, Tangs / Surgeons, Wrasse - Reef Safe</string>
-    <string name="list_incompatible_butterflies" tools:ignore="UnusedResources">Eels, Seahorse / Pipefish, Sharks / Rays</string>
-    <string name="list_caution_butterflies" tools:ignore="UnusedResources">Butterflies, Groupers, Lions / Scorpions, Squirrelfish, Triggerfish, Wrasse - Fish Only, Live Corals, Invertebrates</string>
-    <string name="text_cardinals" tools:ignore="UnusedResources">Cardinals</string>
-    <string name="text_latin_cardinals" tools:ignore="UnusedResources">Apogonidae</string>
-    <string name="list_compatible_cardinals" tools:ignore="UnusedResources">Dwarf Angels, Anthias, Basslets, Batfish, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Puffers, Tangs / Surgeons, Live Corals, Invertebrates</string>
-    <string name="list_incompatible_cardinals" tools:ignore="UnusedResources">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Seahorse / Pipefish, Sharks / Rays, Triggerfish</string>
-    <string name="list_caution_cardinals" tools:ignore="UnusedResources">Large Angels, Blennies, Damsels, Hogfish, Parrotfish, Pseudochromis, Squirrelfish, Wrasse - Fish Only</string>
-    <string name="text_chromis" tools:ignore="UnusedResources">Chromis</string>
-    <string name="text_latin_chromis" tools:ignore="UnusedResources">Chromis</string>
-    <string name="list_compatible_chromis" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anthias, Basslets, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Jawfish, Hawkfish, Parrotfish, Pseudochromis, Puffers, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
-    <string name="list_incompatible_chromis" tools:ignore="UnusedResources">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Seahorse / Pipefish, Sharks / Rays</string>
-    <string name="list_caution_chromis" tools:ignore="UnusedResources">Batfish, Damsels, Grunts / Sweetlips, Hogfish, Squirrelfish, Wrasse - Fish Only</string>
+    <string name="text_boxfish">Boxfish</string>
+    <string name="text_latin_boxfish">Ostraciidae\nOstracion</string>
+    <string name="list_compatible_boxfish">Dwarf Angels, Large Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hogfish, Lions / Scorpions, Parrotfish, Pseudochromis, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe, Wrasse - Fish Only, Live Corals</string>
+    <string name="list_incompatible_boxfish">Seahorse / Pipefish, Sharks / Rays,</string>
+    <string name="list_caution_boxfish">Boxfish, Eels, Groupers, Hawkfish, Puffers, Triggerfish, Invertebrates</string>
+    <string name="text_butterflies">Butterflies</string>
+    <string name="text_latin_butterflies">Chaetodontidae\nChaetodon, Forcipiger, Prognathodes, etc. </string>
+    <string name="list_compatible_butterflies">Dwarf Angels, Large Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Parrotfish, Pseudochromis, Puffers, Tangs / Surgeons, Wrasse - Reef Safe</string>
+    <string name="list_incompatible_butterflies">Eels, Seahorse / Pipefish, Sharks / Rays</string>
+    <string name="list_caution_butterflies">Butterflies, Groupers, Lions / Scorpions, Squirrelfish, Triggerfish, Wrasse - Fish Only, Live Corals, Invertebrates</string>
+    <string name="text_cardinals">Cardinals</string>
+    <string name="text_latin_cardinals">Apogonidae\nVarious</string>
+    <string name="list_compatible_cardinals">Dwarf Angels, Anthias, Basslets, Batfish, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Puffers, Tangs / Surgeons, Live Corals, Invertebrates</string>
+    <string name="list_incompatible_cardinals">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Seahorse / Pipefish, Sharks / Rays, Triggerfish</string>
+    <string name="list_caution_cardinals">Large Angels, Blennies, Damsels, Hogfish, Parrotfish, Pseudochromis, Squirrelfish, Wrasse - Fish Only</string>
+    <string name="text_chromis">Chromis</string>
+    <string name="text_latin_chromis">Pomacentridae\nChromis</string>
+    <string name="list_compatible_chromis">Dwarf Angels, Large Angels, Anthias, Basslets, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Jawfish, Hawkfish, Parrotfish, Pseudochromis, Puffers, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
+    <string name="list_incompatible_chromis">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Seahorse / Pipefish, Sharks / Rays</string>
+    <string name="list_caution_chromis">Batfish, Damsels, Grunts / Sweetlips, Hogfish, Squirrelfish, Wrasse - Fish Only</string>
     <string name="text_clownfish">Clownfish</string>
-    <string name="text_latin_clownfish" tools:ignore="UnusedResources">Amphiprioninae</string>
-    <string name="list_compatible_clownfish" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anthias, Basslets, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Jawfish, Hawkfish, Parrotfish, Pseudochromis, Puffers, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
-    <string name="list_incompatible_clownfish" tools:ignore="UnusedResources">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Seahorse / Pipefish, Sharks / Rays</string>
-    <string name="list_caution_clownfish" tools:ignore="UnusedResources">Clownfish, Hogfish, Triggerfish</string>
-    <string name="text_damsels" tools:ignore="UnusedResources">Damsels</string>
-    <string name="text_latin_damsels" tools:ignore="UnusedResources">Pomacentridae</string>
-    <string name="list_compatible_damsels" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anthias, Basslets, Blennies, Boxfish, Butterflies, Clownfish, Filefish, Foxface / Rabbits, Gobies, Jawfish, Hawkfish, Parrotfish, Pseudochromis, Puffers, Tangs / Surgeons, Wrasse - Reef Safe, Wrasse - Fish Only, Live Corals, Invertebrates</string>
-    <string name="list_incompatible_damsels" tools:ignore="UnusedResources">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Seahorse / Pipefish, Sharks / Rays</string>
-    <string name="list_caution_damsels" tools:ignore="UnusedResources">Batfish, Cardinals, Chromis, Damsels, Dartfish, Grunts / Sweetlips, Hogfish, Squirrelfish, Triggerfish</string>
-    <string name="text_dartfish" tools:ignore="UnusedResources">Dartfish</string>
-    <string name="text_latin_dartfish" tools:ignore="UnusedResources">Ptereleotrinae</string>
-    <string name="list_compatible_dartfish" tools:ignore="UnusedResources">Dwarf Angels, Anthias, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Dragonets, Foxface / Rabbits, Gobies, Jawfish, Hawkfish, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
-    <string name="list_incompatible_dartfish" tools:ignore="UnusedResources">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Sharks / Rays, Triggerfish</string>
-    <string name="list_caution_dartfish" tools:ignore="UnusedResources">Large Angels, Basslets, Batfish, Damsels, Dartfish, Filefish, Grunts / Sweetlips, Hogfish, Parrotfish, Pseudochromis, Puffers, Seahorse / Pipefish, Squirrelfish, Wrasse - Fish Only</string>
-    <string name="text_dragonets" tools:ignore="UnusedResources">Dragonets</string>
+    <string name="text_latin_clownfish">Pomacentridae\nAmphiprion</string>
+    <string name="list_compatible_clownfish">Dwarf Angels, Large Angels, Anthias, Basslets, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Jawfish, Hawkfish, Parrotfish, Pseudochromis, Puffers, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
+    <string name="list_incompatible_clownfish">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Seahorse / Pipefish, Sharks / Rays</string>
+    <string name="list_caution_clownfish">Clownfish, Hogfish, Triggerfish</string>
+    <string name="text_damsels">Damsels</string>
+    <string name="text_latin_damsels">Pomacentridae\nVarious</string>
+    <string name="list_compatible_damsels">Dwarf Angels, Large Angels, Anthias, Basslets, Blennies, Boxfish, Butterflies, Clownfish, Filefish, Foxface / Rabbits, Gobies, Jawfish, Hawkfish, Parrotfish, Pseudochromis, Puffers, Tangs / Surgeons, Wrasse - Reef Safe, Wrasse - Fish Only, Live Corals, Invertebrates</string>
+    <string name="list_incompatible_damsels">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Seahorse / Pipefish, Sharks / Rays</string>
+    <string name="list_caution_damsels">Batfish, Cardinals, Chromis, Damsels, Dartfish, Grunts / Sweetlips, Hogfish, Squirrelfish, Triggerfish</string>
+    <string name="text_dartfish">Dartfish</string>
+    <string name="text_latin_dartfish">Microdesmidae\nNemateleotris, Ptereleotris, etc</string>
+    <string name="list_compatible_dartfish">Dwarf Angels, Anthias, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Dragonets, Foxface / Rabbits, Gobies, Jawfish, Hawkfish, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
+    <string name="list_incompatible_dartfish">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Sharks / Rays, Triggerfish</string>
+    <string name="list_caution_dartfish">Large Angels, Basslets, Batfish, Damsels, Dartfish, Filefish, Grunts / Sweetlips, Hogfish, Parrotfish, Pseudochromis, Puffers, Seahorse / Pipefish, Squirrelfish, Wrasse - Fish Only</string>
+    <string name="text_dragonets">Dragonets</string>
     <string name="text_latin_dargonets">Bonaparte</string>
-    <string name="List_compatible_dragonets" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anthias, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Foxface / Rabbits, Gobies, Jawfish, Hawkfish, Puffers, Seahorse / Pipefish, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
-    <string name="List_incompatible_dartfish" tools:ignore="UnusedResources">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Sharks / Rays, Triggerfish</string>
+    <string name="List_compatible_dragonets">Dwarf Angels, Large Angels, Anthias, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Foxface / Rabbits, Gobies, Jawfish, Hawkfish, Puffers, Seahorse / Pipefish, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
+    <string name="List_incompatible_dartfish">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Sharks / Rays, Triggerfish</string>
     <string name="List_caution_dartfish">Basslets, Batfish, Blennies, Dragonets, Filefish, Grunts / Sweetlips, Hogfish, Parrotfish, Pseudochromis, Squirrelfish, Wrasse - Fish Only</string>
-    <string name="text_eels" tools:ignore="UnusedResources">Eels</string>
-    <string name="text_latin_eels" tools:ignore="UnusedResources">Anguilla</string>
-    <string name="list_compatible_eels" tools:ignore="UnusedResources">Large Angels, Grunts / Sweetlips, Lions / Scorpions, Puffers, Tangs / Surgeons, Live Corals</string>
-    <string name="list_incompatible_eels" tools:ignore="UnusedResources">Basslets, Blennies, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Gobies, Jawfish, Hawkfish, Pseudochromis, Seahorse / Pipefish</string>
-    <string name="list_caution_eels" tools:ignore="UnusedResources">Dwarf Angels, Anglers / Frogs, Anthias, Batfish, Boxfish, Eels, Foxface / Rabbits, Groupers, Hogfish, Parrotfish, Sharks / Rays, Squirrelfish, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only, Invertebrates</string>
-    <string name="text_filefish" tools:ignore="UnusedResources">Filefish</string>
-    <string name="text_latin_filefish" tools:ignore="UnusedResources">Monacanthidae</string>
-    <string name="list_compatible_filefish" tools:ignore="UnusedResources">Dwarf Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Parrotfish, Puffers, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe</string>
-    <string name="list_incompatible_filefish" tools:ignore="UnusedResources">Eels, Groupers, Seahorse / Pipefish, Sharks / Rays, Triggerfish, Invertebrates</string>
-    <string name="list_caution_filefish" tools:ignore="UnusedResources">Large Angels, Dartfish, Dragonets, Lions / Scorpions, Pseudochromis, Wrasse - Fish Only, Live Corals</string>
-    <string name="text_foxface" tools:ignore="UnusedResources">Foxface / Rabbits,</string>
-    <string name="text_latin_foxface" tools:ignore="UnusedResources">"Siganus "</string>
-    <string name="list_compatible_foxface" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Gobies, Groupers, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Lions / Scorpions, Parrotfish, Pseudochromis, Puffers, Squirrelfish, Wrasse - Reef Safe</string>
-    <string name="list_incompatible_foxface" tools:ignore="UnusedResources">Seahorse / Pipefish</string>
-    <string name="list_caution_foxface" tools:ignore="UnusedResources">Eels, Foxface / Rabbits, Sharks / Rays, Tangs / Surgeons, Triggerfish, Wrasse - Fish Only, Live Corals, Invertebrates</string>
-    <string name="text_gobies" tools:ignore="UnusedResources">Gobies</string>
-    <string name="text_latin_gobies" tools:ignore="UnusedResources">Gobiidae</string>
-    <string name="list_compatible_gobies" tools:ignore="UnusedResources">Dwarf Angels, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Jawfish, Hawkfish, Pseudochromis, Puffers, Tangs / Surgeons, Live Corals, Invertebrates</string>
-    <string name="list_incompatible_gobies" tools:ignore="UnusedResources">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Sharks / Rays</string>
-    <string name="list_caution_gobies" tools:ignore="UnusedResources">Large Angels, Gobies, Grunts / Sweetlips, Hogfish, Parrotfish, Seahorse / Pipefish, Squirrelfish, Triggerfish, Wrasse - Fish Only</string>
-    <string name="text_groupers" tools:ignore="UnusedResources">Groupers</string>
-    <string name="text_latin_groupers" tools:ignore="UnusedResources">Epinephelinae</string>
-    <string name="list_compatible_groupers" tools:ignore="UnusedResources">Large Angels, Foxface / Rabbits, Lions / Scorpions, Tangs / Surgeons, Live Corals</string>
-    <string name="list_incompatible_groupers" tools:ignore="UnusedResources">Anthias, Basslets, Batfish, Blennies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Gobies, Groupers, Jawfish, Hawkfish, Pseudochromis, Seahorse / Pipefish, Squirrelfish</string>
+    <string name="text_eels">Eels</string>
+    <string name="text_latin_eels">Anguillidae\nAnguilla</string>
+    <string name="list_compatible_eels">Large Angels, Grunts / Sweetlips, Lions / Scorpions, Puffers, Tangs / Surgeons, Live Corals</string>
+    <string name="list_incompatible_eels">Basslets, Blennies, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Gobies, Jawfish, Hawkfish, Pseudochromis, Seahorse / Pipefish</string>
+    <string name="list_caution_eels">Dwarf Angels, Anglers / Frogs, Anthias, Batfish, Boxfish, Eels, Foxface / Rabbits, Groupers, Hogfish, Parrotfish, Sharks / Rays, Squirrelfish, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only, Invertebrates</string>
+    <string name="text_filefish">Filefish</string>
+    <string name="text_latin_filefish">Monacanthidae\nAluterus, Stephanolepis, Amanses, etc.</string>
+    <string name="list_compatible_filefish">Dwarf Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Parrotfish, Puffers, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe</string>
+    <string name="list_incompatible_filefish">Eels, Groupers, Seahorse / Pipefish, Sharks / Rays, Triggerfish, Invertebrates</string>
+    <string name="list_caution_filefish">Large Angels, Dartfish, Dragonets, Lions / Scorpions, Pseudochromis, Wrasse - Fish Only, Live Corals</string>
+    <string name="text_foxface">Foxface, Rabbits,</string>
+    <string name="text_latin_foxface">Siganidae\nSiganus</string>
+    <string name="list_compatible_foxface">Dwarf Angels, Large Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Gobies, Groupers, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Lions / Scorpions, Parrotfish, Pseudochromis, Puffers, Squirrelfish, Wrasse - Reef Safe</string>
+    <string name="list_incompatible_foxface">Seahorse / Pipefish</string>
+    <string name="list_caution_foxface">Eels, Foxface / Rabbits, Sharks / Rays, Tangs / Surgeons, Triggerfish, Wrasse - Fish Only, Live Corals, Invertebrates</string>
+    <string name="text_gobies">Gobies</string>
+    <string name="text_latin_gobies">Gobiidae\nVarious</string>
+    <string name="list_compatible_gobies">Dwarf Angels, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Jawfish, Hawkfish, Pseudochromis, Puffers, Tangs / Surgeons, Live Corals, Invertebrates</string>
+    <string name="list_incompatible_gobies">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Sharks / Rays</string>
+    <string name="list_caution_gobies">Large Angels, Gobies, Grunts / Sweetlips, Hogfish, Parrotfish, Seahorse / Pipefish, Squirrelfish, Triggerfish, Wrasse - Fish Only</string>
+    <string name="text_groupers">Groupers</string>
+    <string name="text_latin_groupers">Serranidae\nEpinephelus</string>
+    <string name="list_compatible_groupers">Large Angels, Foxface / Rabbits, Lions / Scorpions, Tangs / Surgeons, Live Corals</string>
+    <string name="list_incompatible_groupers">Anthias, Basslets, Batfish, Blennies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Gobies, Groupers, Jawfish, Hawkfish, Pseudochromis, Seahorse / Pipefish, Squirrelfish</string>
     <string name="list_caution_groupers">Dwarf Angels, Anglers / Frogs, Boxfish, Butterflies, Eels, Grunts / Sweetlips, Hogfish, Parrotfish, Puffers, Sharks / Rays, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only, Invertebrates</string>
-    <string name="text_grunts" tools:ignore="UnusedResources">Grunts / Sweetlips,</string>
-    <string name="text_latin_grunts" tools:ignore="UnusedResources">Haemulidae</string>
-    <string name="list_compatible_grunts" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Boxfish, Butterflies, Cardinals, Clownfish, Eels, Filefish, Foxface / Rabbits, Hogfish, Parrotfish, Pseudochromis, Puffers, Squirrelfish, Tangs / Surgeons, Live Corals</string>
-    <string name="list_caution_grunts" tools:ignore="UnusedResources">Blennies, Chromis, Damsels, Dartfish, Dragonets, Gobies, Groupers, Grunts / Sweetlips, Jawfish, Hawkfish, Lions / Scorpions, Sharks / Rays, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only, Invertebrates</string>
-    <string name="list_incompatible_grunts" tools:ignore="UnusedResources">Seahorse / Pipefish</string>
-    <string name="text_jawfish" tools:ignore="UnusedResources">Jawfish</string>
-    <string name="text_latin_jawfish" tools:ignore="UnusedResources">Opistognathidae</string>
-    <string name="list_incompatible_jawfish" tools:ignore="UnusedResources">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Sharks / Rays</string>
-    <string name="list_compatible_jawfish" tools:ignore="UnusedResources">Dwarf Angels, Anthias, Basslets, Batfish, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Hawkfish, Pseudochromis, Puffers, Tangs / Surgeons, Live Corals, Invertebrates</string>
-    <string name="list_caution_jawfish" tools:ignore="UnusedResources">Large Angels, Blennies, Grunts / Sweetlips, Jawfish, Hogfish, Parrotfish, Seahorse / Pipefish, Squirrelfish, Triggerfish, Wrasse - Fish Only</string>
-    <string name="text_hawkfish" tools:ignore="UnusedResources">Hawkfish</string>
-    <string name="text_latin_hawkfish" tools:ignore="UnusedResources">Cirrhitidae</string>
-    <string name="list_compatible_hawkfish" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anthias, Basslets, Batfish, Blennies, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Jawfish, Hogfish, Parrotfish, Pseudochromis, Puffers, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals</string>
-    <string name="list_incompatible_hawkfish" tools:ignore="UnusedResources">Eels, Groupers, Lions / Scorpions, Seahorse / Pipefish, Sharks / Rays</string>
-    <string name="list_caution_hawkfish" tools:ignore="UnusedResources">Anglers / Frogs, Boxfish, Grunts / Sweetlips, Hawkfish, Triggerfish, Invertebrates</string>
-    <string name="text_hogfish" tools:ignore="UnusedResources">Hogfish</string>
-    <string name="text_latin_hogfish" tools:ignore="UnusedResources">Lachnolaimus</string>
-    <string name="list_compatible_hogfish" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anthias, Boxfish, Butterflies, Filefish, Foxface / Rabbits, Grunts / Sweetlips, Hawkfish, Parrotfish, Puffers, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals</string>
-    <string name="list_caution_hogfish" tools:ignore="UnusedResources">Anglers / Frogs, Basslets, Batfish, Blennies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Eels, Gobies, Groupers, Jawfish, Lions / Scorpions, Pseudochromis, Sharks / Rays, Squirrelfish, Triggerfish, Wrasse - Fish Only, Invertebrates</string>
+    <string name="text_grunts">Grunts</string>
+    <string name="text_latin_grunts">Haemulidae\nVarious</string>
+    <string name="list_compatible_grunts">Dwarf Angels, Large Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Boxfish, Butterflies, Cardinals, Clownfish, Eels, Filefish, Foxface / Rabbits, Hogfish, Parrotfish, Pseudochromis, Puffers, Squirrelfish, Tangs / Surgeons, Live Corals</string>
+    <string name="list_caution_grunts">Blennies, Chromis, Damsels, Dartfish, Dragonets, Gobies, Groupers, Grunts / Sweetlips, Jawfish, Hawkfish, Lions / Scorpions, Sharks / Rays, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only, Invertebrates</string>
+    <string name="list_incompatible_grunts">Seahorse / Pipefish</string>
+    <string name="text_jawfish">Jawfish</string>
+    <string name="text_latin_jawfish">Opistognathidae\nOpistognathus</string>
+    <string name="list_incompatible_jawfish">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Sharks / Rays</string>
+    <string name="list_compatible_jawfish">Dwarf Angels, Anthias, Basslets, Batfish, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Hawkfish, Pseudochromis, Puffers, Tangs / Surgeons, Live Corals, Invertebrates</string>
+    <string name="list_caution_jawfish">Large Angels, Blennies, Grunts / Sweetlips, Jawfish, Hogfish, Parrotfish, Seahorse / Pipefish, Squirrelfish, Triggerfish, Wrasse - Fish Only</string>
+    <string name="text_hawkfish">Hawkfish</string>
+    <string name="text_latin_hawkfish">Cirrhitidae\nNeocirrhites, Cyprinocirrhites, etc.</string>
+    <string name="list_compatible_hawkfish">Dwarf Angels, Large Angels, Anthias, Basslets, Batfish, Blennies, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Jawfish, Hogfish, Parrotfish, Pseudochromis, Puffers, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals</string>
+    <string name="list_incompatible_hawkfish">Eels, Groupers, Lions / Scorpions, Seahorse / Pipefish, Sharks / Rays</string>
+    <string name="list_caution_hawkfish">Anglers / Frogs, Boxfish, Grunts / Sweetlips, Hawkfish, Triggerfish, Invertebrates</string>
+    <string name="text_hogfish">Hogfish</string>
+    <string name="text_latin_hogfish">Labridae\nBodianus</string>
+    <string name="list_compatible_hogfish">Dwarf Angels, Large Angels, Anthias, Boxfish, Butterflies, Filefish, Foxface / Rabbits, Grunts / Sweetlips, Hawkfish, Parrotfish, Puffers, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals</string>
+    <string name="list_caution_hogfish">Anglers / Frogs, Basslets, Batfish, Blennies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Eels, Gobies, Groupers, Jawfish, Lions / Scorpions, Pseudochromis, Sharks / Rays, Squirrelfish, Triggerfish, Wrasse - Fish Only, Invertebrates</string>
     <string name="list_incompatible_hogfish">Hogfish, Seahorse / Pipefish</string>
-    <string name="text_lions" tools:ignore="UnusedResources">Lions / Scorpions</string>
-    <string name="text_latin_lions" tools:ignore="UnusedResources">Pterois</string>
-    <string name="list_compatible_lions" tools:ignore="UnusedResources">Large Angels, Anglers / Frogs, Boxfish, Eels, Foxface / Rabbits, Groupers, Lions / Scorpions, Puffers, Tangs / Surgeons, Live Corals</string>
-    <string name="list_incompatible_lions" tools:ignore="UnusedResources">Basslets, Blennies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Gobies, Jawfish, Hawkfish, Pseudochromis, Seahorse / Pipefish</string>
-    <string name="list_caution_lions" tools:ignore="UnusedResources">Dwarf Angels, Anthias, Butterflies, Filefish, Grunts / Sweetlips, Hogfish, Parrotfish, Sharks / Rays, Squirrelfish, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only, Invertebrates</string>
-    <string name="text_parrotfish" tools:ignore="UnusedResources">Parrotfish</string>
-    <string name="text_latin_parrotfish" tools:ignore="UnusedResources">Scaridae</string>
-    <string name="list_compatible_parrotfish" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anthias, Batfish, Boxfish, Butterflies, Chromis, Clownfish, Damsels, Filefish, Foxface / Rabbits, Grunts / Sweetlips, Hawkfish, Hogfish, Parrotfish, Puffers, Squirrelfish, Tangs / Surgeons</string>
-    <string name="list_incompatible_parrotfish" tools:ignore="UnusedResources">Seahorse / Pipefish, Live Corals, Invertebrates</string>
-    <string name="list_caution_parrotfish" tools:ignore="UnusedResources">Anglers / Frogs, Basslets, Blennies, Cardinals, Dartfish, Dragonets, Eels, Gobies, Groupers, Jawfish, Lions / Scorpions, Pseudochromis, Sharks / Rays, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only</string>
-    <string name="text_pseudochromis" tools:ignore="UnusedResources">Pseudochromis</string>
-    <string name="text_latin_pseudochromis" tools:ignore="UnusedResources">Pseudochromis</string>
-    <string name="list_compatible_pseudochromis" tools:ignore="UnusedResources">Dwarf Angels, Anthias, Boxfish, Butterflies, Chromis, Clownfish, Damsels, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Squirrelfish, Tangs / Surgeons, Live Corals, Invertebrates</string>
-    <string name="list_incompatible_pseudochromis" tools:ignore="UnusedResources">Anglers / Frogs, Basslets, Eels, Groupers, Lions / Scorpions, Pseudochromis, Seahorse / Pipefish, Sharks / Rays, Triggerfish</string>
-    <string name="list_caution_pseudochromis" tools:ignore="UnusedResources">Large Angels, Batfish, Blennies, Cardinals, Dartfish, Dragonets, Filefish, Hogfish, Parrotfish, Puffers, Wrasse - Reef Safe, Wrasse - Fish Only</string>
-    <string name="text_puffers" tools:ignore="UnusedResources">Puffers</string>
-    <string name="text_latin_puffers" tools:ignore="UnusedResources">Tetraodontidae</string>
-    <string name="list_compatible_puffers" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anthias, Batfish, Blennies, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dragonets, Eels, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Lions / Scorpions, Parrotfish, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe</string>
-    <string name="list_incompatible_puffers" tools:ignore="UnusedResources">Puffers, Seahorse / Pipefish, Sharks / Rays, Invertebrates</string>
-    <string name="list_caution_puffers" tools:ignore="UnusedResources">Anglers / Frogs, Basslets, Boxfish, Dartfish, Groupers, Pseudochromis, Triggerfish, Wrasse - Fish Only, Live Corals</string>
-    <string name="text_pipefish" tools:ignore="UnusedResources">Seahorse / Pipefish</string>
-    <string name="text_latin_pipefish" tools:ignore="UnusedResources">Syngnathinae</string>
-    <string name="list_compatible_pipefish" tools:ignore="UnusedResources">Dragonets, Seahorse / Pipefish, Live Corals</string>
-    <string name="list_incompatible_pipefish" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Eels, Filefish, Foxface / Rabbits, Groupers, Grunts / Sweetlips, Hawkfish, Hogfish, Lions / Scorpions, Parrotfish, Pseudochromis, Puffers, Sharks / Rays, Squirrelfish, Tangs / Surgeons, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only</string>
-    <string name="list_caution_pipefish" tools:ignore="UnusedResources">Dartfish, Gobies, Jawfish, Invertebrates</string>
-    <string name="text_marine_shark" tools:ignore="UnusedResources">Sharks / Rays</string>
-    <string name="text_latin_marine_shark" tools:ignore="UnusedResources">Selachimorpha</string>
-    <string name="list_compatible_marine_shark" tools:ignore="UnusedResources">none</string>
-    <string name="list_incompatible_marine_shark" tools:ignore="UnusedResources">Dwarf Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Gobies, Jawfish, Hawkfish, Pseudochromis, Puffers, Seahorse / Pipefish, Triggerfish, Wrasse - Reef Safe, Invertebrates</string>
-    <string name="list_caution_marine_shark" tools:ignore="UnusedResources">Large Angels, Eels, Foxface / Rabbits, Groupers, Grunts / Sweetlips, Hogfish, Lions / Scorpions, Parrotfish, Sharks / Rays, Squirrelfish, Tangs / Surgeons, Wrasse - Fish Only, Live Corals</string>
-    <string name="text_squirrelfish" tools:ignore="UnusedResources">Squirrelfish</string>
-    <string name="text_latin_squirrelfish" tools:ignore="UnusedResources">Holocentridae</string>
-    <string name="list_compatible_squirrelfish" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Boxfish, Clownfish, Filefish, Foxface / Rabbits, Grunts / Sweetlips, Hawkfish, Parrotfish, Pseudochromis, Puffers, Squirrelfish, Tangs / Surgeons, Live Corals</string>
-    <string name="list_incompatible_squirrelfish" tools:ignore="UnusedResources">Groupers, Seahorse / Pipefish, Wrasse - Reef Safe\\</string>
-    <string name="list_caution_squirrelfish" tools:ignore="UnusedResources">Blennies, Butterflies, Cardinals, Chromis, Damsels, Dartfish, Dragonets, Eels, Gobies, Jawfish, Hogfish, Lions / Scorpions, Sharks / Rays, Triggerfish, Wrasse - Fish Only, Invertebrates</string>
-    <string name="text_tangs" tools:ignore="UnusedResources">Tangs / Surgeons</string>
-    <string name="text_latin_tangs" tools:ignore="UnusedResources">Acanthuridae</string>
-    <string name="list_compatible_tangs" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anglers / Frogs, Anthias, Basslets, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Eels, Filefish, Gobies, Groupers, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Lions / Scorpions, Parrotfish, Pseudochromis, Puffers, Squirrelfish, Wrasse - Reef Safe, Wrasse - Fish Only, Live Corals, Invertebrates</string>
-    <string name="list_incompatible_tangs" tools:ignore="UnusedResources">Seahorse / Pipefish</string>
-    <string name="list_caution_tangs" tools:ignore="UnusedResources">Batfish, Foxface / Rabbits, Sharks / Rays, Tangs / Surgeons, Triggerfish</string>
-    <string name="text_triggerfish" tools:ignore="UnusedResources">Triggerfish</string>
-    <string name="text_latin_triggerfish" tools:ignore="UnusedResources">Balistidae</string>
-    <string name="list_compatible_triggerfish" tools:ignore="UnusedResources">none</string>
-    <string name="list_incompatible_triggerfish" tools:ignore="UnusedResources">Anglers / Frogs, Basslets, Batfish, Cardinals, Dartfish, Dragonets, Filefish, Pseudochromis, Seahorse / Pipefish, Sharks / Rays, Invertebrates</string>
-    <string name="list_caution_triggerfish" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anthias, Blennies, Boxfish, Butterflies, Chromis, Clownfish, Damsels, Eels, Foxface / Rabbits, Gobies, Groupers, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Lions / Scorpions, Parrotfish, Puffers, Squirrelfish, Tangs / Surgeons, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only, Live Corals</string>
-    <string name="text_wrasse_reef" tools:ignore="UnusedResources">Wrasse - Reef Safe</string>
-    <string name="text_latin_wrasse_reef" tools:ignore="UnusedResources">Labridae</string>
-    <string name="list_compatible_wrasse_reef" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Jawfish, Hawkfish, Hogfish, Puffers, Tangs / Surgeons, Live Corals</string>
-    <string name="list_incompatible_wrasse_reef" tools:ignore="UnusedResources">Seahorse / Pipefish, Sharks / Rays, Squirrelfish</string>
-    <string name="list_caution_wrasse_reef" tools:ignore="UnusedResources">Anglers / Frogs, Eels, Groupers, Grunts / Sweetlips, Lions / Scorpions, Parrotfish, Pseudochromis, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only, Invertebrates</string>
-    <string name="text_wrasse_fish" tools:ignore="UnusedResources">Wrasse - Fish Only</string>
-    <string name="list_compatible_wrasse_fish" tools:ignore="UnusedResources">Large Angels, Boxfish, Clownfish, Damsels, Tangs / Surgeons</string>
-    <string name="list_incompatible_wrasse_fish" tools:ignore="UnusedResources">Seahorse / Pipefish</string>
-    <string name="list_caution_wrasse_fish" tools:ignore="UnusedResources">Dwarf Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Butterflies, Cardinals, Chromis, Dartfish, Dragonets, Eels, Filefish, Foxface / Rabbits, Gobies, Groupers, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Lions / Scorpions, Parrotfish, Pseudochromis, Puffers, Sharks / Rays, Squirrelfish, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only, Live Corals, Invertebrates</string>
-    <string name="text_live_corals" tools:ignore="UnusedResources">Live Corals</string>
-    <string name="list_compatible_live_corals" tools:ignore="UnusedResources">Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Eels, Gobies, Groupers, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Lions / Scorpions, Pseudochromis, Seahorse / Pipefish, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
-    <string name="list_incompatible_live_corals" tools:ignore="UnusedResources">Parrotfish</string>
-    <string name="text_invertebrates" tools:ignore="UnusedResources">Invertebrates</string>
-    <string name="list_compatible_marine_invertebrates" tools:ignore="UnusedResources">Anthias, Basslets, Blennies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Gobies, Jawfish, Pseudochromis, Tangs / Surgeons, Live Corals, Invertebrates</string>
-    <string name="list_incompatible_marine_invertebrates" tools:ignore="UnusedResources">Filefish, Parrotfish, Puffers, Sharks / Rays, Triggerfish</string>
-    <string name="list_caution_marine_invertebrates" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anglers / Frogs, Batfish, Boxfish, Butterflies, Eels, Foxface / Rabbits, Groupers, Grunts / Sweetlips, Hawkfish, Hogfish, Lions / Scorpions, Seahorse / Pipefish, Squirrelfish, Wrasse - Reef Safe, Wrasse - Fish Only</string>
-    <string name="text_batfish" tools:ignore="UnusedResources">Batfish</string>
-    <string name="text_latin_dragonets" tools:ignore="UnusedResources">Callionymidae</string>
-    <string name="list_compatible_dragonets" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Anthias, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Foxface / Rabbits, Gobies, Jawfish, Hawkfish, Puffers, Seahorse / Pipefish, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
-    <string name="list_caution_dragonets" tools:ignore="UnusedResources">Basslets, Batfish, Blennies, Dragonets, Filefish, Grunts / Sweetlips, Hogfish, Parrotfish, Pseudochromis, Squirrelfish, Wrasse - Fish Only</string>
-    <string name="list_incompatible_dragonets" tools:ignore="UnusedResources">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Sharks / Rays, Triggerfish</string>
-    <string name="list_caution_live_corals" tools:ignore="UnusedResources">Dwarf Angels, Large Angels, Butterflies, Filefish, Foxface / Rabbits, Puffers, Triggerfish</string>
-    <string name="text_marine_invertebrates" tools:ignore="UnusedResources">Marine Invertebrates</string>
-    <string name="text_photo_attributes" tools:ignore="UnusedResources">Photo Attributes</string>
-    <string name="text_welcome_compatibility_2" tools:ignore="UnusedResources">Wanting to get new fish but do not know if they will play nicely with what you already have?\nTap Compatibility below to check it out!</string>
-    <string name="text_welcome_compatibility" tools:ignore="UnusedResources">Wanting to get new fish but do not know if they will play nicely with what you already have? Just added is a quick reference tool to determine which fish types are compatible with which.\nNOTE:, this feature is in BETA and NON-DEFINITIVE. Mistakes may be present, but I am diligently working on everything!</string>
-    <string name="text_welcome_compatibility_title" tools:ignore="UnusedResources">NEW! Fish Compatibility Tool!</string>
+    <string name="text_lions">Lions, Scorpions</string>
+    <string name="text_latin_lions">Scorpaenidae\nPterois</string>
+    <string name="list_compatible_lions">Large Angels, Anglers / Frogs, Boxfish, Eels, Foxface / Rabbits, Groupers, Lions / Scorpions, Puffers, Tangs / Surgeons, Live Corals</string>
+    <string name="list_incompatible_lions">Basslets, Blennies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Gobies, Jawfish, Hawkfish, Pseudochromis, Seahorse / Pipefish</string>
+    <string name="list_caution_lions">Dwarf Angels, Anthias, Butterflies, Filefish, Grunts / Sweetlips, Hogfish, Parrotfish, Sharks / Rays, Squirrelfish, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only, Invertebrates</string>
+    <string name="text_parrotfish">Parrotfish</string>
+    <string name="text_latin_parrotfish">Scaridae\nSparisoma,Scarus, etc.</string>
+    <string name="list_compatible_parrotfish">Dwarf Angels, Large Angels, Anthias, Batfish, Boxfish, Butterflies, Chromis, Clownfish, Damsels, Filefish, Foxface / Rabbits, Grunts / Sweetlips, Hawkfish, Hogfish, Parrotfish, Puffers, Squirrelfish, Tangs / Surgeons</string>
+    <string name="list_incompatible_parrotfish">Seahorse / Pipefish, Live Corals, Invertebrates</string>
+    <string name="list_caution_parrotfish">Anglers / Frogs, Basslets, Blennies, Cardinals, Dartfish, Dragonets, Eels, Gobies, Groupers, Jawfish, Lions / Scorpions, Pseudochromis, Sharks / Rays, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only</string>
+    <string name="text_pseudochromis">Pseudochromis</string>
+    <string name="text_latin_pseudochromis">Pseudochromidae\nPseudochromis</string>
+    <string name="list_compatible_pseudochromis">Dwarf Angels, Anthias, Boxfish, Butterflies, Chromis, Clownfish, Damsels, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Squirrelfish, Tangs / Surgeons, Live Corals, Invertebrates</string>
+    <string name="list_incompatible_pseudochromis">Anglers / Frogs, Basslets, Eels, Groupers, Lions / Scorpions, Pseudochromis, Seahorse / Pipefish, Sharks / Rays, Triggerfish</string>
+    <string name="list_caution_pseudochromis">Large Angels, Batfish, Blennies, Cardinals, Dartfish, Dragonets, Filefish, Hogfish, Parrotfish, Puffers, Wrasse - Reef Safe, Wrasse - Fish Only</string>
+    <string name="text_puffers">Puffers</string>
+    <string name="text_latin_puffers">Tetraodontidae\nTetraodon, Carinotetraodon, etc.</string>
+    <string name="list_compatible_puffers">Dwarf Angels, Large Angels, Anthias, Batfish, Blennies, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dragonets, Eels, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Lions / Scorpions, Parrotfish, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe</string>
+    <string name="list_incompatible_puffers">Puffers, Seahorse / Pipefish, Sharks / Rays, Invertebrates</string>
+    <string name="list_caution_puffers">Anglers / Frogs, Basslets, Boxfish, Dartfish, Groupers, Pseudochromis, Triggerfish, Wrasse - Fish Only, Live Corals</string>
+    <string name="text_pipefish">Seahorse, Pipefish</string>
+    <string name="text_latin_pipefish">Syngnathinae\nHippocampus, Syngnathus, Corythoichthys, etc.</string>
+    <string name="list_compatible_pipefish">Dragonets, Seahorse / Pipefish, Live Corals</string>
+    <string name="list_incompatible_pipefish">Dwarf Angels, Large Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Eels, Filefish, Foxface / Rabbits, Groupers, Grunts / Sweetlips, Hawkfish, Hogfish, Lions / Scorpions, Parrotfish, Pseudochromis, Puffers, Sharks / Rays, Squirrelfish, Tangs / Surgeons, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only</string>
+    <string name="list_caution_pipefish">Dartfish, Gobies, Jawfish, Invertebrates</string>
+    <string name="text_marine_shark">Sharks, Rays</string>
+    <string name="text_latin_marine_shark">Various\nVarious</string>
+    <string name="list_compatible_marine_shark">none</string>
+    <string name="list_incompatible_marine_shark">Dwarf Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Gobies, Jawfish, Hawkfish, Pseudochromis, Puffers, Seahorse / Pipefish, Triggerfish, Wrasse - Reef Safe, Invertebrates</string>
+    <string name="list_caution_marine_shark">Large Angels, Eels, Foxface / Rabbits, Groupers, Grunts / Sweetlips, Hogfish, Lions / Scorpions, Parrotfish, Sharks / Rays, Squirrelfish, Tangs / Surgeons, Wrasse - Fish Only, Live Corals</string>
+    <string name="text_squirrelfish">Squirrelfish</string>
+    <string name="text_latin_squirrelfish">Holocentridae\nHolocentrus, Sargocentron, Myripristis, etc.</string>
+    <string name="list_compatible_squirrelfish">Dwarf Angels, Large Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Boxfish, Clownfish, Filefish, Foxface / Rabbits, Grunts / Sweetlips, Hawkfish, Parrotfish, Pseudochromis, Puffers, Squirrelfish, Tangs / Surgeons, Live Corals</string>
+    <string name="list_incompatible_squirrelfish">Groupers, Seahorse / Pipefish, Wrasse - Reef Safe\\</string>
+    <string name="list_caution_squirrelfish">Blennies, Butterflies, Cardinals, Chromis, Damsels, Dartfish, Dragonets, Eels, Gobies, Jawfish, Hogfish, Lions / Scorpions, Sharks / Rays, Triggerfish, Wrasse - Fish Only, Invertebrates</string>
+    <string name="text_tangs">Tangs, Surgeons</string>
+    <string name="text_latin_tangs">Acanthuridae\nAcanthurus, Ctenochaetus, Naso</string>
+    <string name="list_compatible_tangs">Dwarf Angels, Large Angels, Anglers / Frogs, Anthias, Basslets, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Eels, Filefish, Gobies, Groupers, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Lions / Scorpions, Parrotfish, Pseudochromis, Puffers, Squirrelfish, Wrasse - Reef Safe, Wrasse - Fish Only, Live Corals, Invertebrates</string>
+    <string name="list_incompatible_tangs">Seahorse / Pipefish</string>
+    <string name="list_caution_tangs">Batfish, Foxface / Rabbits, Sharks / Rays, Tangs / Surgeons, Triggerfish</string>
+    <string name="text_triggerfish">Triggerfish</string>
+    <string name="text_latin_triggerfish">Balistidae</string>
+    <string name="list_compatible_triggerfish">none</string>
+    <string name="list_incompatible_triggerfish">Anglers / Frogs, Basslets, Batfish, Cardinals, Dartfish, Dragonets, Filefish, Pseudochromis, Seahorse / Pipefish, Sharks / Rays, Invertebrates</string>
+    <string name="list_caution_triggerfish">Dwarf Angels, Large Angels, Anthias, Blennies, Boxfish, Butterflies, Chromis, Clownfish, Damsels, Eels, Foxface / Rabbits, Gobies, Groupers, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Lions / Scorpions, Parrotfish, Puffers, Squirrelfish, Tangs / Surgeons, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only, Live Corals</string>
+    <string name="text_wrasse_reef">Wrasse - Reef Safe</string>
+    <string name="text_latin_wrasse_reef">Labridae</string>
+    <string name="list_compatible_wrasse_reef">Dwarf Angels, Large Angels, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Jawfish, Hawkfish, Hogfish, Puffers, Tangs / Surgeons, Live Corals</string>
+    <string name="list_incompatible_wrasse_reef">Seahorse / Pipefish, Sharks / Rays, Squirrelfish</string>
+    <string name="list_caution_wrasse_reef">Anglers / Frogs, Eels, Groupers, Grunts / Sweetlips, Lions / Scorpions, Parrotfish, Pseudochromis, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only, Invertebrates</string>
+    <string name="text_wrasse_fish">Wrasse - Fish Only</string>
+    <string name="list_compatible_wrasse_fish">Large Angels, Boxfish, Clownfish, Damsels, Tangs / Surgeons</string>
+    <string name="list_incompatible_wrasse_fish">Seahorse / Pipefish</string>
+    <string name="list_caution_wrasse_fish">Dwarf Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Butterflies, Cardinals, Chromis, Dartfish, Dragonets, Eels, Filefish, Foxface / Rabbits, Gobies, Groupers, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Lions / Scorpions, Parrotfish, Pseudochromis, Puffers, Sharks / Rays, Squirrelfish, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only, Live Corals, Invertebrates</string>
+    <string name="text_live_corals">Live Corals</string>
+    <string name="list_compatible_live_corals">Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Eels, Gobies, Groupers, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Lions / Scorpions, Pseudochromis, Seahorse / Pipefish, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
+    <string name="list_incompatible_live_corals">Parrotfish</string>
+    <string name="text_invertebrates">Invertebrates</string>
+    <string name="list_compatible_marine_invertebrates">Anthias, Basslets, Blennies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Gobies, Jawfish, Pseudochromis, Tangs / Surgeons, Live Corals, Invertebrates</string>
+    <string name="list_incompatible_marine_invertebrates">Filefish, Parrotfish, Puffers, Sharks / Rays, Triggerfish</string>
+    <string name="list_caution_marine_invertebrates">Dwarf Angels, Large Angels, Anglers / Frogs, Batfish, Boxfish, Butterflies, Eels, Foxface / Rabbits, Groupers, Grunts / Sweetlips, Hawkfish, Hogfish, Lions / Scorpions, Seahorse / Pipefish, Squirrelfish, Wrasse - Reef Safe, Wrasse - Fish Only</string>
+    <string name="text_batfish">Batfish</string>
+    <string name="text_latin_dragonets">Callionymidae\nSynchiropus, Callionymus, etc.</string>
+    <string name="list_compatible_dragonets">Dwarf Angels, Large Angels, Anthias, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Foxface / Rabbits, Gobies, Jawfish, Hawkfish, Puffers, Seahorse / Pipefish, Tangs / Surgeons, Wrasse - Reef Safe, Live Corals, Invertebrates</string>
+    <string name="list_caution_dragonets">Basslets, Batfish, Blennies, Dragonets, Filefish, Grunts / Sweetlips, Hogfish, Parrotfish, Pseudochromis, Squirrelfish, Wrasse - Fish Only</string>
+    <string name="list_incompatible_dragonets">Anglers / Frogs, Eels, Groupers, Lions / Scorpions, Sharks / Rays, Triggerfish</string>
+    <string name="list_caution_live_corals">Dwarf Angels, Large Angels, Butterflies, Filefish, Foxface / Rabbits, Puffers, Triggerfish</string>
+    <string name="text_marine_invertebrates">Marine Invertebrates</string>
+    <string name="text_photo_attributes">Photo Attributes</string>
+    <string name="text_welcome_compatibility_2">Wanting to get new fish but do not know if they will play nicely with what you already have?\nTap Compatibility below to check it out!</string>
+    <string name="text_welcome_compatibility">Wanting to get new fish but do not know if they will play nicely with what you already have? Just added is a quick reference tool to determine which fish types are compatible with which.\nNOTE:, this feature is in BETA and NON-DEFINITIVE. Mistakes may be present, but I am diligently working on everything!</string>
+    <string name="text_welcome_compatibility_title">NEW! Fish Compatibility Info!</string>
     <string name="about">About</string>
     <string name="contact">Contact</string>
     <string name="errors_or_bugs">Errors or Bugs?</string>
@@ -531,8 +530,73 @@
     <string name="tap_to_expand">Tap to Expand</string>
     <string name="share">Share</string>
     <string name="share_this_app">Share this app!</string>
-    <string name="pleco_description">Also known as the suckermouth catfish or the common pleco, is a tropical freshwater fish belonging to the armored catfish family.</string>
     <string name="changelog_url">https://github.com/TheRealFalseReality/AquariumInformation/blob/793339b1c9f9a5d1d63d748df513aa6db0fca4cc/app/src/main/assets/Changelog.md</string>
     <string name="store_link">Store Link</string>
     <string name="tap_to_see_changelog">Tap to see Changelog</string>
+    <string name="mbuna_description">Mbuna cichlids are a large and diverse group of cichlids endemic to Lake Malawi in East Africa. They are rock-dwelling fish, and they spend most of their time grazing on algae and other plant matter from the rocks. They are also omnivores, and will eat small insects and invertebrates when available. Mbuna cichlids are highly territorial fish, and they can be quite aggressive towards other members of their own species, as well as other fish species.</string>
+    <string name="text_latin_cichlid_various">Cichlidae\nVarious</string>
+    <string name="tanganyikan_description">Tanganyikan cichlids are a diverse group of freshwater fish that are endemic to Lake Tanganyika in East Africa. They are known for their complex social behaviors and their parental care. Many Tanganyikan cichlids are mouthbrooders, meaning that the female incubates the eggs in her mouth until they hatch. Tanganyikan cichlids are also known for their territoriality, and they can be quite aggressive towards other fish, especially those of their own species.</string>
+    <string name="misc_cichlid_description">Miscellaneous African cichlids are a diverse group of freshwater fish that are native to Africa. There are over 2,000 species of African cichlids, and they come in a wide variety of shapes, sizes, and colors.</string>
+    <string name="american_cichlid_description">New World cichlids are known for their bright colors and their complex social behaviors. Many New World cichlids are mouthbrooders, meaning that the female incubates the eggs in her mouth until they hatch. New World cichlids can also be quite aggressive, especially towards other members of their own species.</string>
+    <string name="freshwater_angelfish_description">Freshwater angelfish are known for their beautiful appearance, with their tall, pointed fins and their sparkling scales. Angelfish are native to the Amazon River basin in South America. They are found in a variety of habitats, including rivers, streams, and lakes.</string>
+    <string name="barb_description">Barbs are a diverse group of freshwater fish that are native to Africa, Asia, and Europe. Most barbs are schooling fish, and they do best when kept in groups of at least five or more. However, it is important to note that some barbs can be fin nippers, so they should not be kept with fish with long or delicate fins.</string>
+    <string name="text_latin_cyprinidae">Cyprinidae</string>
+    <string name="betta_description">Betta fish, also known as Siamese fighting fish, are small, freshwater fish that are native to Southeast Asia. Betta fish are known for their aggression, especially towards other male betta fish. For this reason, it is best to keep only one male betta fish per aquarium. Female betta fish can be kept together in small groups, but it is important to watch for signs of aggression and separate the fish if necessary.</string>
+    <string name="cory_cats_description">Cory cats, also known as Corydoras catfish, are known for their peaceful temperament, bottom-dwelling lifestyle, and ability to clean up algae and other debris. Cory cats are typically found in groups in the wild, and they do best when kept in groups in the aquarium as well.</string>
+    <string name="danio_description">Danio fish are native to South and Southeast Asia. They typically live in streams and rivers with clear, fast-moving water. Danio fish are social animals, and they do best when kept in groups of six or more. They are also relatively peaceful fish, and they can be kept with other fish of similar size and temperament.</string>
+    <string name="discus_description">Discus fish are a genus of cichlids that are native to the Amazon River basin in South America. They are known for their distinctive disk-shaped body and their bright colors and patterns.</string>
+    <string name="goldfish_description">Fancy goldfish are a group of goldfish that have been bred for their unique and ornamental features. Fancy goldfish are also more prone to certain diseases than common goldfish.</string>
+    <string name="gourami_description">Gouramis are a group of freshwater fish that are native to Asia. They are also relatively hardy fish and can tolerate a wide range of water conditions. However, gouramis do require a well-planted aquarium with plenty of hiding places.</string>
+    <string name="guppy_description">Guppies are native to South America and the Caribbean, but have been introduced to many parts of the world. Guppies are livebearers, meaning that they give birth to live young instead of laying eggs. The male guppies are smaller and more brightly colored than the females. Male guppies have long, flowing tails, while females have shorter, more rounded tails. Guppies are social fish and do best when kept in groups of six or more. They can also be kept with other peaceful community fish, such as tetras and platies.</string>
+    <string name="hatchets_description">Freshwater hatchet fish are a group of small, colorful fish that are native to South and Central America. They are known for their unique body shape, which resembles a hatchet with large pectoral fins. Hatchet fish are schooling fish, and they prefer to live in groups of six or more.</string>
+    <string name="killifish_description">Freshwater killifish are a group of small, colorful fish that are native to Africa, South America, and Central America. Killifish are known for their short lifespans. Most species live for only one to two years, but some live for as long as four years. Killifish are also known for their ability to go into a dormant state during dry periods. This dormancy allows them to survive droughts and other harsh conditions.</string>
+    <string name="catfish_description" />
+    <string name="loaches_description">Loaches are a diverse group of bottom-dwelling fish that are found in freshwater habitats all over the world. They are known for their long, slender bodies, small scales, and whisker-like barbels around their mouths. Loaches use their barbels to sift through the sand and mud at the bottom of rivers and lakes in search of food.</string>
+    <string name="mollies_description">Mollies are native to Central and South America, and they can be found in a variety of habitats, including rivers, lakes, and estuaries. They are omnivores and eat a variety of foods, including algae, plants, insects, and small crustaceans. Mollies are a type of freshwater fish that are known for their bright colors and active personalities.</string>
+    <string name="platy_description">Platies are native to Central America and Mexico, and they come in a wide variety of colors and patterns. Some of the most popular colors include red, orange, yellow, blue, and green. Platies are also known for their unique markings, such as spots, stripes, and marbling.</string>
+    <string name="plecos_description">Plecostomus, also known as plecos, suckermouth catfish, and janitor fish, are a large and diverse group of freshwater fish that are native to South America. They are known for their armored bodies, large sucker mouths, and their ability to eat algae.</string>
+    <string name="rainbowfish_description">Rainbowfish are a group of small, freshwater fish that are native to Australia, New Guinea, and Indonesia. They are known for their bright and colorful scales, which can range in color from blue and green to red and yellow. Rainbowfish are typically between 3 and 6 inches long, and they have a slender body with a forked tail.</string>
+    <string name="rasboras_description">Rasboras are a group of small, colorful fish that are native to Southeast Asia. Rasboras are schooling fish, and they prefer to live in groups of six or more. Rasboras are also relatively peaceful fish, and they can be kept with other peaceful fish, such as tetras, guppies, and mollies.</string>
+    <string name="freshwater_shark_description">" \"Freshwater sharks\" or simply \"Sharks\", but they are not actually related to sharks. Epalzeorhynchos fish are found in Southeast Asia."</string>
+    <string name="swordtails_description">Swordtails are native to Central America, where they inhabit rivers and streams with slow-moving water. Swordtails are named for their sword-shaped lower tail fin, which is present in males. Females have a rounded tail fin.</string>
+    <string name="tetras_description">Tetras are native to South America, Africa, and Central America. Tetras have a long, slender body with a small adipose fin between the dorsal and caudal fins. Tetras are schooling fish, and they need to be kept in groups of at least six individuals. Tetras are also relatively peaceful fish, but they can be aggressive towards smaller fish.</string>
+    <string name="misc_fish_description" />
+    <string name="freshwater_inverts_description">Freshwater aquarium invertebrates are a diverse group of animals that can add interest and beauty to an aquarium. They come in a variety of shapes, sizes, and colors, and they can play an important role in maintaining the health of your aquarium ecosystem.\nSnails: Snails are helpful scavengers that can help to keep your aquarium clean by eating algae and detritus. There are many different species of snails to choose from, including mystery snails, nerite snails, and ramshorn snails.\nShrimp: Shrimp are another popular type of freshwater aquarium invertebrate. They are active and peaceful creatures that are easy to care for. There are many different species of shrimp to choose from, including cherry shrimp, amano shrimp, and ghost shrimp.\nCrayfish: Crayfish are larger and more aggressive than shrimp, but they can make interesting and unique additions to an aquarium. They are also helpful scavengers that can help to keep your aquarium clean.\nCrabs: Crabs are another type of freshwater aquarium invertebrate. They are active and interesting creatures that can make fun additions to an aquarium. However, it is important to note that some crabs can be aggressive towards other fish and invertebrates.</string>
+    <string name="brackish_description">Aquarium brackish fish are fish that can tolerate a wide range of salinities, from freshwater to saltwater. They are typically found in estuaries, where rivers and oceans meet, and in other areas with brackish water, such as mangrove swamps and coastal lagoons.</string>
+    <string name="koi_description">Koi (鯉, [koꜜi]) are ornamental colored varieties of the common carp (Cyprinus carpio) that are kept for decorative purposes in outdoor koi ponds or water gardens. Koi are a type of domesticated fish that originated in Japan in the 19th century.</string>
+    <string name="text_latin_pond_fish">Cyprinidae\nCyprinus</string>
+    <string name="freshwater_plants_description">Freshwater aquarium plants are a great addition to any freshwater aquarium. They provide many benefits, including:\nImproving water quality by absorbing harmful toxins and providing oxygen\nProviding hiding places and shelter for fish and other aquatic life\nAdding natural beauty and interest to the aquarium</string>
+    <string name="dwarf_angels_description">Dwarf angels are found in a variety of reef habitats, and they eat a variety of foods, including algae, sponges, and small invertebrates. Dwarf angels can be a bit territorial, so it is important to choose the right species for your aquarium and to provide them with plenty of hiding places.</string>
+    <string name="large_angels_description">" Angels are found in tropical and subtropical reefs around the world, and they come in a variety of shapes and sizes. They require a large aquarium with plenty of live rock and hiding places. They also need a diet that is rich in algae and other marine invertebrates."</string>
+    <string name="text_latin_anglers">Antennariidae\nAntennarius</string>
+    <string name="anglers_description">"Anglers, also known as frogfish, are a group of predatory fish that are found in tropical and subtropical reefs around the world. They are known for their unique appearance, which includes a large, bulbous head and a modified dorsal spine that they use to lure prey. "</string>
+    <string name="anthia_description">Anthias are a group of small, colorful fish that are found in tropical and subtropical reefs around the world. They are known for their vibrant colors and their schooling behavior. Anthias are typically found in large groups, and they can be very impressive to see swimming together.</string>
+    <string name="basslets_description">Basslets are found in tropical and subtropical waters around the world, and they are often found in deep reefs and lagoons. They are also known to eat small fish and invertebrates. Basslets play an important role in the reef ecosystem by helping to control algae growth and by providing food for other fish.</string>
+    <string name="batfish_description">Batfish (family Ogcocephalidae) are a group of flattened, bottom-dwelling fish that are found in tropical and subtropical oceans around the world. They are known for their unique appearance, with large, flattened heads and wing-like pectoral fins. Batfish are also known for their ability to \"walk\" on the seabed using their pectoral and pelvic fins.</string>
+    <string name="blennies_description">Blennies are a large and diverse group of small fish that are found in marine, freshwater, and brackish habitats all over the world. They are known for their long, slender bodies, large eyes, and brightly colored fins. Blennies are also known for their unique behavior, such as their ability to walk on land and their habit of hiding in crevices and burrows.</string>
+    <string name="boxfish_description">Boxfish, also known as cowfish or trunkfish, are a group of brightly colored and uniquely shaped fish that are found in tropical and subtropical reefs around the world. They are characterized by their rigid, box-like bodies and their hexagonal or \"honeycomb\" patterns on their skin. Boxfish are also known for their strong teeth and their ability to produce a toxic mucus to deter predators.</string>
+    <string name="butterflies_description">Butterflyfish are a group of colorful and diverse fish that are found in tropical reefs around the world. They are known for their thin, disk-shaped bodies and their bright, intricate patterns. They are also known to eat parasites from other fish.</string>
+    <string name="cardinals_description">Cardinalfish are a group of small, colorful fish that are found in tropical and subtropical reefs around the world. They are known for their bright colors and their unique behavior. Cardinalfish are often found in pairs or small groups, and they are known to form long-term bonds. They are also known to eat coral polyps and algae.</string>
+    <string name="chromis_description">Chromis fish are found in tropical and subtropical reefs around the world. Chromis is a genus of saltwater fish in the family Pomacentridae, which also includes damselfish and clownfish. Chromis are generally more peaceful than damselfish</string>
+    <string name="clownfish_description">Clownfish are small, colorful fish that are found in tropical and subtropical reefs around the world. They are known for their symbiotic relationship with sea anemones, which they use for protection and shelter. Clownfish have a unique symbiotic relationship with sea anemones. Sea anemones are stinging coral polyps that can provide protection and shelter for clownfish. Clownfish, in turn, help to clean the anemone and protect it from predators.</string>
+    <string name="damsels_description">Damsels are a group of small to medium-sized fish that are found in tropical and subtropical reefs around the world. They are known for their bright colors and their territorial behavior. Damsels are often found in groups, and they can be very aggressive towards other fish, especially those of their own species.</string>
+    <string name="dartfish_description">Dartfish are a group of small, colorful fish that are found in coral reefs around the world. They are known for their unique behavior, which includes swimming in tight formations and performing synchronized dances. Dartfish are also known for their territoriality, and they can be quite aggressive towards other fish, especially those of their own species.</string>
+    <string name="dragonets_description">Dragonets, also known as Callionymidae, are a diverse group of small, marine fish that are found mainly in the tropical waters of the Indo-Pacific. They are known for their elongated bodies, large heads, and brightly colored fins. Dragonets are bottom-dwelling fish, and they spend most of their time foraging for food in the sand.</string>
+    <string name="eels_description">Aquarium eels are all members of the order Anguilliformes, which also includes freshwater eels and moray eels. However, aquarium eels are generally smaller and more peaceful than their wild counterparts. </string>
+    <string name="filefish_description">Filefish are also known as foolfish, leatherjackets, or shingles. They live in the Atlantic, Pacific and Indian Oceans. Filefish are closely related to triggerfish, pufferfish and trunkfish. Filefish are characterized by their rough, sandpapery skin and their large, retractable dorsal spine. The dorsal spine is used for defense, and it can be locked upright to deter predators. Filefish also have a small mouth and a flattened body.</string>
+    <string name="foxface_description">Foxface rabbitfish are typically found in shallow reefs and lagoons in the Indo-Pacific region. They are herbivores, and their diet consists primarily of algae and seagrass.</string>
+    <string name="gobies_description">Gobies are found in all oceans and in many freshwater habitats. Gobies are generally peaceful fish and make good additions to community aquariums. However, some species can be territorial, so it is important to do your research before choosing which gobies to keep together.</string>
+    <string name="groupers_description">Groupers are a large and diverse group of fish that are found in tropical and subtropical oceans around the world. They are known for their large size, stout bodies, and powerful jaws. Groupers are predators, and they feed on a variety of fish, invertebrates, and other marine life.</string>
+    <string name="grunts_description">Grunts are known for their ability to produce a grunting sound by grinding their teeth together. This sound is used to communicate with other grunts, and it can also be used to defend territory or attract mates.</string>
+    <string name="jawfish_description">Jawfish are known for their unique behavior of building and maintaining burrows in the sand. Jawfish are also known for their bright colors and their aggressive nature.</string>
+    <string name="hawkfish_description">Hawkfish are known for their distinctive perch-and-sally behavior, where they perch on a rock or coral head and wait for prey to swim by. Once they see prey, they quickly dart out to capture it.</string>
+    <string name="hogfish_description">Hogfish are a family of saltwater fish that are known for their long, pig-like snouts. They are found in tropical and subtropical reefs around the world.</string>
+    <string name="lions_description">Lionfish (Pterois volitans and Pterois miles) are marine fish native to the Indo-Pacific region, but have become an invasive species in the Atlantic Ocean. They are known for their beautiful but venomous spines. Lionfish are also voracious predators, and can have a negative impact on native ecosystems.</string>
+    <string name="parrotfish_description">Parrotfish, also known as Scaridae, are a large and diverse group of fish found in tropical and subtropical reefs around the world. They are known for their brightly colored bodies and their unique beak-like mouths, which they use to graze on algae and coral polyps. Parrotfish play an important role in the reef ecosystem by helping to control algae growth and by excreting sand, which helps to build and maintain the reefs.</string>
+    <string name="pseudochromis_description">Pseudochromis, also known as dottybacks, are found in tropical and subtropical reefs around the world. Pseudochromis are generally peaceful fish, but they can be territorial towards other members of their own species.</string>
+    <string name="puffers_description">Puffers are known for their ability to inflate their bodies to avoid being eaten by predators. Pufferfish are also known for their intelligence and their playful personalities.</string>
+    <string name="pipefish_description">They are known for their long, slender bodies, prehensile tails, and unusual swimming style. Seahorses are found in tropical and subtropical oceans around the world, while pipefish are found in both freshwater and saltwater habitats.</string>
+    <string name="sharks_rays_description">Aquarium sharks and rays require a large aquarium with plenty of hiding places and a powerful filter. They also need a diet that is high in protein and low in carbohydrates.</string>
+    <string name="squirrelfish_description">Squirrelfish are found in tropical and subtropical reefs around the world, and they come in a variety of shapes and sizes.</string>
+    <string name="tangs_description">Tangs are a large and diverse group of fish that are popular for their bright colors, active behavior, and relatively easy care. Tangs are found in tropical and subtropical reefs around the world.</string>
 </resources>

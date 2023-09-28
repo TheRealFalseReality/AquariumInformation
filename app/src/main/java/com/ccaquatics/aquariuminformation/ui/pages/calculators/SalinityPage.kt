@@ -16,14 +16,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.data.calculators.salinityDataSource
+import com.ccaquatics.aquariuminformation.ui.commonui.BodyText
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculateField
 import com.ccaquatics.aquariuminformation.ui.commonui.CalculatedText
 import com.ccaquatics.aquariuminformation.ui.commonui.FormulaString
 import com.ccaquatics.aquariuminformation.ui.commonui.GenericCalculatePage
 import com.ccaquatics.aquariuminformation.ui.commonui.InputNumberField
-import com.ccaquatics.aquariuminformation.ui.commonui.LabelConductivity
-import com.ccaquatics.aquariuminformation.ui.commonui.LabelSalinity
-import com.ccaquatics.aquariuminformation.ui.commonui.LabelSpecificGravity
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.RadioButtonTwoUnits
 import com.ccaquatics.aquariuminformation.ui.commonui.SingleWideCardExpandableRadio
@@ -120,14 +118,14 @@ fun SalinityLayout(
 						contentColor = color,
 						containerColor = containerColor,
 						calculateContent = {
-							LabelSpecificGravity()
+							BodyText(text = salinityDataSource.labelSpecificGravity)
 							CalculatedText(
 								text = salinityDataSource.calculatedTextSg,
 								calculatedValue = sg,
 								textColor = contentColor,
 							)
 							VerySmallSpacer()
-							LabelConductivity()
+							BodyText(text = salinityDataSource.labelConductivity)
 							CalculatedText(
 								text = salinityDataSource.calculatedTextDensity,
 								calculatedValue = salDensityPPT,
@@ -155,14 +153,14 @@ fun SalinityLayout(
 						contentColor = color,
 						containerColor = containerColor,
 						calculateContent = {
-							LabelSalinity()
+							BodyText(text = salinityDataSource.labelSalinity)
 							CalculatedText(
 								text = salinityDataSource.calculatedTextPpt,
 								calculatedValue = ppt,
 								textColor = contentColor,
 							)
 							VerySmallSpacer()
-							LabelConductivity()
+							BodyText(text = salinityDataSource.labelConductivity)
 							CalculatedText(
 								text = salinityDataSource.calculatedTextDensity,
 								calculatedValue = salDensitySG,
