@@ -10,3 +10,5 @@ This app is built with the Kotlin language using Android SDK.
 This app is featured on the Google Play Store.
 
 This app was created by Nicholas White from Capital City Aquatics.
+
+[Google Store Link](https://play.google.com/store/apps/details?id=cca.capitalcityaquatics.aquariuminfo&hl=en_US&pli=1)
