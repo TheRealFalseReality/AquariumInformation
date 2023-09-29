@@ -47,6 +47,7 @@ android {
 				name  = "appVersion",
 				value = "${defaultConfig.versionName}"
 			)
+			signingConfig = signingConfigs.getByName("debug")
 		}
 		debug {
 			isDebuggable = true
