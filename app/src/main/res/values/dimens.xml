@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium_small">12dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_large">24dp</dimen>
+    <dimen name="icon_size_large">64dp</dimen>
+    <dimen name="image_size_large">100dp</dimen>
+    <dimen name="icon_size_verySmall">24dp</dimen>
+    <dimen name="icon_size_small">36dp</dimen>
+    <dimen name="icon_size_medium">48dp</dimen>
+    <dimen name="padding_verySmall">4dp</dimen>
+    <dimen name="elevation_small">4dp</dimen>
+    <dimen name="elevation_medium">8dp</dimen>
+    <dimen name="elevation_large">16dp</dimen>
+    <dimen name="button_height_medium">56dp</dimen>
+    <dimen name="button_height_small">48dp</dimen>
+    <dimen name="shape_medium">6dp</dimen>
+    <dimen name="border_stroke_small">2dp</dimen>
+    <dimen name="border_stroke_verySmall">1dp</dimen>
+    <dimen name="corner_radius_medium">10dp</dimen>
+    <dimen name="corner_radius_filled">50dp</dimen>
+    <dimen name="grid_colum_medium">400dp</dimen>
+    <dimen name="icon_trailing_small">18dp</dimen>
+    <dimen name="card_large">12dp</dimen>
+    <dimen name="card_image_height">200dp</dimen>
+</resources>
