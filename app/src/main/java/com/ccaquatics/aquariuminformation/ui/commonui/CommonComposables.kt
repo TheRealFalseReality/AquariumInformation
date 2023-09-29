@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -27,7 +26,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -336,22 +334,22 @@ fun SingleWideCardExpandableFull(
 						Row(
 							modifier = Modifier
 								.fillMaxWidth(),
-							verticalAlignment = Alignment.CenterVertically,
+//							verticalAlignment = Alignment.CenterVertically,
 							horizontalArrangement = Arrangement.SpaceBetween
 						) {
 							Column {
-//								SmallSpacer()
+								SmallSpacer()
 								HeaderText(
 									text = header,
 									color = contentColor,
 									style = headerStyle
 								)
-								VerySmallSpacer()
-								subtitleContent()
-//								if (expanded) {
-//									VerySmallSpacer()
-//									subtitleContent()
-//								}
+//								VerySmallSpacer()
+//								subtitleContent()
+								if (expanded) {
+									VerySmallSpacer()
+									subtitleContent()
+								}
 							}
 							Row(
 								verticalAlignment = Alignment.CenterVertically
@@ -403,46 +401,46 @@ fun SingleWideCardExpandableFull(
 	}
 }
 
-@Composable
-fun UnitButtonCard(
-	modifier: Modifier = Modifier,
-	header: Int = R.string.select_input_units,
-	content: @Composable RowScope.() -> Unit,
-	containerColor: Color = MaterialTheme.colorScheme.background,
-	contentColor: Color,
-	shape: Shape = Shapes.large,
-) {
-	Column(modifier = modifier) {
-		ElevatedCard(
-			elevation = CardDefaults.cardElevation(8.dp),
-			colors = CardDefaults.cardColors(
-				containerColor = containerColor,
-				contentColor = contentColor
-			),
-			shape = shape
-		) {
-			Column(
-				modifier = Modifier
-					.padding(dimensionResource(id = R.dimen.padding_small))
-					.fillMaxWidth(fraction = 0.6f),
-			) {
-				HeaderText(
-					text = header,
-					color = contentColor
-				)
-				Row(
-					modifier = Modifier
-						.selectableGroup()
-						.fillMaxWidth(),
-					horizontalArrangement = Arrangement.Center,
-					verticalAlignment = Alignment.Top
-				) {
-					content()
-				}
-			}
-		}
-	}
-}
+//@Composable
+//fun UnitButtonCard(
+//	modifier: Modifier = Modifier,
+//	header: Int = R.string.select_input_units,
+//	content: @Composable RowScope.() -> Unit,
+//	containerColor: Color = MaterialTheme.colorScheme.background,
+//	contentColor: Color,
+//	shape: Shape = Shapes.large,
+//) {
+//	Column(modifier = modifier) {
+//		ElevatedCard(
+//			elevation = CardDefaults.cardElevation(8.dp),
+//			colors = CardDefaults.cardColors(
+//				containerColor = containerColor,
+//				contentColor = contentColor
+//			),
+//			shape = shape
+//		) {
+//			Column(
+//				modifier = Modifier
+//					.padding(dimensionResource(id = R.dimen.padding_small))
+//					.fillMaxWidth(fraction = 0.6f),
+//			) {
+//				HeaderText(
+//					text = header,
+//					color = contentColor
+//				)
+//				Row(
+//					modifier = Modifier
+//						.selectableGroup()
+//						.fillMaxWidth(),
+//					horizontalArrangement = Arrangement.Center,
+//					verticalAlignment = Alignment.Top
+//				) {
+//					content()
+//				}
+//			}
+//		}
+//	}
+//}
 
 @Composable
 fun TextCard(
@@ -632,32 +630,32 @@ fun PopOutlinedCard(
 	}
 }
 
-@Composable
-fun ThemeSwitch() {
-	var isDarkTheme by remember { mutableStateOf(true) }
-
-	AquariumInformationTheme(useDarkTheme = isDarkTheme) {
-		Row(
-			verticalAlignment = Alignment.CenterVertically,
-			modifier = Modifier
-				.fillMaxWidth()
-				.padding(
-					horizontal = 16.dp,
-					vertical = 10.dp
-				),
-			horizontalArrangement = Arrangement.spacedBy(8.dp)
-		) {
-			Text("☀️")
-			Switch(
-				checked = isDarkTheme,
-				onCheckedChange = {
-					isDarkTheme = it
-				}
-			)
-			Text("🌘")
-		}
-	}
-}
+//@Composable
+//fun ThemeSwitch() {
+//	var isDarkTheme by remember { mutableStateOf(true) }
+//
+//	AquariumInformationTheme(useDarkTheme = isDarkTheme) {
+//		Row(
+//			verticalAlignment = Alignment.CenterVertically,
+//			modifier = Modifier
+//				.fillMaxWidth()
+//				.padding(
+//					horizontal = 16.dp,
+//					vertical = 10.dp
+//				),
+//			horizontalArrangement = Arrangement.spacedBy(8.dp)
+//		) {
+//			Text("☀️")
+//			Switch(
+//				checked = isDarkTheme,
+//				onCheckedChange = {
+//					isDarkTheme = it
+//				}
+//			)
+//			Text("🌘")
+//		}
+//	}
+//}
 
 @Composable
 fun AppDivider(

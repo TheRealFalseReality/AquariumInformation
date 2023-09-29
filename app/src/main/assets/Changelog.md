@@ -23,7 +23,7 @@ All notable changes to this project will be documented in this file.
 ### 2.0 - 2023.9.1
 
 **Changed**
-* Complete rewrite of code.
+* Complete rewrite of UI code.
 
 **Added**
 * Fish descriptions

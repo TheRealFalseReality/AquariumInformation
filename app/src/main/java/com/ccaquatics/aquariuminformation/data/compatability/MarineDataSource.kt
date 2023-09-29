@@ -57,7 +57,7 @@ class MarineDataSource {
 			),
 			// Batfish
 			CompatabilityData(
-				R.drawable.batfish, // TODO Update image
+				R.drawable.batfish,
 				R.string.text_batfish,
 				R.string.text_latin_batfish,
 				R.string.list_compatible_batfish,
@@ -325,7 +325,6 @@ class MarineDataSource {
 				R.string.list_incompatible_tangs,
 				R.string.tangs_description
 			),
-			// TODO Finish Below
 			// Triggerfish
 			CompatabilityData(
 				R.drawable.triggerfish,
@@ -334,9 +333,9 @@ class MarineDataSource {
 				R.string.list_compatible_triggerfish,
 				R.string.list_caution_triggerfish,
 				R.string.list_incompatible_triggerfish,
-				R.string.tangs_description
+				R.string.triggerfish_description
 			),
-			//Wrasse - Reef Safe
+			// Wrasse - Reef Safe
 			CompatabilityData(
 				R.drawable.wrasse_reef,
 				R.string.text_wrasse_reef,
@@ -344,29 +343,29 @@ class MarineDataSource {
 				R.string.list_compatible_wrasse_reef,
 				R.string.list_caution_wrasse_reef,
 				R.string.list_incompatible_wrasse_reef,
-				R.string.tangs_description
+				R.string.wrasse_reef_description
 			),
-			//Wrasee - Fish Only
+			// Wrasee - Fish Only
 			CompatabilityData(
 				R.drawable.wrasse_fish,
 				R.string.text_wrasse_fish,
-				R.string.text_latin_wrasse_reef,
+				R.string.text_latin_wrasse,
 				R.string.list_compatible_wrasse_fish,
 				R.string.list_caution_wrasse_fish,
 				R.string.list_incompatible_wrasse_fish,
-				R.string.tangs_description
+				R.string.text_wrasse_description
 			),
-			//Live Coral
+			// Live Coral
 			CompatabilityData(
 				R.drawable.live_coral,
 				R.string.text_live_corals,
-				R.string.text_latin_various,
+				R.string.text_latin_coral,
 				R.string.list_compatible_live_corals,
 				R.string.list_caution_live_corals,
 				R.string.list_incompatible_live_corals,
-				R.string.tangs_description
+				R.string.coral_description
 			),
-			//CompatabilityData Inverts
+			// CompatabilityData Inverts
 			CompatabilityData(
 				R.drawable.seastar,
 				R.string.text_marine_invertebrates,
@@ -374,7 +373,7 @@ class MarineDataSource {
 				R.string.list_compatible_marine_invertebrates,
 				R.string.list_caution_marine_invertebrates,
 				R.string.list_incompatible_marine_invertebrates,
-				R.string.tangs_description
+				R.string.marine_inverts_description
 			),
 		)
 	}

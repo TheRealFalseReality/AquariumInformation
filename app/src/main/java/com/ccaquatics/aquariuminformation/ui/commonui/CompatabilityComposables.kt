@@ -1,5 +1,6 @@
 package com.ccaquatics.aquariuminformation.ui.commonui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,9 +16,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.R
 import com.ccaquatics.aquariuminformation.data.compatability.CompatabilityData
+import com.ccaquatics.aquariuminformation.data.compatability.disclaimerDataSource
+import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @Composable
 fun CompatabilityDataList(
@@ -39,6 +45,9 @@ fun CompatabilityDataList(
 				content = {
 					items(marineList) { compatabilityData ->
 						FishCardsCompatabilityData(compatabilityData = compatabilityData)
+					}
+					item {
+						Disclaimer()
 					}
 				}
 			)
@@ -78,15 +87,15 @@ fun FishCardsCompatabilityData(
 					contentDescription = compatabilityData.title,
 				)
 			},
-//			subtitleContent = {
-//				BodyText(
-//					text = compatabilityData.latin,
-//					style = MaterialTheme.typography.labelLarge,
-//					fontStyle = FontStyle.Italic,
-//					textAlign = TextAlign.Start,
-//					color = contentColor
-//				)
-//			},
+			subtitleContent = {
+				BodyText(
+					text = compatabilityData.latin,
+					style = MaterialTheme.typography.labelLarge,
+					fontStyle = FontStyle.Italic,
+					textAlign = TextAlign.Start,
+					color = contentColor
+				)
+			},
 			descriptionContent = {
 				BodyText(
 					text = compatabilityData.description,
@@ -156,5 +165,30 @@ fun FishCardsCompatabilityData(
 				}
 			}
 		)
+	}
+}
+
+@Composable
+fun Disclaimer(modifier: Modifier = Modifier) {
+	Column(modifier = modifier) {
+		IconTextRow(
+			icon = disclaimerDataSource.icon,
+			text = disclaimerDataSource.text,
+			fontWeight = FontWeight.Bold
+		)
+	}
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TankVolumePreviewDark(
+) {
+	AquariumInformationTheme(useDarkTheme = true) {
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.background)
+		) {
+			Disclaimer()
+		}
 	}
 }

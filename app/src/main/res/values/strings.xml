@@ -455,12 +455,12 @@
     <string name="list_incompatible_tangs">Seahorse / Pipefish</string>
     <string name="list_caution_tangs">Batfish, Foxface / Rabbits, Sharks / Rays, Tangs / Surgeons, Triggerfish</string>
     <string name="text_triggerfish">Triggerfish</string>
-    <string name="text_latin_triggerfish">Balistidae</string>
+    <string name="text_latin_triggerfish">Balistidae\nBalistoides, Rhinecanthus, Odonus, etc.</string>
     <string name="list_compatible_triggerfish">none</string>
     <string name="list_incompatible_triggerfish">Anglers / Frogs, Basslets, Batfish, Cardinals, Dartfish, Dragonets, Filefish, Pseudochromis, Seahorse / Pipefish, Sharks / Rays, Invertebrates</string>
     <string name="list_caution_triggerfish">Dwarf Angels, Large Angels, Anthias, Blennies, Boxfish, Butterflies, Chromis, Clownfish, Damsels, Eels, Foxface / Rabbits, Gobies, Groupers, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Lions / Scorpions, Parrotfish, Puffers, Squirrelfish, Tangs / Surgeons, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only, Live Corals</string>
     <string name="text_wrasse_reef">Wrasse - Reef Safe</string>
-    <string name="text_latin_wrasse_reef">Labridae</string>
+    <string name="text_latin_wrasse_reef">Labridae\nCirrhilabrus, Pseudocheilinus, Paracheilinus, etc.</string>
     <string name="list_compatible_wrasse_reef">Dwarf Angels, Large Angels, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Foxface / Rabbits, Gobies, Jawfish, Hawkfish, Hogfish, Puffers, Tangs / Surgeons, Live Corals</string>
     <string name="list_incompatible_wrasse_reef">Seahorse / Pipefish, Sharks / Rays, Squirrelfish</string>
     <string name="list_caution_wrasse_reef">Anglers / Frogs, Eels, Groupers, Grunts / Sweetlips, Lions / Scorpions, Parrotfish, Pseudochromis, Triggerfish, Wrasse - Reef Safe, Wrasse - Fish Only, Invertebrates</string>
@@ -498,7 +498,7 @@
     <string name="overview">Overview</string>
     <string name="temperature">Temperature</string>
     <string name="carbon_dioxide">Carbon Dioxide</string>
-    <string name="compatibility">Compatibility</string>
+    <string name="compatibility">Information</string>
     <string name="salinity">Salinity</string>
     <string name="alkalinity">Alkalinity</string>
     <string name="co">CO₂</string>
@@ -598,5 +598,14 @@
     <string name="pipefish_description">They are known for their long, slender bodies, prehensile tails, and unusual swimming style. Seahorses are found in tropical and subtropical oceans around the world, while pipefish are found in both freshwater and saltwater habitats.</string>
     <string name="sharks_rays_description">Aquarium sharks and rays require a large aquarium with plenty of hiding places and a powerful filter. They also need a diet that is high in protein and low in carbohydrates.</string>
     <string name="squirrelfish_description">Squirrelfish are found in tropical and subtropical reefs around the world, and they come in a variety of shapes and sizes.</string>
-    <string name="tangs_description">Tangs are a large and diverse group of fish that are popular for their bright colors, active behavior, and relatively easy care. Tangs are found in tropical and subtropical reefs around the world.</string>
+    <string name="tangs_description">Tangs are a large and diverse group of fish that are popular for their bright colors, active behavior, and algae-eating abilities. Tangs are found in tropical and subtropical reefs around the world.</string>
+    <string name="disclaimer">Disclaimer</string>
+    <string name="this_information_is_not_exhaustive">This information is not definitive or exhaustive.</string>
+    <string name="triggerfish_description">Triggerfish are a diverse group of marine fish that are known for their aggressive behavior and their distinctive dorsal spine. They are also called balistids, after their scientific name Balistidae. Triggerfish can be found in tropical and subtropical waters around the world. They have a small mouth with strong teeth and a large dorsal spine. The dorsal spine is used to defend themselves from predators and to wedge themselves into crevices.</string>
+    <string name="wrasse_reef_description">Many wrasses are beneficial to reef aquariums, as they help to control pests and parasites, but some wrasses can be territorial or aggressive.</string>
+    <string name="text_latin_wrasse">Labridae\nCirrhilabrus, Halichoeres, Labroides, etc.</string>
+    <string name="text_wrasse_description">Wrasses are a large family of saltwater fish, with over 1,500 species. They are known for their bright colors and diverse body shapes. Wrasses are also very active fish, and they can add a lot of personality to a fish-only aquarium. Wrasses are generally carnivores, and they should be fed a diet of high-quality meaty foods, such as frozen mysis shrimp, brine shrimp, and bloodworms. Some wrasses will also eat algae and other plant matter.</string>
+    <string name="text_latin_coral">Acroporidae, Faviidae, Zoanthidae, etc.\nAcropora, Favia, Zoanthus, etc.</string>
+    <string name="coral_description">Aquarium coral provides a number of benefits to aquariums. It helps to filter the water, provides habitat for fish and other marine life, and adds beauty to the aquarium.</string>
+    <string name="marine_inverts_description">Corals: Corals are small, colonial animals that build reefs. They come in a variety of colors and shapes, and can add a lot of visual interest to an aquarium.\nAnemones: Anemones are related to corals, but they are solitary animals. They have a central mouth surrounded by stinging tentacles. Anemones can provide a home for clownfish and other fish.\nShrimp: There are many different types of shrimp that can be kept in a marine aquarium. Some shrimp are scavengers, while others are filter feeders. Shrimp can help to keep your aquarium clean and healthy.\nSnails: Snails are another type of scavenger that can be kept in a marine aquarium. They can help to remove algae and other detritus from the aquarium.\nCrabs: Crabs are another type of scavenger that can be kept in a marine aquarium. They can also help to control algae populations.</string>
 </resources>

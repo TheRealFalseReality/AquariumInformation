@@ -135,35 +135,35 @@ fun BodyText(
 	}
 }
 
-@Composable
-fun TextRow(
-	modifier: Modifier = Modifier,
-	@StringRes text1: Int,
-	@StringRes text2: Int,
-	color: Color = MaterialTheme.colorScheme.onBackground
-) {
-	Column(modifier = modifier) {
-		Row(
-			modifier = Modifier
-				.fillMaxWidth()
-				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
-			verticalAlignment = Alignment.CenterVertically
-		) {
-			BodyText(
-				modifier = Modifier
-					.weight(1f),
-				text = text1,
-				color = color
-			)
-			BodyText(
-				modifier = Modifier
-					.weight(1f),
-				text = text2,
-				color = color
-			)
-		}
-	}
-}
+//@Composable
+//fun TextRow(
+//	modifier: Modifier = Modifier,
+//	@StringRes text1: Int,
+//	@StringRes text2: Int,
+//	color: Color = MaterialTheme.colorScheme.onBackground
+//) {
+//	Column(modifier = modifier) {
+//		Row(
+//			modifier = Modifier
+//				.fillMaxWidth()
+//				.padding(dimensionResource(id = R.dimen.padding_verySmall)),
+//			verticalAlignment = Alignment.CenterVertically
+//		) {
+//			BodyText(
+//				modifier = Modifier
+//					.weight(1f),
+//				text = text1,
+//				color = color
+//			)
+//			BodyText(
+//				modifier = Modifier
+//					.weight(1f),
+//				text = text2,
+//				color = color
+//			)
+//		}
+//	}
+//}
 
 @Composable
 fun IconTextRow(
@@ -173,7 +173,8 @@ fun IconTextRow(
 	@StringRes text: Int,
 	textColor: Color = MaterialTheme.colorScheme.onBackground,
 	textDecoration: TextDecoration = TextDecoration.None,
-	fontWeight: FontWeight = FontWeight.Normal
+	fontWeight: FontWeight = FontWeight.Normal,
+	style: TextStyle = MaterialTheme.typography.bodyMedium
 ) {
 	Column(modifier = modifier) {
 		Row(
@@ -195,7 +196,8 @@ fun IconTextRow(
 				text = text,
 				color = textColor,
 				textDecoration = textDecoration,
-				fontWeight = fontWeight
+				fontWeight = fontWeight,
+				style = style,
 			)
 		}
 	}
