@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.ccaquatics.aquariuminformation.data
 
 import com.ccaquatics.aquariuminformation.R

@@ -68,11 +68,7 @@ fun FishCardsCompatabilityData(
 			.fillMaxWidth(),
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
-//		BodyText(
-//				text = R.string.text_beta,
-//				color = MaterialTheme.colorScheme.error,
-//				style = MaterialTheme.typography.labelMedium
-//			)
+//		BetaFeature()
 //		SmallSpacer()
 		SingleWideCardExpandableFull(
 			modifier = Modifier
@@ -164,6 +160,17 @@ fun FishCardsCompatabilityData(
 					)
 				}
 			}
+		)
+	}
+}
+
+@Composable
+fun BetaFeature(modifier: Modifier = Modifier) {
+	Column(modifier = modifier) {
+		BodyText(
+			text = R.string.text_beta,
+			color = MaterialTheme.colorScheme.error,
+			style = MaterialTheme.typography.labelMedium
 		)
 	}
 }

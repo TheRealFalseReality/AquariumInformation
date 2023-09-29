@@ -12,7 +12,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -20,12 +19,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -70,70 +69,6 @@ fun FancyIndicator(
 }
 
 @Composable
-fun TitleTextIcon(
-	modifier: Modifier = Modifier,
-	@StringRes text: Int,
-	@DrawableRes icon: Int,
-	color: Color = MaterialTheme.colorScheme.onSurface,
-) {
-	Column(
-		modifier = modifier,
-	) {
-		Row(
-			verticalAlignment = Alignment.CenterVertically
-		) {
-			Icon(
-				modifier = Modifier
-					.size(dimensionResource(id = R.dimen.icon_size_small))
-					.padding(
-						start = dimensionResource(id = R.dimen.padding_verySmall),
-						end = dimensionResource(id = R.dimen.padding_small)
-					),
-				painter = painterResource(id = icon),
-				contentDescription = stringResource(id = text),
-				tint = color
-			)
-			HeaderTextLarge(
-				text = text,
-				color = color,
-			)
-		}
-		AppDivider(color = color)
-	}
-}
-
-@Composable
-fun TitleWideContent(
-	modifier: Modifier = Modifier,
-	@StringRes text: Int,
-	@DrawableRes icon: Int,
-	color: Color = MaterialTheme.colorScheme.onSurface,
-	content: @Composable ColumnScope.() -> Unit,
-) {
-	Column(
-		modifier = modifier,
-	) {
-		Row(
-			verticalAlignment = Alignment.CenterVertically
-		) {
-			TitleTextIcon(
-				text = text,
-				icon = icon,
-				color = color
-			)
-		}
-		Column(
-			modifier = Modifier
-				.fillMaxWidth(),
-			horizontalAlignment = Alignment.CenterHorizontally
-		) {
-			SmallSpacer()
-			content()
-		}
-	}
-}
-
-@Composable
 fun AppVersion(modifier: Modifier = Modifier) {
 	val version = BuildConfig.VERSION_NAME
 	Row(
@@ -147,40 +82,6 @@ fun AppVersion(modifier: Modifier = Modifier) {
 			text = stringResource(id = R.string.text_label_version, version),
 			style = MaterialTheme.typography.bodyMedium
 		)
-	}
-}
-
-@Composable
-fun SingleWideCard(
-	modifier: Modifier = Modifier,
-	shape: Shape = Shapes.large,
-	containerColor: Color = MaterialTheme.colorScheme.background,
-	contentColor: Color = MaterialTheme.colorScheme.onBackground,
-	content: @Composable ColumnScope.() -> Unit,
-) {
-	Column(modifier = modifier) {
-		ElevatedCard(
-			modifier = Modifier
-				.padding(bottom = dimensionResource(id = R.dimen.padding_medium))
-				.fillMaxWidth(fraction = 0.9f),
-			shape = shape,
-			colors = CardDefaults.cardColors(
-				containerColor = containerColor,
-				contentColor = contentColor
-			),
-			elevation = CardDefaults.cardElevation(
-				defaultElevation = dimensionResource(id = R.dimen.elevation_medium)
-			)
-		) {
-			Column(
-				modifier = Modifier
-					.padding(dimensionResource(id = R.dimen.padding_small))
-					.fillMaxWidth(),
-				horizontalAlignment = Alignment.CenterHorizontally,
-			) {
-				content()
-			}
-		}
 	}
 }
 
@@ -344,8 +245,6 @@ fun SingleWideCardExpandableFull(
 									color = contentColor,
 									style = headerStyle
 								)
-//								VerySmallSpacer()
-//								subtitleContent()
 								if (expanded) {
 									VerySmallSpacer()
 									subtitleContent()
@@ -354,16 +253,6 @@ fun SingleWideCardExpandableFull(
 							Row(
 								verticalAlignment = Alignment.CenterVertically
 							) {
-//								BodyText(
-//									text =
-//									if (expanded) {
-//										R.string.text_show_less
-//									} else {
-//										R.string.text_show_more
-//									},
-//									style = MaterialTheme.typography.labelMedium,
-//									color = contentColor
-//								)
 								IconButton(
 									onClick = { expanded = !expanded },
 								) {
@@ -395,85 +284,6 @@ fun SingleWideCardExpandableFull(
 							SmallSpacer()
 						}
 					}
-				}
-			}
-		}
-	}
-}
-
-//@Composable
-//fun UnitButtonCard(
-//	modifier: Modifier = Modifier,
-//	header: Int = R.string.select_input_units,
-//	content: @Composable RowScope.() -> Unit,
-//	containerColor: Color = MaterialTheme.colorScheme.background,
-//	contentColor: Color,
-//	shape: Shape = Shapes.large,
-//) {
-//	Column(modifier = modifier) {
-//		ElevatedCard(
-//			elevation = CardDefaults.cardElevation(8.dp),
-//			colors = CardDefaults.cardColors(
-//				containerColor = containerColor,
-//				contentColor = contentColor
-//			),
-//			shape = shape
-//		) {
-//			Column(
-//				modifier = Modifier
-//					.padding(dimensionResource(id = R.dimen.padding_small))
-//					.fillMaxWidth(fraction = 0.6f),
-//			) {
-//				HeaderText(
-//					text = header,
-//					color = contentColor
-//				)
-//				Row(
-//					modifier = Modifier
-//						.selectableGroup()
-//						.fillMaxWidth(),
-//					horizontalArrangement = Arrangement.Center,
-//					verticalAlignment = Alignment.Top
-//				) {
-//					content()
-//				}
-//			}
-//		}
-//	}
-//}
-
-@Composable
-fun TextCard(
-	modifier: Modifier = Modifier,
-	@StringRes text: Int,
-	containerColor: Color = MaterialTheme.colorScheme.background,
-	contentColor: Color,
-	shape: Shape = Shapes.large
-) {
-	Column(modifier = modifier) {
-		ElevatedCard(
-			elevation = CardDefaults.cardElevation(8.dp),
-			colors = CardDefaults.cardColors(
-				containerColor = containerColor,
-				contentColor = contentColor
-			),
-			shape = shape
-		) {
-			Column(
-				modifier = Modifier
-					.padding(dimensionResource(id = R.dimen.padding_small))
-					.fillMaxWidth(fraction = 0.6f),
-			) {
-				Row(
-					modifier = Modifier
-						.fillMaxWidth(),
-					horizontalArrangement = Arrangement.Center,
-					verticalAlignment = Alignment.CenterVertically
-				) {
-					HeaderText(
-						text = text,
-						color = contentColor,
-					)
 				}
 			}
 		}
@@ -630,47 +440,32 @@ fun PopOutlinedCard(
 	}
 }
 
-//@Composable
-//fun ThemeSwitch() {
-//	var isDarkTheme by remember { mutableStateOf(true) }
-//
-//	AquariumInformationTheme(useDarkTheme = isDarkTheme) {
-//		Row(
-//			verticalAlignment = Alignment.CenterVertically,
-//			modifier = Modifier
-//				.fillMaxWidth()
-//				.padding(
-//					horizontal = 16.dp,
-//					vertical = 10.dp
-//				),
-//			horizontalArrangement = Arrangement.spacedBy(8.dp)
-//		) {
-//			Text("☀️")
-//			Switch(
-//				checked = isDarkTheme,
-//				onCheckedChange = {
-//					isDarkTheme = it
-//				}
-//			)
-//			Text("🌘")
-//		}
-//	}
-//}
-
 @Composable
-fun AppDivider(
-	modifier: Modifier = Modifier,
-	color: Color = MaterialTheme.colorScheme.onBackground,
-) {
-	Column(modifier = modifier) {
-		Divider(
+fun ThemeSwitch() {
+	var isDarkTheme by remember { mutableStateOf(true) }
+
+	AquariumInformationTheme(useDarkTheme = isDarkTheme) {
+		Row(
+			verticalAlignment = Alignment.CenterVertically,
 			modifier = Modifier
-				.fillMaxWidth(fraction = 0.8f),
-			color = color
-		)
+				.fillMaxWidth()
+				.padding(
+					horizontal = 16.dp,
+					vertical = 10.dp
+				),
+			horizontalArrangement = Arrangement.spacedBy(8.dp)
+		) {
+			Text("☀️")
+			Switch(
+				checked = isDarkTheme,
+				onCheckedChange = {
+					isDarkTheme = it
+				}
+			)
+			Text("🌘")
+		}
 	}
 }
-
 @Preview(showBackground = true)
 @Composable
 fun RadioRowPreview() {

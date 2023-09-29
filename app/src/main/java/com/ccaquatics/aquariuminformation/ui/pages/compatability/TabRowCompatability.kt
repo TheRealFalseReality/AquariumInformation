@@ -87,37 +87,6 @@ fun CompatabilityTabRow(
 	}
 }
 
-@Composable
-fun TabComposableTest() {
-	var state by remember { mutableIntStateOf(0) }
-	val titles = listOf("Tab 1", "Tab 2", "Tab 3 with lots of text")
-	Column(
-		modifier = Modifier.fillMaxSize()
-	) {
-		TabRow(
-			selectedTabIndex = state,
-		) {
-			titles.forEachIndexed { index, title ->
-				Tab(
-					selected = state == index,
-					onClick = { state = index },
-					text = { Text(text = title, maxLines = 2, overflow = TextOverflow.Ellipsis) }
-				)
-			}
-		}
-		Column(
-			modifier = Modifier.fillMaxSize(),
-			verticalArrangement = Arrangement.Center
-		) {
-			Text(
-				modifier = Modifier.align(Alignment.CenterHorizontally),
-				text = "Text tab ${state + 1} selected",
-				style = MaterialTheme.typography.bodyLarge
-			)
-		}
-	}
-}
-
 @Preview(showBackground = true)
 @Composable
 fun TopAppBarPreview() {
