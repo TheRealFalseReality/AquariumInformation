@@ -42,7 +42,7 @@
     <string name="field_label_dkh">Enter dKH</string>
     <string name="text_amount_co2">%s ppm CO₂</string>
     <string name="text_co2_units">pH\nDegrees of Alkalinity (dKH)</string>
-    <string name="text_amount_ph_dkh">%s pH and %s dKH</string>
+    <string name="text_amount_ph_dkh">%1$s pH and %2$s dKH</string>
     <string name="text_water_hardness_chart">Water Hardness Chart</string>
     <string name="text_formula_alk">2.8 dKH = 50 ppm CaCO3 = 1 meq/L</string>
     <string name="text_title_alk">Alkalinity (KH)</string>
@@ -510,16 +510,16 @@
     <string name="length">Length</string>
     <string name="width">Width</string>
     <string name="height">Height</string>
-    <string name="text_amount_LWH">Length: %sft. Width: %sft.\nHeight: %sft.</string>
-    <string name="text_amount_LWH_inches">Length: %sin. Width: %sin.\nHeight: %sin.</string>
-    <string name="text_amount_EH_feet">Edge: %sft. Height: %sft.</string>
-    <string name="text_amount_EH_inches">Edge: %sin. Height: %sin.</string>
+    <string name="text_amount_LWH">Length: %1$sft. Width: %2$sft.\nHeight: %3$sft.</string>
+    <string name="text_amount_LWH_inches">Length: %1$sin. Width: %2$sin.\nHeight: %3$sin.</string>
+    <string name="text_amount_EH_feet">Edge: %1$sft. Height: %2$sft.</string>
+    <string name="text_amount_EH_inches">Edge: %1$sin. Height: %2$sin.</string>
     <string name="edge">Edge</string>
-    <string name="text_amount_DH_feet">Diameter: %sft. Height: %sft.</string>
-    <string name="text_amount_DH_inches">Diameter: %sin. Height: %sin.</string>
+    <string name="text_amount_DH_feet">Diameter: %1$sft. Height: %2$sft.</string>
+    <string name="text_amount_DH_inches">Diameter: %1$sin. Height: %2$sin.</string>
     <string name="diameter">Diameter</string>
-    <string name="text_amount_LWHFW_feet">Length: %sft. Width: %sft.\nHeight: %sft. Full-Width: %sft.</string>
-    <string name="text_amount_LWHFW_inches">Length: %sin. Width: %sin.\nHeight: %sin. Full-Width: %sin.</string>
+    <string name="text_amount_LWHFW_feet">Length: %1$sft. Width: %2$sft.\nHeight: %3$sft. Full-Width: %4$sft.</string>
+    <string name="text_amount_LWHFW_inches">Length: %1$sin. Width: %2$sin.\nHeight: %3$sin. Full-Width: %4$sin.</string>
     <string name="full_width">Full Width</string>
     <string name="freshwater">Freshwater</string>
     <string name="marine">Marine</string>
