@@ -95,28 +95,6 @@ fun CylinderLayout(
 						selectedColor = color,
 						textColor = color
 					)
-//					RadioButtonComposable(
-//						modifier = Modifier
-//							.weight(1f),
-//						text = calculatorDataSource.radioTextFeet,
-//						onClick = { selected = calculatorDataSource.radioTextFeet },
-//						selected = selected,
-//						selectedColor = color,
-//						textColor =
-//						if (selected == calculatorDataSource.radioTextFeet) color
-//						else MaterialTheme.colorScheme.onBackground
-//					)
-//					RadioButtonComposable(
-//						modifier = Modifier
-//							.weight(1f),
-//						text = calculatorDataSource.radioTextInches,
-//						onClick = { selected = calculatorDataSource.radioTextInches },
-//						selected = selected,
-//						selectedColor = color,
-//						textColor =
-//						if (selected == calculatorDataSource.radioTextInches) color
-//						else MaterialTheme.colorScheme.onBackground
-//					)
 				},
 				contentColor = color
 			)
@@ -182,23 +160,6 @@ fun CylinderLayout(
 								calculatedValue2 = volLiterFT,
 								calculatedValue3 = waterWeightFT
 							)
-//							CalculatedText(
-//								text = calculatorDataSource.calculatedTextGallons,
-//								calculatedValue = volGallonFT,
-//								textColor = contentColor,
-//							)
-//							CalculatedText(
-//								text = calculatorDataSource.calculatedTextLiters,
-//								calculatedValue = volLiterFT,
-//								textColor = contentColor,
-//							)
-//							VerySmallSpacer()
-//							LabelWaterWeight()
-//							CalculatedText(
-//								text = calculatorDataSource.calculatedTextWaterWeight,
-//								calculatedValue = waterWeightFT,
-//								textColor = contentColor,
-//							)
 						}
 
 						calculatorDataSource.radioTextInches -> {
@@ -208,23 +169,6 @@ fun CylinderLayout(
 								calculatedValue2 = volLiter,
 								calculatedValue3 = waterWeight
 							)
-//							CalculatedText(
-//								text = calculatorDataSource.calculatedTextGallons,
-//								calculatedValue = volGallon,
-//								textColor = contentColor,
-//							)
-//							CalculatedText(
-//								text = calculatorDataSource.calculatedTextLiters,
-//								calculatedValue = volLiter,
-//								textColor = contentColor,
-//							)
-//							VerySmallSpacer()
-//							LabelWaterWeight()
-//							CalculatedText(
-//								text = calculatorDataSource.calculatedTextWaterWeight,
-//								calculatedValue = waterWeight,
-//								textColor = contentColor,
-//							)
 						}
 					}
 				},

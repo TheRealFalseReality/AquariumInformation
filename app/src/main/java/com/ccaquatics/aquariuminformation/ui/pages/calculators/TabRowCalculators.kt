@@ -61,8 +61,6 @@ fun CalculatorsTabRow(
 					},
 					icon = {
 						Icon(
-//							modifier = Modifier
-//								.size(dimensionResource(id = R.dimen.icon_size_verySmall)),
 							painter =
 							if (state == index) painterResource(id = tab.iconFilled)
 							else painterResource(id = tab.icon),

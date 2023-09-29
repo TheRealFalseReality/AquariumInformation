@@ -15,15 +15,10 @@ import androidx.compose.ui.graphics.Color
 
 @Composable
 fun PageView(
+	modifier: Modifier = Modifier,
 	content: @Composable () -> Unit,
 ) {
-	Column(
-		modifier = Modifier
-//			.padding(
-//				top = dimensionResource(id = R.dimen.padding_verySmall),
-//				bottom = dimensionResource(id = R.dimen.padding_small)
-//			),
-	) {
+	Column(modifier = modifier) {
 		Column(
 			modifier = Modifier
 				.fillMaxSize()
@@ -38,15 +33,10 @@ fun PageView(
 
 @Composable
 fun PageViewCenter(
+	modifier: Modifier = Modifier,
 	content: @Composable () -> Unit,
 ) {
-	Column(
-		modifier = Modifier
-//			.padding(
-//				top = dimensionResource(id = R.dimen.padding_verySmall),
-//				bottom = dimensionResource(id = R.dimen.padding_small)
-//			),
-	) {
+	Column(modifier = modifier) {
 		Column(
 			modifier = Modifier
 				.fillMaxSize()
@@ -62,16 +52,17 @@ fun PageViewCenter(
 
 @Composable
 fun PageViewLazy(
+	modifier: Modifier = Modifier,
 	content: @Composable ColumnScope.() -> Unit,
 ) {
-	Column(
-		modifier = Modifier
-//				.verticalScroll(rememberScrollState())
-			.fillMaxSize(),//
-		horizontalAlignment = Alignment.CenterHorizontally,
-		verticalArrangement = Arrangement.Center
-	) {
-		content()
+	Column(modifier = modifier) {
+		Column(
+			modifier = Modifier.fillMaxSize(),
+			horizontalAlignment = Alignment.CenterHorizontally,
+			verticalArrangement = Arrangement.Center
+		) {
+			content()
+		}
 	}
 }
 
@@ -85,18 +76,6 @@ fun GenericCalculatePage(
 	imageContent: @Composable () -> Unit = {},
 	formulaContent: @Composable () -> Unit
 ) {
-//	TitleWideContent(
-//		text = title,
-//		icon = icon,
-//		color = color
-//	) {
-//		BodyText(
-//			text = subtitle,
-//			color = color,
-//			style = MaterialTheme.typography.titleMedium
-//		)
-//	}
-	SmallSpacer()
 	BodyText(
 		text = subtitle,
 		color = color,

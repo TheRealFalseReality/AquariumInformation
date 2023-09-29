@@ -483,7 +483,7 @@
     <string name="list_caution_live_corals">Dwarf Angels, Large Angels, Butterflies, Filefish, Foxface / Rabbits, Puffers, Triggerfish</string>
     <string name="text_marine_invertebrates">Marine Invertebrates</string>
     <string name="text_photo_attributes">Photo Attributes</string>
-    <string name="text_welcome_compatibility_2">Wanting to get new fish but do not know if they will play nicely with what you already have?\nTap Compatibility below to check it out!</string>
+    <string name="text_welcome_compatibility_2">Wanting to get new fish but do not know if they will play nicely with what you already have?\nTap Information below to check it out!</string>
     <string name="text_welcome_compatibility">Wanting to get new fish but do not know if they will play nicely with what you already have? Just added is a quick reference tool to determine which fish types are compatible with which.\nNOTE:, this feature is in BETA and NON-DEFINITIVE. Mistakes may be present, but I am diligently working on everything!</string>
     <string name="text_welcome_compatibility_title">NEW! Fish Compatibility Info!</string>
     <string name="about">About</string>

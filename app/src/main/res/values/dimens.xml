@@ -18,6 +18,7 @@
     <dimen name="shape_medium">6dp</dimen>
     <dimen name="border_stroke_small">2dp</dimen>
     <dimen name="border_stroke_verySmall">1dp</dimen>
+    <dimen name="border_stroke_medium">4dp</dimen>
     <dimen name="corner_radius_medium">10dp</dimen>
     <dimen name="corner_radius_filled">50dp</dimen>
     <dimen name="grid_colum_medium">400dp</dimen>

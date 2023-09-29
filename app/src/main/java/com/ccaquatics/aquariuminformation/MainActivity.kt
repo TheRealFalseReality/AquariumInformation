@@ -1,6 +1,5 @@
 package com.ccaquatics.aquariuminformation
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
@@ -18,7 +17,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.ccaquatics.aquariuminformation.navigation.AquariumNavHost
@@ -41,12 +39,6 @@ class MainActivity : ComponentActivity() {
 				) {
 					AquariumInfoApp()
 
-//					changeStatusBarColor(
-//						ContextCompat.getColor(
-//							this,
-//							R.color.status_bar
-//						), false
-//					)
 				}
 			}
 		}
@@ -87,13 +79,6 @@ fun AquariumInfoApp() {
 			modifier = Modifier.padding(innerPadding)
 		)
 	}
-}
-
-fun Activity.changeStatusBarColor(color: Int, isLight: Boolean) {
-	window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-	window.statusBarColor = color
-
-	WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = isLight
 }
 
 @Preview(showBackground = true)

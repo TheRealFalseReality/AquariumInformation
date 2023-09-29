@@ -128,9 +128,6 @@ fun InfoLayout(
 		}
 	}
 	SmallSpacer()
-//	ShareAppButton()
-//	SearchBar()
-//	SmallSpacer()
 	TitleWideContent(
 		text = appInformationDataSource.title,
 		icon = appInformationDataSource.icon,

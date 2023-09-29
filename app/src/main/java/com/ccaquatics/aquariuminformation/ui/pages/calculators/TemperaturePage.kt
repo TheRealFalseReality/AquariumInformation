@@ -74,28 +74,6 @@ fun TemperatureLayout(
 						selectedColor = color,
 						textColor = color
 					)
-//					RadioButtonComposable(
-//						modifier = Modifier
-//							.weight(1f),
-//						text = temperatureDataSource.radioTextCelsius,
-//						onClick = { selected = temperatureDataSource.radioTextCelsius },
-//						selected = selected,
-//						selectedColor = color,
-//						textColor =
-//						if (selected == temperatureDataSource.radioTextCelsius) color
-//						else MaterialTheme.colorScheme.onBackground
-//					)
-//					RadioButtonComposable(
-//						modifier = Modifier
-//							.weight(1f),
-//						text = temperatureDataSource.radioTextFahrenheit,
-//						onClick = { selected = temperatureDataSource.radioTextFahrenheit },
-//						selected = selected,
-//						selectedColor = color,
-//						textColor =
-//						if (selected == temperatureDataSource.radioTextFahrenheit) color
-//						else MaterialTheme.colorScheme.onBackground
-//					)
 				}
 			)
 		},

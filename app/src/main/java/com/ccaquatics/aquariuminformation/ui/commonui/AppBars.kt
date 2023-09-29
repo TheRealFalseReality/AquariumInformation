@@ -66,8 +66,6 @@ fun AquariumAppBar(
 				},
 			) {
 				Icon(
-//					modifier = Modifier
-//						.size(dimensionResource(id = R.dimen.icon_size_medium)),
 					painter = painterResource(id = R.drawable.ic_launcher_foreground),
 					contentDescription = stringResource(R.string.home),
 				)
@@ -80,8 +78,6 @@ fun AquariumAppBar(
 				},
 			) {
 				Icon(
-//					modifier = Modifier
-//						.size(dimensionResource(id = R.dimen.icon_size_verySmall)),
 					painter = painterResource(id = R.drawable.ic_info_2),
 					contentDescription = stringResource(R.string.text_title_info),
 					tint = MaterialTheme.colorScheme.onSurfaceVariant

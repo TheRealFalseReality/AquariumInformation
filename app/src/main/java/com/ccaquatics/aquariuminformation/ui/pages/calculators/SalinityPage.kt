@@ -76,24 +76,6 @@ fun SalinityLayout(
 						selectedColor = color,
 						textColor = color
 					)
-//					RadioButtonComposable(
-//						modifier = Modifier.weight(1f),
-//						text = salinityDataSource.radioTextPpt,
-//						onClick = { selected = salinityDataSource.radioTextPpt },
-//						selected = selected,
-//						selectedColor = color,
-//						textColor =
-//						if (selected == salinityDataSource.radioTextPpt) color
-//						else MaterialTheme.colorScheme.onBackground
-//					)
-//					RadioButtonComposable(
-//						modifier = Modifier.weight(1f),
-//						text = salinityDataSource.radioTextSg,
-//						onClick = { selected = salinityDataSource.radioTextSg },
-//						selected = selected,
-//						selectedColor = color,
-//						textColor = color
-//					)
 				}, contentColor = color
 			)
 		},
@@ -179,7 +161,6 @@ fun SalinityLayout(
 		}
 	)
 }
-
 
 @VisibleForTesting
 fun calculateSpecificGravity(

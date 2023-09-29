@@ -72,39 +72,6 @@ fun AlkalinityLayout(
 						selectedColor = color,
 						textColor = color
 					)
-//					RadioButtonComposable(
-//						modifier = Modifier
-//							.weight(1f),
-//						text = alkalinityDataSource.radioTextDkh,
-//						onClick = { selected = alkalinityDataSource.radioTextDkh },
-//						selected = selected,
-//						selectedColor = color,
-//						textColor =
-//						if (selected == alkalinityDataSource.radioTextDkh) color
-//						else MaterialTheme.colorScheme.onBackground
-//					)
-//					RadioButtonComposable(
-//						modifier = Modifier
-//							.weight(1f),
-//						text = alkalinityDataSource.radioTextPpm,
-//						onClick = { selected = alkalinityDataSource.radioTextPpm },
-//						selected = selected,
-//						selectedColor = color,
-//						textColor =
-//						if (selected == alkalinityDataSource.radioTextPpm) color
-//						else MaterialTheme.colorScheme.onBackground
-//					)
-//					RadioButtonComposable(
-//						modifier = Modifier
-//							.weight(1f),
-//						text = alkalinityDataSource.radioTextMeq,
-//						onClick = { selected = alkalinityDataSource.radioTextMeq },
-//						selected = selected,
-//						selectedColor = color,
-//						textColor =
-//						if (selected == alkalinityDataSource.radioTextMeq) color
-//						else MaterialTheme.colorScheme.onBackground
-//					)
 				},
 				contentColor = color,
 			)

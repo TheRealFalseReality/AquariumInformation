@@ -68,8 +68,6 @@ fun FishCardsCompatibilityData(
 			.fillMaxWidth(),
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
-//		BetaFeature()
-//		SmallSpacer()
 		SingleWideCardExpandableFull(
 			modifier = Modifier
 				.fillMaxWidth(fraction = 0.95f),

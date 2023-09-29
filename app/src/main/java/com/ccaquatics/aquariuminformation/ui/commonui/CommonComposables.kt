@@ -109,11 +109,15 @@ fun SingleWideCardExpandableRadio(
 	}
 
 	Column(modifier = modifier) {
-		ElevatedCard(
+		OutlinedCard(
 			shape = shape,
 			colors = CardDefaults.cardColors(
 				containerColor = containerColor,
 				contentColor = contentColor
+			),
+			border = BorderStroke(
+				width = dimensionResource(id = R.dimen.border_stroke_small),
+				color = contentColor
 			),
 		) {
 			Row(
@@ -429,7 +433,10 @@ fun PopOutlinedCard(
 				containerColor = containerColor,
 				contentColor = contentColor,
 			),
-			border = BorderStroke(width = 4.dp, color = contentColor),
+			border = BorderStroke(
+				width = dimensionResource(id = R.dimen.border_stroke_small),
+				color = contentColor
+			),
 			shape = shape
 		) {
 			BodyText(
@@ -468,6 +475,7 @@ fun ThemeSwitch() {
 		}
 	}
 }
+
 @Preview(showBackground = true)
 @Composable
 fun RadioRowPreview() {

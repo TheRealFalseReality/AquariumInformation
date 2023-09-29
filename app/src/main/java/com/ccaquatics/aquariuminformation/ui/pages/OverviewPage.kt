@@ -231,7 +231,6 @@ fun FishCompatibility(
 			)
 		}
 	}
-
 }
 
 @Preview(showBackground = true)

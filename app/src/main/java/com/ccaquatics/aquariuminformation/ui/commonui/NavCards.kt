@@ -29,7 +29,6 @@ import com.ccaquatics.aquariuminformation.navigation.Salinity
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 import com.ccaquatics.aquariuminformation.ui.theme.Shapes
 
-//lTODO Add CLEAR button
 @Composable
 fun NavButton(
 	modifier: Modifier = Modifier,
@@ -68,7 +67,6 @@ fun NavButton(
 				painter = painterResource(id = icon),
 				contentDescription = null,
 				modifier = Modifier
-//					.size(dimensionResource(id = R.dimen.icon_size_large))
 					.padding(top = dimensionResource(id = R.dimen.padding_small)),
 			)
 		}

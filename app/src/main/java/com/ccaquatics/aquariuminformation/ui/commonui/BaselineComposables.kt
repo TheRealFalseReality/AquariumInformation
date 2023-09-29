@@ -358,7 +358,6 @@ fun CalculateImage(
 ) {
 	Column(
 		modifier = modifier
-//			.size(dimensionResource(id = R.dimen.image_size_large))
 			.padding(dimensionResource(id = R.dimen.padding_verySmall))
 	) {
 		Image(

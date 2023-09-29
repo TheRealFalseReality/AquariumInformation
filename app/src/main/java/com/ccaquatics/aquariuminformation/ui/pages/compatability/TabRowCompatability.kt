@@ -64,8 +64,6 @@ fun CompatibilityTabRow(
 					},
 					icon = {
 						Icon(
-//							modifier = Modifier
-//								.size(dimensionResource(id = R.dimen.icon_size_verySmall)),
 							painter = painterResource(id = tab.icon),
 							contentDescription = stringResource(id = tab.title)
 						)
