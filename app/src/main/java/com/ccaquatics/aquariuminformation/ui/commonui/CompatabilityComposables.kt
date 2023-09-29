@@ -44,7 +44,11 @@ fun CompatibilityDataList(
 				state = LazyGridState(),
 				content = {
 					items(marineList) { compatibilityData ->
-						FishCardsCompatibilityData(compatibilityData = compatibilityData)
+						FishCardsCompatibilityData(
+							modifier = Modifier
+								.padding(vertical = dimensionResource(id = R.dimen.padding_verySmall)),
+							compatibilityData = compatibilityData
+						)
 					}
 					item {
 						Disclaimer()
@@ -63,9 +67,7 @@ fun FishCardsCompatibilityData(
 	contentColor: Color = MaterialTheme.colorScheme.onTertiaryContainer,
 ) {
 	Column(
-		modifier = modifier
-			.padding(vertical = dimensionResource(id = R.dimen.padding_small))
-			.fillMaxWidth(),
+		modifier = modifier,
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
 		SingleWideCardExpandableFull(

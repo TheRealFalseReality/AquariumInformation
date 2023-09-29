@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedCard
@@ -120,7 +119,6 @@ fun SingleWideCard(
 	Column(modifier = modifier) {
 		ElevatedCard(
 			modifier = Modifier
-				.padding(bottom = dimensionResource(id = R.dimen.padding_medium))
 				.fillMaxWidth(fraction = 0.9f),
 			shape = shape,
 			colors = CardDefaults.cardColors(
@@ -275,7 +273,6 @@ fun TitleTextIcon(
 		) {
 			Icon(
 				modifier = Modifier
-					.size(dimensionResource(id = R.dimen.icon_size_small))
 					.padding(
 						start = dimensionResource(id = R.dimen.padding_verySmall),
 						end = dimensionResource(id = R.dimen.padding_small)

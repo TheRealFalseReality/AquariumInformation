@@ -22,11 +22,13 @@ import com.ccaquatics.aquariuminformation.navigation.Rectangle
 import com.ccaquatics.aquariuminformation.navigation.Salinity
 import com.ccaquatics.aquariuminformation.navigation.TankVolume
 import com.ccaquatics.aquariuminformation.navigation.Temperature
+import com.ccaquatics.aquariuminformation.ui.commonui.MediumSpacer
 import com.ccaquatics.aquariuminformation.ui.commonui.NavButton
 import com.ccaquatics.aquariuminformation.ui.commonui.NavButtonRow
 import com.ccaquatics.aquariuminformation.ui.commonui.PageView
 import com.ccaquatics.aquariuminformation.ui.commonui.PageViewCenter
 import com.ccaquatics.aquariuminformation.ui.commonui.TitleWideContent
+import com.ccaquatics.aquariuminformation.ui.commonui.VerySmallSpacer
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @Composable
@@ -80,6 +82,7 @@ fun OverviewLayout(
 		onClickAlkalinity = onClickAlkalinity,
 		onClickCo2 = onClickCo2
 	)
+	VerySmallSpacer()
 	TankVolumeGrid(
 		onClickRectangle = onClickRectangle,
 		onClickCube = onClickCube,
@@ -87,6 +90,7 @@ fun OverviewLayout(
 		onClickHexagonal = onClickHexagonal,
 		onClickBowFront = onClickBowFront,
 	)
+	VerySmallSpacer()
 	FishCompatibility(
 		onClickFreshwater = onClickFreshwater,
 		onClickMarine = onClickMarine,
@@ -139,6 +143,7 @@ fun CalculatorsGrid(
 				onClick1 = onClickSalinity,
 				onClick2 = onClickAlkalinity,
 			)
+			MediumSpacer()
 			NavButtonRow(
 				title1 = Temperature.title,
 				icon1 = Temperature.icon,
@@ -181,6 +186,7 @@ fun TankVolumeGrid(
 				contentColor = contentColor,
 				containerColor = containerColor,
 			)
+			MediumSpacer()
 			NavButtonRow(
 				title1 = Cylinder.title,
 				icon1 = Cylinder.icon,
@@ -191,6 +197,7 @@ fun TankVolumeGrid(
 				contentColor = contentColor,
 				containerColor = containerColor,
 			)
+			MediumSpacer()
 			NavButton(
 				modifier = Modifier
 					.fillMaxWidth(fraction = 0.9f),

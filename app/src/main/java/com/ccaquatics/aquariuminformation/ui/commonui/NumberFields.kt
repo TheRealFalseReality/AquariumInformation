@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -60,6 +61,7 @@ fun InputNumberField(
 	) {
 		TextField(
 			modifier = Modifier
+				.widthIn(max = dimensionResource(id = R.dimen.text_field_width))
 				.align(Alignment.CenterHorizontally),
 			value = value,
 			onValueChange = onValueChange,
@@ -399,10 +401,13 @@ fun InputNumberFieldThreeStackedInputs(
 	focusedContainerColor: Color,
 	unfocusedColor: Color,
 ) {
-	Column(modifier = modifier) {
+	Column(
+		modifier = modifier,
+		horizontalAlignment = Alignment.CenterHorizontally
+	) {
 		Row(
 			modifier = Modifier
-				.fillMaxWidth(),
+				.fillMaxWidth(fraction = 0.9f),
 			horizontalArrangement = Arrangement.SpaceBetween,
 			verticalAlignment = Alignment.CenterVertically
 		) {
@@ -442,8 +447,7 @@ fun InputNumberFieldThreeStackedInputs(
 		) {
 			InputNumberField(
 				modifier = Modifier
-					.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
-					.weight(1f),
+					.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall)),
 				label = label3,
 				placeholder = placeholder3,
 				value = value3,

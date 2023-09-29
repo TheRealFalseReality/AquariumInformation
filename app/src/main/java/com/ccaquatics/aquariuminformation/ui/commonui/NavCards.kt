@@ -356,7 +356,6 @@ fun NavButtonRow(
 			onClick = onClick2
 		)
 	}
-	MediumSpacer()
 }
 
 @Preview(showBackground = true)

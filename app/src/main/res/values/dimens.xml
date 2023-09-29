@@ -25,4 +25,5 @@
     <dimen name="icon_trailing_small">18dp</dimen>
     <dimen name="card_large">12dp</dimen>
     <dimen name="card_image_height">200dp</dimen>
+    <dimen name="text_field_width">250dp</dimen>
 </resources>

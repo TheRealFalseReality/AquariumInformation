@@ -56,6 +56,7 @@ fun HomeLayout() {
 		backgroundCardColor = MaterialTheme.colorScheme.primaryContainer,
 		contentColor = MaterialTheme.colorScheme.onPrimaryContainer
 	)
+	SmallSpacer()
 	PopOutCard(
 		icon = homeCompatibilityDataSource.icon,
 		title = homeCompatibilityDataSource.title,

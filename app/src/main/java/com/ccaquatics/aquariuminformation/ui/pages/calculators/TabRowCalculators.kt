@@ -70,6 +70,7 @@ fun CalculatorsTabRow(
 				)
 			}
 		}
+
 		when (state) {
 			0 -> {
 				SalinityPage()

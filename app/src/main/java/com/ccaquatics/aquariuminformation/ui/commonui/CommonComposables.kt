@@ -177,7 +177,7 @@ fun SingleWideCardExpandableRadio(
 						Column(
 							modifier = Modifier
 								.selectableGroup()
-								.padding(bottom = dimensionResource(id = R.dimen.padding_small))
+								.padding(bottom = dimensionResource(id = R.dimen.padding_medium))
 						) {
 							content()
 						}
