@@ -1,6 +1,5 @@
 package com.ccaquatics.aquariuminformation.ui.pages.compatability
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Icon
@@ -15,7 +14,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -25,12 +23,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.data.compatability.FreshwaterDataSource
 import com.ccaquatics.aquariuminformation.data.compatability.MarineDataSource
 import com.ccaquatics.aquariuminformation.navigation.compatibilityTabRow
-import com.ccaquatics.aquariuminformation.ui.commonui.CompatabilityDataList
+import com.ccaquatics.aquariuminformation.ui.commonui.CompatibilityDataList
 import com.ccaquatics.aquariuminformation.ui.commonui.FancyIndicator
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @Composable
-fun CompatabilityTabRow(
+fun CompatibilityTabRow(
 	selectedState: Int = 0,
 	selectedColor: Color = MaterialTheme.colorScheme.tertiary,
 	unselectedColor: Color = MaterialTheme.colorScheme.outline,
@@ -77,11 +75,11 @@ fun CompatabilityTabRow(
 		}
 		when (state) {
 			0 -> {
-				CompatabilityDataList(FreshwaterDataSource().loadFishCardsFreshwaterDataSource())
+				CompatibilityDataList(FreshwaterDataSource().loadFishCardsFreshwaterDataSource())
 			}
 
 			1 -> {
-				CompatabilityDataList(MarineDataSource().loadFishCardsMarineDataSource())
+				CompatibilityDataList(MarineDataSource().loadFishCardsMarineDataSource())
 			}
 		}
 	}
@@ -91,7 +89,7 @@ fun CompatabilityTabRow(
 @Composable
 fun TopAppBarPreview() {
 	AquariumInformationTheme {
-		CompatabilityTabRow()
+		CompatibilityTabRow()
 	}
 }
 
@@ -100,6 +98,6 @@ fun TopAppBarPreview() {
 fun TopAppBarPreviewDark(
 ) {
 	AquariumInformationTheme(useDarkTheme = true) {
-		CompatabilityTabRow()
+		CompatibilityTabRow()
 	}
 }

@@ -14,9 +14,9 @@ import com.ccaquatics.aquariuminformation.navigation.Calculators
 import com.ccaquatics.aquariuminformation.navigation.CarbonDioxide
 import com.ccaquatics.aquariuminformation.navigation.Cube
 import com.ccaquatics.aquariuminformation.navigation.Cylinder
-import com.ccaquatics.aquariuminformation.navigation.FishCompatability
-import com.ccaquatics.aquariuminformation.navigation.FishCompatabilityFreshwater
-import com.ccaquatics.aquariuminformation.navigation.FishCompatabilityMarine
+import com.ccaquatics.aquariuminformation.navigation.FishCompitability
+import com.ccaquatics.aquariuminformation.navigation.FishCompatibilityFreshwater
+import com.ccaquatics.aquariuminformation.navigation.FishCompatibilityMarine
 import com.ccaquatics.aquariuminformation.navigation.Hexagonal
 import com.ccaquatics.aquariuminformation.navigation.Rectangle
 import com.ccaquatics.aquariuminformation.navigation.Salinity
@@ -87,7 +87,7 @@ fun OverviewLayout(
 		onClickHexagonal = onClickHexagonal,
 		onClickBowFront = onClickBowFront,
 	)
-	FishCompatability(
+	FishCompatibility(
 		onClickFreshwater = onClickFreshwater,
 		onClickMarine = onClickMarine,
 	)
@@ -205,7 +205,7 @@ fun TankVolumeGrid(
 }
 
 @Composable
-fun FishCompatability(
+fun FishCompatibility(
 	modifier: Modifier = Modifier,
 	fontColor: Color = MaterialTheme.colorScheme.tertiary,
 	contentColor: Color = MaterialTheme.colorScheme.onTertiaryContainer,
@@ -215,15 +215,15 @@ fun FishCompatability(
 ) {
 	Column(modifier) {
 		TitleWideContent(
-			text = FishCompatability.title,
+			text = FishCompitability.title,
 			color = fontColor,
-			icon = FishCompatability.icon
+			icon = FishCompitability.icon
 		) {
 			NavButtonRow(
-				title1 = FishCompatabilityFreshwater.title,
-				icon1 = FishCompatabilityFreshwater.icon,
-				title2 = FishCompatabilityMarine.title,
-				icon2 = FishCompatabilityMarine.icon,
+				title1 = FishCompatibilityFreshwater.title,
+				icon1 = FishCompatibilityFreshwater.icon,
+				title2 = FishCompatibilityMarine.title,
+				icon2 = FishCompatibilityMarine.icon,
 				containerColor = containerColor,
 				contentColor = contentColor,
 				onClick1 = onClickFreshwater,

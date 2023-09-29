@@ -3,24 +3,24 @@ package com.ccaquatics.aquariuminformation.ui.pages.compatability
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.R
-import com.ccaquatics.aquariuminformation.data.compatability.CompatabilityData
+import com.ccaquatics.aquariuminformation.data.compatability.CompatibilityData
 import com.ccaquatics.aquariuminformation.data.compatability.MarineDataSource
-import com.ccaquatics.aquariuminformation.ui.commonui.CompatabilityDataList
-import com.ccaquatics.aquariuminformation.ui.commonui.FishCardsCompatabilityData
+import com.ccaquatics.aquariuminformation.ui.commonui.CompatibilityDataList
+import com.ccaquatics.aquariuminformation.ui.commonui.FishCardsCompatibilityData
 import com.ccaquatics.aquariuminformation.ui.commonui.PageViewLazy
 
 @Composable
-fun MarineCompatabilityScreen() {
+fun MarineCompatibilityScreen() {
 	PageViewLazy {
-		CompatabilityDataList(MarineDataSource().loadFishCardsMarineDataSource())
+		CompatibilityDataList(MarineDataSource().loadFishCardsMarineDataSource())
 	}
 }
 
 @Preview(showBackground = true)
 @Composable
-fun FishCardCompatabilityDataPreview() {
-	FishCardsCompatabilityData(
-		compatabilityData = CompatabilityData(
+fun FishCardCompatibilityDataPreview() {
+	FishCardsCompatibilityData(
+		compatibilityData = CompatibilityData(
 			R.drawable.dwarf_angel,
 			R.string.text_dwarf_angels,
 			R.string.text_latin_dwarf_angels,
@@ -34,6 +34,6 @@ fun FishCardCompatabilityDataPreview() {
 
 @Preview(showBackground = true)
 @Composable
-fun ListCompatabilityDataPreview() {
-	MarineCompatabilityScreen()
+fun ListCompatibilityDataPreview() {
+	MarineCompatibilityScreen()
 }

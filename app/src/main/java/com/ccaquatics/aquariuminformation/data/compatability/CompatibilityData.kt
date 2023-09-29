@@ -3,7 +3,7 @@ package com.ccaquatics.aquariuminformation.data.compatability
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
-data class CompatabilityData(
+data class CompatibilityData(
 	@DrawableRes val image: Int,
 	@StringRes val title: Int,
 	@StringRes val latin: Int,

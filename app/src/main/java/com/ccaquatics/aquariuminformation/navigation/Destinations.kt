@@ -102,21 +102,21 @@ object BowFront : Destinations {
 	override val title = R.string.text_title_bow_front
 }
 
-object FishCompatability : Destinations {
+object FishCompitability : Destinations {
 	override val icon = R.drawable.ic_icon_question
 	override val iconFilled = R.drawable.ic_icon_question
 	override val route = "fish_compatibility"
 	override val title = R.string.compatibility
 }
 
-object FishCompatabilityFreshwater : Destinations {
+object FishCompatibilityFreshwater : Destinations {
 	override val icon = R.drawable.ic_fish_2
 	override val iconFilled = R.drawable.ic_icon_question
 	override val route = "fish_compat_fresh"
 	override val title = R.string.freshwater
 }
 
-object FishCompatabilityMarine : Destinations {
+object FishCompatibilityMarine : Destinations {
 	override val icon = R.drawable.ic_fish
 	override val iconFilled = R.drawable.ic_icon_question
 	override val route = "fish_compat_marine"
@@ -137,7 +137,7 @@ object Calculators : Destinations {
 	override val title = R.string.calculators
 }
 
-val bottomNavRow = listOf(Overview, Calculators, TankVolume, FishCompatability)
-val compatibilityTabRow = listOf(FishCompatabilityFreshwater, FishCompatabilityMarine)
+val bottomNavRow = listOf(Overview, Calculators, TankVolume, FishCompitability)
+val compatibilityTabRow = listOf(FishCompatibilityFreshwater, FishCompatibilityMarine)
 val calculatorsTabRow = listOf(Salinity, Alkalinity, Temperature, CarbonDioxide)
 val tankVolumeTabRow = listOf(Rectangle, Cube, Cylinder, Hexagonal, BowFront)

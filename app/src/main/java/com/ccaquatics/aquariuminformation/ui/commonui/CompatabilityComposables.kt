@@ -21,13 +21,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.ccaquatics.aquariuminformation.R
-import com.ccaquatics.aquariuminformation.data.compatability.CompatabilityData
+import com.ccaquatics.aquariuminformation.data.compatability.CompatibilityData
 import com.ccaquatics.aquariuminformation.data.compatability.disclaimerDataSource
 import com.ccaquatics.aquariuminformation.ui.theme.AquariumInformationTheme
 
 @Composable
-fun CompatabilityDataList(
-	marineList: List<CompatabilityData>,
+fun CompatibilityDataList(
+	marineList: List<CompatibilityData>,
 	modifier: Modifier = Modifier
 ) {
 	Surface(
@@ -43,8 +43,8 @@ fun CompatabilityDataList(
 				userScrollEnabled = true,
 				state = LazyGridState(),
 				content = {
-					items(marineList) { compatabilityData ->
-						FishCardsCompatabilityData(compatabilityData = compatabilityData)
+					items(marineList) { compatibilityData ->
+						FishCardsCompatibilityData(compatibilityData = compatibilityData)
 					}
 					item {
 						Disclaimer()
@@ -56,9 +56,9 @@ fun CompatabilityDataList(
 }
 
 @Composable
-fun FishCardsCompatabilityData(
+fun FishCardsCompatibilityData(
 	modifier: Modifier = Modifier,
-	compatabilityData: CompatabilityData,
+	compatibilityData: CompatibilityData,
 	containerColor: Color = MaterialTheme.colorScheme.tertiaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onTertiaryContainer,
 ) {
@@ -73,19 +73,19 @@ fun FishCardsCompatabilityData(
 		SingleWideCardExpandableFull(
 			modifier = Modifier
 				.fillMaxWidth(fraction = 0.95f),
-			header = compatabilityData.title,
+			header = compatibilityData.title,
 			headerStyle = MaterialTheme.typography.titleLarge,
 			containerColor = containerColor,
 			contentColor = contentColor,
 			imageContent = {
 				CardImage(
-					image = compatabilityData.image,
-					contentDescription = compatabilityData.title,
+					image = compatibilityData.image,
+					contentDescription = compatibilityData.title,
 				)
 			},
 			subtitleContent = {
 				BodyText(
-					text = compatabilityData.latin,
+					text = compatibilityData.latin,
 					style = MaterialTheme.typography.labelLarge,
 					fontStyle = FontStyle.Italic,
 					textAlign = TextAlign.Start,
@@ -94,7 +94,7 @@ fun FishCardsCompatabilityData(
 			},
 			descriptionContent = {
 				BodyText(
-					text = compatabilityData.description,
+					text = compatibilityData.description,
 					color = contentColor,
 					style = MaterialTheme.typography.bodySmall,
 					textAlign = TextAlign.Justify
@@ -112,7 +112,7 @@ fun FishCardsCompatabilityData(
 					)
 					VerySmallSpacer()
 					BodyText(
-						text = compatabilityData.compatible,
+						text = compatibilityData.compatible,
 						modifier = Modifier
 							.padding(
 								start = dimensionResource(id = R.dimen.padding_medium),
@@ -130,7 +130,7 @@ fun FishCardsCompatabilityData(
 					)
 					VerySmallSpacer()
 					BodyText(
-						text = compatabilityData.caution,
+						text = compatibilityData.caution,
 						modifier = Modifier
 							.padding(
 								start = dimensionResource(id = R.dimen.padding_medium),
@@ -148,7 +148,7 @@ fun FishCardsCompatabilityData(
 					)
 					VerySmallSpacer()
 					BodyText(
-						text = compatabilityData.incompatible,
+						text = compatibilityData.incompatible,
 						modifier = Modifier
 							.padding(
 								start = dimensionResource(id = R.dimen.padding_medium),

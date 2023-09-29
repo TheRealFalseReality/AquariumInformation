@@ -3,10 +3,10 @@ package com.ccaquatics.aquariuminformation.data.compatability
 import com.ccaquatics.aquariuminformation.R
 
 class MarineDataSource {
-	fun loadFishCardsMarineDataSource(): List<CompatabilityData> {
+	fun loadFishCardsMarineDataSource(): List<CompatibilityData> {
 		return listOf(
 			// Dwarf Angel
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.dwarf_angel,
 				R.string.text_dwarf_angels,
 				R.string.text_latin_dwarf_angels,
@@ -16,7 +16,7 @@ class MarineDataSource {
 				R.string.dwarf_angels_description
 			),
 			// Large Angels
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.large_angels,
 				R.string.text_large_angels,
 				R.string.text_latin_large_angels,
@@ -26,7 +26,7 @@ class MarineDataSource {
 				R.string.large_angels_description
 			),
 			// Anglers / Frogs
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.angler,
 				R.string.text_anglers_frogs,
 				R.string.text_latin_anglers,
@@ -36,7 +36,7 @@ class MarineDataSource {
 				R.string.anglers_description
 			),
 			// Anthias
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.anthias,
 				R.string.text_anthias,
 				R.string.text_latin_anthias,
@@ -46,7 +46,7 @@ class MarineDataSource {
 				R.string.anthia_description,
 			),
 			// Basslet
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.baslets,
 				R.string.text_basslets,
 				R.string.text_latin_basslets,
@@ -56,7 +56,7 @@ class MarineDataSource {
 				R.string.basslets_description
 			),
 			// Batfish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.batfish,
 				R.string.text_batfish,
 				R.string.text_latin_batfish,
@@ -66,7 +66,7 @@ class MarineDataSource {
 				R.string.batfish_description
 			),
 			// Blennies
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.blennies,
 				R.string.text_blennies,
 				R.string.text_latin_blennies,
@@ -76,7 +76,7 @@ class MarineDataSource {
 				R.string.blennies_description
 			),
 			// Boxfish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.boxfish,
 				R.string.text_boxfish,
 				R.string.text_latin_boxfish,
@@ -86,7 +86,7 @@ class MarineDataSource {
 				R.string.boxfish_description
 			),
 			// Butterflies
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.butterflies,
 				R.string.text_butterflies,
 				R.string.text_latin_butterflies,
@@ -96,7 +96,7 @@ class MarineDataSource {
 				R.string.butterflies_description
 			),
 			//  Cardinals
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.cardinalfish,
 				R.string.text_cardinals,
 				R.string.text_latin_cardinals,
@@ -106,7 +106,7 @@ class MarineDataSource {
 				R.string.cardinals_description
 			),
 			// Chromis
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.chromis,
 				R.string.text_chromis,
 				R.string.text_latin_chromis,
@@ -116,7 +116,7 @@ class MarineDataSource {
 				R.string.chromis_description
 			),
 			// Clownfish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.clownfish,
 				R.string.text_clownfish,
 				R.string.text_latin_clownfish,
@@ -126,7 +126,7 @@ class MarineDataSource {
 				R.string.clownfish_description
 			),
 			// Damsels
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.damsels,
 				R.string.text_damsels,
 				R.string.text_latin_damsels,
@@ -136,7 +136,7 @@ class MarineDataSource {
 				R.string.damsels_description
 			),
 			// Dartfish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.dartfish,
 				R.string.text_dartfish,
 				R.string.text_latin_dartfish,
@@ -146,7 +146,7 @@ class MarineDataSource {
 				R.string.dartfish_description
 			),
 			// Dragonets
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.dragonets,
 				R.string.text_dragonets,
 				R.string.text_latin_dragonets,
@@ -156,7 +156,7 @@ class MarineDataSource {
 				R.string.dragonets_description
 			),
 			// Eels
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.eels,
 				R.string.text_eels,
 				R.string.text_latin_eels,
@@ -166,7 +166,7 @@ class MarineDataSource {
 				R.string.eels_description
 			),
 			// Filefish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.filefish,
 				R.string.text_filefish,
 				R.string.text_latin_filefish,
@@ -176,7 +176,7 @@ class MarineDataSource {
 				R.string.filefish_description
 			),
 			// Foxface / Rabbits
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.foxface,
 				R.string.text_foxface,
 				R.string.text_latin_foxface,
@@ -186,7 +186,7 @@ class MarineDataSource {
 				R.string.foxface_description
 			),
 			// Gobies
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.goby,
 				R.string.text_gobies,
 				R.string.text_latin_gobies,
@@ -196,7 +196,7 @@ class MarineDataSource {
 				R.string.gobies_description
 			),
 			// Groupers
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.groupers,
 				R.string.text_groupers,
 				R.string.text_latin_groupers,
@@ -206,7 +206,7 @@ class MarineDataSource {
 				R.string.groupers_description
 			),
 			// Grunts / Sweetlips
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.grunts,
 				R.string.text_grunts,
 				R.string.text_latin_grunts,
@@ -216,7 +216,7 @@ class MarineDataSource {
 				R.string.grunts_description
 			),
 			// Jawfish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.jawfish,
 				R.string.text_jawfish,
 				R.string.text_latin_jawfish,
@@ -226,7 +226,7 @@ class MarineDataSource {
 				R.string.jawfish_description
 			),
 			// Hawkfish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.hawkfish,
 				R.string.text_hawkfish,
 				R.string.text_latin_hawkfish,
@@ -236,7 +236,7 @@ class MarineDataSource {
 				R.string.hawkfish_description
 			),
 			// Hogfish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.hogfish,
 				R.string.text_hogfish,
 				R.string.text_latin_hogfish,
@@ -246,7 +246,7 @@ class MarineDataSource {
 				R.string.hogfish_description
 			),
 			// Lions / Scorpions
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.lions,
 				R.string.text_lions,
 				R.string.text_latin_lions,
@@ -256,7 +256,7 @@ class MarineDataSource {
 				R.string.lions_description
 			),
 			// Parrotfish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.parrotfish,
 				R.string.text_parrotfish,
 				R.string.text_latin_parrotfish,
@@ -266,7 +266,7 @@ class MarineDataSource {
 				R.string.parrotfish_description
 			),
 			// Pseudochromis
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.pseudochromis,
 				R.string.text_pseudochromis,
 				R.string.text_latin_pseudochromis,
@@ -276,7 +276,7 @@ class MarineDataSource {
 				R.string.pseudochromis_description
 			),
 			// Puffers
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.puffers,
 				R.string.text_puffers,
 				R.string.text_latin_puffers,
@@ -286,7 +286,7 @@ class MarineDataSource {
 				R.string.puffers_description
 			),
 			// Seahorse / Pipefish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.seahorse,
 				R.string.text_pipefish,
 				R.string.text_latin_pipefish,
@@ -296,7 +296,7 @@ class MarineDataSource {
 				R.string.pipefish_description
 			),
 			// Sharks / Rays
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.rays,
 				R.string.text_marine_shark,
 				R.string.text_latin_marine_shark,
@@ -306,7 +306,7 @@ class MarineDataSource {
 				R.string.sharks_rays_description
 			),
 			// Squirrelfish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.squirrelfish,
 				R.string.text_squirrelfish,
 				R.string.text_latin_squirrelfish,
@@ -316,7 +316,7 @@ class MarineDataSource {
 				R.string.squirrelfish_description
 			),
 			// Tangs / Surgeons
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.tang,
 				R.string.text_tangs,
 				R.string.text_latin_tangs,
@@ -326,7 +326,7 @@ class MarineDataSource {
 				R.string.tangs_description
 			),
 			// Triggerfish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.triggerfish,
 				R.string.text_triggerfish,
 				R.string.text_latin_triggerfish,
@@ -336,7 +336,7 @@ class MarineDataSource {
 				R.string.triggerfish_description
 			),
 			// Wrasse - Reef Safe
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.wrasse_reef,
 				R.string.text_wrasse_reef,
 				R.string.text_latin_wrasse_reef,
@@ -346,7 +346,7 @@ class MarineDataSource {
 				R.string.wrasse_reef_description
 			),
 			// Wrasee - Fish Only
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.wrasse_fish,
 				R.string.text_wrasse_fish,
 				R.string.text_latin_wrasse,
@@ -356,7 +356,7 @@ class MarineDataSource {
 				R.string.text_wrasse_description
 			),
 			// Live Coral
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.live_coral,
 				R.string.text_live_corals,
 				R.string.text_latin_coral,
@@ -365,8 +365,8 @@ class MarineDataSource {
 				R.string.list_incompatible_live_corals,
 				R.string.coral_description
 			),
-			// CompatabilityData Inverts
-			CompatabilityData(
+			// Marine Inverts
+			CompatibilityData(
 				R.drawable.seastar,
 				R.string.text_marine_invertebrates,
 				R.string.text_latin_various,

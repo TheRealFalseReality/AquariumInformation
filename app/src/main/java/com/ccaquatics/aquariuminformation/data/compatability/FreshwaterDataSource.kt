@@ -3,10 +3,10 @@ package com.ccaquatics.aquariuminformation.data.compatability
 import com.ccaquatics.aquariuminformation.R
 
 class FreshwaterDataSource {
-	fun loadFishCardsFreshwaterDataSource(): List<CompatabilityData> {
+	fun loadFishCardsFreshwaterDataSource(): List<CompatibilityData> {
 		return listOf(
 			// Mbuna
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.mbuba_cichlid,
 				R.string.text_malawi,
 				R.string.text_latin_cichlid_various,
@@ -16,7 +16,7 @@ class FreshwaterDataSource {
 				R.string.mbuna_description
 			),
 			// Tanganyikan
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.tanganyikan,
 				R.string.text_tanganyikan,
 				R.string.text_latin_cichlid_various,
@@ -26,7 +26,7 @@ class FreshwaterDataSource {
 				R.string.tanganyikan_description
 			),
 			// Misc. African
-//			CompatabilityData(
+//			CompatibilityData(
 //				R.drawable.misc_african,
 //				R.string.text_african_cichlid,
 //				R.string.text_latin_cichlid_various,
@@ -36,7 +36,7 @@ class FreshwaterDataSource {
 //				R.string.misc_cichlid_description
 //			),
 			// American Cichlids
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.american_cichlid,
 				R.string.text_cichlids_american,
 				R.string.text_latin_cichlid_various,
@@ -46,7 +46,7 @@ class FreshwaterDataSource {
 				R.string.american_cichlid_description
 			),
 			// Angelfish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.angelfish,
 				R.string.text_angelfish,
 				R.string.text_latin_angelfish,
@@ -56,7 +56,7 @@ class FreshwaterDataSource {
 				R.string.freshwater_angelfish_description
 			),
 			// Barb
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.barb,
 				R.string.text_barbs,
 				R.string.text_latin_barb,
@@ -66,7 +66,7 @@ class FreshwaterDataSource {
 				R.string.barb_description
 			),
 			// Betta
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.betta,
 				R.string.text_betta,
 				R.string.text_latin_betta,
@@ -76,7 +76,7 @@ class FreshwaterDataSource {
 				R.string.betta_description
 			),
 			// Cory Cats
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.cory_cats,
 				R.string.text_cory_cats,
 				R.string.text_latin_cory,
@@ -86,7 +86,7 @@ class FreshwaterDataSource {
 				R.string.cory_cats_description
 			),
 			// Danios / Minnows
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.danios,
 				R.string.text_danios,
 				R.string.text_latin_danio,
@@ -96,7 +96,7 @@ class FreshwaterDataSource {
 				R.string.danio_description
 			),
 			// Discus
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.discus,
 				R.string.text_discus,
 				R.string.text_latin_discus,
@@ -106,7 +106,7 @@ class FreshwaterDataSource {
 				R.string.discus_description
 			),
 			// Fancy Goldfish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.fancy_goldfish,
 				R.string.text_fancy_goldfish,
 				R.string.text_latin_fancy_goldfish,
@@ -116,7 +116,7 @@ class FreshwaterDataSource {
 				R.string.goldfish_description
 			),
 			// Gouramis
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.gourami,
 				R.string.text_gouramis,
 				R.string.text_latin_gourami,
@@ -126,7 +126,7 @@ class FreshwaterDataSource {
 				R.string.gourami_description
 			),
 			// Guppy
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.guppy,
 				R.string.text_guppies,
 				R.string.text_latin_poecilia,
@@ -136,7 +136,7 @@ class FreshwaterDataSource {
 				R.string.guppy_description
 			),
 			// Hatchets
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.hatchets,
 				R.string.text_hatchets,
 				R.string.text_latin_hatchet,
@@ -146,7 +146,7 @@ class FreshwaterDataSource {
 				R.string.hatchets_description
 			),
 			// Killifish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.killifish,
 				R.string.text_killifish,
 				R.string.text_latin_killifish,
@@ -156,7 +156,7 @@ class FreshwaterDataSource {
 				R.string.killifish_description
 			),
 			// Larger Catfish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.large_catfish,
 				R.string.text_catfish,
 				R.string.text_latin_larger_catfish,
@@ -166,7 +166,7 @@ class FreshwaterDataSource {
 				R.string.catfish_description
 			),
 			// Loach
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.loaches,
 				R.string.text_loach,
 				R.string.text_latin_loach,
@@ -176,7 +176,7 @@ class FreshwaterDataSource {
 				R.string.loaches_description
 			),
 			// Molly
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.molly,
 				R.string.text_molly,
 				R.string.text_latin_poecilia,
@@ -186,7 +186,7 @@ class FreshwaterDataSource {
 				R.string.mollies_description
 			),
 			// Platy
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.platy,
 				R.string.text_platy,
 				R.string.text_latin_platy,
@@ -196,7 +196,7 @@ class FreshwaterDataSource {
 				R.string.platy_description
 			),
 			// Pleco
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.pleco,
 				R.string.text_pleco,
 				R.string.text_latin_pleco,
@@ -206,7 +206,7 @@ class FreshwaterDataSource {
 				R.string.plecos_description,
 			),
 			// Rainbowfish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.rainbowfish,
 				R.string.text_rainbowfish,
 				R.string.text_latin_rainbowfish,
@@ -216,7 +216,7 @@ class FreshwaterDataSource {
 				R.string.rainbowfish_description
 			),
 			// Rasboras
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.rasbora,
 				R.string.text_rasboras,
 				R.string.text_latin_rasbora,
@@ -226,7 +226,7 @@ class FreshwaterDataSource {
 				R.string.rasboras_description
 			),
 			// Freshwater Sharks
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.freshwater_shark,
 				R.string.text_freshwater_shark,
 				R.string.text_latin_shark,
@@ -236,7 +236,7 @@ class FreshwaterDataSource {
 				R.string.freshwater_shark_description
 			),
 			// Suckermouth Catfish
-//			CompatabilityData(
+//			CompatibilityData(
 //				R.drawable.suckermouth_catfish,
 //				R.string.text_sucker_catfish,
 //				R.string.text_latin_larger_catfish,
@@ -245,7 +245,7 @@ class FreshwaterDataSource {
 //				R.string.list_incompatible_suckermouth_catfish
 //			),
 			// Swordtails
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.swordtail,
 				R.string.text_swordtail,
 				R.string.text_latin_swordtail,
@@ -255,7 +255,7 @@ class FreshwaterDataSource {
 				R.string.swordtails_description
 			),
 			// Tetras
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.tetra,
 				R.string.text_tetra,
 				R.string.text_latin_tetra,
@@ -265,7 +265,7 @@ class FreshwaterDataSource {
 				R.string.tetras_description
 			),
 			// Misc. Fish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.misc_fish,
 				R.string.text_misc_fish,
 				R.string.text_latin_various,
@@ -275,7 +275,7 @@ class FreshwaterDataSource {
 				R.string.misc_fish_description
 			),
 			// Invertebrates
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.shrimp,
 				R.string.text_inverts,
 				R.string.text_latin_various,
@@ -285,7 +285,7 @@ class FreshwaterDataSource {
 				R.string.freshwater_inverts_description
 			),
 			// Brackish Fish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.brackish,
 				R.string.text_brackish,
 				R.string.text_latin_various,
@@ -295,7 +295,7 @@ class FreshwaterDataSource {
 				R.string.brackish_description
 			),
 			// Pond Fish
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.koi,
 				R.string.text_pond,
 				R.string.text_latin_pond_fish,
@@ -305,7 +305,7 @@ class FreshwaterDataSource {
 				R.string.koi_description
 			),
 			// Freshwater Plants
-			CompatabilityData(
+			CompatibilityData(
 				R.drawable.java_fern,
 				R.string.text_freshwater_plants,
 				R.string.text_latin_various,

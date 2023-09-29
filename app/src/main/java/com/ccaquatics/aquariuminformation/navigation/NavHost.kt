@@ -10,7 +10,7 @@ import com.ccaquatics.aquariuminformation.ui.pages.HomePage
 import com.ccaquatics.aquariuminformation.ui.pages.InfoPage
 import com.ccaquatics.aquariuminformation.ui.pages.OverviewPage
 import com.ccaquatics.aquariuminformation.ui.pages.calculators.CalculatorsTabRow
-import com.ccaquatics.aquariuminformation.ui.pages.compatability.CompatabilityTabRow
+import com.ccaquatics.aquariuminformation.ui.pages.compatability.CompatibilityTabRow
 import com.ccaquatics.aquariuminformation.ui.pages.tankvolumes.TankVolumeTabRow
 
 @Composable
@@ -44,10 +44,10 @@ fun AquariumNavHost(
 					navController.navigateSingleTopTo(Alkalinity.route)
 				},
 				onClickFreshwater = {
-					navController.navigateSingleTopTo(FishCompatability.route)
+					navController.navigateSingleTopTo(FishCompitability.route)
 				},
 				onClickMarine = {
-					navController.navigateSingleTopTo(FishCompatabilityMarine.route)
+					navController.navigateSingleTopTo(FishCompatibilityMarine.route)
 				},
 				onClickRectangle = {
 					navController.navigateSingleTopTo((TankVolume.route))
@@ -75,14 +75,14 @@ fun AquariumNavHost(
 		composable(route = TankVolume.route) {
 			TankVolumeTabRow()
 		}
-		composable(route = FishCompatability.route) {
-			CompatabilityTabRow()
+		composable(route = FishCompitability.route) {
+			CompatibilityTabRow()
 		}
-		composable(route = FishCompatabilityMarine.route) {
-			CompatabilityTabRow(selectedState = 1)
+		composable(route = FishCompatibilityMarine.route) {
+			CompatibilityTabRow(selectedState = 1)
 		}
-		composable(route = FishCompatabilityFreshwater.route) {
-			CompatabilityTabRow()
+		composable(route = FishCompatibilityFreshwater.route) {
+			CompatibilityTabRow()
 		}
 		composable(route = Temperature.route) {
 			CalculatorsTabRow(selectedState = 2)
