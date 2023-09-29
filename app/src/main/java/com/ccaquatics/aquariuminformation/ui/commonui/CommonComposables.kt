@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.ccaquatics.aquariuminformation.ui.commonui
 
 import androidx.annotation.DrawableRes

@@ -18,7 +18,8 @@
             android:name="com.ccaquatics.aquariuminformation.MainActivity"
             android:screenOrientation="portrait"
             android:exported="true"
-            android:theme="@style/Theme.AquariumInformation">
+            android:theme="@style/Theme.AquariumInformation"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
