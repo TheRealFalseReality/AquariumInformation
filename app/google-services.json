@@ -39,7 +39,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:1046012145917:android:a0e1a011a3f37ab4f10e94",
         "android_client_info": {
-          "package_name": "com.ccaquatics.aquariuminformation"
+          "package_name": "cca.capitalcityaquatics.aquariuminfo"
         }
       },
       "oauth_client": [

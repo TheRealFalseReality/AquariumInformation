@@ -18,11 +18,11 @@ val versionMinor = 0
 val versionPatch = 0
 
 android {
-	namespace = "com.ccaquatics.aquariuminformation"
+	namespace = "cca.capitalcityaquatics.aquariuminfo"
 	compileSdk = 34
 
 	defaultConfig {
-		applicationId = "com.ccaquatics.aquariuminformation"
+		applicationId = "cca.capitalcityaquatics.aquariuminfo"
 		minSdk = 29
 		targetSdk = 34
 		versionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch

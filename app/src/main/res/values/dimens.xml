@@ -10,6 +10,7 @@
     <dimen name="icon_size_small">36dp</dimen>
     <dimen name="icon_size_medium">48dp</dimen>
     <dimen name="padding_verySmall">4dp</dimen>
+    <dimen name="padding_extremelySmall">2dp</dimen>
     <dimen name="elevation_small">4dp</dimen>
     <dimen name="elevation_medium">8dp</dimen>
     <dimen name="elevation_large">16dp</dimen>
