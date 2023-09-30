@@ -130,7 +130,7 @@ fun CubeLayout(
 		formulaContent = {
 			FormulaString(
 				text = cubeDataSource.formulaText,
-				color = color,
+				contentColor = color,
 			)
 		}
 	)

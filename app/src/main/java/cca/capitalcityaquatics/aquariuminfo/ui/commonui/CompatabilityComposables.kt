@@ -2,7 +2,6 @@ package cca.capitalcityaquatics.aquariuminfo.ui.commonui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -10,7 +9,6 @@ import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,32 +28,28 @@ fun CompatibilityDataList(
 	marineList: List<CompatibilityData>,
 	modifier: Modifier = Modifier
 ) {
-	Surface(
-		modifier = modifier
-			.fillMaxSize(),
-		color = MaterialTheme.colorScheme.background
+	Column(
+		horizontalAlignment = Alignment.CenterHorizontally
 	) {
-		Column(
-			horizontalAlignment = Alignment.CenterHorizontally
-		) {
-			LazyVerticalGrid(
-				columns = GridCells.Adaptive(minSize = dimensionResource(id = R.dimen.grid_colum_medium)),
-				userScrollEnabled = true,
-				state = LazyGridState(),
-				content = {
-					items(marineList) { compatibilityData ->
-						FishCardsCompatibilityData(
-							modifier = Modifier
-								.padding(vertical = dimensionResource(id = R.dimen.padding_verySmall)),
-							compatibilityData = compatibilityData
-						)
-					}
-					item {
-						Disclaimer()
-					}
+		LazyVerticalGrid(
+			columns = GridCells.Adaptive(
+				minSize = dimensionResource(id = R.dimen.grid_colum_medium)
+			),
+			userScrollEnabled = true,
+			state = LazyGridState(),
+			content = {
+				items(marineList) { compatibilityData ->
+					FishCardsCompatibilityData(
+						modifier = Modifier
+							.padding(vertical = dimensionResource(id = R.dimen.padding_verySmall)),
+						compatibilityData = compatibilityData
+					)
 				}
-			)
-		}
+				item {
+					Disclaimer()
+				}
+			}
+		)
 	}
 }
 

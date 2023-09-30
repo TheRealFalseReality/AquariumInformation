@@ -27,8 +27,8 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.ccaquatics.aquariuminformation" />
-                  <option name="mobileSdkAppId" value="1:1046012145917:android:a0e1a011a3f37ab4f10e94" />
+                  <option name="appId" value="cca.capitalcityaquatics.aquariuminfo" />
+                  <option name="mobileSdkAppId" value="1:1046012145917:android:c27fa107770ce49df10e94" />
                   <option name="projectId" value="peak-stream-291302" />
                   <option name="projectNumber" value="1046012145917" />
                 </ConnectionSetting>

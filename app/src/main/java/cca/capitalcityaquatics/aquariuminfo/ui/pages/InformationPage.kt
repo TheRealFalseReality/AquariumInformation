@@ -42,7 +42,9 @@ import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 
 @Composable
 fun InfoPage() {
-	PageView {
+	PageView(
+		verticalArrangement = Arrangement.SpaceBetween
+	) {
 		InfoLayout()
 	}
 }

@@ -148,7 +148,7 @@ fun RectangleLayout(
 		formulaContent = {
 			FormulaString(
 				text = rectangleDataSource.formulaText,
-				color = color
+				contentColor = color
 			)
 		},
 	)

@@ -156,7 +156,7 @@ fun SalinityLayout(
 		formulaContent = {
 			FormulaString(
 				text = salinityDataSource.formulaText,
-				color = color
+				contentColor = color
 			)
 		}
 	)

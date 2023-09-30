@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import cca.capitalcityaquatics.aquariuminfo.navigation.AquariumNavHost
+import cca.capitalcityaquatics.aquariuminfo.navigation.Home
 import cca.capitalcityaquatics.aquariuminfo.navigation.Overview
 import cca.capitalcityaquatics.aquariuminfo.navigation.bottomNavRow
 import cca.capitalcityaquatics.aquariuminfo.navigation.navigateSingleTopTo

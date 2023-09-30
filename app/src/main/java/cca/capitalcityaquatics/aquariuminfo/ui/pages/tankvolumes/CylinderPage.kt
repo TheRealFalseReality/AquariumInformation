@@ -186,7 +186,7 @@ fun CylinderLayout(
 		formulaContent = {
 			FormulaString(
 				text = cylinderDataSource.formulaText,
-				color = color
+				contentColor = color
 			)
 		}
 	)

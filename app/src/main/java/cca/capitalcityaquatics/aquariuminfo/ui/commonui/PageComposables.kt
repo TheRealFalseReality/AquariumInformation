@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
@@ -12,43 +13,25 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.dimensionResource
+import cca.capitalcityaquatics.aquariuminfo.R
 
 @Composable
 fun PageView(
 	modifier: Modifier = Modifier,
+	verticalArrangement: Arrangement.Vertical = Arrangement.SpaceAround,
 	content: @Composable () -> Unit,
 ) {
 	Column(modifier = modifier) {
 		Column(
 			modifier = Modifier
 				.fillMaxSize()
+				.padding(vertical = dimensionResource(id = R.dimen.padding_verySmall))
 				.verticalScroll(rememberScrollState()),
 			horizontalAlignment = Alignment.CenterHorizontally,
-			verticalArrangement = Arrangement.SpaceBetween
+			verticalArrangement = verticalArrangement
 		) {
-//			ExtremelySmallSpacer()
 			content()
-			ExtremelySmallSpacer()
-		}
-	}
-}
-
-@Composable
-fun PageViewCenter(
-	modifier: Modifier = Modifier,
-	content: @Composable () -> Unit,
-) {
-	Column(modifier = modifier) {
-		Column(
-			modifier = Modifier
-				.fillMaxSize()
-				.verticalScroll(rememberScrollState()),
-			horizontalAlignment = Alignment.CenterHorizontally,
-			verticalArrangement = Arrangement.Center
-		) {
-//			VerySmallSpacer()
-			content()
-			VerySmallSpacer()
 		}
 	}
 }
@@ -61,13 +44,11 @@ fun PageViewLazy(
 	Column(modifier = modifier) {
 		Column(
 			modifier = Modifier
+				.padding(vertical = dimensionResource(id = R.dimen.padding_verySmall))
 				.fillMaxSize(),
 			horizontalAlignment = Alignment.CenterHorizontally,
-			verticalArrangement = Arrangement.Center
 		) {
-//			VerySmallSpacer()
 			content()
-			VerySmallSpacer()
 		}
 	}
 }

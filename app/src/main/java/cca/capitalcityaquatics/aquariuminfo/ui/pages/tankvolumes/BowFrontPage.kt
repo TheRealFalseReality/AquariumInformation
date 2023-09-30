@@ -162,7 +162,7 @@ fun BowFrontLayout(
 		formulaContent = {
 			FormulaString(
 				text = bowFrontDataSource.formulaText,
-				color = color
+				contentColor = color
 			)
 		}
 	)

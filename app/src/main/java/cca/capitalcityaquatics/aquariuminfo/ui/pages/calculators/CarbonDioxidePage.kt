@@ -90,7 +90,7 @@ fun CarbonDioxideLayout(
 		},
 		formulaContent = {
 			FormulaString(
-				color = color,
+				contentColor = color,
 				text = carbonDioxideDataSource.formulaText,
 			)
 		}

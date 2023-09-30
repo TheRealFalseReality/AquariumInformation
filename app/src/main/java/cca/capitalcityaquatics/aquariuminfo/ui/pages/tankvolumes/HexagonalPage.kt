@@ -139,7 +139,7 @@ fun HexagonalLayout(
 		formulaContent = {
 			FormulaString(
 				text = hexagonalDataSource.formulaText,
-				color = color
+				contentColor = color
 			)
 		}
 	)

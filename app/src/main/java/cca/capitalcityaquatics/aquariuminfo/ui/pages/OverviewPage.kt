@@ -26,7 +26,6 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.MediumSpacer
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.NavButton
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.NavButtonRow
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageViewCenter
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TitleWideContent
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.VerySmallSpacer
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
@@ -105,7 +104,7 @@ fun TankVolumeOverviewPage(
 	onClickHexagonal: () -> Unit = {},
 	onClickBowFront: () -> Unit = {},
 ) {
-	PageViewCenter {
+	PageView {
 		TankVolumeGrid(
 			onClickRectangle = onClickRectangle,
 			onClickCube = onClickCube,

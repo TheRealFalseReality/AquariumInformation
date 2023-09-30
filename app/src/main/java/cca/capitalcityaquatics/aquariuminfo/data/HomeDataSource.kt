@@ -5,8 +5,8 @@ import cca.capitalcityaquatics.aquariuminfo.R
 val homeHeaderDataSource =
 	HeaderData(
 		icon = R.drawable.ic_icon_question,
-		title = R.string.text_welcome_compatibility_title,
-		text = R.string.text_welcome,
+		title = R.string.text_home_description,
+		text = R.string.text_home_features,
 	)
 
 val homeCompatibilityDataSource =

@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -47,10 +48,10 @@ fun NavButton(
 			containerColor = containerColor,
 			contentColor = contentColor,
 		),
-		elevation = ButtonDefaults.buttonElevation(
-			defaultElevation = dimensionResource(id = R.dimen.elevation_large),
-			pressedElevation = dimensionResource(id = R.dimen.elevation_small)
-		)
+//		elevation = ButtonDefaults.buttonElevation(
+//			defaultElevation = dimensionResource(id = R.dimen.elevation_small),
+//			pressedElevation = dimensionResource(id = R.dimen.elevation_small)
+//		)
 	) {
 		Column(
 			modifier = Modifier
@@ -259,7 +260,6 @@ fun NavButtonWide(
 		containerColor = containerColor,
 		contentColor = contentColor,
 	)
-	MediumSpacer()
 }
 
 

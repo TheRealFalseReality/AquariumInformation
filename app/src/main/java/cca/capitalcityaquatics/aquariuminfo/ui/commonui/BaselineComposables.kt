@@ -2,6 +2,7 @@ package cca.capitalcityaquatics.aquariuminfo.ui.commonui
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -13,11 +14,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -92,9 +95,7 @@ fun TitleWideContent(
 	color: Color = MaterialTheme.colorScheme.onSurface,
 	content: @Composable ColumnScope.() -> Unit,
 ) {
-	Column(
-		modifier = modifier,
-	) {
+	Column(modifier = modifier) {
 		Row(
 			verticalAlignment = Alignment.CenterVertically
 		) {
@@ -104,12 +105,12 @@ fun TitleWideContent(
 				color = color
 			)
 		}
+		SmallSpacer()
 		Column(
 			modifier = Modifier
 				.fillMaxWidth(),
 			horizontalAlignment = Alignment.CenterHorizontally
 		) {
-			SmallSpacer()
 			content()
 		}
 	}
@@ -119,12 +120,12 @@ fun TitleWideContent(
 fun SingleWideCard(
 	modifier: Modifier = Modifier,
 	shape: Shape = Shapes.large,
-	containerColor: Color = MaterialTheme.colorScheme.background,
-	contentColor: Color = MaterialTheme.colorScheme.onBackground,
+	containerColor: Color = MaterialTheme.colorScheme.surfaceVariant,
+	contentColor: Color = MaterialTheme.colorScheme.onSurfaceVariant,
 	content: @Composable ColumnScope.() -> Unit,
 ) {
 	Column(modifier = modifier) {
-		ElevatedCard(
+		Card(
 			modifier = Modifier
 				.fillMaxWidth(fraction = 0.9f),
 			shape = shape,
@@ -132,9 +133,6 @@ fun SingleWideCard(
 				containerColor = containerColor,
 				contentColor = contentColor
 			),
-			elevation = CardDefaults.cardElevation(
-				defaultElevation = dimensionResource(id = R.dimen.elevation_medium)
-			)
 		) {
 			Column(
 				modifier = Modifier
@@ -157,13 +155,16 @@ fun TextCard(
 	shape: Shape = Shapes.large
 ) {
 	Column(modifier = modifier) {
-		ElevatedCard(
-			elevation = CardDefaults.cardElevation(8.dp),
+		OutlinedCard(
+			shape = shape,
 			colors = CardDefaults.cardColors(
 				containerColor = containerColor,
 				contentColor = contentColor
 			),
-			shape = shape
+			border = BorderStroke(
+				width = dimensionResource(id = R.dimen.border_stroke_small),
+				color = contentColor
+			),
 		) {
 			Column(
 				modifier = Modifier
@@ -205,7 +206,7 @@ fun HeaderTextLarge(
 }
 
 @Composable
-fun CardImage(
+fun  CardImage(
 	modifier: Modifier = Modifier,
 	@DrawableRes image: Int,
 	@StringRes contentDescription: Int,

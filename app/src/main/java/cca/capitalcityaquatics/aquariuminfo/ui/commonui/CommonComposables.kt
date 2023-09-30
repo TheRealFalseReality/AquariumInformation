@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
@@ -208,7 +209,7 @@ fun SingleWideCardExpandableFull(
 	}
 
 	Column(modifier = modifier) {
-		ElevatedCard(
+		Card(
 			modifier = Modifier
 				.clickable { expanded = !expanded },
 			shape = shape,
@@ -331,18 +332,19 @@ fun TankVolumeResults(
 @Composable
 fun FormulaString(
 	@StringRes text: Int,
-	color: Color,
+	contentColor: Color = MaterialTheme.colorScheme.onSurfaceVariant,
+	containerColor: Color = MaterialTheme.colorScheme.surfaceVariant,
 ) {
 	TitleWideContent(
 		text = R.string.formula,
 		icon = R.drawable.baseline_functions_24,
-		color = color,
+		color = contentColor,
 	) {
-		SingleWideCard {
-			BodyText(
-				text = text,
-				color = color
-			)
+		SingleWideCard(
+			contentColor = contentColor,
+			containerColor = containerColor,
+		) {
+			BodyText(text = text)
 		}
 	}
 }
@@ -350,16 +352,20 @@ fun FormulaString(
 @Composable
 fun FormulaStringContent(
 	modifier: Modifier = Modifier,
-	color: Color,
+	contentColor: Color = MaterialTheme.colorScheme.onSurfaceVariant,
+	containerColor: Color = MaterialTheme.colorScheme.surfaceVariant,
 	content: @Composable () -> Unit,
 ) {
 	Column(modifier = modifier) {
 		TitleWideContent(
 			text = R.string.formula,
 			icon = R.drawable.baseline_functions_24,
-			color = color,
+			color = contentColor,
 		) {
-			SingleWideCard {
+			SingleWideCard(
+				contentColor = contentColor,
+				containerColor = containerColor,
+			) {
 				Column(
 					horizontalAlignment = Alignment.Start
 				) {

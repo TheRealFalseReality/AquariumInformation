@@ -148,7 +148,7 @@ fun TemperatureLayout(
 		},
 		formulaContent = {
 			FormulaStringContent(
-				color = color,
+				contentColor = color,
 				content = {
 					BodyText(
 						text = temperatureDataSource.formulaText1,

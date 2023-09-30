@@ -181,7 +181,7 @@ fun AlkalinityLayout(
 		formulaContent = {
 			FormulaString(
 				text = alkalinityDataSource.formulaText,
-				color = color
+				contentColor = color
 			)
 		}
 	)
