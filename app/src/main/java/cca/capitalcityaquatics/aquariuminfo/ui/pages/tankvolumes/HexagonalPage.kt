@@ -86,9 +86,9 @@ fun HexagonalLayout(
 				inputContent = {
 					InputRowNumberFieldTwoInputs(
 						label1 = calculatorDataSource.labelEdge,
-						placeholder1 = calculatorDataSource.placeholderEdge,
+//						placeholder1 = calculatorDataSource.placeholderEdge,
 						label2 = calculatorDataSource.labelHeight,
-						placeholder2 = calculatorDataSource.placeholderHeight,
+//						placeholder2 = calculatorDataSource.placeholderHeight,
 						value1 = inputEdge,
 						onValueChange1 = { inputEdge = it },
 						value2 = inputHeight,
@@ -96,6 +96,8 @@ fun HexagonalLayout(
 						focusedContainerColor = containerColor,
 						focusedColor = contentColor,
 						unfocusedColor = color,
+						leadingIcon1 = calculatorDataSource.leadingIconFullWidth,
+						leadingIcon2 = calculatorDataSource.leadingIconHeight,
 					)
 				},
 				inputText =

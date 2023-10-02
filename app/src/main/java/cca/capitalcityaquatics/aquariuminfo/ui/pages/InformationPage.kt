@@ -10,12 +10,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -54,7 +56,9 @@ fun InfoPage() {
 fun InfoLayout(
 	text: String = stringResource(id = R.string.url_app),
 	shareDialogTitle: String = stringResource(R.string.share),
-	contentColor: Color = MaterialTheme.colorScheme.onSurfaceVariant
+	contentColor: Color = MaterialTheme.colorScheme.onSurface,
+	containerColor: Color = MaterialTheme.colorScheme
+		.surfaceColorAtElevation(dimensionResource(id = R.dimen.tonal_elevation_medium)),
 ) {
 	val uriHandler = LocalUriHandler.current
 	val context = LocalContext.current
@@ -67,7 +71,9 @@ fun InfoLayout(
 		text = Information.title,
 		icon = Information.icon
 	) {
-		SingleWideCard {
+		SingleWideCard(
+			containerColor = containerColor
+		) {
 			BodyText(
 				text = informationHeaderDataSource.text,
 				color = contentColor
@@ -81,7 +87,9 @@ fun InfoLayout(
 		text = errorDataSource.title,
 		icon = errorDataSource.icon,
 	) {
-		SingleWideCard {
+		SingleWideCard(
+			containerColor = containerColor
+		) {
 			BodyText(
 				modifier = Modifier
 					.clickable { uriHandler.openUri(emailURL) },
@@ -95,7 +103,9 @@ fun InfoLayout(
 		text = contactDataSource.title,
 		icon = contactDataSource.icon,
 	) {
-		SingleWideCard {
+		SingleWideCard(
+			containerColor = containerColor
+		) {
 			IconTextRow(
 				modifier = Modifier
 					.clickable { uriHandler.openUri(emailURL) },
@@ -151,6 +161,7 @@ fun InfoLayout(
 		SingleWideCard(
 			modifier = Modifier
 				.clickable { uriHandler.openUri(changelogURL) },
+			containerColor = containerColor,
 		) {
 			Row(
 				verticalAlignment = Alignment.CenterVertically,

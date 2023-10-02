@@ -14,4 +14,5 @@ val carbonDioxideDataSource =
 		equalsText = R.string.text_equal_to,
 		calculatedText = R.string.text_amount_co2,
 		formulaText = R.string.text_formula_soon
+
 	)

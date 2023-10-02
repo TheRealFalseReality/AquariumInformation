@@ -8,33 +8,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ScrollableTabRow
-import androidx.compose.material3.Tab
-import androidx.compose.material3.TabPosition
-import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextOverflow
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.navigation.Destinations
-import cca.capitalcityaquatics.aquariuminfo.navigation.tankVolumeTabRow
-import cca.capitalcityaquatics.aquariuminfo.ui.pages.tankvolumes.BowFrontPage
-import cca.capitalcityaquatics.aquariuminfo.ui.pages.tankvolumes.CubePage
-import cca.capitalcityaquatics.aquariuminfo.ui.pages.tankvolumes.CylinderPage
-import cca.capitalcityaquatics.aquariuminfo.ui.pages.tankvolumes.HexagonalPage
-import cca.capitalcityaquatics.aquariuminfo.ui.pages.tankvolumes.RectanglePage
 
 @Composable
 fun PageView(
@@ -76,8 +56,9 @@ fun PageViewLazy(
 @Composable
 fun GenericCalculatePage(
 	@StringRes subtitle: Int,
+	subtitleContent: @Composable () -> Unit = {},
 	color: Color,
-	selectContent: @Composable () -> Unit,
+	selectContent: @Composable () -> Unit = {},
 	optionsContent: @Composable () -> Unit = {},
 	calculateFieldContent: @Composable () -> Unit,
 	imageContent: @Composable () -> Unit = {},
@@ -88,6 +69,7 @@ fun GenericCalculatePage(
 		color = color,
 		style = MaterialTheme.typography.titleMedium
 	)
+	subtitleContent()
 	SmallSpacer()
 	selectContent()
 	SmallSpacer()
@@ -98,4 +80,5 @@ fun GenericCalculatePage(
 	imageContent()
 	SmallSpacer()
 	formulaContent()
+
 }

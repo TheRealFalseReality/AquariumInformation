@@ -57,7 +57,8 @@
     <string name="text_amount_ppm">%s ppm CaCO3</string>
     <string name="text_amount_meq">%s meq/L</string>
     <string name="text_title_rectangle">Rectangle</string>
-    <string name="text_subtitle_tank_vol">ft : in -> gal : L</string>
+    <string name="text_subtitle_tank_vol_distance">ft | in</string>
+    <string name="text_subtitle_tank_vol_volume">gal | L</string>
     <string name="button_label_inches">Inches</string>
     <string name="button_label_feet">Feet</string>
     <string name="field_label_inches">Enter Inches</string>
@@ -611,4 +612,5 @@
     <string name="text_home_description">This app calculates the volume of water in your aquarium tank and the weight of the water, based on the shape and dimensions of your tank. It also includes temperature, salinity, and alkalinity converters.</string>
     <string name="text_home_features">Features:\nCalculate the volume of water in your aquarium tank for rectangular, cube, cylindrical, hexagonal, and bow-front tanks.\nCalculate the weight of the water in your aquarium tank.\nConvert temperature, salinity, and alkalinity units.</string>
     <string name="more_information">More Information</string>
+    <string name="placeholder_enter">Enter</string>
 </resources>

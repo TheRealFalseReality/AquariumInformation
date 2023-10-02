@@ -28,6 +28,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -339,8 +340,9 @@ fun TankVolumeResults(
 @Composable
 fun FormulaString(
 	@StringRes text: Int,
-	contentColor: Color = MaterialTheme.colorScheme.onSurfaceVariant,
-	containerColor: Color = MaterialTheme.colorScheme.surfaceVariant,
+	contentColor: Color = MaterialTheme.colorScheme.onSurface,
+	containerColor: Color = MaterialTheme.colorScheme
+		.surfaceColorAtElevation(dimensionResource(id = R.dimen.tonal_elevation_medium)),
 ) {
 	TitleWideContent(
 		text = R.string.formula,
@@ -362,8 +364,9 @@ fun FormulaString(
 @Composable
 fun FormulaStringContent(
 	modifier: Modifier = Modifier,
-	contentColor: Color = MaterialTheme.colorScheme.onSurfaceVariant,
-	containerColor: Color = MaterialTheme.colorScheme.surfaceVariant,
+	contentColor: Color = MaterialTheme.colorScheme.onSurface,
+	containerColor: Color = MaterialTheme.colorScheme
+		.surfaceColorAtElevation(dimensionResource(id = R.dimen.tonal_elevation_medium)),
 	content: @Composable () -> Unit,
 ) {
 	Column(modifier = modifier) {
@@ -528,6 +531,7 @@ fun InputNumberPreview() {
 			focusedColor = MaterialTheme.colorScheme.onPrimaryContainer,
 			focusedContainerColor = MaterialTheme.colorScheme.primaryContainer,
 			unfocusedColor = MaterialTheme.colorScheme.primary,
+			leadingIcon = calculatorDataSource.leadingIconPH,
 		)
 	}
 }
@@ -545,6 +549,7 @@ fun InputNumberPreviewDark(
 			focusedColor = MaterialTheme.colorScheme.onPrimaryContainer,
 			focusedContainerColor = MaterialTheme.colorScheme.primaryContainer,
 			unfocusedColor = MaterialTheme.colorScheme.primary,
+			leadingIcon = calculatorDataSource.leadingIconPH,
 		)
 	}
 }

@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.salinityDataSource
+import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.BodyText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateField
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedText
@@ -86,12 +87,13 @@ fun SalinityLayout(
 						inputContent = {
 							InputNumberField(
 								label = salinityDataSource.labelPpt,
-								placeholder = salinityDataSource.placeholderPpt,
+//								placeholder = salinityDataSource.placeholderPpt,
 								value = inputSal,
 								onValueChange = { inputSal = it },
 								focusedContainerColor = containerColor,
 								focusedColor = contentColor,
 								unfocusedColor = color,
+								leadingIcon = calculatorDataSource.leadingIconSalinity,
 							)
 						},
 						inputText = salinityDataSource.inputTextPpt,
@@ -127,12 +129,13 @@ fun SalinityLayout(
 					CalculateField(inputContent = {
 						InputNumberField(
 							label = salinityDataSource.labelSg,
-							placeholder = salinityDataSource.placeholderSg,
+//							placeholder = salinityDataSource.placeholderSg,
 							value = inputSal,
 							onValueChange = { inputSal = it },
 							focusedContainerColor = containerColor,
 							focusedColor = contentColor,
 							unfocusedColor = color,
+							leadingIcon = calculatorDataSource.leadingIconSG,
 						)
 					},
 						inputText = salinityDataSource.inputTextSg,

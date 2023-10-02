@@ -14,8 +14,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ButtonElevation
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CardElevation
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
@@ -120,8 +122,8 @@ fun TitleWideContent(
 fun SingleWideCard(
 	modifier: Modifier = Modifier,
 	shape: Shape = Shapes.large,
-	containerColor: Color = MaterialTheme.colorScheme.surfaceVariant,
-	contentColor: Color = MaterialTheme.colorScheme.onSurfaceVariant,
+	containerColor: Color = MaterialTheme.colorScheme.surface,
+	contentColor: Color = MaterialTheme.colorScheme.onSurface,
 	content: @Composable ColumnScope.() -> Unit,
 ) {
 	Column(modifier = modifier) {

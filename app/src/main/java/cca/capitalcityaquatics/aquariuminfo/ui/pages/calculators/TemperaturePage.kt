@@ -17,6 +17,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.temperatureDataSource
+import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.BodyText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateField
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedText
@@ -83,13 +84,14 @@ fun TemperatureLayout(
 					CalculateField(
 						inputContent = {
 							InputNumberField(
-								placeholder = temperatureDataSource.placeholderCelsius,
+//								placeholder = temperatureDataSource.placeholderCelsius,
 								label = temperatureDataSource.labelCelsius,
 								value = inputTemperature,
 								onValueChange = { inputTemperature = it },
 								focusedContainerColor = containerColor,
 								focusedColor = contentColor,
 								unfocusedColor = color,
+								leadingIcon = calculatorDataSource.leadingIconTemperature,
 							)
 						},
 						inputText = temperatureDataSource.inputTextCelsius,
@@ -116,13 +118,14 @@ fun TemperatureLayout(
 					CalculateField(
 						inputContent = {
 							InputNumberField(
-								placeholder = temperatureDataSource.placeholderFahrenheit,
+//								placeholder = temperatureDataSource.placeholderFahrenheit,
 								label = temperatureDataSource.labelFahrenheit,
 								value = inputTemperature,
 								onValueChange = { inputTemperature = it },
 								focusedContainerColor = containerColor,
 								focusedColor = contentColor,
 								unfocusedColor = color,
+								leadingIcon = calculatorDataSource.leadingIconTemperature,
 							)
 						},
 						inputText = temperatureDataSource.inputTextFahrenheit,

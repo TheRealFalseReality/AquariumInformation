@@ -1,5 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.commonui
 
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -39,7 +40,7 @@ import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSourc
 fun InputNumberField(
 	modifier: Modifier = Modifier,
 	@StringRes label: Int,
-	@StringRes placeholder: Int,
+	@StringRes placeholder: Int = R.string.placeholder_enter,
 	value: String,
 	onValueChange: (String) -> Unit,
 	shape: Shape = RoundedCornerShape(
@@ -52,6 +53,7 @@ fun InputNumberField(
 	focusedContainerColor: Color,
 	unfocusedColor: Color,
 	imeAction: ImeAction = ImeAction.Done,
+	@DrawableRes leadingIcon: Int,
 ) {
 	val focusManager = LocalFocusManager.current
 
@@ -76,6 +78,10 @@ fun InputNumberField(
 				unfocusedTextColor = unfocusedColor,
 				unfocusedIndicatorColor = unfocusedColor,
 				unfocusedLabelColor = unfocusedColor,
+				focusedLeadingIconColor = focusedColor,
+				unfocusedLeadingIconColor = unfocusedColor,
+				focusedTrailingIconColor = focusedColor,
+				unfocusedTrailingIconColor = unfocusedColor
 			),
 			label = {
 				Text(
@@ -85,6 +91,7 @@ fun InputNumberField(
 			placeholder = {
 				Text(
 					stringResource(id = placeholder),
+					maxLines = 1,
 				)
 			},
 			keyboardOptions = KeyboardOptions(
@@ -111,17 +118,20 @@ fun InputNumberField(
 					}
 				}
 			},
+			leadingIcon = {
+				Icon(painter = painterResource(id = leadingIcon), contentDescription = null)
+			}
 		)
 	}
 }
 
 @Composable
-fun InputNumberFieldTwoInputs(
+fun InputNumberFieldTwoInputsStacked(
 	modifier: Modifier = Modifier,
 	@StringRes label1: Int,
-	@StringRes placeholder1: Int,
+//	@StringRes placeholder1: Int,
 	@StringRes label2: Int,
-	@StringRes placeholder2: Int,
+//	@StringRes placeholder2: Int,
 	value1: String,
 	onValueChange1: (String) -> Unit,
 	value2: String,
@@ -129,27 +139,31 @@ fun InputNumberFieldTwoInputs(
 	focusedColor: Color,
 	focusedContainerColor: Color,
 	unfocusedColor: Color,
+	leadingIcon1: Int,
+	leadingIcon2: Int,
 ) {
 	Column(modifier = modifier) {
 		InputNumberField(
 			label = label1,
-			placeholder = placeholder1,
+//			placeholder = placeholder1,
 			value = value1,
 			onValueChange = onValueChange1,
 			focusedColor = focusedColor,
 			focusedContainerColor = focusedContainerColor,
 			unfocusedColor = unfocusedColor,
-			imeAction = ImeAction.Next
+			imeAction = ImeAction.Next,
+			leadingIcon = leadingIcon1
 		)
 		SmallSpacer()
 		InputNumberField(
 			label = label2,
-			placeholder = placeholder2,
+//			placeholder = placeholder2,
 			value = value2,
 			onValueChange = onValueChange2,
 			focusedColor = focusedColor,
 			focusedContainerColor = focusedContainerColor,
 			unfocusedColor = unfocusedColor,
+			leadingIcon = leadingIcon2
 		)
 	}
 }
@@ -158,9 +172,9 @@ fun InputNumberFieldTwoInputs(
 fun InputRowNumberFieldTwoInputs(
 	modifier: Modifier = Modifier,
 	@StringRes label1: Int,
-	@StringRes placeholder1: Int,
+//	@StringRes placeholder1: Int,
 	@StringRes label2: Int,
-	@StringRes placeholder2: Int,
+//	@StringRes placeholder2: Int,
 	value1: String,
 	onValueChange1: (String) -> Unit,
 	value2: String,
@@ -168,6 +182,8 @@ fun InputRowNumberFieldTwoInputs(
 	focusedColor: Color,
 	focusedContainerColor: Color,
 	unfocusedColor: Color,
+	leadingIcon1: Int,
+	leadingIcon2: Int,
 ) {
 	Column(modifier = modifier) {
 		Row(
@@ -184,13 +200,14 @@ fun InputRowNumberFieldTwoInputs(
 					)
 					.weight(1f),
 				label = label1,
-				placeholder = placeholder1,
+//				placeholder = placeholder1,
 				value = value1,
 				onValueChange = onValueChange1,
 				focusedColor = focusedColor,
 				focusedContainerColor = focusedContainerColor,
 				unfocusedColor = unfocusedColor,
-				imeAction = ImeAction.Next
+				imeAction = ImeAction.Next,
+				leadingIcon = leadingIcon1,
 			)
 			InputNumberField(
 				modifier = Modifier
@@ -200,12 +217,13 @@ fun InputRowNumberFieldTwoInputs(
 					)
 					.weight(1f),
 				label = label2,
-				placeholder = placeholder2,
+//				placeholder = placeholder2,
 				value = value2,
 				onValueChange = onValueChange2,
 				focusedColor = focusedColor,
 				focusedContainerColor = focusedContainerColor,
 				unfocusedColor = unfocusedColor,
+				leadingIcon = leadingIcon2
 			)
 		}
 	}
@@ -215,17 +233,17 @@ fun InputRowNumberFieldTwoInputs(
 fun InputQuadNumberFieldFourInputs(
 	modifier: Modifier = Modifier,
 	@StringRes label1: Int,
-	@StringRes placeholder1: Int,
+//	@StringRes placeholder1: Int,
 	@StringRes label2: Int,
-	@StringRes placeholder2: Int,
+//	@StringRes placeholder2: Int,
 	value1: String,
 	onValueChange1: (String) -> Unit,
 	value2: String,
 	onValueChange2: (String) -> Unit,
 	@StringRes label3: Int,
-	@StringRes placeholder3: Int,
+//	@StringRes placeholder3: Int,
 	@StringRes label4: Int,
-	@StringRes placeholder4: Int,
+//	@StringRes placeholder4: Int,
 	value3: String,
 	onValueChange3: (String) -> Unit,
 	value4: String,
@@ -233,6 +251,10 @@ fun InputQuadNumberFieldFourInputs(
 	focusedColor: Color,
 	focusedContainerColor: Color,
 	unfocusedColor: Color,
+	leadingIcon1: Int,
+	leadingIcon2: Int,
+	leadingIcon3: Int,
+	leadingIcon4: Int,
 ) {
 	Column(modifier = modifier) {
 		Row(
@@ -249,13 +271,14 @@ fun InputQuadNumberFieldFourInputs(
 					)
 					.weight(1f),
 				label = label1,
-				placeholder = placeholder1,
+//				placeholder = placeholder1,
 				value = value1,
 				onValueChange = onValueChange1,
 				focusedColor = focusedColor,
 				focusedContainerColor = focusedContainerColor,
 				unfocusedColor = unfocusedColor,
-				imeAction = ImeAction.Next
+				imeAction = ImeAction.Next,
+				leadingIcon = leadingIcon1
 			)
 			InputNumberField(
 				modifier = Modifier
@@ -265,13 +288,14 @@ fun InputQuadNumberFieldFourInputs(
 					)
 					.weight(1f),
 				label = label2,
-				placeholder = placeholder2,
+//				placeholder = placeholder2,
 				value = value2,
 				onValueChange = onValueChange2,
 				focusedColor = focusedColor,
 				focusedContainerColor = focusedContainerColor,
 				unfocusedColor = unfocusedColor,
-				imeAction = ImeAction.Next
+				imeAction = ImeAction.Next,
+				leadingIcon = leadingIcon2
 			)
 		}
 		SmallSpacer()
@@ -289,13 +313,14 @@ fun InputQuadNumberFieldFourInputs(
 					)
 					.weight(1f),
 				label = label3,
-				placeholder = placeholder3,
+//				placeholder = placeholder3,
 				value = value3,
 				onValueChange = onValueChange3,
 				focusedColor = focusedColor,
 				focusedContainerColor = focusedContainerColor,
 				unfocusedColor = unfocusedColor,
-				imeAction = ImeAction.Next
+				imeAction = ImeAction.Next,
+				leadingIcon = leadingIcon3
 			)
 			InputNumberField(
 				modifier = Modifier
@@ -305,12 +330,13 @@ fun InputQuadNumberFieldFourInputs(
 					)
 					.weight(1f),
 				label = label4,
-				placeholder = placeholder4,
+//				placeholder = placeholder4,
 				value = value4,
 				onValueChange = onValueChange4,
 				focusedColor = focusedColor,
 				focusedContainerColor = focusedContainerColor,
 				unfocusedColor = unfocusedColor,
+				leadingIcon = leadingIcon4
 			)
 		}
 	}
@@ -334,6 +360,9 @@ fun InputNumberFieldThreeInputs(
 	focusedColor: Color,
 	focusedContainerColor: Color,
 	unfocusedColor: Color,
+	leadingIcon1: Int,
+	leadingIcon2: Int,
+	leadingIcon3: Int,
 ) {
 	Column(modifier = modifier) {
 		Row(
@@ -351,7 +380,8 @@ fun InputNumberFieldThreeInputs(
 				focusedColor = focusedColor,
 				focusedContainerColor = focusedContainerColor,
 				unfocusedColor = unfocusedColor,
-				imeAction = ImeAction.Next
+				imeAction = ImeAction.Next,
+				leadingIcon = leadingIcon1
 			)
 			InputNumberField(
 				modifier = Modifier
@@ -364,7 +394,8 @@ fun InputNumberFieldThreeInputs(
 				focusedColor = focusedColor,
 				focusedContainerColor = focusedContainerColor,
 				unfocusedColor = unfocusedColor,
-				imeAction = ImeAction.Next
+				imeAction = ImeAction.Next,
+				leadingIcon = leadingIcon2
 			)
 			InputNumberField(
 				modifier = Modifier
@@ -377,6 +408,7 @@ fun InputNumberFieldThreeInputs(
 				focusedColor = focusedColor,
 				focusedContainerColor = focusedContainerColor,
 				unfocusedColor = unfocusedColor,
+				leadingIcon = leadingIcon3
 			)
 		}
 	}
@@ -386,11 +418,11 @@ fun InputNumberFieldThreeInputs(
 fun InputNumberFieldThreeStackedInputs(
 	modifier: Modifier = Modifier,
 	@StringRes label1: Int,
-	@StringRes placeholder1: Int,
+//	@StringRes placeholder1: Int,
 	@StringRes label2: Int,
-	@StringRes placeholder2: Int,
+//	@StringRes placeholder2: Int,
 	@StringRes label3: Int,
-	@StringRes placeholder3: Int,
+//	@StringRes placeholder3: Int,
 	value1: String,
 	onValueChange1: (String) -> Unit,
 	value2: String,
@@ -400,6 +432,9 @@ fun InputNumberFieldThreeStackedInputs(
 	focusedColor: Color,
 	focusedContainerColor: Color,
 	unfocusedColor: Color,
+	leadingIcon1: Int,
+	leadingIcon2: Int,
+	leadingIcon3: Int,
 ) {
 	Column(
 		modifier = modifier,
@@ -416,26 +451,28 @@ fun InputNumberFieldThreeStackedInputs(
 					.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
 					.weight(1f),
 				label = label1,
-				placeholder = placeholder1,
+//				placeholder = placeholder1,
 				value = value1,
 				onValueChange = onValueChange1,
 				focusedColor = focusedColor,
 				focusedContainerColor = focusedContainerColor,
 				unfocusedColor = unfocusedColor,
-				imeAction = ImeAction.Next
+				imeAction = ImeAction.Next,
+				leadingIcon = leadingIcon1
 			)
 			InputNumberField(
 				modifier = Modifier
 					.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
 					.weight(1f),
 				label = label2,
-				placeholder = placeholder2,
+//				placeholder = placeholder2,
 				value = value2,
 				onValueChange = onValueChange2,
 				focusedColor = focusedColor,
 				focusedContainerColor = focusedContainerColor,
 				unfocusedColor = unfocusedColor,
-				imeAction = ImeAction.Next
+				imeAction = ImeAction.Next,
+				leadingIcon = leadingIcon2
 			)
 		}
 		SmallSpacer()
@@ -449,12 +486,13 @@ fun InputNumberFieldThreeStackedInputs(
 				modifier = Modifier
 					.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall)),
 				label = label3,
-				placeholder = placeholder3,
+//				placeholder = placeholder3,
 				value = value3,
 				onValueChange = onValueChange3,
 				focusedColor = focusedColor,
 				focusedContainerColor = focusedContainerColor,
 				unfocusedColor = unfocusedColor,
+				leadingIcon = leadingIcon3
 			)
 		}
 	}

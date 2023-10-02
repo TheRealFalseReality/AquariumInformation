@@ -1,5 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.data.tankvolumes
 
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
 data class CommonData(
@@ -29,4 +30,14 @@ data class CommonData(
 	@StringRes val radioCornerCylinder: Int,
 	@StringRes val radioFullCylinder: Int,
 	@StringRes val labelCylinderType: Int,
+	@DrawableRes val leadingIconPH: Int,
+	@DrawableRes val leadingIconTDS: Int,
+	@DrawableRes val leadingIconSalinity: Int,
+	@DrawableRes val leadingIconSG: Int,
+	@DrawableRes val leadingIconLength: Int,
+	@DrawableRes val leadingIconWidth: Int,
+	@DrawableRes val leadingIconHeight: Int,
+	@DrawableRes val leadingIconFullWidth: Int,
+	@DrawableRes val leadingIconDiameter: Int,
+	@DrawableRes val leadingIconTemperature: Int,
 )

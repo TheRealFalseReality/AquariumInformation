@@ -28,7 +28,6 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import cca.capitalcityaquatics.aquariuminfo.R
@@ -66,7 +65,7 @@ fun AquariumAppBar(
 		},
 		colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
 			containerColor = MaterialTheme.colorScheme
-				.surfaceColorAtElevation(dimensionResource(id = R.dimen.tonal_elevation)),
+				.surfaceColorAtElevation(dimensionResource(id = R.dimen.tonal_elevation_small)),
 			navigationIconContentColor = MaterialTheme.colorScheme.onSurface,
 			actionIconContentColor = MaterialTheme.colorScheme.onSurface
 		),
@@ -141,7 +140,7 @@ fun AppNavigationRail(
 		modifier = modifier
 			.padding(end = dimensionResource(id = R.dimen.padding_verySmall)),
 		containerColor = MaterialTheme.colorScheme
-			.surfaceColorAtElevation(dimensionResource(id = R.dimen.tonal_elevation)),
+			.surfaceColorAtElevation(dimensionResource(id = R.dimen.tonal_elevation_small)),
 	) {
 //		Column {
 //			NavigationRailItem(

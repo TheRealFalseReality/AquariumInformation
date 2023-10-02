@@ -4,7 +4,7 @@ import cca.capitalcityaquatics.aquariuminfo.R
 
 val calculatorDataSource =
 	CommonData(
-		subtitle = R.string.text_subtitle_tank_vol,
+		subtitle = R.string.text_subtitle_tank_vol_distance,
 		radioTextFeet = R.string.button_label_feet,
 		radioTextInches = R.string.button_label_inches,
 		labelLength = R.string.length,
@@ -29,5 +29,15 @@ val calculatorDataSource =
 		radioCornerCylinder = R.string.text_cyl_quart,
 		radioHalfCylinder = R.string.text_cyl_half,
 		radioFullCylinder = R.string.full_cylinder,
-		labelCylinderType = R.string.select_cylinder_type
+		labelCylinderType = R.string.select_cylinder_type,
+		leadingIconPH = R.drawable.ic_water_ph,
+		leadingIconDiameter = R.drawable.ic_diameter,
+		leadingIconFullWidth = R.drawable.ic_width_fit,
+		leadingIconHeight = R.drawable.ic_height,
+		leadingIconLength = R.drawable.ic_straight,
+		leadingIconSalinity = R.drawable.ic_salinity_alt,
+		leadingIconSG = R.drawable.ic_specific_gravity,
+		leadingIconTDS = R.drawable.ic_tds,
+		leadingIconWidth = R.drawable.ic_width,
+		leadingIconTemperature = R.drawable.ic_thermometer
 	)

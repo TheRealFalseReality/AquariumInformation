@@ -5,10 +5,12 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -46,7 +48,10 @@ fun HomeLayout(
 		text = Home.title,
 		icon = Home.icon
 	) {
-		SingleWideCard {
+		SingleWideCard(
+			containerColor = MaterialTheme.colorScheme
+				.surfaceColorAtElevation(dimensionResource(id = R.dimen.tonal_elevation_medium)),
+		) {
 			BodyText(text = homeHeaderDataSource.title) // TODO
 			SmallSpacer()
 			BodyText(

@@ -90,11 +90,11 @@ fun RectangleLayout(
 				inputContent = {
 					InputNumberFieldThreeStackedInputs(
 						label1 = calculatorDataSource.labelLength,
-						placeholder1 = calculatorDataSource.placeholderLength,
+//						placeholder1 = calculatorDataSource.placeholderLength,
 						label2 = calculatorDataSource.labelWidth,
-						placeholder2 = calculatorDataSource.placeholderWidth,
+//						placeholder2 = calculatorDataSource.placeholderWidth,
 						label3 = calculatorDataSource.labelHeight,
-						placeholder3 = calculatorDataSource.placeholderHeight,
+//						placeholder3 = calculatorDataSource.placeholderHeight,
 						value1 = inputLength,
 						onValueChange1 = { inputLength = it },
 						value2 = inputWidth,
@@ -104,6 +104,9 @@ fun RectangleLayout(
 						focusedContainerColor = containerColor,
 						focusedColor = contentColor,
 						unfocusedColor = color,
+						leadingIcon1 = calculatorDataSource.leadingIconLength,
+						leadingIcon2 = calculatorDataSource.leadingIconWidth,
+						leadingIcon3 = calculatorDataSource.leadingIconHeight,
 					)
 				},
 				inputText =

@@ -4,12 +4,15 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
+import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.navigation.Alkalinity
 import cca.capitalcityaquatics.aquariuminfo.navigation.BowFront
 import cca.capitalcityaquatics.aquariuminfo.navigation.Calculators
@@ -265,8 +268,9 @@ fun FishCompatibilityGrid(
 fun HomeInfoGrid(
 	modifier: Modifier = Modifier,
 	fontColor: Color = MaterialTheme.colorScheme.onBackground,
-	contentColor: Color = MaterialTheme.colorScheme.onSurfaceVariant,
-	containerColor: Color = MaterialTheme.colorScheme.surfaceVariant,
+	contentColor: Color = MaterialTheme.colorScheme.onSurface,
+	containerColor: Color = MaterialTheme.colorScheme
+		.surfaceColorAtElevation(dimensionResource(id = R.dimen.tonal_elevation_medium)),
 	onClickHome: () -> Unit = {},
 	onClickInformation: () -> Unit = {},
 ) {

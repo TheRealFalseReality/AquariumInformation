@@ -46,7 +46,7 @@ fun TankVolumeTabRowScrollable(
 		modifier = Modifier.fillMaxSize()
 	) {
 		when (windowSize.widthSizeClass) {
-			WindowWidthSizeClass.Compact -> {
+			WindowWidthSizeClass.Compact, WindowWidthSizeClass.Medium  -> {
 				ScrollableTabRow(
 					selectedTabIndex = state,
 					indicator = indicator,
@@ -75,7 +75,7 @@ fun TankVolumeTabRowScrollable(
 				}
 			}
 
-			WindowWidthSizeClass.Expanded, WindowWidthSizeClass.Medium -> {
+			WindowWidthSizeClass.Expanded -> {
 				TabRow(
 					selectedTabIndex = state,
 					indicator = indicator,

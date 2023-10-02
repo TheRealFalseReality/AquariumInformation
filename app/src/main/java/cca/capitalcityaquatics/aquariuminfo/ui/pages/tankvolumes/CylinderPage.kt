@@ -133,9 +133,9 @@ fun CylinderLayout(
 				inputContent = {
 					InputRowNumberFieldTwoInputs(
 						label1 = calculatorDataSource.labelDiameter,
-						placeholder1 = calculatorDataSource.placeholderDiameter,
+//						placeholder1 = calculatorDataSource.placeholderDiameter,
 						label2 = calculatorDataSource.labelHeight,
-						placeholder2 = calculatorDataSource.placeholderHeight,
+//						placeholder2 = calculatorDataSource.placeholderHeight,
 						value1 = inputDiameter,
 						onValueChange1 = { inputDiameter = it },
 						value2 = inputHeight,
@@ -143,6 +143,8 @@ fun CylinderLayout(
 						focusedContainerColor = containerColor,
 						focusedColor = contentColor,
 						unfocusedColor = color,
+						leadingIcon1 = calculatorDataSource.leadingIconDiameter,
+						leadingIcon2 = calculatorDataSource.leadingIconHeight,
 					)
 				},
 				inputText =

@@ -3,6 +3,7 @@ package cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -11,13 +12,16 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.carbonDioxideDataSource
+import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldTwoInputs
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberFieldTwoInputs
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberFieldTwoInputsStacked
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TextCard
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
@@ -60,11 +64,11 @@ fun CarbonDioxideLayout(
 		calculateFieldContent = {
 			CalculateFieldTwoInputs(
 				inputContent = {
-					InputNumberFieldTwoInputs(
+					InputNumberFieldTwoInputsStacked(
 						label1 = carbonDioxideDataSource.labelPh,
-						placeholder1 = carbonDioxideDataSource.placeholderPh,
+//						placeholder1 = carbonDioxideDataSource.placeholderPh,
 						label2 = carbonDioxideDataSource.labelDkh,
-						placeholder2 = carbonDioxideDataSource.placeholderDkh,
+//						placeholder2 = carbonDioxideDataSource.placeholderDkh,
 						value1 = inputPH,
 						onValueChange1 = { inputPH = it },
 						value2 = inputDKH,
@@ -72,6 +76,8 @@ fun CarbonDioxideLayout(
 						focusedContainerColor = containerColor,
 						focusedColor = contentColor,
 						unfocusedColor = color,
+						leadingIcon1 = calculatorDataSource.leadingIconPH,
+						leadingIcon2 = calculatorDataSource.leadingIconTDS,
 					)
 				},
 				inputText = carbonDioxideDataSource.inputText,

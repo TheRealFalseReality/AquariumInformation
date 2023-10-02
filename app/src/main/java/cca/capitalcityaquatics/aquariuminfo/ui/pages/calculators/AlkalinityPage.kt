@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSource
+import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateField
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaString
@@ -83,12 +84,14 @@ fun AlkalinityLayout(
 						inputContent = {
 							InputNumberField(
 								label = alkalinityDataSource.labelDkh,
-								placeholder = alkalinityDataSource.placeholderDkh,
+//								placeholder = alkalinityDataSource.placeholderDkh,
 								value = inputAlk,
 								onValueChange = { inputAlk = it },
 								focusedContainerColor = containerColor,
 								focusedColor = contentColor,
 								unfocusedColor = color,
+								leadingIcon = calculatorDataSource.leadingIconTDS,
+
 							)
 						},
 						inputText = alkalinityDataSource.inputTextDkh,
@@ -116,12 +119,13 @@ fun AlkalinityLayout(
 						inputContent = {
 							InputNumberField(
 								label = alkalinityDataSource.labelPpm,
-								placeholder = alkalinityDataSource.placeholderPpm,
+//								placeholder = alkalinityDataSource.placeholderPpm,
 								value = inputAlk,
 								onValueChange = { inputAlk = it },
 								focusedContainerColor = containerColor,
 								focusedColor = contentColor,
 								unfocusedColor = color,
+								leadingIcon = calculatorDataSource.leadingIconTDS,
 							)
 						},
 						inputText = alkalinityDataSource.inputTextPpm,
@@ -149,12 +153,13 @@ fun AlkalinityLayout(
 						inputContent = {
 							InputNumberField(
 								label = alkalinityDataSource.labelMeq,
-								placeholder = alkalinityDataSource.placeholderMeq,
+//								placeholder = alkalinityDataSource.placeholderMeq,
 								value = inputAlk,
 								onValueChange = { inputAlk = it },
 								focusedContainerColor = containerColor,
 								focusedColor = contentColor,
 								unfocusedColor = color,
+								leadingIcon = calculatorDataSource.leadingIconTDS,
 							)
 						},
 						inputText = alkalinityDataSource.inputTextMeq,

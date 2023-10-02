@@ -27,5 +27,6 @@
     <dimen name="card_large">12dp</dimen>
     <dimen name="card_image_height">200dp</dimen>
     <dimen name="text_field_width">300dp</dimen>
-    <dimen name="tonal_elevation">3dp</dimen>
+    <dimen name="tonal_elevation_small">3dp</dimen>
+    <dimen name="tonal_elevation_medium">6dp</dimen>
 </resources>
