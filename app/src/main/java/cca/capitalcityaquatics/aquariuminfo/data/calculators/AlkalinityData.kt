@@ -4,6 +4,9 @@ import androidx.annotation.StringRes
 
 data class AlkalinityData(
 	@StringRes val subtitle: Int,
+	@StringRes val subtitle1: Int,
+	@StringRes val subtitle2: Int,
+	@StringRes val subtitle3: Int,
 	@StringRes val radioTextDkh: Int,
 	@StringRes val radioTextPpm: Int,
 	@StringRes val radioTextMeq: Int,

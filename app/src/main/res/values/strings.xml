@@ -9,6 +9,9 @@
     <string name="text_label_web">On the Web:</string>
     <string name="text_empty" />
     <string name="text_subtitle_salinity">ppt : SG : g/L</string>
+    <string name="text_subtitle_salinity_1">ppt</string>
+    <string name="text_subtitle_salinity_2">SG</string>
+    <string name="text_subtitle_salinity_3">g/L</string>
     <string name="text_header_salinity">Salinity Converter</string>
     <string name="button_label_ppt">ppt</string>
     <string name="button_label_sg_break">Specific\nGravity</string>
@@ -31,6 +34,9 @@
     <string name="text_celsius">°C</string>
     <string name="text_amount_kelvin">%s K</string>
     <string name="text_subtitle_temp">°C : °F : K</string>
+    <string name="text_subtitle_temp_1">°C</string>
+    <string name="text_subtitle_temp_2">°F</string>
+    <string name="text_subtitle_temp_3">K</string>
     <string name="field_label_cel">Enter Celsius</string>
     <string name="text_formula_temperature">C = (F - 32) * (5/9)\nF = (C * (9/5)) + 32\nK  =  C + 273.15</string>
     <string name="text_formula_celsius">C = (F - 32) * (5/9)</string>
@@ -47,6 +53,9 @@
     <string name="text_formula_alk">2.8 dKH = 50 ppm CaCO3 = 1 meq/L</string>
     <string name="text_title_alk">Alkalinity (KH)</string>
     <string name="text_subtitle_alk">dKH : ppm : meq/L</string>
+    <string name="text_subtitle_alk_1">dKH</string>
+    <string name="text_subtitle_alk_2">ppm</string>
+    <string name="text_subtitle_alk_3">meq/L</string>
     <string name="formula_kelvin">K = C + 273.15</string>
     <string name="button_label_dkh">dKH</string>
     <string name="button_label_ppm">ppm</string>

@@ -4,6 +4,9 @@ import androidx.annotation.StringRes
 
 data class SalinityData(
 	@StringRes val subtitle: Int,
+	@StringRes val subtitle1: Int,
+	@StringRes val subtitle2: Int,
+	@StringRes val subtitle3: Int,
 	@StringRes val radioTextPpt: Int,
 	@StringRes val radioTextSg: Int,
 	@StringRes val labelPpt: Int,

@@ -4,7 +4,8 @@ import cca.capitalcityaquatics.aquariuminfo.R
 
 val calculatorDataSource =
 	CommonData(
-		subtitle = R.string.text_subtitle_tank_vol_distance,
+		subtitle1 = R.string.text_subtitle_tank_vol_distance,
+		subtitle2 = R.string.text_subtitle_tank_vol_volume,
 		radioTextFeet = R.string.button_label_feet,
 		radioTextInches = R.string.button_label_inches,
 		labelLength = R.string.length,

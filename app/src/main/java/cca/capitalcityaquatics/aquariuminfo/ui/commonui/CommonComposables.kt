@@ -390,6 +390,78 @@ fun FormulaStringContent(
 }
 
 @Composable
+fun CalculatorSubtitleTwo(
+	contentColor: Color,
+	@StringRes text1: Int,
+	@StringRes text2: Int,
+) {
+	Row(
+		verticalAlignment = Alignment.CenterVertically
+	) {
+		HeaderText(
+			text = text1,
+			color = contentColor
+		)
+		SmallSpacerWidth()
+		Icon(
+			modifier = Modifier
+				.size(dimensionResource(id = R.dimen.icon_size_extremelySmall)),
+			painter = painterResource(id = R.drawable.ic_sync_alt),
+			contentDescription = null,
+			tint = contentColor
+		)
+		SmallSpacerWidth()
+		HeaderText(
+			text = text2,
+			color = contentColor
+		)
+	}
+}
+
+@Composable
+fun CalculatorSubtitleThree(
+	contentColor: Color,
+	@StringRes text1: Int,
+	@StringRes text2: Int,
+	@StringRes text3: Int,
+) {
+	Row(
+		verticalAlignment = Alignment.CenterVertically
+	) {
+		HeaderText(
+			text = text1,
+			color = contentColor
+		)
+		SmallSpacerWidth()
+		Icon(
+			modifier = Modifier
+				.size(dimensionResource(id = R.dimen.icon_size_extremelySmall)),
+			painter = painterResource(id = R.drawable.ic_sync_alt),
+			contentDescription = null,
+			tint = contentColor
+		)
+		SmallSpacerWidth()
+		HeaderText(
+			text = text2,
+			color = contentColor
+		)
+		SmallSpacerWidth()
+		Icon(
+			modifier = Modifier
+				.size(dimensionResource(id = R.dimen.icon_size_extremelySmall)),
+			painter = painterResource(id = R.drawable.ic_sync_alt),
+			contentDescription = null,
+			tint = contentColor
+		)
+		SmallSpacerWidth()
+		HeaderText(
+			text = text3,
+			color = contentColor
+		)
+	}
+}
+
+@Composable
 fun PopOutCard(
 	modifier: Modifier = Modifier,
 	@DrawableRes icon: Int,

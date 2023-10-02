@@ -157,12 +157,13 @@ fun AppNavigationRail(
 //		}
 		Column(
 			modifier = modifier.fillMaxHeight(),
-			verticalArrangement = Arrangement.SpaceAround,
+			verticalArrangement = Arrangement.SpaceEvenly,
 			horizontalAlignment = Alignment.CenterHorizontally
 		) {
 			allScreens.forEach { screen ->
 				NavigationRailItem(
-//					modifier = Modifier.weight(1f),
+					modifier = Modifier
+						.padding(horizontal = dimensionResource(id = R.dimen.padding_extremelySmall)),
 					icon = {
 						Icon(
 							painter =

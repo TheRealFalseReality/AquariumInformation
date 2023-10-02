@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -55,30 +57,35 @@ fun PageViewLazy(
 
 @Composable
 fun GenericCalculatePage(
-	@StringRes subtitle: Int,
+//	windowSize: WindowSizeClass,
 	subtitleContent: @Composable () -> Unit = {},
-	color: Color,
 	selectContent: @Composable () -> Unit = {},
 	optionsContent: @Composable () -> Unit = {},
+	inputFieldContent: @Composable () -> Unit,
 	calculateFieldContent: @Composable () -> Unit,
 	imageContent: @Composable () -> Unit = {},
 	formulaContent: @Composable () -> Unit
 ) {
-	BodyText(
-		text = subtitle,
-		color = color,
-		style = MaterialTheme.typography.titleMedium
-	)
+//	when (windowSize.widthSizeClass) {
+//		WindowWidthSizeClass.Compact, WindowWidthSizeClass.Medium -> {
+//
+//		}
+//		WindowWidthSizeClass.Expanded -> {
+//
+//		}
+//	}
 	subtitleContent()
 	SmallSpacer()
 	selectContent()
 	SmallSpacer()
 	optionsContent()
 	SmallSpacer()
+	inputFieldContent()
+	MediumSpacer()
 	calculateFieldContent()
 	SmallSpacer()
 	imageContent()
-	SmallSpacer()
+	MediumSpacer()
 	formulaContent()
 
 }

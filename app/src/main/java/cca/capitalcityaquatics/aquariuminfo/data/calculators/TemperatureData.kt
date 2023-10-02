@@ -4,6 +4,9 @@ import androidx.annotation.StringRes
 
 data class TemperatureData(
 	@StringRes val subtitle: Int,
+	@StringRes val subtitle1: Int,
+	@StringRes val subtitle2: Int,
+	@StringRes val subtitle3: Int,
 	@StringRes val radioTextCelsius: Int,
 	@StringRes val radioTextFahrenheit: Int,
 	@StringRes val labelCelsius: Int,

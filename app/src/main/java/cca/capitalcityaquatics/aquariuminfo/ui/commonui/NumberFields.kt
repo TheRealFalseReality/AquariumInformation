@@ -38,6 +38,7 @@ import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSourc
 
 @Composable
 fun InputNumberField(
+	// TODO Add error
 	modifier: Modifier = Modifier,
 	@StringRes label: Int,
 	@StringRes placeholder: Int = R.string.placeholder_enter,
@@ -129,9 +130,9 @@ fun InputNumberField(
 fun InputNumberFieldTwoInputsStacked(
 	modifier: Modifier = Modifier,
 	@StringRes label1: Int,
-//	@StringRes placeholder1: Int,
+	@StringRes placeholder1: Int = R.string.placeholder_enter,
 	@StringRes label2: Int,
-//	@StringRes placeholder2: Int,
+	@StringRes placeholder2: Int = R.string.placeholder_enter,
 	value1: String,
 	onValueChange1: (String) -> Unit,
 	value2: String,
@@ -145,7 +146,7 @@ fun InputNumberFieldTwoInputsStacked(
 	Column(modifier = modifier) {
 		InputNumberField(
 			label = label1,
-//			placeholder = placeholder1,
+			placeholder = placeholder1,
 			value = value1,
 			onValueChange = onValueChange1,
 			focusedColor = focusedColor,
@@ -157,7 +158,7 @@ fun InputNumberFieldTwoInputsStacked(
 		SmallSpacer()
 		InputNumberField(
 			label = label2,
-//			placeholder = placeholder2,
+			placeholder = placeholder2,
 			value = value2,
 			onValueChange = onValueChange2,
 			focusedColor = focusedColor,
@@ -172,9 +173,9 @@ fun InputNumberFieldTwoInputsStacked(
 fun InputRowNumberFieldTwoInputs(
 	modifier: Modifier = Modifier,
 	@StringRes label1: Int,
-//	@StringRes placeholder1: Int,
+	@StringRes placeholder1: Int = R.string.placeholder_enter,
 	@StringRes label2: Int,
-//	@StringRes placeholder2: Int,
+	@StringRes placeholder2: Int = R.string.placeholder_enter,
 	value1: String,
 	onValueChange1: (String) -> Unit,
 	value2: String,
@@ -200,7 +201,7 @@ fun InputRowNumberFieldTwoInputs(
 					)
 					.weight(1f),
 				label = label1,
-//				placeholder = placeholder1,
+				placeholder = placeholder1,
 				value = value1,
 				onValueChange = onValueChange1,
 				focusedColor = focusedColor,
@@ -217,7 +218,7 @@ fun InputRowNumberFieldTwoInputs(
 					)
 					.weight(1f),
 				label = label2,
-//				placeholder = placeholder2,
+				placeholder = placeholder2,
 				value = value2,
 				onValueChange = onValueChange2,
 				focusedColor = focusedColor,
@@ -233,17 +234,17 @@ fun InputRowNumberFieldTwoInputs(
 fun InputQuadNumberFieldFourInputs(
 	modifier: Modifier = Modifier,
 	@StringRes label1: Int,
-//	@StringRes placeholder1: Int,
+	@StringRes placeholder1: Int = R.string.placeholder_enter,
 	@StringRes label2: Int,
-//	@StringRes placeholder2: Int,
+	@StringRes placeholder2: Int = R.string.placeholder_enter,
 	value1: String,
 	onValueChange1: (String) -> Unit,
 	value2: String,
 	onValueChange2: (String) -> Unit,
 	@StringRes label3: Int,
-//	@StringRes placeholder3: Int,
+	@StringRes placeholder3: Int = R.string.placeholder_enter,
 	@StringRes label4: Int,
-//	@StringRes placeholder4: Int,
+	@StringRes placeholder4: Int = R.string.placeholder_enter,
 	value3: String,
 	onValueChange3: (String) -> Unit,
 	value4: String,
@@ -271,7 +272,7 @@ fun InputQuadNumberFieldFourInputs(
 					)
 					.weight(1f),
 				label = label1,
-//				placeholder = placeholder1,
+				placeholder = placeholder1,
 				value = value1,
 				onValueChange = onValueChange1,
 				focusedColor = focusedColor,
@@ -288,7 +289,7 @@ fun InputQuadNumberFieldFourInputs(
 					)
 					.weight(1f),
 				label = label2,
-//				placeholder = placeholder2,
+				placeholder = placeholder2,
 				value = value2,
 				onValueChange = onValueChange2,
 				focusedColor = focusedColor,
@@ -313,7 +314,7 @@ fun InputQuadNumberFieldFourInputs(
 					)
 					.weight(1f),
 				label = label3,
-//				placeholder = placeholder3,
+				placeholder = placeholder3,
 				value = value3,
 				onValueChange = onValueChange3,
 				focusedColor = focusedColor,
@@ -330,7 +331,7 @@ fun InputQuadNumberFieldFourInputs(
 					)
 					.weight(1f),
 				label = label4,
-//				placeholder = placeholder4,
+				placeholder = placeholder4,
 				value = value4,
 				onValueChange = onValueChange4,
 				focusedColor = focusedColor,
@@ -346,11 +347,11 @@ fun InputQuadNumberFieldFourInputs(
 fun InputNumberFieldThreeInputs(
 	modifier: Modifier = Modifier,
 	@StringRes label1: Int,
-	@StringRes placeholder1: Int,
+	@StringRes placeholder1: Int = R.string.placeholder_enter,
 	@StringRes label2: Int,
-	@StringRes placeholder2: Int,
+	@StringRes placeholder2: Int = R.string.placeholder_enter,
 	@StringRes label3: Int,
-	@StringRes placeholder3: Int,
+	@StringRes placeholder3: Int = R.string.placeholder_enter,
 	value1: String,
 	onValueChange1: (String) -> Unit,
 	value2: String,
@@ -418,11 +419,11 @@ fun InputNumberFieldThreeInputs(
 fun InputNumberFieldThreeStackedInputs(
 	modifier: Modifier = Modifier,
 	@StringRes label1: Int,
-//	@StringRes placeholder1: Int,
+	@StringRes placeholder1: Int = R.string.placeholder_enter,
 	@StringRes label2: Int,
-//	@StringRes placeholder2: Int,
+	@StringRes placeholder2: Int = R.string.placeholder_enter,
 	@StringRes label3: Int,
-//	@StringRes placeholder3: Int,
+	@StringRes placeholder3: Int = R.string.placeholder_enter,
 	value1: String,
 	onValueChange1: (String) -> Unit,
 	value2: String,
@@ -451,7 +452,7 @@ fun InputNumberFieldThreeStackedInputs(
 					.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
 					.weight(1f),
 				label = label1,
-//				placeholder = placeholder1,
+				placeholder = placeholder1,
 				value = value1,
 				onValueChange = onValueChange1,
 				focusedColor = focusedColor,
@@ -465,7 +466,7 @@ fun InputNumberFieldThreeStackedInputs(
 					.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
 					.weight(1f),
 				label = label2,
-//				placeholder = placeholder2,
+				placeholder = placeholder2,
 				value = value2,
 				onValueChange = onValueChange2,
 				focusedColor = focusedColor,
@@ -486,7 +487,7 @@ fun InputNumberFieldThreeStackedInputs(
 				modifier = Modifier
 					.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall)),
 				label = label3,
-//				placeholder = placeholder3,
+				placeholder = placeholder3,
 				value = value3,
 				onValueChange = onValueChange3,
 				focusedColor = focusedColor,
@@ -501,7 +502,6 @@ fun InputNumberFieldThreeStackedInputs(
 @Composable
 fun CalculateField(
 	modifier: Modifier = Modifier,
-	inputContent: @Composable () -> Unit,
 	@StringRes inputText: Int,
 	inputValue: String,
 	@StringRes equalsText: Int = calculatorDataSource.equalsText,
@@ -513,8 +513,6 @@ fun CalculateField(
 		modifier = modifier,
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
-		inputContent()
-		MediumSpacer()
 		Text(
 			text = stringResource(id = inputText, inputValue),
 			modifier = Modifier
@@ -522,7 +520,7 @@ fun CalculateField(
 			color = contentColor,
 			textAlign = TextAlign.Center
 		)
-		MediumSpacer()
+		SmallSpacer()
 		EqualsText(
 			color = contentColor,
 			equalsText = equalsText
@@ -562,7 +560,6 @@ fun EqualsText(
 @Composable
 fun CalculateFieldTwoInputs(
 	modifier: Modifier = Modifier,
-	inputContent: @Composable () -> Unit,
 	@StringRes inputText: Int,
 	inputValue1: String,
 	inputValue2: String,
@@ -575,8 +572,6 @@ fun CalculateFieldTwoInputs(
 		modifier = modifier,
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
-		inputContent()
-		MediumSpacer()
 		Text(
 			text = stringResource(id = inputText, inputValue1, inputValue2),
 			modifier = Modifier
@@ -584,7 +579,7 @@ fun CalculateFieldTwoInputs(
 			color = contentColor,
 			textAlign = TextAlign.Center
 		)
-		MediumSpacer()
+		SmallSpacer()
 		EqualsText(
 			color = contentColor,
 			equalsText = equalsText
@@ -607,7 +602,6 @@ fun CalculateFieldTwoInputs(
 @Composable
 fun CalculateFieldFourInputs(
 	modifier: Modifier = Modifier,
-	inputContent: @Composable () -> Unit,
 	@StringRes inputText: Int,
 	inputValue1: String,
 	inputValue2: String,
@@ -622,9 +616,6 @@ fun CalculateFieldFourInputs(
 		modifier = modifier,
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
-		inputContent()
-		MediumSpacer()
-
 		Text(
 			text = stringResource(
 				id = inputText,
@@ -638,7 +629,7 @@ fun CalculateFieldFourInputs(
 			color = contentColor,
 			textAlign = TextAlign.Center
 		)
-		MediumSpacer()
+		SmallSpacer()
 		EqualsText(
 			color = contentColor,
 			equalsText = equalsText
@@ -661,7 +652,6 @@ fun CalculateFieldFourInputs(
 @Composable
 fun CalculateFieldThreeInputs(
 	modifier: Modifier = Modifier,
-	inputContent: @Composable () -> Unit,
 	@StringRes inputText: Int,
 	inputValue1: String,
 	inputValue2: String,
@@ -675,8 +665,6 @@ fun CalculateFieldThreeInputs(
 		modifier = modifier,
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
-		inputContent()
-		MediumSpacer()
 		Text(
 			text = stringResource(id = inputText, inputValue1, inputValue2, inputValue3),
 			modifier = Modifier
@@ -684,7 +672,7 @@ fun CalculateFieldThreeInputs(
 			color = contentColor,
 			textAlign = TextAlign.Center
 		)
-		MediumSpacer()
+		SmallSpacer()
 		EqualsText(
 			color = contentColor,
 			equalsText = equalsText

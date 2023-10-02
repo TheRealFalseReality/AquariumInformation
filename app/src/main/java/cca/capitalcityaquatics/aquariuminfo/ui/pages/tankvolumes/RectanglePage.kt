@@ -20,6 +20,7 @@ import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.rectangleDataSource
 import cca.capitalcityaquatics.aquariuminfo.navigation.Rectangle
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldThreeInputs
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateImage
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatorSubtitleTwo
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberFieldThreeStackedInputs
@@ -67,8 +68,13 @@ fun RectangleLayout(
 	val waterWeightFT = calculateWaterWeightFT(length, width, height).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
-		subtitle = calculatorDataSource.subtitle,
-		color = color,
+		subtitleContent = {
+			CalculatorSubtitleTwo(
+				contentColor = contentColor,
+				text1 = calculatorDataSource.subtitle1,
+				text2 = calculatorDataSource.subtitle2,
+			)
+		},
 		selectContent = {
 			SingleWideCardExpandableRadio(
 				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
@@ -85,30 +91,46 @@ fun RectangleLayout(
 				contentColor = color,
 			)
 		},
+		inputFieldContent = {
+			InputNumberFieldThreeStackedInputs(
+				label1 = calculatorDataSource.labelLength,
+				label2 = calculatorDataSource.labelWidth,
+				label3 = calculatorDataSource.labelHeight,
+				value1 = inputLength,
+				onValueChange1 = { inputLength = it },
+				value2 = inputWidth,
+				onValueChange2 = { inputWidth = it },
+				value3 = inputHeight,
+				onValueChange3 = { inputHeight = it },
+				focusedContainerColor = containerColor,
+				focusedColor = contentColor,
+				unfocusedColor = color,
+				leadingIcon1 = calculatorDataSource.leadingIconLength,
+				leadingIcon2 = calculatorDataSource.leadingIconWidth,
+				leadingIcon3 = calculatorDataSource.leadingIconHeight,
+			)
+		},
 		calculateFieldContent = {
 			CalculateFieldThreeInputs(
-				inputContent = {
-					InputNumberFieldThreeStackedInputs(
-						label1 = calculatorDataSource.labelLength,
-//						placeholder1 = calculatorDataSource.placeholderLength,
-						label2 = calculatorDataSource.labelWidth,
-//						placeholder2 = calculatorDataSource.placeholderWidth,
-						label3 = calculatorDataSource.labelHeight,
-//						placeholder3 = calculatorDataSource.placeholderHeight,
-						value1 = inputLength,
-						onValueChange1 = { inputLength = it },
-						value2 = inputWidth,
-						onValueChange2 = { inputWidth = it },
-						value3 = inputHeight,
-						onValueChange3 = { inputHeight = it },
-						focusedContainerColor = containerColor,
-						focusedColor = contentColor,
-						unfocusedColor = color,
-						leadingIcon1 = calculatorDataSource.leadingIconLength,
-						leadingIcon2 = calculatorDataSource.leadingIconWidth,
-						leadingIcon3 = calculatorDataSource.leadingIconHeight,
-					)
-				},
+//				inputContent = {
+//					InputNumberFieldThreeStackedInputs(
+//						label1 = calculatorDataSource.labelLength,
+//						label2 = calculatorDataSource.labelWidth,
+//						label3 = calculatorDataSource.labelHeight,
+//						value1 = inputLength,
+//						onValueChange1 = { inputLength = it },
+//						value2 = inputWidth,
+//						onValueChange2 = { inputWidth = it },
+//						value3 = inputHeight,
+//						onValueChange3 = { inputHeight = it },
+//						focusedContainerColor = containerColor,
+//						focusedColor = contentColor,
+//						unfocusedColor = color,
+//						leadingIcon1 = calculatorDataSource.leadingIconLength,
+//						leadingIcon2 = calculatorDataSource.leadingIconWidth,
+//						leadingIcon3 = calculatorDataSource.leadingIconHeight,
+//					)
+//				},
 				inputText =
 				if (selected == calculatorDataSource.radioTextFeet) rectangleDataSource.inputTextFeet
 				else rectangleDataSource.inputTextInches,

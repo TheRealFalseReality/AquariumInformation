@@ -17,10 +17,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.carbonDioxideDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.BodyText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldTwoInputs
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.HeaderText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberFieldTwoInputsStacked
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TextCard
@@ -53,33 +55,35 @@ fun CarbonDioxideLayout(
 	val co2 = calculateCarbonDioxide(ph, dkh).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
-		subtitle = carbonDioxideDataSource.subtitle,
-		color = color,
+		subtitleContent = {
+			HeaderText(
+				text = carbonDioxideDataSource.subtitle,
+				color = contentColor
+			)
+		},
 		selectContent = {
 			TextCard(
 				text = carbonDioxideDataSource.unitsLabel,
 				contentColor = color
 			)
 		},
+		inputFieldContent = {
+			InputNumberFieldTwoInputsStacked(
+				label1 = carbonDioxideDataSource.labelPh,
+				label2 = carbonDioxideDataSource.labelDkh,
+				value1 = inputPH,
+				onValueChange1 = { inputPH = it },
+				value2 = inputDKH,
+				onValueChange2 = { inputDKH = it },
+				focusedContainerColor = containerColor,
+				focusedColor = contentColor,
+				unfocusedColor = color,
+				leadingIcon1 = calculatorDataSource.leadingIconPH,
+				leadingIcon2 = calculatorDataSource.leadingIconTDS,
+			)
+		},
 		calculateFieldContent = {
 			CalculateFieldTwoInputs(
-				inputContent = {
-					InputNumberFieldTwoInputsStacked(
-						label1 = carbonDioxideDataSource.labelPh,
-//						placeholder1 = carbonDioxideDataSource.placeholderPh,
-						label2 = carbonDioxideDataSource.labelDkh,
-//						placeholder2 = carbonDioxideDataSource.placeholderDkh,
-						value1 = inputPH,
-						onValueChange1 = { inputPH = it },
-						value2 = inputDKH,
-						onValueChange2 = { inputDKH = it },
-						focusedContainerColor = containerColor,
-						focusedColor = contentColor,
-						unfocusedColor = color,
-						leadingIcon1 = calculatorDataSource.leadingIconPH,
-						leadingIcon2 = calculatorDataSource.leadingIconTDS,
-					)
-				},
 				inputText = carbonDioxideDataSource.inputText,
 				inputValue1 = inputPH,
 				inputValue2 = inputDKH,
@@ -125,7 +129,7 @@ fun CarbonDioxidePreview() {
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.surface)
 		) {
-			CarbonDioxideLayout()
+			CarbonDioxidePage()
 		}
 	}
 }
@@ -139,7 +143,7 @@ fun CarbonDioxidePreviewDark(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.surface)
 		) {
-			CarbonDioxideLayout()
+			CarbonDioxidePage()
 		}
 	}
 }

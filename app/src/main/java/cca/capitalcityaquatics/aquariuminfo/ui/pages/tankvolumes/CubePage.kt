@@ -20,6 +20,7 @@ import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.cubeDataSource
 import cca.capitalcityaquatics.aquariuminfo.navigation.Cube
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateField
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateImage
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatorSubtitleTwo
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberField
@@ -59,8 +60,13 @@ fun CubeLayout(
 	val waterWeightFT = calculateWaterWeightFTCube(side).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
-		subtitle = calculatorDataSource.subtitle,
-		color = color,
+		subtitleContent = {
+			CalculatorSubtitleTwo(
+				contentColor = contentColor,
+				text1 = calculatorDataSource.subtitle1,
+				text2 = calculatorDataSource.subtitle2,
+			)
+		},
 		selectContent = {
 			SingleWideCardExpandableRadio(
 				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
@@ -77,20 +83,31 @@ fun CubeLayout(
 				contentColor = color,
 			)
 		},
+		inputFieldContent = {
+			InputNumberField(
+				label = calculatorDataSource.labelSide,
+				value = inputSide,
+				onValueChange = { inputSide = it },
+				focusedContainerColor = containerColor,
+				focusedColor = contentColor,
+				unfocusedColor = color,
+				leadingIcon = calculatorDataSource.leadingIconLength,
+			)
+		},
 		calculateFieldContent = {
 			CalculateField(
-				inputContent = {
-					InputNumberField(
-						label = calculatorDataSource.labelSide,
-//						placeholder = calculatorDataSource.placeholderSide,
-						value = inputSide,
-						onValueChange = { inputSide = it },
-						focusedContainerColor = containerColor,
-						focusedColor = contentColor,
-						unfocusedColor = color,
-						leadingIcon = calculatorDataSource.leadingIconLength,
-					)
-				},
+//				inputContent = {
+//					InputNumberField(
+//						label = calculatorDataSource.labelSide,
+////						placeholder = calculatorDataSource.placeholderSide,
+//						value = inputSide,
+//						onValueChange = { inputSide = it },
+//						focusedContainerColor = containerColor,
+//						focusedColor = contentColor,
+//						unfocusedColor = color,
+//						leadingIcon = calculatorDataSource.leadingIconLength,
+//					)
+//				},
 				inputText =
 				if (selected == calculatorDataSource.radioTextFeet) cubeDataSource.inputTextFeet
 				else cubeDataSource.inputTextInches,

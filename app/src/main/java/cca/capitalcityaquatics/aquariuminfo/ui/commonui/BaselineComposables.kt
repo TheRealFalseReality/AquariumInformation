@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.ButtonElevation
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -58,6 +59,13 @@ fun MediumSpacer(modifier: Modifier = Modifier) {
 fun SmallSpacer(modifier: Modifier = Modifier) {
 	Column(modifier = modifier) {
 		Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+	}
+}
+
+@Composable
+fun SmallSpacerWidth(modifier: Modifier = Modifier) {
+	Column(modifier = modifier) {
+		Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.padding_small)))
 	}
 }
 

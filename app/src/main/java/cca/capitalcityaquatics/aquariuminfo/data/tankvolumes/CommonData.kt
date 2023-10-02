@@ -4,7 +4,8 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
 data class CommonData(
-	@StringRes val subtitle: Int,
+	@StringRes val subtitle1: Int,
+	@StringRes val subtitle2: Int,
 	@StringRes val radioTextFeet: Int,
 	@StringRes val radioTextInches: Int,
 	@StringRes val labelLength: Int,

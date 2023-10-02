@@ -93,7 +93,7 @@ fun CalculatorsTabRow(
 							text = {
 								Text(
 									text = stringResource(id = tab.title),
-									maxLines = 2,
+									maxLines = 1,
 									overflow = TextOverflow.Ellipsis
 								)
 							},

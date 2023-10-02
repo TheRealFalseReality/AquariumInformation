@@ -16,11 +16,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import cca.capitalcityaquatics.aquariuminfo.R
+import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSource
+import cca.capitalcityaquatics.aquariuminfo.data.calculators.salinityDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.temperatureDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.BodyText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateField
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedText
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatorSubtitleThree
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaStringContent
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberField
@@ -57,8 +60,14 @@ fun TemperatureLayout(
 	val fahrenheit = calculateFahrenheit(temp).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
-		subtitle = temperatureDataSource.subtitle,
-		color = color,
+		subtitleContent = {
+			CalculatorSubtitleThree(
+				contentColor = contentColor,
+				text1 = temperatureDataSource.subtitle1,
+				text2 = temperatureDataSource.subtitle2,
+				text3 = temperatureDataSource.subtitle3,
+			)
+		},
 		selectContent = {
 			SingleWideCardExpandableRadio(
 				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
@@ -78,22 +87,41 @@ fun TemperatureLayout(
 				}
 			)
 		},
+		inputFieldContent = {
+			InputNumberField(
+				label =
+				when (selected) {
+					temperatureDataSource.radioTextFahrenheit -> {
+						temperatureDataSource.labelFahrenheit
+					}
+					else -> {
+						temperatureDataSource.labelCelsius
+					}
+				},
+				value = inputTemperature,
+				onValueChange = { inputTemperature = it },
+				focusedContainerColor = containerColor,
+				focusedColor = contentColor,
+				unfocusedColor = color,
+				leadingIcon = calculatorDataSource.leadingIconTemperature,
+			)
+		},
 		calculateFieldContent = {
 			when (selected) {
 				temperatureDataSource.radioTextCelsius -> {
 					CalculateField(
-						inputContent = {
-							InputNumberField(
-//								placeholder = temperatureDataSource.placeholderCelsius,
-								label = temperatureDataSource.labelCelsius,
-								value = inputTemperature,
-								onValueChange = { inputTemperature = it },
-								focusedContainerColor = containerColor,
-								focusedColor = contentColor,
-								unfocusedColor = color,
-								leadingIcon = calculatorDataSource.leadingIconTemperature,
-							)
-						},
+//						inputContent = {
+//							InputNumberField(
+////								placeholder = temperatureDataSource.placeholderCelsius,
+//								label = temperatureDataSource.labelCelsius,
+//								value = inputTemperature,
+//								onValueChange = { inputTemperature = it },
+//								focusedContainerColor = containerColor,
+//								focusedColor = contentColor,
+//								unfocusedColor = color,
+//								leadingIcon = calculatorDataSource.leadingIconTemperature,
+//							)
+//						},
 						inputText = temperatureDataSource.inputTextCelsius,
 						inputValue = inputTemperature,
 						equalsText = temperatureDataSource.equalsText,
@@ -116,18 +144,18 @@ fun TemperatureLayout(
 
 				temperatureDataSource.radioTextFahrenheit -> {
 					CalculateField(
-						inputContent = {
-							InputNumberField(
-//								placeholder = temperatureDataSource.placeholderFahrenheit,
-								label = temperatureDataSource.labelFahrenheit,
-								value = inputTemperature,
-								onValueChange = { inputTemperature = it },
-								focusedContainerColor = containerColor,
-								focusedColor = contentColor,
-								unfocusedColor = color,
-								leadingIcon = calculatorDataSource.leadingIconTemperature,
-							)
-						},
+//						inputContent = {
+//							InputNumberField(
+////								placeholder = temperatureDataSource.placeholderFahrenheit,
+//								label = temperatureDataSource.labelFahrenheit,
+//								value = inputTemperature,
+//								onValueChange = { inputTemperature = it },
+//								focusedContainerColor = containerColor,
+//								focusedColor = contentColor,
+//								unfocusedColor = color,
+//								leadingIcon = calculatorDataSource.leadingIconTemperature,
+//							)
+//						},
 						inputText = temperatureDataSource.inputTextFahrenheit,
 						inputValue = inputTemperature,
 						equalsText = temperatureDataSource.equalsText,

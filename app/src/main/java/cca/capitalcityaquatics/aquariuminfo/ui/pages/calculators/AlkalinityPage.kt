@@ -19,6 +19,7 @@ import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSourc
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateField
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedText
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatorSubtitleThree
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberField
@@ -57,8 +58,14 @@ fun AlkalinityLayout(
 	val dkhMEQ = calculateDkhMeq(alk).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
-		subtitle = alkalinityDataSource.subtitle,
-		color = color,
+		subtitleContent = {
+			CalculatorSubtitleThree(
+				contentColor = contentColor,
+				text1 = alkalinityDataSource.subtitle1,
+				text2 = alkalinityDataSource.subtitle2,
+				text3 = alkalinityDataSource.subtitle3,
+			)
+		},
 		selectContent = {
 			SingleWideCardExpandableRadio(
 				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
@@ -77,57 +84,92 @@ fun AlkalinityLayout(
 				contentColor = color,
 			)
 		},
+		inputFieldContent = {
+			InputNumberField(
+				label =
+				when (selected) {
+					alkalinityDataSource.radioTextPpm -> {
+						alkalinityDataSource.labelPpm
+					}
+					alkalinityDataSource.radioTextMeq -> {
+						alkalinityDataSource.labelMeq
+					}
+					else -> {
+						alkalinityDataSource.labelDkh
+					}
+				},
+				value = inputAlk,
+				onValueChange = { inputAlk = it },
+				focusedContainerColor = containerColor,
+				focusedColor = contentColor,
+				unfocusedColor = color,
+				leadingIcon = calculatorDataSource.leadingIconTDS,
+			)
+
+//			when (selected) {
+//				alkalinityDataSource.radioTextDkh -> {
+//					InputNumberField(
+//						label = alkalinityDataSource.labelDkh,
+//						value = inputAlk,
+//						onValueChange = { inputAlk = it },
+//						focusedContainerColor = containerColor,
+//						focusedColor = contentColor,
+//						unfocusedColor = color,
+//						leadingIcon = calculatorDataSource.leadingIconTDS,
+//					)
+//				}
+//
+//				alkalinityDataSource.radioTextPpm -> {
+//					InputNumberField(
+//						label = alkalinityDataSource.labelPpm,
+//						value = inputAlk,
+//						onValueChange = { inputAlk = it },
+//						focusedContainerColor = containerColor,
+//						focusedColor = contentColor,
+//						unfocusedColor = color,
+//						leadingIcon = calculatorDataSource.leadingIconTDS,
+//					)
+//				}
+//
+//				alkalinityDataSource.radioTextMeq -> {
+//					InputNumberField(
+//						label = alkalinityDataSource.labelMeq,
+//						value = inputAlk,
+//						onValueChange = { inputAlk = it },
+//						focusedContainerColor = containerColor,
+//						focusedColor = contentColor,
+//						unfocusedColor = color,
+//						leadingIcon = calculatorDataSource.leadingIconTDS,
+//					)
+//				}
+//			}
+		},
 		calculateFieldContent = {
 			when (selected) {
-				alkalinityDataSource.radioTextDkh -> {
-					CalculateField(
-						inputContent = {
-							InputNumberField(
-								label = alkalinityDataSource.labelDkh,
-//								placeholder = alkalinityDataSource.placeholderDkh,
-								value = inputAlk,
-								onValueChange = { inputAlk = it },
-								focusedContainerColor = containerColor,
-								focusedColor = contentColor,
-								unfocusedColor = color,
-								leadingIcon = calculatorDataSource.leadingIconTDS,
-
-							)
-						},
-						inputText = alkalinityDataSource.inputTextDkh,
-						inputValue = inputAlk,
-						equalsText = alkalinityDataSource.equalsText,
-						contentColor = color,
-						containerColor = containerColor,
-						calculateContent = {
-							CalculatedText(
-								text = alkalinityDataSource.calculatedTextPpm,
-								calculatedValue = ppmDKH,
-								textColor = contentColor,
-							)
-							CalculatedText(
-								text = alkalinityDataSource.calculatedTextMeq,
-								calculatedValue = meqDKH,
-								textColor = contentColor,
-							)
-						}
-					)
-				}
+//				alkalinityDataSource.radioTextDkh -> {
+//					CalculateField(
+//						inputText = alkalinityDataSource.inputTextDkh,
+//						inputValue = inputAlk,
+//						equalsText = alkalinityDataSource.equalsText,
+//						contentColor = color,
+//						containerColor = containerColor,
+//						calculateContent = {
+//							CalculatedText(
+//								text = alkalinityDataSource.calculatedTextPpm,
+//								calculatedValue = ppmDKH,
+//								textColor = contentColor,
+//							)
+//							CalculatedText(
+//								text = alkalinityDataSource.calculatedTextMeq,
+//								calculatedValue = meqDKH,
+//								textColor = contentColor,
+//							)
+//						}
+//					)
+//				}
 
 				alkalinityDataSource.radioTextPpm -> {
 					CalculateField(
-						inputContent = {
-							InputNumberField(
-								label = alkalinityDataSource.labelPpm,
-//								placeholder = alkalinityDataSource.placeholderPpm,
-								value = inputAlk,
-								onValueChange = { inputAlk = it },
-								focusedContainerColor = containerColor,
-								focusedColor = contentColor,
-								unfocusedColor = color,
-								leadingIcon = calculatorDataSource.leadingIconTDS,
-							)
-						},
 						inputText = alkalinityDataSource.inputTextPpm,
 						inputValue = inputAlk,
 						equalsText = alkalinityDataSource.equalsText,
@@ -150,18 +192,6 @@ fun AlkalinityLayout(
 
 				alkalinityDataSource.radioTextMeq -> {
 					CalculateField(
-						inputContent = {
-							InputNumberField(
-								label = alkalinityDataSource.labelMeq,
-//								placeholder = alkalinityDataSource.placeholderMeq,
-								value = inputAlk,
-								onValueChange = { inputAlk = it },
-								focusedContainerColor = containerColor,
-								focusedColor = contentColor,
-								unfocusedColor = color,
-								leadingIcon = calculatorDataSource.leadingIconTDS,
-							)
-						},
 						inputText = alkalinityDataSource.inputTextMeq,
 						inputValue = inputAlk,
 						equalsText = alkalinityDataSource.equalsText,
@@ -176,6 +206,27 @@ fun AlkalinityLayout(
 							CalculatedText(
 								text = alkalinityDataSource.calculatedTextPpm,
 								calculatedValue = ppmMEQ,
+								textColor = contentColor,
+							)
+						}
+					)
+				}
+				else -> {
+					CalculateField(
+						inputText = alkalinityDataSource.inputTextDkh,
+						inputValue = inputAlk,
+						equalsText = alkalinityDataSource.equalsText,
+						contentColor = color,
+						containerColor = containerColor,
+						calculateContent = {
+							CalculatedText(
+								text = alkalinityDataSource.calculatedTextPpm,
+								calculatedValue = ppmDKH,
+								textColor = contentColor,
+							)
+							CalculatedText(
+								text = alkalinityDataSource.calculatedTextMeq,
+								calculatedValue = meqDKH,
 								textColor = contentColor,
 							)
 						}

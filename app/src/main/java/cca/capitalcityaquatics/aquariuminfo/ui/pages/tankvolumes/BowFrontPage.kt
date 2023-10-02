@@ -3,26 +3,19 @@ package cca.capitalcityaquatics.aquariuminfo.ui.pages.tankvolumes
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import cca.capitalcityaquatics.aquariuminfo.R
+import cca.capitalcityaquatics.aquariuminfo.data.calculators.temperatureDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.bowFrontDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.navigation.BowFront
@@ -35,6 +28,8 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonTwoUnits
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCardExpandableRadio
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TankVolumeResults
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatorSubtitleTwo
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberField
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -84,29 +79,13 @@ fun BowFrontLayout(
 		calculateWaterWeightFTBF(length, width, height, fullWidth).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
-		subtitle = calculatorDataSource.subtitle,
 		subtitleContent = {
-			Row(
-				verticalAlignment = Alignment.CenterVertically
-			) {
-				Text(
-					text = stringResource(id = R.string.text_subtitle_tank_vol_distance),
-					color = contentColor
-				)
-				Icon(
-					modifier = Modifier
-						.padding(dimensionResource(id = R.dimen.padding_verySmall)),
-					painter = painterResource(id = R.drawable.ic_sync_alt),
-					contentDescription = null,
-					tint = contentColor
-				)
-				Text(
-					text = stringResource(id = R.string.text_subtitle_tank_vol_volume),
-					color = contentColor
-				)
-			}
+			CalculatorSubtitleTwo(
+				contentColor = contentColor,
+				text1 = calculatorDataSource.subtitle1,
+				text2 = calculatorDataSource.subtitle2,
+			)
 		},
-		color = color,
 		selectContent = {
 			SingleWideCardExpandableRadio(
 				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
@@ -123,35 +102,54 @@ fun BowFrontLayout(
 				contentColor = color
 			)
 		},
+		inputFieldContent = {
+			InputQuadNumberFieldFourInputs(
+				label1 = calculatorDataSource.labelLength,
+				label2 = calculatorDataSource.labelWidth,
+				value1 = inputLength,
+				onValueChange1 = { inputLength = it },
+				value2 = inputWidth,
+				onValueChange2 = { inputWidth = it },
+				focusedContainerColor = containerColor,
+				focusedColor = contentColor,
+				unfocusedColor = color,
+				label3 = calculatorDataSource.labelHeight,
+				label4 = calculatorDataSource.labelFullWidth,
+				value3 = inputHeight,
+				onValueChange3 = { inputHeight = it },
+				value4 = inputFullWidth,
+				onValueChange4 = { inputFullWidth = it },
+				leadingIcon1 = calculatorDataSource.leadingIconLength,
+				leadingIcon2 = calculatorDataSource.leadingIconWidth,
+				leadingIcon3 = calculatorDataSource.leadingIconHeight,
+				leadingIcon4 = calculatorDataSource.leadingIconFullWidth,
+			)
+		},
 		calculateFieldContent = {
 			CalculateFieldFourInputs(
-				inputContent = {
-					InputQuadNumberFieldFourInputs(
-						label1 = calculatorDataSource.labelLength,
-//						placeholder1 = calculatorDataSource.placeholderLength,
-						label2 = calculatorDataSource.labelWidth,
-//						placeholder2 = calculatorDataSource.placeholderWidth,
-						value1 = inputLength,
-						onValueChange1 = { inputLength = it },
-						value2 = inputWidth,
-						onValueChange2 = { inputWidth = it },
-						focusedContainerColor = containerColor,
-						focusedColor = contentColor,
-						unfocusedColor = color,
-						label3 = calculatorDataSource.labelHeight,
-//						placeholder3 = calculatorDataSource.placeholderHeight,
-						label4 = calculatorDataSource.labelFullWidth,
-//						placeholder4 = calculatorDataSource.placeholderFullWidth,
-						value3 = inputHeight,
-						onValueChange3 = { inputHeight = it },
-						value4 = inputFullWidth,
-						onValueChange4 = { inputFullWidth = it },
-						leadingIcon1 = calculatorDataSource.leadingIconLength,
-						leadingIcon2 = calculatorDataSource.leadingIconWidth,
-						leadingIcon3 = calculatorDataSource.leadingIconHeight,
-						leadingIcon4 = calculatorDataSource.leadingIconFullWidth,
-					)
-				},
+//				inputContent = {
+//					InputQuadNumberFieldFourInputs(
+//						label1 = calculatorDataSource.labelLength,
+//						label2 = calculatorDataSource.labelWidth,
+//						value1 = inputLength,
+//						onValueChange1 = { inputLength = it },
+//						value2 = inputWidth,
+//						onValueChange2 = { inputWidth = it },
+//						focusedContainerColor = containerColor,
+//						focusedColor = contentColor,
+//						unfocusedColor = color,
+//						label3 = calculatorDataSource.labelHeight,
+//						label4 = calculatorDataSource.labelFullWidth,
+//						value3 = inputHeight,
+//						onValueChange3 = { inputHeight = it },
+//						value4 = inputFullWidth,
+//						onValueChange4 = { inputFullWidth = it },
+//						leadingIcon1 = calculatorDataSource.leadingIconLength,
+//						leadingIcon2 = calculatorDataSource.leadingIconWidth,
+//						leadingIcon3 = calculatorDataSource.leadingIconHeight,
+//						leadingIcon4 = calculatorDataSource.leadingIconFullWidth,
+//					)
+//				},
 				inputText =
 				if (selected == calculatorDataSource.radioTextFeet) bowFrontDataSource.inputTextFeet
 				else bowFrontDataSource.inputTextInches,

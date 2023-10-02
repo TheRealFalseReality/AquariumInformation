@@ -15,11 +15,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import cca.capitalcityaquatics.aquariuminfo.R
+import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.salinityDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.BodyText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateField
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedText
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatorSubtitleThree
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberField
@@ -60,8 +62,14 @@ fun SalinityLayout(
 	val salDensitySG = calculateDensitySG(sal, tempPureWater).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
-		subtitle = salinityDataSource.subtitle,
-		color = color,
+		subtitleContent = {
+			CalculatorSubtitleThree(
+				contentColor = contentColor,
+				text1 = salinityDataSource.subtitle1,
+				text2 = salinityDataSource.subtitle2,
+				text3 = salinityDataSource.subtitle3,
+			)
+		},
 		selectContent = {
 			SingleWideCardExpandableRadio(
 				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
@@ -80,22 +88,40 @@ fun SalinityLayout(
 				}, contentColor = color
 			)
 		},
+		inputFieldContent = {
+			InputNumberField(
+				label =
+				when (selected) {
+					salinityDataSource.radioTextSg -> {
+						salinityDataSource.labelSg
+					}
+					else -> {
+						salinityDataSource.labelPpt
+					}
+				},
+				value = inputSal,
+				onValueChange = { inputSal = it },
+				focusedContainerColor = containerColor,
+				focusedColor = contentColor,
+				unfocusedColor = color,
+				leadingIcon = calculatorDataSource.leadingIconSalinity,
+			)
+		},
 		calculateFieldContent = {
 			when (selected) {
 				salinityDataSource.radioTextPpt -> {
 					CalculateField(
-						inputContent = {
-							InputNumberField(
-								label = salinityDataSource.labelPpt,
-//								placeholder = salinityDataSource.placeholderPpt,
-								value = inputSal,
-								onValueChange = { inputSal = it },
-								focusedContainerColor = containerColor,
-								focusedColor = contentColor,
-								unfocusedColor = color,
-								leadingIcon = calculatorDataSource.leadingIconSalinity,
-							)
-						},
+//						inputContent = {
+//							InputNumberField(
+//								label = salinityDataSource.labelPpt,
+//								value = inputSal,
+//								onValueChange = { inputSal = it },
+//								focusedContainerColor = containerColor,
+//								focusedColor = contentColor,
+//								unfocusedColor = color,
+//								leadingIcon = calculatorDataSource.leadingIconSalinity,
+//							)
+//						},
 						inputText = salinityDataSource.inputTextPpt,
 						inputValue = inputSal,
 						equalsText = salinityDataSource.equalsText,
@@ -126,18 +152,19 @@ fun SalinityLayout(
 				}
 
 				salinityDataSource.radioTextSg -> {
-					CalculateField(inputContent = {
-						InputNumberField(
-							label = salinityDataSource.labelSg,
-//							placeholder = salinityDataSource.placeholderSg,
-							value = inputSal,
-							onValueChange = { inputSal = it },
-							focusedContainerColor = containerColor,
-							focusedColor = contentColor,
-							unfocusedColor = color,
-							leadingIcon = calculatorDataSource.leadingIconSG,
-						)
-					},
+					CalculateField(
+//						inputContent = {
+//						InputNumberField(
+//							label = salinityDataSource.labelSg,
+////							placeholder = salinityDataSource.placeholderSg,
+//							value = inputSal,
+//							onValueChange = { inputSal = it },
+//							focusedContainerColor = containerColor,
+//							focusedColor = contentColor,
+//							unfocusedColor = color,
+//							leadingIcon = calculatorDataSource.leadingIconSG,
+//						)
+//					},
 						inputText = salinityDataSource.inputTextSg,
 						inputValue = inputSal,
 						equalsText = salinityDataSource.equalsText,

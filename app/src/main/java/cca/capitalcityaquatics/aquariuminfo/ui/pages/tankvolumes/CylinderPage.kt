@@ -21,6 +21,7 @@ import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.cylinderDataSource
 import cca.capitalcityaquatics.aquariuminfo.navigation.Cylinder
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldTwoInputs
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateImage
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatorSubtitleTwo
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputRowNumberFieldTwoInputs
@@ -81,8 +82,13 @@ fun CylinderLayout(
 		calculateWaterWeightFTCyl(diameter, height, halfCyl, quartCyl).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
-		subtitle = calculatorDataSource.subtitle,
-		color = color,
+		subtitleContent = {
+			CalculatorSubtitleTwo(
+				contentColor = contentColor,
+				text1 = calculatorDataSource.subtitle1,
+				text2 = calculatorDataSource.subtitle2,
+			)
+		},
 		selectContent = {
 			SingleWideCardExpandableRadio(
 				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
@@ -128,25 +134,40 @@ fun CylinderLayout(
 				contentColor = color,
 			)
 		},
+		inputFieldContent = {
+			InputRowNumberFieldTwoInputs(
+				label1 = calculatorDataSource.labelDiameter,
+				label2 = calculatorDataSource.labelHeight,
+				value1 = inputDiameter,
+				onValueChange1 = { inputDiameter = it },
+				value2 = inputHeight,
+				onValueChange2 = { inputHeight = it },
+				focusedContainerColor = containerColor,
+				focusedColor = contentColor,
+				unfocusedColor = color,
+				leadingIcon1 = calculatorDataSource.leadingIconDiameter,
+				leadingIcon2 = calculatorDataSource.leadingIconHeight,
+			)
+		},
 		calculateFieldContent = {
 			CalculateFieldTwoInputs(
-				inputContent = {
-					InputRowNumberFieldTwoInputs(
-						label1 = calculatorDataSource.labelDiameter,
-//						placeholder1 = calculatorDataSource.placeholderDiameter,
-						label2 = calculatorDataSource.labelHeight,
-//						placeholder2 = calculatorDataSource.placeholderHeight,
-						value1 = inputDiameter,
-						onValueChange1 = { inputDiameter = it },
-						value2 = inputHeight,
-						onValueChange2 = { inputHeight = it },
-						focusedContainerColor = containerColor,
-						focusedColor = contentColor,
-						unfocusedColor = color,
-						leadingIcon1 = calculatorDataSource.leadingIconDiameter,
-						leadingIcon2 = calculatorDataSource.leadingIconHeight,
-					)
-				},
+//				inputContent = {
+//					InputRowNumberFieldTwoInputs(
+//						label1 = calculatorDataSource.labelDiameter,
+////						placeholder1 = calculatorDataSource.placeholderDiameter,
+//						label2 = calculatorDataSource.labelHeight,
+////						placeholder2 = calculatorDataSource.placeholderHeight,
+//						value1 = inputDiameter,
+//						onValueChange1 = { inputDiameter = it },
+//						value2 = inputHeight,
+//						onValueChange2 = { inputHeight = it },
+//						focusedContainerColor = containerColor,
+//						focusedColor = contentColor,
+//						unfocusedColor = color,
+//						leadingIcon1 = calculatorDataSource.leadingIconDiameter,
+//						leadingIcon2 = calculatorDataSource.leadingIconHeight,
+//					)
+//				},
 				inputText =
 				if (selected == calculatorDataSource.radioTextFeet) cylinderDataSource.inputTextFeet
 				else cylinderDataSource.inputTextInches,
