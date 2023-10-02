@@ -110,7 +110,7 @@ fun InputNumberField(
 						)
 					}
 				}
-			}
+			},
 		)
 	}
 }
@@ -172,7 +172,7 @@ fun InputRowNumberFieldTwoInputs(
 	Column(modifier = modifier) {
 		Row(
 			modifier = Modifier
-				.fillMaxWidth(),
+				.fillMaxWidth(fraction = 0.95f),
 			horizontalArrangement = Arrangement.Center,
 			verticalAlignment = Alignment.CenterVertically
 		) {
@@ -237,7 +237,7 @@ fun InputQuadNumberFieldFourInputs(
 	Column(modifier = modifier) {
 		Row(
 			modifier = Modifier
-				.fillMaxWidth(),
+				.fillMaxWidth(fraction = 0.95f),
 			horizontalArrangement = Arrangement.Center,
 			verticalAlignment = Alignment.CenterVertically
 		) {
@@ -277,7 +277,7 @@ fun InputQuadNumberFieldFourInputs(
 		SmallSpacer()
 		Row(
 			modifier = Modifier
-				.fillMaxWidth(),
+				.fillMaxWidth(fraction = 0.95f),
 			horizontalArrangement = Arrangement.Center,
 			verticalAlignment = Alignment.CenterVertically
 		) {
@@ -337,7 +337,7 @@ fun InputNumberFieldThreeInputs(
 ) {
 	Column(modifier = modifier) {
 		Row(
-			modifier = Modifier.fillMaxWidth(),
+			modifier = Modifier.fillMaxWidth(fraction = 0.95f),
 			verticalAlignment = Alignment.CenterVertically
 		) {
 			InputNumberField(
@@ -407,7 +407,7 @@ fun InputNumberFieldThreeStackedInputs(
 	) {
 		Row(
 			modifier = Modifier
-				.fillMaxWidth(fraction = 0.9f),
+				.fillMaxWidth(fraction = 0.95f),
 			horizontalArrangement = Arrangement.SpaceBetween,
 			verticalAlignment = Alignment.CenterVertically
 		) {

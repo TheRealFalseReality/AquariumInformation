@@ -4,12 +4,11 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalUriHandler
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -38,8 +37,9 @@ fun HomePage() {
 }
 
 @Composable
-fun HomeLayout() {
-	val uriHandler = LocalUriHandler.current // TODO Make composable
+fun HomeLayout(
+) {
+	val uriHandler = LocalUriHandler.current
 	val appURL = stringResource(id = R.string.url_app)
 
 	TitleWideContent(
@@ -48,6 +48,7 @@ fun HomeLayout() {
 	) {
 		SingleWideCard {
 			BodyText(text = homeHeaderDataSource.title) // TODO
+			SmallSpacer()
 			BodyText(
 				text = homeHeaderDataSource.text,
 				textAlign = TextAlign.Justify,
@@ -61,7 +62,7 @@ fun HomeLayout() {
 		icon = reviewAppDataSource.icon,
 		title = reviewAppDataSource.title,
 		body = reviewAppDataSource.text,
-		backgroundCardColor = MaterialTheme.colorScheme.primaryContainer,
+		containerColor = MaterialTheme.colorScheme.primaryContainer,
 		contentColor = MaterialTheme.colorScheme.onPrimaryContainer
 	)
 	SmallSpacer()

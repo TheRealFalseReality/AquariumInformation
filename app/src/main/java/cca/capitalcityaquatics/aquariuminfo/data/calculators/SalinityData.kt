@@ -20,4 +20,5 @@ data class SalinityData(
 	@StringRes val labelSalinity: Int,
 	@StringRes val labelSpecificGravity: Int,
 	@StringRes val labelConductivity: Int,
+	@StringRes val labelDensity: Int,
 )

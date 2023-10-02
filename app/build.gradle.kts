@@ -15,7 +15,7 @@ plugins {
 
 val versionMajor = 2
 val versionMinor = 0
-val versionPatch = 1
+val versionPatch = 2
 
 android {
 	namespace = "cca.capitalcityaquatics.aquariuminfo"
@@ -108,4 +108,7 @@ dependencies {
 
 	// Predicitive Back Gesture
 	implementation ("androidx.activity:activity-ktx:1.7.2")
+
+	// WindowSizeClass
+	implementation ("androidx.compose.material3:material3-window-size-class:1.1.2")
 }

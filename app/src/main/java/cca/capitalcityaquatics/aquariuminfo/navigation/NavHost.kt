@@ -1,5 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.navigation
 
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -11,12 +12,13 @@ import cca.capitalcityaquatics.aquariuminfo.ui.pages.InfoPage
 import cca.capitalcityaquatics.aquariuminfo.ui.pages.OverviewPage
 import cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators.CalculatorsTabRow
 import cca.capitalcityaquatics.aquariuminfo.ui.pages.compatability.CompatibilityTabRow
-import cca.capitalcityaquatics.aquariuminfo.ui.pages.tankvolumes.TankVolumeTabRow
+import cca.capitalcityaquatics.aquariuminfo.ui.pages.tankvolumes.TankVolumeTabRowScrollable
 
 @Composable
 fun AquariumNavHost(
+	modifier: Modifier = Modifier,
+	windowSize: WindowSizeClass,
 	navController: NavHostController,
-	modifier: Modifier = Modifier
 ) {
 	NavHost(
 		navController = navController,
@@ -31,6 +33,7 @@ fun AquariumNavHost(
 		}
 		composable(route = Overview.route) {
 			OverviewPage(
+				windowSize = windowSize,
 				onClickTemperature = {
 					navController.navigateSingleTopTo(Temperature.route)
 				},
@@ -63,17 +66,23 @@ fun AquariumNavHost(
 				},
 				onClickBowFront = {
 					navController.navigateSingleTopTo(BowFront.route)
-				}
+				},
+				onClickHome = {
+					navController.navigateSingleTopTo(Home.route)
+				},
+				onClickInformation = {
+					navController.navigateSingleTopTo(Information.route)
+				},
 			)
 		}
 		composable(route = Converters.route) {
-			CalculatorsTabRow()
+			CalculatorsTabRow(windowSize = windowSize)
 		}
 		composable(route = Calculators.route) {
-			CalculatorsTabRow()
+			CalculatorsTabRow(windowSize = windowSize)
 		}
 		composable(route = TankVolume.route) {
-			TankVolumeTabRow()
+			TankVolumeTabRowScrollable(windowSize = windowSize,)
 		}
 		composable(route = FishCompatibility.route) {
 			CompatibilityTabRow()
@@ -85,31 +94,31 @@ fun AquariumNavHost(
 			CompatibilityTabRow()
 		}
 		composable(route = Temperature.route) {
-			CalculatorsTabRow(selectedState = 2)
+			CalculatorsTabRow(windowSize = windowSize,selectedState = 2)
 		}
 		composable(route = CarbonDioxide.route) {
-			CalculatorsTabRow(selectedState = 3)
+			CalculatorsTabRow(windowSize = windowSize,selectedState = 3)
 		}
 		composable(route = Alkalinity.route) {
-			CalculatorsTabRow(selectedState = 1)
+			CalculatorsTabRow(windowSize = windowSize,selectedState = 1)
 		}
 		composable(route = Salinity.route) {
-			CalculatorsTabRow()
+			CalculatorsTabRow(windowSize = windowSize)
 		}
 		composable(route = Rectangle.route) {
-			TankVolumeTabRow()
+			TankVolumeTabRowScrollable(windowSize = windowSize)
 		}
 		composable(route = Cube.route) {
-			TankVolumeTabRow(selectedState = 1)
+			TankVolumeTabRowScrollable(selectedState = 1, windowSize = windowSize)
 		}
 		composable(route = Hexagonal.route) {
-			TankVolumeTabRow(selectedState = 3)
+			TankVolumeTabRowScrollable(selectedState = 3, windowSize = windowSize)
 		}
 		composable(route = Cylinder.route) {
-			TankVolumeTabRow(selectedState = 2)
+			TankVolumeTabRowScrollable(selectedState = 2, windowSize = windowSize)
 		}
 		composable(route = BowFront.route) {
-			TankVolumeTabRow(selectedState = 4)
+			TankVolumeTabRowScrollable(selectedState = 4, windowSize = windowSize)
 		}
 	}
 }

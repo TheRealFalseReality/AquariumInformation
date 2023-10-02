@@ -4,6 +4,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -18,6 +20,9 @@ import cca.capitalcityaquatics.aquariuminfo.navigation.FishCompatibility
 import cca.capitalcityaquatics.aquariuminfo.navigation.FishCompatibilityFreshwater
 import cca.capitalcityaquatics.aquariuminfo.navigation.FishCompatibilityMarine
 import cca.capitalcityaquatics.aquariuminfo.navigation.Hexagonal
+import cca.capitalcityaquatics.aquariuminfo.navigation.Home
+import cca.capitalcityaquatics.aquariuminfo.navigation.HomeInfo
+import cca.capitalcityaquatics.aquariuminfo.navigation.Information
 import cca.capitalcityaquatics.aquariuminfo.navigation.Rectangle
 import cca.capitalcityaquatics.aquariuminfo.navigation.Salinity
 import cca.capitalcityaquatics.aquariuminfo.navigation.TankVolume
@@ -32,6 +37,7 @@ import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 
 @Composable
 fun OverviewPage(
+	windowSize: WindowSizeClass,
 	onClickTemperature: () -> Unit = {},
 	onClickCo2: () -> Unit = {},
 	onClickSalinity: () -> Unit = {},
@@ -43,9 +49,12 @@ fun OverviewPage(
 	onClickCylinder: () -> Unit = {},
 	onClickHexagonal: () -> Unit = {},
 	onClickBowFront: () -> Unit = {},
+	onClickHome: () -> Unit = {},
+	onClickInformation: () -> Unit = {},
 ) {
 	PageView {
 		OverviewLayout(
+			windowSize = windowSize,
 			onClickTemperature = onClickTemperature,
 			onClickCo2 = onClickCo2,
 			onClickSalinity = onClickSalinity,
@@ -56,13 +65,16 @@ fun OverviewPage(
 			onClickCube = onClickCube,
 			onClickCylinder = onClickCylinder,
 			onClickHexagonal = onClickHexagonal,
-			onClickBowFront = onClickBowFront
+			onClickBowFront = onClickBowFront,
+			onClickHome = onClickHome,
+			onClickInformation = onClickInformation
 		)
 	}
 }
 
 @Composable
 fun OverviewLayout(
+	windowSize: WindowSizeClass,
 	onClickTemperature: () -> Unit,
 	onClickCo2: () -> Unit,
 	onClickSalinity: () -> Unit,
@@ -74,6 +86,8 @@ fun OverviewLayout(
 	onClickCylinder: () -> Unit,
 	onClickHexagonal: () -> Unit,
 	onClickBowFront: () -> Unit,
+	onClickHome: () -> Unit,
+	onClickInformation: () -> Unit,
 ) {
 	CalculatorsGrid(
 		onClickTemperature = onClickTemperature,
@@ -90,10 +104,18 @@ fun OverviewLayout(
 		onClickBowFront = onClickBowFront,
 	)
 	VerySmallSpacer()
-	FishCompatibility(
+	FishCompatibilityGrid(
 		onClickFreshwater = onClickFreshwater,
 		onClickMarine = onClickMarine,
 	)
+	when (windowSize.widthSizeClass) {
+		WindowWidthSizeClass.Expanded -> {
+			HomeInfoGrid(
+				onClickHome = onClickHome,
+				onClickInformation = onClickInformation
+			)
+		}
+	}
 }
 
 @Composable
@@ -121,10 +143,10 @@ fun CalculatorsGrid(
 	fontColor: Color = MaterialTheme.colorScheme.primary,
 	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
 	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
-	onClickTemperature: () -> Unit,
-	onClickSalinity: () -> Unit,
-	onClickAlkalinity: () -> Unit,
-	onClickCo2: () -> Unit,
+	onClickTemperature: () -> Unit = {},
+	onClickSalinity: () -> Unit = {},
+	onClickAlkalinity: () -> Unit = {},
+	onClickCo2: () -> Unit = {},
 ) {
 	Column(modifier = modifier) {
 		TitleWideContent(
@@ -163,11 +185,11 @@ fun TankVolumeGrid(
 	fontColor: Color = MaterialTheme.colorScheme.secondary,
 	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
 	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
-	onClickRectangle: () -> Unit,
-	onClickCube: () -> Unit,
-	onClickCylinder: () -> Unit,
-	onClickHexagonal: () -> Unit,
-	onClickBowFront: () -> Unit,
+	onClickRectangle: () -> Unit = {},
+	onClickCube: () -> Unit = {},
+	onClickCylinder: () -> Unit = {},
+	onClickHexagonal: () -> Unit = {},
+	onClickBowFront: () -> Unit = {},
 ) {
 	Column(modifier = modifier) {
 		TitleWideContent(
@@ -211,13 +233,13 @@ fun TankVolumeGrid(
 }
 
 @Composable
-fun FishCompatibility(
+fun FishCompatibilityGrid(
 	modifier: Modifier = Modifier,
 	fontColor: Color = MaterialTheme.colorScheme.tertiary,
 	contentColor: Color = MaterialTheme.colorScheme.onTertiaryContainer,
 	containerColor: Color = MaterialTheme.colorScheme.tertiaryContainer,
-	onClickFreshwater: () -> Unit,
-	onClickMarine: () -> Unit,
+	onClickFreshwater: () -> Unit = {},
+	onClickMarine: () -> Unit = {},
 ) {
 	Column(modifier) {
 		TitleWideContent(
@@ -239,6 +261,35 @@ fun FishCompatibility(
 	}
 }
 
+@Composable
+fun HomeInfoGrid(
+	modifier: Modifier = Modifier,
+	fontColor: Color = MaterialTheme.colorScheme.onBackground,
+	contentColor: Color = MaterialTheme.colorScheme.onSurfaceVariant,
+	containerColor: Color = MaterialTheme.colorScheme.surfaceVariant,
+	onClickHome: () -> Unit = {},
+	onClickInformation: () -> Unit = {},
+) {
+	Column(modifier) {
+		TitleWideContent(
+			text = HomeInfo.title,
+			color = fontColor,
+			icon = HomeInfo.icon
+		) {
+			NavButtonRow(
+				title1 = Home.title,
+				icon1 = Home.icon,
+				title2 = Information.title,
+				icon2 = Information.icon,
+				containerColor = containerColor,
+				contentColor = contentColor,
+				onClick1 = onClickHome,
+				onClick2 = onClickInformation
+			)
+		}
+	}
+}
+
 @Preview(showBackground = true)
 @Composable
 fun OverviewPreview() {
@@ -247,7 +298,11 @@ fun OverviewPreview() {
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
-			OverviewPage()
+			CalculatorsGrid()
+			VerySmallSpacer()
+			TankVolumeGrid()
+			VerySmallSpacer()
+			FishCompatibilityGrid()
 		}
 	}
 }
@@ -261,7 +316,11 @@ fun OverviewPreviewDark(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
-			OverviewPage()
+			CalculatorsGrid()
+			VerySmallSpacer()
+			TankVolumeGrid()
+			VerySmallSpacer()
+			FishCompatibilityGrid()
 		}
 	}
 }

@@ -379,7 +379,7 @@
     <string name="list_compatible_filefish">Dwarf Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Filefish, Foxface / Rabbits, Gobies, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Parrotfish, Puffers, Squirrelfish, Tangs / Surgeons, Wrasse - Reef Safe</string>
     <string name="list_incompatible_filefish">Eels, Groupers, Seahorse / Pipefish, Sharks / Rays, Triggerfish, Invertebrates</string>
     <string name="list_caution_filefish">Large Angels, Dartfish, Dragonets, Lions / Scorpions, Pseudochromis, Wrasse - Fish Only, Live Corals</string>
-    <string name="text_foxface">Foxface, Rabbits,</string>
+    <string name="text_foxface">Foxface, Rabbits</string>
     <string name="text_latin_foxface">Siganidae\nSiganus</string>
     <string name="list_compatible_foxface">Dwarf Angels, Large Angels, Anglers / Frogs, Anthias, Basslets, Batfish, Blennies, Boxfish, Butterflies, Cardinals, Chromis, Clownfish, Damsels, Dartfish, Dragonets, Filefish, Gobies, Groupers, Grunts / Sweetlips, Jawfish, Hawkfish, Hogfish, Lions / Scorpions, Parrotfish, Pseudochromis, Puffers, Squirrelfish, Wrasse - Reef Safe</string>
     <string name="list_incompatible_foxface">Seahorse / Pipefish</string>
@@ -483,9 +483,9 @@
     <string name="list_caution_live_corals">Dwarf Angels, Large Angels, Butterflies, Filefish, Foxface / Rabbits, Puffers, Triggerfish</string>
     <string name="text_marine_invertebrates">Marine Invertebrates</string>
     <string name="text_photo_attributes">Photo Attributes</string>
-    <string name="text_welcome_compatibility_2">Wanting to get new fish but do not know if they will play nicely with what you already have?\nTap Information below to check it out!</string>
+    <string name="text_welcome_compatibility_2">Wanting to get new fish but do not know if they will play nicely with what you already have?\nTap Aquarium Fish below to check it out!</string>
     <string name="text_welcome_compatibility">Wanting to get new fish but do not know if they will play nicely with what you already have? Just added is a quick reference tool to determine which fish types are compatible with which.\nNOTE:, this feature is in BETA and NON-DEFINITIVE. Mistakes may be present, but I am diligently working on everything!</string>
-    <string name="text_welcome_compatibility_title">NEW! Fish Compatibility Info!</string>
+    <string name="text_welcome_compatibility_title">NEW! Aquarium Fish Info!</string>
     <string name="about">About</string>
     <string name="contact">Contact</string>
     <string name="errors_or_bugs">Errors or Bugs?</string>
@@ -498,7 +498,7 @@
     <string name="overview">Overview</string>
     <string name="temperature">Temperature</string>
     <string name="carbon_dioxide">Carbon Dioxide</string>
-    <string name="compatibility">Information</string>
+    <string name="compatibility">Aquarium Fish</string>
     <string name="salinity">Salinity</string>
     <string name="alkalinity">Alkalinity</string>
     <string name="co">CO₂</string>
@@ -609,5 +609,6 @@
     <string name="coral_description">Aquarium coral provides a number of benefits to aquariums. It helps to filter the water, provides habitat for fish and other marine life, and adds beauty to the aquarium.</string>
     <string name="marine_inverts_description">Corals: Corals are small, colonial animals that build reefs. They come in a variety of colors and shapes, and can add a lot of visual interest to an aquarium.\nAnemones: Anemones are related to corals, but they are solitary animals. They have a central mouth surrounded by stinging tentacles. Anemones can provide a home for clownfish and other fish.\nShrimp: There are many different types of shrimp that can be kept in a marine aquarium. Some shrimp are scavengers, while others are filter feeders. Shrimp can help to keep your aquarium clean and healthy.\nSnails: Snails are another type of scavenger that can be kept in a marine aquarium. They can help to remove algae and other detritus from the aquarium.\nCrabs: Crabs are another type of scavenger that can be kept in a marine aquarium. They can also help to control algae populations.</string>
     <string name="text_home_description">This app calculates the volume of water in your aquarium tank and the weight of the water, based on the shape and dimensions of your tank. It also includes temperature, salinity, and alkalinity converters.</string>
-    <string name="text_home_features">Features:\nCalculate the volume of water in your aquarium tank for rectangular, cylindrical, hexagonal, and bow-front tanks\nCalculate the weight of the water in your aquarium tank\nConvert temperature, salinity, and alkalinity units</string>
+    <string name="text_home_features">Features:\nCalculate the volume of water in your aquarium tank for rectangular, cube, cylindrical, hexagonal, and bow-front tanks.\nCalculate the weight of the water in your aquarium tank.\nConvert temperature, salinity, and alkalinity units.</string>
+    <string name="more_information">More Information</string>
 </resources>

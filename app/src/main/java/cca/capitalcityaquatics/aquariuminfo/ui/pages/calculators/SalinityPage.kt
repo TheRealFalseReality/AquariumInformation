@@ -100,14 +100,20 @@ fun SalinityLayout(
 						contentColor = color,
 						containerColor = containerColor,
 						calculateContent = {
-							BodyText(text = salinityDataSource.labelSpecificGravity)
+							BodyText(
+								text = salinityDataSource.labelSpecificGravity,
+								color = contentColor
+							)
 							CalculatedText(
 								text = salinityDataSource.calculatedTextSg,
 								calculatedValue = sg,
 								textColor = contentColor,
 							)
 							VerySmallSpacer()
-							BodyText(text = salinityDataSource.labelConductivity)
+							BodyText(
+								text = salinityDataSource.labelDensity,
+								color = contentColor
+							)
 							CalculatedText(
 								text = salinityDataSource.calculatedTextDensity,
 								calculatedValue = salDensityPPT,
@@ -135,14 +141,20 @@ fun SalinityLayout(
 						contentColor = color,
 						containerColor = containerColor,
 						calculateContent = {
-							BodyText(text = salinityDataSource.labelSalinity)
+							BodyText(
+								text = salinityDataSource.labelSalinity,
+								color = contentColor
+							)
 							CalculatedText(
 								text = salinityDataSource.calculatedTextPpt,
 								calculatedValue = ppt,
 								textColor = contentColor,
 							)
 							VerySmallSpacer()
-							BodyText(text = salinityDataSource.labelConductivity)
+							BodyText(
+								text = salinityDataSource.labelDensity,
+								color = contentColor
+							)
 							CalculatedText(
 								text = salinityDataSource.calculatedTextDensity,
 								calculatedValue = salDensitySG,

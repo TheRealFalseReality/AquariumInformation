@@ -58,16 +58,16 @@ fun CompatibilityTabRow(
 					text = {
 						Text(
 							text = stringResource(id = tab.title),
-							maxLines = 1,
+							maxLines = 2,
 							overflow = TextOverflow.Ellipsis
 						)
 					},
-					icon = {
-						Icon(
-							painter = painterResource(id = tab.icon),
-							contentDescription = stringResource(id = tab.title)
-						)
-					}
+//					icon = { // TODO Use Row for Landscape
+//						Icon(
+//							painter = painterResource(id = tab.icon),
+//							contentDescription = stringResource(id = tab.title)
+//						)
+//					}
 				)
 			}
 		}

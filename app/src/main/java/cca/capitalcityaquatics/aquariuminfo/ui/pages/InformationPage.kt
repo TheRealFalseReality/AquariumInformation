@@ -13,6 +13,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
@@ -53,6 +54,7 @@ fun InfoPage() {
 fun InfoLayout(
 	text: String = stringResource(id = R.string.url_app),
 	shareDialogTitle: String = stringResource(R.string.share),
+	contentColor: Color = MaterialTheme.colorScheme.onSurfaceVariant
 ) {
 	val uriHandler = LocalUriHandler.current
 	val context = LocalContext.current
@@ -66,7 +68,10 @@ fun InfoLayout(
 		icon = Information.icon
 	) {
 		SingleWideCard {
-			BodyText(text = informationHeaderDataSource.text)
+			BodyText(
+				text = informationHeaderDataSource.text,
+				color = contentColor
+			)
 //			VerySmallSpacer()
 //			BodyText(text = informationDataSource.text)
 		}
@@ -80,7 +85,8 @@ fun InfoLayout(
 			BodyText(
 				modifier = Modifier
 					.clickable { uriHandler.openUri(emailURL) },
-				text = errorDataSource.text
+				text = errorDataSource.text,
+				color = contentColor
 			)
 		}
 	}
@@ -96,7 +102,9 @@ fun InfoLayout(
 				icon = emailDataSource.icon,
 				text = emailDataSource.title,
 				textDecoration = TextDecoration.Underline,
-				fontWeight = FontWeight.Bold
+				fontWeight = FontWeight.Bold,
+				textColor = contentColor,
+				iconTint = contentColor
 			)
 			IconTextRow(
 				modifier = Modifier
@@ -104,7 +112,9 @@ fun InfoLayout(
 				icon = websiteDataSource.icon,
 				text = websiteDataSource.title,
 				textDecoration = TextDecoration.Underline,
-				fontWeight = FontWeight.Bold
+				fontWeight = FontWeight.Bold,
+				textColor = contentColor,
+				iconTint = contentColor
 			)
 			IconTextRow(
 				modifier = Modifier
@@ -112,7 +122,9 @@ fun InfoLayout(
 				icon = reviewAppDataSource.icon,
 				text = reviewAppDataSource.title,
 				textDecoration = TextDecoration.Underline,
-				fontWeight = FontWeight.Bold
+				fontWeight = FontWeight.Bold,
+				textColor = contentColor,
+				iconTint = contentColor
 			)
 			IconTextRow(
 				modifier = Modifier
@@ -125,7 +137,9 @@ fun InfoLayout(
 				icon = shareDataSource.icon,
 				text = shareDataSource.text,
 				textDecoration = TextDecoration.Underline,
-				fontWeight = FontWeight.Bold
+				fontWeight = FontWeight.Bold,
+				textColor = contentColor,
+				iconTint = contentColor
 			)
 		}
 	}
@@ -148,7 +162,10 @@ fun InfoLayout(
 				) {
 					AppVersion()
 					VerySmallSpacer()
-					BodyText(text = R.string.tap_to_see_changelog)
+					BodyText(
+						text = R.string.tap_to_see_changelog,
+						color = contentColor
+					)
 				}
 				Icon(
 					modifier = Modifier.weight(1f),

@@ -22,7 +22,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -71,18 +70,23 @@ fun FancyIndicator(
 }
 
 @Composable
-fun AppVersion(modifier: Modifier = Modifier) {
+fun AppVersion(
+	modifier: Modifier = Modifier,
+	color: Color = MaterialTheme.colorScheme.onSurfaceVariant,
+) {
 	val version = cca.capitalcityaquatics.aquariuminfo.BuildConfig.VERSION_NAME
 	Row(
 		modifier = modifier,
 		horizontalArrangement = Arrangement.Center,
 	) {
 		BodyText(
-			text = R.string.app_version
+			text = R.string.app_version,
+			color = color
 		)
 		Text(
 			text = stringResource(id = R.string.text_label_version, version),
-			style = MaterialTheme.typography.bodyMedium
+			style = MaterialTheme.typography.bodyMedium,
+			color = color
 		)
 	}
 }
@@ -319,7 +323,10 @@ fun TankVolumeResults(
 			textColor = contentColor,
 		)
 		VerySmallSpacer()
-		BodyText(text = calculatorDataSource.labelWaterWeight)
+		BodyText(
+			text = calculatorDataSource.labelWaterWeight,
+			color = contentColor
+		)
 		CalculatedText(
 			text = calculatorDataSource.calculatedTextWaterWeight,
 			calculatedValue = calculatedValue3,
@@ -344,7 +351,10 @@ fun FormulaString(
 			contentColor = contentColor,
 			containerColor = containerColor,
 		) {
-			BodyText(text = text)
+			BodyText(
+				text = text,
+				color = contentColor,
+			)
 		}
 	}
 }
@@ -382,12 +392,12 @@ fun PopOutCard(
 	@DrawableRes icon: Int,
 	@StringRes title: Int,
 	@StringRes body: Int,
-	backgroundCardColor: Color = MaterialTheme.colorScheme.tertiaryContainer,
+	containerColor: Color = MaterialTheme.colorScheme.tertiaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onTertiaryContainer
 ) {
 	Column(modifier = modifier) {
 		SingleWideCard(
-			containerColor = backgroundCardColor,
+			containerColor = containerColor,
 			contentColor = contentColor
 		) {
 			Row(

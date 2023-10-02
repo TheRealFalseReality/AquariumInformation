@@ -25,7 +25,7 @@ object Information : Destinations {
 
 object Overview : Destinations {
 	override val icon = R.drawable.baseline_grid_view_24
-	override val iconFilled = R.drawable.baseline_grid_view_24
+	override val iconFilled = R.drawable.ic_grid_filled
 	override val route = "overview"
 	override val title = R.string.overview
 }
@@ -45,8 +45,8 @@ object Salinity : Destinations {
 }
 
 object Alkalinity : Destinations {
-	override val icon = R.drawable.ic_water_do
-	override val iconFilled = R.drawable.ic_water_do_filled
+	override val icon = R.drawable.ic_tds
+	override val iconFilled = R.drawable.ic_tds_filled
 	override val route = "alkalinity"
 	override val title = R.string.alkalinity
 }
@@ -103,21 +103,21 @@ object BowFront : Destinations {
 }
 
 object FishCompatibility : Destinations {
-	override val icon = R.drawable.ic_icon_question
-	override val iconFilled = R.drawable.ic_icon_question
+	override val icon = R.drawable.ic_meal
+	override val iconFilled = R.drawable.ic_meal_filled
 	override val route = "fish_compatibility"
 	override val title = R.string.compatibility
 }
 
 object FishCompatibilityFreshwater : Destinations {
-	override val icon = R.drawable.ic_fish_2
-	override val iconFilled = R.drawable.ic_icon_question
+	override val icon = R.drawable.ic_waves
+	override val iconFilled = R.drawable.ic_water_lux_filled
 	override val route = "fish_compat_fresh"
 	override val title = R.string.freshwater
 }
 
 object FishCompatibilityMarine : Destinations {
-	override val icon = R.drawable.ic_fish
+	override val icon = R.drawable.ic_water_lux
 	override val iconFilled = R.drawable.ic_icon_question
 	override val route = "fish_compat_marine"
 	override val title = R.string.marine
@@ -132,9 +132,16 @@ object Converters : Destinations {
 
 object Calculators : Destinations {
 	override val icon = R.drawable.ic_calculate
-	override val iconFilled = R.drawable.ic_calculate
+	override val iconFilled = R.drawable.ic_calculate_filled
 	override val route = "calculators"
 	override val title = R.string.calculators
+}
+
+object HomeInfo : Destinations {
+	override val icon = R.drawable.ic_home
+	override val iconFilled = R.drawable.ic_home // TODO
+	override val route = "home_info"
+	override val title = R.string.more_information
 }
 
 val bottomNavRow = listOf(Overview, Calculators, TankVolume, FishCompatibility)

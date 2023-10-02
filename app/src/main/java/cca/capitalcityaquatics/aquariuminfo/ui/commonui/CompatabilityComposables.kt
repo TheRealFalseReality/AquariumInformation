@@ -72,6 +72,7 @@ fun FishCardsCompatibilityData(
 			containerColor = containerColor,
 			contentColor = contentColor,
 			imageContent = {
+				// TODO Expand to Full Size?
 				CardImage(
 					image = compatibilityData.image,
 					contentDescription = compatibilityData.title,

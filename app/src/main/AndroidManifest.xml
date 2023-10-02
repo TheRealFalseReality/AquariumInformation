@@ -16,7 +16,6 @@
         >
         <activity
             android:name="cca.capitalcityaquatics.aquariuminfo.MainActivity"
-            android:screenOrientation="portrait"
             android:exported="true"
             android:theme="@style/Theme.AquariumInformation"
             tools:ignore="LockedOrientationActivity">

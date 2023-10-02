@@ -20,5 +20,6 @@ val salinityDataSource =
 		formulaText = R.string.text_formula_soon,
 		labelSalinity = R.string.salinity,
 		labelSpecificGravity = R.string.button_label_sg,
-		labelConductivity = R.string.conductivity
+		labelConductivity = R.string.conductivity,
+		labelDensity = R.string.text_density,
 	)
