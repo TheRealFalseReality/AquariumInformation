@@ -90,9 +90,11 @@ fun AlkalinityLayout(
 					alkalinityDataSource.radioTextPpm -> {
 						alkalinityDataSource.labelPpm
 					}
+
 					alkalinityDataSource.radioTextMeq -> {
 						alkalinityDataSource.labelMeq
 					}
+
 					else -> {
 						alkalinityDataSource.labelDkh
 					}
@@ -150,6 +152,7 @@ fun AlkalinityLayout(
 						}
 					)
 				}
+
 				else -> {
 					CalculateField(
 						inputText = alkalinityDataSource.inputTextDkh,

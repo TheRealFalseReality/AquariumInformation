@@ -66,24 +66,6 @@ fun GenericCalculatePage(
 	formulaContent: @Composable () -> Unit
 ) {
 	when (windowSize.widthSizeClass) {
-		WindowWidthSizeClass.Compact, WindowWidthSizeClass.Medium -> {
-			subtitleContent()
-			SmallSpacer()
-			selectContent()
-			SmallSpacer()
-			optionsContent()
-			SmallSpacer()
-			inputFieldContent()
-			MediumSpacer()
-			calculateFieldContent()
-			SmallSpacer()
-			if (imageContent != null) {
-				imageContent()
-			}
-			SmallSpacer()
-			formulaContent()
-		}
-
 		WindowWidthSizeClass.Expanded -> {
 			Row(
 				verticalAlignment = Alignment.CenterVertically
@@ -139,6 +121,24 @@ fun GenericCalculatePage(
 					}
 				}
 			}
+		}
+
+		else -> {
+			subtitleContent()
+			SmallSpacer()
+			selectContent()
+			SmallSpacer()
+			optionsContent()
+			SmallSpacer()
+			inputFieldContent()
+			MediumSpacer()
+			calculateFieldContent()
+			SmallSpacer()
+			if (imageContent != null) {
+				imageContent()
+			}
+			SmallSpacer()
+			formulaContent()
 		}
 	}
 }

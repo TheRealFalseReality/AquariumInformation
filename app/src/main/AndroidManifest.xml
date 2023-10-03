@@ -17,8 +17,7 @@
         <activity
             android:name="cca.capitalcityaquatics.aquariuminfo.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AquariumInformation"
-            tools:ignore="LockedOrientationActivity">
+            android:theme="@style/Theme.AquariumInformation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

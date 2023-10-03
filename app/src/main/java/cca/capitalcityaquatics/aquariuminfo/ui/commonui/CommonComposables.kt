@@ -73,7 +73,7 @@ fun FancyIndicator(
 @Composable
 fun AppVersion(
 	modifier: Modifier = Modifier,
-	color: Color = MaterialTheme.colorScheme.onSurfaceVariant,
+	color: Color = MaterialTheme.colorScheme.onSurface,
 ) {
 	val version = cca.capitalcityaquatics.aquariuminfo.BuildConfig.VERSION_NAME
 	Row(

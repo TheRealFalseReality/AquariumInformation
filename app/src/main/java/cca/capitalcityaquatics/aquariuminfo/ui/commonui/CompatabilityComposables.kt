@@ -29,6 +29,7 @@ fun CompatibilityDataList(
 	modifier: Modifier = Modifier
 ) {
 	Column(
+		modifier = modifier,
 		horizontalAlignment = Alignment.CenterHorizontally
 	) {
 		LazyVerticalGrid(

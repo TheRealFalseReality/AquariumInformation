@@ -20,6 +20,13 @@ All notable changes to this project will be documented in this file.
 
 ## Updates
 
+### 2.0.2 - 2023.10.1
+
+**Changed**
+* Landscape Support 
+* Images file size decreased.
+* APK size is now 16MB, was 46MB
+
 ### 2.0 - 2023.9.1
 
 **Changed**

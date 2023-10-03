@@ -23,10 +23,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import cca.capitalcityaquatics.aquariuminfo.navigation.calculatorsTabRow
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FancyIndicator
-import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 
 @Composable
 fun CalculatorsTabRow(

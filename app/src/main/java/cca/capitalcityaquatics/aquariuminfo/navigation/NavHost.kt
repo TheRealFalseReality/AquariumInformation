@@ -82,7 +82,7 @@ fun AquariumNavHost(
 			CalculatorsTabRow(windowSize = windowSize)
 		}
 		composable(route = TankVolume.route) {
-			TankVolumeTabRowScrollable(windowSize = windowSize,)
+			TankVolumeTabRowScrollable(windowSize = windowSize)
 		}
 		composable(route = FishCompatibility.route) {
 			CompatibilityTabRow()
@@ -94,13 +94,13 @@ fun AquariumNavHost(
 			CompatibilityTabRow()
 		}
 		composable(route = Temperature.route) {
-			CalculatorsTabRow(windowSize = windowSize,selectedState = 2)
+			CalculatorsTabRow(windowSize = windowSize, selectedState = 2)
 		}
 		composable(route = CarbonDioxide.route) {
-			CalculatorsTabRow(windowSize = windowSize,selectedState = 3)
+			CalculatorsTabRow(windowSize = windowSize, selectedState = 3)
 		}
 		composable(route = Alkalinity.route) {
-			CalculatorsTabRow(windowSize = windowSize,selectedState = 1)
+			CalculatorsTabRow(windowSize = windowSize, selectedState = 1)
 		}
 		composable(route = Salinity.route) {
 			CalculatorsTabRow(windowSize = windowSize)

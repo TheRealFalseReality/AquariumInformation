@@ -175,7 +175,6 @@ fun InfoLayout(
 					VerySmallSpacer()
 					BodyText(
 						text = R.string.tap_to_see_changelog,
-						color = contentColor
 					)
 				}
 				Icon(

@@ -8,13 +8,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
-import androidx.compose.material3.windowsizeclass.WindowHeightSizeClass
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
@@ -65,25 +63,16 @@ fun AquariumInfoApp(
 		it.route == currentDestination?.route
 	} ?: Overview
 
+
 	when (windowSize.widthSizeClass) {
 		WindowWidthSizeClass.Expanded -> {
-			when (windowSize.heightSizeClass) {
-				WindowHeightSizeClass.Expanded -> {
-					AppPortrait(
-						navController = navController,
-						currentScreen = currentScreen,
-						windowSize = windowSize,
-					)
-				}
-				else -> {
-					AppLandscape(
-						navController = navController,
-						currentScreen = currentScreen,
-						windowSize = windowSize,
-					)
-				}
-			}
+			AppLandscape(
+				navController = navController,
+				currentScreen = currentScreen,
+				windowSize = windowSize,
+			)
 		}
+
 		else -> {
 			AppPortrait(
 				navController = navController,
@@ -92,24 +81,6 @@ fun AquariumInfoApp(
 			)
 		}
 	}
-
-//	when (windowSize.widthSizeClass) {
-//		WindowWidthSizeClass.Compact, WindowWidthSizeClass.Medium -> {
-//			AppPortrait(
-//				navController = navController,
-//				currentScreen = currentScreen,
-//				windowSize = windowSize,
-//			)
-//		}
-//
-//		WindowWidthSizeClass.Expanded  -> {
-//			AppLandscape(
-//				navController = navController,
-//				currentScreen = currentScreen,
-//				windowSize = windowSize,
-//			)
-//		}
-//	}
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

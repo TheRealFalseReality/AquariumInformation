@@ -8,7 +8,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
@@ -17,13 +16,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.homeCompatibilityDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.homeHeaderDataSource
-import cca.capitalcityaquatics.aquariuminfo.data.homeNavigateDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.reviewAppDataSource
 import cca.capitalcityaquatics.aquariuminfo.navigation.Home
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.BodyText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PopOutCard
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PopOutlinedCard
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCard
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SmallSpacer
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TitleWideContent
@@ -78,9 +75,9 @@ fun HomeLayout(
 	)
 	SmallSpacer()
 //	ThemeSwitch()
-	PopOutlinedCard(
-		text = homeNavigateDataSource.text
-	)
+//	PopOutlinedCard(
+//		text = homeNavigateDataSource.text
+//	)
 }
 
 @Preview(showBackground = true)
