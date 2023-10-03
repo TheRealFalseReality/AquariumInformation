@@ -338,6 +338,29 @@ fun TankVolumeResults(
 }
 
 @Composable
+fun CalculateImageTitle(
+	color: Color = MaterialTheme.colorScheme.onBackground,
+	@DrawableRes image: Int,
+	@StringRes contentDescription: Int,
+) {
+	Column(
+		modifier = Modifier.fillMaxWidth(),
+	) {
+		TitleTextIcon(
+			text = R.string.dimension_reference,
+			icon = R.drawable.ic_cube,
+			color = color
+		)
+	}
+	VerySmallSpacer()
+	CalculateImage(
+		painter = image,
+		contentDescription = contentDescription,
+		colorFilter = color,
+	)
+}
+
+@Composable
 fun FormulaString(
 	@StringRes text: Int,
 	contentColor: Color = MaterialTheme.colorScheme.onSurface,

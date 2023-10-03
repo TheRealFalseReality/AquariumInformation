@@ -1,10 +1,9 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators
 
 import androidx.annotation.VisibleForTesting
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -13,7 +12,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
@@ -26,19 +24,19 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberField
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonThreeUnits
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCardExpandableRadio
-import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
 @Composable
-fun AlkalinityPage() {
+fun AlkalinityPage(windowSize: WindowSizeClass) {
 	PageView {
-		AlkalinityLayout()
+		AlkalinityLayout(windowSize = windowSize)
 	}
 }
 
 @Composable
 fun AlkalinityLayout(
+	windowSize: WindowSizeClass,
 	color: Color = MaterialTheme.colorScheme.primary,
 	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
@@ -58,6 +56,7 @@ fun AlkalinityLayout(
 	val dkhMEQ = calculateDkhMeq(alk).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
+		windowSize = windowSize,
 		subtitleContent = {
 			CalculatorSubtitleThree(
 				contentColor = contentColor,
@@ -233,14 +232,13 @@ fun AlkalinityLayout(
 					)
 				}
 			}
-		},
-		formulaContent = {
-			FormulaString(
-				text = alkalinityDataSource.formulaText,
-				contentColor = color
-			)
 		}
-	)
+	) {
+		FormulaString(
+			text = alkalinityDataSource.formulaText,
+			contentColor = color
+		)
+	}
 }
 
 //@Composable
@@ -506,29 +504,29 @@ fun calculateDkhMeq(
 	return df.format(dkhMEQ)
 }
 
-@Preview(showBackground = true)
-@Composable
-fun AlkalinityPreview() {
-	AquariumInformationTheme {
-		Column(
-			modifier = Modifier
-				.background(color = MaterialTheme.colorScheme.background)
-		) {
-			AlkalinityPage()
-		}
-	}
-}
-
-@Preview(showBackground = true)
-@Composable
-fun AlkalinityPreviewDark(
-) {
-	AquariumInformationTheme(useDarkTheme = true) {
-		Column(
-			modifier = Modifier
-				.background(color = MaterialTheme.colorScheme.background)
-		) {
-			AlkalinityPage()
-		}
-	}
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun AlkalinityPreview() {
+//	AquariumInformationTheme {
+//		Column(
+//			modifier = Modifier
+//				.background(color = MaterialTheme.colorScheme.background)
+//		) {
+//			AlkalinityPage()
+//		}
+//	}
+//}
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun AlkalinityPreviewDark(
+//) {
+//	AquariumInformationTheme(useDarkTheme = true) {
+//		Column(
+//			modifier = Modifier
+//				.background(color = MaterialTheme.colorScheme.background)
+//		) {
+//			AlkalinityPage()
+//		}
+//	}
+//}

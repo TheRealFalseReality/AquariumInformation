@@ -14,6 +14,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.material3.windowsizeclass.WindowHeightSizeClass
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
@@ -65,22 +66,50 @@ fun AquariumInfoApp(
 	} ?: Overview
 
 	when (windowSize.widthSizeClass) {
-		WindowWidthSizeClass.Compact, WindowWidthSizeClass.Medium -> {
+		WindowWidthSizeClass.Expanded -> {
+			when (windowSize.heightSizeClass) {
+				WindowHeightSizeClass.Expanded -> {
+					AppPortrait(
+						navController = navController,
+						currentScreen = currentScreen,
+						windowSize = windowSize,
+					)
+				}
+				else -> {
+					AppLandscape(
+						navController = navController,
+						currentScreen = currentScreen,
+						windowSize = windowSize,
+					)
+				}
+			}
+		}
+		else -> {
 			AppPortrait(
 				navController = navController,
 				currentScreen = currentScreen,
 				windowSize = windowSize,
 			)
 		}
-
-		WindowWidthSizeClass.Expanded -> {
-			AppLandscape(
-				navController = navController,
-				currentScreen = currentScreen,
-				windowSize = windowSize,
-			)
-		}
 	}
+
+//	when (windowSize.widthSizeClass) {
+//		WindowWidthSizeClass.Compact, WindowWidthSizeClass.Medium -> {
+//			AppPortrait(
+//				navController = navController,
+//				currentScreen = currentScreen,
+//				windowSize = windowSize,
+//			)
+//		}
+//
+//		WindowWidthSizeClass.Expanded  -> {
+//			AppLandscape(
+//				navController = navController,
+//				currentScreen = currentScreen,
+//				windowSize = windowSize,
+//			)
+//		}
+//	}
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -94,7 +123,6 @@ fun AppPortrait(
 		topBar = {
 			Column {
 				AquariumAppBar(navController = navController)
-//				Divider(color = MaterialTheme.colorScheme.inverseOnSurface)
 			}
 		},
 		bottomBar = {

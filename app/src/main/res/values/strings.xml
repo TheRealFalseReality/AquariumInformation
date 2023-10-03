@@ -622,4 +622,5 @@
     <string name="text_home_features">Features:\nCalculate the volume of water in your aquarium tank for rectangular, cube, cylindrical, hexagonal, and bow-front tanks.\nCalculate the weight of the water in your aquarium tank.\nConvert temperature, salinity, and alkalinity units.</string>
     <string name="more_information">More Information</string>
     <string name="placeholder_enter">Enter</string>
+    <string name="dimension_reference">Dimension Reference</string>
 </resources>

@@ -1,10 +1,9 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators
 
 import androidx.annotation.VisibleForTesting
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -13,9 +12,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.salinityDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.BodyText
@@ -29,20 +26,20 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonTwoUnits
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCardExpandableRadio
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.VerySmallSpacer
-import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.pow
 
 @Composable
-fun SalinityPage() {
+fun SalinityPage(windowSize: WindowSizeClass) {
 	PageView {
-		SalinityLayout()
+		SalinityLayout(windowSize = windowSize,)
 	}
 }
 
 @Composable
 fun SalinityLayout(
+	windowSize: WindowSizeClass,
 	color: Color = MaterialTheme.colorScheme.primary,
 	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
@@ -62,6 +59,7 @@ fun SalinityLayout(
 	val salDensitySG = calculateDensitySG(sal, tempPureWater).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
+		windowSize = windowSize,
 		subtitleContent = {
 			CalculatorSubtitleThree(
 				contentColor = contentColor,
@@ -194,14 +192,13 @@ fun SalinityLayout(
 					)
 				}
 			}
-		},
-		formulaContent = {
-			FormulaString(
-				text = salinityDataSource.formulaText,
-				contentColor = color
-			)
 		}
-	)
+	) {
+		FormulaString(
+			text = salinityDataSource.formulaText,
+			contentColor = color
+		)
+	}
 }
 
 @VisibleForTesting
@@ -289,29 +286,29 @@ fun calculateDensitySG(
 	return df.format(rO1)
 }
 
-@Preview(showBackground = true)
-@Composable
-fun SalinityPreview() {
-	AquariumInformationTheme {
-		Column(
-			modifier = Modifier
-				.background(color = MaterialTheme.colorScheme.background)
-		) {
-			SalinityPage()
-		}
-	}
-}
-
-@Preview(showBackground = true)
-@Composable
-fun SalinityPreviewDark(
-) {
-	AquariumInformationTheme(useDarkTheme = true) {
-		Column(
-			modifier = Modifier
-				.background(color = MaterialTheme.colorScheme.background)
-		) {
-			SalinityPage()
-		}
-	}
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun SalinityPreview() {
+//	AquariumInformationTheme {
+//		Column(
+//			modifier = Modifier
+//				.background(color = MaterialTheme.colorScheme.background)
+//		) {
+//			SalinityPage()
+//		}
+//	}
+//}
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun SalinityPreviewDark(
+//) {
+//	AquariumInformationTheme(useDarkTheme = true) {
+//		Column(
+//			modifier = Modifier
+//				.background(color = MaterialTheme.colorScheme.background)
+//		) {
+//			SalinityPage()
+//		}
+//	}
+//}

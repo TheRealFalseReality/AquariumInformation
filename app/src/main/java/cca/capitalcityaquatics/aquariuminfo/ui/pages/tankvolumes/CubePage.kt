@@ -1,10 +1,9 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.tankvolumes
 
 import androidx.annotation.VisibleForTesting
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -13,13 +12,12 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.cubeDataSource
 import cca.capitalcityaquatics.aquariuminfo.navigation.Cube
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateField
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateImage
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateImageTitle
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatorSubtitleTwo
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
@@ -28,19 +26,19 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonTwoUnits
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCardExpandableRadio
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TankVolumeResults
-import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
 @Composable
-fun CubePage() {
+fun CubePage(windowSize: WindowSizeClass) {
 	PageView {
-		CubeLayout()
+		CubeLayout(windowSize = windowSize)
 	}
 }
 
 @Composable
 fun CubeLayout(
+	windowSize: WindowSizeClass,
 	color: Color = MaterialTheme.colorScheme.secondary,
 	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
@@ -60,6 +58,7 @@ fun CubeLayout(
 	val waterWeightFT = calculateWaterWeightFTCube(side).toDoubleOrNull() ?: 0.0
 
 	GenericCalculatePage(
+		windowSize = windowSize,
 		subtitleContent = {
 			CalculatorSubtitleTwo(
 				contentColor = contentColor,
@@ -115,21 +114,21 @@ fun CubeLayout(
 				equalsText = calculatorDataSource.equalsText,
 				calculateContent = {
 					when (selected) {
-						calculatorDataSource.radioTextFeet -> {
-							TankVolumeResults(
-								contentColor = contentColor,
-								calculatedValue1 = volGallonFT,
-								calculatedValue2 = volLiterFT,
-								calculatedValue3 = waterWeightFT
-							)
-						}
-
 						calculatorDataSource.radioTextInches -> {
 							TankVolumeResults(
 								contentColor = contentColor,
 								calculatedValue1 = volGallon,
 								calculatedValue2 = volLiter,
 								calculatedValue3 = waterWeight
+							)
+						}
+
+						else -> {
+							TankVolumeResults(
+								contentColor = contentColor,
+								calculatedValue1 = volGallonFT,
+								calculatedValue2 = volLiterFT,
+								calculatedValue3 = waterWeightFT
 							)
 						}
 					}
@@ -139,19 +138,18 @@ fun CubeLayout(
 			)
 		},
 		imageContent = {
-			CalculateImage(
-				painter = cubeDataSource.image,
+			CalculateImageTitle(
+				image = cubeDataSource.image,
 				contentDescription = Cube.title,
-				colorFilter = color
-			)
-		},
-		formulaContent = {
-			FormulaString(
-				text = cubeDataSource.formulaText,
-				contentColor = color,
+				color = color
 			)
 		}
-	)
+	) {
+		FormulaString(
+			text = cubeDataSource.formulaText,
+			contentColor = color,
+		)
+	}
 }
 
 @VisibleForTesting
@@ -226,29 +224,29 @@ fun calculateWaterWeightFTCube(
 	return df.format(waterWeight)
 }
 
-@Preview(showBackground = true)
-@Composable
-fun CubePreview() {
-	AquariumInformationTheme {
-		Column(
-			modifier = Modifier
-				.background(color = MaterialTheme.colorScheme.background)
-		) {
-			CubePage()
-		}
-	}
-}
-
-@Preview(showBackground = true)
-@Composable
-fun CubePreviewDark(
-) {
-	AquariumInformationTheme(useDarkTheme = true) {
-		Column(
-			modifier = Modifier
-				.background(color = MaterialTheme.colorScheme.background)
-		) {
-			CubePage()
-		}
-	}
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun CubePreview() {
+//	AquariumInformationTheme {
+//		Column(
+//			modifier = Modifier
+//				.background(color = MaterialTheme.colorScheme.background)
+//		) {
+//			CubePage()
+//		}
+//	}
+//}
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun CubePreviewDark(
+//) {
+//	AquariumInformationTheme(useDarkTheme = true) {
+//		Column(
+//			modifier = Modifier
+//				.background(color = MaterialTheme.colorScheme.background)
+//		) {
+//			CubePage()
+//		}
+//	}
+//}

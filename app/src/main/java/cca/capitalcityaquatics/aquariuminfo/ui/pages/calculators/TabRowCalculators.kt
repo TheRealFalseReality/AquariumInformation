@@ -112,18 +112,18 @@ fun CalculatorsTabRow(
 		}
 		when (state) {
 			0 -> {
-				SalinityPage()
+				SalinityPage(windowSize = windowSize)
 			}
 
 			1 -> {
-				AlkalinityPage()
+				AlkalinityPage(windowSize = windowSize)
 			}
 
 			2 -> {
-				TemperaturePage()
+				TemperaturePage(windowSize = windowSize)
 			}
 
-			3 -> CarbonDioxidePage()
+			3 -> CarbonDioxidePage(windowSize = windowSize)
 		}
 	}
 }

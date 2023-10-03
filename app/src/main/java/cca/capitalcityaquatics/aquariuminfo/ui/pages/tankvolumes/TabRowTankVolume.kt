@@ -106,23 +106,23 @@ fun TankVolumeTabRowScrollable(
 		}
 		when (state) {
 			0 -> {
-				RectanglePage()
+				RectanglePage(windowSize = windowSize)
 			}
 
 			1 -> {
-				CubePage()
+				CubePage(windowSize = windowSize)
 			}
 
 			2 -> {
-				CylinderPage()
+				CylinderPage(windowSize = windowSize)
 			}
 
 			3 -> {
-				HexagonalPage()
+				HexagonalPage(windowSize = windowSize)
 			}
 
 			4 -> {
-				BowFrontPage()
+				BowFrontPage(windowSize = windowSize)
 			}
 		}
 	}
