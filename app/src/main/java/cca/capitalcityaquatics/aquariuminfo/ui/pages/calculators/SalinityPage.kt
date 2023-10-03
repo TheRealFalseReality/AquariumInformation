@@ -33,7 +33,7 @@ import kotlin.math.pow
 @Composable
 fun SalinityPage(windowSize: WindowSizeClass) {
 	PageView {
-		SalinityLayout(windowSize = windowSize,)
+		SalinityLayout(windowSize = windowSize)
 	}
 }
 
@@ -93,6 +93,7 @@ fun SalinityLayout(
 					salinityDataSource.radioTextSg -> {
 						salinityDataSource.labelSg
 					}
+
 					else -> {
 						salinityDataSource.labelPpt
 					}
@@ -107,62 +108,8 @@ fun SalinityLayout(
 		},
 		calculateFieldContent = {
 			when (selected) {
-				salinityDataSource.radioTextPpt -> {
-					CalculateField(
-//						inputContent = {
-//							InputNumberField(
-//								label = salinityDataSource.labelPpt,
-//								value = inputSal,
-//								onValueChange = { inputSal = it },
-//								focusedContainerColor = containerColor,
-//								focusedColor = contentColor,
-//								unfocusedColor = color,
-//								leadingIcon = calculatorDataSource.leadingIconSalinity,
-//							)
-//						},
-						inputText = salinityDataSource.inputTextPpt,
-						inputValue = inputSal,
-						equalsText = salinityDataSource.equalsText,
-						contentColor = color,
-						containerColor = containerColor,
-						calculateContent = {
-							BodyText(
-								text = salinityDataSource.labelSpecificGravity,
-								color = contentColor
-							)
-							CalculatedText(
-								text = salinityDataSource.calculatedTextSg,
-								calculatedValue = sg,
-								textColor = contentColor,
-							)
-							VerySmallSpacer()
-							BodyText(
-								text = salinityDataSource.labelDensity,
-								color = contentColor
-							)
-							CalculatedText(
-								text = salinityDataSource.calculatedTextDensity,
-								calculatedValue = salDensityPPT,
-								textColor = contentColor,
-							)
-						},
-					)
-				}
-
 				salinityDataSource.radioTextSg -> {
 					CalculateField(
-//						inputContent = {
-//						InputNumberField(
-//							label = salinityDataSource.labelSg,
-////							placeholder = salinityDataSource.placeholderSg,
-//							value = inputSal,
-//							onValueChange = { inputSal = it },
-//							focusedContainerColor = containerColor,
-//							focusedColor = contentColor,
-//							unfocusedColor = color,
-//							leadingIcon = calculatorDataSource.leadingIconSG,
-//						)
-//					},
 						inputText = salinityDataSource.inputTextSg,
 						inputValue = inputSal,
 						equalsText = salinityDataSource.equalsText,
@@ -189,6 +136,37 @@ fun SalinityLayout(
 								textColor = contentColor,
 							)
 						}
+					)
+				}
+
+				else -> {
+					CalculateField(
+						inputText = salinityDataSource.inputTextPpt,
+						inputValue = inputSal,
+						equalsText = salinityDataSource.equalsText,
+						contentColor = color,
+						containerColor = containerColor,
+						calculateContent = {
+							BodyText(
+								text = salinityDataSource.labelSpecificGravity,
+								color = contentColor
+							)
+							CalculatedText(
+								text = salinityDataSource.calculatedTextSg,
+								calculatedValue = sg,
+								textColor = contentColor,
+							)
+							VerySmallSpacer()
+							BodyText(
+								text = salinityDataSource.labelDensity,
+								color = contentColor
+							)
+							CalculatedText(
+								text = salinityDataSource.calculatedTextDensity,
+								calculatedValue = salDensityPPT,
+								textColor = contentColor,
+							)
+						},
 					)
 				}
 			}

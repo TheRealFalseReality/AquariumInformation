@@ -95,18 +95,6 @@ fun CubeLayout(
 		},
 		calculateFieldContent = {
 			CalculateField(
-//				inputContent = {
-//					InputNumberField(
-//						label = calculatorDataSource.labelSide,
-////						placeholder = calculatorDataSource.placeholderSide,
-//						value = inputSide,
-//						onValueChange = { inputSide = it },
-//						focusedContainerColor = containerColor,
-//						focusedColor = contentColor,
-//						unfocusedColor = color,
-//						leadingIcon = calculatorDataSource.leadingIconLength,
-//					)
-//				},
 				inputText =
 				if (selected == calculatorDataSource.radioTextFeet) cubeDataSource.inputTextFeet
 				else cubeDataSource.inputTextInches,

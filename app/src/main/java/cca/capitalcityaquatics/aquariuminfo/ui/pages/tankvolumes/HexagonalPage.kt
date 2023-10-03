@@ -103,21 +103,6 @@ fun HexagonalLayout(
 		},
 		calculateFieldContent = {
 			CalculateFieldTwoInputs(
-//				inputContent = {
-//					InputRowNumberFieldTwoInputs(
-//						label1 = calculatorDataSource.labelEdge,
-//						label2 = calculatorDataSource.labelHeight,
-//						value1 = inputEdge,
-//						onValueChange1 = { inputEdge = it },
-//						value2 = inputHeight,
-//						onValueChange2 = { inputHeight = it },
-//						focusedContainerColor = containerColor,
-//						focusedColor = contentColor,
-//						unfocusedColor = color,
-//						leadingIcon1 = calculatorDataSource.leadingIconFullWidth,
-//						leadingIcon2 = calculatorDataSource.leadingIconHeight,
-//					)
-//				},
 				inputText =
 				if (selected == calculatorDataSource.radioTextFeet) hexagonalDataSource.inputTextFeet
 				else hexagonalDataSource.inputTextInches,
@@ -126,21 +111,21 @@ fun HexagonalLayout(
 				equalsText = calculatorDataSource.equalsText,
 				calculateContent = {
 					when (selected) {
-						calculatorDataSource.radioTextFeet -> {
-							TankVolumeResults(
-								contentColor = contentColor,
-								calculatedValue1 = volGallonFT,
-								calculatedValue2 = volLiterFT,
-								calculatedValue3 = waterWeightFT
-							)
-						}
-
 						calculatorDataSource.radioTextInches -> {
 							TankVolumeResults(
 								contentColor = contentColor,
 								calculatedValue1 = volGallon,
 								calculatedValue2 = volLiter,
 								calculatedValue3 = waterWeight
+							)
+						}
+
+						else -> {
+							TankVolumeResults(
+								contentColor = contentColor,
+								calculatedValue1 = volGallonFT,
+								calculatedValue2 = volLiterFT,
+								calculatedValue3 = waterWeightFT
 							)
 						}
 					}

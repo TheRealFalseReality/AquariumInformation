@@ -91,6 +91,7 @@ fun TemperatureLayout(
 					temperatureDataSource.radioTextFahrenheit -> {
 						temperatureDataSource.labelFahrenheit
 					}
+
 					else -> {
 						temperatureDataSource.labelCelsius
 					}
@@ -105,54 +106,8 @@ fun TemperatureLayout(
 		},
 		calculateFieldContent = {
 			when (selected) {
-				temperatureDataSource.radioTextCelsius -> {
-					CalculateField(
-//						inputContent = {
-//							InputNumberField(
-////								placeholder = temperatureDataSource.placeholderCelsius,
-//								label = temperatureDataSource.labelCelsius,
-//								value = inputTemperature,
-//								onValueChange = { inputTemperature = it },
-//								focusedContainerColor = containerColor,
-//								focusedColor = contentColor,
-//								unfocusedColor = color,
-//								leadingIcon = calculatorDataSource.leadingIconTemperature,
-//							)
-//						},
-						inputText = temperatureDataSource.inputTextCelsius,
-						inputValue = inputTemperature,
-						equalsText = temperatureDataSource.equalsText,
-						contentColor = color,
-						containerColor = containerColor,
-						calculateContent = {
-							CalculatedText(
-								text = temperatureDataSource.calculatedTextFahrenheit,
-								calculatedValue = fahrenheit,
-								textColor = contentColor,
-							)
-							CalculatedText(
-								text = temperatureDataSource.calculatedTextKelvin,
-								calculatedValue = kelvinCelsius,
-								textColor = contentColor,
-							)
-						}
-					)
-				}
-
 				temperatureDataSource.radioTextFahrenheit -> {
 					CalculateField(
-//						inputContent = {
-//							InputNumberField(
-////								placeholder = temperatureDataSource.placeholderFahrenheit,
-//								label = temperatureDataSource.labelFahrenheit,
-//								value = inputTemperature,
-//								onValueChange = { inputTemperature = it },
-//								focusedContainerColor = containerColor,
-//								focusedColor = contentColor,
-//								unfocusedColor = color,
-//								leadingIcon = calculatorDataSource.leadingIconTemperature,
-//							)
-//						},
 						inputText = temperatureDataSource.inputTextFahrenheit,
 						inputValue = inputTemperature,
 						equalsText = temperatureDataSource.equalsText,
@@ -167,6 +122,28 @@ fun TemperatureLayout(
 							CalculatedText(
 								text = temperatureDataSource.calculatedTextKelvin,
 								calculatedValue = kelvinFahrenheit,
+								textColor = contentColor,
+							)
+						}
+					)
+				}
+
+				else -> {
+					CalculateField(
+						inputText = temperatureDataSource.inputTextCelsius,
+						inputValue = inputTemperature,
+						equalsText = temperatureDataSource.equalsText,
+						contentColor = color,
+						containerColor = containerColor,
+						calculateContent = {
+							CalculatedText(
+								text = temperatureDataSource.calculatedTextFahrenheit,
+								calculatedValue = fahrenheit,
+								textColor = contentColor,
+							)
+							CalculatedText(
+								text = temperatureDataSource.calculatedTextKelvin,
+								calculatedValue = kelvinCelsius,
 								textColor = contentColor,
 							)
 						}

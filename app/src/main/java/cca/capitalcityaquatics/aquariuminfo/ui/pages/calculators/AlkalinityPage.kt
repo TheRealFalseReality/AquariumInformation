@@ -104,69 +104,9 @@ fun AlkalinityLayout(
 				unfocusedColor = color,
 				leadingIcon = calculatorDataSource.leadingIconTDS,
 			)
-
-//			when (selected) {
-//				alkalinityDataSource.radioTextDkh -> {
-//					InputNumberField(
-//						label = alkalinityDataSource.labelDkh,
-//						value = inputAlk,
-//						onValueChange = { inputAlk = it },
-//						focusedContainerColor = containerColor,
-//						focusedColor = contentColor,
-//						unfocusedColor = color,
-//						leadingIcon = calculatorDataSource.leadingIconTDS,
-//					)
-//				}
-//
-//				alkalinityDataSource.radioTextPpm -> {
-//					InputNumberField(
-//						label = alkalinityDataSource.labelPpm,
-//						value = inputAlk,
-//						onValueChange = { inputAlk = it },
-//						focusedContainerColor = containerColor,
-//						focusedColor = contentColor,
-//						unfocusedColor = color,
-//						leadingIcon = calculatorDataSource.leadingIconTDS,
-//					)
-//				}
-//
-//				alkalinityDataSource.radioTextMeq -> {
-//					InputNumberField(
-//						label = alkalinityDataSource.labelMeq,
-//						value = inputAlk,
-//						onValueChange = { inputAlk = it },
-//						focusedContainerColor = containerColor,
-//						focusedColor = contentColor,
-//						unfocusedColor = color,
-//						leadingIcon = calculatorDataSource.leadingIconTDS,
-//					)
-//				}
-//			}
 		},
 		calculateFieldContent = {
 			when (selected) {
-//				alkalinityDataSource.radioTextDkh -> {
-//					CalculateField(
-//						inputText = alkalinityDataSource.inputTextDkh,
-//						inputValue = inputAlk,
-//						equalsText = alkalinityDataSource.equalsText,
-//						contentColor = color,
-//						containerColor = containerColor,
-//						calculateContent = {
-//							CalculatedText(
-//								text = alkalinityDataSource.calculatedTextPpm,
-//								calculatedValue = ppmDKH,
-//								textColor = contentColor,
-//							)
-//							CalculatedText(
-//								text = alkalinityDataSource.calculatedTextMeq,
-//								calculatedValue = meqDKH,
-//								textColor = contentColor,
-//							)
-//						}
-//					)
-//				}
-
 				alkalinityDataSource.radioTextPpm -> {
 					CalculateField(
 						inputText = alkalinityDataSource.inputTextPpm,

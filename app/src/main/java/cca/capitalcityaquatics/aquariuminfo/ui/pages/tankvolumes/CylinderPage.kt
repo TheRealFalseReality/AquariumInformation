@@ -150,23 +150,6 @@ fun CylinderLayout(
 		},
 		calculateFieldContent = {
 			CalculateFieldTwoInputs(
-//				inputContent = {
-//					InputRowNumberFieldTwoInputs(
-//						label1 = calculatorDataSource.labelDiameter,
-////						placeholder1 = calculatorDataSource.placeholderDiameter,
-//						label2 = calculatorDataSource.labelHeight,
-////						placeholder2 = calculatorDataSource.placeholderHeight,
-//						value1 = inputDiameter,
-//						onValueChange1 = { inputDiameter = it },
-//						value2 = inputHeight,
-//						onValueChange2 = { inputHeight = it },
-//						focusedContainerColor = containerColor,
-//						focusedColor = contentColor,
-//						unfocusedColor = color,
-//						leadingIcon1 = calculatorDataSource.leadingIconDiameter,
-//						leadingIcon2 = calculatorDataSource.leadingIconHeight,
-//					)
-//				},
 				inputText =
 				if (selected == calculatorDataSource.radioTextFeet) cylinderDataSource.inputTextFeet
 				else cylinderDataSource.inputTextInches,
@@ -175,21 +158,21 @@ fun CylinderLayout(
 				equalsText = calculatorDataSource.equalsText,
 				calculateContent = {
 					when (selected) {
-						calculatorDataSource.radioTextFeet -> {
-							TankVolumeResults(
-								contentColor = contentColor,
-								calculatedValue1 = volGallonFT,
-								calculatedValue2 = volLiterFT,
-								calculatedValue3 = waterWeightFT
-							)
-						}
-
 						calculatorDataSource.radioTextInches -> {
 							TankVolumeResults(
 								contentColor = contentColor,
 								calculatedValue1 = volGallon,
 								calculatedValue2 = volLiter,
 								calculatedValue3 = waterWeight
+							)
+						}
+
+						else -> {
+							TankVolumeResults(
+								contentColor = contentColor,
+								calculatedValue1 = volGallonFT,
+								calculatedValue2 = volLiterFT,
+								calculatedValue3 = waterWeightFT
 							)
 						}
 					}

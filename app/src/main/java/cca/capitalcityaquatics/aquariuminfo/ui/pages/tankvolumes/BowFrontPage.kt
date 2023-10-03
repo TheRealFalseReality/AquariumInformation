@@ -124,29 +124,6 @@ fun BowFrontLayout(
 		},
 		calculateFieldContent = {
 			CalculateFieldFourInputs(
-//				inputContent = {
-//					InputQuadNumberFieldFourInputs(
-//						label1 = calculatorDataSource.labelLength,
-//						label2 = calculatorDataSource.labelWidth,
-//						value1 = inputLength,
-//						onValueChange1 = { inputLength = it },
-//						value2 = inputWidth,
-//						onValueChange2 = { inputWidth = it },
-//						focusedContainerColor = containerColor,
-//						focusedColor = contentColor,
-//						unfocusedColor = color,
-//						label3 = calculatorDataSource.labelHeight,
-//						label4 = calculatorDataSource.labelFullWidth,
-//						value3 = inputHeight,
-//						onValueChange3 = { inputHeight = it },
-//						value4 = inputFullWidth,
-//						onValueChange4 = { inputFullWidth = it },
-//						leadingIcon1 = calculatorDataSource.leadingIconLength,
-//						leadingIcon2 = calculatorDataSource.leadingIconWidth,
-//						leadingIcon3 = calculatorDataSource.leadingIconHeight,
-//						leadingIcon4 = calculatorDataSource.leadingIconFullWidth,
-//					)
-//				},
 				inputText =
 				if (selected == calculatorDataSource.radioTextFeet) bowFrontDataSource.inputTextFeet
 				else bowFrontDataSource.inputTextInches,

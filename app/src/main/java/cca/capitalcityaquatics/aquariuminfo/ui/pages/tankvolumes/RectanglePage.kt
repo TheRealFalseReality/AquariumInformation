@@ -111,25 +111,6 @@ fun RectangleLayout(
 		},
 		calculateFieldContent = {
 			CalculateFieldThreeInputs(
-//				inputContent = {
-//					InputNumberFieldThreeStackedInputs(
-//						label1 = calculatorDataSource.labelLength,
-//						label2 = calculatorDataSource.labelWidth,
-//						label3 = calculatorDataSource.labelHeight,
-//						value1 = inputLength,
-//						onValueChange1 = { inputLength = it },
-//						value2 = inputWidth,
-//						onValueChange2 = { inputWidth = it },
-//						value3 = inputHeight,
-//						onValueChange3 = { inputHeight = it },
-//						focusedContainerColor = containerColor,
-//						focusedColor = contentColor,
-//						unfocusedColor = color,
-//						leadingIcon1 = calculatorDataSource.leadingIconLength,
-//						leadingIcon2 = calculatorDataSource.leadingIconWidth,
-//						leadingIcon3 = calculatorDataSource.leadingIconHeight,
-//					)
-//				},
 				inputText =
 				if (selected == calculatorDataSource.radioTextFeet) rectangleDataSource.inputTextFeet
 				else rectangleDataSource.inputTextInches,
@@ -141,21 +122,21 @@ fun RectangleLayout(
 				containerColor = containerColor,
 				calculateContent = {
 					when (selected) {
-						calculatorDataSource.radioTextFeet -> {
-							TankVolumeResults(
-								contentColor = contentColor,
-								calculatedValue1 = volGallonFT,
-								calculatedValue2 = volLiterFT,
-								calculatedValue3 = waterWeightFT
-							)
-						}
-
 						calculatorDataSource.radioTextInches -> {
 							TankVolumeResults(
 								contentColor = contentColor,
 								calculatedValue1 = volGallon,
 								calculatedValue2 = volLiter,
 								calculatedValue3 = waterWeight
+							)
+						}
+
+						else -> {
+							TankVolumeResults(
+								contentColor = contentColor,
+								calculatedValue1 = volGallonFT,
+								calculatedValue2 = volLiterFT,
+								calculatedValue3 = waterWeightFT
 							)
 						}
 					}
