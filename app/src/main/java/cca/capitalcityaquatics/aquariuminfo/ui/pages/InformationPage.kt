@@ -173,6 +173,8 @@ fun InfoLayout(
 				) {
 					AppVersion()
 					VerySmallSpacer()
+					// TODO Add more
+					VerySmallSpacer()
 					BodyText(
 						text = R.string.tap_to_see_changelog,
 					)

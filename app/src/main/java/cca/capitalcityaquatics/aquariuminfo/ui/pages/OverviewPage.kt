@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.surfaceColorAtElevation
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
@@ -12,6 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.DpSize
+import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.navigation.Alkalinity
 import cca.capitalcityaquatics.aquariuminfo.navigation.BowFront
@@ -78,19 +81,19 @@ fun OverviewPage(
 @Composable
 fun OverviewLayout(
 	windowSize: WindowSizeClass,
-	onClickTemperature: () -> Unit,
-	onClickCo2: () -> Unit,
-	onClickSalinity: () -> Unit,
-	onClickAlkalinity: () -> Unit,
-	onClickFreshwater: () -> Unit,
-	onClickMarine: () -> Unit,
-	onClickRectangle: () -> Unit,
-	onClickCube: () -> Unit,
-	onClickCylinder: () -> Unit,
-	onClickHexagonal: () -> Unit,
-	onClickBowFront: () -> Unit,
-	onClickHome: () -> Unit,
-	onClickInformation: () -> Unit,
+	onClickTemperature: () -> Unit = {},
+	onClickCo2: () -> Unit = {},
+	onClickSalinity: () -> Unit = {},
+	onClickAlkalinity: () -> Unit = {},
+	onClickFreshwater: () -> Unit = {},
+	onClickMarine: () -> Unit = {},
+	onClickRectangle: () -> Unit = {},
+	onClickCube: () -> Unit = {},
+	onClickCylinder: () -> Unit = {},
+	onClickHexagonal: () -> Unit = {},
+	onClickBowFront: () -> Unit = {},
+	onClickHome: () -> Unit = {},
+	onClickInformation: () -> Unit = {},
 ) {
 	CalculatorsGrid(
 		onClickTemperature = onClickTemperature,
@@ -294,6 +297,7 @@ fun HomeInfoGrid(
 	}
 }
 
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Preview(showBackground = true)
 @Composable
 fun OverviewPreview() {
@@ -302,15 +306,12 @@ fun OverviewPreview() {
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
-			CalculatorsGrid()
-			VerySmallSpacer()
-			TankVolumeGrid()
-			VerySmallSpacer()
-			FishCompatibilityGrid()
+			OverviewPage(windowSize = WindowSizeClass.calculateFromSize(DpSize(300.dp, 400.dp)))
 		}
 	}
 }
 
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Preview(showBackground = true)
 @Composable
 fun OverviewPreviewDark(
@@ -320,38 +321,7 @@ fun OverviewPreviewDark(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
-			CalculatorsGrid()
-			VerySmallSpacer()
-			TankVolumeGrid()
-			VerySmallSpacer()
-			FishCompatibilityGrid()
-		}
-	}
-}
-
-@Preview(showBackground = true)
-@Composable
-fun TankVolumePreview() {
-	AquariumInformationTheme {
-		Column(
-			modifier = Modifier
-				.background(color = MaterialTheme.colorScheme.background)
-		) {
-			TankVolumeOverviewPage()
-		}
-	}
-}
-
-@Preview(showBackground = true)
-@Composable
-fun TankVolumePreviewDark(
-) {
-	AquariumInformationTheme(useDarkTheme = true) {
-		Column(
-			modifier = Modifier
-				.background(color = MaterialTheme.colorScheme.background)
-		) {
-			TankVolumeOverviewPage()
+			OverviewLayout(windowSize = WindowSizeClass.calculateFromSize(DpSize(300.dp, 400.dp)))
 		}
 	}
 }

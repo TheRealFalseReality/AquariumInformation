@@ -67,6 +67,7 @@ fun GenericCalculatePage(
 ) {
 	when (windowSize.widthSizeClass) {
 		WindowWidthSizeClass.Expanded -> {
+			subtitleContent()
 			Row(
 				verticalAlignment = Alignment.CenterVertically
 			) {
@@ -77,7 +78,6 @@ fun GenericCalculatePage(
 					horizontalAlignment = Alignment.CenterHorizontally,
 					verticalArrangement = Arrangement.SpaceAround
 				) {
-					subtitleContent()
 					SmallSpacer()
 					selectContent()
 					SmallSpacer()

@@ -42,7 +42,7 @@ val websiteDataSource =
 val appInformationDataSource =
 	HeaderData(
 		icon = R.drawable.ic_settings_alert,
-		title = R.string.app_name,
+		title = R.string.app_information,
 		text = R.string.app_name,
 	)
 

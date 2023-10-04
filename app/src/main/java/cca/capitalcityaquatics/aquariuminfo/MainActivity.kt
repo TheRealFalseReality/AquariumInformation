@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,11 +20,15 @@ import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.DpSize
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import cca.capitalcityaquatics.aquariuminfo.navigation.AquariumNavHost
 import cca.capitalcityaquatics.aquariuminfo.navigation.Destinations
+import cca.capitalcityaquatics.aquariuminfo.navigation.Home
 import cca.capitalcityaquatics.aquariuminfo.navigation.Overview
 import cca.capitalcityaquatics.aquariuminfo.navigation.bottomNavRow
 import cca.capitalcityaquatics.aquariuminfo.navigation.navigateSingleTopTo
@@ -135,53 +140,59 @@ fun AppLandscape(
 	}
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun AppPreview() {
-//	AquariumInformationTheme {
-//		Column(
-//			modifier = Modifier
-//				.fillMaxSize()
-//				.background(color = MaterialTheme.colorScheme.surface)
-//		) {
-//			AppPortrait(
-//				navController = rememberNavController(),
-//				currentScreen = Home
-//			)
-//		}
-//	}
-//}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun AppDarkPreview() {
-//	AquariumInformationTheme(useDarkTheme = true) {
-//		Column(
-//			modifier = Modifier
-//				.fillMaxSize()
-//				.background(color = MaterialTheme.colorScheme.surface)
-//		) {
-//			AppPortrait(
-//				navController = rememberNavController(),
-//				currentScreen = Home
-//			)
-//		}
-//	}
-//}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun AppLandscapePreview() {
-//	AquariumInformationTheme {
-//		Column(
-//			modifier = Modifier
-//				.fillMaxSize()
-//				.background(color = MaterialTheme.colorScheme.surface)
-//		) {
-//			AppLandscape(
-//				navController = rememberNavController(),
-//				currentScreen = Home
-//			)
-//		}
-//	}
-//}
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+@Preview(showBackground = true)
+@Composable
+fun AppPreview() {
+	AquariumInformationTheme {
+		Column(
+			modifier = Modifier
+				.fillMaxSize()
+				.background(color = MaterialTheme.colorScheme.surface)
+		) {
+			AppPortrait(
+				navController = rememberNavController(),
+				currentScreen = Home,
+				windowSize = WindowSizeClass.calculateFromSize(DpSize(300.dp, 400.dp))
+			)
+		}
+	}
+}
+
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+@Preview(showBackground = true)
+@Composable
+fun AppDarkPreview() {
+	AquariumInformationTheme(useDarkTheme = true) {
+		Column(
+			modifier = Modifier
+				.fillMaxSize()
+				.background(color = MaterialTheme.colorScheme.surface)
+		) {
+			AppPortrait(
+				navController = rememberNavController(),
+				currentScreen = Home,
+				windowSize = WindowSizeClass.calculateFromSize(DpSize(300.dp, 400.dp))
+			)
+		}
+	}
+}
+
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+@Preview(showBackground = true)
+@Composable
+fun AppLandscapePreview() {
+	AquariumInformationTheme {
+		Column(
+			modifier = Modifier
+				.fillMaxSize()
+				.background(color = MaterialTheme.colorScheme.surface)
+		) {
+			AppLandscape(
+				navController = rememberNavController(),
+				currentScreen = Home,
+				windowSize = WindowSizeClass.calculateFromSize(DpSize(700.dp, 400.dp))
+			)
+		}
+	}
+}

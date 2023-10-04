@@ -2,6 +2,8 @@ package cca.capitalcityaquatics.aquariuminfo.ui.pages.compatability
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Icon
+import androidx.compose.material3.LeadingIconTab
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabPosition
@@ -15,6 +17,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -48,7 +51,7 @@ fun CompatibilityTabRow(
 			indicator = indicator
 		) {
 			tabs.forEachIndexed { index, tab ->
-				Tab(
+				LeadingIconTab(
 					selected = state == index,
 					selectedContentColor = selectedColor,
 					unselectedContentColor = unselectedColor,
@@ -60,12 +63,12 @@ fun CompatibilityTabRow(
 							overflow = TextOverflow.Ellipsis
 						)
 					},
-//					icon = { // TODO Use Row for Landscape
-//						Icon(
-//							painter = painterResource(id = tab.icon),
-//							contentDescription = stringResource(id = tab.title)
-//						)
-//					}
+					icon = {
+						Icon(
+							painter = painterResource(id = tab.icon),
+							contentDescription = stringResource(id = tab.title)
+						)
+					}
 				)
 			}
 		}

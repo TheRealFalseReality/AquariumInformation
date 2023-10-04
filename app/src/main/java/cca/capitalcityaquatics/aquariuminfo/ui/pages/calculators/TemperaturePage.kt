@@ -1,8 +1,11 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators
 
 import androidx.annotation.VisibleForTesting
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -13,6 +16,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.DpSize
+import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.temperatureDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
@@ -26,6 +32,7 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberField
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonTwoUnits
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCardExpandableRadio
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
@@ -59,7 +66,7 @@ fun TemperatureLayout(
 		windowSize = windowSize,
 		subtitleContent = {
 			CalculatorSubtitleThree(
-				contentColor = contentColor,
+				contentColor = color,
 				text1 = temperatureDataSource.subtitle1,
 				text2 = temperatureDataSource.subtitle2,
 				text3 = temperatureDataSource.subtitle3,
@@ -219,29 +226,31 @@ fun calculateKelvinCel(
 	return df.format(kelvin)
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun TemperaturePreview() {
-//	AquariumInformationTheme {
-//		Column(
-//			modifier = Modifier
-//				.background(color = MaterialTheme.colorScheme.surface)
-//		) {
-//			TemperaturePage()
-//		}
-//	}
-//}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun TemperaturePreviewDark(
-//) {
-//	AquariumInformationTheme(useDarkTheme = true) {
-//		Column(
-//			modifier = Modifier
-//				.background(color = MaterialTheme.colorScheme.surface)
-//		) {
-//			TemperaturePage()
-//		}
-//	}
-//}
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+@Preview(showBackground = true)
+@Composable
+fun TemperaturePreview() {
+	AquariumInformationTheme {
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.surface)
+		) {
+			TemperaturePage(windowSize = WindowSizeClass.calculateFromSize(DpSize(300.dp, 400.dp)))
+		}
+	}
+}
+
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+@Preview(showBackground = true)
+@Composable
+fun TemperaturePreviewDark(
+) {
+	AquariumInformationTheme(useDarkTheme = true) {
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.surface)
+		) {
+			TemperaturePage(windowSize = WindowSizeClass.calculateFromSize(DpSize(300.dp, 400.dp)))
+		}
+	}
+}

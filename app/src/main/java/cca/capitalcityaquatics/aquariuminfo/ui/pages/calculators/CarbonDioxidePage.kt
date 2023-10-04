@@ -1,14 +1,21 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators
 
 import androidx.annotation.VisibleForTesting
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.DpSize
+import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.carbonDioxideDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldTwoInputs
@@ -19,6 +26,7 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.HeaderText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberFieldTwoInputsStacked
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TextCard
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.pow
@@ -52,7 +60,7 @@ fun CarbonDioxideLayout(
 		subtitleContent = {
 			HeaderText(
 				text = carbonDioxideDataSource.subtitle,
-				color = contentColor
+				color = color
 			)
 		},
 		selectContent = {
@@ -114,29 +122,31 @@ fun calculateCarbonDioxide(
 	return df.format(carbonDioxide)
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun CarbonDioxidePreview() {
-//	AquariumInformationTheme {
-//		Column(
-//			modifier = Modifier
-//				.background(color = MaterialTheme.colorScheme.surface)
-//		) {
-//			CarbonDioxidePage()
-//		}
-//	}
-//}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun CarbonDioxidePreviewDark(
-//) {
-//	AquariumInformationTheme(useDarkTheme = true) {
-//		Column(
-//			modifier = Modifier
-//				.background(color = MaterialTheme.colorScheme.surface)
-//		) {
-//			CarbonDioxidePage()
-//		}
-//	}
-//}
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+@Preview(showBackground = true)
+@Composable
+fun CarbonDioxidePreview() {
+	AquariumInformationTheme {
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.surface)
+		) {
+			CarbonDioxidePage(windowSize = WindowSizeClass.calculateFromSize(DpSize(300.dp, 400.dp)))
+		}
+	}
+}
+
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+@Preview(showBackground = true)
+@Composable
+fun CarbonDioxidePreviewDark(
+) {
+	AquariumInformationTheme(useDarkTheme = true) {
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.surface)
+		) {
+			CarbonDioxidePage(windowSize = WindowSizeClass.calculateFromSize(DpSize(300.dp, 400.dp)))
+		}
+	}
+}

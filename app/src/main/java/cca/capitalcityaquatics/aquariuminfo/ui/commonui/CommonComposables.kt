@@ -566,7 +566,7 @@ fun PopOutlinedCard(
 fun ThemeSwitch() {
 	var isDarkTheme by remember { mutableStateOf(true) }
 
-	AquariumInformationTheme(useDarkTheme = isDarkTheme) {
+	AquariumInformationTheme(dynamicColor = isDarkTheme) {
 		Row(
 			verticalAlignment = Alignment.CenterVertically,
 			modifier = Modifier

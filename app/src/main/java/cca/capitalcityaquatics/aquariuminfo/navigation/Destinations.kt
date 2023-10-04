@@ -139,7 +139,7 @@ object Calculators : Destinations {
 
 object HomeInfo : Destinations {
 	override val icon = R.drawable.ic_home
-	override val iconFilled = R.drawable.ic_home // TODO
+	override val iconFilled = R.drawable.ic_home
 	override val route = "home_info"
 	override val title = R.string.more_information
 }

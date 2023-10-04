@@ -1,8 +1,11 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators
 
 import androidx.annotation.VisibleForTesting
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -12,6 +15,9 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.DpSize
+import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.salinityDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
@@ -26,6 +32,7 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonTwoUnits
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCardExpandableRadio
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.VerySmallSpacer
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.pow
@@ -62,7 +69,7 @@ fun SalinityLayout(
 		windowSize = windowSize,
 		subtitleContent = {
 			CalculatorSubtitleThree(
-				contentColor = contentColor,
+				contentColor = color,
 				text1 = salinityDataSource.subtitle1,
 				text2 = salinityDataSource.subtitle2,
 				text3 = salinityDataSource.subtitle3,
@@ -264,29 +271,31 @@ fun calculateDensitySG(
 	return df.format(rO1)
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun SalinityPreview() {
-//	AquariumInformationTheme {
-//		Column(
-//			modifier = Modifier
-//				.background(color = MaterialTheme.colorScheme.background)
-//		) {
-//			SalinityPage()
-//		}
-//	}
-//}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun SalinityPreviewDark(
-//) {
-//	AquariumInformationTheme(useDarkTheme = true) {
-//		Column(
-//			modifier = Modifier
-//				.background(color = MaterialTheme.colorScheme.background)
-//		) {
-//			SalinityPage()
-//		}
-//	}
-//}
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+@Preview(showBackground = true)
+@Composable
+fun SalinityPreview() {
+	AquariumInformationTheme {
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.background)
+		) {
+			SalinityPage(windowSize = WindowSizeClass.calculateFromSize(DpSize(300.dp, 400.dp)))
+		}
+	}
+}
+
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+@Preview(showBackground = true)
+@Composable
+fun SalinityPreviewDark(
+) {
+	AquariumInformationTheme(useDarkTheme = true) {
+		Column(
+			modifier = Modifier
+				.background(color = MaterialTheme.colorScheme.background)
+		) {
+			SalinityPage(windowSize = WindowSizeClass.calculateFromSize(DpSize(300.dp, 400.dp)))
+		}
+	}
+}
