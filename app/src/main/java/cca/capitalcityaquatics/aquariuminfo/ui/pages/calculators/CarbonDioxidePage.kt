@@ -131,7 +131,14 @@ fun CarbonDioxidePreview() {
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.surface)
 		) {
-			CarbonDioxidePage(windowSize = WindowSizeClass.calculateFromSize(DpSize(300.dp, 400.dp)))
+			CarbonDioxidePage(
+				windowSize = WindowSizeClass.calculateFromSize(
+					DpSize(
+						300.dp,
+						400.dp
+					)
+				)
+			)
 		}
 	}
 }
@@ -146,7 +153,14 @@ fun CarbonDioxidePreviewDark(
 			modifier = Modifier
 				.background(color = MaterialTheme.colorScheme.surface)
 		) {
-			CarbonDioxidePage(windowSize = WindowSizeClass.calculateFromSize(DpSize(300.dp, 400.dp)))
+			CarbonDioxidePage(
+				windowSize = WindowSizeClass.calculateFromSize(
+					DpSize(
+						300.dp,
+						400.dp
+					)
+				)
+			)
 		}
 	}
 }

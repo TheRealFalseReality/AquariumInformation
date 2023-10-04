@@ -23,7 +23,6 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PopOutCard
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCard
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SmallSpacer
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.ThemeSwitch
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TitleWideContent
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 

@@ -20,6 +20,14 @@ All notable changes to this project will be documented in this file.
 
 ## Updates
 
+### 2.0.4 - 2023.10.2
+
+**Changed**
+* Landscape Support updated in places
+
+**Fixed**
+* Changelog Link
+
 ### 2.0.2 - 2023.10.1
 
 **Changed**

@@ -15,7 +15,7 @@ plugins {
 
 val versionMajor = 2
 val versionMinor = 0
-val versionPatch = 3
+val versionPatch = 4
 
 android {
 	namespace = "cca.capitalcityaquatics.aquariuminfo"
@@ -100,7 +100,7 @@ dependencies {
 	implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
 	// Firebase SDK for Google Analytics
 	implementation("com.google.firebase:firebase-analytics-ktx")
-	// rashlytics and Analytics libraries
+	// Crashlytics and Analytics libraries
 	implementation("com.google.firebase:firebase-crashlytics-ktx")
 	implementation("com.google.firebase:firebase-analytics-ktx")
 	// Performance Monitoring library
