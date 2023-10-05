@@ -111,14 +111,14 @@ object FishCompatibility : Destinations {
 
 object FishCompatibilityFreshwater : Destinations {
 	override val icon = R.drawable.ic_waves
-	override val iconFilled = R.drawable.ic_water_lux_filled
+	override val iconFilled = R.drawable.ic_waves
 	override val route = "fish_compat_fresh"
 	override val title = R.string.freshwater
 }
 
 object FishCompatibilityMarine : Destinations {
 	override val icon = R.drawable.ic_water_lux
-	override val iconFilled = R.drawable.ic_icon_question
+	override val iconFilled = R.drawable.ic_water_lux_filled
 	override val route = "fish_compat_marine"
 	override val title = R.string.marine
 }

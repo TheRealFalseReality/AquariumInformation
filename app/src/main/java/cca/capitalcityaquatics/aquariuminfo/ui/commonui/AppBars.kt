@@ -142,19 +142,6 @@ fun AppNavigationRail(
 		containerColor = MaterialTheme.colorScheme
 			.surfaceColorAtElevation(dimensionResource(id = R.dimen.tonal_elevation_small)),
 	) {
-//		Column {
-//			NavigationRailItem(
-//				selected = currentScreen == Home,
-//				onClick = { onTabSelected(Home) },
-//				icon = {
-//					Icon(
-//						painter = painterResource(id = R.drawable.ic_launcher_foreground),
-//						contentDescription = stringResource(Home.title),
-//						tint = MaterialTheme.colorScheme.onSurfaceVariant
-//					)
-//				}
-//			)
-//		}
 		Column(
 			modifier = modifier.fillMaxHeight(),
 			verticalArrangement = Arrangement.SpaceEvenly,

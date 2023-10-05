@@ -4,9 +4,12 @@ package cca.capitalcityaquatics.aquariuminfo.ui.commonui
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.compose.animation.animateColor
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateDp
 import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -15,10 +18,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -27,6 +34,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Switch
+import androidx.compose.material3.TabPosition
 import androidx.compose.material3.Text
 import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
@@ -50,6 +58,8 @@ import cca.capitalcityaquatics.aquariuminfo.data.calculators.temperatureDataSour
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.Shapes
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.PagerState
 
 @Composable
 fun FancyIndicator(
@@ -69,6 +79,60 @@ fun FancyIndicator(
 			)
 	)
 }
+
+@OptIn(ExperimentalPagerApi::class)
+@Composable
+fun FancyAnimatedIndicator(
+	modifier: Modifier = Modifier,
+	tabPositions: List<TabPosition>,
+	selectedTabIndex: Int,
+	indicatorColor: Color
+) {
+	val transition = updateTransition(selectedTabIndex, label = "UpdateTransition")
+	val indicatorStart by transition.animateDp(
+		transitionSpec = {
+			// Handle directionality here, if we are moving to the right, we
+			// want the right side of the indicator to move faster, if we are
+			// moving to the left, we want the left side to move faster.
+			if (initialState < targetState) {
+				spring(dampingRatio = 1f, stiffness = 50f)
+			} else {
+				spring(dampingRatio = 1f, stiffness = 1000f)
+			}
+		}, label = "IndicatorStart"
+	) {
+		tabPositions[it].left
+	}
+
+	val indicatorEnd by transition.animateDp(
+		transitionSpec = {
+			// Handle directionality here, if we are moving to the right, we
+			// want the right side of the indicator to move faster, if we are
+			// moving to the left, we want the left side to move faster.
+			if (initialState < targetState) {
+				spring(dampingRatio = 1f, stiffness = 1000f)
+			} else {
+				spring(dampingRatio = 1f, stiffness = 50f)
+			}
+		}, label = "IndicatorEnd"
+	) {
+		tabPositions[it].right
+	}
+
+	FancyIndicator(
+		// Pass the current color to the indicator
+		indicatorColor,
+		modifier = modifier
+			// Fill up the entire TabRow, and place the indicator at the start
+			.fillMaxSize()
+			.wrapContentSize(align = Alignment.BottomStart)
+			// Apply an offset from the start to correctly position the indicator around the tab
+			.offset(x = indicatorStart)
+			// Make the width of the indicator follow the animated width as we move between tabs
+			.width(indicatorEnd - indicatorStart)
+	)
+}
+
 
 @Composable
 fun AppVersion(

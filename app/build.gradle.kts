@@ -111,4 +111,8 @@ dependencies {
 
 	// WindowSizeClass
 	implementation ("androidx.compose.material3:material3-window-size-class:1.1.2")
+
+	// Pager
+	implementation ("com.google.accompanist:accompanist-pager:0.21.2-beta")
+	implementation ("com.google.accompanist:accompanist-pager-indicators:0.21.2-beta")
 }

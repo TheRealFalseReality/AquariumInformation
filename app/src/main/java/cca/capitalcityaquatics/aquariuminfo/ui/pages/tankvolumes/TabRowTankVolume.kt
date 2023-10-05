@@ -9,36 +9,49 @@ import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabPosition
 import androidx.compose.material3.TabRow
-import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.DpSize
+import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.navigation.tankVolumeTabRow
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FancyIndicator
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.pagerTabIndicatorOffset
+import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.HorizontalPager
+import com.google.accompanist.pager.rememberPagerState
+import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalPagerApi::class)
 @Composable
-fun TankVolumeTabRowScrollable(
+fun TankVolumeTabRow(
 	windowSize: WindowSizeClass,
 	selectedState: Int = 0,
 	selectedColor: Color = MaterialTheme.colorScheme.secondary,
 	unselectedColor: Color = MaterialTheme.colorScheme.outline,
 ) {
-	var state by remember { mutableIntStateOf(selectedState) }
+	val pagerState = rememberPagerState(
+		initialPage = selectedState
+	)
+	val coroutineScope = rememberCoroutineScope()
 	val tabs = tankVolumeTabRow
 	val indicator = @Composable { tabPositions: List<TabPosition> ->
 		FancyIndicator(
 			selectedColor,
-			Modifier.tabIndicatorOffset(tabPositions[state])
+			Modifier.pagerTabIndicatorOffset(pagerState, tabPositions)
 		)
 	}
 
@@ -48,13 +61,17 @@ fun TankVolumeTabRowScrollable(
 		when (windowSize.widthSizeClass) {
 			WindowWidthSizeClass.Compact, WindowWidthSizeClass.Medium -> {
 				ScrollableTabRow(
-					selectedTabIndex = state,
+					selectedTabIndex = pagerState.currentPage,
 					indicator = indicator,
 				) {
 					tabs.forEachIndexed { index, tab ->
 						Tab(
-							selected = state == index,
-							onClick = { state = index },
+							selected = pagerState.currentPage == index,
+							onClick = {
+								coroutineScope.launch {
+									pagerState.animateScrollToPage(index)
+								}
+							},
 							selectedContentColor = selectedColor,
 							unselectedContentColor = unselectedColor,
 							text = {
@@ -66,7 +83,9 @@ fun TankVolumeTabRowScrollable(
 							},
 							icon = {
 								Icon(
-									painter = painterResource(id = tab.icon),
+									painter =
+									if (pagerState.currentPage == index) painterResource(id = tab.iconFilled)
+									else painterResource(id = tab.icon),
 									contentDescription = stringResource(id = tab.title)
 								)
 							}
@@ -77,13 +96,17 @@ fun TankVolumeTabRowScrollable(
 
 			WindowWidthSizeClass.Expanded -> {
 				TabRow(
-					selectedTabIndex = state,
+					selectedTabIndex = pagerState.currentPage,
 					indicator = indicator,
 				) {
 					tabs.forEachIndexed { index, tab ->
 						LeadingIconTab(
-							selected = state == index,
-							onClick = { state = index },
+							selected = pagerState.currentPage == index,
+							onClick = {
+								coroutineScope.launch {
+									pagerState.animateScrollToPage(index)
+								}
+							},
 							selectedContentColor = selectedColor,
 							unselectedContentColor = unselectedColor,
 							text = {
@@ -95,7 +118,9 @@ fun TankVolumeTabRowScrollable(
 							},
 							icon = {
 								Icon(
-									painter = painterResource(id = tab.icon),
+									painter =
+									if (pagerState.currentPage == index) painterResource(id = tab.iconFilled)
+									else painterResource(id = tab.icon),
 									contentDescription = stringResource(id = tab.title)
 								)
 							}
@@ -104,26 +129,50 @@ fun TankVolumeTabRowScrollable(
 				}
 			}
 		}
-		when (state) {
-			0 -> {
-				RectanglePage(windowSize = windowSize)
-			}
+		HorizontalPager(
+			count = tabs.size,
+			state = pagerState,
+		) { page ->
+			when (page) {
+				0 -> {
+					RectanglePage(windowSize = windowSize)
+				}
 
-			1 -> {
-				CubePage(windowSize = windowSize)
-			}
+				1 -> {
+					CubePage(windowSize = windowSize)
+				}
 
-			2 -> {
-				CylinderPage(windowSize = windowSize)
-			}
+				2 -> {
+					CylinderPage(windowSize = windowSize)
+				}
 
-			3 -> {
-				HexagonalPage(windowSize = windowSize)
-			}
+				3 -> {
+					HexagonalPage(windowSize = windowSize)
+				}
 
-			4 -> {
-				BowFrontPage(windowSize = windowSize)
+				4 -> {
+					BowFrontPage(windowSize = windowSize)
+				}
 			}
 		}
+	}
+}
+
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+@Preview(showBackground = true)
+@Composable
+fun CalculatorsTabRowPreview() {
+	AquariumInformationTheme {
+		TankVolumeTabRow(windowSize = WindowSizeClass.calculateFromSize(DpSize(300.dp, 400.dp)))
+	}
+}
+
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
+@Preview(showBackground = true)
+@Composable
+fun CalculatorsTabRowPreviewDark(
+) {
+	AquariumInformationTheme(useDarkTheme = true) {
+		TankVolumeTabRow(windowSize = WindowSizeClass.calculateFromSize(DpSize(300.dp, 400.dp)))
 	}
 }

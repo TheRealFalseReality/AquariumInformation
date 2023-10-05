@@ -12,7 +12,7 @@ import cca.capitalcityaquatics.aquariuminfo.ui.pages.InfoPage
 import cca.capitalcityaquatics.aquariuminfo.ui.pages.OverviewPage
 import cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators.CalculatorsTabRow
 import cca.capitalcityaquatics.aquariuminfo.ui.pages.compatability.CompatibilityTabRow
-import cca.capitalcityaquatics.aquariuminfo.ui.pages.tankvolumes.TankVolumeTabRowScrollable
+import cca.capitalcityaquatics.aquariuminfo.ui.pages.tankvolumes.TankVolumeTabRow
 
 @Composable
 fun AquariumNavHost(
@@ -82,7 +82,7 @@ fun AquariumNavHost(
 			CalculatorsTabRow(windowSize = windowSize)
 		}
 		composable(route = TankVolume.route) {
-			TankVolumeTabRowScrollable(windowSize = windowSize)
+			TankVolumeTabRow(windowSize = windowSize)
 		}
 		composable(route = FishCompatibility.route) {
 			CompatibilityTabRow()
@@ -106,19 +106,19 @@ fun AquariumNavHost(
 			CalculatorsTabRow(windowSize = windowSize)
 		}
 		composable(route = Rectangle.route) {
-			TankVolumeTabRowScrollable(windowSize = windowSize)
+			TankVolumeTabRow(windowSize = windowSize)
 		}
 		composable(route = Cube.route) {
-			TankVolumeTabRowScrollable(selectedState = 1, windowSize = windowSize)
+			TankVolumeTabRow(selectedState = 1, windowSize = windowSize)
 		}
 		composable(route = Hexagonal.route) {
-			TankVolumeTabRowScrollable(selectedState = 3, windowSize = windowSize)
+			TankVolumeTabRow(selectedState = 3, windowSize = windowSize)
 		}
 		composable(route = Cylinder.route) {
-			TankVolumeTabRowScrollable(selectedState = 2, windowSize = windowSize)
+			TankVolumeTabRow(selectedState = 2, windowSize = windowSize)
 		}
 		composable(route = BowFront.route) {
-			TankVolumeTabRowScrollable(selectedState = 4, windowSize = windowSize)
+			TankVolumeTabRow(selectedState = 4, windowSize = windowSize)
 		}
 	}
 }

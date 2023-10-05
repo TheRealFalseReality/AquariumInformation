@@ -24,6 +24,7 @@ import cca.capitalcityaquatics.aquariuminfo.data.compatability.FreshwaterDataSou
 import cca.capitalcityaquatics.aquariuminfo.data.compatability.MarineDataSource
 import cca.capitalcityaquatics.aquariuminfo.navigation.compatibilityTabRow
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CompatibilityDataList
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FancyAnimatedIndicator
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FancyIndicator
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 
@@ -36,9 +37,10 @@ fun CompatibilityTabRow(
 	var state by remember { mutableIntStateOf(selectedState) }
 	val tabs = compatibilityTabRow
 	val indicator = @Composable { tabPositions: List<TabPosition> ->
-		FancyIndicator(
-			selectedColor,
-			Modifier.tabIndicatorOffset(tabPositions[state])
+		FancyAnimatedIndicator(
+			tabPositions = tabPositions,
+			selectedTabIndex = state,
+			indicatorColor = selectedColor
 		)
 	}
 
@@ -64,7 +66,9 @@ fun CompatibilityTabRow(
 					},
 					icon = {
 						Icon(
-							painter = painterResource(id = tab.icon),
+							painter =
+							if (state == index) painterResource(id = tab.iconFilled)
+							else painterResource(id = tab.icon),
 							contentDescription = stringResource(id = tab.title)
 						)
 					}
