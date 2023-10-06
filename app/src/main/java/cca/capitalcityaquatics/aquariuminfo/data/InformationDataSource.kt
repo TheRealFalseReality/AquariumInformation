@@ -6,7 +6,7 @@ import cca.capitalcityaquatics.aquariuminfo.R
 
 val informationHeaderDataSource =
 	HeaderData(
-		icon = R.drawable.ic_info_2,
+		icon = R.drawable.ic_information,
 		title = R.string.text_info_1,
 		text = R.string.text_info_1,
 	)

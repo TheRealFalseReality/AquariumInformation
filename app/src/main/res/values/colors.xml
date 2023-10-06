@@ -7,5 +7,5 @@
     <color name="teal_700" tools:ignore="UnusedResources">#FF018786</color>
     <color name="black" tools:ignore="UnusedResources">#FF000000</color>
     <color name="white" tools:ignore="UnusedResources">#FFFFFFFF</color>
-    <color name="status_bar">#001F2A</color>
+    <color name="status_bar" tools:ignore="UnusedResources">#001F2A</color>
 </resources>

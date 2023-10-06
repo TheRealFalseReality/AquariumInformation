@@ -32,6 +32,7 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FancyIndicator
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 import kotlinx.coroutines.launch
 
+@Suppress("SpellCheckingInspection")
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun CalculatorsTabRow(

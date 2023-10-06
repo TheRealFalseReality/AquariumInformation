@@ -11,20 +11,20 @@ interface Destinations {
 
 object Home : Destinations {
 	override val icon = R.drawable.ic_home
-	override val iconFilled = R.drawable.baseline_home_24
+	override val iconFilled = R.drawable.ic_home_filled
 	override val route = "home"
 	override val title = R.string.home
 }
 
 object Information : Destinations {
-	override val icon = R.drawable.ic_info_2
-	override val iconFilled = R.drawable.baseline_info_24
+	override val icon = R.drawable.ic_information
+	override val iconFilled = R.drawable.ic_information_filled
 	override val route = "info"
 	override val title = R.string.text_title_info
 }
 
 object Overview : Destinations {
-	override val icon = R.drawable.baseline_grid_view_24
+	override val icon = R.drawable.ic_grid
 	override val iconFilled = R.drawable.ic_grid_filled
 	override val route = "overview"
 	override val title = R.string.overview
@@ -61,8 +61,8 @@ object Temperature : Destinations {
 
 //
 object CarbonDioxide : Destinations {
-	override val icon = R.drawable.baseline_co2_24
-	override val iconFilled = R.drawable.baseline_co2_24
+	override val icon = R.drawable.ic_co2
+	override val iconFilled = R.drawable.ic_co2
 	override val route = "carbon"
 	override val title = R.string.carbon_dioxide
 }
@@ -142,6 +142,13 @@ object HomeInfo : Destinations {
 	override val iconFilled = R.drawable.ic_home
 	override val route = "home_info"
 	override val title = R.string.more_information
+}
+
+object Doser : Destinations {
+	override val icon = R.drawable.ic_sanitizer
+	override val iconFilled = R.drawable.ic_sanitizer_filled
+	override val route = "home_info" // TODO
+	override val title = R.string.more_information // TODO
 }
 
 val bottomNavRow = listOf(Overview, Calculators, TankVolume, FishCompatibility)

@@ -397,7 +397,7 @@ fun NavRowButtonPreview() {
 		) {
 			NavButtonWide(
 				title = R.string.converters,
-				icon = R.drawable.baseline_home_24,
+				icon = R.drawable.ic_home,
 				onClick = {},
 				containerColor = MaterialTheme.colorScheme.tertiaryContainer,
 				contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
@@ -417,7 +417,7 @@ fun NavRowButtonPreviewDark(
 		) {
 			NavButtonWide(
 				title = R.string.converters,
-				icon = R.drawable.baseline_home_24,
+				icon = R.drawable.ic_home,
 				onClick = {},
 				containerColor = MaterialTheme.colorScheme.tertiaryContainer,
 				contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
@@ -436,9 +436,9 @@ fun NavButtonRowPreview() {
 		) {
 			NavButtonRow(
 				title1 = R.string.converters,
-				icon1 = R.drawable.baseline_home_24,
+				icon1 = R.drawable.ic_home,
 				title2 = R.string.calculators,
-				icon2 = R.drawable.baseline_email_24,
+				icon2 = R.drawable.ic_email,
 				onClick1 = {},
 				onClick2 = {},
 				containerColor = MaterialTheme.colorScheme.primaryContainer,
@@ -459,9 +459,9 @@ fun NavButtonRowPreviewDark(
 		) {
 			NavButtonRow(
 				title1 = R.string.converters,
-				icon1 = R.drawable.baseline_email_24,
+				icon1 = R.drawable.ic_email,
 				title2 = R.string.calculators,
-				icon2 = R.drawable.baseline_home_24,
+				icon2 = R.drawable.ic_email,
 				onClick1 = {},
 				onClick2 = {},
 				containerColor = MaterialTheme.colorScheme.primaryContainer,
@@ -481,7 +481,7 @@ fun NavButtonPreview() {
 		) {
 			NavButton(
 				title = R.string.converters,
-				icon = R.drawable.baseline_email_24,
+				icon = R.drawable.ic_email,
 				onClick = {},
 				containerColor = MaterialTheme.colorScheme.secondaryContainer,
 				contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
@@ -501,7 +501,7 @@ fun NavButtonPreviewDark(
 		) {
 			NavButton(
 				title = R.string.converters,
-				icon = R.drawable.baseline_email_24,
+				icon = R.drawable.ic_email,
 				onClick = {},
 				containerColor = MaterialTheme.colorScheme.secondaryContainer,
 				contentColor = MaterialTheme.colorScheme.onSecondaryContainer,

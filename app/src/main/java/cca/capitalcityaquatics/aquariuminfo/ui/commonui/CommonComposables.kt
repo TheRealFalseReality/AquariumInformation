@@ -408,7 +408,7 @@ fun CalculateImageTitle(
 	) {
 		TitleTextIcon(
 			text = R.string.dimension_reference,
-			icon = R.drawable.ic_cube,
+			icon = R.drawable.ic_view,
 			color = color
 		)
 	}
@@ -429,7 +429,7 @@ fun FormulaString(
 ) {
 	TitleWideContent(
 		text = R.string.formula,
-		icon = R.drawable.baseline_functions_24,
+		icon = R.drawable.ic_function,
 		color = contentColor,
 	) {
 		SingleWideCard(
@@ -455,7 +455,7 @@ fun FormulaStringContent(
 	Column(modifier = modifier) {
 		TitleWideContent(
 			text = R.string.formula,
-			icon = R.drawable.baseline_functions_24,
+			icon = R.drawable.ic_function,
 			color = contentColor,
 		) {
 			SingleWideCard(
@@ -780,7 +780,7 @@ fun PopOutCardPreview() {
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
 			PopOutCard(
-				icon = R.drawable.baseline_new_releases_24,
+				icon = R.drawable.ic_new_releases,
 				title = R.string.text_welcome_compatibility_title,
 				body = R.string.text_welcome_compatibility_2
 			)
@@ -798,7 +798,7 @@ fun PopOutCardPreviewDark(
 				.background(color = MaterialTheme.colorScheme.background)
 		) {
 			PopOutCard(
-				icon = R.drawable.baseline_new_releases_24,
+				icon = R.drawable.ic_new_releases,
 				title = R.string.text_welcome_compatibility_title,
 				body = R.string.text_welcome_compatibility_2
 			)
@@ -816,7 +816,7 @@ fun CardTitlePreview() {
 		) {
 			TitleWideContent(
 				text = R.string.app_name,
-				icon = R.drawable.baseline_info_24
+				icon = R.drawable.ic_information
 			) {
 				SingleWideCard {
 					BodyText(text = R.string.text_welcome)
@@ -837,7 +837,7 @@ fun CardTitlePreviewDark(
 		) {
 			TitleWideContent(
 				text = R.string.app_name,
-				icon = R.drawable.baseline_info_24
+				icon = R.drawable.ic_information
 			) {
 				SingleWideCard {
 					BodyText(text = R.string.text_welcome)

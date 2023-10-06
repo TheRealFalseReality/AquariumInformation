@@ -88,7 +88,7 @@ fun AquariumAppBar(
 				},
 			) {
 				Icon(
-					painter = painterResource(id = R.drawable.ic_info_2),
+					painter = painterResource(id = R.drawable.ic_information),
 					contentDescription = stringResource(R.string.app_information),
 					tint = MaterialTheme.colorScheme.onSurfaceVariant
 				)
