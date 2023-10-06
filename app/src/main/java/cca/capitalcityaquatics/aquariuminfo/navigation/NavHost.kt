@@ -79,10 +79,10 @@ fun AquariumNavHost(
 			CalculatorsTabRow(windowSize = windowSize)
 		}
 		composable(route = Calculators.route) {
-			CalculatorsTabRow(windowSize = windowSize)
+			CalculatorsTabRow(windowSize = windowSize, selectedState = 0)
 		}
 		composable(route = TankVolume.route) {
-			TankVolumeTabRow(windowSize = windowSize)
+			TankVolumeTabRow(windowSize = windowSize, selectedState = 0)
 		}
 		composable(route = FishCompatibility.route) {
 			CompatibilityTabRow()

@@ -12,13 +12,19 @@ All notable changes to this project will be documented in this file.
 * Add surface area to volume calculator
 * Add substrate calculator
 * Marine tank types added to Water Hardness
-* Gesture Navigation
 * Launch Default Page
 
 ## Issues
 * Fix Subscripts for CaCO3
+* Sometimes the item selected from the Overview Screen doesn't navigate to correct destination.
 
 ## Updates
+
+### 2.0.5 - 2023.10.3
+
+**Added**
+* Swipe gestures added for Calculators, swipe left or right to switch between calculators.
+* Some navigation animations added.
 
 ### 2.0.4 - 2023.10.2
 
@@ -30,8 +36,10 @@ All notable changes to this project will be documented in this file.
 
 ### 2.0.2 - 2023.10.1
 
-**Changed**
+**Added**
 * Landscape Support 
+
+**Changed**
 * Images file size decreased.
 * APK size is now 16MB, was 46MB
 

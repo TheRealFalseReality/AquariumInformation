@@ -40,5 +40,5 @@ val calculatorDataSource =
 		leadingIconSG = R.drawable.ic_specific_gravity,
 		leadingIconTDS = R.drawable.ic_tds,
 		leadingIconWidth = R.drawable.ic_width,
-		leadingIconTemperature = R.drawable.ic_thermometer
+		leadingIconTemperature = R.drawable.ic_thermometer,
 	)

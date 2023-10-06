@@ -4,7 +4,6 @@ package cca.capitalcityaquatics.aquariuminfo.ui.commonui
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.compose.animation.animateColor
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDp
@@ -58,8 +57,6 @@ import cca.capitalcityaquatics.aquariuminfo.data.calculators.temperatureDataSour
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.Shapes
-import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.PagerState
 
 @Composable
 fun FancyIndicator(
@@ -80,7 +77,6 @@ fun FancyIndicator(
 	)
 }
 
-@OptIn(ExperimentalPagerApi::class)
 @Composable
 fun FancyAnimatedIndicator(
 	modifier: Modifier = Modifier,

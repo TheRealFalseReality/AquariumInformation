@@ -15,7 +15,7 @@ plugins {
 
 val versionMajor = 2
 val versionMinor = 0
-val versionPatch = 4
+val versionPatch = 6
 
 android {
 	namespace = "cca.capitalcityaquatics.aquariuminfo"
@@ -112,7 +112,7 @@ dependencies {
 	// WindowSizeClass
 	implementation ("androidx.compose.material3:material3-window-size-class:1.1.2")
 
-	// Pager
-	implementation ("com.google.accompanist:accompanist-pager:0.21.2-beta")
-	implementation ("com.google.accompanist:accompanist-pager-indicators:0.21.2-beta")
+//	// Pager
+//	implementation ("com.google.accompanist:accompanist-pager:0.21.2-beta")
+//	implementation ("com.google.accompanist:accompanist-pager-indicators:0.21.2-beta")
 }

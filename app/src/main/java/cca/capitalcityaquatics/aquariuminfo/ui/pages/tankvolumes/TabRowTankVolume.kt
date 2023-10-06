@@ -1,7 +1,10 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.tankvolumes
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LeadingIconTab
 import androidx.compose.material3.MaterialTheme
@@ -9,14 +12,12 @@ import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabPosition
 import androidx.compose.material3.TabRow
+import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -28,14 +29,10 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.navigation.tankVolumeTabRow
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FancyIndicator
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.pagerTabIndicatorOffset
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
-import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.rememberPagerState
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalPagerApi::class)
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun TankVolumeTabRow(
 	windowSize: WindowSizeClass,
@@ -43,15 +40,16 @@ fun TankVolumeTabRow(
 	selectedColor: Color = MaterialTheme.colorScheme.secondary,
 	unselectedColor: Color = MaterialTheme.colorScheme.outline,
 ) {
-	val pagerState = rememberPagerState(
-		initialPage = selectedState
-	)
 	val coroutineScope = rememberCoroutineScope()
 	val tabs = tankVolumeTabRow
+	val pagerState = rememberPagerState(
+		initialPage = selectedState,
+		pageCount = { tabs.size }
+	)
 	val indicator = @Composable { tabPositions: List<TabPosition> ->
 		FancyIndicator(
 			selectedColor,
-			Modifier.pagerTabIndicatorOffset(pagerState, tabPositions)
+			Modifier.tabIndicatorOffset(tabPositions[pagerState.currentPage])
 		)
 	}
 
@@ -130,10 +128,9 @@ fun TankVolumeTabRow(
 			}
 		}
 		HorizontalPager(
-			count = tabs.size,
 			state = pagerState,
-		) { page ->
-			when (page) {
+		) {
+			when (pagerState.currentPage) {
 				0 -> {
 					RectanglePage(windowSize = windowSize)
 				}
