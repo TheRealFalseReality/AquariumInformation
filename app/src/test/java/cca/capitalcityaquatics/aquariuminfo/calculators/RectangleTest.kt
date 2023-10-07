@@ -1,7 +1,8 @@
 package cca.capitalcityaquatics.aquariuminfo.calculators
 
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
-import cca.capitalcityaquatics.aquariuminfo.model.tankvolumes.CalculateVolumeRectangle
+import cca.capitalcityaquatics.aquariuminfo.model.tankvolumes.CalculateTankVolumes
+import cca.capitalcityaquatics.aquariuminfo.navigation.Rectangle
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
@@ -12,13 +13,13 @@ class TankVolRecCalculatorTest {
 		val width = 24.0
 		val height = 24.0
 		val selected = calculatorDataSource.radioTextInches
-		val dimensions = CalculateVolumeRectangle(selected, length, width, height)
+		val dimensions = CalculateTankVolumes(selected, Rectangle.title, length, width, height)
 		val expectedGAL = "119.69"
 		val expectedLIT = "453.07"
 		val expectedWW = "997"
-		val actualGAL = dimensions.calculateVolumeRectangleGallons()
-		val actualLIT = dimensions.calculateVolumeRectangleLiters()
-		val actualWW = dimensions.calculateWaterWeight()
+		val actualGAL = dimensions.calculateVolumeGallons()
+		val actualLIT = dimensions.calculateVolumeLiters()
+		val actualWW = dimensions.calculateWaterWeightPounds()
 
 		assertEquals(expectedGAL, actualGAL)
 		assertEquals(expectedLIT, actualLIT)
@@ -31,13 +32,13 @@ class TankVolRecCalculatorTest {
 		val width = 12.0
 		val height = 12.0
 		val selected = calculatorDataSource.radioTextInches
-		val dimensions = CalculateVolumeRectangle(selected, length, width, height)
+		val dimensions = CalculateTankVolumes(selected, Rectangle.title, length, width, height)
 		val expectedGAL = "22.44"
 		val expectedLIT = "84.95"
 		val expectedWW = "186.94"
-		val actualGAL = dimensions.calculateVolumeRectangleGallons()
-		val actualLIT = dimensions.calculateVolumeRectangleLiters()
-		val actualWW = dimensions.calculateWaterWeight()
+		val actualGAL = dimensions.calculateVolumeGallons()
+		val actualLIT = dimensions.calculateVolumeLiters()
+		val actualWW = dimensions.calculateWaterWeightPounds()
 
 		assertEquals(expectedGAL, actualGAL)
 		assertEquals(expectedLIT, actualLIT)
@@ -50,13 +51,13 @@ class TankVolRecCalculatorTest {
 		val width = 24.0
 		val height = 21.0
 		val selected = calculatorDataSource.radioTextInches
-		val dimensions = CalculateVolumeRectangle(selected, length, width, height)
+		val dimensions = CalculateTankVolumes(selected, Rectangle.title, length, width, height)
 		val expectedGAL = "157.09"
 		val expectedLIT = "594.65"
 		val expectedWW = "1308.57"
-		val actualGAL = dimensions.calculateVolumeRectangleGallons()
-		val actualLIT = dimensions.calculateVolumeRectangleLiters()
-		val actualWW = dimensions.calculateWaterWeight()
+		val actualGAL = dimensions.calculateVolumeGallons()
+		val actualLIT = dimensions.calculateVolumeLiters()
+		val actualWW = dimensions.calculateWaterWeightPounds()
 
 		assertEquals(expectedGAL, actualGAL)
 		assertEquals(expectedLIT, actualLIT)
@@ -69,13 +70,13 @@ class TankVolRecCalculatorTest {
 		val width = 2.0
 		val height = 2.0
 		val selected = calculatorDataSource.radioTextFeet
-		val dimensions = CalculateVolumeRectangle(selected, length, width, height)
+		val dimensions = CalculateTankVolumes(selected, Rectangle.title, length, width, height)
 		val expectedGAL = "119.69"
 		val expectedLIT = "453.07"
 		val expectedWW = "997"
-		val actualGAL = dimensions.calculateVolumeRectangleGallons()
-		val actualLIT = dimensions.calculateVolumeRectangleLiters()
-		val actualWW = dimensions.calculateWaterWeight()
+		val actualGAL = dimensions.calculateVolumeGallons()
+		val actualLIT = dimensions.calculateVolumeLiters()
+		val actualWW = dimensions.calculateWaterWeightPounds()
 
 		assertEquals(expectedGAL, actualGAL)
 		assertEquals(expectedLIT, actualLIT)
@@ -88,13 +89,13 @@ class TankVolRecCalculatorTest {
 		val width = 1.0
 		val height = 1.0
 		val selected = calculatorDataSource.radioTextFeet
-		val dimensions = CalculateVolumeRectangle(selected, length, width, height)
+		val dimensions = CalculateTankVolumes(selected, Rectangle.title, length, width, height)
 		val expectedGAL = "22.44"
 		val expectedLIT = "84.95"
 		val expectedWW = "186.94"
-		val actualGAL = dimensions.calculateVolumeRectangleGallons()
-		val actualLIT = dimensions.calculateVolumeRectangleLiters()
-		val actualWW = dimensions.calculateWaterWeight()
+		val actualGAL = dimensions.calculateVolumeGallons()
+		val actualLIT = dimensions.calculateVolumeLiters()
+		val actualWW = dimensions.calculateWaterWeightPounds()
 
 		assertEquals(expectedGAL, actualGAL)
 		assertEquals(expectedLIT, actualLIT)
@@ -107,13 +108,13 @@ class TankVolRecCalculatorTest {
 		val width = 2.0
 		val height = 2.0
 		val selected = calculatorDataSource.radioTextFeet
-		val dimensions = CalculateVolumeRectangle(selected, length, width, height)
+		val dimensions = CalculateTankVolumes(selected, Rectangle.title, length, width, height)
 		val expectedGAL = "89.77"
 		val expectedLIT = "339.8"
 		val expectedWW = "747.75"
-		val actualGAL = dimensions.calculateVolumeRectangleGallons()
-		val actualLIT = dimensions.calculateVolumeRectangleLiters()
-		val actualWW = dimensions.calculateWaterWeight()
+		val actualGAL = dimensions.calculateVolumeGallons()
+		val actualLIT = dimensions.calculateVolumeLiters()
+		val actualWW = dimensions.calculateWaterWeightPounds()
 
 		assertEquals(expectedGAL, actualGAL)
 		assertEquals(expectedLIT, actualLIT)

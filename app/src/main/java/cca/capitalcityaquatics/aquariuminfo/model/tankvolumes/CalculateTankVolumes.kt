@@ -2,19 +2,32 @@ package cca.capitalcityaquatics.aquariuminfo.model.tankvolumes
 
 import androidx.annotation.VisibleForTesting
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
+import cca.capitalcityaquatics.aquariuminfo.navigation.Cube
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
-class CalculateVolumeRectangle(
+class CalculateTankVolumes(
 	private val selected: Int,
+	shape: Int,
 	length: Double,
 	width: Double,
 	height: Double,
 ) {
-	private var volume = length * width * height
+	private var volume =
+		when (shape) {
+			// Cube
+			Cube.title -> {
+				length * length * length
+			}
+
+			// Rectangle
+			else -> {
+				length * width * height
+			}
+		}
 
 	@VisibleForTesting
-	fun calculateVolumeRectangleGallons(): String {
+	fun calculateVolumeGallons(): String {
 		val conversionFactor =
 			when (selected) {
 				calculatorDataSource.radioTextInches -> {
@@ -33,7 +46,7 @@ class CalculateVolumeRectangle(
 	}
 
 	@VisibleForTesting
-	fun calculateVolumeRectangleLiters(): String {
+	fun calculateVolumeLiters(): String {
 		val conversionFactor =
 			when (selected) {
 				calculatorDataSource.radioTextInches -> {
@@ -52,7 +65,7 @@ class CalculateVolumeRectangle(
 	}
 
 	@VisibleForTesting
-	fun calculateWaterWeight(): String {
+	fun calculateWaterWeightPounds(): String {
 		val conversionFactor = calculatorDataSource.conversionPoundsGallons
 		val conversionFactorVolume =
 			when (selected) {
@@ -64,7 +77,7 @@ class CalculateVolumeRectangle(
 					calculatorDataSource.conversionGallonsFeet
 				}
 			}
-		val waterWeight = (volume / conversionFactorVolume)* conversionFactor
+		val waterWeight = (volume / conversionFactorVolume) * conversionFactor
 		val df = DecimalFormat("#.##")
 		df.roundingMode = RoundingMode.HALF_UP
 

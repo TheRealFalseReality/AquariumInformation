@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.rectangleDataSource
-import cca.capitalcityaquatics.aquariuminfo.model.tankvolumes.CalculateVolumeRectangle
+import cca.capitalcityaquatics.aquariuminfo.model.tankvolumes.CalculateTankVolumes
 import cca.capitalcityaquatics.aquariuminfo.navigation.Rectangle
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldThreeInputs
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateImageTitle
@@ -49,8 +49,8 @@ fun RectangleLayout(
 	color: Color = MaterialTheme.colorScheme.secondary,
 	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
-
-) {
+	) {
+	val shape = Rectangle.title
 	val dataSourceCommon = calculatorDataSource
 	val dataSourceSpecific = rectangleDataSource
 	var inputLength by rememberSaveable {
@@ -68,7 +68,7 @@ fun RectangleLayout(
 	val length = inputLength.toDoubleOrNull() ?: 0.0
 	val width = inputWidth.toDoubleOrNull() ?: 0.0
 	val height = inputHeight.toDoubleOrNull() ?: 0.0
-	val dimensions = CalculateVolumeRectangle(selected, length, width, height)
+	val dimensions = CalculateTankVolumes(selected, shape, length, width, height)
 
 	GenericCalculatePage(
 		windowSize = windowSize,
@@ -116,9 +116,8 @@ fun RectangleLayout(
 		},
 		calculateFieldContent = {
 			CalculateFieldThreeInputs(
-				inputText =
-				if (selected == dataSourceCommon.radioTextFeet) dataSourceSpecific.inputTextFeet
-				else dataSourceSpecific.inputTextInches,
+				selected = selected,
+				dataSource = rectangleDataSource,
 				inputValue1 = inputLength,
 				inputValue2 = inputWidth,
 				inputValue3 = inputHeight,
@@ -128,9 +127,9 @@ fun RectangleLayout(
 				calculateContent = {
 					TankVolumeResultsString(
 						contentColor = contentColor,
-						calculatedValue1 = dimensions.calculateVolumeRectangleGallons(),
-						calculatedValue2 = dimensions.calculateVolumeRectangleLiters(),
-						calculatedValue3 = dimensions.calculateWaterWeight()
+						calculatedValue1 = dimensions.calculateVolumeGallons(),
+						calculatedValue2 = dimensions.calculateVolumeLiters(),
+						calculatedValue3 = dimensions.calculateWaterWeightPounds()
 					)
 				}
 			)

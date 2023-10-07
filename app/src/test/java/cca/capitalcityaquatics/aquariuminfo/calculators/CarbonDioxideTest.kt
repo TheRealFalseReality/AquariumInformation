@@ -1,6 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.calculators
 
-import cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators.calculateCarbonDioxide
+import cca.capitalcityaquatics.aquariuminfo.model.calculators.CalculateCarbonDioxide
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
@@ -10,7 +10,8 @@ class CO2ConverterTest {
 		val pH = 8.30
 		val dKH = 9.00
 		val expectedCO2 = "1.36"
-		val actualCO2 = calculateCarbonDioxide(dKH = dKH, pH = pH)
+		val parameters = CalculateCarbonDioxide(pH, dKH)
+		val actualCO2 = parameters.calculateCarbonDioxide()
 
 		assertEquals(expectedCO2, actualCO2)
 	}
@@ -20,7 +21,8 @@ class CO2ConverterTest {
 		val pH = 8.30
 		val dKH = 12.00
 		val expectedCO2 = "1.81"
-		val actualCO2 = calculateCarbonDioxide(dKH = dKH, pH = pH)
+		val parameters = CalculateCarbonDioxide(pH, dKH)
+		val actualCO2 = parameters.calculateCarbonDioxide()
 
 		assertEquals(expectedCO2, actualCO2)
 	}
@@ -30,7 +32,8 @@ class CO2ConverterTest {
 		val pH = 7.00
 		val dKH = 9.00
 		val expectedCO2 = "27.09"
-		val actualCO2 = calculateCarbonDioxide(dKH = dKH, pH = pH)
+		val parameters = CalculateCarbonDioxide(pH, dKH)
+		val actualCO2 = parameters.calculateCarbonDioxide()
 
 		assertEquals(expectedCO2, actualCO2)
 	}
@@ -40,7 +43,8 @@ class CO2ConverterTest {
 		val pH = 7.00
 		val dKH = 12.00
 		val expectedCO2 = "36.12"
-		val actualCO2 = calculateCarbonDioxide(dKH = dKH, pH = pH)
+		val parameters = CalculateCarbonDioxide(pH, dKH)
+		val actualCO2 = parameters.calculateCarbonDioxide()
 
 		assertEquals(expectedCO2, actualCO2)
 	}
@@ -50,7 +54,8 @@ class CO2ConverterTest {
 		val pH = 9.00
 		val dKH = 8.00
 		val expectedCO2 = "0.24"
-		val actualCO2 = calculateCarbonDioxide(dKH = dKH, pH = pH)
+		val parameters = CalculateCarbonDioxide(pH, dKH)
+		val actualCO2 = parameters.calculateCarbonDioxide()
 
 		assertEquals(expectedCO2, actualCO2)
 	}
