@@ -50,11 +50,13 @@ fun CubeLayout(
 	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
 ) {
+	val dataSourceCommon = calculatorDataSource
+	val dataSourceSpecific = cubeDataSource
 	var inputSide by rememberSaveable {
 		mutableStateOf("")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(calculatorDataSource.radioTextFeet)
+		mutableIntStateOf(dataSourceCommon.radioTextFeet)
 	}
 	val side = inputSide.toDoubleOrNull() ?: 0.0
 	val volGallon = calculateVolGallonCube(side).toDoubleOrNull() ?: 0.0
@@ -69,8 +71,8 @@ fun CubeLayout(
 		subtitleContent = {
 			CalculatorSubtitleTwo(
 				contentColor = color,
-				text1 = calculatorDataSource.subtitle1,
-				text2 = calculatorDataSource.subtitle2,
+				text1 = dataSourceCommon.subtitle1,
+				text2 = dataSourceCommon.subtitle2,
 			)
 		},
 		selectContent = {
@@ -79,8 +81,8 @@ fun CubeLayout(
 				header = R.string.select_input_units,
 				content = {
 					RadioButtonTwoUnits(
-						onClick1 = { selected = calculatorDataSource.radioTextFeet },
-						onClick2 = { selected = calculatorDataSource.radioTextInches },
+						onClick1 = { selected = dataSourceCommon.radioTextFeet },
+						onClick2 = { selected = dataSourceCommon.radioTextInches },
 						selected = selected,
 						selectedColor = color,
 						textColor = color
@@ -91,25 +93,25 @@ fun CubeLayout(
 		},
 		inputFieldContent = {
 			InputNumberField(
-				label = calculatorDataSource.labelSide,
+				label = dataSourceCommon.labelSide,
 				value = inputSide,
 				onValueChange = { inputSide = it },
 				focusedContainerColor = containerColor,
 				focusedColor = contentColor,
 				unfocusedColor = color,
-				leadingIcon = calculatorDataSource.leadingIconLength,
+				leadingIcon = dataSourceCommon.leadingIconLength,
 			)
 		},
 		calculateFieldContent = {
 			CalculateField(
 				inputText =
-				if (selected == calculatorDataSource.radioTextFeet) cubeDataSource.inputTextFeet
-				else cubeDataSource.inputTextInches,
+				if (selected == dataSourceCommon.radioTextFeet) dataSourceSpecific.inputTextFeet
+				else dataSourceSpecific.inputTextInches,
 				inputValue = inputSide,
-				equalsText = calculatorDataSource.equalsText,
+				equalsText = dataSourceCommon.equalsText,
 				calculateContent = {
 					when (selected) {
-						calculatorDataSource.radioTextInches -> {
+						dataSourceCommon.radioTextInches -> {
 							TankVolumeResults(
 								contentColor = contentColor,
 								calculatedValue1 = volGallon,
@@ -134,14 +136,14 @@ fun CubeLayout(
 		},
 		imageContent = {
 			CalculateImageTitle(
-				image = cubeDataSource.image,
+				image = dataSourceSpecific.image,
 				contentDescription = Cube.title,
 				color = color
 			)
 		}
 	) {
 		FormulaString(
-			text = cubeDataSource.formulaText,
+			text = dataSourceSpecific.formulaText,
 			contentColor = color,
 		)
 	}

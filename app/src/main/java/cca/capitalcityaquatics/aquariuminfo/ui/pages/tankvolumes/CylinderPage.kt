@@ -54,6 +54,8 @@ fun CylinderLayout(
 	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
 ) {
+	val dataSourceCommon = calculatorDataSource
+	val dataSourceSpecific = cylinderDataSource
 	var inputDiameter by rememberSaveable {
 		mutableStateOf("")
 	}
@@ -61,10 +63,10 @@ fun CylinderLayout(
 		mutableStateOf("")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(calculatorDataSource.radioTextFeet)
+		mutableIntStateOf(dataSourceCommon.radioTextFeet)
 	}
 	var selectedCylinder by rememberSaveable {
-		mutableIntStateOf(calculatorDataSource.radioFullCylinder)
+		mutableIntStateOf(dataSourceCommon.radioFullCylinder)
 	}
 	var halfCyl by remember {
 		mutableStateOf(false)
@@ -91,8 +93,8 @@ fun CylinderLayout(
 		subtitleContent = {
 			CalculatorSubtitleTwo(
 				contentColor = color,
-				text1 = calculatorDataSource.subtitle1,
-				text2 = calculatorDataSource.subtitle2,
+				text1 = dataSourceCommon.subtitle1,
+				text2 = dataSourceCommon.subtitle2,
 			)
 		},
 		selectContent = {
@@ -101,8 +103,8 @@ fun CylinderLayout(
 				header = R.string.select_input_units,
 				content = {
 					RadioButtonTwoUnits(
-						onClick1 = { selected = calculatorDataSource.radioTextFeet },
-						onClick2 = { selected = calculatorDataSource.radioTextInches },
+						onClick1 = { selected = dataSourceCommon.radioTextFeet },
+						onClick2 = { selected = dataSourceCommon.radioTextInches },
 						selected = selected,
 						selectedColor = color,
 						textColor = color
@@ -113,25 +115,25 @@ fun CylinderLayout(
 		},
 		optionsContent = {
 			SingleWideCardExpandableRadio(
-				header = calculatorDataSource.labelCylinderType,
+				header = dataSourceCommon.labelCylinderType,
 				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
 				content = {
 					RadioButtonThreeUnits(
 						onClick1 = {
-							selectedCylinder = calculatorDataSource.radioFullCylinder
+							selectedCylinder = dataSourceCommon.radioFullCylinder
 							halfCyl = false; quartCyl = false
 						},
 						onClick2 = {
-							selectedCylinder = calculatorDataSource.radioHalfCylinder
+							selectedCylinder = dataSourceCommon.radioHalfCylinder
 							halfCyl = true; quartCyl = false
 						},
 						onClick3 = {
-							selectedCylinder = calculatorDataSource.radioCornerCylinder
+							selectedCylinder = dataSourceCommon.radioCornerCylinder
 							halfCyl = false; quartCyl = true
 						},
-						label1 = calculatorDataSource.radioFullCylinder,
-						label2 = calculatorDataSource.radioHalfCylinder,
-						label3 = calculatorDataSource.radioCornerCylinder,
+						label1 = dataSourceCommon.radioFullCylinder,
+						label2 = dataSourceCommon.radioHalfCylinder,
+						label3 = dataSourceCommon.radioCornerCylinder,
 						selected = selectedCylinder,
 						selectedColor = color,
 						textColor = color
@@ -142,8 +144,8 @@ fun CylinderLayout(
 		},
 		inputFieldContent = {
 			InputRowNumberFieldTwoInputs(
-				label1 = calculatorDataSource.labelDiameter,
-				label2 = calculatorDataSource.labelHeight,
+				label1 = dataSourceCommon.labelDiameter,
+				label2 = dataSourceCommon.labelHeight,
 				value1 = inputDiameter,
 				onValueChange1 = { inputDiameter = it },
 				value2 = inputHeight,
@@ -151,21 +153,21 @@ fun CylinderLayout(
 				focusedContainerColor = containerColor,
 				focusedColor = contentColor,
 				unfocusedColor = color,
-				leadingIcon1 = calculatorDataSource.leadingIconDiameter,
-				leadingIcon2 = calculatorDataSource.leadingIconHeight,
+				leadingIcon1 = dataSourceCommon.leadingIconDiameter,
+				leadingIcon2 = dataSourceCommon.leadingIconHeight,
 			)
 		},
 		calculateFieldContent = {
 			CalculateFieldTwoInputs(
 				inputText =
-				if (selected == calculatorDataSource.radioTextFeet) cylinderDataSource.inputTextFeet
-				else cylinderDataSource.inputTextInches,
+				if (selected == dataSourceCommon.radioTextFeet) dataSourceSpecific.inputTextFeet
+				else dataSourceSpecific.inputTextInches,
 				inputValue1 = inputDiameter,
 				inputValue2 = inputHeight,
-				equalsText = calculatorDataSource.equalsText,
+				equalsText = dataSourceCommon.equalsText,
 				calculateContent = {
 					when (selected) {
-						calculatorDataSource.radioTextInches -> {
+						dataSourceCommon.radioTextInches -> {
 							TankVolumeResults(
 								contentColor = contentColor,
 								calculatedValue1 = volGallon,
@@ -190,14 +192,14 @@ fun CylinderLayout(
 		},
 		imageContent = {
 			CalculateImageTitle(
-				image = cylinderDataSource.image,
+				image = dataSourceSpecific.image,
 				contentDescription = Cylinder.title,
 				color = color
 			)
 		}
 	) {
 		FormulaString(
-			text = cylinderDataSource.formulaText,
+			text = dataSourceSpecific.formulaText,
 			contentColor = color
 		)
 	}

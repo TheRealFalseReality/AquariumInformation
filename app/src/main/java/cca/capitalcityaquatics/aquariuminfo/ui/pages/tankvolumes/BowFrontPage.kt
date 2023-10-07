@@ -51,6 +51,8 @@ fun BowFrontLayout(
 	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
 ) {
+	val dataSourceCommon = calculatorDataSource
+	val dataSourceSpecific = bowFrontDataSource
 	var inputLength by rememberSaveable {
 		mutableStateOf("")
 	}
@@ -64,7 +66,7 @@ fun BowFrontLayout(
 		mutableStateOf("")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(calculatorDataSource.radioTextFeet)
+		mutableIntStateOf(dataSourceCommon.radioTextFeet)
 	}
 	val length = inputLength.toDoubleOrNull() ?: 0.0
 	val width = inputWidth.toDoubleOrNull() ?: 0.0
@@ -86,8 +88,8 @@ fun BowFrontLayout(
 		subtitleContent = {
 			CalculatorSubtitleTwo(
 				contentColor = color,
-				text1 = calculatorDataSource.subtitle1,
-				text2 = calculatorDataSource.subtitle2,
+				text1 = dataSourceCommon.subtitle1,
+				text2 = dataSourceCommon.subtitle2,
 			)
 		},
 		selectContent = {
@@ -96,8 +98,8 @@ fun BowFrontLayout(
 				header = R.string.select_input_units,
 				content = {
 					RadioButtonTwoUnits(
-						onClick1 = { selected = calculatorDataSource.radioTextFeet },
-						onClick2 = { selected = calculatorDataSource.radioTextInches },
+						onClick1 = { selected = dataSourceCommon.radioTextFeet },
+						onClick2 = { selected = dataSourceCommon.radioTextInches },
 						selected = selected,
 						selectedColor = color,
 						textColor = color
@@ -108,8 +110,8 @@ fun BowFrontLayout(
 		},
 		inputFieldContent = {
 			InputQuadNumberFieldFourInputs(
-				label1 = calculatorDataSource.labelLength,
-				label2 = calculatorDataSource.labelWidth,
+				label1 = dataSourceCommon.labelLength,
+				label2 = dataSourceCommon.labelWidth,
 				value1 = inputLength,
 				onValueChange1 = { inputLength = it },
 				value2 = inputWidth,
@@ -117,31 +119,31 @@ fun BowFrontLayout(
 				focusedContainerColor = containerColor,
 				focusedColor = contentColor,
 				unfocusedColor = color,
-				label3 = calculatorDataSource.labelHeight,
-				label4 = calculatorDataSource.labelFullWidth,
+				label3 = dataSourceCommon.labelHeight,
+				label4 = dataSourceCommon.labelFullWidth,
 				value3 = inputHeight,
 				onValueChange3 = { inputHeight = it },
 				value4 = inputFullWidth,
 				onValueChange4 = { inputFullWidth = it },
-				leadingIcon1 = calculatorDataSource.leadingIconLength,
-				leadingIcon2 = calculatorDataSource.leadingIconWidth,
-				leadingIcon3 = calculatorDataSource.leadingIconHeight,
-				leadingIcon4 = calculatorDataSource.leadingIconFullWidth,
+				leadingIcon1 = dataSourceCommon.leadingIconLength,
+				leadingIcon2 = dataSourceCommon.leadingIconWidth,
+				leadingIcon3 = dataSourceCommon.leadingIconHeight,
+				leadingIcon4 = dataSourceCommon.leadingIconFullWidth,
 			)
 		},
 		calculateFieldContent = {
 			CalculateFieldFourInputs(
 				inputText =
-				if (selected == calculatorDataSource.radioTextFeet) bowFrontDataSource.inputTextFeet
-				else bowFrontDataSource.inputTextInches,
+				if (selected == dataSourceCommon.radioTextFeet) dataSourceSpecific.inputTextFeet
+				else dataSourceSpecific.inputTextInches,
 				inputValue1 = inputLength,
 				inputValue2 = inputWidth,
 				inputValue3 = inputHeight,
 				inputValue4 = inputFullWidth,
-				equalsText = calculatorDataSource.equalsText,
+				equalsText = dataSourceCommon.equalsText,
 				calculateContent = {
 					when (selected) {
-						calculatorDataSource.radioTextInches -> {
+						dataSourceCommon.radioTextInches -> {
 							TankVolumeResults(
 								contentColor = contentColor,
 								calculatedValue1 = volGallon,
@@ -166,14 +168,14 @@ fun BowFrontLayout(
 		},
 		imageContent = {
 			CalculateImageTitle(
-				image = bowFrontDataSource.image,
+				image = dataSourceSpecific.image,
 				contentDescription = BowFront.title,
 				color = color
 			)
 		}
 	) {
 		FormulaString(
-			text = bowFrontDataSource.formulaText,
+			text = dataSourceSpecific.formulaText,
 			contentColor = color
 		)
 	}

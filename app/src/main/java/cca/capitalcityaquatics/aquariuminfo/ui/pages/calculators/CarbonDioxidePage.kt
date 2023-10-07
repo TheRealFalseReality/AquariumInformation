@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
+import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.carbonDioxideDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldTwoInputs
@@ -45,6 +46,7 @@ fun CarbonDioxideLayout(
 	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
 ) {
+	val dataSource = carbonDioxideDataSource
 	var inputPH by rememberSaveable {
 		mutableStateOf("")
 	}
@@ -59,20 +61,20 @@ fun CarbonDioxideLayout(
 		windowSize = windowSize,
 		subtitleContent = {
 			HeaderText(
-				text = carbonDioxideDataSource.subtitle,
+				text = dataSource.subtitle,
 				color = color
 			)
 		},
 		selectContent = {
 			TextCard(
-				text = carbonDioxideDataSource.unitsLabel,
+				text = dataSource.unitsLabel,
 				contentColor = color
 			)
 		},
 		inputFieldContent = {
 			InputNumberFieldTwoInputsStacked(
-				label1 = carbonDioxideDataSource.labelPh,
-				label2 = carbonDioxideDataSource.labelDkh,
+				label1 = dataSource.labelPh,
+				label2 = dataSource.labelDkh,
 				value1 = inputPH,
 				onValueChange1 = { inputPH = it },
 				value2 = inputDKH,
@@ -81,19 +83,19 @@ fun CarbonDioxideLayout(
 				focusedColor = contentColor,
 				unfocusedColor = color,
 				leadingIcon1 = calculatorDataSource.leadingIconPH,
-				leadingIcon2 = calculatorDataSource.leadingIconTDS,
+				leadingIcon2 = alkalinityDataSource.leadingIconTDS,
 			)
 		},
 		calculateFieldContent = {
 			CalculateFieldTwoInputs(
-				inputText = carbonDioxideDataSource.inputText,
+				inputText = dataSource.inputText,
 				inputValue1 = inputPH,
 				inputValue2 = inputDKH,
 				contentColor = color,
 				containerColor = containerColor,
 				calculateContent = {
 					CalculatedText(
-						text = carbonDioxideDataSource.calculatedText,
+						text = dataSource.calculatedText,
 						calculatedValue = co2,
 						textColor = contentColor,
 					)
@@ -103,7 +105,7 @@ fun CarbonDioxideLayout(
 	) {
 		FormulaString(
 			contentColor = color,
-			text = carbonDioxideDataSource.formulaText,
+			text = dataSource.formulaText,
 		)
 	}
 }

@@ -394,7 +394,41 @@ fun TankVolumeResults(
 			textColor = contentColor,
 		)
 	}
+}
 
+@Composable
+fun TankVolumeResultsString(
+	modifier: Modifier = Modifier,
+	contentColor: Color,
+	calculatedValue1: String,
+	calculatedValue2: String,
+	calculatedValue3: String,
+) {
+	Column(
+		modifier = modifier,
+		horizontalAlignment = Alignment.CenterHorizontally
+	) {
+		CalculatedTextString(
+			text = calculatorDataSource.calculatedTextGallons,
+			calculatedValue = calculatedValue1,
+			textColor = contentColor,
+		)
+		CalculatedTextString(
+			text = calculatorDataSource.calculatedTextLiters,
+			calculatedValue = calculatedValue2,
+			textColor = contentColor,
+		)
+		VerySmallSpacer()
+		BodyText(
+			text = calculatorDataSource.labelWaterWeight,
+			color = contentColor
+		)
+		CalculatedTextString(
+			text = calculatorDataSource.calculatedTextWaterWeight,
+			calculatedValue = calculatedValue3,
+			textColor = contentColor,
+		)
+	}
 }
 
 @Composable

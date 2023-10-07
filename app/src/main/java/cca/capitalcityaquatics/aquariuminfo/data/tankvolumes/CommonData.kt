@@ -41,4 +41,10 @@ data class CommonData(
 	@DrawableRes val leadingIconFullWidth: Int,
 	@DrawableRes val leadingIconDiameter: Int,
 	@DrawableRes val leadingIconTemperature: Int,
+	val conversionGallonsFeet: Double,
+	val conversionGallonsInches: Double,
+	val conversionLitersFeet: Double,
+	val conversionLitersInches: Double,
+	val conversionPoundsGallons: Double,
+	val conversionPoundsLiters: Double,
 )

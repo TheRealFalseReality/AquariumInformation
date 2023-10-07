@@ -51,11 +51,12 @@ fun SalinityLayout(
 	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
 ) {
+	val dataSource = salinityDataSource
 	var inputSal by rememberSaveable {
 		mutableStateOf("36")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(salinityDataSource.radioTextPpt)
+		mutableIntStateOf(dataSource.radioTextPpt)
 	}
 	val tempTestWater = 25.0
 	val tempPureWater = 25.0
@@ -70,9 +71,9 @@ fun SalinityLayout(
 		subtitleContent = {
 			CalculatorSubtitleThree(
 				contentColor = color,
-				text1 = salinityDataSource.subtitle1,
-				text2 = salinityDataSource.subtitle2,
-				text3 = salinityDataSource.subtitle3,
+				text1 = dataSource.subtitle1,
+				text2 = dataSource.subtitle2,
+				text3 = dataSource.subtitle3,
 			)
 		},
 		selectContent = {
@@ -82,10 +83,10 @@ fun SalinityLayout(
 				header = R.string.select_input_units,
 				content = {
 					RadioButtonTwoUnits(
-						onClick1 = { selected = salinityDataSource.radioTextPpt },
-						onClick2 = { selected = salinityDataSource.radioTextSg },
-						label1 = salinityDataSource.radioTextPpt,
-						label2 = salinityDataSource.radioTextSg,
+						onClick1 = { selected = dataSource.radioTextPpt },
+						onClick2 = { selected = dataSource.radioTextSg },
+						label1 = dataSource.radioTextPpt,
+						label2 = dataSource.radioTextSg,
 						selected = selected,
 						selectedColor = color,
 						textColor = color
@@ -97,12 +98,12 @@ fun SalinityLayout(
 			InputNumberField(
 				label =
 				when (selected) {
-					salinityDataSource.radioTextSg -> {
-						salinityDataSource.labelSg
+					dataSource.radioTextSg -> {
+						dataSource.labelSg
 					}
 
 					else -> {
-						salinityDataSource.labelPpt
+						dataSource.labelPpt
 					}
 				},
 				value = inputSal,
@@ -115,30 +116,30 @@ fun SalinityLayout(
 		},
 		calculateFieldContent = {
 			when (selected) {
-				salinityDataSource.radioTextSg -> {
+				dataSource.radioTextSg -> {
 					CalculateField(
-						inputText = salinityDataSource.inputTextSg,
+						inputText = dataSource.inputTextSg,
 						inputValue = inputSal,
-						equalsText = salinityDataSource.equalsText,
+						equalsText = dataSource.equalsText,
 						contentColor = color,
 						containerColor = containerColor,
 						calculateContent = {
 							BodyText(
-								text = salinityDataSource.labelSalinity,
+								text = dataSource.labelSalinity,
 								color = contentColor
 							)
 							CalculatedText(
-								text = salinityDataSource.calculatedTextPpt,
+								text = dataSource.calculatedTextPpt,
 								calculatedValue = ppt,
 								textColor = contentColor,
 							)
 							VerySmallSpacer()
 							BodyText(
-								text = salinityDataSource.labelDensity,
+								text = dataSource.labelDensity,
 								color = contentColor
 							)
 							CalculatedText(
-								text = salinityDataSource.calculatedTextDensity,
+								text = dataSource.calculatedTextDensity,
 								calculatedValue = salDensitySG,
 								textColor = contentColor,
 							)
@@ -148,28 +149,28 @@ fun SalinityLayout(
 
 				else -> {
 					CalculateField(
-						inputText = salinityDataSource.inputTextPpt,
+						inputText = dataSource.inputTextPpt,
 						inputValue = inputSal,
-						equalsText = salinityDataSource.equalsText,
+						equalsText = dataSource.equalsText,
 						contentColor = color,
 						containerColor = containerColor,
 						calculateContent = {
 							BodyText(
-								text = salinityDataSource.labelSpecificGravity,
+								text = dataSource.labelSpecificGravity,
 								color = contentColor
 							)
 							CalculatedText(
-								text = salinityDataSource.calculatedTextSg,
+								text = dataSource.calculatedTextSg,
 								calculatedValue = sg,
 								textColor = contentColor,
 							)
 							VerySmallSpacer()
 							BodyText(
-								text = salinityDataSource.labelDensity,
+								text = dataSource.labelDensity,
 								color = contentColor
 							)
 							CalculatedText(
-								text = salinityDataSource.calculatedTextDensity,
+								text = dataSource.calculatedTextDensity,
 								calculatedValue = salDensityPPT,
 								textColor = contentColor,
 							)
@@ -180,7 +181,7 @@ fun SalinityLayout(
 		}
 	) {
 		FormulaString(
-			text = salinityDataSource.formulaText,
+			text = dataSource.formulaText,
 			contentColor = color
 		)
 	}

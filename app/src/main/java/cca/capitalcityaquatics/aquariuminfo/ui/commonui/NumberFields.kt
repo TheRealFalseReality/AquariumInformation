@@ -710,3 +710,22 @@ fun CalculatedText(
 		)
 	}
 }
+
+@Composable
+fun CalculatedTextString(
+	modifier: Modifier = Modifier,
+	@StringRes text: Int,
+	calculatedValue: String,
+	textColor: Color
+) {
+	Column(modifier = modifier) {
+		Text(
+			modifier = Modifier
+				.align(Alignment.CenterHorizontally),
+			text = stringResource(id = text, calculatedValue),
+			fontSize = 20.sp,
+			fontWeight = FontWeight.Bold,
+			color = textColor
+		)
+	}
+}

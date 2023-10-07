@@ -1,5 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.data.calculators
 
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
 data class AlkalinityData(
@@ -23,5 +24,6 @@ data class AlkalinityData(
 	@StringRes val calculatedTextPpm: Int,
 	@StringRes val calculatedTextDkh: Int,
 	@StringRes val calculatedTextMeq: Int,
+	@DrawableRes val leadingIconTDS: Int,
 	@StringRes val formulaText: Int
 )

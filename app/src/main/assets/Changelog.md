@@ -13,12 +13,17 @@ All notable changes to this project will be documented in this file.
 * Add substrate calculator
 * Marine tank types added to Water Hardness
 * Launch Default Page
+* Add metric to Water Weight
 
 ## Issues
 * Fix Subscripts for CaCO3
 * Sometimes the item selected from the Overview Screen doesn't navigate to correct destination.
 
 ## Updates
+
+### 2.0.6 - 2023.10.4
+**Changed**
+* Icon performance updated
 
 ### 2.0.5 - 2023.10.3
 

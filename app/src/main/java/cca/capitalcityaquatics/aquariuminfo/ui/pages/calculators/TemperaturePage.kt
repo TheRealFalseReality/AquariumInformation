@@ -50,11 +50,12 @@ fun TemperatureLayout(
 	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
 ) {
+	val dataSource = temperatureDataSource
 	var inputTemperature by rememberSaveable {
 		mutableStateOf("0")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(temperatureDataSource.radioTextCelsius)
+		mutableIntStateOf(dataSource.radioTextCelsius)
 	}
 	val temp = inputTemperature.toDoubleOrNull() ?: 0.0
 	val celsius = calculateCelsius(temp).toDoubleOrNull() ?: 0.0
@@ -67,9 +68,9 @@ fun TemperatureLayout(
 		subtitleContent = {
 			CalculatorSubtitleThree(
 				contentColor = color,
-				text1 = temperatureDataSource.subtitle1,
-				text2 = temperatureDataSource.subtitle2,
-				text3 = temperatureDataSource.subtitle3,
+				text1 = dataSource.subtitle1,
+				text2 = dataSource.subtitle2,
+				text3 = dataSource.subtitle3,
 			)
 		},
 		selectContent = {
@@ -80,10 +81,10 @@ fun TemperatureLayout(
 				contentColor = color,
 				content = {
 					RadioButtonTwoUnits(
-						onClick1 = { selected = temperatureDataSource.radioTextCelsius },
-						onClick2 = { selected = temperatureDataSource.radioTextFahrenheit },
-						label1 = temperatureDataSource.radioTextCelsius,
-						label2 = temperatureDataSource.radioTextFahrenheit,
+						onClick1 = { selected = dataSource.radioTextCelsius },
+						onClick2 = { selected = dataSource.radioTextFahrenheit },
+						label1 = dataSource.radioTextCelsius,
+						label2 = dataSource.radioTextFahrenheit,
 						selected = selected,
 						selectedColor = color,
 						textColor = color
@@ -95,12 +96,12 @@ fun TemperatureLayout(
 			InputNumberField(
 				label =
 				when (selected) {
-					temperatureDataSource.radioTextFahrenheit -> {
-						temperatureDataSource.labelFahrenheit
+					dataSource.radioTextFahrenheit -> {
+						dataSource.labelFahrenheit
 					}
 
 					else -> {
-						temperatureDataSource.labelCelsius
+						dataSource.labelCelsius
 					}
 				},
 				value = inputTemperature,
@@ -113,21 +114,21 @@ fun TemperatureLayout(
 		},
 		calculateFieldContent = {
 			when (selected) {
-				temperatureDataSource.radioTextFahrenheit -> {
+				dataSource.radioTextFahrenheit -> {
 					CalculateField(
-						inputText = temperatureDataSource.inputTextFahrenheit,
+						inputText = dataSource.inputTextFahrenheit,
 						inputValue = inputTemperature,
-						equalsText = temperatureDataSource.equalsText,
+						equalsText = dataSource.equalsText,
 						contentColor = color,
 						containerColor = containerColor,
 						calculateContent = {
 							CalculatedText(
-								text = temperatureDataSource.calculatedTextCelsius,
+								text = dataSource.calculatedTextCelsius,
 								calculatedValue = celsius,
 								textColor = contentColor,
 							)
 							CalculatedText(
-								text = temperatureDataSource.calculatedTextKelvin,
+								text = dataSource.calculatedTextKelvin,
 								calculatedValue = kelvinFahrenheit,
 								textColor = contentColor,
 							)
@@ -137,19 +138,19 @@ fun TemperatureLayout(
 
 				else -> {
 					CalculateField(
-						inputText = temperatureDataSource.inputTextCelsius,
+						inputText = dataSource.inputTextCelsius,
 						inputValue = inputTemperature,
-						equalsText = temperatureDataSource.equalsText,
+						equalsText = dataSource.equalsText,
 						contentColor = color,
 						containerColor = containerColor,
 						calculateContent = {
 							CalculatedText(
-								text = temperatureDataSource.calculatedTextFahrenheit,
+								text = dataSource.calculatedTextFahrenheit,
 								calculatedValue = fahrenheit,
 								textColor = contentColor,
 							)
 							CalculatedText(
-								text = temperatureDataSource.calculatedTextKelvin,
+								text = dataSource.calculatedTextKelvin,
 								calculatedValue = kelvinCelsius,
 								textColor = contentColor,
 							)
@@ -163,17 +164,17 @@ fun TemperatureLayout(
 			contentColor = color,
 			content = {
 				BodyText(
-					text = temperatureDataSource.formulaText1,
+					text = dataSource.formulaText1,
 					textAlign = TextAlign.Start,
 					color = color
 				)
 				BodyText(
-					text = temperatureDataSource.formulaText2,
+					text = dataSource.formulaText2,
 					textAlign = TextAlign.Start,
 					color = color
 				)
 				BodyText(
-					text = temperatureDataSource.formulaText3,
+					text = dataSource.formulaText3,
 					textAlign = TextAlign.Start,
 					color = color
 				)

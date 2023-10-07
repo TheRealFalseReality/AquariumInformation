@@ -50,6 +50,8 @@ fun HexagonalLayout(
 	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
 ) {
+	val dataSourceCommon = calculatorDataSource
+	val dataSourceSpecific = hexagonalDataSource
 	var inputEdge by rememberSaveable {
 		mutableStateOf("")
 	}
@@ -57,7 +59,7 @@ fun HexagonalLayout(
 		mutableStateOf("")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(calculatorDataSource.radioTextFeet)
+		mutableIntStateOf(dataSourceCommon.radioTextFeet)
 	}
 	val edge = inputEdge.toDoubleOrNull() ?: 0.0
 	val height = inputHeight.toDoubleOrNull() ?: 0.0
@@ -73,8 +75,8 @@ fun HexagonalLayout(
 		subtitleContent = {
 			CalculatorSubtitleTwo(
 				contentColor = color,
-				text1 = calculatorDataSource.subtitle1,
-				text2 = calculatorDataSource.subtitle2,
+				text1 = dataSourceCommon.subtitle1,
+				text2 = dataSourceCommon.subtitle2,
 			)
 		},
 		selectContent = {
@@ -83,8 +85,8 @@ fun HexagonalLayout(
 				header = R.string.select_input_units,
 				content = {
 					RadioButtonTwoUnits(
-						onClick1 = { selected = calculatorDataSource.radioTextFeet },
-						onClick2 = { selected = calculatorDataSource.radioTextInches },
+						onClick1 = { selected = dataSourceCommon.radioTextFeet },
+						onClick2 = { selected = dataSourceCommon.radioTextInches },
 						selected = selected,
 						selectedColor = color,
 						textColor = color
@@ -95,8 +97,8 @@ fun HexagonalLayout(
 		},
 		inputFieldContent = {
 			InputRowNumberFieldTwoInputs(
-				label1 = calculatorDataSource.labelEdge,
-				label2 = calculatorDataSource.labelHeight,
+				label1 = dataSourceCommon.labelEdge,
+				label2 = dataSourceCommon.labelHeight,
 				value1 = inputEdge,
 				onValueChange1 = { inputEdge = it },
 				value2 = inputHeight,
@@ -104,21 +106,21 @@ fun HexagonalLayout(
 				focusedContainerColor = containerColor,
 				focusedColor = contentColor,
 				unfocusedColor = color,
-				leadingIcon1 = calculatorDataSource.leadingIconFullWidth,
-				leadingIcon2 = calculatorDataSource.leadingIconHeight,
+				leadingIcon1 = dataSourceCommon.leadingIconFullWidth,
+				leadingIcon2 = dataSourceCommon.leadingIconHeight,
 			)
 		},
 		calculateFieldContent = {
 			CalculateFieldTwoInputs(
 				inputText =
-				if (selected == calculatorDataSource.radioTextFeet) hexagonalDataSource.inputTextFeet
-				else hexagonalDataSource.inputTextInches,
+				if (selected == dataSourceCommon.radioTextFeet) dataSourceSpecific.inputTextFeet
+				else dataSourceSpecific.inputTextInches,
 				inputValue1 = inputEdge,
 				inputValue2 = inputHeight,
-				equalsText = calculatorDataSource.equalsText,
+				equalsText = dataSourceCommon.equalsText,
 				calculateContent = {
 					when (selected) {
-						calculatorDataSource.radioTextInches -> {
+						dataSourceCommon.radioTextInches -> {
 							TankVolumeResults(
 								contentColor = contentColor,
 								calculatedValue1 = volGallon,
@@ -143,14 +145,14 @@ fun HexagonalLayout(
 		},
 		imageContent = {
 			CalculateImageTitle(
-				image = hexagonalDataSource.image,
+				image = dataSourceSpecific.image,
 				contentDescription = Hexagonal.title,
 				color = color
 			)
 		}
 	) {
 		FormulaString(
-			text = hexagonalDataSource.formulaText,
+			text = dataSourceSpecific.formulaText,
 			contentColor = color
 		)
 	}

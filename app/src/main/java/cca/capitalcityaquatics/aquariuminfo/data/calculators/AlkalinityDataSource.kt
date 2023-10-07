@@ -24,5 +24,6 @@ val alkalinityDataSource =
 		calculatedTextPpm = R.string.text_amount_ppm,
 		calculatedTextDkh = R.string.text_amount_dkh,
 		calculatedTextMeq = R.string.text_amount_meq,
+		leadingIconTDS = R.drawable.ic_tds,
 		formulaText = R.string.text_formula_alk,
 	)
