@@ -24,6 +24,7 @@ All notable changes to this project will be documented in this file.
 ### 2.0.6 - 2023.10.4
 **Changed**
 * Icon performance updated
+* Some rewriting of code
 
 ### 2.0.5 - 2023.10.3
 

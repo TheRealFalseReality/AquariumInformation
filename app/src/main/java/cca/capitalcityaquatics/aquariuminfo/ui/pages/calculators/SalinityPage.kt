@@ -1,5 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators
 
+import android.annotation.SuppressLint
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -21,10 +22,12 @@ import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.salinityDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
-import cca.capitalcityaquatics.aquariuminfo.navigation.BowFront
+import cca.capitalcityaquatics.aquariuminfo.model.calculators.CalculatorMethods
+import cca.capitalcityaquatics.aquariuminfo.model.calculators.SalinityMethods
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.BodyText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateField
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedText
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedTextString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatorSubtitleThree
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
@@ -45,6 +48,7 @@ fun SalinityPage(windowSize: WindowSizeClass) {
 	}
 }
 
+@SuppressLint("VisibleForTests")
 @Composable
 fun SalinityLayout(
 	windowSize: WindowSizeClass,
@@ -59,13 +63,8 @@ fun SalinityLayout(
 	var selected by rememberSaveable {
 		mutableIntStateOf(dataSource.radioTextPpt)
 	}
-	val tempTestWater = 25.0
-	val tempPureWater = 25.0
-	val sal = inputSal.toDoubleOrNull() ?: 0.0
-	val ppt = calculateSalinity(sal, tempTestWater).toDoubleOrNull() ?: 0.0
-	val sg = calculateSpecificGravity(sal, tempPureWater, tempTestWater).toDoubleOrNull() ?: 0.0
-	val salDensityPPT = calculateDensityPPT(sal, tempTestWater).toDoubleOrNull() ?: 0.0
-	val salDensitySG = calculateDensitySG(sal, tempPureWater).toDoubleOrNull() ?: 0.0
+	val tds = inputSal.toDoubleOrNull() ?: 0.0
+	val parameters = SalinityMethods(selected = selected, tds = tds)
 
 	GenericCalculatePage(
 		windowSize = windowSize,
@@ -116,69 +115,76 @@ fun SalinityLayout(
 			)
 		},
 		calculateFieldContent = {
-			when (selected) {
-				dataSource.radioTextSg -> {
-					CalculateField(
-						inputText = dataSource.inputTextSg,
-						inputValue = inputSal,
-						equalsText = dataSource.equalsText,
-						contentColor = color,
-						containerColor = containerColor,
-						calculateContent = {
+			CalculateField(
+				inputText =
+				when (selected) {
+					// Specific Gravity
+					dataSource.radioTextSg -> {
+						dataSource.inputTextSg
+					}
+
+					// Salinity
+					else -> {
+						dataSource.inputTextPpt
+					}
+				},
+				inputValue = inputSal,
+				calculateContent = {
+					when (selected) {
+						// Specific Gravity
+						dataSource.radioTextSg -> {
 							BodyText(
 								text = dataSource.labelSalinity,
 								color = contentColor
 							)
-							CalculatedText(
+							CalculatedTextString(
 								text = dataSource.calculatedTextPpt,
-								calculatedValue = ppt,
-								textColor = contentColor,
-							)
-							VerySmallSpacer()
-							BodyText(
-								text = dataSource.labelDensity,
-								color = contentColor
-							)
-							CalculatedText(
-								text = dataSource.calculatedTextDensity,
-								calculatedValue = salDensitySG,
+								calculatedValue = parameters.calculateSalinity(),
 								textColor = contentColor,
 							)
 						}
-					)
-				}
 
-				else -> {
-					CalculateField(
-						inputText = dataSource.inputTextPpt,
-						inputValue = inputSal,
-						equalsText = dataSource.equalsText,
-						contentColor = color,
-						containerColor = containerColor,
-						calculateContent = {
+						// Salinity
+						else -> {
 							BodyText(
 								text = dataSource.labelSpecificGravity,
 								color = contentColor
 							)
-							CalculatedText(
-								text = dataSource.calculatedTextSg,
-								calculatedValue = sg,
+							CalculatedTextString(
+								text = dataSource.calculatedTextPpt,
+								calculatedValue = parameters.calculateSpecificGravity(),
 								textColor = contentColor,
 							)
-							VerySmallSpacer()
-							BodyText(
-								text = dataSource.labelDensity,
-								color = contentColor
-							)
-							CalculatedText(
-								text = dataSource.calculatedTextDensity,
-								calculatedValue = salDensityPPT,
-								textColor = contentColor,
-							)
-						},
+						}
+					}
+					VerySmallSpacer()
+					BodyText(
+						text = dataSource.labelDensity,
+						color = contentColor
 					)
-				}
-			}
+					when (selected) {
+						// Specific Gravity
+						dataSource.radioTextSg -> {
+							CalculatedTextString(
+								text = dataSource.calculatedTextDensity,
+								calculatedValue = parameters.calculateDensitySG(),
+								textColor = contentColor,
+							)
+						}
+
+						// Salinity
+						else -> {
+							CalculatedTextString(
+								text = dataSource.calculatedTextDensity,
+								calculatedValue = parameters.calculateDensityPPT(),
+								textColor = contentColor,
+							)
+						}
+					}
+				},
+				contentColor = color,
+				containerColor = containerColor
+			)
 		}
 	) {
 		FormulaString(
@@ -186,91 +192,6 @@ fun SalinityLayout(
 			contentColor = color
 		)
 	}
-}
-
-@VisibleForTesting
-fun calculateSpecificGravity(
-	sal: Double,
-	tempTestWater: Double,
-	tempPureWater: Double,
-): String {
-	val aA = 8.24493e-1 - 4.0899e-3 * tempTestWater + 7.6438e-5 * tempTestWater * tempTestWater -
-			8.2467e-7 * tempTestWater * tempTestWater * tempTestWater + 5.3875e-9 * tempTestWater *
-			tempTestWater * tempTestWater * tempTestWater
-	val bB = -5.72466e-3 + 1.0227e-4 * tempTestWater - 1.6546e-6 * tempTestWater * tempTestWater
-	val cC = 4.8314e-4
-	val rROo = 999.842594 + 6.793952e-2 * tempTestWater - 9.095290e-3 * tempTestWater *
-			tempTestWater + 1.001685e-4 * tempTestWater * tempTestWater * tempTestWater -
-			1.120083e-6 * tempTestWater * tempTestWater * tempTestWater * tempTestWater +
-			6.536332e-9 * tempTestWater * tempTestWater * tempTestWater * tempTestWater *
-			tempTestWater
-	val rROoTD = 999.842594 + 6.793952e-2 * tempPureWater - 9.095290e-3 * tempPureWater *
-			tempPureWater + 1.001685e-4 * tempPureWater * tempPureWater * tempPureWater -
-			1.120083e-6 * tempPureWater * tempPureWater * tempPureWater * tempPureWater +
-			6.536332e-9 * tempPureWater * tempPureWater * tempPureWater * tempPureWater *
-			tempPureWater
-	val salDensityPPT = rROo + aA * sal + bB * kotlin.math.sqrt(sal.pow(3)) + cC * sal * sal
-
-	val sg = salDensityPPT / rROoTD
-
-	val df = DecimalFormat("#.###")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(sg)
-}
-
-@VisibleForTesting
-fun calculateSalinity(
-	sal: Double,
-	tempTestWater: Double,
-): String {
-	val ppt = sal * 1240.63326 + tempTestWater * -3.26377 + sal * tempTestWater * 3.20800 + sal *
-			sal * 4.58072 + tempTestWater * tempTestWater * 0.00719 + -1246.10737
-
-	val df = DecimalFormat("#.###")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(ppt)
-}
-
-@VisibleForTesting
-fun calculateDensityPPT(
-	sal: Double,
-	tempTestWater: Double,
-): String {
-	val aB = 8.24493e-1 - 4.0899e-3 * tempTestWater + 7.6438e-5 * tempTestWater * tempTestWater -
-			8.2467e-7 * tempTestWater * tempTestWater * tempTestWater + 5.3875e-9 * tempTestWater *
-			tempTestWater * tempTestWater * tempTestWater
-	val bC = -5.72466e-3 + 1.0227e-4 * tempTestWater - 1.6546e-6 * tempTestWater * tempTestWater
-	val cD = 4.8314e-4
-	val rOO = 999.842594 + 6.793952e-2 * tempTestWater - 9.095290e-3 * tempTestWater * tempTestWater
-	+1.001685e-4 * tempTestWater * tempTestWater * tempTestWater - 1.120083e-6 *
-			tempTestWater * tempTestWater * tempTestWater * tempTestWater + 6.536332e-9 *
-			tempTestWater * tempTestWater * tempTestWater * tempTestWater * tempTestWater
-	val rO = rOO + aB * sal + bC * kotlin.math.sqrt(sal.pow(3)) + cD * sal * sal
-
-	val df = DecimalFormat("#.###")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(rO)
-}
-
-@VisibleForTesting
-fun calculateDensitySG(
-	sal: Double,
-	tempPureWater: Double
-): String {
-	val rOoTDc = 999.842594 + 6.793952e-2 * tempPureWater - 9.095290e-3 * tempPureWater *
-			tempPureWater + 1.001685e-4 * tempPureWater * tempPureWater * tempPureWater -
-			1.120083e-6 * tempPureWater * tempPureWater * tempPureWater * tempPureWater +
-			6.536332e-9 * tempPureWater * tempPureWater * tempPureWater * tempPureWater *
-			tempPureWater
-	val rO1 = sal * rOoTDc
-
-	val df = DecimalFormat("#.###")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(rO1)
 }
 
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)

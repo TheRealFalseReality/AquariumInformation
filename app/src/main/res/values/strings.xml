@@ -13,7 +13,7 @@
     <string name="text_subtitle_salinity_2">SG</string>
     <string name="text_subtitle_salinity_3">g/L</string>
     <string name="text_header_salinity">Salinity Converter</string>
-    <string name="button_label_ppt">ppt</string>
+    <string name="button_label_ppt">Salinity</string>
     <string name="button_label_sg_break">Specific\nGravity</string>
     <string name="button_label_sg">Specific Gravity</string>
     <string name="field_label_ppt">Enter Salinity (ppt)</string>
