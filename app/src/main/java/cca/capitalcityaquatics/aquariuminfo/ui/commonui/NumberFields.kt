@@ -34,7 +34,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.CalculatorData
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 
 @Composable
@@ -653,6 +652,7 @@ fun CalculateFieldFourInputs(
 @Composable
 fun CalculateFieldThreeInputs(
 	modifier: Modifier = Modifier,
+	@StringRes inputText: Int,
 	inputValue1: String,
 	inputValue2: String,
 	inputValue3: String,
@@ -660,21 +660,7 @@ fun CalculateFieldThreeInputs(
 	calculateContent: @Composable () -> Unit,
 	contentColor: Color,
 	containerColor: Color,
-	selected: Int,
-	dataSource: CalculatorData
 ) {
-	val inputText =
-		when (selected) {
-			// Inches
-			calculatorDataSource.radioTextInches -> {
-				dataSource.inputTextInches
-			}
-
-			// Feet
-			else -> {
-				dataSource.inputTextFeet
-			}
-		}
 	Column(
 		modifier = modifier,
 		horizontalAlignment = Alignment.CenterHorizontally

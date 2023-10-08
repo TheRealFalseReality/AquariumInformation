@@ -25,5 +25,11 @@ data class AlkalinityData(
 	@StringRes val calculatedTextDkh: Int,
 	@StringRes val calculatedTextMeq: Int,
 	@DrawableRes val leadingIconTDS: Int,
-	@StringRes val formulaText: Int
+	@StringRes val formulaText: Int,
+	val conversionPPMDKH: Double,
+	val conversionPPMMEQ: Double,
+	val conversionDKHPPM: Double,
+	val conversionDKHMEQ: Double,
+	val conversionMEQPPM: Double,
+	val conversionMEQDKH: Double,
 )

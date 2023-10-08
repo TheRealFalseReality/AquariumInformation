@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.rectangleDataSource
-import cca.capitalcityaquatics.aquariuminfo.model.tankvolumes.CalculateTankVolumes
+import cca.capitalcityaquatics.aquariuminfo.model.tankvolumes.TankVolumeMethods
 import cca.capitalcityaquatics.aquariuminfo.navigation.Rectangle
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldThreeInputs
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateImageTitle
@@ -49,8 +49,8 @@ fun RectangleLayout(
 	color: Color = MaterialTheme.colorScheme.secondary,
 	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
-	) {
-	val shape = Rectangle.title
+) {
+	val view = Rectangle.title
 	val dataSourceCommon = calculatorDataSource
 	val dataSourceSpecific = rectangleDataSource
 	var inputLength by rememberSaveable {
@@ -68,7 +68,13 @@ fun RectangleLayout(
 	val length = inputLength.toDoubleOrNull() ?: 0.0
 	val width = inputWidth.toDoubleOrNull() ?: 0.0
 	val height = inputHeight.toDoubleOrNull() ?: 0.0
-	val dimensions = CalculateTankVolumes(selected, shape, length, width, height)
+	val dimensions = TankVolumeMethods(
+		selected = selected,
+		view = view,
+		length = length,
+		width = width,
+		height = height
+	)
 
 	GenericCalculatePage(
 		windowSize = windowSize,
@@ -116,8 +122,18 @@ fun RectangleLayout(
 		},
 		calculateFieldContent = {
 			CalculateFieldThreeInputs(
-				selected = selected,
-				dataSource = rectangleDataSource,
+				inputText =
+				when (selected) {
+					// Inches
+					dataSourceCommon.radioTextInches -> {
+						dataSourceSpecific.inputTextInches
+					}
+
+					// Feet
+					else -> {
+						dataSourceSpecific.inputTextFeet
+					}
+				},
 				inputValue1 = inputLength,
 				inputValue2 = inputWidth,
 				inputValue3 = inputHeight,
@@ -137,7 +153,7 @@ fun RectangleLayout(
 		imageContent = {
 			CalculateImageTitle(
 				image = dataSourceSpecific.image,
-				contentDescription = Rectangle.title,
+				contentDescription = view,
 				color = color
 			)
 		},

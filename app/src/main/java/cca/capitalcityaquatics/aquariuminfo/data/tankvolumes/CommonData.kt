@@ -46,5 +46,4 @@ data class CommonData(
 	val conversionLitersFeet: Double,
 	val conversionLitersInches: Double,
 	val conversionPoundsGallons: Double,
-	val conversionPoundsLiters: Double,
 )

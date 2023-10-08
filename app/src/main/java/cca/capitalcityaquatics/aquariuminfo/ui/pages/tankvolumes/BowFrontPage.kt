@@ -1,5 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.tankvolumes
 
+import android.annotation.SuppressLint
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -21,7 +22,9 @@ import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.bowFrontDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
+import cca.capitalcityaquatics.aquariuminfo.model.tankvolumes.TankVolumeMethods
 import cca.capitalcityaquatics.aquariuminfo.navigation.BowFront
+import cca.capitalcityaquatics.aquariuminfo.navigation.Cube
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldFourInputs
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateImageTitle
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatorSubtitleTwo
@@ -32,6 +35,7 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonTwoUnits
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCardExpandableRadio
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TankVolumeResults
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TankVolumeResultsString
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -44,6 +48,7 @@ fun BowFrontPage(windowSize: WindowSizeClass) {
 	}
 }
 
+@SuppressLint("VisibleForTests")
 @Composable
 fun BowFrontLayout(
 	windowSize: WindowSizeClass,
@@ -51,6 +56,7 @@ fun BowFrontLayout(
 	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
 ) {
+	val view = BowFront.title
 	val dataSourceCommon = calculatorDataSource
 	val dataSourceSpecific = bowFrontDataSource
 	var inputLength by rememberSaveable {
@@ -72,16 +78,14 @@ fun BowFrontLayout(
 	val width = inputWidth.toDoubleOrNull() ?: 0.0
 	val height = inputHeight.toDoubleOrNull() ?: 0.0
 	val fullWidth = inputFullWidth.toDoubleOrNull() ?: 0.0
-
-	val volGallon = calculateVolGallonBF(length, width, height, fullWidth).toDoubleOrNull() ?: 0.0
-	val volLiter = calculateVolLiterBF(length, width, height, fullWidth).toDoubleOrNull() ?: 0.0
-	val waterWeight =
-		calculateWaterWeightBF(length, width, height, fullWidth).toDoubleOrNull() ?: 0.0
-	val volGallonFT =
-		calculateVolGallonFTBF(length, width, height, fullWidth).toDoubleOrNull() ?: 0.0
-	val volLiterFT = calculateVolLiterFTBF(length, width, height, fullWidth).toDoubleOrNull() ?: 0.0
-	val waterWeightFT =
-		calculateWaterWeightFTBF(length, width, height, fullWidth).toDoubleOrNull() ?: 0.0
+	val dimensions = TankVolumeMethods(
+		selected = selected,
+		view = view,
+		length = length,
+		width = width,
+		height = height,
+		fullWidth = fullWidth,
+	)
 
 	GenericCalculatePage(
 		windowSize = windowSize,
@@ -134,33 +138,48 @@ fun BowFrontLayout(
 		calculateFieldContent = {
 			CalculateFieldFourInputs(
 				inputText =
-				if (selected == dataSourceCommon.radioTextFeet) dataSourceSpecific.inputTextFeet
-				else dataSourceSpecific.inputTextInches,
+				when (selected) {
+					// Inches
+					dataSourceCommon.radioTextInches -> {
+						dataSourceSpecific.inputTextInches
+					}
+
+					// Feet
+					else -> {
+						dataSourceSpecific.inputTextFeet
+					}
+				},
 				inputValue1 = inputLength,
 				inputValue2 = inputWidth,
 				inputValue3 = inputHeight,
 				inputValue4 = inputFullWidth,
 				equalsText = dataSourceCommon.equalsText,
 				calculateContent = {
-					when (selected) {
-						dataSourceCommon.radioTextInches -> {
-							TankVolumeResults(
-								contentColor = contentColor,
-								calculatedValue1 = volGallon,
-								calculatedValue2 = volLiter,
-								calculatedValue3 = waterWeight
-							)
-						}
-
-						else -> {
-							TankVolumeResults(
-								contentColor = contentColor,
-								calculatedValue1 = volGallonFT,
-								calculatedValue2 = volLiterFT,
-								calculatedValue3 = waterWeightFT
-							)
-						}
-					}
+					TankVolumeResultsString(
+						contentColor = contentColor,
+						calculatedValue1 = dimensions.calculateVolumeGallons(),
+						calculatedValue2 = dimensions.calculateVolumeLiters(),
+						calculatedValue3 = dimensions.calculateWaterWeightPounds()
+					)
+//					when (selected) {
+//						dataSourceCommon.radioTextInches -> {
+//							TankVolumeResults(
+//								contentColor = contentColor,
+//								calculatedValue1 = volGallon,
+//								calculatedValue2 = volLiter,
+//								calculatedValue3 = waterWeight
+//							)
+//						}
+//
+//						else -> {
+//							TankVolumeResults(
+//								contentColor = contentColor,
+//								calculatedValue1 = volGallonFT,
+//								calculatedValue2 = volLiterFT,
+//								calculatedValue3 = waterWeightFT
+//							)
+//						}
+//					}
 				},
 				containerColor = containerColor,
 				contentColor = color
@@ -169,7 +188,7 @@ fun BowFrontLayout(
 		imageContent = {
 			CalculateImageTitle(
 				image = dataSourceSpecific.image,
-				contentDescription = BowFront.title,
+				contentDescription = view,
 				color = color
 			)
 		}
@@ -179,102 +198,6 @@ fun BowFrontLayout(
 			contentColor = color
 		)
 	}
-}
-
-@VisibleForTesting
-fun calculateVolGallonBF(
-	length: Double,
-	width: Double,
-	height: Double,
-	fullWidth: Double
-): String {
-	val volGallons =
-		((length * width + (PI * (length / 2) * (fullWidth - width)) / 2) * height) / 231.0
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(volGallons)
-}
-
-@VisibleForTesting
-fun calculateVolLiterBF(
-	length: Double,
-	width: Double,
-	height: Double,
-	fullWidth: Double
-): String {
-	val volLiters =
-		((length * width + (PI * (length / 2) * (fullWidth - width)) / 2) * height) / 61.0237
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(volLiters)
-}
-
-@VisibleForTesting
-fun calculateWaterWeightBF(
-	length: Double,
-	width: Double,
-	height: Double,
-	fullWidth: Double
-): String {
-	val waterWeight =
-		(((length * width + (PI * (length / 2) * (fullWidth - width)) / 2) * height) / 231.0) * 8.33
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(waterWeight)
-}
-
-@VisibleForTesting
-fun calculateVolGallonFTBF(
-	length: Double,
-	width: Double,
-	height: Double,
-	fullWidth: Double
-): String {
-	val volGallons =
-		((length * width + (PI * (length / 2) * (fullWidth - width)) / 2) * height) / 0.133681
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(volGallons)
-}
-
-@VisibleForTesting
-fun calculateVolLiterFTBF(
-	length: Double,
-	width: Double,
-	height: Double,
-	fullWidth: Double
-): String {
-	val volLiters =
-		((length * width + (PI * (length / 2) * (fullWidth - width)) / 2) * height) / 0.0353147
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(volLiters)
-}
-
-@VisibleForTesting
-fun calculateWaterWeightFTBF(
-	length: Double,
-	width: Double,
-	height: Double,
-	fullWidth: Double
-): String {
-	val waterWeight =
-		(((length * width + (PI * (length / 2) * (fullWidth - width)) / 2) * height) / 0.133681) * 8.33
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(waterWeight)
 }
 
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)

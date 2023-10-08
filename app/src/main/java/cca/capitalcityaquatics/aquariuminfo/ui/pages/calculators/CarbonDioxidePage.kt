@@ -1,7 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators
 
 import android.annotation.SuppressLint
-import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.MaterialTheme
@@ -20,9 +19,9 @@ import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.carbonDioxideDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
-import cca.capitalcityaquatics.aquariuminfo.model.calculators.CalculateCarbonDioxide
+import cca.capitalcityaquatics.aquariuminfo.model.calculators.CalculatorMethods
+import cca.capitalcityaquatics.aquariuminfo.navigation.BowFront
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldTwoInputs
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedTextString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
@@ -31,9 +30,6 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberFieldTwoInput
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TextCard
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
-import java.math.RoundingMode
-import java.text.DecimalFormat
-import kotlin.math.pow
 
 @Composable
 fun CarbonDioxidePage(windowSize: WindowSizeClass) {
@@ -59,8 +55,7 @@ fun CarbonDioxideLayout(
 	}
 	val ph = inputPH.toDoubleOrNull() ?: 0.0
 	val dkh = inputDKH.toDoubleOrNull() ?: 0.0
-	val parameters = CalculateCarbonDioxide(ph, dkh)
-//	val co2 = calculateCarbonDioxide(ph, dkh).toDoubleOrNull() ?: 0.0
+	val parameters = CalculatorMethods(pH = ph, dKH = dkh)
 
 	GenericCalculatePage(
 		windowSize = windowSize,
@@ -92,20 +87,6 @@ fun CarbonDioxideLayout(
 			)
 		},
 		calculateFieldContent = {
-//			CalculateFieldTwoInputs(
-//				inputText = dataSource.inputText,
-//				inputValue1 = inputPH,
-//				inputValue2 = inputDKH,
-//				contentColor = color,
-//				containerColor = containerColor,
-//				calculateContent = {
-//					CalculatedText(
-//						text = dataSource.calculatedText,
-//						calculatedValue = co2,
-//						textColor = contentColor,
-//					)
-//				}
-//			)
 			CalculateFieldTwoInputs(
 				inputText = dataSource.inputText,
 				inputValue1 = inputPH,
@@ -128,20 +109,6 @@ fun CarbonDioxideLayout(
 		)
 	}
 }
-
-//@VisibleForTesting
-//fun calculateCarbonDioxide(
-//	pH: Double,
-//	dKH: Double
-//): String {
-//	val phSolution = 10.0.pow(6.37 - pH)
-//	val carbonDioxide = (12.839 * dKH) * phSolution
-//
-//	val df = DecimalFormat("#.##")
-//	df.roundingMode = RoundingMode.HALF_UP
-//
-//	return df.format(carbonDioxide)
-//}
 
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Preview(showBackground = true)

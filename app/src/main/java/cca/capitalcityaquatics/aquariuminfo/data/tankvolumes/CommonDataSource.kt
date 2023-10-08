@@ -41,10 +41,9 @@ val calculatorDataSource =
 		leadingIconTDS = R.drawable.ic_tds,
 		leadingIconWidth = R.drawable.ic_width,
 		leadingIconTemperature = R.drawable.ic_thermometer,
-		conversionGallonsFeet = 0.133681,
-		conversionGallonsInches = 231.0,
-		conversionLitersFeet = 0.0353147,
-		conversionLitersInches = 61.0237,
+		conversionGallonsFeet = 7.48052,
+		conversionGallonsInches = 0.004329,
+		conversionLitersFeet = 28.3168,
+		conversionLitersInches = 0.0163871,
 		conversionPoundsGallons = 8.33,
-		conversionPoundsLiters = 2.20
 	)

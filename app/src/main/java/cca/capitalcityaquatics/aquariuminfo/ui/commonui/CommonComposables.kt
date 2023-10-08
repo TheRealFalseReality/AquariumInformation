@@ -152,6 +152,7 @@ fun AppVersion(
 	}
 }
 
+// TODO add !expanded subtitle
 @Composable
 fun SingleWideCardExpandableRadio(
 	modifier: Modifier = Modifier,

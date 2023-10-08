@@ -1,5 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.tankvolumes
 
+import android.annotation.SuppressLint
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -22,6 +23,8 @@ import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.cylinderDataSource
+import cca.capitalcityaquatics.aquariuminfo.model.tankvolumes.TankVolumeMethods
+import cca.capitalcityaquatics.aquariuminfo.navigation.Cube
 import cca.capitalcityaquatics.aquariuminfo.navigation.Cylinder
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldTwoInputs
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateImageTitle
@@ -34,6 +37,7 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonThreeUnits
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonTwoUnits
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCardExpandableRadio
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TankVolumeResults
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TankVolumeResultsString
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -47,6 +51,7 @@ fun CylinderPage(windowSize: WindowSizeClass) {
 	}
 }
 
+@SuppressLint("VisibleForTests")
 @Composable
 fun CylinderLayout(
 	windowSize: WindowSizeClass,
@@ -54,6 +59,7 @@ fun CylinderLayout(
 	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
 ) {
+	val view = Cylinder.title
 	val dataSourceCommon = calculatorDataSource
 	val dataSourceSpecific = cylinderDataSource
 	var inputDiameter by rememberSaveable {
@@ -76,17 +82,13 @@ fun CylinderLayout(
 	}
 	val diameter = inputDiameter.toDoubleOrNull() ?: 0.0
 	val height = inputHeight.toDoubleOrNull() ?: 0.0
-	val volGallon =
-		calculateVolGallonCyl(diameter, height, halfCyl, quartCyl).toDoubleOrNull() ?: 0.0
-	val volLiter = calculateVolLiterCyl(diameter, height, halfCyl, quartCyl).toDoubleOrNull() ?: 0.0
-	val waterWeight =
-		calculateWaterWeightCyl(diameter, height, halfCyl, quartCyl).toDoubleOrNull() ?: 0.0
-	val volGallonFT =
-		calculateVolGallonFTCyl(diameter, height, halfCyl, quartCyl).toDoubleOrNull() ?: 0.0
-	val volLiterFT =
-		calculateVolLiterFTCyl(diameter, height, halfCyl, quartCyl).toDoubleOrNull() ?: 0.0
-	val waterWeightFT =
-		calculateWaterWeightFTCyl(diameter, height, halfCyl, quartCyl).toDoubleOrNull() ?: 0.0
+	val dimensions = TankVolumeMethods(
+		selected = selected,
+		selectedCylinder = selectedCylinder,
+		view = view,
+		diameter = diameter,
+		height = height
+	)
 
 	GenericCalculatePage(
 		windowSize = windowSize,
@@ -160,31 +162,27 @@ fun CylinderLayout(
 		calculateFieldContent = {
 			CalculateFieldTwoInputs(
 				inputText =
-				if (selected == dataSourceCommon.radioTextFeet) dataSourceSpecific.inputTextFeet
-				else dataSourceSpecific.inputTextInches,
+				when (selected) {
+					// Inches
+					dataSourceCommon.radioTextInches -> {
+						dataSourceSpecific.inputTextInches
+					}
+
+					// Feet
+					else -> {
+						dataSourceSpecific.inputTextFeet
+					}
+				},
 				inputValue1 = inputDiameter,
 				inputValue2 = inputHeight,
 				equalsText = dataSourceCommon.equalsText,
 				calculateContent = {
-					when (selected) {
-						dataSourceCommon.radioTextInches -> {
-							TankVolumeResults(
-								contentColor = contentColor,
-								calculatedValue1 = volGallon,
-								calculatedValue2 = volLiter,
-								calculatedValue3 = waterWeight
-							)
-						}
-
-						else -> {
-							TankVolumeResults(
-								contentColor = contentColor,
-								calculatedValue1 = volGallonFT,
-								calculatedValue2 = volLiterFT,
-								calculatedValue3 = waterWeightFT
-							)
-						}
-					}
+					TankVolumeResultsString(
+						contentColor = contentColor,
+						calculatedValue1 = dimensions.calculateVolumeGallons(),
+						calculatedValue2 = dimensions.calculateVolumeLiters(),
+						calculatedValue3 = dimensions.calculateWaterWeightPounds()
+					)
 				},
 				containerColor = containerColor,
 				contentColor = color,
@@ -193,7 +191,7 @@ fun CylinderLayout(
 		imageContent = {
 			CalculateImageTitle(
 				image = dataSourceSpecific.image,
-				contentDescription = Cylinder.title,
+				contentDescription = view,
 				color = color
 			)
 		}
@@ -203,126 +201,6 @@ fun CylinderLayout(
 			contentColor = color
 		)
 	}
-}
-
-@VisibleForTesting
-fun calculateVolGallonCyl(
-	diameter: Double,
-	height: Double,
-	halfCyl: Boolean,
-	quartCyl: Boolean,
-): String {
-	val radius = 0.5 * diameter
-	var volGallons = (PI * radius.pow(2) * height) / 231.0
-	if (halfCyl)
-		volGallons = ((PI * radius.pow(2) * height) / 2) / 231.0
-	if (quartCyl)
-		volGallons = ((PI * radius.pow(2) * height) / 4) / 231.0
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(volGallons)
-}
-
-@VisibleForTesting
-fun calculateVolLiterCyl(
-	diameter: Double,
-	height: Double,
-	halfCyl: Boolean,
-	quartCyl: Boolean,
-): String {
-	val radius = 0.5 * diameter
-	var volLiters = (PI * radius.pow(2) * height) / 61.0237
-	if (halfCyl)
-		volLiters = ((PI * radius.pow(2) * height) / 2) / 61.0237
-	if (quartCyl)
-		volLiters = ((PI * radius.pow(2) * height) / 4) / 61.0237
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(volLiters)
-}
-
-@VisibleForTesting
-fun calculateWaterWeightCyl(
-	diameter: Double,
-	height: Double,
-	halfCyl: Boolean,
-	quartCyl: Boolean,
-): String {
-	val radius = 0.5 * diameter
-	var waterWeight = ((PI * radius.pow(2) * height) / 231.0) * 8.33
-	if (halfCyl)
-		waterWeight = (((PI * radius.pow(2) * height) / 2) / 231.0) * 8.33
-	if (quartCyl)
-		waterWeight = (((PI * radius.pow(2) * height) / 4) / 231.0) * 8.33
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(waterWeight)
-}
-
-@VisibleForTesting
-fun calculateVolGallonFTCyl(
-	diameter: Double,
-	height: Double,
-	halfCyl: Boolean,
-	quartCyl: Boolean,
-): String {
-	val radius = 0.5 * diameter
-	var volGallons = (PI * radius.pow(2) * height) / 0.133681
-	if (halfCyl)
-		volGallons = ((PI * radius.pow(2) * height) / 2) / 0.133681
-	if (quartCyl)
-		volGallons = ((PI * radius.pow(2) * height) / 4) / 0.133681
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(volGallons)
-}
-
-@VisibleForTesting
-fun calculateVolLiterFTCyl(
-	diameter: Double,
-	height: Double,
-	halfCyl: Boolean,
-	quartCyl: Boolean,
-): String {
-	val radius = 0.5 * diameter
-	var volLiters = (PI * radius.pow(2) * height) / 0.0353147
-	if (halfCyl)
-		volLiters = ((PI * radius.pow(2) * height) / 2) / 0.0353147
-	if (quartCyl)
-		volLiters = ((PI * radius.pow(2) * height) / 4) / 0.0353147
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(volLiters)
-}
-
-@VisibleForTesting
-fun calculateWaterWeightFTCyl(
-	diameter: Double,
-	height: Double,
-	halfCyl: Boolean,
-	quartCyl: Boolean,
-): String {
-	val radius = 0.5 * diameter
-	var waterWeight = ((PI * radius.pow(2) * height) / 0.133681) * 8.33
-	if (halfCyl)
-		waterWeight = (((PI * radius.pow(2) * height) / 2) / 0.133681) * 8.33
-	if (quartCyl)
-		waterWeight = (((PI * radius.pow(2) * height) / 4) / 0.133681) * 8.33
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(waterWeight)
 }
 
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)

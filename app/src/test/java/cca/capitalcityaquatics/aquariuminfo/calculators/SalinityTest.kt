@@ -1,4 +1,4 @@
-package cca.capitalcityaquatics.aquariuminfo.converters
+package cca.capitalcityaquatics.aquariuminfo.calculators
 
 import cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators.calculateDensityPPT
 import cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators.calculateDensitySG

@@ -1,5 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.tankvolumes
 
+import android.annotation.SuppressLint
 import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -21,6 +22,8 @@ import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.hexagonalDataSource
+import cca.capitalcityaquatics.aquariuminfo.model.tankvolumes.TankVolumeMethods
+import cca.capitalcityaquatics.aquariuminfo.navigation.Cylinder
 import cca.capitalcityaquatics.aquariuminfo.navigation.Hexagonal
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldTwoInputs
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateImageTitle
@@ -32,6 +35,7 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonTwoUnits
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCardExpandableRadio
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TankVolumeResults
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TankVolumeResultsString
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -43,6 +47,7 @@ fun HexagonalPage(windowSize: WindowSizeClass) {
 	}
 }
 
+@SuppressLint("VisibleForTests")
 @Composable
 fun HexagonalLayout(
 	windowSize: WindowSizeClass,
@@ -50,6 +55,7 @@ fun HexagonalLayout(
 	containerColor: Color = MaterialTheme.colorScheme.secondaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
 ) {
+	val view = Hexagonal.title
 	val dataSourceCommon = calculatorDataSource
 	val dataSourceSpecific = hexagonalDataSource
 	var inputEdge by rememberSaveable {
@@ -63,12 +69,12 @@ fun HexagonalLayout(
 	}
 	val edge = inputEdge.toDoubleOrNull() ?: 0.0
 	val height = inputHeight.toDoubleOrNull() ?: 0.0
-	val volGallon = calculateVolGallonHex(edge, height).toDoubleOrNull() ?: 0.0
-	val volLiter = calculateVolLiterHex(edge, height).toDoubleOrNull() ?: 0.0
-	val waterWeight = calculateWaterWeightHex(edge, height).toDoubleOrNull() ?: 0.0
-	val volGallonFT = calculateVolGallonFTHex(edge, height).toDoubleOrNull() ?: 0.0
-	val volLiterFT = calculateVolLiterFTHex(edge, height).toDoubleOrNull() ?: 0.0
-	val waterWeightFT = calculateWaterWeightFTHex(edge, height).toDoubleOrNull() ?: 0.0
+	val dimensions = TankVolumeMethods(
+		selected = selected,
+		view = view,
+		edge = edge,
+		height = height
+	)
 
 	GenericCalculatePage(
 		windowSize = windowSize,
@@ -113,31 +119,27 @@ fun HexagonalLayout(
 		calculateFieldContent = {
 			CalculateFieldTwoInputs(
 				inputText =
-				if (selected == dataSourceCommon.radioTextFeet) dataSourceSpecific.inputTextFeet
-				else dataSourceSpecific.inputTextInches,
+				when (selected) {
+					// Inches
+					dataSourceCommon.radioTextInches -> {
+						dataSourceSpecific.inputTextInches
+					}
+
+					// Feet
+					else -> {
+						dataSourceSpecific.inputTextFeet
+					}
+				},
 				inputValue1 = inputEdge,
 				inputValue2 = inputHeight,
 				equalsText = dataSourceCommon.equalsText,
 				calculateContent = {
-					when (selected) {
-						dataSourceCommon.radioTextInches -> {
-							TankVolumeResults(
-								contentColor = contentColor,
-								calculatedValue1 = volGallon,
-								calculatedValue2 = volLiter,
-								calculatedValue3 = waterWeight
-							)
-						}
-
-						else -> {
-							TankVolumeResults(
-								contentColor = contentColor,
-								calculatedValue1 = volGallonFT,
-								calculatedValue2 = volLiterFT,
-								calculatedValue3 = waterWeightFT
-							)
-						}
-					}
+					TankVolumeResultsString(
+						contentColor = contentColor,
+						calculatedValue1 = dimensions.calculateVolumeGallons(),
+						calculatedValue2 = dimensions.calculateVolumeLiters(),
+						calculatedValue3 = dimensions.calculateWaterWeightPounds()
+					)
 				},
 				containerColor = containerColor,
 				contentColor = color
@@ -146,7 +148,7 @@ fun HexagonalLayout(
 		imageContent = {
 			CalculateImageTitle(
 				image = dataSourceSpecific.image,
-				contentDescription = Hexagonal.title,
+				contentDescription = view,
 				color = color
 			)
 		}
@@ -156,84 +158,6 @@ fun HexagonalLayout(
 			contentColor = color
 		)
 	}
-}
-
-@VisibleForTesting
-fun calculateVolGallonHex(
-	edge: Double,
-	height: Double
-): String {
-	val volGallons = (((3 * kotlin.math.sqrt(3.0)) / 2) * edge * edge * height) / 231.0
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(volGallons)
-}
-
-@VisibleForTesting
-fun calculateVolLiterHex(
-	edge: Double,
-	height: Double
-): String {
-	val volLiters = (((3 * kotlin.math.sqrt(3.0)) / 2) * edge * edge * height) / 61.0237
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(volLiters)
-}
-
-@VisibleForTesting
-fun calculateWaterWeightHex(
-	edge: Double,
-	height: Double
-): String {
-	val waterWeight = ((((3 * kotlin.math.sqrt(3.0)) / 2) * edge * edge * height) / 231.0) * 8.33
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(waterWeight)
-}
-
-@VisibleForTesting
-fun calculateVolGallonFTHex(
-	edge: Double,
-	height: Double
-): String {
-	val volGallons = (((3 * kotlin.math.sqrt(3.0)) / 2) * edge * edge * height) / 0.133681
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(volGallons)
-}
-
-@VisibleForTesting
-fun calculateVolLiterFTHex(
-	edge: Double,
-	height: Double
-): String {
-	val volLiters = (((3 * kotlin.math.sqrt(3.0)) / 2) * edge * edge * height) / 0.0353147
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(volLiters)
-}
-
-@VisibleForTesting
-fun calculateWaterWeightFTHex(
-	edge: Double,
-	height: Double
-): String {
-	val waterWeight = ((((3 * kotlin.math.sqrt(3.0)) / 2) * edge * edge * height) / 0.133681) * 8.33
-
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(waterWeight)
 }
 
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)

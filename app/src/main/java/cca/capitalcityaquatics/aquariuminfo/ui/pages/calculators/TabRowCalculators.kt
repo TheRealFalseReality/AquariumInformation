@@ -77,7 +77,7 @@ fun CalculatorsTabRow(
 							selected = pagerState.currentPage == index,
 							onClick = {
 								coroutineScope.launch {
-									pagerState.animateScrollToPage(index)
+									pagerState.scrollToPage(index)
 								}
 							},
 							selectedContentColor = selectedColor,
@@ -112,7 +112,8 @@ fun CalculatorsTabRow(
 							selected = pagerState.currentPage == index,
 							onClick = {
 								coroutineScope.launch {
-									pagerState.animateScrollToPage(index)
+									pagerState.scrollToPage(index)
+//									pagerState.animateScrollToPage(index)
 								}
 							},
 							selectedContentColor = selectedColor,
@@ -139,6 +140,7 @@ fun CalculatorsTabRow(
 		}
 		HorizontalPager(
 			state = pagerState,
+			beyondBoundsPageCount = 6,
 		) {
 			when (pagerState.currentPage) {
 				0 -> {

@@ -1,6 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators
 
-import androidx.annotation.VisibleForTesting
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,9 +22,11 @@ import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.temperatureDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
+import cca.capitalcityaquatics.aquariuminfo.model.calculators.CalculatorMethods
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.BodyText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateField
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedText
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedTextString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatorSubtitleThree
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaStringContent
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
@@ -33,8 +35,6 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonTwoUnits
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCardExpandableRadio
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
-import java.math.RoundingMode
-import java.text.DecimalFormat
 
 @Composable
 fun TemperaturePage(windowSize: WindowSizeClass) {
@@ -43,6 +43,7 @@ fun TemperaturePage(windowSize: WindowSizeClass) {
 	}
 }
 
+@SuppressLint("VisibleForTests")
 @Composable
 fun TemperatureLayout(
 	windowSize: WindowSizeClass,
@@ -57,11 +58,8 @@ fun TemperatureLayout(
 	var selected by rememberSaveable {
 		mutableIntStateOf(dataSource.radioTextCelsius)
 	}
-	val temp = inputTemperature.toDoubleOrNull() ?: 0.0
-	val celsius = calculateCelsius(temp).toDoubleOrNull() ?: 0.0
-	val kelvinCelsius = calculateKelvinCel(temp).toDoubleOrNull() ?: 0.0
-	val kelvinFahrenheit = calculateKelvinFah(temp).toDoubleOrNull() ?: 0.0
-	val fahrenheit = calculateFahrenheit(temp).toDoubleOrNull() ?: 0.0
+	val temperature = inputTemperature.toDoubleOrNull() ?: 0.0
+	val parameters = CalculatorMethods(selected = selected, temperature = temperature)
 
 	GenericCalculatePage(
 		windowSize = windowSize,
@@ -113,51 +111,54 @@ fun TemperatureLayout(
 			)
 		},
 		calculateFieldContent = {
-			when (selected) {
-				dataSource.radioTextFahrenheit -> {
-					CalculateField(
-						inputText = dataSource.inputTextFahrenheit,
-						inputValue = inputTemperature,
-						equalsText = dataSource.equalsText,
-						contentColor = color,
-						containerColor = containerColor,
-						calculateContent = {
-							CalculatedText(
-								text = dataSource.calculatedTextCelsius,
-								calculatedValue = celsius,
-								textColor = contentColor,
-							)
-							CalculatedText(
-								text = dataSource.calculatedTextKelvin,
-								calculatedValue = kelvinFahrenheit,
-								textColor = contentColor,
-							)
-						}
-					)
-				}
+			CalculateField(
+				inputText =
+				when (selected) {
+					// Fahrenheit
+					dataSource.radioTextFahrenheit -> {
+						dataSource.inputTextFahrenheit
+					}
 
-				else -> {
-					CalculateField(
-						inputText = dataSource.inputTextCelsius,
-						inputValue = inputTemperature,
-						equalsText = dataSource.equalsText,
-						contentColor = color,
-						containerColor = containerColor,
-						calculateContent = {
-							CalculatedText(
-								text = dataSource.calculatedTextFahrenheit,
-								calculatedValue = fahrenheit,
+					// Celsius
+					else -> {
+						dataSource.inputTextCelsius
+					}
+				},
+				inputValue = inputTemperature,
+				calculateContent = {
+					when (selected) {
+						// Fahrenheit
+						dataSource.radioTextFahrenheit -> {
+							CalculatedTextString(
+								text = dataSource.calculatedTextCelsius,
+								calculatedValue = parameters.calculateTemperature(),
 								textColor = contentColor,
 							)
-							CalculatedText(
+							CalculatedTextString(
 								text = dataSource.calculatedTextKelvin,
-								calculatedValue = kelvinCelsius,
+								calculatedValue = parameters.calculateTemperatureKelvin(),
 								textColor = contentColor,
 							)
 						}
-					)
-				}
-			}
+
+						// Celsius
+						else -> {
+							CalculatedTextString(
+								text = dataSource.calculatedTextCelsius,
+								calculatedValue = parameters.calculateTemperature(),
+								textColor = contentColor,
+							)
+							CalculatedTextString(
+								text = dataSource.calculatedTextKelvin,
+								calculatedValue = parameters.calculateTemperatureKelvin(),
+								textColor = contentColor,
+							)
+						}
+					}
+				},
+				contentColor = color,
+				containerColor = containerColor,
+			)
 		}
 	) {
 		FormulaStringContent(
@@ -181,50 +182,6 @@ fun TemperatureLayout(
 			}
 		)
 	}
-}
-
-@VisibleForTesting
-fun calculateCelsius(
-	temp: Double,
-): String {
-	val celsius = (temp - 32) * (5.0 / 9.0)
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(celsius)
-}
-
-@VisibleForTesting
-fun calculateFahrenheit(
-	temp: Double
-): String {
-	val fahrenheit = (temp * (9.0 / 5.0) + 32)
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(fahrenheit)
-}
-
-@VisibleForTesting
-fun calculateKelvinFah(
-	temp: Double,
-): String {
-	val kelvin = ((temp - 32) * (5.0 / 9.0)) + 273.15
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(kelvin)
-}
-
-@VisibleForTesting
-fun calculateKelvinCel(
-	temp: Double,
-): String {
-	val kelvin = (temp + 273.15)
-	val df = DecimalFormat("#.##")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(kelvin)
 }
 
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)

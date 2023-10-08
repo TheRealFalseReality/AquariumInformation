@@ -1,6 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators
 
-import androidx.annotation.VisibleForTesting
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,8 +21,9 @@ import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
+import cca.capitalcityaquatics.aquariuminfo.model.calculators.CalculatorMethods
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateField
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedText
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedTextString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatorSubtitleThree
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
@@ -31,6 +32,7 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonThreeUnits
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCardExpandableRadio
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
+import com.google.android.gms.common.util.VisibleForTesting
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
@@ -41,6 +43,7 @@ fun AlkalinityPage(windowSize: WindowSizeClass) {
 	}
 }
 
+@SuppressLint("VisibleForTests")
 @Composable
 fun AlkalinityLayout(
 	windowSize: WindowSizeClass,
@@ -55,13 +58,8 @@ fun AlkalinityLayout(
 	var selected by rememberSaveable {
 		mutableIntStateOf(dataSource.radioTextDkh)
 	}
-	val alk = inputAlk.toDoubleOrNull() ?: 0.0
-	val ppmDKH = calculatePpmDkh(alk).toDoubleOrNull() ?: 0.0
-	val dkhPPM = calculateDkhPpm(alk).toDoubleOrNull() ?: 0.0
-	val meqDKH = calculateMeqDkh(alk).toDoubleOrNull() ?: 0.0
-	val meqPPM = calculateMeqPpm(alk).toDoubleOrNull() ?: 0.0
-	val ppmMEQ = calculatePpmMeq(alk).toDoubleOrNull() ?: 0.0
-	val dkhMEQ = calculateDkhMeq(alk).toDoubleOrNull() ?: 0.0
+	val alkalinity = inputAlk.toDoubleOrNull() ?: 0.0
+	val parameters = CalculatorMethods(selected = selected, alkalinity = alkalinity)
 
 	GenericCalculatePage(
 		windowSize = windowSize,
@@ -116,73 +114,74 @@ fun AlkalinityLayout(
 			)
 		},
 		calculateFieldContent = {
-			when (selected) {
-				dataSource.radioTextPpm -> {
-					CalculateField(
-						inputText = dataSource.inputTextPpm,
-						inputValue = inputAlk,
-						equalsText = dataSource.equalsText,
-						contentColor = color,
-						containerColor = containerColor,
-						calculateContent = {
-							CalculatedText(
-								text = dataSource.calculatedTextDkh,
-								calculatedValue = dkhPPM,
-								textColor = contentColor,
-							)
-							CalculatedText(
-								text = dataSource.calculatedTextMeq,
-								calculatedValue = meqPPM,
-								textColor = contentColor,
-							)
-						}
-					)
-				}
+			CalculateField(
+				inputText =
+				when (selected) {
+					// ppm
+					dataSource.radioTextPpm -> {
+						dataSource.inputTextPpm
+					}
 
-				dataSource.radioTextMeq -> {
-					CalculateField(
-						inputText = dataSource.inputTextMeq,
-						inputValue = inputAlk,
-						equalsText = dataSource.equalsText,
-						contentColor = color,
-						containerColor = containerColor,
-						calculateContent = {
-							CalculatedText(
-								text = dataSource.calculatedTextDkh,
-								calculatedValue = dkhMEQ,
-								textColor = contentColor,
-							)
-							CalculatedText(
-								text = dataSource.calculatedTextPpm,
-								calculatedValue = ppmMEQ,
-								textColor = contentColor,
-							)
-						}
-					)
-				}
+					// meq/L
+					dataSource.radioTextMeq -> {
+						dataSource.inputTextMeq
+					}
 
-				else -> {
-					CalculateField(
-						inputText = dataSource.inputTextDkh,
-						inputValue = inputAlk,
-						equalsText = dataSource.equalsText,
-						contentColor = color,
-						containerColor = containerColor,
-						calculateContent = {
-							CalculatedText(
-								text = dataSource.calculatedTextPpm,
-								calculatedValue = ppmDKH,
+					// dKH
+					else -> {
+						dataSource.inputTextDkh
+					}
+				},
+				inputValue = inputAlk,
+				calculateContent = {
+					when (selected) {
+						// ppm
+						dataSource.radioTextPpm -> {
+							CalculatedTextString(
+								text = dataSource.calculatedTextDkh,
+								calculatedValue = parameters.calculateAlkalinityDKH(),
 								textColor = contentColor,
 							)
-							CalculatedText(
+							CalculatedTextString(
 								text = dataSource.calculatedTextMeq,
-								calculatedValue = meqDKH,
+								calculatedValue = parameters.calculateAlkalinityMEQ(),
 								textColor = contentColor,
 							)
 						}
-					)
-				}
-			}
+
+						// meq/L
+						dataSource.radioTextMeq -> {
+							CalculatedTextString(
+								text = dataSource.calculatedTextDkh,
+								calculatedValue = parameters.calculateAlkalinityDKH(),
+								textColor = contentColor,
+							)
+							CalculatedTextString(
+								text = dataSource.calculatedTextPpm,
+								calculatedValue = parameters.calculateAlkalinityPPM(),
+								textColor = contentColor,
+							)
+						}
+
+						// dKH
+						else -> {
+							CalculatedTextString(
+								text = dataSource.calculatedTextPpm,
+								calculatedValue = parameters.calculateAlkalinityPPM(),
+								textColor = contentColor,
+							)
+							CalculatedTextString(
+								text = dataSource.calculatedTextMeq,
+								calculatedValue = parameters.calculateAlkalinityMEQ(),
+								textColor = contentColor,
+							)
+						}
+					}
+				},
+				contentColor = color,
+				equalsText = dataSource.equalsText,
+				containerColor = containerColor
+			)
 		}
 	) {
 		FormulaString(

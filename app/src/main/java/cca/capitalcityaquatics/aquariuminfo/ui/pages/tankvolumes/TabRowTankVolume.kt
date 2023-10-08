@@ -67,7 +67,7 @@ fun TankVolumeTabRow(
 							selected = pagerState.currentPage == index,
 							onClick = {
 								coroutineScope.launch {
-									pagerState.animateScrollToPage(index)
+									pagerState.scrollToPage(index)
 								}
 							},
 							selectedContentColor = selectedColor,
@@ -102,7 +102,7 @@ fun TankVolumeTabRow(
 							selected = pagerState.currentPage == index,
 							onClick = {
 								coroutineScope.launch {
-									pagerState.animateScrollToPage(index)
+									pagerState.scrollToPage(index)
 								}
 							},
 							selectedContentColor = selectedColor,
@@ -129,6 +129,7 @@ fun TankVolumeTabRow(
 		}
 		HorizontalPager(
 			state = pagerState,
+			beyondBoundsPageCount = 6,
 		) {
 			when (pagerState.currentPage) {
 				0 -> {
