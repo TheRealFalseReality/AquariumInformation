@@ -1,12 +1,7 @@
 package cca.capitalcityaquatics.aquariuminfo.calculators
 
-import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.temperatureDataSource
 import cca.capitalcityaquatics.aquariuminfo.model.calculators.CalculatorMethods
-import cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators.calculateCelsius
-import cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators.calculateFahrenheit
-import cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators.calculateKelvinCel
-import cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators.calculateKelvinFah
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
