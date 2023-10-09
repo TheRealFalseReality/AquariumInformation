@@ -6,7 +6,6 @@ import cca.capitalcityaquatics.aquariuminfo.navigation.BowFront
 import cca.capitalcityaquatics.aquariuminfo.navigation.Cube
 import cca.capitalcityaquatics.aquariuminfo.navigation.Cylinder
 import cca.capitalcityaquatics.aquariuminfo.navigation.Hexagonal
-import com.google.android.gms.common.util.Hex
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.PI

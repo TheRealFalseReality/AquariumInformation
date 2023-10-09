@@ -1,7 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.tankvolumes
 
 import android.annotation.SuppressLint
-import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -23,7 +22,6 @@ import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.hexagonalDataSource
 import cca.capitalcityaquatics.aquariuminfo.model.tankvolumes.TankVolumeMethods
-import cca.capitalcityaquatics.aquariuminfo.navigation.Cylinder
 import cca.capitalcityaquatics.aquariuminfo.navigation.Hexagonal
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldTwoInputs
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateImageTitle
@@ -34,11 +32,8 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputRowNumberFieldTwoIn
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonTwoUnits
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCardExpandableRadio
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TankVolumeResults
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TankVolumeResultsString
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
-import java.math.RoundingMode
-import java.text.DecimalFormat
 
 @Composable
 fun HexagonalPage(windowSize: WindowSizeClass) {

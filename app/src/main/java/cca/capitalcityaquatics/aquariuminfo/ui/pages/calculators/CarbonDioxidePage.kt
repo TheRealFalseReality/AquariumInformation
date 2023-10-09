@@ -20,7 +20,6 @@ import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSourc
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.carbonDioxideDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.model.calculators.CalculatorMethods
-import cca.capitalcityaquatics.aquariuminfo.navigation.BowFront
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldTwoInputs
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedTextString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaString

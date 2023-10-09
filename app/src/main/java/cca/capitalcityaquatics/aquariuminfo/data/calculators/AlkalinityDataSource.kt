@@ -32,5 +32,4 @@ val alkalinityDataSource =
 		conversionPPMMEQ = 50.00,
 		conversionMEQDKH = 0.357,
 		conversionMEQPPM = 0.02,
-
 	)

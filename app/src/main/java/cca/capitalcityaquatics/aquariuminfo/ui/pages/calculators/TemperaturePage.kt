@@ -25,7 +25,6 @@ import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSourc
 import cca.capitalcityaquatics.aquariuminfo.model.calculators.CalculatorMethods
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.BodyText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateField
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedTextString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatorSubtitleThree
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaStringContent
