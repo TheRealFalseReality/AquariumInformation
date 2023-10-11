@@ -15,6 +15,7 @@ import androidx.compose.material3.TabRow
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.material3.windowsizeclass.WindowHeightSizeClass
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
@@ -50,7 +51,7 @@ fun CalculatorsTabRow(
 	)
 //	val indicatorAnimated = @Composable { tabPositions: List<TabPosition> ->
 //		FancyAnimatedIndicator(
-//			Modifier.pagerTabIndicatorOffset(pagerState, tabPositions),
+//			Modifier.tabIndicatorOffset(tabPositions[pagerState.currentPage]),
 //			tabPositions = tabPositions,
 //			selectedTabIndex = state,
 //			indicatorColor = selectedColor
@@ -69,8 +70,8 @@ fun CalculatorsTabRow(
 		when (windowSize.widthSizeClass) {
 			WindowWidthSizeClass.Compact -> {
 				ScrollableTabRow(
-					indicator = indicator,
 					selectedTabIndex = pagerState.currentPage,
+					indicator = indicator,
 				) {
 					tabs.forEachIndexed { index, tab ->
 						Tab(
@@ -102,38 +103,71 @@ fun CalculatorsTabRow(
 				}
 			}
 
-			WindowWidthSizeClass.Expanded, WindowWidthSizeClass.Medium -> {
+			else -> {
 				TabRow(
 					selectedTabIndex = pagerState.currentPage,
 					indicator = indicator,
 				) {
-					tabs.forEachIndexed { index, tab ->
-						LeadingIconTab(
-							selected = pagerState.currentPage == index,
-							onClick = {
-								coroutineScope.launch {
-									pagerState.scrollToPage(index)
-//									pagerState.animateScrollToPage(index)
-								}
-							},
-							selectedContentColor = selectedColor,
-							unselectedContentColor = unselectedColor,
-							text = {
-								Text(
-									text = stringResource(id = tab.title),
-									maxLines = 1,
-									overflow = TextOverflow.Ellipsis
-								)
-							},
-							icon = {
-								Icon(
-									painter =
-									if (pagerState.currentPage == index) painterResource(id = tab.iconFilled)
-									else painterResource(id = tab.icon),
-									contentDescription = stringResource(id = tab.title)
+					when (windowSize.heightSizeClass) {
+						WindowHeightSizeClass.Compact -> {
+							tabs.forEachIndexed { index, tab ->
+								LeadingIconTab(
+									selected = pagerState.currentPage == index,
+									onClick = {
+										coroutineScope.launch {
+											pagerState.scrollToPage(index)
+										}
+									},
+									selectedContentColor = selectedColor,
+									unselectedContentColor = unselectedColor,
+									text = {
+										Text(
+											text = stringResource(id = tab.title),
+											maxLines = 1,
+											overflow = TextOverflow.Ellipsis
+										)
+									},
+									icon = {
+										Icon(
+											painter =
+											if (pagerState.currentPage == index) painterResource(id = tab.iconFilled)
+											else painterResource(id = tab.icon),
+											contentDescription = stringResource(id = tab.title)
+										)
+									}
 								)
 							}
-						)
+						}
+
+						else -> {
+							tabs.forEachIndexed { index, tab ->
+								Tab(
+									selected = pagerState.currentPage == index,
+									onClick = {
+										coroutineScope.launch {
+											pagerState.scrollToPage(index)
+										}
+									},
+									selectedContentColor = selectedColor,
+									unselectedContentColor = unselectedColor,
+									text = {
+										Text(
+											text = stringResource(id = tab.title),
+											maxLines = 1,
+											overflow = TextOverflow.Ellipsis
+										)
+									},
+									icon = {
+										Icon(
+											painter =
+											if (pagerState.currentPage == index) painterResource(id = tab.iconFilled)
+											else painterResource(id = tab.icon),
+											contentDescription = stringResource(id = tab.title)
+										)
+									}
+								)
+							}
+						}
 					}
 				}
 			}
@@ -155,7 +189,12 @@ fun CalculatorsTabRow(
 					TemperaturePage(windowSize = windowSize)
 				}
 
-				3 -> CarbonDioxidePage(windowSize = windowSize)
+				3 -> {
+					CarbonDioxidePage(windowSize = windowSize)
+				}
+				4 -> {
+					DosingPage(windowSize = windowSize)
+				}
 			}
 		}
 

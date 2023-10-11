@@ -37,6 +37,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
@@ -250,6 +251,29 @@ fun HeaderText(
 }
 
 @Composable
+fun LabelText(
+	modifier: Modifier = Modifier,
+	@StringRes text: Int,
+	style: TextStyle = MaterialTheme.typography.titleMedium,
+	textAlign: TextAlign = TextAlign.Center,
+	color: Color = MaterialTheme.colorScheme.outline,
+	textDecoration: TextDecoration = TextDecoration.None,
+	maxLines: Int = 1,
+) {
+	Column(modifier = modifier) {
+		Text(
+			text = stringResource(id = text),
+			style = style,
+			textAlign = textAlign,
+			color = color,
+			textDecoration = textDecoration,
+			maxLines = maxLines,
+			overflow = TextOverflow.Ellipsis,
+		)
+	}
+}
+
+@Composable
 fun BodyText(
 	modifier: Modifier = Modifier,
 	@StringRes text: Int,
@@ -258,7 +282,8 @@ fun BodyText(
 	color: Color = MaterialTheme.colorScheme.onBackground,
 	textDecoration: TextDecoration = TextDecoration.None,
 	fontWeight: FontWeight = FontWeight.Normal,
-	fontStyle: FontStyle = FontStyle.Normal
+	fontStyle: FontStyle = FontStyle.Normal,
+	maxLines: Int = Int.MAX_VALUE,
 ) {
 	Column(modifier = modifier) {
 		Text(
@@ -268,7 +293,8 @@ fun BodyText(
 			color = color,
 			textDecoration = textDecoration,
 			fontWeight = fontWeight,
-			fontStyle = fontStyle
+			fontStyle = fontStyle,
+			maxLines = maxLines
 		)
 	}
 }
@@ -357,6 +383,7 @@ fun RadioText(
 			color = color,
 			style = style,
 			textAlign = textAlign,
+			maxLines = 2,
 		)
 	}
 }

@@ -38,7 +38,6 @@ import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSourc
 
 @Composable
 fun InputNumberField(
-	// TODO Add error
 	modifier: Modifier = Modifier,
 	@StringRes label: Int,
 	@StringRes placeholder: Int = R.string.placeholder_enter,
@@ -416,7 +415,7 @@ fun InputNumberFieldThreeInputs(
 }
 
 @Composable
-fun InputNumberFieldThreeStackedInputs(
+fun InputNumberFieldThreeInputsStacked(
 	modifier: Modifier = Modifier,
 	@StringRes label1: Int,
 	@StringRes placeholder1: Int = R.string.placeholder_enter,
@@ -693,30 +692,12 @@ fun CalculateFieldThreeInputs(
 }
 
 @Composable
-fun CalculatedText(
-	modifier: Modifier = Modifier,
-	@StringRes text: Int,
-	calculatedValue: Double,
-	textColor: Color
-) {
-	Column(modifier = modifier) {
-		Text(
-			modifier = Modifier
-				.align(Alignment.CenterHorizontally),
-			text = stringResource(id = text, calculatedValue),
-			fontSize = 20.sp,
-			fontWeight = FontWeight.Bold,
-			color = textColor
-		)
-	}
-}
-
-@Composable
 fun CalculatedTextString(
 	modifier: Modifier = Modifier,
 	@StringRes text: Int,
 	calculatedValue: String,
-	textColor: Color
+	textColor: Color,
+	maxLines: Int = 1
 ) {
 	Column(modifier = modifier) {
 		Text(
@@ -725,7 +706,8 @@ fun CalculatedTextString(
 			text = stringResource(id = text, calculatedValue),
 			fontSize = 20.sp,
 			fontWeight = FontWeight.Bold,
-			color = textColor
+			color = textColor,
+			maxLines = maxLines
 		)
 	}
 }

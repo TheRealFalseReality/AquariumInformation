@@ -623,4 +623,8 @@
     <string name="more_information">More Information</string>
     <string name="placeholder_enter">Enter</string>
     <string name="dimension_reference">Dimension Reference</string>
+    <string name="dosing">Dosing</string>
+    <string name="treatment">Treatment</string>
+    <string name="water">Water</string>
+    <string name="aquarium">Aquarium Size</string>
 </resources>

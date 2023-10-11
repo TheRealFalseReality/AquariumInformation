@@ -147,11 +147,11 @@ object HomeInfo : Destinations {
 object Doser : Destinations {
 	override val icon = R.drawable.ic_sanitizer
 	override val iconFilled = R.drawable.ic_sanitizer_filled
-	override val route = "home_info" // TODO
-	override val title = R.string.more_information // TODO
+	override val route = "dosing"
+	override val title = R.string.dosing
 }
 
 val bottomNavRow = listOf(Overview, Calculators, TankVolume, FishCompatibility)
 val compatibilityTabRow = listOf(FishCompatibilityFreshwater, FishCompatibilityMarine)
-val calculatorsTabRow = listOf(Salinity, Alkalinity, Temperature, CarbonDioxide)
+val calculatorsTabRow = listOf(Salinity, Alkalinity, Temperature, CarbonDioxide, Doser)
 val tankVolumeTabRow = listOf(Rectangle, Cube, Cylinder, Hexagonal, BowFront)

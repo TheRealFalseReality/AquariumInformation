@@ -93,7 +93,8 @@ fun HexagonalLayout(
 						textColor = color
 					)
 				},
-				contentColor = color
+				contentColor = color,
+				selected = selected
 			)
 		},
 		inputFieldContent = {

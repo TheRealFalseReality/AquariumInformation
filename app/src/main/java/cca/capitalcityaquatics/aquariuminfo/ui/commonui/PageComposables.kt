@@ -63,7 +63,7 @@ fun GenericCalculatePage(
 	inputFieldContent: @Composable () -> Unit,
 	calculateFieldContent: @Composable () -> Unit,
 	imageContent: @Composable (() -> Unit)? = null,
-	formulaContent: @Composable () -> Unit
+	formulaContent: @Composable (() -> Unit)? = null,
 ) {
 	when (windowSize.widthSizeClass) {
 		WindowWidthSizeClass.Expanded -> {
@@ -111,13 +111,17 @@ fun GenericCalculatePage(
 						modifier = Modifier.weight(1f),
 						horizontalAlignment = Alignment.CenterHorizontally,
 					) {
-						formulaContent()
+						if (formulaContent != null) {
+							formulaContent()
+						}
 					}
 				} else {
 					Column(
 						horizontalAlignment = Alignment.CenterHorizontally,
 					) {
-						formulaContent()
+						if (formulaContent != null) {
+							formulaContent()
+						}
 					}
 				}
 			}
@@ -138,7 +142,9 @@ fun GenericCalculatePage(
 				imageContent()
 			}
 			SmallSpacer()
-			formulaContent()
+			if (formulaContent != null) {
+				formulaContent()
+			}
 		}
 	}
 }

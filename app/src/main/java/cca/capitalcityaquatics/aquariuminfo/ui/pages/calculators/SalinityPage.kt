@@ -58,7 +58,7 @@ fun SalinityLayout(
 		mutableIntStateOf(dataSource.radioTextPpt)
 	}
 	val tds = inputSal.toDoubleOrNull() ?: 0.0
-	val parameters = SalinityMethods(selected = selected, tds = tds)
+	val parameters = SalinityMethods(tds = tds)
 
 	GenericCalculatePage(
 		windowSize = windowSize,
@@ -85,7 +85,8 @@ fun SalinityLayout(
 						selectedColor = color,
 						textColor = color
 					)
-				}, contentColor = color
+				}, contentColor = color,
+				selected = selected
 			)
 		},
 		inputFieldContent = {
@@ -133,7 +134,7 @@ fun SalinityLayout(
 							)
 							CalculatedTextString(
 								text = dataSource.calculatedTextPpt,
-								calculatedValue = parameters.calculateSalinity(),
+								calculatedValue = parameters.calculateSalinitySG(),
 								textColor = contentColor,
 							)
 						}
@@ -146,7 +147,7 @@ fun SalinityLayout(
 							)
 							CalculatedTextString(
 								text = dataSource.calculatedTextPpt,
-								calculatedValue = parameters.calculateSpecificGravity(),
+								calculatedValue = parameters.calculateSpecificGravityPPT(),
 								textColor = contentColor,
 							)
 						}

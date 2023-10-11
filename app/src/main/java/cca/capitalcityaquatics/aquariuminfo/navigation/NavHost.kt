@@ -120,6 +120,9 @@ fun AquariumNavHost(
 		composable(route = BowFront.route) {
 			TankVolumeTabRow(selectedState = 4, windowSize = windowSize)
 		}
+		composable(route = Doser.route) {
+			CalculatorsTabRow(selectedState = 4, windowSize = windowSize)
+		}
 	}
 }
 

@@ -87,6 +87,7 @@ fun AlkalinityLayout(
 					)
 				},
 				contentColor = color,
+				selected = selected
 			)
 		},
 		inputFieldContent = {

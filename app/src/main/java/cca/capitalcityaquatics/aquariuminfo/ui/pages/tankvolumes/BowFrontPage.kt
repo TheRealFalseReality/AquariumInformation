@@ -103,7 +103,8 @@ fun BowFrontLayout(
 						textColor = color
 					)
 				},
-				contentColor = color
+				contentColor = color,
+				selected = selected
 			)
 		},
 		inputFieldContent = {

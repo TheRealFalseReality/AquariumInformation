@@ -28,7 +28,7 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateImageTitle
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatorSubtitleTwo
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberFieldThreeStackedInputs
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberFieldThreeInputsStacked
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonTwoUnits
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCardExpandableRadio
@@ -99,10 +99,11 @@ fun RectangleLayout(
 					)
 				},
 				contentColor = color,
+				selected = selected
 			)
 		},
 		inputFieldContent = {
-			InputNumberFieldThreeStackedInputs(
+			InputNumberFieldThreeInputsStacked(
 				label1 = dataSourceCommon.labelLength,
 				label2 = dataSourceCommon.labelWidth,
 				label3 = dataSourceCommon.labelHeight,

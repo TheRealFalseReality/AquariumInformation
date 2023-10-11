@@ -169,6 +169,7 @@ fun SingleWideCardExpandableRadio(
 	expandedState: Boolean = false,
 	dampingRatio: Float = Spring.DampingRatioLowBouncy,
 	stiffness: Float = Spring.StiffnessLow,
+	selected: Int,
 ) {
 	var expanded by remember {
 		mutableStateOf(expandedState)
@@ -221,6 +222,13 @@ fun SingleWideCardExpandableRadio(
 									style = headerStyle
 								)
 								subtitleContent()
+							}
+							if (!expanded) {
+								LabelText(
+									text = selected,
+									maxLines = 2,
+									style = MaterialTheme.typography.labelMedium
+								)
 							}
 							IconButton(
 								onClick = { expanded = !expanded },
@@ -359,41 +367,6 @@ fun SingleWideCardExpandableFull(
 				}
 			}
 		}
-	}
-}
-
-@Composable
-fun TankVolumeResults(
-	modifier: Modifier = Modifier,
-	contentColor: Color,
-	calculatedValue1: Double,
-	calculatedValue2: Double,
-	calculatedValue3: Double,
-) {
-	Column(
-		modifier = modifier,
-		horizontalAlignment = Alignment.CenterHorizontally
-	) {
-		CalculatedText(
-			text = calculatorDataSource.calculatedTextGallons,
-			calculatedValue = calculatedValue1,
-			textColor = contentColor,
-		)
-		CalculatedText(
-			text = calculatorDataSource.calculatedTextLiters,
-			calculatedValue = calculatedValue2,
-			textColor = contentColor,
-		)
-		VerySmallSpacer()
-		BodyText(
-			text = calculatorDataSource.labelWaterWeight,
-			color = contentColor
-		)
-		CalculatedText(
-			text = calculatorDataSource.calculatedTextWaterWeight,
-			calculatedValue = calculatedValue3,
-			textColor = contentColor,
-		)
 	}
 }
 
@@ -705,7 +678,10 @@ fun RadioRowPreview() {
 fun SingleWideCardExpandablePreviewDark(
 ) {
 	AquariumInformationTheme(useDarkTheme = true) {
-		SingleWideCardExpandableRadio(header = calculatorDataSource.labelCylinderType)
+		SingleWideCardExpandableRadio(
+			header = calculatorDataSource.labelCylinderType,
+			selected = R.string.button_label_cel
+		)
 	}
 }
 

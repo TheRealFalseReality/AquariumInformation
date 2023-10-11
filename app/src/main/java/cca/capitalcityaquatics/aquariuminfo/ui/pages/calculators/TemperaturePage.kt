@@ -76,6 +76,7 @@ fun TemperatureLayout(
 				expandedState = true,
 				header = R.string.select_input_units,
 				contentColor = color,
+				selected = selected,
 				content = {
 					RadioButtonTwoUnits(
 						onClick1 = { selected = dataSource.radioTextCelsius },

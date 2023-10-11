@@ -105,7 +105,8 @@ fun CylinderLayout(
 						textColor = color
 					)
 				},
-				contentColor = color
+				contentColor = color,
+				selected = selected
 			)
 		},
 		optionsContent = {
@@ -135,6 +136,7 @@ fun CylinderLayout(
 					)
 				},
 				contentColor = color,
+				selected = selected
 			)
 		},
 		inputFieldContent = {

@@ -89,6 +89,7 @@ fun CubeLayout(
 					)
 				},
 				contentColor = color,
+				selected = selected
 			)
 		},
 		inputFieldContent = {

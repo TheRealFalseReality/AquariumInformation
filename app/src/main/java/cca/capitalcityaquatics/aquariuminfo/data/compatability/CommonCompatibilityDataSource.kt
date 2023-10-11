@@ -3,7 +3,6 @@ package cca.capitalcityaquatics.aquariuminfo.data.compatability
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.HeaderData
 
-
 val disclaimerDataSource =
 	HeaderData(
 		icon = R.drawable.ic_warning,

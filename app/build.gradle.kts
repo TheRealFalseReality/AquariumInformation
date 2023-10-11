@@ -15,7 +15,7 @@ plugins {
 
 val versionMajor = 2
 val versionMinor = 0
-val versionPatch = 6
+val versionPatch = 7
 
 android {
 	namespace = "cca.capitalcityaquatics.aquariuminfo"

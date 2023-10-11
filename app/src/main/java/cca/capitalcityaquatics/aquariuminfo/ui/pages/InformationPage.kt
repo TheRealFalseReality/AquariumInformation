@@ -189,55 +189,6 @@ fun InfoLayout(
 	}
 }
 
-//@OptIn(ExperimentalComposeUiApi::class)
-//@Composable
-//fun SearchBar(onSearch: (String) -> Unit) {
-//	var text by remember { mutableStateOf("") }
-//	val keyboardController = LocalSoftwareKeyboardController.current
-//	val focusManager = LocalFocusManager.current
-//
-//	TextField(
-//		value = text,
-//		onValueChange = { text = it },
-//		label = { Text("Search") },
-//		leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-//		modifier = Modifier.fillMaxWidth(),
-//		keyboardActions = KeyboardActions(onSearch = {
-//			onSearch(text)
-//			// Hide the keyboard after submitting the search
-//			keyboardController?.hide()
-//			//or hide keyboard
-//			focusManager.clearFocus()
-//
-//		})
-//	)
-//}
-
-//@Composable
-//fun ShareAppButton(
-//	modifier: Modifier = Modifier,
-//	text: String = stringResource(id = R.string.url_app),
-//	shareDialogText: String = stringResource(R.string.share_this_app),
-//	shareDialogTitle: String = stringResource(R.string.share),
-//) {
-//	val context = LocalContext.current
-//
-//	IconButton(
-//		modifier = modifier,
-//		onClick = {
-//			val shareIntent = Intent(Intent.ACTION_SEND)
-//			shareIntent.type = "text/plain"
-//			shareIntent.putExtra(Intent.EXTRA_TEXT, text)
-//			context.startActivity(Intent.createChooser(shareIntent, shareDialogTitle))
-//		}
-//	) {
-//		Icon(
-//			imageVector = Icons.Filled.Share,
-//			contentDescription = shareDialogText,
-//		)
-//	}
-//}
-
 @ExperimentalMaterial3Api
 @Preview(showBackground = true)
 @Composable
