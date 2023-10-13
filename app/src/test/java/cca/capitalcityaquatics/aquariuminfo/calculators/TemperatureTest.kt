@@ -16,7 +16,7 @@ class TempConverterTest {
 		val expectedCelsius = "0"
 		val expectedKelvin = "273.15"
 		val parameters = CalculatorMethods(selected = selected, temperature = temperature)
-		val actualCelsius = parameters.calculateTemperature()
+		val actualCelsius = parameters.convertTemperature()
 		val actualKelvin = parameters.calculateTemperatureKelvin()
 
 		assertEquals(expectedCelsius, actualCelsius)
@@ -31,7 +31,7 @@ class TempConverterTest {
 		val expectedCelsius = "-17.78"
 		val expectedKelvin = "255.37"
 		val parameters = CalculatorMethods(selected = selected, temperature = temperature)
-		val actualCelsius = parameters.calculateTemperature()
+		val actualCelsius = parameters.convertTemperature()
 		val actualKelvin = parameters.calculateTemperatureKelvin()
 
 		assertEquals(expectedCelsius, actualCelsius)
@@ -46,7 +46,7 @@ class TempConverterTest {
 		val expectedCelsius = "37.78"
 		val expectedKelvin = "310.93"
 		val parameters = CalculatorMethods(selected = selected, temperature = temperature)
-		val actualCelsius = parameters.calculateTemperature()
+		val actualCelsius = parameters.convertTemperature()
 		val actualKelvin = parameters.calculateTemperatureKelvin()
 
 		assertEquals(expectedCelsius, actualCelsius)
@@ -61,7 +61,7 @@ class TempConverterTest {
 		val expectedFah = "89.6"
 		val expectedKelvin = "305.15"
 		val parameters = CalculatorMethods(selected = selected, temperature = temperature)
-		val actualFah = parameters.calculateTemperature()
+		val actualFah = parameters.convertTemperature()
 		val actualKelvin = parameters.calculateTemperatureKelvin()
 
 		assertEquals(expectedFah, actualFah)
@@ -76,7 +76,7 @@ class TempConverterTest {
 		val expectedFah = "32"
 		val expectedKelvin = "273.15"
 		val parameters = CalculatorMethods(selected = selected, temperature = temperature)
-		val actualFah = parameters.calculateTemperature()
+		val actualFah = parameters.convertTemperature()
 		val actualKelvin = parameters.calculateTemperatureKelvin()
 
 		assertEquals(expectedFah, actualFah)
@@ -91,7 +91,7 @@ class TempConverterTest {
 		val expectedFah = "212"
 		val expectedKelvin = "373.15"
 		val parameters = CalculatorMethods(selected = selected, temperature = temperature)
-		val actualFah = parameters.calculateTemperature()
+		val actualFah = parameters.convertTemperature()
 		val actualKelvin = parameters.calculateTemperatureKelvin()
 
 		assertEquals(expectedFah, actualFah)

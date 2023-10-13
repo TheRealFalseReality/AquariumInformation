@@ -131,7 +131,7 @@ fun TemperatureLayout(
 						dataSource.radioTextFahrenheit -> {
 							CalculatedTextString(
 								text = dataSource.calculatedTextCelsius,
-								calculatedValue = parameters.calculateTemperature(),
+								calculatedValue = parameters.convertTemperature(),
 								textColor = contentColor,
 							)
 							CalculatedTextString(
@@ -145,7 +145,7 @@ fun TemperatureLayout(
 						else -> {
 							CalculatedTextString(
 								text = dataSource.calculatedTextCelsius,
-								calculatedValue = parameters.calculateTemperature(),
+								calculatedValue = parameters.convertTemperature(),
 								textColor = contentColor,
 							)
 							CalculatedTextString(

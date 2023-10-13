@@ -7,6 +7,7 @@ import androidx.annotation.StringRes
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDp
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.BorderStroke
@@ -43,6 +44,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.dimensionResource
@@ -174,6 +176,7 @@ fun SingleWideCardExpandableRadio(
 	var expanded by remember {
 		mutableStateOf(expandedState)
 	}
+	val alpha = animateFloatAsState(if (!expanded) 1f else 0f, label = "")
 
 	Column(modifier = modifier) {
 		OutlinedCard(
@@ -224,7 +227,9 @@ fun SingleWideCardExpandableRadio(
 								subtitleContent()
 							}
 							if (!expanded) {
+								MediumSpacerWidth()
 								LabelText(
+									modifier = modifier.alpha(alpha.value),
 									text = selected,
 									maxLines = 2,
 									style = MaterialTheme.typography.labelMedium
@@ -547,6 +552,147 @@ fun CalculatorSubtitleThree(
 		SmallSpacerWidth()
 		HeaderText(
 			text = text3,
+			color = contentColor
+		)
+	}
+}
+
+@Composable
+fun SalinityCalculatedString(
+	@StringRes label1: Int,
+	@StringRes inputText1: Int,
+	value1: String,
+	@StringRes label2: Int,
+	@StringRes inputText2: Int,
+	value2: String,
+	@StringRes label3: Int,
+	@StringRes inputText3: Int,
+	value3: String,
+	contentColor: Color
+) {
+	// Salinity // TODO
+	BodyText(
+		text = label1,
+		color = contentColor
+	)
+	CalculatedTextString(
+		text = inputText1,
+		calculatedValue = value1,
+		textColor = contentColor,
+	)
+	VerySmallSpacer()
+	// Density
+	BodyText(
+		text = label2,
+		color = contentColor
+	)
+	CalculatedTextString(
+		text = inputText2,
+		calculatedValue = value2,
+		textColor = contentColor,
+	)
+	VerySmallSpacer()
+	// Conductivity
+	BodyText(
+		text = label3,
+		color = contentColor
+	)
+	CalculatedTextString(
+		text = inputText3,
+		calculatedValue = value3,
+		textColor = contentColor,
+	)
+//	VerySmallSpacer()
+//	Row(
+//		verticalAlignment = Alignment.CenterVertically
+//	) {
+//		Column(
+//			modifier = Modifier
+//				.weight(1f),
+//			horizontalAlignment = Alignment.CenterHorizontally
+//		) {
+//			// Density
+//			BodyText(
+//				text = label2,
+//				color = contentColor
+//			)
+//			CalculatedTextString(
+//				text = inputText2,
+//				calculatedValue = value2,
+//				textColor = contentColor,
+//			)
+//		}
+//		Column(
+//			modifier = Modifier
+//			.weight(1f),
+//			horizontalAlignment = Alignment.CenterHorizontally
+//		) {
+//			// Conductivity
+//			BodyText(
+//				text = label3,
+//				color = contentColor
+//			)
+//			CalculatedTextString(
+//				text = inputText3,
+//				calculatedValue = value3,
+//				textColor = contentColor,
+//			)
+//		}
+//	}
+}
+
+@Composable
+fun CalculatorSubtitleFour(
+	contentColor: Color,
+	@StringRes text1: Int,
+	@StringRes text2: Int,
+	@StringRes text3: Int,
+	@StringRes text4: Int,
+) {
+	Row(
+		verticalAlignment = Alignment.CenterVertically
+	) {
+		HeaderText(
+			text = text1,
+			color = contentColor
+		)
+		SmallSpacerWidth()
+		Icon(
+			modifier = Modifier
+				.size(dimensionResource(id = R.dimen.icon_size_extremelySmall)),
+			painter = painterResource(id = R.drawable.ic_sync_alt),
+			contentDescription = null,
+			tint = contentColor
+		)
+		SmallSpacerWidth()
+		HeaderText(
+			text = text2,
+			color = contentColor
+		)
+		SmallSpacerWidth()
+		Icon(
+			modifier = Modifier
+				.size(dimensionResource(id = R.dimen.icon_size_extremelySmall)),
+			painter = painterResource(id = R.drawable.ic_sync_alt),
+			contentDescription = null,
+			tint = contentColor
+		)
+		SmallSpacerWidth()
+		HeaderText(
+			text = text3,
+			color = contentColor
+		)
+		SmallSpacerWidth()
+		Icon(
+			modifier = Modifier
+				.size(dimensionResource(id = R.dimen.icon_size_extremelySmall)),
+			painter = painterResource(id = R.drawable.ic_sync_alt),
+			contentDescription = null,
+			tint = contentColor
+		)
+		SmallSpacerWidth()
+		HeaderText(
+			text = text4,
 			color = contentColor
 		)
 	}

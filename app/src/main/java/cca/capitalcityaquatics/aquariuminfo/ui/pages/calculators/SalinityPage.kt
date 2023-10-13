@@ -1,6 +1,7 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators
 
 import android.annotation.SuppressLint
+import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,12 +26,13 @@ import cca.capitalcityaquatics.aquariuminfo.model.calculators.SalinityMethods
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.BodyText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateField
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedTextString
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatorSubtitleThree
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatorSubtitleFour
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberField
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonTwoUnits
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SalinityCalculatedString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCardExpandableRadio
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.VerySmallSpacer
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
@@ -52,22 +54,23 @@ fun SalinityLayout(
 ) {
 	val dataSource = salinityDataSource
 	var inputSal by rememberSaveable {
-		mutableStateOf("36")
+		mutableStateOf("1")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(dataSource.radioTextPpt)
+		mutableIntStateOf(dataSource.radioTextSalinity)
 	}
 	val tds = inputSal.toDoubleOrNull() ?: 0.0
-	val parameters = SalinityMethods(tds = tds)
+	val parameters = SalinityMethods(selected = selected, tds = tds)
 
 	GenericCalculatePage(
 		windowSize = windowSize,
 		subtitleContent = {
-			CalculatorSubtitleThree(
+			CalculatorSubtitleFour(
 				contentColor = color,
 				text1 = dataSource.subtitle1,
 				text2 = dataSource.subtitle2,
 				text3 = dataSource.subtitle3,
+				text4 = dataSource.subtitle4,
 			)
 		},
 		selectContent = {
@@ -77,10 +80,10 @@ fun SalinityLayout(
 				header = R.string.select_input_units,
 				content = {
 					RadioButtonTwoUnits(
-						onClick1 = { selected = dataSource.radioTextPpt },
-						onClick2 = { selected = dataSource.radioTextSg },
-						label1 = dataSource.radioTextPpt,
-						label2 = dataSource.radioTextSg,
+						onClick1 = { selected = dataSource.radioTextSalinity },
+						onClick2 = { selected = dataSource.radioTextSpecificGravity },
+						label1 = dataSource.radioTextSalinity,
+						label2 = dataSource.radioTextSpecificGravity,
 						selected = selected,
 						selectedColor = color,
 						textColor = color
@@ -93,10 +96,12 @@ fun SalinityLayout(
 			InputNumberField(
 				label =
 				when (selected) {
-					dataSource.radioTextSg -> {
+					// Specific Gravity
+					dataSource.radioTextSpecificGravity -> {
 						dataSource.labelSg
 					}
 
+					// Salinity
 					else -> {
 						dataSource.labelPpt
 					}
@@ -114,7 +119,7 @@ fun SalinityLayout(
 				inputText =
 				when (selected) {
 					// Specific Gravity
-					dataSource.radioTextSg -> {
+					dataSource.radioTextSpecificGravity -> {
 						dataSource.inputTextSg
 					}
 
@@ -127,52 +132,34 @@ fun SalinityLayout(
 				calculateContent = {
 					when (selected) {
 						// Specific Gravity
-						dataSource.radioTextSg -> {
-							BodyText(
-								text = dataSource.labelSalinity,
-								color = contentColor
-							)
-							CalculatedTextString(
-								text = dataSource.calculatedTextPpt,
-								calculatedValue = parameters.calculateSalinitySG(),
-								textColor = contentColor,
-							)
-						}
-
-						// Salinity
-						else -> {
-							BodyText(
-								text = dataSource.labelSpecificGravity,
-								color = contentColor
-							)
-							CalculatedTextString(
-								text = dataSource.calculatedTextPpt,
-								calculatedValue = parameters.calculateSpecificGravityPPT(),
-								textColor = contentColor,
-							)
-						}
-					}
-					VerySmallSpacer()
-					BodyText(
-						text = dataSource.labelDensity,
-						color = contentColor
-					)
-					when (selected) {
-						// Specific Gravity
-						dataSource.radioTextSg -> {
-							CalculatedTextString(
-								text = dataSource.calculatedTextDensity,
-								calculatedValue = parameters.calculateDensitySG(),
-								textColor = contentColor,
+						dataSource.radioTextSpecificGravity -> {
+							SalinityCalculatedString(
+								label1 = dataSource.labelSalinity,
+								inputText1 = dataSource.calculatedTextPpt,
+								value1 = parameters.calculateSalinity(),
+								label2 = dataSource.labelDensity,
+								inputText2 = dataSource.calculatedTextDensity,
+								value2 = parameters.calculateDensity(),
+								label3 = dataSource.labelConductivity,
+								inputText3 = dataSource.calculatedTextConductivity,
+								value3 = parameters.calculateConductivity(),
+								contentColor = contentColor,
 							)
 						}
 
 						// Salinity
 						else -> {
-							CalculatedTextString(
-								text = dataSource.calculatedTextDensity,
-								calculatedValue = parameters.calculateDensityPPT(),
-								textColor = contentColor,
+							SalinityCalculatedString(
+								label1 = dataSource.labelSpecificGravity,
+								inputText1 = dataSource.calculatedTextPpt,
+								value1 = parameters.calculateSpecificGravity(),
+								label2 = dataSource.labelDensity,
+								inputText2 = dataSource.calculatedTextDensity,
+								value2 = parameters.calculateDensity(),
+								label3 = dataSource.labelConductivity,
+								inputText3 = dataSource.calculatedTextConductivity,
+								value3 = parameters.calculateConductivity(),
+								contentColor = contentColor,
 							)
 						}
 					}

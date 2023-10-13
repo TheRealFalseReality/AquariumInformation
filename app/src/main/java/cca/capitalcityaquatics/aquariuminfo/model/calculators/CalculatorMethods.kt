@@ -37,8 +37,13 @@ class CalculatorMethods(
 				}
 
 				// meq/L
-				else -> {
+				alkalinityDataSource.radioTextMeq -> {
 					alkalinityDataSource.conversionDKHMEQ
+				}
+
+				// error
+				else -> {
+					0.0
 				}
 			}
 		val ppmDKH = alkalinity * conversionFactor
@@ -59,8 +64,12 @@ class CalculatorMethods(
 				}
 
 				// meq/L
-				else -> {
+				alkalinityDataSource.radioTextMeq -> {
 					alkalinityDataSource.conversionPPMMEQ
+				}
+				// error
+				else -> {
+					0.0
 				}
 			}
 		val ppmDKH = alkalinity * conversionFactor
@@ -81,8 +90,12 @@ class CalculatorMethods(
 				}
 
 				// ppm
-				else -> {
+				alkalinityDataSource.radioTextPpm -> {
 					alkalinityDataSource.conversionMEQPPM
+				}
+				// error
+				else -> {
+					0.0
 				}
 			}
 		val ppmDKH = alkalinity * conversionFactor
@@ -94,7 +107,7 @@ class CalculatorMethods(
 
 	// Temperature
 	@VisibleForTesting
-	fun calculateTemperature(): String {
+	fun convertTemperature(): String {
 		val calculatedTemperature =
 			when (selected) {
 				// Fahrenheit
@@ -103,8 +116,12 @@ class CalculatorMethods(
 				}
 
 				//Celsius
-				else -> {
+				temperatureDataSource.radioTextCelsius -> {
 					(temperature * (9.0 / 5.0) + 32)
+				}
+				// error
+				else -> {
+					0.0
 				}
 			}
 		val df = DecimalFormat("#.##")
@@ -124,8 +141,12 @@ class CalculatorMethods(
 				}
 
 				//Celsius
-				else -> {
+				temperatureDataSource.radioTextCelsius -> {
 					temperature
+				}
+				// error
+				else -> {
+					0.0
 				}
 			}
 		val calculatedTemperatureKelvin = calculatedTemperature + 273.15

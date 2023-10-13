@@ -6,6 +6,7 @@ import cca.capitalcityaquatics.aquariuminfo.navigation.BowFront
 import cca.capitalcityaquatics.aquariuminfo.navigation.Cube
 import cca.capitalcityaquatics.aquariuminfo.navigation.Cylinder
 import cca.capitalcityaquatics.aquariuminfo.navigation.Hexagonal
+import cca.capitalcityaquatics.aquariuminfo.navigation.Rectangle
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.PI
@@ -45,8 +46,13 @@ class TankVolumeMethods(
 					}
 
 					// Full
-					else -> {
+					calculatorDataSource.radioFullCylinder -> {
 						PI * radius.pow(2) * height
+					}
+
+					// error
+					else -> {
+						0.0
 					}
 				}
 			}
@@ -62,8 +68,13 @@ class TankVolumeMethods(
 			}
 
 			// Rectangle
-			else -> {
+			Rectangle.title -> {
 				length * width * height
+			}
+
+			// error
+			else -> {
+				0.0
 			}
 		}
 
@@ -78,8 +89,13 @@ class TankVolumeMethods(
 				}
 
 				// Feet
-				else -> {
+				calculatorDataSource.radioTextFeet -> {
 					calculatorDataSource.conversionGallonsFeet
+				}
+
+				// error
+				else -> {
+					0.0
 				}
 			}
 		val volGallons = volume * conversionFactor
@@ -100,8 +116,13 @@ class TankVolumeMethods(
 				}
 
 				// Feet
-				else -> {
+				calculatorDataSource.radioTextFeet -> {
 					calculatorDataSource.conversionLitersFeet
+				}
+
+				// error
+				else -> {
+					0.0
 				}
 			}
 		val volLiters = volume * conversionFactor
@@ -123,8 +144,13 @@ class TankVolumeMethods(
 				}
 
 				// Feet
-				else -> {
+				calculatorDataSource.radioTextFeet -> {
 					calculatorDataSource.conversionGallonsFeet
+				}
+
+				// error
+				else -> {
+					0.0
 				}
 			}
 		val waterWeight = (volume * conversionFactorVolume) * conversionFactor
