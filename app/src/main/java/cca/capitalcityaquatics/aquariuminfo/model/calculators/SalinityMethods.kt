@@ -33,7 +33,7 @@ class SalinityMethods(
 				6.536332e-9 * pureWaterTemperature * pureWaterTemperature * pureWaterTemperature * pureWaterTemperature *
 				pureWaterTemperature
 	private var rO1 = tds * rROoTD
-	private var ro = rROo + a * tds + b * sqrt(tds.pow(3)) + c * tds * tds
+	private var roTDS = rROo + a * tds + b * sqrt(tds.pow(3)) + c * tds * tds
 	private var i = 0.0
 	private var j = 0.0
 	private var p = 0.0
@@ -49,6 +49,30 @@ class SalinityMethods(
 				c2 * testWaterTemperature.pow(2) +
 				c3 * testWaterTemperature.pow(3) +
 				c4 * testWaterTemperature.pow(4)
+	private val r: Double = tds / 42.914
+	private var rp =
+		1.0 +
+				(2.07e-5 * p - 6.37e-10 * p + 3.989e-15 * p) /
+				(1.0 +
+						(3.426e-2 * testWaterTemperature +
+								4.464e-4 * testWaterTemperature * testWaterTemperature +
+								4.215e-1 * r -
+								3.107e-3 * testWaterTemperature * r))
+	private var rt = r / (gt * rp)
+	private var sal: Double = 0.008 -
+			0.1692 * sqrt(rt) +
+			25.3851 * rt +
+			14.0941 * sqrt(rt.pow(3)) -
+			7.0261 * rt * rt +
+			2.7081 * sqrt(rt.pow(5)) +
+			((testWaterTemperature - 15) / (1 + 0.0162 * (testWaterTemperature - 15))) *
+			(0.0005 -
+					0.0056 * sqrt(rt) -
+					0.0066 * rt -
+					0.0375 * sqrt(rt.pow(3)) +
+					0.0636 * rt * rt -
+					0.0144 * sqrt(rt.pow(5)))
+	private var roSAL = rROo + a * sal + b * sqrt(sal.pow(3)) + c * sal * sal
 
 	// Convert to Specific Gravity
 	@VisibleForTesting
@@ -57,7 +81,7 @@ class SalinityMethods(
 			when (selected) {
 				// Salinity
 				salinityDataSource.radioTextSalinity -> {
-					ro / rROoTD
+					roTDS / rROoTD
 				}
 
 				// Specific Gravity
@@ -67,12 +91,12 @@ class SalinityMethods(
 
 				// Density
 				salinityDataSource.radioTextDensity -> {
-					ro
+					tds / rROoTD
 				}
 
 				// Conductivity
 				salinityDataSource.radioTextConductivity -> {
-					4.0  // TODO
+					roSAL / rROoTD
 				}
 
 				// error
@@ -89,6 +113,8 @@ class SalinityMethods(
 	// Convert to Salinity
 	@VisibleForTesting
 	fun calculateSalinity(): String {
+		var ro: Double
+
 		val calculate =
 			when (selected) {
 				// Salinity
@@ -100,20 +126,33 @@ class SalinityMethods(
 				salinityDataSource.radioTextSpecificGravity -> {
 					do {
 						s2 = j / 1000
-						val ro = rROo + a * s2 + b * sqrt(s2.pow(3)) + c * s2 * s2
+						ro = rROo + a * s2 + b * sqrt(s2.pow(3)) + c * s2 * s2
 						j++
 					} while (ro <= rO1)
-					return s2.toString()
+
+					val df = DecimalFormat("#.##")
+					df.roundingMode = RoundingMode.HALF_UP
+
+					return df.format(s2)
 				}
 
 				// Density
 				salinityDataSource.radioTextDensity -> {
-					3.0  // TODO
+					do {
+						s2 = j / 1000
+						ro = rROo + a * s2 + b * sqrt(s2.pow(3)) + c * s2 * s2
+						j++
+					} while (ro <= tds)
+
+					val df = DecimalFormat("#.##")
+					df.roundingMode = RoundingMode.HALF_UP
+
+					return df.format(s2)
 				}
 
 				// Conductivity
 				salinityDataSource.radioTextConductivity -> {
-					4.0  // TODO
+					sal
 				}
 
 				// error
@@ -144,12 +183,12 @@ class SalinityMethods(
 
 				// Density
 				salinityDataSource.radioTextDensity -> {
-					3.0  // TODO
+					3.0
 				}
 
 				// Conductivity
 				salinityDataSource.radioTextConductivity -> {
-					4.0  // TODO
+					roSAL
 				}
 
 				// error
@@ -171,6 +210,7 @@ class SalinityMethods(
 		var rp: Double
 		var rt: Double
 		var sal: Double
+		var ro: Double
 
 		val calculate =
 			when (selected) {
@@ -205,14 +245,17 @@ class SalinityMethods(
 						i++
 					} while (sal <= tds)
 
-					return cond.toString()
+					val df = DecimalFormat("#.##")
+					df.roundingMode = RoundingMode.HALF_UP
+
+					return df.format(cond)
 				}
 
 				// Specific Gravity
 				salinityDataSource.radioTextSpecificGravity -> {
 					do {
 						s2 = j / 1000.0
-						val ro = rROo + a * s2 + b * sqrt(s2.pow(3)) + c * s2 * s2
+						ro = rROo + a * s2 + b * sqrt(s2.pow(3)) + c * s2 * s2
 						j++
 					} while (ro <= rO1)
 
@@ -244,7 +287,7 @@ class SalinityMethods(
 											0.0144 * sqrt(rt.pow(5)))
 						i++
 					} while (sal <= s2)
-					val df = DecimalFormat("#.#")
+					val df = DecimalFormat("#.##")
 					df.roundingMode = RoundingMode.HALF_UP
 
 					return df.format(cond)
@@ -252,12 +295,43 @@ class SalinityMethods(
 
 				// Density
 				salinityDataSource.radioTextDensity -> {
-					3.0  // TODO
+					do {
+						cond = i / 1000.0
+						r = cond / 42.914
+						rp =
+							1 +
+									(2.07e-5 * p - 6.37e-10 * p + 3.989e-15 * p) /
+									(1 +
+											(3.426e-2 * testWaterTemperature +
+													4.464e-4 * testWaterTemperature * testWaterTemperature +
+													4.215e-1 * r -
+													3.107e-3 * testWaterTemperature * r))
+						rt = r / (gt * rp)
+						sal =
+							0.008 -
+									0.1692 * sqrt(rt) +
+									25.3851 * rt +
+									14.0941 * sqrt(rt.pow(3)) -
+									7.0261 * rt * rt +
+									2.7081 * sqrt(rt.pow(5)) +
+									((testWaterTemperature - 15) / (1 + 0.0162 * (testWaterTemperature - 15))) *
+									(0.0005 -
+											0.0056 * sqrt(rt) -
+											0.0066 * rt -
+											0.0375 * sqrt(rt.pow(3)) +
+											0.0636 * rt * rt -
+											0.0144 * sqrt(rt.pow(5)))
+						i++
+					} while (sal <= s2)
+					val df = DecimalFormat("#.##")
+					df.roundingMode = RoundingMode.HALF_UP
+
+					return df.format(cond)
 				}
 
 				// Conductivity
 				salinityDataSource.radioTextConductivity -> {
-					4.0  // TODO
+					4.0
 				}
 
 				// error
