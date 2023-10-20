@@ -78,7 +78,7 @@ fun CalculatorsTabRow(
 							selected = pagerState.currentPage == index,
 							onClick = {
 								coroutineScope.launch {
-									pagerState.scrollToPage(index)
+									pagerState.animateScrollToPage(index)
 								}
 							},
 							selectedContentColor = selectedColor,
@@ -115,7 +115,7 @@ fun CalculatorsTabRow(
 									selected = pagerState.currentPage == index,
 									onClick = {
 										coroutineScope.launch {
-											pagerState.scrollToPage(index)
+											pagerState.animateScrollToPage(index)
 										}
 									},
 									selectedContentColor = selectedColor,
@@ -145,7 +145,7 @@ fun CalculatorsTabRow(
 									selected = pagerState.currentPage == index,
 									onClick = {
 										coroutineScope.launch {
-											pagerState.scrollToPage(index)
+											pagerState.animateScrollToPage(index)
 										}
 									},
 									selectedContentColor = selectedColor,
@@ -175,8 +175,8 @@ fun CalculatorsTabRow(
 		HorizontalPager(
 			state = pagerState,
 			beyondBoundsPageCount = 6,
-		) {
-			when (pagerState.currentPage) {
+		) { index ->
+			when (index) {
 				0 -> {
 					SalinityPage(windowSize = windowSize)
 				}
@@ -197,22 +197,6 @@ fun CalculatorsTabRow(
 				}
 			}
 		}
-
-//		when (state) {
-//			0 -> {
-//				SalinityPage(windowSize = windowSize)
-//			}
-//
-//			1 -> {
-//				AlkalinityPage(windowSize = windowSize)
-//			}
-//
-//			2 -> {
-//				TemperaturePage(windowSize = windowSize)
-//			}
-//
-//			3 -> CarbonDioxidePage(windowSize = windowSize)
-//		}
 	}
 }
 

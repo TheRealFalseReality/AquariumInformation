@@ -1,18 +1,20 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.compatability
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LeadingIconTab
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TabPosition
 import androidx.compose.material3.TabRow
+import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -23,22 +25,35 @@ import cca.capitalcityaquatics.aquariuminfo.data.compatability.FreshwaterDataSou
 import cca.capitalcityaquatics.aquariuminfo.data.compatability.MarineDataSource
 import cca.capitalcityaquatics.aquariuminfo.navigation.compatibilityTabRow
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CompatibilityDataList
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FancyAnimatedIndicator
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FancyIndicator
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
+import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun CompatibilityTabRow(
 	selectedState: Int = 0,
 	selectedColor: Color = MaterialTheme.colorScheme.tertiary,
 	unselectedColor: Color = MaterialTheme.colorScheme.outline,
 ) {
-	var state by rememberSaveable { mutableIntStateOf(selectedState) }
+//	val state by rememberSaveable { mutableIntStateOf(selectedState) }
+	val coroutineScope = rememberCoroutineScope()
 	val tabs = compatibilityTabRow
+//	val fancyIndicator = @Composable { tabPositions: List<TabPosition> ->
+//		FancyAnimatedIndicator(
+//			tabPositions = tabPositions,
+//			selectedTabIndex = state,
+//			indicatorColor = selectedColor
+//		)
+//	}
+	val pagerState = rememberPagerState(
+		initialPage = selectedState,
+		pageCount = { tabs.size }
+	)
 	val indicator = @Composable { tabPositions: List<TabPosition> ->
-		FancyAnimatedIndicator(
-			tabPositions = tabPositions,
-			selectedTabIndex = state,
-			indicatorColor = selectedColor
+		FancyIndicator(
+			selectedColor,
+			Modifier.tabIndicatorOffset(tabPositions[pagerState.currentPage])
 		)
 	}
 
@@ -46,15 +61,19 @@ fun CompatibilityTabRow(
 		modifier = Modifier.fillMaxSize()
 	) {
 		TabRow(
-			selectedTabIndex = state,
+			selectedTabIndex = pagerState.currentPage,
 			indicator = indicator
 		) {
 			tabs.forEachIndexed { index, tab ->
 				LeadingIconTab(
-					selected = state == index,
 					selectedContentColor = selectedColor,
 					unselectedContentColor = unselectedColor,
-					onClick = { state = index },
+					selected = pagerState.currentPage == index,
+					onClick = {
+						coroutineScope.launch {
+							pagerState.animateScrollToPage(index)
+						}
+					},
 					text = {
 						Text(
 							text = stringResource(id = tab.title),
@@ -65,7 +84,7 @@ fun CompatibilityTabRow(
 					icon = {
 						Icon(
 							painter =
-							if (state == index) painterResource(id = tab.iconFilled)
+							if (pagerState.currentPage == index) painterResource(id = tab.iconFilled)
 							else painterResource(id = tab.icon),
 							contentDescription = stringResource(id = tab.title)
 						)
@@ -73,18 +92,31 @@ fun CompatibilityTabRow(
 				)
 			}
 		}
-		when (state) {
-			0 -> {
-				CompatibilityDataList(FreshwaterDataSource().loadFishCardsFreshwaterDataSource())
-			}
-
-			1 -> {
-				CompatibilityDataList(MarineDataSource().loadFishCardsMarineDataSource())
+		HorizontalPager(
+			state = pagerState,
+		) { index ->
+			when (index) {
+				0 -> {
+					CompatibilityDataList(FreshwaterDataSource().loadFishCardsFreshwaterDataSource())
+				}
+				 1 -> {
+					 CompatibilityDataList(MarineDataSource().loadFishCardsMarineDataSource())
+				}
 			}
 		}
+//		when (state) {
+//			0 -> {
+//				CompatibilityDataList(FreshwaterDataSource().loadFishCardsFreshwaterDataSource())
+//			}
+//
+//			1 -> {
+//				CompatibilityDataList(MarineDataSource().loadFishCardsMarineDataSource())
+//			}
+//		}
 	}
 }
 
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Preview(showBackground = true)
 @Composable
 fun TopAppBarPreview() {
@@ -93,6 +125,7 @@ fun TopAppBarPreview() {
 	}
 }
 
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Preview(showBackground = true)
 @Composable
 fun TopAppBarPreviewDark(

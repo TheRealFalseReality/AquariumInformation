@@ -151,7 +151,14 @@ object Doser : Destinations {
 	override val title = R.string.dosing
 }
 
+object PumpFlow : Destinations {
+	override val icon = R.drawable.ic_water_pump
+	override val iconFilled = R.drawable.ic_water_pump_filled
+	override val route = "pump"
+	override val title = R.string.pump_flow
+}
+
 val bottomNavRow = listOf(Overview, Calculators, TankVolume, FishCompatibility)
 val compatibilityTabRow = listOf(FishCompatibilityFreshwater, FishCompatibilityMarine)
-val calculatorsTabRow = listOf(Salinity, Alkalinity, Temperature, CarbonDioxide, Doser)
+val calculatorsTabRow = listOf(Salinity, Alkalinity, Temperature, CarbonDioxide, PumpFlow) // TODO Alter TabRow on Views when 6 or more
 val tankVolumeTabRow = listOf(Rectangle, Cube, Cylinder, Hexagonal, BowFront)

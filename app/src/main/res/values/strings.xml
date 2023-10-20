@@ -628,6 +628,7 @@
     <string name="placeholder_enter">Enter</string>
     <string name="dimension_reference">Dimension Reference</string>
     <string name="dosing">Dosing</string>
+    <string name="pump_flow">Pump Flow</string>
     <string name="treatment">Treatment</string>
     <string name="water">Water</string>
     <string name="aquarium">Aquarium Size</string>
