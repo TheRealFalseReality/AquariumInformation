@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 * Marine tank types added to Water Hardness
 * Launch Default Page
 * Add metric to Water Weight
+* Pump Flow Rate
 
 ## Issues
 * Fix Subscripts for CaCO3

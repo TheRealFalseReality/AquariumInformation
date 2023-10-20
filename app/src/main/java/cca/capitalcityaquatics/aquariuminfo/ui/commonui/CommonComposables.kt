@@ -843,7 +843,7 @@ fun InputNumberPreview() {
 			focusedColor = MaterialTheme.colorScheme.onPrimaryContainer,
 			focusedContainerColor = MaterialTheme.colorScheme.primaryContainer,
 			unfocusedColor = MaterialTheme.colorScheme.primary,
-			leadingIcon = calculatorDataSource.leadingIconPH,
+			leadingIcon = temperatureDataSource.leadingIconTemperature,
 		)
 	}
 }
@@ -861,7 +861,7 @@ fun InputNumberPreviewDark(
 			focusedColor = MaterialTheme.colorScheme.onPrimaryContainer,
 			focusedContainerColor = MaterialTheme.colorScheme.primaryContainer,
 			unfocusedColor = MaterialTheme.colorScheme.primary,
-			leadingIcon = calculatorDataSource.leadingIconPH,
+			leadingIcon = temperatureDataSource.leadingIconTemperature,
 		)
 	}
 }

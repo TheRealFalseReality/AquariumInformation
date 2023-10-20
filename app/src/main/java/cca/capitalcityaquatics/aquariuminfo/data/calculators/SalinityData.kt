@@ -1,5 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.data.calculators
 
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
 data class SalinityData(
@@ -30,4 +31,8 @@ data class SalinityData(
 	@StringRes val labelSpecificGravity: Int,
 	@StringRes val labelConductivity: Int,
 	@StringRes val labelDensity: Int,
+	@DrawableRes val leadingIconSalinity: Int,
+	@DrawableRes val leadingIconDensity: Int,
+	@DrawableRes val leadingIconConductivity: Int,
+	@DrawableRes val leadingIconSpecificGravity: Int,
 )

@@ -31,4 +31,8 @@ val salinityDataSource =
 		inputTextConductivity = R.string.text_amount_conductivity,
 		inputTextDensity = R.string.text_amount_density,
 		calculatedTextConductivity = R.string.text_amount_conductivity,
+		leadingIconSalinity = R.drawable.ic_salinity_alt,
+		leadingIconConductivity = R.drawable.ic_bolt,
+		leadingIconDensity = R.drawable.ic_weight,
+		leadingIconSpecificGravity = R.drawable.ic_specific_gravity
 	)

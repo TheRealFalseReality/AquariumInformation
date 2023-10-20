@@ -13,6 +13,7 @@ val carbonDioxideDataSource =
 		inputText = R.string.text_amount_ph_dkh,
 		equalsText = R.string.text_equal_to,
 		calculatedText = R.string.text_amount_co2,
-		formulaText = R.string.text_formula_soon
-
+		formulaText = R.string.text_formula_soon,
+		leadingIconDKH = R.drawable.ic_tds,
+		leadingIconPH = R.drawable.ic_water_ph
 	)

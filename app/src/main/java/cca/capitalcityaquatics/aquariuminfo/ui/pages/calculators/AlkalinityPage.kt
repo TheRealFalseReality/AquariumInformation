@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSource
-import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.model.calculators.CalculatorMethods
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateField
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedTextString
@@ -32,9 +31,6 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonThreeUnits
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCardExpandableRadio
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
-import com.google.android.gms.common.util.VisibleForTesting
-import java.math.RoundingMode
-import java.text.DecimalFormat
 
 @Composable
 fun AlkalinityPage(windowSize: WindowSizeClass) {
@@ -111,7 +107,7 @@ fun AlkalinityLayout(
 				focusedContainerColor = containerColor,
 				focusedColor = contentColor,
 				unfocusedColor = color,
-				leadingIcon = calculatorDataSource.leadingIconTDS,
+				leadingIcon = dataSource.leadingIconTDS,
 			)
 		},
 		calculateFieldContent = {
@@ -388,72 +384,6 @@ fun AlkalinityLayout(
 //		}
 //	}
 //}
-
-@VisibleForTesting
-fun calculatePpmDkh(
-	alk: Double,
-): String {
-	val ppmDKH = alk * 17.857
-	val df = DecimalFormat("#")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(ppmDKH)
-}
-
-@VisibleForTesting
-fun calculateMeqDkh(
-	alk: Double,
-): String {
-	val meqDKH = alk * 0.357
-	val df = DecimalFormat("#.#")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(meqDKH)
-}
-
-@VisibleForTesting
-fun calculateDkhPpm(
-	alk: Double,
-): String {
-	val dkhPPM = alk * 0.056
-	val df = DecimalFormat("#.#")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(dkhPPM)
-}
-
-@VisibleForTesting
-fun calculateMeqPpm(
-	alk: Double,
-): String {
-	val meqPPM = alk * 0.02
-	val df = DecimalFormat("#.#")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(meqPPM)
-}
-
-@VisibleForTesting
-fun calculatePpmMeq(
-	alk: Double,
-): String {
-	val ppmMEQ = alk * 50
-	val df = DecimalFormat("#.#")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(ppmMEQ)
-}
-
-@VisibleForTesting
-fun calculateDkhMeq(
-	alk: Double,
-): String {
-	val dkhMEQ = alk * 2.8
-	val df = DecimalFormat("#.#")
-	df.roundingMode = RoundingMode.HALF_UP
-
-	return df.format(dkhMEQ)
-}
 
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Preview(showBackground = true)

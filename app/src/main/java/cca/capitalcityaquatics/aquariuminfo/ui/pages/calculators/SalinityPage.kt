@@ -1,7 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators
 
 import android.annotation.SuppressLint
-import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,20 +20,16 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.salinityDataSource
-import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.model.calculators.SalinityMethods
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.BodyText
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateField
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedTextString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatorSubtitleFour
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberField
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonTwoUnits
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.RadioButtonFourUnits
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SalinityCalculatedString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.SingleWideCardExpandableRadio
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.VerySmallSpacer
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 
 @Composable
@@ -54,10 +49,10 @@ fun SalinityLayout(
 ) {
 	val dataSource = salinityDataSource
 	var inputSal by rememberSaveable {
-		mutableStateOf("1")
+		mutableStateOf("1.026")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(dataSource.radioTextSalinity)
+		mutableIntStateOf(dataSource.radioTextSpecificGravity)
 	}
 	val tds = inputSal.toDoubleOrNull() ?: 0.0
 	val parameters = SalinityMethods(selected = selected, tds = tds)
@@ -76,18 +71,17 @@ fun SalinityLayout(
 		selectContent = {
 			SingleWideCardExpandableRadio(
 				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
-				expandedState = true,
 				header = R.string.select_input_units,
 				content = {
-					RadioButtonTwoUnits(
-						onClick1 = { selected = dataSource.radioTextSalinity },
-						onClick2 = { selected = dataSource.radioTextSpecificGravity },
-						label1 = dataSource.radioTextSalinity,
-						label2 = dataSource.radioTextSpecificGravity,
-						selected = selected,
-						selectedColor = color,
-						textColor = color
-					)
+						  RadioButtonFourUnits(
+							  onClick2 = { selected = dataSource.radioTextSalinity },
+							  onClick1 = { selected = dataSource.radioTextSpecificGravity },
+							  selected = selected,
+							  selectedColor = color,
+							  textColor = color,
+							  onClick3 = { selected = dataSource.radioTextDensity },
+							  onClick4 = { selected = dataSource.radioTextConductivity },
+						  )
 				}, contentColor = color,
 				selected = selected
 			)
@@ -101,6 +95,16 @@ fun SalinityLayout(
 						dataSource.labelSg
 					}
 
+					// Density
+					dataSource.radioTextDensity -> {
+						dataSource.labelDensity
+					}
+
+					// Conductivity
+					dataSource.radioTextConductivity -> {
+						dataSource.labelConductivity
+					}
+
 					// Salinity
 					else -> {
 						dataSource.labelPpt
@@ -111,7 +115,28 @@ fun SalinityLayout(
 				focusedContainerColor = containerColor,
 				focusedColor = contentColor,
 				unfocusedColor = color,
-				leadingIcon = calculatorDataSource.leadingIconSalinity,
+				leadingIcon =
+				when (selected) {
+					// Specific Gravity
+					dataSource.radioTextSpecificGravity -> {
+						dataSource.leadingIconSpecificGravity
+					}
+
+					// Density
+					dataSource.radioTextDensity -> {
+						dataSource.leadingIconDensity
+					}
+
+					// Conductivity
+					dataSource.radioTextConductivity -> {
+						dataSource.leadingIconConductivity
+					}
+
+					// Salinity
+					else -> {
+						dataSource.leadingIconSalinity
+					}
+				},
 			)
 		},
 		calculateFieldContent = {
@@ -121,6 +146,16 @@ fun SalinityLayout(
 					// Specific Gravity
 					dataSource.radioTextSpecificGravity -> {
 						dataSource.inputTextSg
+					}
+
+					// Density
+					dataSource.radioTextDensity -> {
+						dataSource.inputTextDensity
+					}
+
+					// Conductivity
+					dataSource.radioTextConductivity -> {
+						dataSource.inputTextConductivity
 					}
 
 					// Salinity
@@ -143,6 +178,38 @@ fun SalinityLayout(
 								label3 = dataSource.labelConductivity,
 								inputText3 = dataSource.calculatedTextConductivity,
 								value3 = parameters.calculateConductivity(),
+								contentColor = contentColor,
+							)
+						}
+
+						// Density
+						dataSource.radioTextDensity -> {
+							SalinityCalculatedString(
+								label1 = dataSource.labelSalinity,
+								inputText1 = dataSource.calculatedTextPpt,
+								value1 = parameters.calculateSalinity(),
+								label2 = dataSource.labelSpecificGravity,
+								inputText2 = dataSource.calculatedTextSg,
+								value2 = parameters.calculateSpecificGravity(),
+								label3 = dataSource.labelConductivity,
+								inputText3 = dataSource.calculatedTextConductivity,
+								value3 = parameters.calculateConductivity(),
+								contentColor = contentColor,
+							)
+						}
+
+						// Conductivity
+						dataSource.radioTextConductivity -> {
+							SalinityCalculatedString(
+								label1 = dataSource.labelSalinity,
+								inputText1 = dataSource.calculatedTextPpt,
+								value1 = parameters.calculateSalinity(),
+								label2 = dataSource.labelSpecificGravity,
+								inputText2 = dataSource.calculatedTextSg,
+								value2 = parameters.calculateSpecificGravity(),
+								label3 = dataSource.labelDensity,
+								inputText3 = dataSource.calculatedTextDensity,
+								value3 = parameters.calculateDensity(),
 								contentColor = contentColor,
 							)
 						}
@@ -170,7 +237,7 @@ fun SalinityLayout(
 		}
 	) {
 		FormulaString(
-			text = dataSource.formulaText,
+			text = dataSource.formulaText, // TODO
 			contentColor = color
 		)
 	}

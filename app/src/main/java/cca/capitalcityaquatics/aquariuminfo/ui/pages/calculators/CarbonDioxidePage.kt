@@ -16,9 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
-import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.carbonDioxideDataSource
-import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.model.calculators.CalculatorMethods
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldTwoInputs
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedTextString
@@ -81,8 +79,8 @@ fun CarbonDioxideLayout(
 				focusedContainerColor = containerColor,
 				focusedColor = contentColor,
 				unfocusedColor = color,
-				leadingIcon1 = calculatorDataSource.leadingIconPH,
-				leadingIcon2 = alkalinityDataSource.leadingIconTDS,
+				leadingIcon1 = dataSource.leadingIconPH,
+				leadingIcon2 = dataSource.leadingIconDKH,
 			)
 		},
 		calculateFieldContent = {

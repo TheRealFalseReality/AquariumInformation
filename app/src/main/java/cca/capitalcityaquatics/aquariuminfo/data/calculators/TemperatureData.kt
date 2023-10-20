@@ -1,5 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.data.calculators
 
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
 data class TemperatureData(
@@ -22,4 +23,5 @@ data class TemperatureData(
 	@StringRes val formulaText1: Int,
 	@StringRes val formulaText2: Int,
 	@StringRes val formulaText3: Int,
-)
+	@DrawableRes val leadingIconTemperature: Int,
+	)

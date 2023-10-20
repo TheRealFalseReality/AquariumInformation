@@ -1,5 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.data.calculators
 
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
 data class CarbonDioxideData(
@@ -12,5 +13,7 @@ data class CarbonDioxideData(
 	@StringRes val inputText: Int,
 	@StringRes val equalsText: Int,
 	@StringRes val calculatedText: Int,
+	@DrawableRes val leadingIconPH: Int,
+	@DrawableRes val leadingIconDKH: Int,
 	@StringRes val formulaText: Int
 )
