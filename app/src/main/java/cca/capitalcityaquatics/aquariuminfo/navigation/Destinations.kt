@@ -160,5 +160,5 @@ object PumpFlow : Destinations {
 
 val bottomNavRow = listOf(Overview, Calculators, TankVolume, FishCompatibility)
 val compatibilityTabRow = listOf(FishCompatibilityFreshwater, FishCompatibilityMarine)
-val calculatorsTabRow = listOf(Salinity, Alkalinity, Temperature, CarbonDioxide, PumpFlow) // TODO Alter TabRow on Views when 6 or more
+val calculatorsTabRow = listOf(Salinity, Alkalinity, Temperature, CarbonDioxide) // TODO Alter TabRow on Views when 6 or more
 val tankVolumeTabRow = listOf(Rectangle, Cube, Cylinder, Hexagonal, BowFront)

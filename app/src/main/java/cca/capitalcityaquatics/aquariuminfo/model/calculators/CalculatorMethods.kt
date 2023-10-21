@@ -13,6 +13,7 @@ class CalculatorMethods(
 	private val dKH: Double = 0.0,
 	private val alkalinity: Double = 0.0,
 	private val temperature: Double = 0.0,
+	private val tankVolume: Double = 0.0,
 ) {
 	// Carbon Dioxide
 	@VisibleForTesting
@@ -154,5 +155,27 @@ class CalculatorMethods(
 		df.roundingMode = RoundingMode.HALF_UP
 
 		return df.format(calculatedTemperatureKelvin)
+	}
+
+	@VisibleForTesting
+	fun pumpFlowLow(): String {
+		val flow = 5.0
+
+		val flowRate = tankVolume * flow
+		val df = DecimalFormat("#.##")
+		df.roundingMode = RoundingMode.HALF_UP
+
+		return df.format(flowRate)
+	}
+
+	@VisibleForTesting
+	fun pumpFlowHigh(): String {
+		val flow = 10.0
+
+		val flowRate = tankVolume * flow
+		val df = DecimalFormat("#.##")
+		df.roundingMode = RoundingMode.HALF_UP
+
+		return df.format(flowRate)
 	}
 }
