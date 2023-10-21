@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
+import cca.capitalcityaquatics.aquariuminfo.data.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.temperatureDataSource
 import cca.capitalcityaquatics.aquariuminfo.model.calculators.CalculatorMethods
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.BodyText
@@ -49,12 +50,13 @@ fun TemperatureLayout(
 	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
 ) {
-	val dataSource = temperatureDataSource
+	val dataSourceCommon = calculatorDataSource
+	val dataSourceSpecific = temperatureDataSource
 	var inputTemperature by rememberSaveable {
 		mutableStateOf("0")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(dataSource.radioTextCelsius)
+		mutableIntStateOf(dataSourceCommon.radioTextCelsius)
 	}
 	val temperature = inputTemperature.toDoubleOrNull() ?: 0.0
 	val parameters = CalculatorMethods(selected = selected, temperature = temperature)
@@ -64,9 +66,9 @@ fun TemperatureLayout(
 		subtitleContent = {
 			CalculatorSubtitleThree(
 				contentColor = color,
-				text1 = dataSource.subtitle1,
-				text2 = dataSource.subtitle2,
-				text3 = dataSource.subtitle3,
+				text1 = dataSourceSpecific.subtitle1,
+				text2 = dataSourceSpecific.subtitle2,
+				text3 = dataSourceSpecific.subtitle3,
 			)
 		},
 		selectContent = {
@@ -78,10 +80,10 @@ fun TemperatureLayout(
 				selected = selected,
 				content = {
 					RadioButtonTwoUnits(
-						onClick1 = { selected = dataSource.radioTextCelsius },
-						onClick2 = { selected = dataSource.radioTextFahrenheit },
-						label1 = dataSource.radioTextCelsius,
-						label2 = dataSource.radioTextFahrenheit,
+						onClick1 = { selected = dataSourceCommon.radioTextCelsius },
+						onClick2 = { selected = dataSourceCommon.radioTextFahrenheit },
+						label1 = dataSourceCommon.radioTextCelsius,
+						label2 = dataSourceCommon.radioTextFahrenheit,
 						selected = selected,
 						selectedColor = color,
 						textColor = color
@@ -93,12 +95,12 @@ fun TemperatureLayout(
 			InputNumberField(
 				label =
 				when (selected) {
-					dataSource.radioTextFahrenheit -> {
-						dataSource.labelFahrenheit
+					dataSourceCommon.radioTextFahrenheit -> {
+						dataSourceCommon.labelFahrenheit
 					}
 
 					else -> {
-						dataSource.labelCelsius
+						dataSourceCommon.labelCelsius
 					}
 				},
 				value = inputTemperature,
@@ -106,7 +108,7 @@ fun TemperatureLayout(
 				focusedContainerColor = containerColor,
 				focusedColor = contentColor,
 				unfocusedColor = color,
-				leadingIcon = dataSource.leadingIconTemperature,
+				leadingIcon = dataSourceCommon.leadingIconTemperature,
 			)
 		},
 		calculateFieldContent = {
@@ -114,27 +116,28 @@ fun TemperatureLayout(
 				inputText =
 				when (selected) {
 					// Fahrenheit
-					dataSource.radioTextFahrenheit -> {
-						dataSource.inputTextFahrenheit
+					dataSourceCommon.radioTextFahrenheit -> {
+						dataSourceCommon.inputTextFahrenheit
 					}
 
 					// Celsius
 					else -> {
-						dataSource.inputTextCelsius
+						dataSourceCommon.inputTextCelsius
 					}
 				},
+				equalsText = calculatorDataSource.equalsText,
 				inputValue = inputTemperature,
 				calculateContent = {
 					when (selected) {
 						// Fahrenheit
-						dataSource.radioTextFahrenheit -> {
+						dataSourceCommon.radioTextFahrenheit -> {
 							CalculatedTextString(
-								text = dataSource.calculatedTextCelsius,
+								text = dataSourceCommon.calculatedTextCelsius,
 								calculatedValue = parameters.convertTemperature(),
 								textColor = contentColor,
 							)
 							CalculatedTextString(
-								text = dataSource.calculatedTextKelvin,
+								text = dataSourceCommon.calculatedTextKelvin,
 								calculatedValue = parameters.calculateTemperatureKelvin(),
 								textColor = contentColor,
 							)
@@ -143,12 +146,12 @@ fun TemperatureLayout(
 						// Celsius
 						else -> {
 							CalculatedTextString(
-								text = dataSource.calculatedTextCelsius,
+								text = dataSourceCommon.calculatedTextCelsius,
 								calculatedValue = parameters.convertTemperature(),
 								textColor = contentColor,
 							)
 							CalculatedTextString(
-								text = dataSource.calculatedTextKelvin,
+								text = dataSourceCommon.calculatedTextKelvin,
 								calculatedValue = parameters.calculateTemperatureKelvin(),
 								textColor = contentColor,
 							)
@@ -164,17 +167,17 @@ fun TemperatureLayout(
 			contentColor = color,
 			content = {
 				BodyText(
-					text = dataSource.formulaText1,
+					text = dataSourceSpecific.formulaText1,
 					textAlign = TextAlign.Start,
 					color = color
 				)
 				BodyText(
-					text = dataSource.formulaText2,
+					text = dataSourceSpecific.formulaText2,
 					textAlign = TextAlign.Start,
 					color = color
 				)
 				BodyText(
-					text = dataSource.formulaText3,
+					text = dataSourceSpecific.formulaText3,
 					textAlign = TextAlign.Start,
 					color = color
 				)

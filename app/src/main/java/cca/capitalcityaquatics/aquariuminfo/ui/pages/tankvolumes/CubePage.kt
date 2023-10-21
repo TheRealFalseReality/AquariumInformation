@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
+import cca.capitalcityaquatics.aquariuminfo.data.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.cubeDataSource
 import cca.capitalcityaquatics.aquariuminfo.model.tankvolumes.TankVolumeMethods
 import cca.capitalcityaquatics.aquariuminfo.navigation.Cube
@@ -71,8 +71,8 @@ fun CubeLayout(
 		subtitleContent = {
 			CalculatorSubtitleTwo(
 				contentColor = color,
-				text1 = dataSourceCommon.subtitle1,
-				text2 = dataSourceCommon.subtitle2,
+				text1 = dataSourceCommon.subtitleVolume1,
+				text2 = dataSourceCommon.subtitleVolume2,
 			)
 		},
 		selectContent = {

@@ -1,13 +1,13 @@
 package cca.capitalcityaquatics.aquariuminfo.calculators
 
-import cca.capitalcityaquatics.aquariuminfo.data.calculators.temperatureDataSource
+import cca.capitalcityaquatics.aquariuminfo.data.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.model.calculators.CalculatorMethods
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
 class TempConverterTest {
-	private val selectedCelsius = temperatureDataSource.radioTextCelsius
-	private val selectedFahrenheit = temperatureDataSource.radioTextFahrenheit
+	private val selectedCelsius = calculatorDataSource.radioTextCelsius
+	private val selectedFahrenheit = calculatorDataSource.radioTextFahrenheit
 	@Test
 	fun calculate_32_F() {
 		val selected = selectedFahrenheit 

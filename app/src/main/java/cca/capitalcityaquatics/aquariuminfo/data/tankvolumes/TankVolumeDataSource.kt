@@ -3,7 +3,7 @@ package cca.capitalcityaquatics.aquariuminfo.data.tankvolumes
 import cca.capitalcityaquatics.aquariuminfo.R
 
 val cylinderDataSource =
-	CalculatorData(
+	TankVolumeData(
 		inputTextFeet = R.string.text_amount_DH_feet,
 		inputTextInches = R.string.text_amount_DH_inches,
 		formulaText = R.string.text_formula_vol_cylinder,
@@ -11,7 +11,7 @@ val cylinderDataSource =
 	)
 
 val bowFrontDataSource =
-	CalculatorData(
+	TankVolumeData(
 		inputTextFeet = R.string.text_amount_LWHFW_feet,
 		inputTextInches = R.string.text_amount_LWHFW_inches,
 		formulaText = R.string.text_formula_soon,
@@ -19,7 +19,7 @@ val bowFrontDataSource =
 	)
 
 val hexagonalDataSource =
-	CalculatorData(
+	TankVolumeData(
 		inputTextFeet = R.string.text_amount_EH_feet,
 		inputTextInches = R.string.text_amount_EH_inches,
 		formulaText = R.string.text_formula_soon,
@@ -27,7 +27,7 @@ val hexagonalDataSource =
 	)
 
 val rectangleDataSource =
-	CalculatorData(
+	TankVolumeData(
 		inputTextFeet = R.string.text_amount_LWH,
 		inputTextInches = R.string.text_amount_LWH_inches,
 		formulaText = R.string.text_formula_vol_rec,
@@ -35,7 +35,7 @@ val rectangleDataSource =
 	)
 
 val cubeDataSource =
-	CalculatorData(
+	TankVolumeData(
 		inputTextFeet = R.string.text_amount_length_side_feet,
 		inputTextInches = R.string.text_amount_length_side_inches,
 		formulaText = R.string.text_formula_vol_cube,

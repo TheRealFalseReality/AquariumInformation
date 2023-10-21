@@ -17,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
+import cca.capitalcityaquatics.aquariuminfo.data.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.carbonDioxideDataSource
 import cca.capitalcityaquatics.aquariuminfo.model.calculators.DosingMethods
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldThreeInputs
@@ -41,7 +42,8 @@ fun DosingLayout(
 	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
 ) {
-	val dataSource = carbonDioxideDataSource
+	val dataSourceCommon = calculatorDataSource
+	val dataSourceSpecific = carbonDioxideDataSource
 	var inputTreatment by rememberSaveable {
 		mutableStateOf("5")
 	}
@@ -79,13 +81,13 @@ fun DosingLayout(
 		},
 		calculateFieldContent = {
 			CalculateFieldThreeInputs(
-				inputText = dataSource.inputText,
+				inputText = dataSourceCommon.inputText,
 				inputValue1 = inputTreatment,
 				inputValue2 = inputWater,
 				inputValue3 = inputAquarium,
 				calculateContent = {
 					CalculatedTextString(
-						text = dataSource.calculatedText,
+						text = dataSourceCommon.calculatedTextCO2,
 						calculatedValue = parameters.dosing(),
 						textColor = contentColor,
 					)

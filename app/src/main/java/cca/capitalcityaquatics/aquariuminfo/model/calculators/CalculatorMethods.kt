@@ -1,8 +1,8 @@
 package cca.capitalcityaquatics.aquariuminfo.model.calculators
 
 import androidx.annotation.VisibleForTesting
+import cca.capitalcityaquatics.aquariuminfo.data.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSource
-import cca.capitalcityaquatics.aquariuminfo.data.calculators.temperatureDataSource
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.pow
@@ -33,12 +33,12 @@ class CalculatorMethods(
 		val conversionFactor =
 			when (selected) {
 				// ppm
-				alkalinityDataSource.radioTextPpm -> {
+				calculatorDataSource.radioTextPpm -> {
 					alkalinityDataSource.conversionDKHPPM
 				}
 
 				// meq/L
-				alkalinityDataSource.radioTextMeq -> {
+				calculatorDataSource.radioTextMeq -> {
 					alkalinityDataSource.conversionDKHMEQ
 				}
 
@@ -60,12 +60,12 @@ class CalculatorMethods(
 		val conversionFactor =
 			when (selected) {
 				// dKH
-				alkalinityDataSource.radioTextDkh -> {
+				calculatorDataSource.radioTextDkh -> {
 					alkalinityDataSource.conversionPPMDKH
 				}
 
 				// meq/L
-				alkalinityDataSource.radioTextMeq -> {
+				calculatorDataSource.radioTextMeq -> {
 					alkalinityDataSource.conversionPPMMEQ
 				}
 				// error
@@ -86,12 +86,12 @@ class CalculatorMethods(
 		val conversionFactor =
 			when (selected) {
 				// dKH
-				alkalinityDataSource.radioTextDkh -> {
+				calculatorDataSource.radioTextDkh -> {
 					alkalinityDataSource.conversionMEQDKH
 				}
 
 				// ppm
-				alkalinityDataSource.radioTextPpm -> {
+				calculatorDataSource.radioTextPpm -> {
 					alkalinityDataSource.conversionMEQPPM
 				}
 				// error
@@ -112,12 +112,12 @@ class CalculatorMethods(
 		val calculatedTemperature =
 			when (selected) {
 				// Fahrenheit
-				temperatureDataSource.radioTextFahrenheit -> {
+				calculatorDataSource.radioTextFahrenheit -> {
 					(temperature - 32) * (5.0 / 9.0)
 				}
 
 				//Celsius
-				temperatureDataSource.radioTextCelsius -> {
+				calculatorDataSource.radioTextCelsius -> {
 					(temperature * (9.0 / 5.0) + 32)
 				}
 				// error
@@ -137,12 +137,12 @@ class CalculatorMethods(
 		val calculatedTemperature =
 			when (selected) {
 				// Fahrenheit
-				temperatureDataSource.radioTextFahrenheit -> {
+				calculatorDataSource.radioTextFahrenheit -> {
 					(temperature - 32) * (5.0 / 9.0)
 				}
 
 				//Celsius
-				temperatureDataSource.radioTextCelsius -> {
+				calculatorDataSource.radioTextCelsius -> {
 					temperature
 				}
 				// error
@@ -158,7 +158,7 @@ class CalculatorMethods(
 	}
 
 	@VisibleForTesting
-	fun pumpFlowLow(): String {
+	fun pumpFlowLowReef(): String {
 		val flow = 5.0
 
 		val flowRate = tankVolume * flow
@@ -169,8 +169,52 @@ class CalculatorMethods(
 	}
 
 	@VisibleForTesting
-	fun pumpFlowHigh(): String {
+	fun pumpFlowHighReef(): String {
 		val flow = 10.0
+
+		val flowRate = tankVolume * flow
+		val df = DecimalFormat("#.##")
+		df.roundingMode = RoundingMode.HALF_UP
+
+		return df.format(flowRate)
+	}
+
+	@VisibleForTesting
+	fun pumpFlowIdealReef(): String {
+		val flow = 7.5
+
+		val flowRate = tankVolume * flow
+		val df = DecimalFormat("#.##")
+		df.roundingMode = RoundingMode.HALF_UP
+
+		return df.format(flowRate)
+	}
+
+	@VisibleForTesting
+	fun pumpFlowLowFreshwater(): String {
+		val flow = 3.0
+
+		val flowRate = tankVolume * flow
+		val df = DecimalFormat("#.##")
+		df.roundingMode = RoundingMode.HALF_UP
+
+		return df.format(flowRate)
+	}
+
+	@VisibleForTesting
+	fun pumpFlowHighFreshwater(): String {
+		val flow = 5.0
+
+		val flowRate = tankVolume * flow
+		val df = DecimalFormat("#.##")
+		df.roundingMode = RoundingMode.HALF_UP
+
+		return df.format(flowRate)
+	}
+
+	@VisibleForTesting
+	fun pumpFlowIdealFreshwater(): String {
+		val flow = 4.0
 
 		val flowRate = tankVolume * flow
 		val df = DecimalFormat("#.##")

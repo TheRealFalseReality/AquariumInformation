@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
+import cca.capitalcityaquatics.aquariuminfo.data.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.carbonDioxideDataSource
 import cca.capitalcityaquatics.aquariuminfo.model.calculators.CalculatorMethods
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldTwoInputs
@@ -43,7 +44,8 @@ fun CarbonDioxideLayout(
 	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
 ) {
-	val dataSource = carbonDioxideDataSource
+	val dataSourceCommon = calculatorDataSource
+	val dataSourceSpecific = carbonDioxideDataSource
 	var inputPH by rememberSaveable {
 		mutableStateOf("")
 	}
@@ -58,20 +60,20 @@ fun CarbonDioxideLayout(
 		windowSize = windowSize,
 		subtitleContent = {
 			HeaderText(
-				text = dataSource.subtitle,
+				text = dataSourceSpecific.subtitle,
 				color = color
 			)
 		},
 		selectContent = {
 			TextCard(
-				text = dataSource.unitsLabel,
+				text = dataSourceSpecific.unitsLabel,
 				contentColor = color
 			)
 		},
 		inputFieldContent = {
 			InputNumberFieldTwoInputsStacked(
-				label1 = dataSource.labelPh,
-				label2 = dataSource.labelDkh,
+				label1 = dataSourceCommon.labelPh,
+				label2 = dataSourceCommon.labelDkh,
 				value1 = inputPH,
 				onValueChange1 = { inputPH = it },
 				value2 = inputDKH,
@@ -79,20 +81,20 @@ fun CarbonDioxideLayout(
 				focusedContainerColor = containerColor,
 				focusedColor = contentColor,
 				unfocusedColor = color,
-				leadingIcon1 = dataSource.leadingIconPH,
-				leadingIcon2 = dataSource.leadingIconDKH,
+				leadingIcon1 = dataSourceCommon.leadingIconPH,
+				leadingIcon2 = dataSourceCommon.leadingIconDKH,
 			)
 		},
 		calculateFieldContent = {
 			CalculateFieldTwoInputs(
-				inputText = dataSource.inputText,
+				inputText = dataSourceCommon.inputText,
 				inputValue1 = inputPH,
 				inputValue2 = inputDKH,
 				contentColor = color,
 				containerColor = containerColor,
 				calculateContent = {
 					CalculatedTextString(
-						text = dataSource.calculatedText,
+						text = dataSourceCommon.calculatedTextCO2,
 						calculatedValue = parameters.calculateCarbonDioxide(),
 						textColor = contentColor,
 					)
@@ -102,7 +104,7 @@ fun CarbonDioxideLayout(
 	) {
 		FormulaString(
 			contentColor = color,
-			text = dataSource.formulaText,
+			text = dataSourceSpecific.formulaText,
 		)
 	}
 }

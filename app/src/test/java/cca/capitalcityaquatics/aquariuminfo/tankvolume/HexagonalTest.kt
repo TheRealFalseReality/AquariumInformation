@@ -1,6 +1,6 @@
 package cca.capitalcityaquatics.aquariuminfo.tankvolume
 
-import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
+import cca.capitalcityaquatics.aquariuminfo.data.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.model.tankvolumes.TankVolumeMethods
 import cca.capitalcityaquatics.aquariuminfo.navigation.Hexagonal
 import junit.framework.TestCase.assertEquals

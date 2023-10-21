@@ -55,8 +55,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.data.calculators.temperatureDataSource
-import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
+import cca.capitalcityaquatics.aquariuminfo.data.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.Shapes
 
@@ -810,8 +809,8 @@ fun RadioRowPreview() {
 		RadioButtonTwoUnits(
 			onClick1 = { },
 			onClick2 = { },
-			label1 = temperatureDataSource.radioTextCelsius,
-			label2 = temperatureDataSource.radioTextFahrenheit,
+			label1 = calculatorDataSource.radioTextCelsius,
+			label2 = calculatorDataSource.radioTextFahrenheit,
 			selected = 1,
 			selectedColor = MaterialTheme.colorScheme.primary,
 			textColor = MaterialTheme.colorScheme.outline
@@ -843,7 +842,7 @@ fun InputNumberPreview() {
 			focusedColor = MaterialTheme.colorScheme.onPrimaryContainer,
 			focusedContainerColor = MaterialTheme.colorScheme.primaryContainer,
 			unfocusedColor = MaterialTheme.colorScheme.primary,
-			leadingIcon = temperatureDataSource.leadingIconTemperature,
+			leadingIcon = calculatorDataSource.leadingIconTemperature,
 		)
 	}
 }
@@ -861,7 +860,7 @@ fun InputNumberPreviewDark(
 			focusedColor = MaterialTheme.colorScheme.onPrimaryContainer,
 			focusedContainerColor = MaterialTheme.colorScheme.primaryContainer,
 			unfocusedColor = MaterialTheme.colorScheme.primary,
-			leadingIcon = temperatureDataSource.leadingIconTemperature,
+			leadingIcon = calculatorDataSource.leadingIconTemperature,
 		)
 	}
 }

@@ -19,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import cca.capitalcityaquatics.aquariuminfo.R
+import cca.capitalcityaquatics.aquariuminfo.data.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSource
 import cca.capitalcityaquatics.aquariuminfo.model.calculators.CalculatorMethods
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateField
@@ -47,12 +48,13 @@ fun AlkalinityLayout(
 	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
 ) {
-	val dataSource = alkalinityDataSource
+	val dataSourceCommon = calculatorDataSource
+	val dataSourceSpecific = alkalinityDataSource
 	var inputAlk by rememberSaveable {
 		mutableStateOf("10")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(dataSource.radioTextDkh)
+		mutableIntStateOf(dataSourceCommon.radioTextDkh)
 	}
 	val alkalinity = inputAlk.toDoubleOrNull() ?: 0.0
 	val parameters = CalculatorMethods(selected = selected, alkalinity = alkalinity)
@@ -62,9 +64,9 @@ fun AlkalinityLayout(
 		subtitleContent = {
 			CalculatorSubtitleThree(
 				contentColor = color,
-				text1 = dataSource.subtitle1,
-				text2 = dataSource.subtitle2,
-				text3 = dataSource.subtitle3,
+				text1 = dataSourceSpecific.subtitle1,
+				text2 = dataSourceSpecific.subtitle2,
+				text3 = dataSourceSpecific.subtitle3,
 			)
 		},
 		selectContent = {
@@ -74,9 +76,9 @@ fun AlkalinityLayout(
 				header = R.string.select_input_units,
 				content = {
 					RadioButtonThreeUnits(
-						onClick1 = { selected = dataSource.radioTextDkh },
-						onClick2 = { selected = dataSource.radioTextPpm },
-						onClick3 = { selected = dataSource.radioTextMeq },
+						onClick1 = { selected = dataSourceCommon.radioTextDkh },
+						onClick2 = { selected = dataSourceCommon.radioTextPpm },
+						onClick3 = { selected = dataSourceCommon.radioTextMeq },
 						selected = selected,
 						selectedColor = color,
 						textColor = color
@@ -90,16 +92,16 @@ fun AlkalinityLayout(
 			InputNumberField(
 				label =
 				when (selected) {
-					dataSource.radioTextPpm -> {
-						dataSource.labelPpm
+					dataSourceCommon.radioTextPpm -> {
+						dataSourceCommon.labelPpm
 					}
 
-					dataSource.radioTextMeq -> {
-						dataSource.labelMeq
+					dataSourceCommon.radioTextMeq -> {
+						dataSourceCommon.labelMeq
 					}
 
 					else -> {
-						dataSource.labelDkh
+						dataSourceCommon.labelDkh
 					}
 				},
 				value = inputAlk,
@@ -107,7 +109,7 @@ fun AlkalinityLayout(
 				focusedContainerColor = containerColor,
 				focusedColor = contentColor,
 				unfocusedColor = color,
-				leadingIcon = dataSource.leadingIconTDS,
+				leadingIcon = dataSourceCommon.leadingIconTDS,
 			)
 		},
 		calculateFieldContent = {
@@ -115,46 +117,46 @@ fun AlkalinityLayout(
 				inputText =
 				when (selected) {
 					// ppm
-					dataSource.radioTextPpm -> {
-						dataSource.inputTextPpm
+					dataSourceCommon.radioTextPpm -> {
+						dataSourceCommon.inputTextPpm
 					}
 
 					// meq/L
-					dataSource.radioTextMeq -> {
-						dataSource.inputTextMeq
+					dataSourceCommon.radioTextMeq -> {
+						dataSourceCommon.inputTextMeq
 					}
 
 					// dKH
 					else -> {
-						dataSource.inputTextDkh
+						dataSourceCommon.inputTextDkh
 					}
 				},
 				inputValue = inputAlk,
 				calculateContent = {
 					when (selected) {
 						// ppm
-						dataSource.radioTextPpm -> {
+						dataSourceCommon.radioTextPpm -> {
 							CalculatedTextString(
-								text = dataSource.calculatedTextDkh,
+								text = dataSourceCommon.calculatedTextDkh,
 								calculatedValue = parameters.calculateAlkalinityDKH(),
 								textColor = contentColor,
 							)
 							CalculatedTextString(
-								text = dataSource.calculatedTextMeq,
+								text = dataSourceCommon.calculatedTextMeq,
 								calculatedValue = parameters.calculateAlkalinityMEQ(),
 								textColor = contentColor,
 							)
 						}
 
 						// meq/L
-						dataSource.radioTextMeq -> {
+						dataSourceCommon.radioTextMeq -> {
 							CalculatedTextString(
-								text = dataSource.calculatedTextDkh,
+								text = dataSourceCommon.calculatedTextDkh,
 								calculatedValue = parameters.calculateAlkalinityDKH(),
 								textColor = contentColor,
 							)
 							CalculatedTextString(
-								text = dataSource.calculatedTextPpm,
+								text = dataSourceCommon.calculatedTextPpm,
 								calculatedValue = parameters.calculateAlkalinityPPM(),
 								textColor = contentColor,
 							)
@@ -163,12 +165,12 @@ fun AlkalinityLayout(
 						// dKH
 						else -> {
 							CalculatedTextString(
-								text = dataSource.calculatedTextPpm,
+								text = dataSourceCommon.calculatedTextPpm,
 								calculatedValue = parameters.calculateAlkalinityPPM(),
 								textColor = contentColor,
 							)
 							CalculatedTextString(
-								text = dataSource.calculatedTextMeq,
+								text = dataSourceCommon.calculatedTextMeq,
 								calculatedValue = parameters.calculateAlkalinityMEQ(),
 								textColor = contentColor,
 							)
@@ -176,13 +178,13 @@ fun AlkalinityLayout(
 					}
 				},
 				contentColor = color,
-				equalsText = dataSource.equalsText,
+				equalsText = dataSourceCommon.equalsText,
 				containerColor = containerColor
 			)
 		}
 	) {
 		FormulaString(
-			text = dataSource.formulaText,
+			text = dataSourceSpecific.formulaText,
 			contentColor = color
 		)
 	}

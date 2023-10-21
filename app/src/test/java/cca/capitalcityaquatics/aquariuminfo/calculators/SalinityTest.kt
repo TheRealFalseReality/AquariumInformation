@@ -1,15 +1,15 @@
 package cca.capitalcityaquatics.aquariuminfo.calculators
 
-import cca.capitalcityaquatics.aquariuminfo.data.calculators.salinityDataSource
+import cca.capitalcityaquatics.aquariuminfo.data.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.model.calculators.SalinityMethods
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
 class SalConverterTest {
-	private val selectedSalinity = salinityDataSource.radioTextSalinity
-	private val selectedSpecificGravity = salinityDataSource.radioTextSpecificGravity
-	private val selectedDensity = salinityDataSource.radioTextDensity
-	private val selectedConductivity = salinityDataSource.radioTextConductivity
+	private val selectedSalinity = calculatorDataSource.radioTextSalinity
+	private val selectedSpecificGravity = calculatorDataSource.radioTextSpecificGravity
+	private val selectedDensity = calculatorDataSource.radioTextDensity
+	private val selectedConductivity = calculatorDataSource.radioTextConductivity
 
 	@Test
 	fun calculate_0_ppt() {

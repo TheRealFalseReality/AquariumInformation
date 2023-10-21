@@ -1,7 +1,7 @@
 package cca.capitalcityaquatics.aquariuminfo.model.calculators
 
 import androidx.annotation.VisibleForTesting
-import cca.capitalcityaquatics.aquariuminfo.data.calculators.salinityDataSource
+import cca.capitalcityaquatics.aquariuminfo.data.calculatorDataSource
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.pow
@@ -80,22 +80,22 @@ class SalinityMethods(
 		val calculate =
 			when (selected) {
 				// Salinity
-				salinityDataSource.radioTextSalinity -> {
+				calculatorDataSource.radioTextSalinity -> {
 					roTDS / rROoTD
 				}
 
 				// Specific Gravity
-				salinityDataSource.radioTextSpecificGravity -> {
+				calculatorDataSource.radioTextSpecificGravity -> {
 					2.0
 				}
 
 				// Density
-				salinityDataSource.radioTextDensity -> {
+				calculatorDataSource.radioTextDensity -> {
 					tds / rROoTD
 				}
 
 				// Conductivity
-				salinityDataSource.radioTextConductivity -> {
+				calculatorDataSource.radioTextConductivity -> {
 					roSAL / rROoTD
 				}
 
@@ -118,12 +118,12 @@ class SalinityMethods(
 		val calculate =
 			when (selected) {
 				// Salinity
-				salinityDataSource.radioTextSalinity -> {
+				calculatorDataSource.radioTextSalinity -> {
 					1.0
 				}
 
 				// Specific Gravity
-				salinityDataSource.radioTextSpecificGravity -> {
+				calculatorDataSource.radioTextSpecificGravity -> {
 					do {
 						s2 = j / 1000
 						ro = rROo + a * s2 + b * sqrt(s2.pow(3)) + c * s2 * s2
@@ -137,7 +137,7 @@ class SalinityMethods(
 				}
 
 				// Density
-				salinityDataSource.radioTextDensity -> {
+				calculatorDataSource.radioTextDensity -> {
 					do {
 						s2 = j / 1000
 						ro = rROo + a * s2 + b * sqrt(s2.pow(3)) + c * s2 * s2
@@ -151,7 +151,7 @@ class SalinityMethods(
 				}
 
 				// Conductivity
-				salinityDataSource.radioTextConductivity -> {
+				calculatorDataSource.radioTextConductivity -> {
 					sal
 				}
 
@@ -172,22 +172,22 @@ class SalinityMethods(
 		val calculate =
 			when (selected) {
 				// Salinity
-				salinityDataSource.radioTextSalinity -> {
+				calculatorDataSource.radioTextSalinity -> {
 					rROo + a * tds + b * sqrt(tds.pow(3)) + c * tds * tds
 				}
 
 				// Specific Gravity
-				salinityDataSource.radioTextSpecificGravity -> {
+				calculatorDataSource.radioTextSpecificGravity -> {
 					tds * rROoTD
 				}
 
 				// Density
-				salinityDataSource.radioTextDensity -> {
+				calculatorDataSource.radioTextDensity -> {
 					3.0
 				}
 
 				// Conductivity
-				salinityDataSource.radioTextConductivity -> {
+				calculatorDataSource.radioTextConductivity -> {
 					roSAL
 				}
 
@@ -215,7 +215,7 @@ class SalinityMethods(
 		val calculate =
 			when (selected) {
 				// Salinity
-				salinityDataSource.radioTextSalinity -> {
+				calculatorDataSource.radioTextSalinity -> {
 					do {
 						cond = i / 1000.0
 						r = cond / 42.914
@@ -252,7 +252,7 @@ class SalinityMethods(
 				}
 
 				// Specific Gravity
-				salinityDataSource.radioTextSpecificGravity -> {
+				calculatorDataSource.radioTextSpecificGravity -> {
 					do {
 						s2 = j / 1000.0
 						ro = rROo + a * s2 + b * sqrt(s2.pow(3)) + c * s2 * s2
@@ -294,7 +294,7 @@ class SalinityMethods(
 				}
 
 				// Density
-				salinityDataSource.radioTextDensity -> {
+				calculatorDataSource.radioTextDensity -> {
 					do {
 						cond = i / 1000.0
 						r = cond / 42.914
@@ -330,7 +330,7 @@ class SalinityMethods(
 				}
 
 				// Conductivity
-				salinityDataSource.radioTextConductivity -> {
+				calculatorDataSource.radioTextConductivity -> {
 					4.0
 				}
 

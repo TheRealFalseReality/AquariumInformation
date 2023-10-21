@@ -1,14 +1,14 @@
 package cca.capitalcityaquatics.aquariuminfo.calculators
 
-import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSource
+import cca.capitalcityaquatics.aquariuminfo.data.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.model.calculators.CalculatorMethods
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
 class AlkCalculatorTest {
-	private val selectedDKH = alkalinityDataSource.radioTextDkh
-	private val selectedPPM = alkalinityDataSource.radioTextPpm
-	private val selectedMEQ = alkalinityDataSource.radioTextMeq
+	private val selectedDKH = calculatorDataSource.radioTextDkh
+	private val selectedPPM = calculatorDataSource.radioTextPpm
+	private val selectedMEQ = calculatorDataSource.radioTextMeq
 
 	@Test
 	fun calculate_14_dkh() {

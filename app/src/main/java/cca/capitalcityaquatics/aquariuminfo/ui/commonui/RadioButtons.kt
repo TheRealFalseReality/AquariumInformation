@@ -12,9 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
-import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSource
-import cca.capitalcityaquatics.aquariuminfo.data.calculators.salinityDataSource
-import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
+import cca.capitalcityaquatics.aquariuminfo.data.calculatorDataSource
 
 @Composable
 fun RadioButtonComposable(
@@ -94,10 +92,10 @@ fun RadioButtonFourUnits(
 	onClick2: () -> Unit,
 	onClick3: () -> Unit,
 	onClick4: () -> Unit,
-	@StringRes label1: Int = salinityDataSource.radioTextSpecificGravity,
-	@StringRes label2: Int = salinityDataSource.radioTextSalinity,
-	@StringRes label3: Int = salinityDataSource.radioTextDensity,
-	@StringRes label4: Int = salinityDataSource.radioTextConductivity,
+	@StringRes label1: Int = calculatorDataSource.radioTextSpecificGravity,
+	@StringRes label2: Int = calculatorDataSource.radioTextSalinity,
+	@StringRes label3: Int = calculatorDataSource.radioTextDensity,
+	@StringRes label4: Int = calculatorDataSource.radioTextConductivity,
 	selected: Int,
 	selectedColor: Color,
 	textColor: Color,
@@ -161,9 +159,9 @@ fun RadioButtonThreeUnits(
 	onClick1: () -> Unit,
 	onClick2: () -> Unit,
 	onClick3: () -> Unit,
-	@StringRes label1: Int = alkalinityDataSource.radioTextDkh,
-	@StringRes label2: Int = alkalinityDataSource.radioTextPpm,
-	@StringRes label3: Int = alkalinityDataSource.radioTextMeq,
+	@StringRes label1: Int = calculatorDataSource.radioTextDkh,
+	@StringRes label2: Int = calculatorDataSource.radioTextPpm,
+	@StringRes label3: Int = calculatorDataSource.radioTextMeq,
 	selected: Int,
 	selectedColor: Color,
 	textColor: Color,

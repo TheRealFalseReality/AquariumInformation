@@ -15,6 +15,9 @@ All notable changes to this project will be documented in this file.
 * Launch Default Page
 * Add metric to Water Weight
 * Pump Flow Rate
+* Add Dosing
+* Change input fields to stacked on landscape
+* Restrict input to numbers only
 
 ## Issues
 * Fix Subscripts for CaCO3

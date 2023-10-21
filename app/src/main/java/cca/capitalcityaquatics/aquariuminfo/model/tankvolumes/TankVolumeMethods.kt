@@ -1,7 +1,7 @@
 package cca.capitalcityaquatics.aquariuminfo.model.tankvolumes
 
 import androidx.annotation.VisibleForTesting
-import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
+import cca.capitalcityaquatics.aquariuminfo.data.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.navigation.BowFront
 import cca.capitalcityaquatics.aquariuminfo.navigation.Cube
 import cca.capitalcityaquatics.aquariuminfo.navigation.Cylinder

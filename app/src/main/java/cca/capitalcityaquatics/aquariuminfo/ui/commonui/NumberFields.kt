@@ -34,7 +34,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cca.capitalcityaquatics.aquariuminfo.R
-import cca.capitalcityaquatics.aquariuminfo.data.tankvolumes.calculatorDataSource
+import cca.capitalcityaquatics.aquariuminfo.data.calculatorDataSource
 
 @Composable
 fun InputNumberField(
@@ -503,7 +503,7 @@ fun CalculateField(
 	modifier: Modifier = Modifier,
 	@StringRes inputText: Int,
 	inputValue: String,
-	@StringRes equalsText: Int = calculatorDataSource.equalsText,
+	@StringRes equalsText: Int = calculatorDataSource.approxText,
 	calculateContent: @Composable () -> Unit,
 	contentColor: Color,
 	containerColor: Color,
@@ -542,7 +542,7 @@ fun CalculateField(
 @Composable
 fun EqualsText(
 	modifier: Modifier = Modifier,
-	@StringRes equalsText: Int = calculatorDataSource.equalsText,
+	@StringRes equalsText: Int = calculatorDataSource.approxText,
 	color: Color,
 ) {
 	Column(modifier = modifier) {
@@ -562,7 +562,7 @@ fun CalculateFieldTwoInputs(
 	@StringRes inputText: Int,
 	inputValue1: String,
 	inputValue2: String,
-	@StringRes equalsText: Int = calculatorDataSource.equalsText,
+	@StringRes equalsText: Int = calculatorDataSource.approxText,
 	calculateContent: @Composable () -> Unit,
 	contentColor: Color,
 	containerColor: Color,
@@ -606,7 +606,7 @@ fun CalculateFieldFourInputs(
 	inputValue2: String,
 	inputValue3: String,
 	inputValue4: String,
-	@StringRes equalsText: Int = calculatorDataSource.equalsText,
+	@StringRes equalsText: Int = calculatorDataSource.approxText,
 	calculateContent: @Composable () -> Unit,
 	contentColor: Color,
 	containerColor: Color,
