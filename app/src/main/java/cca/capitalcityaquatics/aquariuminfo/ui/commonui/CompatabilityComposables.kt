@@ -1,7 +1,9 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.commonui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -47,7 +49,11 @@ fun CompatibilityDataList(
 					)
 				}
 				item {
-					Disclaimer()
+					Column(
+						modifier = Modifier.fillMaxSize()
+					) {
+						Disclaimer()
+					}
 				}
 			}
 		)
@@ -173,7 +179,11 @@ fun BetaFeature(modifier: Modifier = Modifier) {
 
 @Composable
 fun Disclaimer(modifier: Modifier = Modifier) {
-	Column(modifier = modifier) {
+	Column(
+		modifier = modifier,
+		verticalArrangement = Arrangement.Center,
+		horizontalAlignment = Alignment.CenterHorizontally
+	) {
 		IconTextRow(
 			icon = disclaimerDataSource.icon,
 			text = disclaimerDataSource.text,

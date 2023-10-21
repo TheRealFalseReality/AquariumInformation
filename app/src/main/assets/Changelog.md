@@ -23,7 +23,7 @@ All notable changes to this project will be documented in this file.
 ## Updates
 
 ### 2.0.7 - 2023.10.5
-
+* General UI Fixes
 
 ### 2.0.6 - 2023.10.4
 **Changed**
