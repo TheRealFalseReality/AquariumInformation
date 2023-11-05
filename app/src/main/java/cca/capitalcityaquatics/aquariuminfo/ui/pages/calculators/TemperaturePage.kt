@@ -146,7 +146,7 @@ fun TemperatureLayout(
 						// Celsius
 						else -> {
 							CalculatedTextString(
-								text = dataSourceCommon.calculatedTextCelsius,
+								text = dataSourceCommon.calculatedTextFahrenheit,
 								calculatedValue = parameters.convertTemperature(),
 								textColor = contentColor,
 							)

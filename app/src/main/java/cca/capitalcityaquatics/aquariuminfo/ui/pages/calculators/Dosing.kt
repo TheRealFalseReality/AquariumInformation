@@ -74,7 +74,7 @@ fun DosingLayout(
 				focusedContainerColor = containerColor,
 				focusedColor = contentColor,
 				unfocusedColor = color,
-				leadingIcon1 = R.drawable.ic_sanitizer,
+				leadingIcon1 = R.drawable.ic_sanitizer, // TODO
 				leadingIcon2 = R.drawable.ic_sanitizer,
 				leadingIcon3 = R.drawable.ic_sanitizer,
 			)

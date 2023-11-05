@@ -83,7 +83,7 @@ val calculatorDataSource =
 		labelSalinity = R.string.salinity,
 		labelSpecificGravity = R.string.button_label_sg,
 		labelConductivity = R.string.conductivity,
-		labelDensity = R.string.text_density,
+		labelDensity = R.string.button_label_density,
 		leadingIconSalinity = R.drawable.ic_salinity_alt,
 		leadingIconConductivity = R.drawable.ic_bolt,
 		leadingIconDensity = R.drawable.ic_weight,
@@ -100,4 +100,5 @@ val calculatorDataSource =
 		calculatedTextCelsius = R.string.text_amount_celsius,
 		calculatedTextKelvin = R.string.text_amount_kelvin,
 		leadingIconTemperature = R.drawable.ic_thermometer,
+		labelTankVolume = R.string.tank_volume
 		)

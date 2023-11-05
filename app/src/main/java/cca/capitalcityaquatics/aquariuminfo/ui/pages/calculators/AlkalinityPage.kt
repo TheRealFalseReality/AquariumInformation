@@ -64,9 +64,9 @@ fun AlkalinityLayout(
 		subtitleContent = {
 			CalculatorSubtitleThree(
 				contentColor = color,
-				text1 = dataSourceSpecific.subtitle1,
-				text2 = dataSourceSpecific.subtitle2,
-				text3 = dataSourceSpecific.subtitle3,
+				text1 = dataSourceSpecific.subtitle2,
+				text2 = dataSourceSpecific.subtitle3,
+				text3 = dataSourceSpecific.subtitle4,
 			)
 		},
 		selectContent = {

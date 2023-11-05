@@ -100,4 +100,5 @@ data class CalculatorCommonData(
 	@StringRes val calculatedTextCelsius: Int,
 	@StringRes val calculatedTextKelvin: Int,
 	@DrawableRes val leadingIconTemperature: Int,
+	@StringRes val labelTankVolume: Int,
 	)

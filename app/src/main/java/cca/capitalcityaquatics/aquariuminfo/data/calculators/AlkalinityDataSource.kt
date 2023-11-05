@@ -5,9 +5,9 @@ import cca.capitalcityaquatics.aquariuminfo.R
 val alkalinityDataSource =
 	AlkalinityData(
 		subtitle = R.string.text_subtitle_alk,
-		subtitle1 = R.string.text_subtitle_alk_1,
-		subtitle2 = R.string.text_subtitle_alk_2,
-		subtitle3 = R.string.text_subtitle_alk_3,
+		subtitle2 = R.string.text_subtitle_alk_1,
+		subtitle3 = R.string.text_subtitle_alk_2,
+		subtitle4 = R.string.text_subtitle_alk_3,
 		formulaText = R.string.text_formula_alk,
 		conversionDKHMEQ = 2.8,
 		conversionDKHPPM = 0.056,
