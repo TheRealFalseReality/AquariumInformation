@@ -56,6 +56,8 @@ fun InputNumberField(
 	@DrawableRes leadingIcon: Int,
 ) {
 	val focusManager = LocalFocusManager.current
+	val isError =
+		value.contains(Regex("[A-Za-z]+")) or value.isEmpty() or value.contains(",")
 
 	Column(
 		modifier = modifier,
@@ -120,7 +122,16 @@ fun InputNumberField(
 			},
 			leadingIcon = {
 				Icon(painter = painterResource(id = leadingIcon), contentDescription = null)
-			}
+			},
+			isError = isError,
+			supportingText = {
+				if (isError) {
+					BodyText(
+						text = R.string.please_enter_a_number,
+						color = MaterialTheme.colorScheme.error
+					)
+				}
+			},
 		)
 	}
 }

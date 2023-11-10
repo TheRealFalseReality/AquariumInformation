@@ -17,7 +17,9 @@ All notable changes to this project will be documented in this file.
 * Pump Flow Rate
 * Add Dosing
 * Change input fields to stacked on landscape
-* Restrict input to numbers only
+* Restrict input to numbers only or error message
+* Change placeholders from "Enter" to examples (i.e. or ex.) 
+* Change default selection to Inches?
 
 ## Issues
 * Fix Subscripts for CaCO3
@@ -25,7 +27,13 @@ All notable changes to this project will be documented in this file.
 
 ## Updates
 
+### 2.0.8 - 2023.11.0
+**Changed**
+* Fixed Typo
+* Number Check
+
 ### 2.0.7 - 2023.10.5
+**Changed**
 * General UI Fixes
 
 ### 2.0.6 - 2023.10.4

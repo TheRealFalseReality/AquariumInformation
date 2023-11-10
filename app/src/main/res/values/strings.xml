@@ -632,4 +632,5 @@
     <string name="treatment">Treatment</string>
     <string name="water">Water</string>
     <string name="aquarium">Aquarium Size</string>
+    <string name="please_enter_a_number">Please enter a number.</string>
 </resources>
