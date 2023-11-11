@@ -66,7 +66,7 @@ fun BowFrontLayout(
 		mutableStateOf("")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(dataSourceCommon.radioTextFeet)
+		mutableIntStateOf(dataSourceCommon.radioTextInches)
 	}
 	val length = inputLength.toDoubleOrNull() ?: 0.0
 	val width = inputWidth.toDoubleOrNull() ?: 0.0
@@ -96,8 +96,8 @@ fun BowFrontLayout(
 				header = R.string.select_input_units,
 				content = {
 					RadioButtonTwoUnits(
-						onClick1 = { selected = dataSourceCommon.radioTextFeet },
-						onClick2 = { selected = dataSourceCommon.radioTextInches },
+						onClick1 = { selected = dataSourceCommon.radioTextInches },
+						onClick2 = { selected = dataSourceCommon.radioTextFeet },
 						selected = selected,
 						selectedColor = color,
 						textColor = color

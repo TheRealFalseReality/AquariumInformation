@@ -51,10 +51,10 @@ fun RadioButtonComposable(
 @Composable
 fun RadioButtonTwoUnits(
 	modifier: Modifier = Modifier,
-	onClick1: () -> Unit, // TODO Add defaults to match label, Inches selected default, from feet
+	onClick1: () -> Unit,
 	onClick2: () -> Unit,
-	@StringRes label1: Int = calculatorDataSource.radioTextFeet,
-	@StringRes label2: Int = calculatorDataSource.radioTextInches,
+	@StringRes label1: Int = calculatorDataSource.radioTextInches,
+	@StringRes label2: Int = calculatorDataSource.radioTextFeet,
 	selected: Int,
 	selectedColor: Color,
 	textColor: Color,

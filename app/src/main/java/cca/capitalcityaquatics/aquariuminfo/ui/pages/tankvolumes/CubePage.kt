@@ -57,7 +57,7 @@ fun CubeLayout(
 		mutableStateOf("")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(dataSourceCommon.radioTextFeet)
+		mutableIntStateOf(dataSourceCommon.radioTextInches)
 	}
 	val length = inputSide.toDoubleOrNull() ?: 0.0
 	val dimensions = TankVolumeMethods(
@@ -81,8 +81,8 @@ fun CubeLayout(
 				header = R.string.select_input_units,
 				content = {
 					RadioButtonTwoUnits(
-						onClick1 = { selected = dataSourceCommon.radioTextFeet },
-						onClick2 = { selected = dataSourceCommon.radioTextInches },
+						onClick1 = { selected = dataSourceCommon.radioTextInches },
+						onClick2 = { selected = dataSourceCommon.radioTextFeet },
 						selected = selected,
 						selectedColor = color,
 						textColor = color

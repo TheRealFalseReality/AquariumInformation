@@ -62,7 +62,7 @@ fun CylinderLayout(
 		mutableStateOf("")
 	}
 	var selected by rememberSaveable {
-		mutableIntStateOf(dataSourceCommon.radioTextFeet)
+		mutableIntStateOf(dataSourceCommon.radioTextInches)
 	}
 	var selectedCylinder by rememberSaveable {
 		mutableIntStateOf(dataSourceCommon.radioFullCylinder)
@@ -98,8 +98,8 @@ fun CylinderLayout(
 				header = R.string.select_input_units,
 				content = {
 					RadioButtonTwoUnits(
-						onClick1 = { selected = dataSourceCommon.radioTextFeet },
-						onClick2 = { selected = dataSourceCommon.radioTextInches },
+						onClick1 = { selected = dataSourceCommon.radioTextInches },
+						onClick2 = { selected = dataSourceCommon.radioTextFeet },
 						selected = selected,
 						selectedColor = color,
 						textColor = color
@@ -136,7 +136,7 @@ fun CylinderLayout(
 					)
 				},
 				contentColor = color,
-				selected = selected
+				selected = selectedCylinder
 			)
 		},
 		inputFieldContent = {
