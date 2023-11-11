@@ -24,7 +24,7 @@ import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedTextString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.FormulaString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.HeaderText
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberFieldTwoInputsStacked
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputRowNumberFieldTwoInputs
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TextCard
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
@@ -71,7 +71,7 @@ fun CarbonDioxideLayout(
 			)
 		},
 		inputFieldContent = {
-			InputNumberFieldTwoInputsStacked(
+			InputRowNumberFieldTwoInputs(
 				label1 = dataSourceCommon.labelPh,
 				label2 = dataSourceCommon.labelDkh,
 				value1 = inputPH,
