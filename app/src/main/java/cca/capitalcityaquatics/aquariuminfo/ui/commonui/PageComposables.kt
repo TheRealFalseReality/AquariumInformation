@@ -74,7 +74,7 @@ fun GenericCalculatePage(
 				Column(
 					modifier = Modifier
 						.heightIn(min = dimensionResource(id = R.dimen.landscape_column_height))
-						.weight(1f),
+						.weight(3f),
 					horizontalAlignment = Alignment.CenterHorizontally,
 					verticalArrangement = Arrangement.SpaceAround
 				) {
@@ -88,7 +88,7 @@ fun GenericCalculatePage(
 				Column(
 					modifier = Modifier
 						.heightIn(min = dimensionResource(id = R.dimen.landscape_column_height))
-						.weight(1f),
+						.weight(2f),
 					horizontalAlignment = Alignment.CenterHorizontally,
 					verticalArrangement = Arrangement.Center
 				) {
@@ -102,13 +102,13 @@ fun GenericCalculatePage(
 				if (imageContent != null) {
 					Column(
 						modifier = Modifier
-							.weight(1f),
+							.weight(3f),
 						horizontalAlignment = Alignment.CenterHorizontally,
 					) {
 						imageContent()
 					}
 					Column(
-						modifier = Modifier.weight(1f),
+						modifier = Modifier.weight(2f),
 						horizontalAlignment = Alignment.CenterHorizontally,
 					) {
 						if (formulaContent != null) {

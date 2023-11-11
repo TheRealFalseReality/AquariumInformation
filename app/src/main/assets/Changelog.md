@@ -17,9 +17,7 @@ All notable changes to this project will be documented in this file.
 * Pump Flow Rate
 * Add Dosing
 * Change input fields to stacked on landscape
-* Restrict input to numbers only or error message
 * Change placeholders from "Enter" to examples (i.e. or ex.) 
-* Change default selection to Inches?
 
 ## Issues
 * Fix Subscripts for CaCO3

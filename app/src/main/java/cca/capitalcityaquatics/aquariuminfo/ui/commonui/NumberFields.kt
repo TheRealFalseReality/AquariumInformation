@@ -18,6 +18,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.windowsizeclass.WindowSizeClass
+import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -427,6 +429,72 @@ fun InputNumberFieldThreeInputs(
 
 @Composable
 fun InputNumberFieldThreeInputsStacked(
+	windowSize: WindowSizeClass,
+	@StringRes label1: Int,
+	@StringRes placeholder1: Int = R.string.placeholder_enter,
+	@StringRes label2: Int,
+	@StringRes placeholder2: Int = R.string.placeholder_enter,
+	@StringRes label3: Int,
+	@StringRes placeholder3: Int = R.string.placeholder_enter,
+	value1: String,
+	onValueChange1: (String) -> Unit,
+	value2: String,
+	onValueChange2: (String) -> Unit,
+	value3: String,
+	onValueChange3: (String) -> Unit,
+	focusedColor: Color,
+	focusedContainerColor: Color,
+	unfocusedColor: Color,
+	leadingIcon1: Int,
+	leadingIcon2: Int,
+	leadingIcon3: Int,
+) {
+	when (windowSize.widthSizeClass) {
+		WindowWidthSizeClass.Expanded -> {
+			InputNumberFieldThreeInputsStackedLandscape(
+				label1 = label1,
+				label2 = label2,
+				label3 = label3,
+				value1 = value1,
+				onValueChange1 = onValueChange1,
+				value2 = value2,
+				onValueChange2 = onValueChange2,
+				value3 = value3,
+				onValueChange3 = onValueChange3,
+				focusedColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedColor = unfocusedColor,
+				leadingIcon1 = leadingIcon1,
+				leadingIcon2 = leadingIcon2,
+				leadingIcon3 = leadingIcon3,
+			)
+		}
+
+		else -> {
+			InputNumberFieldThreeInputsStackedPortrait(
+				label1 = label1,
+				label2 = label2,
+				label3 = label3,
+				value1 = value1,
+				onValueChange1 = onValueChange1,
+				value2 = value2,
+				onValueChange2 = onValueChange2,
+				value3 = value3,
+				onValueChange3 = onValueChange3,
+				focusedColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedColor = unfocusedColor,
+				leadingIcon1 = leadingIcon1,
+				leadingIcon2 = leadingIcon2,
+				leadingIcon3 = leadingIcon3,
+			)
+		}
+	}
+
+}
+
+@Composable
+fun InputNumberFieldThreeInputsStackedPortrait(
 	modifier: Modifier = Modifier,
 	@StringRes label1: Int,
 	@StringRes placeholder1: Int = R.string.placeholder_enter,
@@ -471,6 +539,98 @@ fun InputNumberFieldThreeInputsStacked(
 				imeAction = ImeAction.Next,
 				leadingIcon = leadingIcon1
 			)
+			InputNumberField(
+				modifier = Modifier
+					.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
+					.weight(1f),
+				label = label2,
+				placeholder = placeholder2,
+				value = value2,
+				onValueChange = onValueChange2,
+				focusedColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedColor = unfocusedColor,
+				imeAction = ImeAction.Next,
+				leadingIcon = leadingIcon2
+			)
+		}
+		SmallSpacer()
+		Row(
+			modifier = Modifier
+				.fillMaxWidth(),
+			horizontalArrangement = Arrangement.Center,
+			verticalAlignment = Alignment.CenterVertically
+		) {
+			InputNumberField(
+				modifier = Modifier
+					.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall)),
+				label = label3,
+				placeholder = placeholder3,
+				value = value3,
+				onValueChange = onValueChange3,
+				focusedColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedColor = unfocusedColor,
+				leadingIcon = leadingIcon3
+			)
+		}
+	}
+}
+
+@Composable
+fun InputNumberFieldThreeInputsStackedLandscape(
+	modifier: Modifier = Modifier,
+	@StringRes label1: Int,
+	@StringRes placeholder1: Int = R.string.placeholder_enter,
+	@StringRes label2: Int,
+	@StringRes placeholder2: Int = R.string.placeholder_enter,
+	@StringRes label3: Int,
+	@StringRes placeholder3: Int = R.string.placeholder_enter,
+	value1: String,
+	onValueChange1: (String) -> Unit,
+	value2: String,
+	onValueChange2: (String) -> Unit,
+	value3: String,
+	onValueChange3: (String) -> Unit,
+	focusedColor: Color,
+	focusedContainerColor: Color,
+	unfocusedColor: Color,
+	leadingIcon1: Int,
+	leadingIcon2: Int,
+	leadingIcon3: Int,
+) {
+	Column(
+		modifier = modifier,
+		horizontalAlignment = Alignment.CenterHorizontally
+	) {
+		Row(
+			modifier = Modifier
+				.fillMaxWidth(fraction = 0.95f),
+			horizontalArrangement = Arrangement.SpaceBetween,
+			verticalAlignment = Alignment.CenterVertically
+		) {
+			InputNumberField(
+				modifier = Modifier
+					.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))
+					.weight(1f),
+				label = label1,
+				placeholder = placeholder1,
+				value = value1,
+				onValueChange = onValueChange1,
+				focusedColor = focusedColor,
+				focusedContainerColor = focusedContainerColor,
+				unfocusedColor = unfocusedColor,
+				imeAction = ImeAction.Next,
+				leadingIcon = leadingIcon1
+			)
+		}
+		SmallSpacer()
+		Row(
+			modifier = Modifier
+				.fillMaxWidth(),
+			horizontalArrangement = Arrangement.Center,
+			verticalAlignment = Alignment.CenterVertically
+		) {
 			InputNumberField(
 				modifier = Modifier
 					.padding(horizontal = dimensionResource(id = R.dimen.padding_verySmall))

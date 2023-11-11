@@ -23,7 +23,7 @@ import cca.capitalcityaquatics.aquariuminfo.model.calculators.DosingMethods
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateFieldThreeInputs
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedTextString
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberFieldThreeInputsStacked
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberFieldThreeInputsStackedPortrait
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 
@@ -61,7 +61,8 @@ fun DosingLayout(
 	GenericCalculatePage(
 		windowSize = windowSize,
 		inputFieldContent = {
-			InputNumberFieldThreeInputsStacked(
+			InputNumberFieldThreeInputsStackedPortrait(
+//				windowSize = windowSize,
 				label1 = R.string.treatment,
 				label2 = R.string.water,
 				label3 = R.string.aquarium,
