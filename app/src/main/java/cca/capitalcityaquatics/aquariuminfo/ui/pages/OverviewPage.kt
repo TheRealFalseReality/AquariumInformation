@@ -22,6 +22,7 @@ import cca.capitalcityaquatics.aquariuminfo.navigation.Calculators
 import cca.capitalcityaquatics.aquariuminfo.navigation.CarbonDioxide
 import cca.capitalcityaquatics.aquariuminfo.navigation.Cube
 import cca.capitalcityaquatics.aquariuminfo.navigation.Cylinder
+import cca.capitalcityaquatics.aquariuminfo.navigation.Doser
 import cca.capitalcityaquatics.aquariuminfo.navigation.FishCompatibility
 import cca.capitalcityaquatics.aquariuminfo.navigation.FishCompatibilityFreshwater
 import cca.capitalcityaquatics.aquariuminfo.navigation.FishCompatibilityMarine
@@ -29,6 +30,7 @@ import cca.capitalcityaquatics.aquariuminfo.navigation.Hexagonal
 import cca.capitalcityaquatics.aquariuminfo.navigation.Home
 import cca.capitalcityaquatics.aquariuminfo.navigation.HomeInfo
 import cca.capitalcityaquatics.aquariuminfo.navigation.Information
+import cca.capitalcityaquatics.aquariuminfo.navigation.PumpFlow
 import cca.capitalcityaquatics.aquariuminfo.navigation.Rectangle
 import cca.capitalcityaquatics.aquariuminfo.navigation.Salinity
 import cca.capitalcityaquatics.aquariuminfo.navigation.TankVolume
@@ -57,6 +59,8 @@ fun OverviewPage(
 	onClickBowFront: () -> Unit = {},
 	onClickHome: () -> Unit = {},
 	onClickInformation: () -> Unit = {},
+	onClickDoser: () -> Unit = {},
+	onClickPumpFlow: () -> Unit = {},
 ) {
 	PageView {
 		OverviewLayout(
@@ -73,7 +77,9 @@ fun OverviewPage(
 			onClickHexagonal = onClickHexagonal,
 			onClickBowFront = onClickBowFront,
 			onClickHome = onClickHome,
-			onClickInformation = onClickInformation
+			onClickInformation = onClickInformation,
+			onClickDoser = onClickDoser,
+			onClickPumpFlow = onClickPumpFlow,
 		)
 	}
 }
@@ -94,12 +100,16 @@ fun OverviewLayout(
 	onClickBowFront: () -> Unit = {},
 	onClickHome: () -> Unit = {},
 	onClickInformation: () -> Unit = {},
+	onClickDoser: () -> Unit = {},
+	onClickPumpFlow: () -> Unit = {},
 ) {
 	CalculatorsGrid(
 		onClickTemperature = onClickTemperature,
 		onClickSalinity = onClickSalinity,
 		onClickAlkalinity = onClickAlkalinity,
-		onClickCo2 = onClickCo2
+		onClickCo2 = onClickCo2,
+		onClickDoser = onClickDoser,
+		onClickPumpFlow = onClickPumpFlow,
 	)
 	VerySmallSpacer()
 	TankVolumeGrid(
@@ -153,6 +163,8 @@ fun CalculatorsGrid(
 	onClickSalinity: () -> Unit = {},
 	onClickAlkalinity: () -> Unit = {},
 	onClickCo2: () -> Unit = {},
+	onClickDoser: () -> Unit = {},
+	onClickPumpFlow: () -> Unit = {},
 ) {
 	Column(modifier = modifier) {
 		TitleWideContent(
@@ -180,6 +192,17 @@ fun CalculatorsGrid(
 				contentColor = contentColor,
 				onClick1 = onClickTemperature,
 				onClick2 = onClickCo2
+			)
+			MediumSpacer()
+			NavButtonRow(
+				title1 = Doser.title,
+				icon1 = Doser.icon,
+				title2 = PumpFlow.title,
+				icon2 = PumpFlow.icon,
+				containerColor = containerColor,
+				contentColor = contentColor,
+				onClick1 = onClickDoser,
+				onClick2 = onClickPumpFlow
 			)
 		}
 	}

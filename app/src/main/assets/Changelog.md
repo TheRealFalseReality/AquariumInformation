@@ -16,8 +16,9 @@ All notable changes to this project will be documented in this file.
 * Add metric to Water Weight
 * Pump Flow Rate
 * Add Dosing
-* Change input fields to stacked on landscape
 * Change placeholders from "Enter" to examples (i.e. or ex.) 
+* Add more information to calculators
+* Add Ideal Parameters to calculators
 
 ## Issues
 * Fix Subscripts for CaCO3

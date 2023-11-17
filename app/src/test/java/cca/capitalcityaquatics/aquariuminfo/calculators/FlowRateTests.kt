@@ -16,12 +16,12 @@ class FlowRateTests {
 		val expectedHighReef = "5000"
 		val expectedIdealReef = "3750"
 		val parameters = CalculatorMethods(tankVolume = tankVolume)
-		val actualLowRateFreshwater = parameters.pumpFlowLowFreshwater()
-		val actualHighRateFreshwater = parameters.pumpFlowHighFreshwater()
-		val actualIdealRateFreshwater = parameters.pumpFlowIdealFreshwater()
-		val actualLowRateReef = parameters.pumpFlowLowReef()
-		val actualHighRateReef = parameters.pumpFlowHighReef()
-		val actualHighIdealReef = parameters.pumpFlowIdealReef()
+		val actualLowRateFreshwater = parameters.calculatePumpFlowLowFreshwater()
+		val actualHighRateFreshwater = parameters.calculatePumpFlowHighFreshwater()
+		val actualIdealRateFreshwater = parameters.calculatePumpFlowIdealFreshwater()
+		val actualLowRateReef = parameters.calculatePumpFlowLowMarine()
+		val actualHighRateReef = parameters.calculatePumpFlowHighMarine()
+		val actualHighIdealReef = parameters.calculatePumpFlowIdealMarine()
 
 		assertEquals(expectedLowFreshwater, actualLowRateFreshwater)
 		assertEquals(expectedHighFreshwater, actualHighRateFreshwater)
@@ -42,12 +42,12 @@ class FlowRateTests {
 		val expectedHighReef = "600"
 		val expectedIdealReef = "450"
 		val parameters = CalculatorMethods(tankVolume = tankVolume)
-		val actualLowRateFreshwater = parameters.pumpFlowLowFreshwater()
-		val actualHighRateFreshwater = parameters.pumpFlowHighFreshwater()
-		val actualIdealRateFreshwater = parameters.pumpFlowIdealFreshwater()
-		val actualLowRateReef = parameters.pumpFlowLowReef()
-		val actualHighRateReef = parameters.pumpFlowHighReef()
-		val actualHighIdealReef = parameters.pumpFlowIdealReef()
+		val actualLowRateFreshwater = parameters.calculatePumpFlowLowFreshwater()
+		val actualHighRateFreshwater = parameters.calculatePumpFlowHighFreshwater()
+		val actualIdealRateFreshwater = parameters.calculatePumpFlowIdealFreshwater()
+		val actualLowRateReef = parameters.calculatePumpFlowLowMarine()
+		val actualHighRateReef = parameters.calculatePumpFlowHighMarine()
+		val actualHighIdealReef = parameters.calculatePumpFlowIdealMarine()
 
 		assertEquals(expectedLowFreshwater, actualLowRateFreshwater)
 		assertEquals(expectedHighFreshwater, actualHighRateFreshwater)

@@ -1,35 +1,43 @@
 package cca.capitalcityaquatics.aquariuminfo.ui.pages.calculators
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
-import cca.capitalcityaquatics.aquariuminfo.data.calculatorDataSource
-import cca.capitalcityaquatics.aquariuminfo.data.calculators.flowRateDataSource
-import cca.capitalcityaquatics.aquariuminfo.model.calculators.CalculatorMethods
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculateField
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.CalculatedTextString
+import cca.capitalcityaquatics.aquariuminfo.R
+import cca.capitalcityaquatics.aquariuminfo.data.calculators.FlowRateData
+import cca.capitalcityaquatics.aquariuminfo.data.calculators.flowRateDataSourceFreshwater
+import cca.capitalcityaquatics.aquariuminfo.data.calculators.flowRateDataSourceMarine
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.GenericCalculatePage
 import cca.capitalcityaquatics.aquariuminfo.ui.commonui.HeaderText
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.InputNumberField
-import cca.capitalcityaquatics.aquariuminfo.ui.commonui.TextCard
+import cca.capitalcityaquatics.aquariuminfo.ui.commonui.PageView
 import cca.capitalcityaquatics.aquariuminfo.ui.theme.AquariumInformationTheme
 
 @Composable
 fun FlowRatePage(windowSize: WindowSizeClass) {
-	FlowRateLayout(windowSize = windowSize)
+	PageView(
+		verticalArrangement = Arrangement.SpaceBetween
+	) {
+		FlowRateLayout(windowSize = windowSize)
+	}
+
 }
 
 @SuppressLint("VisibleForTests")
@@ -40,55 +48,49 @@ fun FlowRateLayout(
 	containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
 	contentColor: Color = MaterialTheme.colorScheme.onPrimaryContainer,
 ) {
-	val dataSourceCommon = calculatorDataSource
-	val dataSourceSpecific = flowRateDataSource
-	var inputVolume  by rememberSaveable {
-		mutableStateOf("60")
-	}
-	val tankVolume = inputVolume.toDoubleOrNull() ?: 0.0
-	val parameters = CalculatorMethods(tankVolume = tankVolume)
+	val dataSource = flowRateDataSourceFreshwater
 
-	GenericCalculatePage(
+	HeaderText(text = dataSource.subtitle)
+	FlowRateCard(
 		windowSize = windowSize,
-		subtitleContent = {
-			HeaderText(
-				text = dataSourceSpecific.subtitle, // TODO
-				color = color
+		dataSource = flowRateDataSourceFreshwater
+	)
+	FlowRateCard(
+		windowSize = windowSize,
+		dataSource = flowRateDataSourceMarine
+	)
+}
+
+@Composable
+fun FlowRateCard(
+	windowSize: WindowSizeClass,
+	dataSource: FlowRateData,
+) {
+	Card(
+		modifier = Modifier
+			.padding(vertical = dimensionResource(id = R.dimen.padding_small))
+	) {
+		Column {
+			Image(
+				modifier = Modifier
+					.fillMaxWidth(fraction = 0.9f)
+					.height(150.dp),
+				painter = painterResource(id = dataSource.image),
+				contentDescription = null,
+				contentScale = ContentScale.Crop
 			)
-		},
-		selectContent = {
-			TextCard(
-				text = dataSourceSpecific.subtitle, // TODO
-				contentColor = color
-			)
-		},
-		inputFieldContent = {
-			InputNumberField(
-				label = dataSourceCommon.labelTankVolume,
-				value = inputVolume,
-				onValueChange = { inputVolume = it },
-				focusedContainerColor = containerColor,
-				focusedColor = contentColor,
-				unfocusedColor = color,
-				leadingIcon = dataSourceCommon.leadingIconPH, // TODO
-			)
-		},
-		calculateFieldContent = {
-			CalculateField(
-				inputText = dataSourceCommon.inputText,
-				inputValue = inputVolume,
-				contentColor = color,
-				containerColor = containerColor,
-				calculateContent = {
-					CalculatedTextString(
-						text = dataSourceCommon.calculatedTextCO2,
-						calculatedValue = parameters.calculatePumpFlowLowFreshwater(),
-						textColor = contentColor,
-					)
-				}
+			GenericCalculatePage(
+				windowSize = windowSize,
+				subtitleContent = {
+					HeaderText(text = dataSource.header)
+				},
+				inputFieldContent = {
+
+				},
+				calculateFieldContent = { /*TODO*/ },
 			)
 		}
-	)
+	}
 }
 
 @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)

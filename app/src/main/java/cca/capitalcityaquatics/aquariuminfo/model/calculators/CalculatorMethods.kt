@@ -3,7 +3,8 @@ package cca.capitalcityaquatics.aquariuminfo.model.calculators
 import androidx.annotation.VisibleForTesting
 import cca.capitalcityaquatics.aquariuminfo.data.calculatorDataSource
 import cca.capitalcityaquatics.aquariuminfo.data.calculators.alkalinityDataSource
-import cca.capitalcityaquatics.aquariuminfo.data.calculators.flowRateDataSource
+import cca.capitalcityaquatics.aquariuminfo.data.calculators.flowRateDataSourceFreshwater
+import cca.capitalcityaquatics.aquariuminfo.data.calculators.flowRateDataSourceMarine
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import kotlin.math.pow
@@ -159,8 +160,8 @@ class CalculatorMethods(
 	}
 
 	@VisibleForTesting
-	fun calculatePumpFlowLowReef(): String {
-		val flow = flowRateDataSource.conversionLowReef
+	fun calculatePumpFlowLowMarine(): String {
+		val flow = flowRateDataSourceMarine.conversionLow
 
 		val flowRate = tankVolume * flow
 		val df = DecimalFormat("#.##")
@@ -170,8 +171,8 @@ class CalculatorMethods(
 	}
 
 	@VisibleForTesting
-	fun calculatePumpFlowHighReef(): String {
-		val flow = flowRateDataSource.conversionHighReef
+	fun calculatePumpFlowHighMarine(): String {
+		val flow = flowRateDataSourceMarine.conversionHigh
 
 		val flowRate = tankVolume * flow
 		val df = DecimalFormat("#.##")
@@ -181,8 +182,8 @@ class CalculatorMethods(
 	}
 
 	@VisibleForTesting
-	fun calculatePumpFlowIdealReef(): String {
-		val flow = (flowRateDataSource.conversionLowReef + flowRateDataSource.conversionHighReef) / 2.0
+	fun calculatePumpFlowIdealMarine(): String {
+		val flow = (flowRateDataSourceMarine.conversionLow + flowRateDataSourceMarine.conversionHigh) / 2.0
 
 		val flowRate = tankVolume * flow
 		val df = DecimalFormat("#.##")
@@ -193,7 +194,7 @@ class CalculatorMethods(
 
 	@VisibleForTesting
 	fun calculatePumpFlowLowFreshwater(): String {
-		val flow = flowRateDataSource.conversionLowFreshwater
+		val flow = flowRateDataSourceFreshwater.conversionLow
 
 		val flowRate = tankVolume * flow
 		val df = DecimalFormat("#.##")
@@ -204,7 +205,7 @@ class CalculatorMethods(
 
 	@VisibleForTesting
 	fun calculatePumpFlowHighFreshwater(): String {
-		val flow = flowRateDataSource.conversionHighFreshwater
+		val flow = flowRateDataSourceFreshwater.conversionHigh
 
 		val flowRate = tankVolume * flow
 		val df = DecimalFormat("#.##")
@@ -215,7 +216,7 @@ class CalculatorMethods(
 
 	@VisibleForTesting
 	fun calculatePumpFlowIdealFreshwater(): String {
-		val flow = (flowRateDataSource.conversionLowFreshwater + flowRateDataSource.conversionHighFreshwater) / 2.0
+		val flow = (flowRateDataSourceFreshwater.conversionLow + flowRateDataSourceFreshwater.conversionHigh) / 2.0
 
 		val flowRate = tankVolume * flow
 		val df = DecimalFormat("#.##")

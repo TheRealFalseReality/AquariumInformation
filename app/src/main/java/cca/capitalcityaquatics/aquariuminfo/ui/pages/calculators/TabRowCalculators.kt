@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Icon
-import androidx.compose.material3.LeadingIconTab
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Tab
@@ -15,7 +14,6 @@ import androidx.compose.material3.TabRow
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
-import androidx.compose.material3.windowsizeclass.WindowHeightSizeClass
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
@@ -108,38 +106,38 @@ fun CalculatorsTabRow(
 					selectedTabIndex = pagerState.currentPage,
 					indicator = indicator,
 				) {
-					when (windowSize.heightSizeClass) {
-						WindowHeightSizeClass.Compact -> {
-							tabs.forEachIndexed { index, tab ->
-								LeadingIconTab(
-									selected = pagerState.currentPage == index,
-									onClick = {
-										coroutineScope.launch {
-											pagerState.animateScrollToPage(index)
-										}
-									},
-									selectedContentColor = selectedColor,
-									unselectedContentColor = unselectedColor,
-									text = {
-										Text(
-											text = stringResource(id = tab.title),
-											maxLines = 1,
-											overflow = TextOverflow.Ellipsis
-										)
-									},
-									icon = {
-										Icon(
-											painter =
-											if (pagerState.currentPage == index) painterResource(id = tab.iconFilled)
-											else painterResource(id = tab.icon),
-											contentDescription = stringResource(id = tab.title)
-										)
-									}
-								)
-							}
-						}
-
-						else -> {
+//					when (windowSize.heightSizeClass) {
+//						WindowHeightSizeClass.Expanded -> {
+//							tabs.forEachIndexed { index, tab ->
+//								LeadingIconTab(
+//									selected = pagerState.currentPage == index,
+//									onClick = {
+//										coroutineScope.launch {
+//											pagerState.animateScrollToPage(index)
+//										}
+//									},
+//									selectedContentColor = selectedColor,
+//									unselectedContentColor = unselectedColor,
+//									text = {
+//										Text(
+//											text = stringResource(id = tab.title),
+//											maxLines = 1,
+//											overflow = TextOverflow.Ellipsis
+//										)
+//									},
+//									icon = {
+//										Icon(
+//											painter =
+//											if (pagerState.currentPage == index) painterResource(id = tab.iconFilled)
+//											else painterResource(id = tab.icon),
+//											contentDescription = stringResource(id = tab.title)
+//										)
+//									}
+//								)
+//							}
+//						}
+//
+//						else -> {
 							tabs.forEachIndexed { index, tab ->
 								Tab(
 									selected = pagerState.currentPage == index,
@@ -167,8 +165,8 @@ fun CalculatorsTabRow(
 									}
 								)
 							}
-						}
-					}
+//						}
+//					}
 				}
 			}
 		}
@@ -194,6 +192,9 @@ fun CalculatorsTabRow(
 				}
 				4 -> {
 					DosingPage(windowSize = windowSize)
+				}
+				5 -> {
+					FlowRatePage(windowSize = windowSize)
 				}
 			}
 		}

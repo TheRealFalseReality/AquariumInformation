@@ -58,8 +58,7 @@ fun InputNumberField(
 	@DrawableRes leadingIcon: Int,
 ) {
 	val focusManager = LocalFocusManager.current
-	val isError =
-		value.contains(Regex("[A-Za-z]+")) or value.isEmpty() or value.contains(",")
+	val isError = !value.matches(Regex("[0-9]+(\\.[0-9]+)?"))
 
 	Column(
 		modifier = modifier,

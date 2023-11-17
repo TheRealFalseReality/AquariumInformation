@@ -73,6 +73,12 @@ fun AquariumNavHost(
 				onClickInformation = {
 					navController.navigateSingleTopTo(Information.route)
 				},
+				onClickDoser = {
+					navController.navigateSingleTopTo(Doser.route)
+				},
+				onClickPumpFlow = {
+					navController.navigateSingleTopTo(PumpFlow.route)
+				}
 			)
 		}
 		composable(route = Converters.route) {
@@ -122,6 +128,12 @@ fun AquariumNavHost(
 		}
 		composable(route = Doser.route) {
 			CalculatorsTabRow(selectedState = 4, windowSize = windowSize)
+		}
+		composable(route = Doser.route) {
+			CalculatorsTabRow(windowSize = windowSize, selectedState = 4)
+		}
+		composable(route = PumpFlow.route) {
+			CalculatorsTabRow(windowSize = windowSize, selectedState = 5)
 		}
 	}
 }
