@@ -138,33 +138,33 @@ fun CalculatorsTabRow(
 //						}
 //
 //						else -> {
-							tabs.forEachIndexed { index, tab ->
-								Tab(
-									selected = pagerState.currentPage == index,
-									onClick = {
-										coroutineScope.launch {
-											pagerState.animateScrollToPage(index)
-										}
-									},
-									selectedContentColor = selectedColor,
-									unselectedContentColor = unselectedColor,
-									text = {
-										Text(
-											text = stringResource(id = tab.title),
-											maxLines = 1,
-											overflow = TextOverflow.Ellipsis
-										)
-									},
-									icon = {
-										Icon(
-											painter =
-											if (pagerState.currentPage == index) painterResource(id = tab.iconFilled)
-											else painterResource(id = tab.icon),
-											contentDescription = stringResource(id = tab.title)
-										)
-									}
+					tabs.forEachIndexed { index, tab ->
+						Tab(
+							selected = pagerState.currentPage == index,
+							onClick = {
+								coroutineScope.launch {
+									pagerState.animateScrollToPage(index)
+								}
+							},
+							selectedContentColor = selectedColor,
+							unselectedContentColor = unselectedColor,
+							text = {
+								Text(
+									text = stringResource(id = tab.title),
+									maxLines = 1,
+									overflow = TextOverflow.Ellipsis
+								)
+							},
+							icon = {
+								Icon(
+									painter =
+									if (pagerState.currentPage == index) painterResource(id = tab.iconFilled)
+									else painterResource(id = tab.icon),
+									contentDescription = stringResource(id = tab.title)
 								)
 							}
+						)
+					}
 //						}
 //					}
 				}
@@ -190,9 +190,11 @@ fun CalculatorsTabRow(
 				3 -> {
 					CarbonDioxidePage(windowSize = windowSize)
 				}
+
 				4 -> {
 					DosingPage(windowSize = windowSize)
 				}
+
 				5 -> {
 					FlowRatePage(windowSize = windowSize)
 				}

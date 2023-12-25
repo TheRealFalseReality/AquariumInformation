@@ -14,7 +14,7 @@ class AlkCalculatorTest {
 	fun calculate_14_dkh() {
 		val selected = selectedDKH
 		val alkalinity = 14.0
-		
+
 		val expectedPPM = "250"
 		val expectedMEQ = "5"
 		val parameters = CalculatorMethods(selected = selected, alkalinity = alkalinity)

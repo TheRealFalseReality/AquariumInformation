@@ -11,4 +11,4 @@ val temperatureDataSource =
 		formulaText1 = R.string.text_formula_celsius,
 		formulaText2 = R.string.text_formula_fahrenheit,
 		formulaText3 = R.string.formula_kelvin,
-		)
+	)

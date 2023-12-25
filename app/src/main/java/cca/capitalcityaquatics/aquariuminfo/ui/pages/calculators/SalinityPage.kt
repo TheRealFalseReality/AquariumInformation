@@ -75,15 +75,15 @@ fun SalinityLayout(
 				modifier = Modifier.fillMaxWidth(fraction = 0.75f),
 				header = R.string.select_input_units,
 				content = {
-						  RadioButtonFourUnits(
-							  onClick2 = { selected = dataSourceCommon.radioTextSalinity },
-							  onClick1 = { selected = dataSourceCommon.radioTextSpecificGravity },
-							  selected = selected,
-							  selectedColor = color,
-							  textColor = color,
-							  onClick3 = { selected = dataSourceCommon.radioTextDensity },
-							  onClick4 = { selected = dataSourceCommon.radioTextConductivity },
-						  )
+					RadioButtonFourUnits(
+						onClick2 = { selected = dataSourceCommon.radioTextSalinity },
+						onClick1 = { selected = dataSourceCommon.radioTextSpecificGravity },
+						selected = selected,
+						selectedColor = color,
+						textColor = color,
+						onClick3 = { selected = dataSourceCommon.radioTextDensity },
+						onClick4 = { selected = dataSourceCommon.radioTextConductivity },
+					)
 				}, contentColor = color,
 				selected = selected
 			)

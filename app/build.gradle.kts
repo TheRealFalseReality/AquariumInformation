@@ -44,7 +44,7 @@ android {
 			)
 			resValue(
 				type = "string",
-				name  = "appVersion",
+				name = "appVersion",
 				value = "${defaultConfig.versionName}"
 			)
 			signingConfig = signingConfigs.getByName("debug")
@@ -107,8 +107,8 @@ dependencies {
 	implementation("com.google.firebase:firebase-perf-ktx")
 
 	// Predicitive Back Gesture
-	implementation ("androidx.activity:activity-ktx:1.7.2")
+	implementation("androidx.activity:activity-ktx:1.8.2")
 
 	// WindowSizeClass
-	implementation ("androidx.compose.material3:material3-window-size-class:1.1.2")
+	implementation("androidx.compose.material3:material3-window-size-class:1.1.2")
 }

@@ -1,5 +1,3 @@
-@file:Suppress("PrivatePropertyName")
-
 package cca.capitalcityaquatics.aquariuminfo.ui.theme
 
 import android.app.Activity

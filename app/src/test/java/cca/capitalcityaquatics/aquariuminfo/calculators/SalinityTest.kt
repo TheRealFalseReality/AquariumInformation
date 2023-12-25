@@ -69,7 +69,7 @@ class SalConverterTest {
 	fun calculate_15_ppt() {
 		val selected = selectedSalinity
 		val tds = 15.0
-		
+
 		val expectedSG = "1.011"
 		val expectedDensity = "1008.3"
 		val expectedConductivity = "24.69"

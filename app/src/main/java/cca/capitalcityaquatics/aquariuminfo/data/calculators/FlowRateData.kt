@@ -3,7 +3,7 @@ package cca.capitalcityaquatics.aquariuminfo.data.calculators
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
-data class FlowRateData (
+data class FlowRateData(
 	@DrawableRes val image: Int,
 	@StringRes val subtitle: Int,
 	@StringRes val formulaText: Int,

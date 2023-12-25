@@ -165,7 +165,7 @@ fun TankVolumeTabRow(
 		HorizontalPager(
 			state = pagerState,
 			beyondBoundsPageCount = 6,
-		) {index ->
+		) { index ->
 			when (index) {
 				0 -> {
 					RectanglePage(windowSize = windowSize)

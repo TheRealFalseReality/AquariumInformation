@@ -12,7 +12,6 @@ import androidx.compose.material3.TabPosition
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
-import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -99,8 +98,9 @@ fun CompatibilityTabRow(
 				0 -> {
 					CompatibilityDataList(FreshwaterDataSource().loadFishCardsFreshwaterDataSource())
 				}
-				 1 -> {
-					 CompatibilityDataList(MarineDataSource().loadFishCardsMarineDataSource())
+
+				1 -> {
+					CompatibilityDataList(MarineDataSource().loadFishCardsMarineDataSource())
 				}
 			}
 		}
@@ -116,7 +116,6 @@ fun CompatibilityTabRow(
 	}
 }
 
-@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Preview(showBackground = true)
 @Composable
 fun TopAppBarPreview() {
@@ -125,7 +124,6 @@ fun TopAppBarPreview() {
 	}
 }
 
-@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 @Preview(showBackground = true)
 @Composable
 fun TopAppBarPreviewDark(

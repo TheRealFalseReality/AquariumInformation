@@ -101,4 +101,4 @@ val calculatorDataSource =
 		calculatedTextKelvin = R.string.text_amount_kelvin,
 		leadingIconTemperature = R.drawable.ic_thermometer,
 		labelTankVolume = R.string.tank_volume
-		)
+	)

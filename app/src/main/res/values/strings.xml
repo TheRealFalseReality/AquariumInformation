@@ -634,6 +634,6 @@
     <string name="aquarium">Aquarium Size</string>
     <string name="please_enter_a_number">Please enter a number.</string>
     <string name="flow_rate_subtitle">Recommended Flow Rates for Return Pump</string>
-    <string name="flow_rate_freshwater">Recommended 3 - 5x</string>
-    <string name="flow_rate_marine">Recommended 5 - 10x</string>
+    <string name="flow_rate_freshwater">Recommended 3 – 5x</string>
+    <string name="flow_rate_marine">Recommended 5 – 10x</string>
 </resources>

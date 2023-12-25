@@ -8,9 +8,10 @@ import org.junit.Test
 class TempConverterTest {
 	private val selectedCelsius = calculatorDataSource.radioTextCelsius
 	private val selectedFahrenheit = calculatorDataSource.radioTextFahrenheit
+
 	@Test
 	fun calculate_32_F() {
-		val selected = selectedFahrenheit 
+		val selected = selectedFahrenheit
 		val temperature = 32.0
 
 		val expectedCelsius = "0"

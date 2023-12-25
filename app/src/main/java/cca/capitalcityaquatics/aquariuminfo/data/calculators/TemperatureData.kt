@@ -10,4 +10,4 @@ data class TemperatureData(
 	@StringRes val formulaText1: Int,
 	@StringRes val formulaText2: Int,
 	@StringRes val formulaText3: Int,
-	)
+)

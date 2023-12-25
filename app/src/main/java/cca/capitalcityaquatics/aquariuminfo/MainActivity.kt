@@ -56,7 +56,6 @@ class MainActivity : ComponentActivity() {
 	}
 }
 
-
 @Composable
 fun AquariumInfoApp(
 	windowSize: WindowSizeClass
