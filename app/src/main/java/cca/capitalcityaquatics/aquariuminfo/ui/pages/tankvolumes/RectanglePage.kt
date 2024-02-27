@@ -152,7 +152,7 @@ fun RectangleLayout(
 				}
 			)
 		},
-		imageContent = {
+		additionalContent = {
 			CalculateImageTitle(
 				image = dataSourceSpecific.image,
 				contentDescription = view,

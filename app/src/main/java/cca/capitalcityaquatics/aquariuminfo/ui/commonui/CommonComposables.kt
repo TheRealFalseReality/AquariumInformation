@@ -271,7 +271,7 @@ fun SingleWideCardExpandableFull(
 	modifier: Modifier = Modifier,
 	shape: Shape = Shapes.large,
 	headerStyle: TextStyle = MaterialTheme.typography.titleMedium,
-	@StringRes header: Int,
+	@StringRes header: Int? = null,
 	containerColor: Color = MaterialTheme.colorScheme.background,
 	contentColor: Color = MaterialTheme.colorScheme.onBackground,
 	content: @Composable () -> Unit = {},
@@ -281,6 +281,7 @@ fun SingleWideCardExpandableFull(
 	expandedState: Boolean = false,
 	dampingRatio: Float = Spring.DampingRatioLowBouncy,
 	stiffness: Float = Spring.StiffnessLow,
+	revealText: Int = R.string.tap_to_reveal
 ) {
 	var expanded by remember {
 		mutableStateOf(expandedState)
@@ -322,50 +323,91 @@ fun SingleWideCardExpandableFull(
 //							verticalAlignment = Alignment.CenterVertically,
 							horizontalArrangement = Arrangement.SpaceBetween
 						) {
-							Column {
-								SmallSpacer()
-								HeaderText(
-									text = header,
-									color = contentColor,
-									style = headerStyle
-								)
+							if (header != null) {
+								Column {
+									SmallSpacer()
+									HeaderText(
+										text = header,
+										color = contentColor,
+										style = headerStyle
+									)
+								}
 								if (expanded) {
 									VerySmallSpacer()
 									subtitleContent()
 								}
-							}
-							Row(
-								verticalAlignment = Alignment.CenterVertically
-							) {
-								IconButton(
-									onClick = { expanded = !expanded },
+								Row(
+									verticalAlignment = Alignment.CenterVertically
 								) {
-									Icon(
-										painter =
-										if (expanded)
-											painterResource(id = R.drawable.ic_expand_less)
-										else painterResource(id = R.drawable.ic_expand_more),
-										contentDescription =
-										if (expanded) {
-											stringResource(R.string.text_show_less)
-										} else {
-											stringResource(R.string.text_show_more)
-										},
-									)
+									IconButton(
+										onClick = { expanded = !expanded },
+									) {
+										Icon(
+											painter =
+											if (expanded)
+												painterResource(id = R.drawable.ic_expand_less)
+											else painterResource(id = R.drawable.ic_expand_more),
+											contentDescription =
+											if (expanded) {
+												stringResource(R.string.text_show_less)
+											} else {
+												stringResource(R.string.text_show_more)
+											},
+										)
+									}
 								}
 							}
-
 						}
 					}
-					if (expanded) {
-						Column(
-							modifier = Modifier
-								.padding(horizontal = dimensionResource(id = R.dimen.padding_small))
+					if ( header != null ) {
+						if (expanded) {
+							Column(
+								modifier = Modifier
+									.padding(horizontal = dimensionResource(id = R.dimen.padding_small))
+							) {
+								descriptionContent()
+								VerySmallSpacer()
+								content()
+								SmallSpacer()
+							}
+						}
+					} else {
+						Row(
+							verticalAlignment = Alignment.CenterVertically
 						) {
-							descriptionContent()
-							VerySmallSpacer()
-							content()
-							SmallSpacer()
+							BodyText(text = revealText)
+							IconButton(
+								onClick = { expanded = !expanded },
+							) {
+								Icon(
+									painter =
+									if (expanded)
+										painterResource(id = R.drawable.ic_expand_less)
+									else painterResource(id = R.drawable.ic_expand_more),
+									contentDescription =
+									if (expanded) {
+										stringResource(R.string.text_show_less)
+									} else {
+										stringResource(R.string.text_show_more)
+									},
+								)
+							}
+						}
+						if (expanded) {
+							Column(
+								modifier = Modifier
+									.padding(horizontal = dimensionResource(id = R.dimen.padding_small))
+							) {
+								SingleWideCard(
+									contentColor = contentColor,
+									containerColor = containerColor,
+								) {
+									descriptionContent()
+									VerySmallSpacer()
+									content()
+									SmallSpacer()
+								}
+							}
 						}
 					}
 				}
@@ -435,6 +477,7 @@ fun CalculateImageTitle(
 @Composable
 fun FormulaString(
 	@StringRes text: Int,
+	expandedState: Boolean = true,
 	contentColor: Color = MaterialTheme.colorScheme.onSurface,
 	containerColor: Color = MaterialTheme.colorScheme
 		.surfaceColorAtElevation(dimensionResource(id = R.dimen.tonal_elevation_medium)),

@@ -236,9 +236,25 @@ fun SalinityLayout(
 				contentColor = color,
 				containerColor = containerColor
 			)
-		}
+		},
+//		additionalContent = {
+//			SingleWideCardExpandableFull(
+////				expandedState = true,
+//				header = R.string.text_title_info,
+//				content = {
+//					SingleWideCard {
+//						BodyText(text = R.string.salinity_information)
+//						MediumSpacer()
+//						HeaderText(text = R.string.ideal_salinity_ranges)
+//						SmallSpacer()
+//						BodyText(text = R.string.salinity_ideal)
+//					}
+//				}
+//			)
+//		}
 	) {
 		FormulaString(
+			expandedState = true,
 			text = dataSourceSpecific.formulaText, // TODO
 			contentColor = color
 		)

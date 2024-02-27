@@ -62,7 +62,7 @@ fun GenericCalculatePage(
 	optionsContent: @Composable () -> Unit = {},
 	inputFieldContent: @Composable () -> Unit,
 	calculateFieldContent: @Composable () -> Unit,
-	imageContent: @Composable (() -> Unit)? = null,
+	additionalContent: @Composable (() -> Unit)? = null,
 	formulaContent: @Composable (() -> Unit)? = null,
 ) {
 	when (windowSize.widthSizeClass) {
@@ -99,13 +99,13 @@ fun GenericCalculatePage(
 			Row(
 				verticalAlignment = Alignment.Top
 			) {
-				if (imageContent != null) {
+				if (additionalContent != null) {
 					Column(
 						modifier = Modifier
 							.weight(3f),
 						horizontalAlignment = Alignment.CenterHorizontally,
 					) {
-						imageContent()
+						additionalContent()
 					}
 					Column(
 						modifier = Modifier.weight(2f),
@@ -138,8 +138,8 @@ fun GenericCalculatePage(
 			MediumSpacer()
 			calculateFieldContent()
 			SmallSpacer()
-			if (imageContent != null) {
-				imageContent()
+			if (additionalContent != null) {
+				additionalContent()
 			}
 			SmallSpacer()
 			if (formulaContent != null) {

@@ -131,7 +131,7 @@ fun CubeLayout(
 				containerColor = containerColor
 			)
 		},
-		imageContent = {
+		additionalContent = {
 			CalculateImageTitle(
 				image = dataSourceSpecific.image,
 				contentDescription = view,

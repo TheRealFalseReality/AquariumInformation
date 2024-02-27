@@ -183,7 +183,7 @@ fun CylinderLayout(
 				contentColor = color,
 			)
 		},
-		imageContent = {
+		additionalContent = {
 			CalculateImageTitle(
 				image = dataSourceSpecific.image,
 				contentDescription = view,
