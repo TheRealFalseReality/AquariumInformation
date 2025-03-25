@@ -131,7 +131,7 @@ fun TemperatureLayout(
                 calculateContent = {
                     val celsiusContent = @Composable {
                         CalculatedTextString(
-                            text = dataSourceCommon.calculatedTextCelsius,
+                            text = dataSourceCommon.calculatedTextFahrenheit,
                             calculatedValue = parameters.convertTemperature(),
                             textColor = contentColor
                         )
@@ -144,7 +144,7 @@ fun TemperatureLayout(
                     }
                     val fahrenheitContent = @Composable {
                         CalculatedTextString(
-                            text = dataSourceCommon.calculatedTextFahrenheit,
+                            text = dataSourceCommon.calculatedTextCelsius,
                             calculatedValue = parameters.convertTemperature(),
                             textColor = contentColor
                         )
